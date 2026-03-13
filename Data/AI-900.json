@@ -4,9 +4,9 @@
   "questions": [
     {
       "id": 1,
-      "topic": "Topic 1 - You run a charity event that involves posting photos of people wearing sunglasses on Twitter.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
-      "questionText": "You run a charity event that involves posting photos of people wearing sunglasses on Twitter. You need to ensure that you only retweet photos that meet the following requirements: ® Include one or more faces. * Contain at least one person wearing sunglasses. What should you use to analyze the images?",
+      "questionText": "You run a charity event that involves posting photos of people wearing sunglasses on Twitter. You need to ensure that you only retweet photos that meet the following requirements:\n- Include one or more faces.\n- Contain at least one person wearing sunglasses.\nWhat should you use to analyze the images?",
       "options": [
         "A. the Verify operation in the Face service",
         "B. the Detect operation in the Face service",
@@ -14,14 +14,14 @@
         "D. the Analyze Image operation in the Computer Vision service"
       ],
       "correctAnswers": [
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "The Detect operation in the Face service is correct because it can detect faces in an image and return face attributes, including accessories such as sunglasses. It fulfills both requirements: detecting faces and identifying whether sunglasses are present.\n\nA is incorrect because the Verify operation compares two faces to determine if they belong to the same person. It does not detect face attributes like accessories.\n\nC is incorrect because the Describe Image operation in the Computer Vision service generates a human-readable description of an image but does not specifically detect face attributes such as sunglasses.\n\nD is incorrect because the Analyze Image operation in the Computer Vision service can detect faces and describe image content at a high level, but it does not return detailed face attributes like accessories (sunglasses). The Face service is the appropriate service for detecting face-level attributes."
     },
     {
       "id": 2,
-      "topic": "Topic 1 - Which type of machine learning should you use to predict the number of gift cards that will be sold next month?",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
       "questionText": "Which type of machine learning should you use to predict the number of gift cards that will be sold next month?",
       "options": [
         "A. classification",
@@ -29,78 +29,81 @@
         "C. clustering"
       ],
       "correctAnswers": [
-        "C",
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Regression is correct because it is used to predict a continuous numeric value, such as the number of gift cards that will be sold. Regression models learn the relationship between input features and a numeric output.\n\nA is incorrect because classification is used to predict a categorical label (e.g., yes/no, spam/not spam), not a numeric quantity.\n\nC is incorrect because clustering is an unsupervised learning technique used to group similar data points together without predicting a specific value."
     },
     {
       "id": 3,
-      "topic": "Topic 1 - Which service should you use to extract text, key/value pairs, and table data automatically from scanned documents?",
-      "type": "MultipleChoice",
-      "questionText": "Which service should you use to extract text, key/value pairs, and table data automatically from scanned documents? A, Form Recognizer",
+      "topic": "Describe Azure AI services for document intelligence",
+      "type": "SingleChoice",
+      "questionText": "Which service should you use to extract text, key/value pairs, and table data automatically from scanned documents?",
       "options": [
-        "A. B. Text Analytics",
+        "A. Form Recognizer",
+        "B. Text Analytics",
         "C. Language Understanding",
-        "D. Custom Vision  Accelerate your business processes by automating information extraction. Form Recognizer applies advanced machine learning to accurately extract text, key/ value pairs, and tables from documents. With just a few samples, Form Recognizer tailors its understanding to your documents, both on-premises and in the cloud. Turn forms into usable data at a fraction of the time and cost, so you can focus more time acting on the information rather than compiling it."
+        "D. Custom Vision"
       ],
       "correctAnswers": [
-        "D"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "Form Recognizer (now Azure AI Document Intelligence) is correct because it applies advanced machine learning to accurately extract text, key/value pairs, and tables from documents. It is specifically designed for processing scanned forms and documents.\n\nB is incorrect because Text Analytics is used for natural language processing tasks like sentiment analysis, key phrase extraction, and entity recognition on text data, not for extracting structured data from scanned documents.\n\nC is incorrect because Language Understanding (LUIS) is used to build natural language understanding into apps, bots, and IoT devices to interpret user intents, not to extract data from documents.\n\nD is incorrect because Custom Vision is used for image classification and object detection, not for extracting text and structured data from documents."
     },
     {
       "id": 4,
-      "topic": "Topic 7 - HOTSPOT -",
+      "topic": "Describe Azure Machine Learning",
       "type": "MultipleChoice",
       "questionText": "What are two metrics that you can use to evaluate a regression model? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. coefficient of determination (R2)",
-        "B. F1 score  o>",
+        "B. F1 score",
         "C. root mean squared error (RMSE)",
-        "D. area under curve (AUC}",
+        "D. area under curve (AUC)",
         "E. balanced accuracy"
       ],
       "correctAnswers": [
-        "B"
+        "A",
+        "C"
       ],
-      "explanation": ""
+      "explanation": "A (coefficient of determination / R2) is correct because R2 measures how well a regression model fits the data, indicating the proportion of variance in the dependent variable that is predictable from the independent variables. Values range from 0 to 1, with higher values indicating a better fit.\n\nC (root mean squared error / RMSE) is correct because RMSE measures the average magnitude of the errors between predicted and actual values. It is a standard metric for evaluating regression models.\n\nB is incorrect because F1 score is a metric for classification models, combining precision and recall into a single measure.\n\nD is incorrect because area under curve (AUC) is used to evaluate classification models, specifically binary classifiers, by measuring the area under the ROC curve.\n\nE is incorrect because balanced accuracy is a classification metric that accounts for class imbalance by averaging recall across classes."
     },
     {
       "id": 5,
-      "topic": "Topic 1 - Which metric can you use to evaluate a classification model?",
+      "topic": "Describe Azure Machine Learning",
       "type": "SingleChoice",
       "questionText": "Which metric can you use to evaluate a classification model?",
       "options": [
         "A. true positive rate",
-        "A. B. mean absolute error (MAE)",
+        "B. mean absolute error (MAE)",
         "C. coefficient of determination (R2)",
         "D. root mean squared error (RMSE)"
       ],
       "correctAnswers": [
-        "C"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "A (true positive rate) is correct because the true positive rate (also known as recall or sensitivity) is a key metric for evaluating classification models. It measures the proportion of actual positives that are correctly identified.\n\nB is incorrect because mean absolute error (MAE) is a regression metric that measures the average absolute difference between predicted and actual values.\n\nC is incorrect because coefficient of determination (R2) is a regression metric that indicates how well a model fits the data.\n\nD is incorrect because root mean squared error (RMSE) is a regression metric that measures the square root of the average squared differences between predicted and actual values."
     },
     {
       "id": 6,
-      "topic": "Topic 7 - Which two components can you drag onto a canvas in Azure Machine Learning designer? Each correct answer presents a complete solution.",
+      "topic": "Describe Azure Machine Learning",
       "type": "MultipleChoice",
-      "questionText": "Which two components can you drag onto a canvas in Azure Machine Learning designer? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point. A, dataset",
+      "questionText": "Which two components can you drag onto a canvas in Azure Machine Learning designer? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "B. compute  o>",
+        "A. dataset",
+        "B. compute",
         "C. pipeline",
         "D. module"
       ],
       "correctAnswers": [
-        "C"
+        "A",
+        "D"
       ],
-      "explanation": ""
+      "explanation": "A (dataset) is correct because in Azure Machine Learning designer, you can drag datasets onto the canvas as data sources for your pipeline.\n\nD (module) is correct because modules are the building blocks of a pipeline in Azure Machine Learning designer. They represent operations such as data transformation, model training, and model evaluation.\n\nB is incorrect because compute is a resource that runs the pipeline, not a component you drag onto the canvas. You configure compute targets separately.\n\nC is incorrect because a pipeline is the overall workflow composed of datasets and modules. You do not drag a pipeline onto the canvas; rather, the canvas is where you build the pipeline."
     },
     {
       "id": 7,
-      "topic": "Topic 7 - You need to predict the animal population of an area.",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
       "questionText": "You need to predict the animal population of an area. Which Azure Machine Learning type should you use?",
       "options": [
         "A. regression",
@@ -108,16 +111,15 @@
         "C. classification"
       ],
       "correctAnswers": [
-        "B",
         "A"
       ],
-      "explanation": ""
+      "explanation": "Regression is correct because predicting the animal population of an area involves predicting a continuous numeric value. Regression models are designed for this purpose.\n\nB is incorrect because clustering is an unsupervised technique used to group data points into clusters based on similarities, not to predict a numeric value.\n\nC is incorrect because classification is used to predict categorical labels (e.g., species type), not continuous numeric values like population count."
     },
     {
       "id": 8,
-      "topic": "Topic 7 - You need to predict the animal population of an area.",
+      "topic": "Describe Azure Machine Learning",
       "type": "MultipleChoice",
-      "questionText": "Topie 7 Which two languages can you use to write custom code for Azure Machine Learning designer? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "Which two languages can you use to write custom code for Azure Machine Learning designer? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. Python",
         "B. R",
@@ -126,48 +128,47 @@
       ],
       "correctAnswers": [
         "A",
-        "B",
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "A (Python) is correct because Azure Machine Learning designer supports the Execute Python Script module, which allows you to write custom Python code within your pipeline.\n\nB (R) is correct because Azure Machine Learning designer supports the Execute R Script module, which allows you to write custom R code within your pipeline.\n\nC is incorrect because C# is not a supported language for custom code modules in Azure Machine Learning designer.\n\nD is incorrect because Scala is not a supported language for custom code modules in Azure Machine Learning designer."
     },
     {
       "id": 9,
-      "topic": "Topic 1 - Your company wants to build a recycling machine for bottles. The recycling machine must automatically identify bottles of the correct shape and",
-      "type": "MultipleChoice",
-      "questionText": "Your company wants to build a recycling machine for bottles. The recycling machine must automatically identify bottles of the correct shape and Teject all other items. Which type of Al workload should the company use?",
+      "topic": "Describe AI workloads and considerations",
+      "type": "SingleChoice",
+      "questionText": "Your company wants to build a recycling machine for bottles. The recycling machine must automatically identify bottles of the correct shape and reject all other items. Which type of AI workload should the company use?",
       "options": [
         "A. anomaly detection",
-        "B. conversational Al",
+        "B. conversational AI",
         "C. computer vision",
         "D. natural language processing"
       ],
       "correctAnswers": [
-        "A",
-        "B"
+        "C"
       ],
-      "explanation": ""
+      "explanation": "Computer vision is correct because identifying bottles based on their shape from visual input is a computer vision task. The recycling machine would use image analysis or object detection to identify the correct bottle shapes.\n\nA is incorrect because anomaly detection is used to identify unusual patterns in data (such as detecting credit card fraud), not for visually identifying physical objects.\n\nB is incorrect because conversational AI is used for building chatbots and voice assistants that interact with users through natural language.\n\nD is incorrect because natural language processing deals with understanding and generating text or speech, not with analyzing visual images."
     },
     {
       "id": 10,
-      "topic": "Topic 1 - In which two scenarios can you use the Form Recognizer service? Each correct answer presents a complete solution.",
+      "topic": "Describe Azure AI services for document intelligence",
       "type": "MultipleChoice",
-      "questionText": "In which two scenarios can you use the Form Recognizer service? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point. A, Extract the invoice number from an invoice.",
+      "questionText": "In which two scenarios can you use the Form Recognizer service? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
+        "A. Extract the invoice number from an invoice.",
         "B. Translate a form from French to English.",
-        "C. Find image of product in a catalog.",
+        "C. Find an image of a product in a catalog.",
         "D. Identify the retailer from a receipt."
       ],
       "correctAnswers": [
-        "B",
-        "B"
+        "A",
+        "D"
       ],
-      "explanation": ""
+      "explanation": "A (Extract the invoice number from an invoice) is correct because Form Recognizer (now Azure AI Document Intelligence) is designed to extract key/value pairs and structured data from documents such as invoices.\n\nD (Identify the retailer from a receipt) is correct because Form Recognizer has a prebuilt receipt model that can extract merchant names, transaction dates, totals, and other fields from receipts.\n\nB is incorrect because translating forms between languages is a task for the Translator service, not Form Recognizer.\n\nC is incorrect because finding an image of a product in a catalog is an image search or computer vision task, not a document extraction task."
     },
     {
       "id": 11,
-      "topic": "Topic 1 - You need to develop a mobile app for employees to scan and store their expenses while travelling.",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure AI services for computer vision",
+      "type": "SingleChoice",
       "questionText": "You need to develop a mobile app for employees to scan and store their expenses while travelling. Which type of computer vision should you use?",
       "options": [
         "A. semantic segmentation",
@@ -176,17 +177,15 @@
         "D. optical character recognition (OCR)"
       ],
       "correctAnswers": [
-        "A",
-        "A",
-        "A"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "Optical character recognition (OCR) is correct because scanning expense receipts and extracting text information from them is an OCR task. OCR converts printed or handwritten text in images into machine-readable text.\n\nA is incorrect because semantic segmentation classifies each pixel in an image into a category, which is used for tasks like autonomous driving, not for reading text from receipts.\n\nB is incorrect because image classification assigns a label to an entire image but does not extract text content from it.\n\nC is incorrect because object detection identifies and locates objects within an image with bounding boxes but does not extract text content."
     },
     {
       "id": 12,
-      "topic": "Topic 1 - You are processing photos of runners in a race.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
-      "questionText": "You are processing photos of runners in a race. You need to read the numbers on the runners’ shirts to identity the runners in the photos. Which type of computer vision should you use?",
+      "questionText": "You are processing photos of runners in a race. You need to read the numbers on the runners' shirts to identify the runners in the photos. Which type of computer vision should you use?",
       "options": [
         "A. facial recognition",
         "B. optical character recognition (OCR)",
@@ -194,44 +193,44 @@
         "D. object detection"
       ],
       "correctAnswers": [
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Optical character recognition (OCR) is correct because reading numbers printed on runners' shirts is a text recognition task. OCR extracts text (including numbers) from images.\n\nA is incorrect because facial recognition identifies people by their faces, not by reading numbers on their clothing.\n\nC is incorrect because image classification assigns a single label to an entire image and does not extract specific text or numbers.\n\nD is incorrect because object detection locates objects within an image but does not read text or numbers from them."
     },
     {
       "id": 13,
-      "topic": "Topic 1 - You use drones to identify where weeds grow between rows of crops to send an instruction for the removal of the weeds.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
       "questionText": "You use drones to identify where weeds grow between rows of crops to send an instruction for the removal of the weeds. This is an example of which type of computer vision?",
       "options": [
         "A. object detection",
-        "A. B. optical character recognition (OCR)",
+        "B. optical character recognition (OCR)",
         "C. scene segmentation"
       ],
       "correctAnswers": [
         "A"
       ],
-      "explanation": ""
+      "explanation": "Object detection is correct because identifying the location of weeds between crop rows requires detecting specific objects (weeds) and their positions within an image. Object detection provides bounding boxes around detected objects.\n\nB is incorrect because OCR is used for reading text from images, not for identifying physical objects like weeds.\n\nC is incorrect because scene segmentation (semantic segmentation) classifies every pixel in an image into categories. While it could potentially be used, object detection is the more appropriate and direct approach for locating specific objects like weeds in a field."
     },
     {
       "id": 14,
-      "topic": "Topic 1 - You need to determine the location of cars in an image so that you can estimate the distance between the cars.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
       "questionText": "You need to determine the location of cars in an image so that you can estimate the distance between the cars. Which type of computer vision should you use?",
       "options": [
         "A. optical character recognition (OCR)",
-        "B. B. object detection",
+        "B. object detection",
         "C. image classification",
         "D. face detection"
       ],
       "correctAnswers": [
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Object detection is correct because it identifies objects in an image and provides their locations using bounding boxes. This allows you to determine where each car is and estimate distances between them.\n\nA is incorrect because OCR extracts text from images and is not related to detecting physical objects like cars.\n\nC is incorrect because image classification assigns a label to the entire image but does not provide location information for individual objects.\n\nD is incorrect because face detection is specifically designed for detecting human faces, not cars."
     },
     {
       "id": 15,
-      "topic": "Topic 7 - You send an image to a Computer Vision API and receive back the annotated image shown in the exhibit.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
       "questionText": "You send an image to a Computer Vision API and receive back the annotated image shown in the exhibit. Which type of computer vision was used?",
       "options": [
@@ -243,123 +242,128 @@
       "correctAnswers": [
         "A"
       ],
-      "explanation": ""
+      "explanation": "Object detection is correct because annotated images with bounding boxes around identified objects are the characteristic output of object detection. The Computer Vision API identifies objects and marks their locations in the image.\n\nB is incorrect because face detection specifically detects human faces and would only annotate faces, not general objects.\n\nC is incorrect because OCR extracts text from images and does not annotate the image with bounding boxes around objects.\n\nD is incorrect because image classification assigns a single label to the entire image and does not annotate individual objects within it."
     },
     {
       "id": 16,
-      "topic": "Topic 1 - What are two tasks that can be performed by using the Computer Vision service? Each correct answer presents a complete solution.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "MultipleChoice",
       "questionText": "What are two tasks that can be performed by using the Computer Vision service? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. Train a custom image classification model.  é B. Detect faces in an image.",
+        "A. Train a custom image classification model.",
+        "B. Detect faces in an image.",
         "C. Recognize handwritten text.",
         "D. Translate the text in an image between languages."
       ],
       "correctAnswers": [
+        "B",
         "C"
       ],
-      "explanation": ""
+      "explanation": "B (Detect faces in an image) is correct because the Computer Vision service can detect faces in images and return face locations.\n\nC (Recognize handwritten text) is correct because the Computer Vision service includes OCR capabilities that can recognize both printed and handwritten text through the Read API.\n\nA is incorrect because training a custom image classification model is done using the Custom Vision service, not the Computer Vision service. Computer Vision uses pre-built models.\n\nD is incorrect because translating text between languages is performed by the Translator service, not the Computer Vision service."
     },
     {
       "id": 17,
-      "topic": "Topic 1 - What is a use case far classification?",
+      "topic": "Describe Azure Machine Learning",
       "type": "SingleChoice",
-      "questionText": "What is a use case far classification?",
+      "questionText": "What is a use case for classification?",
       "options": [
-        "A. predicting how many cups of coffee a person will drink based on how many hours the person slept the previous night. Cc B. analyzing the contents of images and grouping images that have similar colors",
+        "A. predicting how many cups of coffee a person will drink based on how many hours the person slept the previous night",
+        "B. analyzing the contents of images and grouping images that have similar colors",
         "C. predicting whether someone uses a bicycle to travel to work based on the distance from home to work",
         "D. predicting how many minutes it will take someone to run a race based on past race times"
       ],
       "correctAnswers": [
         "C"
       ],
-      "explanation": ""
+      "explanation": "C is correct because predicting whether someone uses a bicycle (yes/no) is a binary classification task. Classification predicts categorical labels, such as true/false or yes/no.\n\nA is incorrect because predicting how many cups of coffee is a regression task since it predicts a numeric value.\n\nB is incorrect because grouping images by similar colors is a clustering task since it groups data based on similarities without predefined labels.\n\nD is incorrect because predicting how many minutes a race will take is a regression task since it predicts a continuous numeric value."
     },
     {
       "id": 18,
-      "topic": "Topic 1 - What are two tasks that can be performed by using computer vision? Each correct answer presents a complete solution.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "MultipleChoice",
-      "questionText": "What are two tasks that can be performed by using computer vision? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point. A, Predict stock prices.",
+      "questionText": "What are two tasks that can be performed by using computer vision? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "B. B. Detect brands in an image. c C. Detect the color scheme in an image",
+        "A. Predict stock prices.",
+        "B. Detect brands in an image.",
+        "C. Detect the color scheme in an image.",
         "D. Translate text between languages.",
         "E. Extract key phrases."
       ],
       "correctAnswers": [
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": ""
+      "explanation": "B (Detect brands in an image) is correct because the Azure Computer Vision service can identify well-known commercial brands in images based on a database of thousands of recognizable logos.\n\nC (Detect the color scheme in an image) is correct because the Computer Vision service can analyze and detect the dominant colors and accent colors in an image.\n\nA is incorrect because predicting stock prices is a regression/forecasting task using machine learning, not computer vision.\n\nD is incorrect because translating text between languages is a natural language processing task performed by the Translator service.\n\nE is incorrect because extracting key phrases is a natural language processing task performed by the Text Analytics (Language) service."
     },
     {
       "id": 19,
-      "topic": "Topic 1 - You are developing a solution that uses the Text Analytics service.",
+      "topic": "Describe natural language processing workloads",
       "type": "SingleChoice",
       "questionText": "You are developing a solution that uses the Text Analytics service. You need to identify the main talking points in a collection of documents. Which type of natural language processing should you use?",
       "options": [
-        "B. A. entity recognition",
+        "A. entity recognition",
         "B. key phrase extraction",
         "C. sentiment analysis",
         "D. language detection"
       ],
       "correctAnswers": [
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Key phrase extraction is correct because it identifies the main talking points or key concepts in text documents. This is exactly what is needed to identify the main topics discussed.\n\nA is incorrect because entity recognition identifies named entities (people, places, organizations, dates) in text, not the main talking points.\n\nC is incorrect because sentiment analysis determines whether text is positive, negative, or neutral, not the main topics.\n\nD is incorrect because language detection identifies which language a document is written in, not its content or main topics."
     },
     {
       "id": 20,
-      "topic": "Topic 1 - You are developing a solution that uses the Text Analytics service.",
+      "topic": "Describe natural language processing workloads",
       "type": "MultipleChoice",
-      "questionText": "Topie 7 In which two scenarios can you use speech recognition? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "In which two scenarios can you use speech recognition? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. an in-car system that reads text messages aloud  5 B. providing closed captions for recorded or live videos",
+        "A. an in-car system that reads text messages aloud",
+        "B. providing closed captions for recorded or live videos",
         "C. creating an automated public address system for a train station",
-        "D. creating a transcript of a telephone call or meeting   Speech recognition"
+        "D. creating a transcript of a telephone call or meeting"
       ],
       "correctAnswers": [
-        "C"
+        "B",
+        "D"
       ],
-      "explanation": ""
+      "explanation": "B (providing closed captions for recorded or live videos) is correct because speech recognition converts spoken language into text, which is exactly what is needed to generate closed captions from audio.\n\nD (creating a transcript of a telephone call or meeting) is correct because transcription is a core speech recognition task that converts spoken words into written text.\n\nA is incorrect because reading text messages aloud is speech synthesis (text-to-speech), not speech recognition (speech-to-text).\n\nC is incorrect because an automated public address system that speaks announcements aloud is speech synthesis (text-to-speech), not speech recognition."
     },
     {
       "id": 21,
-      "topic": "Topic 7 - Topic 7",
-      "type": "MultipleChoice",
-      "questionText": "You need to build an app that will read recipe instructions aloud to support users who have reduced vision. Which version service should you use? A, Text Analytics",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
+      "questionText": "You need to build an app that will read recipe instructions aloud to support users who have reduced vision. Which Azure service should you use?",
       "options": [
+        "A. Text Analytics",
         "B. Translator",
         "C. Speech",
         "D. Language Understanding (LUIS)"
       ],
       "correctAnswers": [
-        "C",
         "C"
       ],
-      "explanation": ""
+      "explanation": "The Speech service is correct because reading text aloud is a text-to-speech (speech synthesis) task, which is a core capability of the Azure Speech service.\n\nA is incorrect because Text Analytics is used for NLP tasks like sentiment analysis, key phrase extraction, and entity recognition, not for converting text to speech.\n\nB is incorrect because Translator is used for translating text between languages, not for reading text aloud.\n\nD is incorrect because Language Understanding (LUIS) is used for understanding user intents from natural language input, not for converting text to speech."
     },
     {
       "id": 22,
-      "topic": "Topic 1 - HOTSPOT -",
+      "topic": "Describe natural language processing workloads",
       "type": "MultipleChoice",
       "questionText": "In which two scenarios can you use a speech synthesis solution? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. an automated voice that reads back a credit card number entered into a telephone by using 4 numeric keypad",
+        "A. an automated voice that reads back a credit card number entered into a telephone by using a numeric keypad",
         "B. generating live captions for a news broadcast",
         "C. extracting key phrases from the audio recording of a meeting",
-        "D. an Al character in a computer game that speaks audibly to a player"
+        "D. an AI character in a computer game that speaks audibly to a player"
       ],
       "correctAnswers": [
         "A",
-        "B",
-        "A",
-        "C",
-        "C"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "A (an automated voice that reads back a credit card number) is correct because converting data into spoken audio is a speech synthesis (text-to-speech) task.\n\nD (an AI character in a computer game that speaks audibly) is correct because generating spoken audio from text for a game character is a speech synthesis task.\n\nB is incorrect because generating live captions from a broadcast is a speech recognition (speech-to-text) task, not speech synthesis.\n\nC is incorrect because extracting key phrases from audio first requires speech recognition (speech-to-text) and then key phrase extraction, which are NLP tasks, not speech synthesis."
     },
     {
       "id": 23,
-      "topic": "Topic 7 - You are building a knowledge base by using QnA Maker.",
+      "topic": "Describe conversational AI workloads",
       "type": "SingleChoice",
       "questionText": "You are building a knowledge base by using QnA Maker. Which file format can you use to populate the knowledge base?",
       "options": [
@@ -369,31 +373,31 @@
         "D. PDF"
       ],
       "correctAnswers": [
-        "A"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "PDF is correct because QnA Maker (now part of Azure AI Language custom question answering) supports importing content from PDF files to build a knowledge base of question-and-answer pairs.\n\nA is incorrect because PPTX (PowerPoint) files are not a supported format for populating a QnA Maker knowledge base.\n\nB is incorrect because XML files are not a directly supported import format for QnA Maker knowledge bases.\n\nC is incorrect because ZIP files are not a supported import format for QnA Maker knowledge bases."
     },
     {
       "id": 24,
-      "topic": "Topic 1 - You are authoring a Language Understanding (LUIS} application to support a music festival.",
+      "topic": "Describe natural language processing workloads",
       "type": "SingleChoice",
-      "questionText": "You are authoring a Language Understanding (LUIS} application to support a music festival. You want users to be able to ask questions about scheduled shows, such as: ‘Which act is playing on the main stage?\" The question ‘Which act is playing on the main stage?’ is an example of which type of element?",
+      "questionText": "You are authoring a Language Understanding (LUIS) application to support a music festival. You want users to be able to ask questions about scheduled shows, such as: 'Which act is playing on the main stage?' The question 'Which act is playing on the main stage?' is an example of which type of element?",
       "options": [
         "A. an intent",
         "B. an utterance",
         "C. a domain",
-        "D. an entity  Utterances are input from the user that your app needs to interpret."
+        "D. an entity"
       ],
       "correctAnswers": [
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "An utterance is correct because utterances are input text from the user that your app needs to interpret. The question 'Which act is playing on the main stage?' is an example of something a user would say or type, making it an utterance.\n\nA is incorrect because an intent represents the purpose or goal behind an utterance (e.g., GetSchedule), not the actual text input itself.\n\nC is incorrect because a domain is a broad subject area (e.g., music, travel) that groups related intents and entities.\n\nD is incorrect because an entity is a specific piece of information extracted from an utterance (e.g., 'main stage' could be a venue entity), not the entire input text."
     },
     {
       "id": 25,
-      "topic": "Topic 7 - You need to develop a chatbot for a website. The chatbot must answer users' questions based on the information in the following documents:",
-      "type": "MultipleChoice",
-      "questionText": "You need to develop a chatbot for a website. The chatbot must answer users' questions based on the information in the following documents: ® A product troubleshooting guide in a Microsoft Word document © A frequently asked questions (FAQ) list on a webpage Which service should you use to process the documents?",
+      "topic": "Describe conversational AI workloads",
+      "type": "SingleChoice",
+      "questionText": "You need to develop a chatbot for a website. The chatbot must answer users' questions based on the information in the following documents:\n- A product troubleshooting guide in a Microsoft Word document\n- A frequently asked questions (FAQ) list on a webpage\nWhich service should you use to process the documents?",
       "options": [
         "A. Azure Bot Service",
         "B. Language Understanding",
@@ -401,64 +405,66 @@
         "D. QnA Maker"
       ],
       "correctAnswers": [
-        "D",
-        "C",
-        "C"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "QnA Maker (now custom question answering in Azure AI Language) is correct because it is specifically designed to create a knowledge base from documents like Word files, PDFs, and webpages, and then answer questions based on that content.\n\nA is incorrect because Azure Bot Service provides the framework for building and deploying bots but does not process documents to create a knowledge base. It would be used alongside QnA Maker to deliver the chatbot.\n\nB is incorrect because Language Understanding (LUIS) is used to interpret user intents and entities from natural language, not to process documents into question-and-answer pairs.\n\nC is incorrect because Text Analytics performs NLP tasks like sentiment analysis and key phrase extraction, not document-based question answering."
     },
     {
       "id": 26,
-      "topic": "Topic 7 - You are developing a conversational Al solution that will communicate with users through multiple channels including email, Micrasoft Teams,",
-      "type": "MultipleChoice",
-      "questionText": "You are developing a conversational Al solution that will communicate with users through multiple channels including email, Micrasoft Teams, and webchat. Which service should you use?",
+      "topic": "Describe conversational AI workloads",
+      "type": "SingleChoice",
+      "questionText": "You are developing a conversational AI solution that will communicate with users through multiple channels including email, Microsoft Teams, and webchat. Which service should you use?",
       "options": [
         "A. Text Analytics",
         "B. Azure Bot Service",
         "C. Translator",
-        "D. Form Recognizer   mor  jestion #130  HOTSPOT - For each of the following statements, select Yes if the statement is true. Otherwise, select No. NOTE: Each correct selection is worth one point.  Hot Area:",
-        "A. bot that responds to queries by internal users is an example of a re) fo) conversational Al workload. An application that displays images relating to an entered search term is re) Oo  an example of a conversational Al workload.  Aweb form used to submit a request to reset a password is an example fe) fe) of a conversational Al workload."
-      ],
-      "correctAnswers": [
-        "C"
-      ],
-      "explanation": ""
-    },
-    {
-      "id": 27,
-      "topic": "Topic 1 - You need to provide content for a business chatbot that will help answer simple user queries.",
-      "type": "MultipleChoice",
-      "questionText": "You need to provide content for a business chatbot that will help answer simple user queries. What are three ways to create question and answer text by using QnA Maker? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point. A, Generate the questions and answers from an existing webpage.",
-      "options": [
-        "B. Use automated machine learning to train a model based on a file that contains the questions.",
-        "C. Manually enter the questions and answers.",
-        "D. Cannect the bot to the Cortana channel and ask questions by using Cortana.  E, Import chit-chat content from a predefined data source."
-      ],
-      "correctAnswers": [
-        "C"
-      ],
-      "explanation": ""
-    },
-    {
-      "id": 28,
-      "topic": "Topic 7 - You have a frequently asked questions (FAQ) PDF file.",
-      "type": "MultipleChoice",
-      "questionText": "You have a frequently asked questions (FAQ) PDF file. You need to create a conversational support system based on the FAQ. Which service should you use? A, QnA Maker",
-      "options": [
-        "B. Text Analytics",
-        "C. Computer Vision",
-        "D. Language Understanding (LUIS)   a>"
+        "D. Form Recognizer"
       ],
       "correctAnswers": [
         "B"
       ],
-      "explanation": ""
+      "explanation": "Azure Bot Service is correct because it provides a framework for building conversational AI bots that can be deployed across multiple channels including email, Microsoft Teams, webchat, Slack, and more.\n\nA is incorrect because Text Analytics is used for NLP tasks such as sentiment analysis and key phrase extraction, not for multi-channel conversational solutions.\n\nC is incorrect because Translator is used for translating text between languages, not for building multi-channel conversational AI solutions.\n\nD is incorrect because Form Recognizer is used for extracting data from documents, not for building conversational AI solutions."
+    },
+    {
+      "id": 27,
+      "topic": "Describe conversational AI workloads",
+      "type": "MultipleChoice",
+      "questionText": "You need to provide content for a business chatbot that will help answer simple user queries. What are three ways to create question and answer text by using QnA Maker? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Generate the questions and answers from an existing webpage.",
+        "B. Use automated machine learning to train a model based on a file that contains the questions.",
+        "C. Manually enter the questions and answers.",
+        "D. Connect the bot to the Cortana channel and ask questions by using Cortana.",
+        "E. Import chit-chat content from a predefined data source."
+      ],
+      "correctAnswers": [
+        "A",
+        "C",
+        "E"
+      ],
+      "explanation": "A (Generate from an existing webpage) is correct because QnA Maker can automatically extract question-and-answer pairs from FAQ pages and other structured web content.\n\nC (Manually enter the questions and answers) is correct because QnA Maker allows you to manually add question-and-answer pairs directly through the QnA Maker portal.\n\nE (Import chit-chat content from a predefined data source) is correct because QnA Maker provides predefined chit-chat datasets that you can import to give your bot a personality and handle casual conversation.\n\nB is incorrect because QnA Maker does not use automated machine learning to train models from question files. It extracts Q&A pairs from structured content.\n\nD is incorrect because connecting to Cortana is a deployment channel, not a method for creating knowledge base content."
+    },
+    {
+      "id": 28,
+      "topic": "Describe conversational AI workloads",
+      "type": "SingleChoice",
+      "questionText": "You have a frequently asked questions (FAQ) PDF file. You need to create a conversational support system based on the FAQ. Which service should you use?",
+      "options": [
+        "A. QnA Maker",
+        "B. Text Analytics",
+        "C. Computer Vision",
+        "D. Language Understanding (LUIS)"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "QnA Maker is correct because it is specifically designed to create a knowledge base from FAQ documents (including PDFs) and provide a conversational interface for users to ask questions and receive answers.\n\nB is incorrect because Text Analytics performs NLP tasks like sentiment analysis and key phrase extraction, not FAQ-based conversational support.\n\nC is incorrect because Computer Vision is used for analyzing images, not for creating conversational support systems from text documents.\n\nD is incorrect because Language Understanding (LUIS) interprets user intents and entities from natural language but does not directly create a Q&A system from FAQ documents."
     },
     {
       "id": 29,
-      "topic": "Topic 1 - You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers.",
+      "topic": "Describe conversational AI workloads",
       "type": "MultipleChoice",
-      "questionText": "You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers. Which two Al service should you use to achieve the goal? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers. Which two AI services should you use to achieve the goal? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. Text Analytics",
         "B. QnA Maker",
@@ -466,109 +472,111 @@
         "D. Translator"
       ],
       "correctAnswers": [
-        "A"
+        "B",
+        "C"
       ],
-      "explanation": ""
+      "explanation": "B (QnA Maker) is correct because QnA Maker creates the knowledge base of predefined questions and answers that the chatbot will use to respond to user queries.\n\nC (Azure Bot Service) is correct because Azure Bot Service provides the bot framework and infrastructure to deploy and manage the chatbot across channels.\n\nA is incorrect because Text Analytics is used for sentiment analysis, key phrase extraction, and entity recognition, not for building chatbots with predefined answers.\n\nD is incorrect because Translator is used for translating text between languages, not for building chatbots."
     },
     {
       "id": 30,
-      "topic": "Topic 1 - You need to develop a web-based Al solution for a customer support system. Users must be able to interact with a web app that will guide them to",
+      "topic": "Describe conversational AI workloads",
       "type": "SingleChoice",
-      "questionText": "You need to develop a web-based Al solution for a customer support system. Users must be able to interact with a web app that will guide them to the best resource or answer. Which service should you use?",
+      "questionText": "You need to develop a web-based AI solution for a customer support system. Users must be able to interact with a web app that will guide them to the best resource or answer. Which service should you use?",
       "options": [
         "A. Custom Vision",
-        "B. B. QnA Maker",
+        "B. QnA Maker",
         "C. Translator Text",
         "D. Face"
       ],
       "correctAnswers": [
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "QnA Maker is correct because it creates a conversational question-and-answer layer over your data, allowing users to ask questions in natural language and receive the best matching answer. It is ideal for customer support scenarios.\n\nA is incorrect because Custom Vision is used for image classification and object detection, not for customer support Q&A.\n\nC is incorrect because Translator Text is used for translating text between languages, not for guiding users to resources or answers.\n\nD is incorrect because Face is used for facial detection and recognition, not for customer support interactions."
     },
     {
       "id": 31,
-      "topic": "Topic 7 - Which scenario is an example of a webchat bot?",
+      "topic": "Describe conversational AI workloads",
       "type": "SingleChoice",
       "questionText": "Which scenario is an example of a webchat bot?",
       "options": [
-        "A. Determine whether reviews entered on a website for a concert are positive or negative, and then add a thumbs up or thumbs down emaji to the reviews.",
-        "D. B. Translate into English questions entered by customers at a kiosk so that the appropriate person can call the customers back.",
+        "A. Determine whether reviews entered on a website for a concert are positive or negative, and then add a thumbs up or thumbs down emoji to the reviews.",
+        "B. Translate into English questions entered by customers at a kiosk so that the appropriate person can call the customers back.",
         "C. Accept questions through email, and then route the email messages to the correct person based on the content of the message.",
         "D. From a website interface, answer common questions about scheduled events and ticket purchases for a music festival."
       ],
       "correctAnswers": [
         "D"
       ],
-      "explanation": ""
+      "explanation": "D is correct because a webchat bot is an interactive conversational agent embedded in a website that answers user questions in real time. Answering common questions about events and tickets through a website interface is the classic webchat bot scenario.\n\nA is incorrect because analyzing sentiment of reviews is a sentiment analysis task, not a webchat bot interaction.\n\nB is incorrect because translating text at a kiosk is a translation task, not a webchat bot.\n\nC is incorrect because routing emails based on content is an email automation/classification task, not a webchat bot."
     },
     {
       "id": 32,
-      "topic": "Topic 7 - Which two scenarios are examples of a conversational Al workload? Each correct answer presents a complete solution.",
+      "topic": "Describe conversational AI workloads",
       "type": "MultipleChoice",
-      "questionText": "Which two scenarios are examples of a conversational Al workload? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "Which two scenarios are examples of a conversational AI workload? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. a telephone answering service that has a pre-recorder message",
+        "A. a telephone answering service that has a pre-recorded message",
         "B. a chatbot that provides users with the ability to find answers on a website by themselves",
         "C. telephone voice menus to reduce the load on human resources",
         "D. a service that creates frequently asked questions (FAQ) documents by crawling public websites"
       ],
       "correctAnswers": [
-        "B"
+        "B",
+        "C"
       ],
-      "explanation": ""
+      "explanation": "B (a chatbot that provides users with the ability to find answers on a website) is correct because a chatbot that interacts with users in natural language to help them find answers is a conversational AI workload.\n\nC (telephone voice menus to reduce the load on human resources) is correct because interactive voice response (IVR) systems that understand and respond to spoken language are examples of conversational AI.\n\nA is incorrect because a pre-recorded message is a static playback, not an interactive AI-powered conversation.\n\nD is incorrect because crawling websites to create FAQ documents is a web scraping/content generation task, not a conversational AI workload."
     },
     {
       "id": 33,
-      "topic": "Topic 7 - HOTSPOT -",
+      "topic": "Describe conversational AI workloads",
       "type": "Hotspot",
-      "questionText": "For each of the following statements, select Yes if the statement is true. Otherwise, select No. NOTE: Each correct selection is worth one point. Hot Area: Answer Area Statements Yes No",
+      "questionText": "For each of the following statements, select Yes if the statement is true. Otherwise, select No. NOTE: Each correct selection is worth one point.\n\n1. A restaurant can use a chatbot to answer queries through Cortana.\n2. A restaurant can use a chatbot to answer inquiries about business hours from a webpage.\n3. A restaurant can use a chatbot to automate responses to customer reviews on an external website.",
       "options": [
-        "A. restaurant can use a chatbot to answer queries through Cortana. (@) eo)",
-        "A. restaurant can use a chatbot to answer inquiries about business hours from a webpage. (6) e)",
-        "A. restaurant can use a chatbot to automate responses to customer reviews on an external oO O  website.   Opt 3"
+        "A. Yes, Yes, No"
       ],
       "correctAnswers": [
         "A"
       ],
-      "explanation": ""
+      "explanation": "Statement 1 is Yes because Azure Bot Service supports the Cortana channel, so a restaurant chatbot can respond to queries through Cortana.\n\nStatement 2 is Yes because a chatbot can be embedded on a webpage to answer common questions like business hours using a QnA Maker knowledge base.\n\nStatement 3 is No because automating responses to customer reviews on an external website is not a typical chatbot scenario. The bot would not have control over posting on external review websites, and this is not a standard conversational AI use case."
     },
     {
       "id": 34,
-      "topic": "Topic 1 - You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers.",
-      "type": "SingleChoice",
-      "questionText": "You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers. Which two Al services should you use to achieve the goal? Each correct answers presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "topic": "Describe conversational AI workloads",
+      "type": "MultipleChoice",
+      "questionText": "You need to reduce the load on telephone operators by implementing a chatbot to answer simple questions with predefined answers. Which two AI services should you use to achieve the goal? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. Azure Machine Learning  é B. Azure Bot Service",
+        "A. Azure Machine Learning",
+        "B. Azure Bot Service",
         "C. Language Service",
         "D. Translator"
       ],
       "correctAnswers": [
-        "A"
+        "B",
+        "C"
       ],
-      "explanation": ""
+      "explanation": "B (Azure Bot Service) is correct because it provides the framework for building and deploying the chatbot across channels.\n\nC (Language Service) is correct because the Azure AI Language service includes custom question answering (formerly QnA Maker), which allows you to build a knowledge base of predefined questions and answers for the chatbot.\n\nA is incorrect because Azure Machine Learning is used for building and training custom ML models, not for building chatbots with predefined answers.\n\nD is incorrect because Translator is used for translating text between languages, not for building chatbots."
     },
     {
       "id": 35,
-      "topic": "Topic 7 - During the process of Machine Learning, when should you review evaluation metrics.",
-      "type": "MultipleChoice",
-      "questionText": "During the process of Machine Learning, when should you review evaluation metrics.",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
+      "questionText": "During the process of Machine Learning, when should you review evaluation metrics?",
       "options": [
         "A. Before you train a model.",
-        "D. B. After you clean the data.",
+        "B. After you clean the data.",
         "C. Before you choose the type of model.",
         "D. After you test a model on the validation data."
       ],
       "correctAnswers": [
-        "A"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "D is correct because evaluation metrics are reviewed after testing a model on validation (or test) data. This allows you to assess how well the model performs on data it has not seen during training.\n\nA is incorrect because you cannot review evaluation metrics before training a model since no predictions have been made yet.\n\nB is incorrect because cleaning data is a preparation step before model training, and there are no model evaluation metrics to review at that stage.\n\nC is incorrect because choosing the model type happens before training, and evaluation metrics are only available after the model has been trained and tested."
     },
     {
       "id": 36,
-      "topic": "Topic 1 - You have a natural language processing (NLP) model that was created by using data obtained without permission.",
-      "type": "MultipleChoice",
-      "questionText": "You have a natural language processing (NLP) model that was created by using data obtained without permission. Which Microsoft principle for responsible Al does this breach?",
+      "topic": "Describe responsible AI principles",
+      "type": "SingleChoice",
+      "questionText": "You have a natural language processing (NLP) model that was created by using data obtained without permission. Which Microsoft principle for responsible AI does this breach?",
       "options": [
         "A. reliability and safety",
         "B. privacy and security",
@@ -576,65 +584,62 @@
         "D. transparency"
       ],
       "correctAnswers": [
-        "D",
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Privacy and security is correct because using data obtained without permission is a direct violation of privacy principles. Microsoft's responsible AI principles emphasize that AI systems should respect privacy and handle data securely, which includes obtaining proper consent for data usage.\n\nA is incorrect because reliability and safety relates to AI systems performing reliably and safely under normal and unexpected conditions.\n\nC is incorrect because inclusiveness relates to AI systems being designed to engage and empower everyone, regardless of ability, gender, ethnicity, or other factors.\n\nD is incorrect because transparency relates to people understanding how AI systems make decisions, not about data consent."
     },
     {
       "id": 37,
-      "topic": "Topic 1 - HOTSPOT",
-      "type": "MultipleChoice",
-      "questionText": "Topie 7 Which machine learning technique can be used for anomaly detection?",
+      "topic": "Describe AI workloads and considerations",
+      "type": "SingleChoice",
+      "questionText": "Which machine learning technique can be used for anomaly detection?",
       "options": [
-        "A. Amachine learning technique that classifies objects based on user supplied images.",
+        "A. A machine learning technique that classifies objects based on user-supplied images.",
         "B. A machine learning technique that understands written and spoken language.",
         "C. A machine learning technique that classifies images based on their contents.",
         "D. A machine learning technique that analyzes data over time and identifies unusual changes."
       ],
       "correctAnswers": [
-        "B",
-        "C"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "D is correct because anomaly detection is a machine learning technique that analyzes data over time to identify unusual patterns, outliers, or unexpected changes in the data.\n\nA is incorrect because classifying objects based on user-supplied images describes image classification or object detection using Custom Vision, not anomaly detection.\n\nB is incorrect because understanding written and spoken language describes natural language processing (NLP), not anomaly detection.\n\nC is incorrect because classifying images based on their contents describes image classification, not anomaly detection."
     },
     {
       "id": 38,
-      "topic": "Topic 1 - You have an Al-based loan approval system.",
-      "type": "MultipleChoice",
-      "questionText": "You have an Al-based loan approval system. During testing, you discover that the system has a gender bias. Which responsible Al principle does this violate? A, accountability",
+      "topic": "Describe responsible AI principles",
+      "type": "SingleChoice",
+      "questionText": "You have an AI-based loan approval system. During testing, you discover that the system has a gender bias. Which responsible AI principle does this violate?",
       "options": [
+        "A. accountability",
         "B. reliability and safety",
         "C. transparency",
-        "D. fairness   Opt 1"
+        "D. fairness"
       ],
       "correctAnswers": [
-        "C",
-        "C"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "Fairness is correct because a gender bias in a loan approval system means the AI is treating people differently based on gender, which directly violates the fairness principle. Microsoft's responsible AI principle of fairness states that AI systems should treat all people fairly and not discriminate based on protected characteristics.\n\nA is incorrect because accountability relates to people being responsible for AI systems, not specifically about bias.\n\nB is incorrect because reliability and safety relates to AI systems performing reliably under expected and unexpected conditions.\n\nC is incorrect because transparency relates to understanding how AI systems make decisions, not specifically about bias in outcomes."
     },
     {
       "id": 39,
-      "topic": "Topic 1 - You are developing a system to predict the prices of insurance for drivers in the United Kingdom.",
-      "type": "MultipleChoice",
+      "topic": "Describe responsible AI principles",
+      "type": "SingleChoice",
       "questionText": "You are developing a system to predict the prices of insurance for drivers in the United Kingdom. You need to minimize bias in the system. What should you do?",
       "options": [
         "A. Remove information about protected characteristics from the data before sampling.",
-        "B. Take a training sample that is representative of the population in the United Kingdam.",
+        "B. Take a training sample that is representative of the population in the United Kingdom.",
         "C. Create a training dataset that uses data from global insurers.",
         "D. Take a completely random training sample."
       ],
       "correctAnswers": [
-        "C",
         "B"
       ],
-      "explanation": ""
+      "explanation": "B is correct because using a training sample that is representative of the UK population ensures that the model learns from data that fairly represents all groups, minimizing bias.\n\nA is incorrect because simply removing protected characteristics does not eliminate bias. Proxy variables (such as postcode or occupation) can still encode the same biases indirectly.\n\nC is incorrect because using global data would introduce data that is not relevant to UK insurance pricing and could introduce geographic and regulatory biases.\n\nD is incorrect because a completely random sample may not be representative of the population if the underlying data itself is biased or if certain groups are underrepresented."
     },
     {
       "id": 40,
-      "topic": "Topic 1 - You have a dataset.",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
       "questionText": "You have a dataset. You need to build an Azure Machine Learning classification model that will identify defective products. What should you do first?",
       "options": [
         "A. Load the dataset.",
@@ -643,16 +648,14 @@
         "D. Create a classification model."
       ],
       "correctAnswers": [
-        "C",
-        "C",
         "A"
       ],
-      "explanation": ""
+      "explanation": "A (Load the dataset) is correct because loading the dataset is the first step in any machine learning workflow. Before you can split data, create models, or evaluate results, you must first load the data into your environment.\n\nB is incorrect because creating a clustering model is not part of building a classification model and is not the first step.\n\nC is incorrect because while splitting data is important, it cannot be done before loading the dataset.\n\nD is incorrect because creating the classification model comes after loading data, exploring it, and splitting it into training and testing sets."
     },
     {
       "id": 41,
-      "topic": "Topic 1 - You use Azure Machine Learning designer to build a model pipeline.",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
       "questionText": "You use Azure Machine Learning designer to build a model pipeline. What should you create before you can run the pipeline?",
       "options": [
         "A. a registered model",
@@ -660,59 +663,60 @@
         "C. a Jupyter notebook"
       ],
       "correctAnswers": [
-        "A",
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "A compute resource is correct because Azure Machine Learning designer requires a compute target (such as a compute cluster or compute instance) to execute the pipeline. Without a compute resource, the pipeline cannot run.\n\nA is incorrect because a registered model is the output of training a pipeline, not a prerequisite for running one.\n\nC is incorrect because a Jupyter notebook is a separate code-based development environment and is not required to run a pipeline in the designer."
     },
     {
       "id": 42,
-      "topic": "Topic 1 - You need to create a customer support solution to help customers access information. The solution must support email, phone, and live chat",
-      "type": "DragDrop",
-      "questionText": "You need to create a customer support solution to help customers access information. The solution must support email, phone, and live chat channels. Which type of Al solution should you use? om| A. machine learning",
+      "topic": "Describe AI workloads and considerations",
+      "type": "SingleChoice",
+      "questionText": "You need to create a customer support solution to help customers access information. The solution must support email, phone, and live chat channels. Which type of AI solution should you use?",
       "options": [
+        "A. machine learning",
         "B. computer vision",
         "C. chatbot",
-        "D. natural language processing (NLP)   Vision NP Anomaly  Clustering  estion #167  DRAG DROP  Match the types of Al workloads to the appropriate scenarios.  To answer, drag the appropriate workload type from the column on the left to its scenario on the right. Each workload type may be used once, more than once, or not at all.  NOTE: Each correct selection is worth one point.  Workload Types Answer Area  Anomaly detection Workload Type Identify handwritten letters.  Computer vision Workload Type Predict the sentiment of a social media post.  Machine Learning (Clustering) Workload Type Identify an unusual credit card payment.  Natural language processing Workload Type Group animals based on multiple measurements."
+        "D. natural language processing (NLP)"
       ],
       "correctAnswers": [
         "C"
       ],
-      "explanation": ""
+      "explanation": "A chatbot is correct because it is a conversational AI solution that can interact with customers across multiple channels including email, phone, and live chat to answer questions and provide support.\n\nA is incorrect because machine learning is a broad technique for building models and is not specifically a customer support solution.\n\nB is incorrect because computer vision is used for analyzing images and video, not for multi-channel customer support.\n\nD is incorrect because NLP is a component technology used in chatbots but is not by itself a complete multi-channel customer support solution."
     },
     {
       "id": 43,
-      "topic": "Topic 7 - Predicting how many vehicles will travel across a bridge on a give day is an example of",
+      "topic": "Describe Azure Machine Learning",
       "type": "SingleChoice",
-      "questionText": "Predicting how many vehicles will travel across a bridge on a give day is an example of Select the answer that correctly completes the sentence. A, regression",
+      "questionText": "Predicting how many vehicles will travel across a bridge on a given day is an example of which type of machine learning?",
       "options": [
+        "A. regression",
         "B. translation",
         "C. classification",
         "D. clustering"
       ],
       "correctAnswers": [
-        "D"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "Regression is correct because predicting the number of vehicles (a continuous numeric value) is a regression task. Regression models predict numeric outputs based on input features.\n\nB is incorrect because translation is an NLP task that converts text from one language to another.\n\nC is incorrect because classification predicts categorical labels (e.g., high/medium/low traffic), not specific numeric values.\n\nD is incorrect because clustering groups similar data points together without predicting a specific numeric value."
     },
     {
       "id": 44,
-      "topic": "Topic 1 - In a machine learning model, the data that is used as inputs are called",
+      "topic": "Describe Azure Machine Learning",
       "type": "SingleChoice",
-      "questionText": "In a machine learning model, the data that is used as inputs are called Select the answer that correctly completes the sentence.",
+      "questionText": "In a machine learning model, the data that is used as inputs are called what?",
       "options": [
         "A. dataset",
         "B. labels",
-        "C. variables"
+        "C. features"
       ],
       "correctAnswers": [
         "C"
       ],
-      "explanation": ""
+      "explanation": "Features is correct because in machine learning, the input variables used to make predictions are called features. They are the individual measurable properties or characteristics of the data.\n\nA is incorrect because a dataset is the entire collection of data (including both features and labels), not specifically the inputs.\n\nB is incorrect because labels are the output values or target variables that the model is trying to predict, not the input data."
     },
     {
       "id": 45,
-      "topic": "Topic 7 - You need to create a clustering model and evaluate the model by using Azure Machine Learning designer.",
+      "topic": "Describe Azure Machine Learning",
       "type": "SingleChoice",
       "questionText": "You need to create a clustering model and evaluate the model by using Azure Machine Learning designer. What should you do?",
       "options": [
@@ -722,65 +726,62 @@
         "D. Split the original dataset into a dataset for training and a dataset for testing. Use the training dataset for evaluation."
       ],
       "correctAnswers": [
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "B is correct because clustering is an unsupervised learning technique that does not use labeled data. Since there are no labels to predict, you evaluate the model using the same data. In Azure Machine Learning designer, the Evaluate Model module for clustering uses metrics like average distance to cluster center on the training data.\n\nA is incorrect because while splitting data is standard for supervised learning, clustering does not require a separate test set in the same way since there are no ground truth labels to compare against.\n\nC is incorrect because splitting data into features and labels does not apply to clustering, which is an unsupervised technique without predefined labels.\n\nD is incorrect because evaluating on training data alone while having split the data would waste the test data. In clustering, you use the full dataset."
     },
     {
       "id": 46,
-      "topic": "Topic 7 - You need to track multiple versions of a model that was trained by using Azure Machine Learning.",
-      "type": "MultipleChoice",
+      "topic": "Describe Azure Machine Learning",
+      "type": "SingleChoice",
       "questionText": "You need to track multiple versions of a model that was trained by using Azure Machine Learning. What should you do?",
       "options": [
         "A. Explain the model.",
         "B. Register the model.",
         "C. Register the training data.",
-        "D. Provision an inference cluster,"
+        "D. Provision an inference cluster."
       ],
       "correctAnswers": [
-        "B",
-        "B",
-        "D",
         "B"
       ],
-      "explanation": ""
+      "explanation": "Registering the model is correct because Azure Machine Learning model registration allows you to store and version your models in your workspace. Each time you register a model, it is assigned a new version number, enabling you to track multiple versions.\n\nA is incorrect because explaining a model provides interpretability and feature importance, not version tracking.\n\nC is incorrect because registering the training data creates a dataset reference but does not track model versions.\n\nD is incorrect because provisioning an inference cluster creates compute resources for deploying models, not for tracking model versions."
     },
     {
       "id": 47,
-      "topic": "Topic 1 - HOTSPOT",
-      "type": "MultipleChoice",
-      "questionText": "Topic t You need to create a model that labels a collection of your personal digital photographs. Which Azure Cognitive Services service should you use? A, Form Recognizer",
+      "topic": "Describe Azure AI services for computer vision",
+      "type": "SingleChoice",
+      "questionText": "You need to create a model that labels a collection of your personal digital photographs. Which Azure Cognitive Services service should you use?",
       "options": [
+        "A. Form Recognizer",
         "B. Custom Vision",
         "C. Language",
         "D. Computer Vision"
       ],
       "correctAnswers": [
-        "C",
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Custom Vision is correct because it allows you to build, train, and deploy custom image classification models tailored to your specific needs. Since you need to label your personal photographs with custom categories, Custom Vision lets you train a model using your own images and labels.\n\nA is incorrect because Form Recognizer is used to extract text and structured data from documents, not for labeling photographs.\n\nC is incorrect because the Language service is used for natural language processing tasks, not for image labeling.\n\nD is incorrect because while Computer Vision provides pre-built image analysis capabilities, it cannot be customized with your own labels for personal photographs. Custom Vision is needed for custom classification."
     },
     {
       "id": 48,
-      "topic": "Topic 7 - You need to implement a pre-built solution that will identify well-known brands in digital photographs.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
-      "questionText": "You need to implement a pre-built solution that will identify well-known brands in digital photographs. Which Azure Cagnitive Services service should you use?",
+      "questionText": "You need to implement a pre-built solution that will identify well-known brands in digital photographs. Which Azure Cognitive Services service should you use?",
       "options": [
         "A. Custom Vision",
-        "D. B. Form Recognizer",
+        "B. Form Recognizer",
         "C. Face",
         "D. Computer Vision"
       ],
       "correctAnswers": [
         "D"
       ],
-      "explanation": ""
+      "explanation": "Computer Vision is correct because it includes a pre-built brand detection feature that can identify well-known commercial brands in images from a database of thousands of recognizable logos.\n\nA is incorrect because Custom Vision requires you to train your own model with custom images. The question asks for a pre-built solution.\n\nB is incorrect because Form Recognizer is used for extracting data from documents, not for identifying brands in photographs.\n\nC is incorrect because Face is used for detecting and recognizing human faces, not for brand identification."
     },
     {
       "id": 49,
-      "topic": "Topic 7 - An app that analyzes social media posts to identify their tone is an example of which type of natural language processing (NLP) workload?",
-      "type": "MultipleChoice",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
       "questionText": "An app that analyzes social media posts to identify their tone is an example of which type of natural language processing (NLP) workload?",
       "options": [
         "A. sentiment analysis",
@@ -789,17 +790,15 @@
         "D. entity recognition"
       ],
       "correctAnswers": [
-        "D",
-        "C",
-        "C"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "Sentiment analysis is correct because identifying the tone (positive, negative, or neutral) of social media posts is exactly what sentiment analysis does. It evaluates the emotional sentiment expressed in text.\n\nB is incorrect because speech recognition converts spoken audio to text, which is not relevant to analyzing written social media posts.\n\nC is incorrect because key phrase extraction identifies the main talking points in text, not the emotional tone.\n\nD is incorrect because entity recognition identifies named entities (people, places, organizations) in text, not the overall tone or sentiment."
     },
     {
       "id": 50,
-      "topic": "Topic 1 - You are building a chatbot that will use natural language processing (NLP) to perform the following actions based on the text input of a user.",
+      "topic": "Describe natural language processing workloads",
       "type": "SingleChoice",
-      "questionText": "You are building a chatbot that will use natural language processing (NLP) to perform the following actions based on the text input of a user. + Accept customer orders. + Retrieve support documents. « Retrieve order status updates. Which type of NLP should you use?",
+      "questionText": "You are building a chatbot that will use natural language processing (NLP) to perform the following actions based on the text input of a user:\n- Accept customer orders.\n- Retrieve support documents.\n- Retrieve order status updates.\nWhich type of NLP should you use?",
       "options": [
         "A. sentiment analysis",
         "B. named entity recognition",
@@ -807,13 +806,13 @@
         "D. language modeling"
       ],
       "correctAnswers": [
-        "A"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "Language modeling is correct because the chatbot needs to understand user intent from text input to perform different actions (accept orders, retrieve documents, retrieve status). Language modeling, as used in services like Language Understanding (LUIS) or Conversational Language Understanding (CLU), interprets user input and routes it to the appropriate action.\n\nA is incorrect because sentiment analysis determines the emotional tone of text, which is not needed for routing user requests to different actions.\n\nB is incorrect because named entity recognition identifies specific entities in text but does not determine what action to take based on user input.\n\nC is incorrect because translation converts text between languages and is not relevant to understanding and acting on user requests."
     },
     {
       "id": 51,
-      "topic": "Topic 1 - You have a website that includes customer reviews.",
+      "topic": "Describe natural language processing workloads",
       "type": "SingleChoice",
       "questionText": "You have a website that includes customer reviews. You need to store the reviews in English and present the reviews to users in their respective language by recognizing each user's geographical location. Which type of natural language processing workload should you use?",
       "options": [
@@ -825,152 +824,154 @@
       "correctAnswers": [
         "D"
       ],
-      "explanation": ""
+      "explanation": "Translation is correct because you need to convert the English reviews into the user's language based on their location. This is a text translation task, which can be performed by the Azure Translator service.\n\nA is incorrect because key phrase extraction identifies main topics in text, not translates it.\n\nB is incorrect because speech recognition converts spoken audio to text, not translates written text between languages.\n\nC is incorrect because language modeling is about understanding language structure and intent, not about translating text between languages."
     },
     {
       "id": 52,
-      "topic": "Topic 7 - HOTSPOT",
+      "topic": "Describe natural language processing workloads",
       "type": "Hotspot",
-      "questionText": "For each of the following statements, select Yes if the statement is true. Otherwise, select No. NOTE: Each correct selection is worth one point. Answer Area Statements Yes No",
+      "questionText": "For each of the following statements, select Yes if the statement is true. Otherwise, select No. NOTE: Each correct selection is worth one point.\n\n1. A bot that responds to queries by internal users is an example of a natural language processing workload.\n2. A mobile application that displays images relating to an entered search term is an example of a natural language processing workload.\n3. A web form used to submit a request to reset a password is an example of a natural language processing workload.",
       "options": [
-        "A. bot that responds to queries by internal users is an example O O of a natural language processing workload.",
-        "A. mobile application that displays images relating to an O ‘@) entered search term is an example of a natural language processing workload.",
-        "A. web form used to submit a request to reset a password is O O an example of a natural language processing workload.   <"
+        "A. Yes, No, No"
       ],
       "correctAnswers": [
         "A"
       ],
-      "explanation": ""
+      "explanation": "Statement 1 is Yes because a bot that responds to queries by interpreting natural language text from users is an NLP workload. It uses language understanding to process and respond to user queries.\n\nStatement 2 is No because displaying images based on a search term is a computer vision or search workload, not specifically an NLP workload.\n\nStatement 3 is No because a simple web form for password reset is a standard web application feature that does not involve natural language processing. It uses structured input fields rather than interpreting natural language."
     },
     {
       "id": 53,
-      "topic": "Topic 1 - For which two workloads can you use computer vision? Each correct answer presents a complete solution.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "MultipleChoice",
       "questionText": "For which two workloads can you use computer vision? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
-        "A. assigning the color pixels in an image to abject names",
+        "A. assigning the color of pixels in an image to object names",
         "B. detecting inconsistencies and anomalies in a stream of data",
         "C. creating visual representations of numerical data",
         "D. creating photorealistic images by using three-dimensional models",
-        "E. describing the contents of an image   text extraction"
+        "E. describing the contents of an image"
       ],
       "correctAnswers": [
-        "B"
+        "A",
+        "E"
       ],
-      "explanation": ""
+      "explanation": "A (assigning the color of pixels in an image to object names) is correct because this describes semantic segmentation, which is a computer vision workload that classifies each pixel in an image into a category.\n\nE (describing the contents of an image) is correct because generating descriptions of image content is a core computer vision capability (image captioning/description).\n\nB is incorrect because detecting anomalies in data streams is an anomaly detection workload, not a computer vision workload.\n\nC is incorrect because creating visual representations of numerical data is data visualization, not computer vision.\n\nD is incorrect because creating photorealistic images from 3D models is computer graphics/rendering, not computer vision."
     },
     {
       "id": 54,
-      "topic": "Topic 1 - You have an app that identifies the coordinates of a product in an image of a supermarket shelf.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
-      "questionText": "You have an app that identifies the coordinates of a product in an image of a supermarket shelf. Which service does the app use? A, Custom Vision classification",
+      "questionText": "You have an app that identifies the coordinates of a product in an image of a supermarket shelf. Which service does the app use?",
       "options": [
+        "A. Custom Vision classification",
         "B. Custom Vision object detection",
         "C. Computer Vision Read",
         "D. Computer Vision optical character recognition (OCR)"
       ],
       "correctAnswers": [
-        "D"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Custom Vision object detection is correct because identifying the coordinates (location) of a product in an image is an object detection task. Object detection returns bounding box coordinates for detected objects.\n\nA is incorrect because Custom Vision classification assigns a label to the entire image but does not provide coordinates for individual objects within the image.\n\nC is incorrect because Computer Vision Read is used for extracting text from images, not for locating products on shelves.\n\nD is incorrect because OCR extracts text characters from images, not product locations."
     },
     {
       "id": 55,
-      "topic": "Topic 7 - You need to build an image tagging solution for social media that tags images of your friends automatically.",
+      "topic": "Describe Azure AI services for computer vision",
       "type": "SingleChoice",
-      "questionText": "You need to build an image tagging solution for social media that tags images of your friends automatically. Which Azure Cognitive Services service should you use? A, Face",
+      "questionText": "You need to build an image tagging solution for social media that tags images of your friends automatically. Which Azure Cognitive Services service should you use?",
       "options": [
+        "A. Face",
         "B. Form Recognizer",
         "C. Language",
         "D. Computer Vision"
       ],
       "correctAnswers": [
-        "B"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "The Face service is correct because automatically tagging images of friends requires facial identification, which is a core capability of the Azure Face service. It can detect, identify, and group faces.\n\nB is incorrect because Form Recognizer is used for extracting data from documents, not for identifying faces.\n\nC is incorrect because the Language service is used for NLP tasks, not for facial recognition.\n\nD is incorrect because while Computer Vision can detect faces, it cannot identify specific individuals. The Face service is specifically designed for facial identification and grouping."
     },
     {
       "id": 56,
-      "topic": "Topic 1 - You have a solution that reads manuscripts in different languages and categorizes the manuscripts based on topic.",
-      "type": "MultipleChoice",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
       "questionText": "You have a solution that reads manuscripts in different languages and categorizes the manuscripts based on topic. Which types of natural language processing (NLP) workloads does the solution use?",
       "options": [
-        "A. speech recognition and entity recognition c B. speech recognition and language modeling",
+        "A. speech recognition and entity recognition",
+        "B. speech recognition and language modeling",
         "C. translation and key phrase extraction",
         "D. translation and sentiment analysis"
       ],
       "correctAnswers": [
         "C"
       ],
-      "explanation": ""
+      "explanation": "C (translation and key phrase extraction) is correct because the solution needs to read manuscripts in different languages (requiring translation to a common language) and then categorize them by topic (requiring key phrase extraction to identify the main subjects).\n\nA is incorrect because speech recognition converts audio to text, which is not relevant for reading written manuscripts.\n\nB is incorrect because speech recognition is not needed for written manuscripts.\n\nD is incorrect because sentiment analysis determines emotional tone, not topic categorization."
     },
     {
       "id": 57,
-      "topic": "Topic 7 - You have 100 instructional videos that do NOT contain any audio. Each instructional video has a script.",
-      "type": "MultipleChoice",
-      "questionText": "You have 100 instructional videos that do NOT contain any audio. Each instructional video has a script. You need to generate a narration audio file for each video based on the script. Which type of worklaad should you use?",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
+      "questionText": "You have 100 instructional videos that do NOT contain any audio. Each instructional video has a script. You need to generate a narration audio file for each video based on the script. Which type of workload should you use?",
       "options": [
-        "A. language modeling c B. speech recagnition",
+        "A. language modeling",
+        "B. speech recognition",
         "C. speech synthesis",
         "D. translation"
       ],
       "correctAnswers": [
-        "C",
         "C"
       ],
-      "explanation": ""
+      "explanation": "Speech synthesis is correct because generating audio narration from a written script is a text-to-speech task, which is exactly what speech synthesis does.\n\nA is incorrect because language modeling is about understanding the structure and meaning of language, not converting text to audio.\n\nB is incorrect because speech recognition converts spoken audio to text (speech-to-text), which is the opposite of what is needed here.\n\nD is incorrect because translation converts text between languages, not text to audio."
     },
     {
       "id": 58,
-      "topic": "Topic 7 - Which Al service can you use to extract intent from a user input such as “Call me back later\"?",
-      "type": "MultipleChoice",
-      "questionText": "Which Al service can you use to extract intent from a user input such as “Call me back later\"?",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
+      "questionText": "Which AI service can you use to extract intent from a user input such as 'Call me back later'?",
       "options": [
-        "A. Azure Cognitive Search Cc B. Translator",
+        "A. Azure Cognitive Search",
+        "B. Translator",
         "C. Language",
         "D. Speech"
       ],
       "correctAnswers": [
-        "C",
-        "D"
+        "C"
       ],
-      "explanation": ""
+      "explanation": "The Language service is correct because it includes Conversational Language Understanding (CLU), formerly LUIS, which is designed to extract user intents from natural language input. It can determine that 'Call me back later' has the intent of scheduling a callback.\n\nA is incorrect because Azure Cognitive Search is used for full-text search and indexing, not for extracting intents from user input.\n\nB is incorrect because Translator is used for translating text between languages, not for understanding user intent.\n\nD is incorrect because the Speech service converts between speech and text but does not extract intents from the content of the text."
     },
     {
       "id": 59,
-      "topic": "Topic 7 - You are building a Language Understanding model for an e-commerce business.",
+      "topic": "Describe natural language processing workloads",
       "type": "SingleChoice",
       "questionText": "You are building a Language Understanding model for an e-commerce business. You need to ensure that the model detects when utterances are outside the intended scope of the model. What should you do?",
       "options": [
-        "A. Export the model",
-        "B. Add utterances to the None intent",
-        "C. Create a prebuilt task entity",
-        "D. Create a new model"
+        "A. Export the model.",
+        "B. Add utterances to the None intent.",
+        "C. Create a prebuilt task entity.",
+        "D. Create a new model."
       ],
       "correctAnswers": [
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Adding utterances to the None intent is correct because the None intent is a special intent in Language Understanding that catches utterances that do not match any of the defined intents. By adding representative out-of-scope utterances to the None intent, the model learns to detect when user input falls outside its intended scope.\n\nA is incorrect because exporting the model simply saves it for deployment and does not help with detecting out-of-scope utterances.\n\nC is incorrect because prebuilt entities recognize common data types (dates, numbers, etc.) but do not help detect out-of-scope utterances.\n\nD is incorrect because creating a new model does not address the need to handle out-of-scope utterances; the None intent in the existing model is the correct approach."
     },
     {
       "id": 60,
-      "topic": "Topic 1 - What is an example of the Microsoft responsible Al principle of transparency?",
+      "topic": "Describe responsible AI principles",
       "type": "SingleChoice",
-      "questionText": "What is an example of the Microsoft responsible Al principle of transparency?",
+      "questionText": "What is an example of the Microsoft responsible AI principle of transparency?",
       "options": [
         "A. ensuring that opportunities are allocated equally to all applicants",
-        "B. B. helping users understand the decisions made by an Al system",
+        "B. helping users understand the decisions made by an AI system",
         "C. ensuring that developers are accountable for the solutions they create",
         "D. ensuring that the privileged data of users is stored in a secure manner"
       ],
       "correctAnswers": [
         "B"
       ],
-      "explanation": ""
+      "explanation": "B is correct because the transparency principle states that AI systems should be understandable. Helping users understand how an AI system makes decisions is a direct example of transparency.\n\nA is incorrect because allocating opportunities equally relates to the fairness principle, not transparency.\n\nC is incorrect because holding developers accountable relates to the accountability principle, not transparency.\n\nD is incorrect because securing privileged data relates to the privacy and security principle, not transparency."
     },
     {
       "id": 61,
-      "topic": "Topic 7 - You need to provide customers with the ability to query the status of orders by using phones, social media, or digital assistants.",
+      "topic": "Describe conversational AI workloads",
       "type": "SingleChoice",
       "questionText": "You need to provide customers with the ability to query the status of orders by using phones, social media, or digital assistants. What should you use?",
       "options": [
@@ -980,94 +981,88 @@
         "D. Azure Bot Service"
       ],
       "correctAnswers": [
-        "C"
+        "D"
       ],
-      "explanation": ""
+      "explanation": "Azure Bot Service is correct because it allows you to build conversational bots that can be deployed across multiple channels including phones, social media, and digital assistants to answer customer queries.\n\nA is incorrect because Azure Machine Learning is used for building and training custom ML models, not for creating multi-channel conversational interfaces.\n\nB is incorrect because the Translator service is used for language translation, not for building multi-channel customer query systems.\n\nC is incorrect because Form Recognizer is used for extracting data from documents, not for handling customer order queries across channels."
     },
     {
       "id": 62,
-      "topic": "Topic 1 - You plan to build a conversational Al solution that can be surfaced in Microsoft Teams, Microsoft Cortana, and Amazon Alexa.",
+      "topic": "Describe conversational AI workloads",
       "type": "SingleChoice",
-      "questionText": "You plan to build a conversational Al solution that can be surfaced in Microsoft Teams, Microsoft Cortana, and Amazon Alexa. Which service should you use? A, Azure Bot Service",
+      "questionText": "You plan to build a conversational AI solution that can be surfaced in Microsoft Teams, Microsoft Cortana, and Amazon Alexa. Which service should you use?",
       "options": [
+        "A. Azure Bot Service",
         "B. Azure Cognitive Search",
         "C. Speech",
         "D. Language service"
       ],
       "correctAnswers": [
-        "C"
+        "A"
       ],
-      "explanation": ""
+      "explanation": "Azure Bot Service is correct because it provides the ability to build bots and deploy them across multiple channels including Microsoft Teams, Cortana, Alexa, and many other platforms through its channel connector framework.\n\nB is incorrect because Azure Cognitive Search is a search service for indexing and querying data, not for building multi-channel conversational AI.\n\nC is incorrect because the Speech service handles speech-to-text and text-to-speech but does not provide multi-channel bot deployment.\n\nD is incorrect because the Language service provides NLP capabilities like intent recognition but does not handle multi-channel bot deployment by itself."
     },
     {
       "id": 63,
-      "topic": "Topic 1 - Which Azure Cognitive Services service can be used to identify documents that contain sensitive information?",
-      "type": "MultipleChoice",
+      "topic": "Describe natural language processing workloads",
+      "type": "SingleChoice",
       "questionText": "Which Azure Cognitive Services service can be used to identify documents that contain sensitive information?",
       "options": [
-        "A. Custom Vision  c",
+        "A. Custom Vision",
         "B. Conversational Language Understanding",
-        "C. Form Recognizer"
+        "C. Language service (PII detection)"
       ],
       "correctAnswers": [
-        "B",
-        "B"
+        "C"
       ],
-      "explanation": ""
+      "explanation": "The Language service with PII (Personally Identifiable Information) detection is correct because it can analyze text and identify sensitive information such as social security numbers, credit card numbers, email addresses, and other PII within documents.\n\nA is incorrect because Custom Vision is used for image classification and object detection, not for identifying sensitive information in text documents.\n\nB is incorrect because Conversational Language Understanding (CLU) is used to extract intents and entities from conversational input, not specifically for detecting sensitive information in documents."
     },
     {
       "id": 64,
-      "topic": "Topic 1 - You are building a tool that will process images fram retail stores and identify the products of competitors.",
-      "type": "MultipleChoice",
-      "questionText": "You are building a tool that will process images fram retail stores and identify the products of competitors. The solution must be trained on images provided by your company. Which Azure Al service should you use?",
+      "topic": "Describe Azure AI services for computer vision",
+      "type": "SingleChoice",
+      "questionText": "You are building a tool that will process images from retail stores and identify the products of competitors. The solution must be trained on images provided by your company. Which Azure AI service should you use?",
       "options": [
         "A. Form Recognizer",
-        "B. B. Custom Vision",
+        "B. Custom Vision",
         "C. Face",
         "D. Computer Vision"
       ],
       "correctAnswers": [
-        "A",
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Custom Vision is correct because it allows you to train a custom image classification or object detection model using your own images. Since the solution must be trained on images provided by your company, Custom Vision is the appropriate service.\n\nA is incorrect because Form Recognizer is used for extracting data from documents, not for identifying products in images.\n\nC is incorrect because Face is used for facial detection and recognition, not for product identification.\n\nD is incorrect because Computer Vision provides pre-built models and cannot be trained on custom images. Custom Vision is required when you need to train on your own data."
     },
     {
       "id": 65,
-      "topic": "Topic 7 - You need to identify street names based on street signs in phatographs.",
-      "type": "MultipleChoice",
-      "questionText": "You need to identify street names based on street signs in phatographs. Which type of computer vision should you use?",
+      "topic": "Describe Azure AI services for computer vision",
+      "type": "SingleChoice",
+      "questionText": "You need to identify street names based on street signs in photographs. Which type of computer vision should you use?",
       "options": [
-        "B. A. object detection",
+        "A. object detection",
         "B. optical character recognition (OCR)",
         "C. image classification",
         "D. facial recognition"
       ],
       "correctAnswers": [
-        "B",
-        "C"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Optical character recognition (OCR) is correct because reading text (street names) from images (street signs) is a text extraction task, which is exactly what OCR does.\n\nA is incorrect because object detection identifies and locates objects in images but does not read the text on them.\n\nC is incorrect because image classification assigns a category to an entire image but does not extract text from it.\n\nD is incorrect because facial recognition detects and identifies human faces, which is not relevant to reading street signs."
     },
     {
       "id": 66,
-      "topic": "Topic 1 - DRAG DROP",
-      "type": "MultipleChoice",
-      "questionText": "Match the types of computer vision workloads to the appropriate scenarios. To answer, drag the appropriate workload type from the column on the left to its scenario on the right. Each workload type may be used once, more than once, or not at all. NOTE: Each correct selection is worth one point. Workload Types Answer Area Image Classification | Image classification Generate captions for images. OCR Object detection Extract movie title names from movie poster images. Object Detection Optical character recognition (OCR) Locate vehicles in images. You have a bot that identifies the brand names of products in images of supermarket shelves. Which service does the bot use?",
+      "topic": "Describe Azure AI services for computer vision",
+      "type": "SingleChoice",
+      "questionText": "You have a bot that identifies the brand names of products in images of supermarket shelves. Which service does the bot use?",
       "options": [
-        "A. Al enrichment for Azure Search capabilities",
+        "A. AI enrichment for Azure Search capabilities",
         "B. Computer Vision Image Analysis capabilities",
         "C. Custom Vision Image Classification capabilities",
-        "D. Language Understanding capabilities  You are developing a chatbot solution in Azure. Which service should you use to determine a user's intent?  A, Translator",
-        "B. Language",
-        "C. Azure Cognitive Search",
-        "D. Speech  € Previous Questions  Get IT Certification  Unlock free, top-quality video courses on ExamTopics with a simple registration. Elevate your learning journey with our expertly curated content. Register now to access a diverse range of educational resources designed your success. Start learning today with ExamTopics!  Start Learning for free"
+        "D. Language Understanding capabilities"
       ],
       "correctAnswers": [
-        "C",
-        "A"
+        "B"
       ],
-      "explanation": ""
+      "explanation": "Computer Vision Image Analysis is correct because it includes a pre-built brand detection feature that can identify well-known commercial brand logos in images, making it ideal for identifying brand names from product images on supermarket shelves.\n\nA is incorrect because AI enrichment for Azure Search is used to add AI processing to search indexing pipelines, not specifically for identifying brands in images.\n\nC is incorrect because Custom Vision Image Classification requires training a custom model, whereas the question implies using a pre-built capability for brand recognition.\n\nD is incorrect because Language Understanding is used for interpreting natural language text, not for analyzing images."
     }
   ]
 }
