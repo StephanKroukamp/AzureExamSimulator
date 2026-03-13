@@ -1,0 +1,366 @@
+{
+  "examCode": "DP-700",
+  "examTitle": "Fabric Data Engineer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "OneLake - Architecture",
+      "type": "SingleChoice",
+      "questionText": "What is the primary storage layer that underpins all data items in Microsoft Fabric?",
+      "options": ["A. Azure Blob Storage.", "B. OneLake.", "C. Azure Data Lake Storage Gen1.", "D. SharePoint Online."],
+      "correctAnswers": ["B"],
+      "explanation": "OneLake is the single, unified, logical data lake for the entire organization in Microsoft Fabric. All Fabric workloads store their data in OneLake. While OneLake is built on Azure Data Lake Storage Gen2, it is not ADLS Gen1, plain Blob Storage, or SharePoint Online."
+    },
+    {
+      "id": 2,
+      "topic": "Lakehouses - Concept",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Fabric, a lakehouse combines the best features of which two data architectures?",
+      "options": ["A. Data warehouse and data mart.", "B. Data lake and data warehouse.", "C. OLTP database and data stream.", "D. Graph database and document store."],
+      "correctAnswers": ["B"],
+      "explanation": "A lakehouse in Microsoft Fabric combines the flexibility and scalability of a data lake with the structured query capabilities of a data warehouse. It is not a combination of warehouse and data mart, OLTP and streaming, or graph and document databases."
+    },
+    {
+      "id": 3,
+      "topic": "Delta Lake - Format",
+      "type": "SingleChoice",
+      "questionText": "What file format does Delta Lake use to store data in Microsoft Fabric lakehouses?",
+      "options": ["A. CSV files.", "B. JSON files.", "C. Parquet files with a transaction log.", "D. Avro files."],
+      "correctAnswers": ["C"],
+      "explanation": "Delta Lake stores data as Parquet files with a JSON-based transaction log (_delta_log) that provides ACID transactions, time travel, and schema enforcement. Delta does not use CSV, plain JSON, or Avro as the primary data storage format."
+    },
+    {
+      "id": 4,
+      "topic": "Spark - Notebooks",
+      "type": "SingleChoice",
+      "questionText": "Which programming languages are supported in Microsoft Fabric Spark notebooks?",
+      "options": ["A. Only Python.", "B. Python, Scala, SQL, and R.", "C. Only SQL and Python.", "D. Java and C# only."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Fabric Spark notebooks support PySpark (Python), Scala, Spark SQL, and R. They are not limited to only Python or only SQL and Python. Java and C# are not directly supported as notebook languages."
+    },
+    {
+      "id": 5,
+      "topic": "Data Pipelines - Overview",
+      "type": "SingleChoice",
+      "questionText": "Data pipelines in Microsoft Fabric are based on which existing Azure service's technology?",
+      "options": ["A. Azure Logic Apps.", "B. Azure Data Factory.", "C. Azure Functions.", "D. Azure Stream Analytics."],
+      "correctAnswers": ["B"],
+      "explanation": "Data pipelines in Microsoft Fabric are based on Azure Data Factory technology, providing a familiar experience for orchestrating data movement and transformation activities. They are not based on Logic Apps, Azure Functions, or Stream Analytics."
+    },
+    {
+      "id": 6,
+      "topic": "Medallion Architecture - Bronze Layer",
+      "type": "SingleChoice",
+      "questionText": "In the medallion architecture, what type of data does the bronze (raw) layer contain?",
+      "options": ["A. Fully transformed and aggregated business metrics.", "B. Raw, unprocessed data ingested from source systems.", "C. Curated data ready for end-user reporting.", "D. Machine learning model outputs."],
+      "correctAnswers": ["B"],
+      "explanation": "The bronze layer contains raw, unprocessed data as ingested from source systems with minimal or no transformation. Fully transformed metrics belong in the gold layer. Curated reporting data is in the gold layer. ML model outputs are typically a separate concern."
+    },
+    {
+      "id": 7,
+      "topic": "Medallion Architecture - Silver Layer",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of the silver layer in the medallion architecture?",
+      "options": ["A. To store raw data exactly as received from sources.", "B. To cleanse, validate, and deduplicate data from the bronze layer.", "C. To serve pre-aggregated data to dashboards.", "D. To archive historical data for compliance."],
+      "correctAnswers": ["B"],
+      "explanation": "The silver layer cleanses, validates, deduplicates, and conforms data from the bronze layer, creating an enterprise-level view of the data. Raw data storage is the bronze layer's purpose. Pre-aggregated dashboard data is in the gold layer. Archival is not the silver layer's primary function."
+    },
+    {
+      "id": 8,
+      "topic": "Medallion Architecture - Gold Layer",
+      "type": "SingleChoice",
+      "questionText": "Which layer of the medallion architecture is optimized for business-level aggregations and reporting?",
+      "options": ["A. Bronze layer.", "B. Silver layer.", "C. Gold layer.", "D. Platinum layer."],
+      "correctAnswers": ["C"],
+      "explanation": "The gold layer contains business-level aggregations and curated datasets optimized for reporting, dashboards, and analytics. The bronze layer has raw data. The silver layer has cleansed data. There is no standard platinum layer in the medallion architecture."
+    },
+    {
+      "id": 9,
+      "topic": "Data Ingestion - Copy Activity",
+      "type": "SingleChoice",
+      "questionText": "Which pipeline activity in Microsoft Fabric is used to move data from an external source into a lakehouse?",
+      "options": ["A. ForEach activity.", "B. Copy activity.", "C. Web activity.", "D. Delete activity."],
+      "correctAnswers": ["B"],
+      "explanation": "The Copy activity is used in Microsoft Fabric data pipelines to move data from a source to a destination, including loading data from external sources into a lakehouse. ForEach is a control flow activity. Web activity calls REST endpoints. Delete activity removes data."
+    },
+    {
+      "id": 10,
+      "topic": "Spark - Delta Table Operations",
+      "type": "SingleChoice",
+      "questionText": "Which Spark SQL command is used to perform an upsert (insert or update) operation on a Delta table?",
+      "options": ["A. INSERT INTO.", "B. UPDATE SET.", "C. MERGE INTO.", "D. REPLACE INTO."],
+      "correctAnswers": ["C"],
+      "explanation": "MERGE INTO is the Delta Lake command that performs upsert operations, matching source rows to target rows and executing insert, update, or delete actions based on conditions. INSERT INTO only inserts. UPDATE SET only updates. REPLACE INTO is not a standard Delta Lake command."
+    },
+    {
+      "id": 11,
+      "topic": "OneLake - Shortcuts",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of OneLake shortcuts in Microsoft Fabric?",
+      "options": ["A. To compress data for faster queries.", "B. To create references to data in other locations without copying it.", "C. To encrypt data at rest.", "D. To schedule data refresh intervals."],
+      "correctAnswers": ["B"],
+      "explanation": "OneLake shortcuts allow you to create references to data stored in other locations (other lakehouses, ADLS Gen2, Amazon S3) without physically copying the data. Shortcuts are not about compression, encryption, or refresh scheduling."
+    },
+    {
+      "id": 12,
+      "topic": "Lakehouses - SQL Endpoint",
+      "type": "SingleChoice",
+      "questionText": "What does the SQL analytics endpoint of a Fabric lakehouse provide?",
+      "options": ["A. The ability to run Apache Spark jobs.", "B. Read-only T-SQL query access to Delta tables.", "C. Full read-write SQL Server functionality.", "D. Direct access to source system databases."],
+      "correctAnswers": ["B"],
+      "explanation": "The SQL analytics endpoint provides read-only T-SQL query access to the Delta tables in a lakehouse, enabling SQL-based analytics without Spark. It does not run Spark jobs, provide full read-write SQL capabilities, or connect directly to source databases."
+    },
+    {
+      "id": 13,
+      "topic": "Spark - Optimization",
+      "type": "SingleChoice",
+      "questionText": "Which Delta Lake optimization command compacts small files into larger ones to improve read performance?",
+      "options": ["A. VACUUM.", "B. OPTIMIZE.", "C. ANALYZE TABLE.", "D. DESCRIBE HISTORY."],
+      "correctAnswers": ["B"],
+      "explanation": "The OPTIMIZE command compacts small Parquet files in a Delta table into larger files, improving read performance by reducing the number of files scanned. VACUUM removes old files no longer referenced. ANALYZE TABLE computes statistics. DESCRIBE HISTORY shows the table's transaction history."
+    },
+    {
+      "id": 14,
+      "topic": "Data Pipelines - Orchestration",
+      "type": "MultipleChoice",
+      "questionText": "Which two activities can you use in a Microsoft Fabric data pipeline to orchestrate the execution of Spark notebooks and other pipelines? (Choose two.)",
+      "options": ["A. Notebook activity.", "B. Invoke Pipeline activity.", "C. Stored Procedure activity.", "D. Azure Batch activity."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Notebook activity runs a Fabric Spark notebook, and the Invoke Pipeline activity triggers another pipeline, enabling orchestration of complex workflows. Stored Procedure activity runs SQL procedures. Azure Batch activity runs batch computing jobs and is not the standard way to orchestrate Fabric-native workloads."
+    },
+    {
+      "id": 15,
+      "topic": "Delta Lake - Time Travel",
+      "type": "SingleChoice",
+      "questionText": "How can you query a previous version of a Delta table to view its state at a specific point in time?",
+      "options": ["A. SELECT * FROM table VERSION AS OF 5.", "B. SELECT * FROM table ROLLBACK TO 5.", "C. SELECT * FROM table WHERE _version = 5.", "D. SELECT * FROM table RESTORE TO 5."],
+      "correctAnswers": ["A"],
+      "explanation": "Delta Lake's time travel feature allows querying historical versions using VERSION AS OF (by version number) or TIMESTAMP AS OF (by timestamp). ROLLBACK TO, WHERE _version, and RESTORE TO are not valid time travel query syntaxes (RESTORE is for restoring, not querying)."
+    },
+    {
+      "id": 16,
+      "topic": "Data Ingestion - Dataflows Gen2",
+      "type": "SingleChoice",
+      "questionText": "What is the underlying technology powering Dataflows Gen2 in Microsoft Fabric?",
+      "options": ["A. Apache Spark.", "B. Power Query Online.", "C. Azure Stream Analytics.", "D. SQL Server Integration Services."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataflows Gen2 in Microsoft Fabric are powered by Power Query Online, providing a low-code data transformation experience with the M language. They are not based on Apache Spark, Stream Analytics, or SSIS."
+    },
+    {
+      "id": 17,
+      "topic": "Spark - Libraries",
+      "type": "SingleChoice",
+      "questionText": "How can you add custom Python libraries to a Microsoft Fabric Spark environment?",
+      "options": ["A. Only through pip install in each notebook session.", "B. By uploading libraries to the Fabric workspace environment settings.", "C. By modifying the Azure VM directly.", "D. Custom libraries cannot be added."],
+      "correctAnswers": ["B"],
+      "explanation": "Custom Python libraries can be uploaded and managed through the Fabric workspace environment settings, making them available across notebook sessions. While inline pip install works for individual sessions, the environment settings approach is the managed way. There is no direct VM access in Fabric. Custom libraries are supported."
+    },
+    {
+      "id": 18,
+      "topic": "OneLake - Data Access",
+      "type": "SingleChoice",
+      "questionText": "Which protocol can you use to access OneLake data from external tools like Azure Storage Explorer?",
+      "options": ["A. FTP.", "B. SFTP only.", "C. Azure Data Lake Storage Gen2 APIs (DFS endpoint).", "D. NFS protocol."],
+      "correctAnswers": ["C"],
+      "explanation": "OneLake exposes data through Azure Data Lake Storage Gen2 compatible APIs using the DFS endpoint, allowing tools like Azure Storage Explorer and AzCopy to access data. FTP, SFTP alone, and NFS are not the primary access protocols for OneLake."
+    },
+    {
+      "id": 19,
+      "topic": "Lakehouses - Table and File Sections",
+      "type": "SingleChoice",
+      "questionText": "In a Microsoft Fabric lakehouse, what is the difference between the Tables section and the Files section?",
+      "options": ["A. Tables contain only CSV files; Files contain only Parquet files.", "B. Tables contain managed Delta tables; Files contain unstructured or semi-structured data.", "C. Tables are for production; Files are for development only.", "D. There is no difference; they are aliases for the same storage."],
+      "correctAnswers": ["B"],
+      "explanation": "The Tables section contains managed Delta tables that are queryable via Spark SQL and the SQL endpoint. The Files section stores unstructured or semi-structured data (CSV, JSON, images, etc.) that has not been converted to Delta tables. They serve different purposes and are not identical."
+    },
+    {
+      "id": 20,
+      "topic": "Data Pipelines - Parameters",
+      "type": "SingleChoice",
+      "questionText": "How can you make a data pipeline reusable for different source files in Microsoft Fabric?",
+      "options": ["A. Hard-code the file name in each Copy activity.", "B. Use pipeline parameters to pass dynamic values at runtime.", "C. Create a separate pipeline for each file.", "D. Use global variables that persist across pipeline runs."],
+      "correctAnswers": ["B"],
+      "explanation": "Pipeline parameters allow you to pass dynamic values at runtime, making pipelines reusable for different source files, dates, or configurations. Hard-coding reduces reusability. Creating separate pipelines is not scalable. Global variables do not persist across runs in Fabric pipelines."
+    },
+    {
+      "id": 21,
+      "topic": "Spark - Partitioning",
+      "type": "SingleChoice",
+      "questionText": "Why should you partition Delta tables by a low-cardinality column like year or region?",
+      "options": ["A. To increase the number of files for better parallelism.", "B. To enable partition pruning, which skips irrelevant data during queries.", "C. To reduce the total storage cost.", "D. To prevent concurrent writes."],
+      "correctAnswers": ["B"],
+      "explanation": "Partitioning by a low-cardinality column enables partition pruning, where the query engine skips entire partitions that do not match the filter criteria, significantly improving query performance. Partitioning does not aim to increase file count, reduce storage cost, or prevent concurrent writes."
+    },
+    {
+      "id": 22,
+      "topic": "Delta Lake - VACUUM",
+      "type": "SingleChoice",
+      "questionText": "What does the VACUUM command do on a Delta table?",
+      "options": ["A. Compacts small files into larger ones.", "B. Removes data files no longer referenced by the transaction log.", "C. Rebuilds the transaction log.", "D. Deletes all data from the table."],
+      "correctAnswers": ["B"],
+      "explanation": "VACUUM removes data files that are no longer referenced by the Delta table's transaction log and are older than the retention threshold (default 7 days). OPTIMIZE compacts files. VACUUM does not rebuild the log or delete all data."
+    },
+    {
+      "id": 23,
+      "topic": "Data Ingestion - Streaming",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Fabric feature enables real-time data ingestion from sources like Azure Event Hubs?",
+      "options": ["A. Dataflows Gen2.", "B. Eventstream.", "C. Data pipeline Copy activity.", "D. Power Query refresh."],
+      "correctAnswers": ["B"],
+      "explanation": "Eventstream in Microsoft Fabric captures, transforms, and routes real-time events from sources like Azure Event Hubs, IoT Hub, and custom applications. Dataflows Gen2 are for batch transformations. Copy activity is for batch data movement. Power Query refresh is for scheduled batch processing."
+    },
+    {
+      "id": 24,
+      "topic": "Spark - DataFrame Operations",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric Spark notebook, which method writes a DataFrame to a managed Delta table in the lakehouse?",
+      "options": ["A. df.write.format('csv').save('table_name').", "B. df.write.format('delta').saveAsTable('table_name').", "C. df.export('delta', 'table_name').", "D. df.to_sql('table_name')."],
+      "correctAnswers": ["B"],
+      "explanation": "The correct method is df.write.format('delta').saveAsTable('table_name'), which writes the DataFrame as a managed Delta table. Writing as CSV does not create a Delta table. The export and to_sql methods are not standard PySpark DataFrame methods."
+    },
+    {
+      "id": 25,
+      "topic": "OneLake - Governance",
+      "type": "SingleChoice",
+      "questionText": "How is data access governed in OneLake when users access data through Fabric workspaces?",
+      "options": ["A. Storage account keys shared with all users.", "B. Fabric workspace roles and item-level permissions.", "C. Anonymous access enabled by default.", "D. Only the Fabric admin can read data."],
+      "correctAnswers": ["B"],
+      "explanation": "Data access in OneLake is governed by Fabric workspace roles (Admin, Member, Contributor, Viewer) and item-level permissions. Storage keys are not exposed to users. Anonymous access is not enabled. Access is not limited to only Fabric admins."
+    },
+    {
+      "id": 26,
+      "topic": "Lakehouses - Schema Enforcement",
+      "type": "SingleChoice",
+      "questionText": "What happens when you try to write data with a new column to a Delta table that has schema enforcement enabled?",
+      "options": ["A. The new column is silently added.", "B. The write operation fails with a schema mismatch error.", "C. The new column data is ignored and existing columns are written.", "D. The table is automatically dropped and recreated."],
+      "correctAnswers": ["B"],
+      "explanation": "Delta Lake's schema enforcement rejects writes that do not match the table's schema, including new columns, by raising an error. To add new columns, you must use schema evolution (mergeSchema option). The column is not silently added, data is not ignored, and the table is not dropped."
+    },
+    {
+      "id": 27,
+      "topic": "Spark - V-Order Optimization",
+      "type": "SingleChoice",
+      "questionText": "What is V-Order optimization in Microsoft Fabric?",
+      "options": ["A. A sorting algorithm for in-memory DataFrames.", "B. A write-time optimization that applies special sorting and compression to Parquet files for faster reads.", "C. A method to encrypt data at rest.", "D. A scheduling algorithm for Spark job priority."],
+      "correctAnswers": ["B"],
+      "explanation": "V-Order is a Fabric-specific write-time optimization that arranges data within Parquet files using special sorting and compression techniques, significantly improving read performance across all Fabric engines. It is not a memory sorting algorithm, encryption method, or scheduling algorithm."
+    },
+    {
+      "id": 28,
+      "topic": "Data Pipelines - Error Handling",
+      "type": "MultipleChoice",
+      "questionText": "Which two mechanisms can you use to handle failures in Microsoft Fabric data pipelines? (Choose two.)",
+      "options": ["A. Activity-level retry policies.", "B. Failure output paths to route to error-handling activities.", "C. Automatic pipeline self-healing.", "D. Ignoring all errors by default."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Activity-level retry policies allow automatic retries with configurable intervals. Failure output paths connect failed activities to error-handling logic (e.g., sending alerts). Pipelines do not self-heal automatically. Ignoring errors is not a built-in mechanism and would lead to silent data loss."
+    },
+    {
+      "id": 29,
+      "topic": "Delta Lake - Schema Evolution",
+      "type": "SingleChoice",
+      "questionText": "Which option must be set when writing to a Delta table to allow automatic addition of new columns?",
+      "options": ["A. overwriteSchema = true.", "B. mergeSchema = true.", "C. autoSchemaUpdate = true.", "D. schemaEvolution = enabled."],
+      "correctAnswers": ["B"],
+      "explanation": "Setting mergeSchema to true allows Delta Lake to automatically add new columns from the incoming data to the existing table schema. overwriteSchema replaces the entire schema. autoSchemaUpdate and schemaEvolution are not valid Delta Lake options."
+    },
+    {
+      "id": 30,
+      "topic": "Spark - Caching",
+      "type": "SingleChoice",
+      "questionText": "When should you cache a DataFrame in a Fabric Spark notebook?",
+      "options": ["A. Always, for every DataFrame.", "B. When the same DataFrame is used in multiple subsequent actions.", "C. Only when writing to Delta tables.", "D. Never, as Fabric handles all caching automatically."],
+      "correctAnswers": ["B"],
+      "explanation": "Caching is beneficial when a DataFrame is reused across multiple actions, avoiding redundant computation. Caching every DataFrame wastes memory. Caching is not specific to Delta writes. While Fabric has optimizations, manual caching is still valuable for iterative workflows."
+    },
+    {
+      "id": 31,
+      "topic": "Data Ingestion - Batch vs Streaming",
+      "type": "SingleChoice",
+      "questionText": "Which approach should you use to ingest data that arrives continuously from IoT sensors into a Fabric lakehouse?",
+      "options": ["A. Scheduled batch pipeline running hourly.", "B. Eventstream with streaming ingestion.", "C. Manual file upload.", "D. Dataflows Gen2 with daily refresh."],
+      "correctAnswers": ["B"],
+      "explanation": "Eventstream provides real-time streaming ingestion ideal for continuous IoT sensor data. A scheduled batch pipeline introduces latency. Manual upload is not scalable. Daily Dataflows Gen2 refresh would miss most of the data timeliness requirements."
+    },
+    {
+      "id": 32,
+      "topic": "OneLake - File Formats",
+      "type": "MultipleChoice",
+      "questionText": "Which two file formats can be stored in the Files section of a Fabric lakehouse? (Choose two.)",
+      "options": ["A. CSV files.", "B. JSON files.", "C. Only Delta format.", "D. Only Parquet format."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Files section of a lakehouse can store any file format including CSV, JSON, images, videos, and more. It is not restricted to only Delta or only Parquet formats. The Tables section uses Delta format, but the Files section is format-agnostic."
+    },
+    {
+      "id": 33,
+      "topic": "Lakehouses - Semantic Model",
+      "type": "SingleChoice",
+      "questionText": "What is automatically created for each Fabric lakehouse to enable Power BI reporting?",
+      "options": ["A. A Power BI dataflow.", "B. A default semantic model (dataset).", "C. A paginated report.", "D. A Power BI dashboard."],
+      "correctAnswers": ["B"],
+      "explanation": "Each Fabric lakehouse automatically creates a default semantic model (formerly dataset) based on the Delta tables, enabling direct Power BI reporting. It does not automatically create dataflows, paginated reports, or dashboards."
+    },
+    {
+      "id": 34,
+      "topic": "Spark - Broadcast Join",
+      "type": "SingleChoice",
+      "questionText": "When joining a large fact table with a small dimension table in Spark, which optimization technique should you use?",
+      "options": ["A. Sort-merge join.", "B. Broadcast join.", "C. Cross join.", "D. Anti join."],
+      "correctAnswers": ["B"],
+      "explanation": "A broadcast join sends the small dimension table to all executors, avoiding an expensive shuffle of the large fact table. Sort-merge join requires shuffling both tables. Cross join produces a Cartesian product. Anti join filters non-matching rows, which is a different use case."
+    },
+    {
+      "id": 35,
+      "topic": "Data Pipelines - Triggers",
+      "type": "SingleChoice",
+      "questionText": "How can you schedule a Microsoft Fabric data pipeline to run at regular intervals?",
+      "options": ["A. By adding a schedule trigger to the pipeline.", "B. By manually running it each time.", "C. Pipelines can only be triggered by external APIs.", "D. Scheduling is not supported in Fabric pipelines."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Fabric data pipelines support schedule triggers that allow you to configure recurring execution at specified intervals (hourly, daily, etc.). Manual execution is an option but not for automation. External APIs can trigger pipelines but scheduling is natively supported."
+    },
+    {
+      "id": 36,
+      "topic": "Delta Lake - Z-Order",
+      "type": "SingleChoice",
+      "questionText": "What does Z-Order (ZORDER BY) achieve when used with the OPTIMIZE command on a Delta table?",
+      "options": ["A. It sorts data alphabetically by table name.", "B. It co-locates related data in the same files based on the specified columns, improving data skipping.", "C. It compresses the transaction log.", "D. It creates a secondary index on the specified columns."],
+      "correctAnswers": ["B"],
+      "explanation": "Z-Order co-locates related data in the same set of files based on the specified columns, enabling more effective data skipping during queries. It does not sort by table name, compress the transaction log, or create secondary indexes."
+    },
+    {
+      "id": 37,
+      "topic": "Spark - Managed vs External Tables",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between a managed table and an external table in a Fabric lakehouse?",
+      "options": ["A. Managed tables are faster than external tables.", "B. Dropping a managed table deletes both metadata and data; dropping an external table deletes only metadata.", "C. External tables must be in CSV format.", "D. Managed tables cannot be queried with SQL."],
+      "correctAnswers": ["B"],
+      "explanation": "When you drop a managed table, both the metadata and the underlying data files are deleted. When you drop an external table, only the metadata is removed and the data files remain. Performance is not inherently different. External tables support any Delta-compatible format. Both types support SQL queries."
+    },
+    {
+      "id": 38,
+      "topic": "Data Ingestion - Connectors",
+      "type": "MultipleChoice",
+      "questionText": "Which two sources can Microsoft Fabric data pipelines connect to for data ingestion? (Choose two.)",
+      "options": ["A. Azure SQL Database.", "B. Amazon S3.", "C. Physical paper documents.", "D. Floppy disk drives."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Fabric data pipelines support a wide range of connectors including Azure SQL Database, Amazon S3, and many other cloud and on-premises sources. Physical paper documents and floppy drives are not digital data sources that can be connected to via data pipelines."
+    },
+    {
+      "id": 39,
+      "topic": "OneLake - Workspaces",
+      "type": "SingleChoice",
+      "questionText": "In the OneLake hierarchy, what organizational unit contains lakehouses, warehouses, and other Fabric items?",
+      "options": ["A. Tenant.", "B. Capacity.", "C. Workspace.", "D. Domain."],
+      "correctAnswers": ["C"],
+      "explanation": "Workspaces in Fabric are the organizational containers that hold items like lakehouses, warehouses, notebooks, pipelines, and reports. The tenant is the top-level organization. Capacity provides compute resources. Domains group workspaces for governance but do not directly contain items."
+    },
+    {
+      "id": 40,
+      "topic": "Spark - Performance Tuning",
+      "type": "SingleChoice",
+      "questionText": "You notice that a Spark job in Fabric has many small tasks and high overhead. What should you do to improve performance?",
+      "options": ["A. Increase the number of partitions.", "B. Coalesce the DataFrame to reduce the number of partitions.", "C. Add more columns to the DataFrame.", "D. Disable caching."],
+      "correctAnswers": ["B"],
+      "explanation": "Too many small partitions create scheduling overhead. Using coalesce reduces the number of partitions without a full shuffle, improving performance. Increasing partitions would worsen the problem. Adding columns does not address partition count. Disabling caching is unrelated to partition overhead."
+    }
+  ]
+}

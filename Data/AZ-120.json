@@ -1,0 +1,366 @@
+{
+  "examCode": "AZ-120",
+  "examTitle": "Planning and Administering Azure for SAP Workloads",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "SAP on Azure VMs - VM Selection",
+      "type": "SingleChoice",
+      "questionText": "You are planning to deploy an SAP HANA production database on Azure. The database requires 4 TB of memory. Which VM series should you use?",
+      "options": ["A. Dv5-series.", "B. Mv2-series.", "C. Ev5-series.", "D. Lsv3-series."],
+      "correctAnswers": ["B"],
+      "explanation": "The Mv2-series VMs are specifically designed for SAP HANA workloads and offer up to 11.4 TB of memory. Dv5-series are general purpose and lack the memory capacity needed. Ev5-series are memory-optimized but max out below 4 TB. Lsv3-series are storage-optimized, not suited for large in-memory databases like HANA."
+    },
+    {
+      "id": 2,
+      "topic": "HANA Large Instances - Deployment",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires an SAP HANA deployment with 12 TB of memory on a dedicated bare-metal server. Which Azure offering should you recommend?",
+      "options": ["A. Azure Virtual Machines M-series.", "B. Azure HANA Large Instances.", "C. Azure Dedicated Host.", "D. Azure VMware Solution."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure HANA Large Instances (HLI) provide bare-metal servers purpose-built for SAP HANA with memory up to 24 TB. While M-series VMs support HANA, they currently max out at around 11.4 TB. Azure Dedicated Host provides isolated physical servers but still runs VMs. Azure VMware Solution is for VMware workloads, not SAP HANA bare-metal."
+    },
+    {
+      "id": 3,
+      "topic": "Azure Center for SAP - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a unified management experience for deploying, monitoring, and managing SAP workloads on Azure?",
+      "options": ["A. Azure Migrate.", "B. Azure Center for SAP solutions.", "C. Azure Site Recovery.", "D. Azure Resource Manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Center for SAP solutions (ACSS) provides an end-to-end management experience for SAP workloads on Azure, including deployment, quality checks, monitoring, and management. Azure Migrate is for migration assessment. Azure Site Recovery is for disaster recovery. Azure Resource Manager is the deployment and management service for Azure resources generally."
+    },
+    {
+      "id": 4,
+      "topic": "HA/DR for SAP - High Availability",
+      "type": "SingleChoice",
+      "questionText": "You need to configure high availability for SAP ASCS/SCS instances on Azure VMs running Windows Server. Which clustering technology should you use?",
+      "options": ["A. Pacemaker cluster.", "B. Windows Server Failover Clustering (WSFC).", "C. Azure Load Balancer alone.", "D. Azure Traffic Manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Windows Server Failover Clustering (WSFC) is the supported clustering technology for SAP ASCS/SCS high availability on Windows. Pacemaker is used for Linux-based SAP HA configurations. Azure Load Balancer is used in conjunction with WSFC but cannot provide clustering alone. Azure Traffic Manager is for DNS-based traffic routing, not application clustering."
+    },
+    {
+      "id": 5,
+      "topic": "SAP NetWeaver - Architecture",
+      "type": "SingleChoice",
+      "questionText": "In a three-tier SAP NetWeaver deployment on Azure, which components reside in the application tier?",
+      "options": ["A. SAP HANA database and backup storage.", "B. ASCS/SCS instance and application servers.", "C. Web Dispatcher and Azure Load Balancer.", "D. Azure ExpressRoute and VPN Gateway."],
+      "correctAnswers": ["B"],
+      "explanation": "The application tier in a three-tier SAP NetWeaver deployment contains the ASCS/SCS (ABAP SAP Central Services/SAP Central Services) instance and the application servers (PAS and AAS). The database resides in the database tier. Web Dispatcher is in the web/presentation tier. ExpressRoute and VPN Gateway are networking components."
+    },
+    {
+      "id": 6,
+      "topic": "Sizing - SAP Benchmarks",
+      "type": "SingleChoice",
+      "questionText": "Which metric is used to measure and compare the performance of SAP systems across different hardware platforms?",
+      "options": ["A. IOPS.", "B. SAPS (SAP Application Performance Standard).", "C. vCPU count.", "D. Memory bandwidth."],
+      "correctAnswers": ["B"],
+      "explanation": "SAPS (SAP Application Performance Standard) is a hardware-independent unit of measurement that describes the performance of a system configuration in the SAP environment. IOPS measures storage throughput. vCPU count and memory bandwidth are hardware metrics but not SAP-specific performance measurements."
+    },
+    {
+      "id": 7,
+      "topic": "SAP on Azure VMs - Storage Configuration",
+      "type": "SingleChoice",
+      "questionText": "For an SAP HANA production database, which Azure disk type is recommended for the /hana/data volume to meet the required throughput and latency?",
+      "options": ["A. Standard HDD.", "B. Standard SSD.", "C. Premium SSD or Ultra Disk.", "D. Ephemeral OS disk."],
+      "correctAnswers": ["C"],
+      "explanation": "Premium SSD or Ultra Disk is recommended for SAP HANA /hana/data volumes because they provide the necessary low latency and high throughput. Standard HDD and Standard SSD do not meet SAP HANA storage KPIs for data volumes. Ephemeral OS disks are temporary and not suitable for database data storage."
+    },
+    {
+      "id": 8,
+      "topic": "HA/DR for SAP - Disaster Recovery",
+      "type": "MultipleChoice",
+      "questionText": "Which two technologies can you use to implement disaster recovery for SAP HANA databases across Azure regions? (Choose two.)",
+      "options": ["A. SAP HANA System Replication (HSR).", "B. Azure Blob Storage snapshots only.", "C. Azure Site Recovery for the application tier.", "D. SQL Server Always On availability groups."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "SAP HANA System Replication (HSR) provides real-time replication of the HANA database to a secondary region. Azure Site Recovery can replicate the SAP application servers to a DR region. Blob Storage snapshots alone do not provide continuous replication for DR. SQL Server Always On is irrelevant since the database is HANA, not SQL Server."
+    },
+    {
+      "id": 9,
+      "topic": "SAP on Azure VMs - Networking",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure low-latency network communication between SAP application servers and the HANA database within the same Azure region. What should you configure?",
+      "options": ["A. Azure ExpressRoute Global Reach.", "B. Proximity placement groups.", "C. Azure Front Door.", "D. Virtual network peering across regions."],
+      "correctAnswers": ["B"],
+      "explanation": "Proximity placement groups ensure that Azure VMs are physically located close to each other within a datacenter, reducing network latency between SAP application and database tiers. ExpressRoute Global Reach connects on-premises networks. Azure Front Door is a global load balancer. Cross-region VNet peering introduces higher latency."
+    },
+    {
+      "id": 10,
+      "topic": "Azure Center for SAP - Quality Checks",
+      "type": "SingleChoice",
+      "questionText": "What does Azure Center for SAP solutions use to validate that an SAP deployment meets best practices and configuration requirements?",
+      "options": ["A. Azure Advisor recommendations only.", "B. Quality checks and configuration validation.", "C. Azure Policy guest configuration.", "D. Microsoft Defender for Cloud secure score."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Center for SAP solutions includes built-in quality checks that validate SAP deployments against best practices, including OS configuration, storage layout, and networking. While Azure Advisor provides general recommendations, ACSS has SAP-specific quality checks. Azure Policy and Defender for Cloud serve different governance and security purposes."
+    },
+    {
+      "id": 11,
+      "topic": "SAP on Azure VMs - Operating Systems",
+      "type": "SingleChoice",
+      "questionText": "Which Linux distribution is certified and supported by SAP for running SAP HANA on Azure VMs?",
+      "options": ["A. Ubuntu 20.04 LTS.", "B. SUSE Linux Enterprise Server (SLES) for SAP Applications.", "C. CentOS 8.", "D. Fedora Server 35."],
+      "correctAnswers": ["B"],
+      "explanation": "SUSE Linux Enterprise Server (SLES) for SAP Applications is one of the SAP-certified and supported Linux distributions for running SAP HANA on Azure. Red Hat Enterprise Linux for SAP is also certified. Ubuntu, CentOS, and Fedora are not certified by SAP for HANA production workloads on Azure."
+    },
+    {
+      "id": 12,
+      "topic": "HANA Large Instances - Connectivity",
+      "type": "SingleChoice",
+      "questionText": "How do SAP HANA Large Instances connect to your Azure virtual network?",
+      "options": ["A. Through a site-to-site VPN.", "B. Through an ExpressRoute circuit to the HLI stamp.", "C. Through public IP addresses.", "D. Through Azure Private Link."],
+      "correctAnswers": ["B"],
+      "explanation": "HANA Large Instances connect to your Azure virtual network through a dedicated ExpressRoute circuit that links the HLI bare-metal stamp to your VNet. Site-to-site VPN does not provide the required bandwidth and low latency. HLI instances do not use public IP addresses or Azure Private Link for this connectivity."
+    },
+    {
+      "id": 13,
+      "topic": "HA/DR for SAP - Linux Clustering",
+      "type": "SingleChoice",
+      "questionText": "On SUSE Linux Enterprise Server, which fencing mechanism is recommended for SAP high availability clusters on Azure?",
+      "options": ["A. SBD (Storage-Based Death) with iSCSI target server or Azure shared disks.", "B. Physical power fencing.", "C. IPMI-based fencing.", "D. Manual fencing by an administrator."],
+      "correctAnswers": ["A"],
+      "explanation": "SBD (Storage-Based Death) fencing using an iSCSI target server or Azure shared disks is the recommended STONITH mechanism for Pacemaker clusters on Azure. The Azure fence agent is another supported option. Physical power and IPMI fencing are not available in public cloud. Manual fencing is not suitable for automated HA."
+    },
+    {
+      "id": 14,
+      "topic": "SAP NetWeaver - Web Dispatcher",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of SAP Web Dispatcher in an SAP NetWeaver deployment on Azure?",
+      "options": ["A. To serve as the database load balancer.", "B. To distribute HTTP/HTTPS requests across SAP application servers.", "C. To manage SAP license keys.", "D. To provide backup and recovery services."],
+      "correctAnswers": ["B"],
+      "explanation": "SAP Web Dispatcher acts as a reverse proxy and load balancer for HTTP/HTTPS traffic, distributing requests to SAP application servers. It does not manage database connections, license keys, or backup services. In Azure deployments, it typically sits behind an Azure Application Gateway or Azure Load Balancer."
+    },
+    {
+      "id": 15,
+      "topic": "Sizing - Memory Requirements",
+      "type": "SingleChoice",
+      "questionText": "When sizing an SAP HANA database on Azure, which tool should you use to determine the required memory for the HANA instance?",
+      "options": ["A. Azure Pricing Calculator.", "B. SAP Quick Sizer.", "C. Azure Migrate assessment.", "D. SAP Solution Manager."],
+      "correctAnswers": ["B"],
+      "explanation": "SAP Quick Sizer is the official SAP tool for determining hardware requirements including memory, CPU, and storage for SAP deployments. Azure Pricing Calculator estimates costs, not sizing. Azure Migrate assesses existing on-premises workloads. SAP Solution Manager is for application lifecycle management, not hardware sizing."
+    },
+    {
+      "id": 16,
+      "topic": "SAP on Azure VMs - Accelerated Networking",
+      "type": "SingleChoice",
+      "questionText": "Which feature must be enabled on Azure VMs running SAP workloads to reduce network latency and jitter?",
+      "options": ["A. Azure CDN.", "B. Accelerated Networking.", "C. Azure DDoS Protection.", "D. Network Watcher."],
+      "correctAnswers": ["B"],
+      "explanation": "Accelerated Networking is a mandatory requirement for SAP workloads on Azure as it provides single root I/O virtualization (SR-IOV) to significantly reduce latency and jitter. Azure CDN is for content delivery. DDoS Protection is for security. Network Watcher is for monitoring and diagnostics."
+    },
+    {
+      "id": 17,
+      "topic": "HA/DR for SAP - HANA System Replication",
+      "type": "SingleChoice",
+      "questionText": "In SAP HANA System Replication, which replication mode provides zero data loss with synchronous replication?",
+      "options": ["A. ASYNC mode.", "B. SYNC mode.", "C. SYNCMEM mode.", "D. LOG_REPLAY mode."],
+      "correctAnswers": ["B"],
+      "explanation": "SYNC mode ensures zero data loss by waiting for the secondary to persist the log to disk before acknowledging the transaction. ASYNC mode may lose committed transactions during failover. SYNCMEM waits for log receipt in memory but not disk persistence. LOG_REPLAY is a log replay mode, not a replication mode."
+    },
+    {
+      "id": 18,
+      "topic": "Azure Center for SAP - Monitoring",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service integrates with Azure Center for SAP solutions to provide monitoring of SAP HANA, NetWeaver, and OS metrics?",
+      "options": ["A. Azure Sentinel.", "B. Azure Monitor for SAP solutions.", "C. Azure Service Health.", "D. Azure Cost Management."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Monitor for SAP solutions provides monitoring capabilities for SAP HANA databases, NetWeaver application servers, high availability clusters, and OS-level metrics. Azure Sentinel is a SIEM solution. Azure Service Health monitors Azure service status. Azure Cost Management tracks spending."
+    },
+    {
+      "id": 19,
+      "topic": "SAP on Azure VMs - Availability Zones",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy SAP application servers with the highest SLA possible using Azure infrastructure. What deployment model should you use?",
+      "options": ["A. Single VM with Premium SSD.", "B. Availability Set with two fault domains.", "C. Availability Zones with VMs in different zones.", "D. Virtual machine scale sets."],
+      "correctAnswers": ["C"],
+      "explanation": "Deploying VMs across Availability Zones provides the highest SLA (99.99%) for SAP workloads by distributing VMs across physically separate datacenter locations within a region. A single VM with Premium SSD gives 99.9%. Availability Sets provide 99.95%. VM scale sets are not the standard deployment model for SAP."
+    },
+    {
+      "id": 20,
+      "topic": "SAP on Azure VMs - Backup",
+      "type": "MultipleChoice",
+      "questionText": "Which two methods are supported for backing up SAP HANA databases on Azure? (Choose two.)",
+      "options": ["A. Azure Backup for SAP HANA with Backint.", "B. HANA native backup to Azure Blob Storage via Backint.", "C. Windows Server Backup.", "D. Azure Import/Export service."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Azure Backup for SAP HANA uses the Backint interface to provide enterprise-grade backup. HANA native backup can also stream backups to Azure Blob Storage via the Backint interface or file-based backups. Windows Server Backup is not applicable to HANA on Linux. Azure Import/Export is for offline data transfer, not database backup."
+    },
+    {
+      "id": 21,
+      "topic": "SAP NetWeaver - Database Options",
+      "type": "SingleChoice",
+      "questionText": "Which of the following databases is supported for SAP NetWeaver application servers on Azure VMs in addition to SAP HANA?",
+      "options": ["A. Azure Cosmos DB.", "B. SQL Server.", "C. Azure Table Storage.", "D. Redis Cache."],
+      "correctAnswers": ["B"],
+      "explanation": "SQL Server is a supported database for SAP NetWeaver on Azure, along with SAP HANA, Oracle, IBM Db2, and SAP ASE. Azure Cosmos DB, Azure Table Storage, and Redis Cache are Azure-native services not supported as SAP NetWeaver backends."
+    },
+    {
+      "id": 22,
+      "topic": "Sizing - Scale-Up vs Scale-Out",
+      "type": "SingleChoice",
+      "questionText": "For SAP HANA OLTP workloads on Azure, which deployment model is recommended by SAP?",
+      "options": ["A. Scale-out with multiple nodes.", "B. Scale-up (single node).", "C. Distributed across multiple regions.", "D. Containerized with Kubernetes."],
+      "correctAnswers": ["B"],
+      "explanation": "For SAP HANA OLTP workloads, SAP recommends a scale-up (single node) deployment model. Scale-out is supported for OLAP/BW workloads but adds complexity. Distributing across regions introduces latency. Containerized HANA is not a supported production deployment model on Azure."
+    },
+    {
+      "id": 23,
+      "topic": "SAP on Azure VMs - Write Accelerator",
+      "type": "SingleChoice",
+      "questionText": "For which SAP HANA volume is Azure Write Accelerator required on M-series VMs?",
+      "options": ["A. /hana/shared.", "B. /hana/data.", "C. /hana/log.", "D. /usr/sap."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Write Accelerator is required for the /hana/log volume on M-series VMs to meet the SAP HANA storage KPIs for redo log write latency. The /hana/data volume uses Premium SSD or Ultra Disk without Write Accelerator. /hana/shared and /usr/sap do not have the same strict latency requirements."
+    },
+    {
+      "id": 24,
+      "topic": "HA/DR for SAP - Azure Load Balancer",
+      "type": "SingleChoice",
+      "questionText": "When configuring an Azure Standard Load Balancer for SAP ASCS/SCS high availability, which setting must be enabled for the load balancing rule?",
+      "options": ["A. Session affinity.", "B. Floating IP (direct server return).", "C. Outbound SNAT.", "D. Gateway load balancer chaining."],
+      "correctAnswers": ["B"],
+      "explanation": "Floating IP (direct server return) must be enabled on the load balancing rule for SAP ASCS/SCS HA configurations. This allows the virtual IP address to be moved between cluster nodes. Session affinity is not required. Outbound SNAT and gateway chaining are unrelated to SAP HA clustering."
+    },
+    {
+      "id": 25,
+      "topic": "HANA Large Instances - SKUs",
+      "type": "SingleChoice",
+      "questionText": "Which HANA Large Instance SKU type provides the highest memory capacity for very large SAP HANA databases?",
+      "options": ["A. Type I (S72).", "B. Type II (S384).", "C. Type II (S896).", "D. Type I (S192)."],
+      "correctAnswers": ["C"],
+      "explanation": "The Type II S896 HLI SKU provides up to 24 TB of memory, which is the highest memory capacity available in the HANA Large Instances offering. S72 provides 768 GB, S384 provides 8 TB, and S192 provides 4 TB. Type II SKUs generally offer larger memory configurations than Type I."
+    },
+    {
+      "id": 26,
+      "topic": "Azure Center for SAP - Virtual Instance",
+      "type": "SingleChoice",
+      "questionText": "In Azure Center for SAP solutions, what does a Virtual Instance for SAP (VIS) represent?",
+      "options": ["A. A single Azure VM running SAP.", "B. The entire SAP system including all tiers as a logical resource.", "C. An SAP license subscription.", "D. A backup copy of the SAP system."],
+      "correctAnswers": ["B"],
+      "explanation": "A Virtual Instance for SAP (VIS) is a logical Azure resource that represents the entire SAP system, including database, central services, and application server instances. It is not limited to a single VM, not related to licensing, and not a backup copy."
+    },
+    {
+      "id": 27,
+      "topic": "SAP on Azure VMs - ANF for SAP",
+      "type": "SingleChoice",
+      "questionText": "Which Azure storage service is recommended for the /hana/shared file system in an SAP HANA scale-out deployment?",
+      "options": ["A. Azure Blob Storage.", "B. Azure Files (SMB).", "C. Azure NetApp Files (ANF).", "D. Azure Queue Storage."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure NetApp Files (ANF) is the recommended NFS storage solution for /hana/shared in SAP HANA scale-out deployments due to its high performance and NFS protocol support. Azure Blob Storage does not support NFS natively for this use case. Azure Files SMB is not the recommended protocol. Azure Queue Storage is for messaging."
+    },
+    {
+      "id": 28,
+      "topic": "HA/DR for SAP - Pacemaker Cluster",
+      "type": "MultipleChoice",
+      "questionText": "Which two resources are typically managed by a Pacemaker cluster in an SAP HANA high availability setup on Azure? (Choose two.)",
+      "options": ["A. SAP HANA System Replication takeover.", "B. Virtual IP address management.", "C. Azure subscription billing.", "D. SAP license key rotation."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "In an SAP HANA HA setup, Pacemaker manages the HANA System Replication takeover (promoting the secondary to primary) and the virtual IP address (moving it to the active node). Subscription billing and license key rotation are not cluster-managed resources."
+    },
+    {
+      "id": 29,
+      "topic": "SAP on Azure VMs - ExpressRoute",
+      "type": "SingleChoice",
+      "questionText": "Your organization has SAP systems on-premises and on Azure. You need to establish a private, high-bandwidth connection between the two environments. What should you implement?",
+      "options": ["A. Azure VPN Gateway with IPsec.", "B. Azure ExpressRoute.", "C. Azure Bastion.", "D. Azure Application Gateway."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure ExpressRoute provides a private, dedicated, high-bandwidth connection between on-premises networks and Azure, ideal for SAP workloads requiring consistent network performance. VPN Gateway uses the public internet and has lower bandwidth. Azure Bastion is for secure VM access. Application Gateway is a web traffic load balancer."
+    },
+    {
+      "id": 30,
+      "topic": "Sizing - Storage Throughput",
+      "type": "SingleChoice",
+      "questionText": "According to SAP HANA storage requirements, what is the minimum required sequential write throughput for the /hana/log volume?",
+      "options": ["A. 50 MB/s.", "B. 125 MB/s.", "C. 250 MB/s.", "D. 500 MB/s."],
+      "correctAnswers": ["C"],
+      "explanation": "SAP requires a minimum of 250 MB/s sequential write throughput for the /hana/log volume to ensure adequate redo log performance. Values below 250 MB/s do not meet the SAP HANA storage KPIs. This is documented in the SAP HANA TDI storage requirements."
+    },
+    {
+      "id": 31,
+      "topic": "SAP on Azure VMs - Encryption",
+      "type": "SingleChoice",
+      "questionText": "Which encryption method is recommended for SAP HANA data-at-rest encryption on Azure?",
+      "options": ["A. Azure Disk Encryption with BitLocker.", "B. SAP HANA native data encryption.", "C. Azure Storage Service Encryption only.", "D. TDE (Transparent Data Encryption) for SQL Server."],
+      "correctAnswers": ["B"],
+      "explanation": "SAP HANA native data encryption is the recommended approach for encrypting HANA data at rest, as it is optimized for HANA's in-memory architecture. Azure Disk Encryption with BitLocker is for Windows, and HANA runs on Linux. Storage Service Encryption encrypts at the storage layer but is not HANA-aware. TDE is for SQL Server, not HANA."
+    },
+    {
+      "id": 32,
+      "topic": "SAP NetWeaver - Transport Management",
+      "type": "SingleChoice",
+      "questionText": "In an SAP landscape on Azure with Development, Quality, and Production systems, where should the /usr/sap/trans transport directory be shared from?",
+      "options": ["A. An Azure Blob Storage account.", "B. A shared NFS file system accessible to all SAP systems.", "C. Each system's local disk.", "D. An Azure SQL Database."],
+      "correctAnswers": ["B"],
+      "explanation": "The SAP transport directory (/usr/sap/trans) should be on a shared NFS file system (such as Azure NetApp Files or NFS on Azure Files) accessible to all systems in the landscape. Blob Storage does not provide NFS mounts natively for this purpose. Local disks do not allow sharing. Azure SQL Database is not a file system."
+    },
+    {
+      "id": 33,
+      "topic": "HA/DR for SAP - ASCS/ERS",
+      "type": "SingleChoice",
+      "questionText": "In an SAP HA architecture on Linux, what is the role of the Enqueue Replication Server (ERS)?",
+      "options": ["A. To replicate the SAP HANA database.", "B. To maintain a copy of the enqueue lock table for failover.", "C. To distribute HTTP requests to application servers.", "D. To manage Azure resource group deployments."],
+      "correctAnswers": ["B"],
+      "explanation": "The Enqueue Replication Server (ERS) maintains a replica of the enqueue lock table from the ASCS instance. During a failover, the lock table is preserved, preventing lock loss and ensuring application continuity. Database replication is handled by HANA System Replication. HTTP distribution is done by Web Dispatcher. Resource group management is an Azure function."
+    },
+    {
+      "id": 34,
+      "topic": "Azure Center for SAP - Deployment",
+      "type": "SingleChoice",
+      "questionText": "When using Azure Center for SAP solutions to deploy a new SAP system, which deployment type creates the infrastructure and installs SAP software?",
+      "options": ["A. Register existing SAP system.", "B. Create new infrastructure only.", "C. Deploy with SAP media (infrastructure + software installation).", "D. Import from SAP Cloud Platform."],
+      "correctAnswers": ["C"],
+      "explanation": "The 'Deploy with SAP media' option in Azure Center for SAP solutions creates the Azure infrastructure and installs SAP software using the provided SAP installation media. Registering an existing system only discovers already-deployed SAP. Infrastructure-only deployment does not install SAP. Import from SAP Cloud Platform is not an ACSS feature."
+    },
+    {
+      "id": 35,
+      "topic": "SAP on Azure VMs - Network Security",
+      "type": "MultipleChoice",
+      "questionText": "Which two network security measures should you implement for SAP systems on Azure? (Choose two.)",
+      "options": ["A. Network Security Groups (NSGs) to restrict traffic between SAP tiers.", "B. Azure Firewall or network virtual appliance for internet-bound traffic.", "C. Public IP addresses on all SAP VMs for direct access.", "D. Open all ports between all subnets for maximum connectivity."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "NSGs should be used to restrict traffic between SAP tiers (database, application, web) following the principle of least privilege. Azure Firewall or an NVA should control internet-bound traffic. Public IPs on SAP VMs expose them to the internet. Opening all ports removes network segmentation security."
+    },
+    {
+      "id": 36,
+      "topic": "HANA Large Instances - OS Responsibility",
+      "type": "SingleChoice",
+      "questionText": "For SAP HANA Large Instances, who is responsible for operating system patching and maintenance?",
+      "options": ["A. Microsoft manages OS patching completely.", "B. The customer is responsible for OS patching.", "C. SAP manages OS patching.", "D. OS patching is not required for bare-metal instances."],
+      "correctAnswers": ["B"],
+      "explanation": "With HANA Large Instances, the customer is responsible for operating system patching and maintenance. Microsoft provides the bare-metal infrastructure, but OS-level management is the customer's responsibility. SAP does not manage Azure infrastructure. All systems require OS patching for security and compliance."
+    },
+    {
+      "id": 37,
+      "topic": "SAP on Azure VMs - Cost Optimization",
+      "type": "SingleChoice",
+      "questionText": "Which Azure feature can significantly reduce costs for non-production SAP VMs that are only needed during business hours?",
+      "options": ["A. Azure Reserved Instances for 3 years.", "B. Auto-shutdown schedule or Azure Automation runbooks.", "C. Spot VMs.", "D. Azure Free Tier."],
+      "correctAnswers": ["B"],
+      "explanation": "Auto-shutdown schedules or Azure Automation runbooks can stop non-production SAP VMs outside business hours, saving compute costs. Reserved Instances require a commitment and are better for always-on production. Spot VMs can be evicted and are unsuitable for SAP. The Azure Free Tier does not cover SAP-class VMs."
+    },
+    {
+      "id": 38,
+      "topic": "Sizing - Migration Assessment",
+      "type": "SingleChoice",
+      "questionText": "Which SAP tool generates sizing reports for migrating existing SAP systems to Azure by analyzing current workload data?",
+      "options": ["A. SAP Early Watch Alert.", "B. SAP Readiness Check.", "C. SAP on Azure sizing report via SAP Quick Sizer.", "D. Azure Total Cost of Ownership Calculator."],
+      "correctAnswers": ["C"],
+      "explanation": "SAP Quick Sizer generates sizing reports based on existing system workload data for migration to new platforms like Azure. SAP Early Watch Alert provides system health reports. SAP Readiness Check assesses readiness for S/4HANA conversion. The Azure TCO Calculator compares costs, not technical sizing."
+    },
+    {
+      "id": 39,
+      "topic": "HA/DR for SAP - Cross-Region DR",
+      "type": "MultipleChoice",
+      "questionText": "When designing a cross-region disaster recovery solution for SAP on Azure, which two considerations are critical? (Choose two.)",
+      "options": ["A. RPO and RTO requirements defined by the business.", "B. Network latency between the primary and DR regions.", "C. Using the same VM SKU names in both regions regardless of availability.", "D. Deploying DR in the same availability zone as production."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "RPO (Recovery Point Objective) and RTO (Recovery Time Objective) determine the replication strategy and automation needed. Network latency between regions affects replication performance and must be tested. The same VM SKUs may not be available in all regions. DR must be in a different region, not the same availability zone as production."
+    },
+    {
+      "id": 40,
+      "topic": "SAP on Azure VMs - Identity Integration",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service enables single sign-on (SSO) between Microsoft Entra ID and SAP applications such as SAP Fiori?",
+      "options": ["A. Azure API Management.", "B. Microsoft Entra ID with SAML-based SSO.", "C. Azure Key Vault.", "D. Azure DNS."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra ID supports SAML-based SSO integration with SAP applications including SAP Fiori, S/4HANA, and other SAP NetWeaver-based applications. Azure API Management is for API gateway functionality. Azure Key Vault stores secrets and certificates. Azure DNS manages domain names."
+    }
+  ]
+}

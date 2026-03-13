@@ -1,0 +1,366 @@
+{
+  "examCode": "PL-400",
+  "examTitle": "Power Platform Developer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "PCF Controls - Overview",
+      "type": "SingleChoice",
+      "questionText": "What does the Power Apps component framework (PCF) allow developers to create?",
+      "options": ["A. Server-side plug-ins for Dataverse.", "B. Custom reusable UI components for model-driven and canvas apps.", "C. Azure Functions for data processing.", "D. Power BI custom visuals."],
+      "correctAnswers": ["B"],
+      "explanation": "PCF enables developers to create custom, reusable UI components that enhance the user experience in both model-driven and canvas apps. Server-side plug-ins use the Dataverse SDK. Azure Functions are separate services. Power BI visuals use a different framework."
+    },
+    {
+      "id": 2,
+      "topic": "Custom Connectors - Creation",
+      "type": "SingleChoice",
+      "questionText": "What definition format do custom connectors in Power Platform use to describe the API operations?",
+      "options": ["A. GraphQL schema.", "B. OpenAPI (Swagger) definition.", "C. WSDL (Web Services Description Language).", "D. Protocol Buffers."],
+      "correctAnswers": ["B"],
+      "explanation": "Custom connectors use OpenAPI (formerly Swagger) definitions to describe the API endpoints, parameters, authentication, and responses. GraphQL, WSDL, and Protocol Buffers are not the standard format for Power Platform custom connectors."
+    },
+    {
+      "id": 3,
+      "topic": "Plug-ins - Execution Pipeline",
+      "type": "SingleChoice",
+      "questionText": "At which stage in the Dataverse execution pipeline does a pre-validation plug-in execute?",
+      "options": ["A. After the main operation in the database transaction.", "B. Before the main operation, outside the database transaction.", "C. After the post-operation stage.", "D. Only during asynchronous processing."],
+      "correctAnswers": ["B"],
+      "explanation": "Pre-validation plug-ins execute before the main operation and outside the database transaction, making them ideal for validation logic that should run before any database changes. Pre-operation runs inside the transaction. Post-operation runs after. Asynchronous is a separate execution mode."
+    },
+    {
+      "id": 4,
+      "topic": "Azure Functions Integration - Triggers",
+      "type": "SingleChoice",
+      "questionText": "How can you call an Azure Function from a Power Automate cloud flow?",
+      "options": ["A. By using the Azure Functions connector or an HTTP action with the function URL.", "B. By embedding the function code directly in the flow.", "C. Azure Functions cannot be called from Power Automate.", "D. By deploying the function as a Dataverse plug-in."],
+      "correctAnswers": ["A"],
+      "explanation": "Power Automate can call Azure Functions using the dedicated Azure Functions connector or a generic HTTP action with the function's URL and key. You cannot embed function code in a flow. Azure Functions are supported. Functions are not deployed as plug-ins."
+    },
+    {
+      "id": 5,
+      "topic": "ALM - Solutions",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of solutions in Power Platform application lifecycle management (ALM)?",
+      "options": ["A. To store user credentials.", "B. To package, transport, and manage customizations and components across environments.", "C. To replace Azure DevOps.", "D. To host web applications."],
+      "correctAnswers": ["B"],
+      "explanation": "Solutions are containers that package customizations, components (apps, flows, tables, etc.), and dependencies for transport between environments (Dev, Test, Production). They do not store credentials, replace DevOps, or host websites."
+    },
+    {
+      "id": 6,
+      "topic": "Dataverse Web API - CRUD Operations",
+      "type": "SingleChoice",
+      "questionText": "Which HTTP method is used to create a new record in Dataverse using the Web API?",
+      "options": ["A. GET.", "B. POST.", "C. PATCH.", "D. DELETE."],
+      "correctAnswers": ["B"],
+      "explanation": "POST is used to create new records in the Dataverse Web API. GET retrieves records. PATCH updates existing records. DELETE removes records."
+    },
+    {
+      "id": 7,
+      "topic": "PCF Controls - Lifecycle Methods",
+      "type": "SingleChoice",
+      "questionText": "Which PCF control lifecycle method is called when the component is first loaded on the page?",
+      "options": ["A. updateView.", "B. init.", "C. destroy.", "D. getOutputs."],
+      "correctAnswers": ["B"],
+      "explanation": "The init method is called once when the component is first loaded, allowing developers to set up the control, initialize variables, and create DOM elements. updateView is called on data changes. destroy is called when the control is removed. getOutputs returns values to the framework."
+    },
+    {
+      "id": 8,
+      "topic": "Custom Connectors - Authentication",
+      "type": "MultipleChoice",
+      "questionText": "Which two authentication types are supported by Power Platform custom connectors? (Choose two.)",
+      "options": ["A. OAuth 2.0.", "B. API Key.", "C. Kerberos authentication.", "D. NTLM authentication."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Custom connectors support OAuth 2.0, API Key, Basic authentication, and Windows Authentication (for on-premises). Kerberos and NTLM are not directly supported as authentication types in custom connector configuration."
+    },
+    {
+      "id": 9,
+      "topic": "Plug-ins - Registration",
+      "type": "SingleChoice",
+      "questionText": "Which tool is used to register Dataverse plug-ins and custom workflow activities?",
+      "options": ["A. Power Apps maker portal.", "B. Plug-in Registration Tool.", "C. Visual Studio Code.", "D. Azure Portal."],
+      "correctAnswers": ["B"],
+      "explanation": "The Plug-in Registration Tool (part of the Power Platform tools) is used to register plug-in assemblies, steps, and custom workflow activities with Dataverse. The maker portal does not register plug-ins. VS Code is for development. Azure Portal manages Azure resources."
+    },
+    {
+      "id": 10,
+      "topic": "Solutions - Managed vs Unmanaged",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between a managed and an unmanaged solution in Power Platform?",
+      "options": ["A. Managed solutions can be edited in the target environment; unmanaged cannot.", "B. Managed solutions cannot be directly edited in the target environment; unmanaged solutions can.", "C. There is no difference.", "D. Unmanaged solutions cannot be exported."],
+      "correctAnswers": ["B"],
+      "explanation": "Managed solutions are locked in the target environment and cannot be directly edited, providing controlled deployments. Unmanaged solutions can be edited, making them suitable for development environments. They have distinct differences. Unmanaged solutions can be exported."
+    },
+    {
+      "id": 11,
+      "topic": "Dataverse Web API - Querying",
+      "type": "SingleChoice",
+      "questionText": "Which OData query option is used to filter records when querying the Dataverse Web API?",
+      "options": ["A. $select.", "B. $filter.", "C. $orderby.", "D. $top."],
+      "correctAnswers": ["B"],
+      "explanation": "$filter applies conditions to restrict which records are returned. $select chooses which columns to return. $orderby sorts results. $top limits the number of records returned."
+    },
+    {
+      "id": 12,
+      "topic": "PCF Controls - Dataset vs Field",
+      "type": "SingleChoice",
+      "questionText": "What are the two types of PCF controls?",
+      "options": ["A. Server controls and client controls.", "B. Field controls and dataset controls.", "C. Input controls and output controls.", "D. Sync controls and async controls."],
+      "correctAnswers": ["B"],
+      "explanation": "PCF supports field controls (bound to a single field value) and dataset controls (bound to a view/dataset of records). The framework does not categorize controls as server/client, input/output, or sync/async."
+    },
+    {
+      "id": 13,
+      "topic": "Azure Functions Integration - Custom Connectors",
+      "type": "SingleChoice",
+      "questionText": "How can you make an Azure Function available as a reusable action in Power Apps and Power Automate?",
+      "options": ["A. By embedding the code in a canvas app.", "B. By creating a custom connector that points to the Azure Function's HTTP endpoint.", "C. By registering it as a Dataverse plug-in.", "D. By deploying it to SharePoint."],
+      "correctAnswers": ["B"],
+      "explanation": "Creating a custom connector with the Azure Function's HTTP trigger endpoint makes the function available as a reusable action across Power Apps and Power Automate. Code cannot be embedded in canvas apps. Functions are not registered as plug-ins. SharePoint is not used for function hosting."
+    },
+    {
+      "id": 14,
+      "topic": "ALM - Environment Variables",
+      "type": "SingleChoice",
+      "questionText": "What are environment variables used for in Power Platform solutions?",
+      "options": ["A. To store large binary files.", "B. To store configuration values that can differ between environments without modifying the solution.", "C. To define table schemas.", "D. To create user interface layouts."],
+      "correctAnswers": ["B"],
+      "explanation": "Environment variables store key configuration values (connection strings, feature flags, URLs) that can have different values in each environment, allowing solutions to be deployed without modification. They do not store binary files, define schemas, or create UI layouts."
+    },
+    {
+      "id": 15,
+      "topic": "Plug-ins - Synchronous vs Asynchronous",
+      "type": "SingleChoice",
+      "questionText": "When should you register a Dataverse plug-in as asynchronous instead of synchronous?",
+      "options": ["A. When the plug-in must validate data before it is saved.", "B. When the plug-in performs a long-running operation that should not block the user.", "C. When the plug-in needs to modify the target record.", "D. Asynchronous plug-ins are not supported."],
+      "correctAnswers": ["B"],
+      "explanation": "Asynchronous plug-ins are ideal for long-running operations (sending emails, external API calls) that should not block the user's save operation. Synchronous plug-ins are needed for validation before save. Both sync and async can modify records. Async plug-ins are fully supported."
+    },
+    {
+      "id": 16,
+      "topic": "Dataverse Web API - Batch Operations",
+      "type": "SingleChoice",
+      "questionText": "How can you perform multiple Dataverse operations in a single HTTP request using the Web API?",
+      "options": ["A. By sending multiple parallel requests.", "B. By using the $batch endpoint to bundle multiple operations.", "C. Multiple operations per request are not supported.", "D. By using the $expand query option."],
+      "correctAnswers": ["B"],
+      "explanation": "The $batch endpoint allows you to bundle multiple create, update, delete, and retrieve operations into a single HTTP request, with optional change sets for transactional grouping. Parallel requests are separate calls. Batch operations are supported. $expand retrieves related records, not batch operations."
+    },
+    {
+      "id": 17,
+      "topic": "PCF Controls - Manifest",
+      "type": "SingleChoice",
+      "questionText": "What does the ControlManifest.Input.xml file define in a PCF control project?",
+      "options": ["A. The control's CSS styles.", "B. The control's metadata including properties, resources, and type information.", "C. The control's unit tests.", "D. The control's deployment pipeline."],
+      "correctAnswers": ["B"],
+      "explanation": "The ControlManifest.Input.xml defines the control's metadata: its name, version, description, bound properties, resources (CSS, images, resx), and type information. CSS styles are in separate files. Unit tests are in test files. Deployment pipelines are configured elsewhere."
+    },
+    {
+      "id": 18,
+      "topic": "Custom Connectors - Policies",
+      "type": "SingleChoice",
+      "questionText": "What are connector policies in a custom connector used for?",
+      "options": ["A. To define pricing tiers.", "B. To modify requests and responses at runtime, such as adding headers or transforming data.", "C. To create new API endpoints.", "D. To manage user subscriptions."],
+      "correctAnswers": ["B"],
+      "explanation": "Connector policies are templates that modify HTTP requests and responses at runtime, allowing you to add headers, convert data formats, set host URLs, and route requests. They do not define pricing, create endpoints, or manage subscriptions."
+    },
+    {
+      "id": 19,
+      "topic": "Plug-ins - IPluginExecutionContext",
+      "type": "SingleChoice",
+      "questionText": "What information does the IPluginExecutionContext provide to a Dataverse plug-in?",
+      "options": ["A. The visual layout of the form.", "B. Context about the current operation including the message name, entity, input/output parameters, and user information.", "C. The plug-in's source code.", "D. Azure subscription details."],
+      "correctAnswers": ["B"],
+      "explanation": "IPluginExecutionContext provides the execution context including the triggering message (Create, Update, etc.), entity name, input/output parameters, pre/post entity images, and the calling user's information. It does not provide form layout, source code, or Azure details."
+    },
+    {
+      "id": 20,
+      "topic": "ALM - Solution Layers",
+      "type": "SingleChoice",
+      "questionText": "In Power Platform, what happens when multiple solutions modify the same component?",
+      "options": ["A. The first solution always wins.", "B. Solution layering determines which customization is active, with the topmost layer taking precedence.", "C. An error prevents the second solution from being imported.", "D. Both customizations are merged automatically."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Platform uses solution layering where customizations are stacked, and the topmost (most recently imported) layer takes precedence for display and behavior. It is not first-wins. Imports are not blocked. Customizations are layered, not merged."
+    },
+    {
+      "id": 21,
+      "topic": "Dataverse Web API - FetchXML",
+      "type": "SingleChoice",
+      "questionText": "How can you execute a FetchXML query using the Dataverse Web API?",
+      "options": ["A. By passing FetchXML as the request body in a POST request to the entity set.", "B. By appending the URL-encoded FetchXML as a ?fetchXml= parameter in a GET request.", "C. FetchXML is not supported via the Web API.", "D. By storing FetchXML in an environment variable."],
+      "correctAnswers": ["B"],
+      "explanation": "FetchXML queries can be executed via the Web API by URL-encoding the XML and passing it as a fetchXml parameter in a GET request to the entity set URL. It is not sent as a POST body. FetchXML is supported. Environment variables are for configuration values."
+    },
+    {
+      "id": 22,
+      "topic": "PCF Controls - React and Virtual DOM",
+      "type": "SingleChoice",
+      "questionText": "Which modern JavaScript framework is commonly used with PCF controls for building complex user interfaces?",
+      "options": ["A. Angular only.", "B. React.", "C. jQuery only.", "D. Backbone.js."],
+      "correctAnswers": ["B"],
+      "explanation": "React is the most commonly used framework with PCF controls, and Microsoft provides PCF project templates with React support. Angular can also be used but React is the primary recommended framework. jQuery and Backbone.js are older libraries not commonly used for modern PCF development."
+    },
+    {
+      "id": 23,
+      "topic": "Azure Functions Integration - Webhooks",
+      "type": "SingleChoice",
+      "questionText": "How can a Dataverse event trigger an Azure Function without using Power Automate?",
+      "options": ["A. By configuring a webhook registration pointing to the Azure Function URL.", "B. It is not possible without Power Automate.", "C. By embedding the function in the Dataverse database.", "D. By using SharePoint event receivers."],
+      "correctAnswers": ["A"],
+      "explanation": "Dataverse supports webhook registrations that send HTTP POST requests to external endpoints (like Azure Functions) when specific events occur. This does not require Power Automate. Functions cannot be embedded in Dataverse. SharePoint event receivers are a different technology."
+    },
+    {
+      "id": 24,
+      "topic": "Plug-ins - Isolation Mode",
+      "type": "SingleChoice",
+      "questionText": "What does sandbox isolation mode mean for Dataverse plug-ins?",
+      "options": ["A. The plug-in runs on the user's local machine.", "B. The plug-in runs in a restricted environment with limited access to system resources and external services.", "C. The plug-in has full access to the server file system.", "D. The plug-in runs in a Docker container."],
+      "correctAnswers": ["B"],
+      "explanation": "Sandbox (isolated) mode restricts plug-in execution to a sandboxed environment with limited access to system resources, preventing file system access and restricting network calls. Plug-ins run on the server, not locally. They do not have full file system access. They do not run in Docker containers."
+    },
+    {
+      "id": 25,
+      "topic": "Solutions - Connection References",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of connection references in Power Platform solutions?",
+      "options": ["A. To hard-code API credentials.", "B. To provide a solution-aware way to reference connections, allowing different connections in different environments.", "C. To store database schemas.", "D. To define entity relationships."],
+      "correctAnswers": ["B"],
+      "explanation": "Connection references allow flows and apps within a solution to reference connections in a portable way, enabling different connections to be used in different environments without modifying the solution. They do not hard-code credentials, store schemas, or define relationships."
+    },
+    {
+      "id": 26,
+      "topic": "Dataverse Web API - Actions and Functions",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of operations can be defined as custom messages in Dataverse and called via the Web API? (Choose two.)",
+      "options": ["A. Custom actions (bound or unbound).", "B. Custom API (with request and response parameters).", "C. Custom stored procedures.", "D. Custom database triggers."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Custom actions and Custom API are both ways to define custom business logic in Dataverse that can be invoked via the Web API. Custom stored procedures and database triggers are SQL Server concepts, not Dataverse features."
+    },
+    {
+      "id": 27,
+      "topic": "PCF Controls - Testing",
+      "type": "SingleChoice",
+      "questionText": "How can you test a PCF control during development before deploying it?",
+      "options": ["A. Only by deploying to a production environment.", "B. By using the PCF test harness with 'npm start' to run the control locally in a browser.", "C. By emailing the control to a tester.", "D. Testing is not possible before deployment."],
+      "correctAnswers": ["B"],
+      "explanation": "Running 'npm start' launches the PCF test harness, which renders the control locally in a browser with simulated data, enabling rapid development and testing. You do not need to deploy to production. Emailing is not a test method. Local testing is fully supported."
+    },
+    {
+      "id": 28,
+      "topic": "ALM - Pipelines",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform feature provides in-product solution deployment capabilities without requiring Azure DevOps or GitHub?",
+      "options": ["A. Power Automate cloud flows.", "B. Power Platform pipelines.", "C. Managed Environments.", "D. Dataverse for Teams."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Platform pipelines enable solution deployment across environments directly within the Power Platform admin experience, without requiring external CI/CD tools. Cloud flows orchestrate business processes. Managed Environments provide governance features. Dataverse for Teams is for Teams-based apps."
+    },
+    {
+      "id": 29,
+      "topic": "Plug-ins - Pre and Post Entity Images",
+      "type": "SingleChoice",
+      "questionText": "What are pre-entity images and post-entity images in Dataverse plug-in development?",
+      "options": ["A. Screenshots of the form before and after the operation.", "B. Snapshots of the entity record's field values before and after the database operation.", "C. Image files attached to the entity record.", "D. Thumbnail previews of related records."],
+      "correctAnswers": ["B"],
+      "explanation": "Pre-entity images capture the record's field values before the operation, and post-entity images capture the values after. They provide access to previous and new values without additional queries. They are not screenshots, image files, or thumbnails."
+    },
+    {
+      "id": 30,
+      "topic": "Custom Connectors - Triggers",
+      "type": "SingleChoice",
+      "questionText": "What type of trigger can a custom connector provide for Power Automate flows?",
+      "options": ["A. Only manual triggers.", "B. Polling triggers that periodically check for new data, or webhook triggers for real-time notifications.", "C. Only scheduled triggers.", "D. Triggers are not supported in custom connectors."],
+      "correctAnswers": ["B"],
+      "explanation": "Custom connectors support polling triggers (periodic checks for new data) and webhook triggers (real-time push notifications from the API). They are not limited to manual or scheduled triggers. Triggers are supported in custom connectors."
+    },
+    {
+      "id": 31,
+      "topic": "Dataverse Web API - Impersonation",
+      "type": "SingleChoice",
+      "questionText": "How can you execute a Dataverse Web API request on behalf of another user?",
+      "options": ["A. By logging in as that user.", "B. By adding the MSCRMCallerID header with the target user's system user ID.", "C. Impersonation is not supported.", "D. By using a shared password."],
+      "correctAnswers": ["B"],
+      "explanation": "Setting the MSCRMCallerID request header to the target user's system user ID allows the calling user to impersonate another user (if they have the prvActOnBehalfOfAnotherUser privilege). Logging in as another user requires their credentials. Impersonation is supported. Shared passwords are a security risk."
+    },
+    {
+      "id": 32,
+      "topic": "PCF Controls - React Components",
+      "type": "SingleChoice",
+      "questionText": "Where does a PCF control render its output within a model-driven app form?",
+      "options": ["A. In a separate browser window.", "B. Within the container element provided by the framework in the init and updateView methods.", "C. In the browser's developer console.", "D. In a Power BI embedded report."],
+      "correctAnswers": ["B"],
+      "explanation": "PCF controls render their UI within a container HTMLDivElement provided by the framework, which is passed to the init method. The control manipulates this container to display its content. It does not open new windows, render in the console, or use Power BI."
+    },
+    {
+      "id": 33,
+      "topic": "ALM - Solution Segmentation",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using segmented solutions in Power Platform?",
+      "options": ["A. To include all components in a single large solution.", "B. To include only the specific components and sub-components needed, reducing solution size and deployment conflicts.", "C. To encrypt solution contents.", "D. To auto-generate documentation."],
+      "correctAnswers": ["B"],
+      "explanation": "Segmented solutions allow you to include only the specific components (and their sub-components like specific columns of a table) that are relevant, reducing size and minimizing conflicts with other solutions. Including everything in one solution is the opposite approach. Segmentation does not encrypt or document."
+    },
+    {
+      "id": 34,
+      "topic": "Plug-ins - Shared Variables",
+      "type": "SingleChoice",
+      "questionText": "How can you pass data between plug-in steps registered on the same message in the Dataverse execution pipeline?",
+      "options": ["A. By using global static variables.", "B. By using the SharedVariables collection on the IPluginExecutionContext.", "C. By writing to a temporary file.", "D. By modifying the database directly."],
+      "correctAnswers": ["B"],
+      "explanation": "The SharedVariables collection on the execution context allows plug-in steps on the same message pipeline to pass data to subsequent steps. Static variables are not reliable in a multi-threaded environment. File system access is restricted. Direct database modification bypasses the pipeline."
+    },
+    {
+      "id": 35,
+      "topic": "Azure Functions Integration - Durable Functions",
+      "type": "SingleChoice",
+      "questionText": "Why might you use Azure Durable Functions instead of regular Azure Functions when integrating with Power Platform?",
+      "options": ["A. Durable Functions are cheaper.", "B. Durable Functions support long-running, stateful orchestration workflows that exceed the standard function timeout.", "C. Durable Functions are required for all Power Platform integrations.", "D. Regular Azure Functions do not support HTTP triggers."],
+      "correctAnswers": ["B"],
+      "explanation": "Durable Functions provide stateful orchestration, allowing long-running workflows with retries, fan-out/fan-in, and human interaction patterns that exceed the timeout of standard functions. They are not inherently cheaper. They are not required for all integrations. Regular functions support HTTP triggers."
+    },
+    {
+      "id": 36,
+      "topic": "Solutions - Publisher",
+      "type": "SingleChoice",
+      "questionText": "Why is choosing the right publisher and prefix important when creating Power Platform solutions?",
+      "options": ["A. The publisher determines the solution's price.", "B. The publisher prefix is prepended to all new components, providing a unique namespace and avoiding naming conflicts.", "C. The publisher controls who can view the solution.", "D. The prefix determines the solution's performance."],
+      "correctAnswers": ["B"],
+      "explanation": "The publisher prefix (e.g., 'contoso_') is added to all new components in the solution, creating a unique namespace that prevents naming conflicts with components from other solutions. It does not affect pricing, access control, or performance."
+    },
+    {
+      "id": 37,
+      "topic": "Dataverse Web API - Relationships",
+      "type": "SingleChoice",
+      "questionText": "How do you retrieve related records in a single Dataverse Web API request?",
+      "options": ["A. By making a separate request for each related record.", "B. By using the $expand query option to include related entity data.", "C. Related records cannot be retrieved via the Web API.", "D. By using the $filter option with a lookup field."],
+      "correctAnswers": ["B"],
+      "explanation": "The $expand query option retrieves related records in the same request, similar to a SQL JOIN. Separate requests are possible but less efficient. Related records are fully retrievable. $filter restricts records but does not expand relationships."
+    },
+    {
+      "id": 38,
+      "topic": "PCF Controls - Deployment",
+      "type": "MultipleChoice",
+      "questionText": "Which two methods can you use to deploy a PCF control to a Dataverse environment? (Choose two.)",
+      "options": ["A. Using 'pac pcf push' command from the Power Platform CLI.", "B. Packaging the control in a solution and importing the solution.", "C. Copying JavaScript files to a SharePoint library.", "D. Emailing the control package to the admin."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "'pac pcf push' deploys the control directly to a development environment for testing. For production deployments, the control should be packaged in a solution and imported. Copying to SharePoint or emailing are not valid deployment methods."
+    },
+    {
+      "id": 39,
+      "topic": "Plug-ins - Error Handling",
+      "type": "SingleChoice",
+      "questionText": "How should a synchronous Dataverse plug-in communicate an error to the user that prevents the operation from completing?",
+      "options": ["A. By writing to the Windows Event Log.", "B. By throwing an InvalidPluginExecutionException with a user-friendly message.", "C. By sending an email to the user.", "D. By returning a false value."],
+      "correctAnswers": ["B"],
+      "explanation": "Throwing an InvalidPluginExecutionException cancels the operation and displays the error message to the user in the application. Writing to Event Log is not accessible to users. Sending email does not cancel the operation. Plug-ins do not return values."
+    },
+    {
+      "id": 40,
+      "topic": "ALM - Source Control",
+      "type": "SingleChoice",
+      "questionText": "How can you store Power Platform solution components in source control for CI/CD?",
+      "options": ["A. Solutions cannot be stored in source control.", "B. By unpacking solutions into individual component files using 'pac solution unpack' and committing to a Git repository.", "C. By taking screenshots of the maker portal.", "D. By exporting ZIP files and storing them in email."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'pac solution unpack' command extracts solution ZIP files into individual XML and JSON component files that can be version-controlled in Git. Solutions can be stored in source control. Screenshots and email are not source control methods."
+    }
+  ]
+}

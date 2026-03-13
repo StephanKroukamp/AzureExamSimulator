@@ -1,0 +1,366 @@
+{
+  "examCode": "PL-600",
+  "examTitle": "Power Platform Solution Architect Expert",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Solution Design - Requirements Gathering",
+      "type": "SingleChoice",
+      "questionText": "As a Power Platform Solution Architect, what is the first step when designing a solution for a customer?",
+      "options": ["A. Start building canvas apps immediately.", "B. Gather and analyze business requirements, including functional and non-functional requirements.", "C. Purchase all necessary licenses.", "D. Deploy a production environment."],
+      "correctAnswers": ["B"],
+      "explanation": "The first step is understanding the business requirements through discovery sessions, including functional requirements (what the solution must do) and non-functional requirements (performance, security, scalability). Building before understanding requirements leads to rework. Licensing and deployment come after design."
+    },
+    {
+      "id": 2,
+      "topic": "ALM - Environment Strategy",
+      "type": "SingleChoice",
+      "questionText": "What is the recommended minimum environment strategy for enterprise Power Platform deployments?",
+      "options": ["A. A single production environment for everything.", "B. Separate Development, Test/UAT, and Production environments.", "C. Only a development and production environment.", "D. Use personal developer environments for production workloads."],
+      "correctAnswers": ["B"],
+      "explanation": "Enterprise deployments should have at minimum Development, Test/UAT, and Production environments to support proper ALM, testing, and controlled deployments. A single environment risks production stability. Skipping testing is risky. Personal environments are not for production workloads."
+    },
+    {
+      "id": 3,
+      "topic": "Integration Patterns - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which integration pattern is most appropriate when data must be synchronized between Dataverse and an external system in near real-time?",
+      "options": ["A. Manual file export/import.", "B. Event-driven integration using webhooks or service bus.", "C. Nightly batch processing only.", "D. Printing reports and re-entering data."],
+      "correctAnswers": ["B"],
+      "explanation": "Event-driven integration using webhooks, Azure Service Bus, or similar technologies provides near real-time data synchronization by triggering actions when data changes occur. Manual export/import is labor-intensive. Nightly batches have high latency. Manual re-entry is error-prone."
+    },
+    {
+      "id": 4,
+      "topic": "Security Architecture - Dataverse Security",
+      "type": "SingleChoice",
+      "questionText": "In Dataverse, which security model provides the most granular control over which records a user can access?",
+      "options": ["A. Environment-level security only.", "B. A combination of security roles, business units, teams, and field-level security.", "C. Azure Active Directory conditional access only.", "D. Network firewall rules."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse provides layered security through security roles (table and record privileges), business units (organizational hierarchy), teams (group-based access), and field-level security (column-level restrictions). Environment security is too coarse. AAD conditional access controls authentication, not data access. Firewalls control network access, not data-level security."
+    },
+    {
+      "id": 5,
+      "topic": "Governance - DLP Policies",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Data Loss Prevention (DLP) policies in Power Platform?",
+      "options": ["A. To encrypt data at rest.", "B. To classify connectors into business and non-business groups, preventing data flow between categories.", "C. To back up Dataverse data.", "D. To manage user licenses."],
+      "correctAnswers": ["B"],
+      "explanation": "DLP policies classify connectors into Business, Non-Business, and Blocked groups, preventing connectors in different groups from being used together in the same app or flow. This prevents data leakage. DLP does not encrypt, backup, or manage licenses."
+    },
+    {
+      "id": 6,
+      "topic": "CoE Toolkit - Overview",
+      "type": "SingleChoice",
+      "questionText": "What does the Center of Excellence (CoE) Starter Kit provide for Power Platform?",
+      "options": ["A. A set of pre-built business applications.", "B. A collection of components for governance, monitoring, and nurturing Power Platform adoption in an organization.", "C. A code editor for building custom connectors.", "D. A migration tool from Salesforce."],
+      "correctAnswers": ["B"],
+      "explanation": "The CoE Starter Kit provides apps, flows, and dashboards for discovering existing Power Platform resources, setting up governance policies, monitoring usage, and nurturing citizen developer adoption. It is not pre-built business apps, a code editor, or a migration tool."
+    },
+    {
+      "id": 7,
+      "topic": "Environment Strategy - Tenant-Level Settings",
+      "type": "SingleChoice",
+      "questionText": "Who can create environments in Power Platform by default, and how can this be restricted?",
+      "options": ["A. Only global admins can create environments.", "B. By default, all licensed users can create trial environments; admins can restrict this in the Power Platform admin center.", "C. Environment creation cannot be restricted.", "D. Users must submit a support ticket to create environments."],
+      "correctAnswers": ["B"],
+      "explanation": "By default, licensed users can create trial and developer environments. Administrators can restrict who can create environments through tenant-level settings in the Power Platform admin center. It is not limited to global admins by default. Restrictions are available. Support tickets are not required."
+    },
+    {
+      "id": 8,
+      "topic": "Solution Design - Model-Driven vs Canvas Apps",
+      "type": "SingleChoice",
+      "questionText": "When should a Solution Architect recommend a model-driven app over a canvas app?",
+      "options": ["A. When the app needs a highly customized, pixel-perfect UI.", "B. When the app is data-centric, requires complex business logic, and benefits from Dataverse's security model.", "C. When the app has minimal data requirements.", "D. When the app must work offline on mobile devices only."],
+      "correctAnswers": ["B"],
+      "explanation": "Model-driven apps are ideal for data-centric applications with complex business rules, relationships, and role-based security needs, as they are built on Dataverse. Canvas apps offer pixel-perfect UI flexibility. Minimal data needs favor canvas apps. Both app types can work on mobile."
+    },
+    {
+      "id": 9,
+      "topic": "Integration Patterns - Virtual Tables",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using virtual tables (virtual entities) in Dataverse?",
+      "options": ["A. They store data faster than regular tables.", "B. They provide a real-time view of external data without importing it into Dataverse.", "C. They automatically create backup copies.", "D. They replace the need for security roles."],
+      "correctAnswers": ["B"],
+      "explanation": "Virtual tables display external data (from SQL Server, SharePoint, OData services, etc.) in Dataverse without copying it, providing a real-time view with standard Dataverse table interfaces. They do not store data (so not faster storage). They do not create backups or replace security roles."
+    },
+    {
+      "id": 10,
+      "topic": "Security Architecture - Hierarchy Security",
+      "type": "SingleChoice",
+      "questionText": "How does the manager hierarchy security model in Dataverse work?",
+      "options": ["A. It gives all managers admin access.", "B. It allows managers to access records owned by their direct and indirect reports, based on the organizational hierarchy.", "C. It encrypts data for managers only.", "D. It prevents managers from seeing any records."],
+      "correctAnswers": ["B"],
+      "explanation": "The manager hierarchy security model grants read access to records owned by direct and indirect reports in the organizational hierarchy, enabling managers to see their team's data without explicit sharing. It does not grant admin access, encrypt data, or prevent access."
+    },
+    {
+      "id": 11,
+      "topic": "Governance - Managed Environments",
+      "type": "SingleChoice",
+      "questionText": "What additional governance capabilities do Managed Environments provide in Power Platform?",
+      "options": ["A. No additional capabilities over standard environments.", "B. Usage insights, maker welcome content, solution checker enforcement, and sharing limits.", "C. Free unlimited storage.", "D. Automatic code generation."],
+      "correctAnswers": ["B"],
+      "explanation": "Managed Environments provide enhanced governance features including weekly usage insights, customizable maker welcome content, solution checker enforcement for solutions, sharing limits, and data policy management. They add significant capabilities. They do not provide free storage or auto-generate code."
+    },
+    {
+      "id": 12,
+      "topic": "ALM - Solution Architecture",
+      "type": "MultipleChoice",
+      "questionText": "Which two best practices should a Solution Architect follow when designing the solution architecture for ALM? (Choose two.)",
+      "options": ["A. Use a single solution for the entire organization's customizations.", "B. Segment solutions by functional area or team to reduce deployment conflicts.", "C. Use a dedicated publisher with a meaningful prefix for all custom solutions.", "D. Use the default publisher for all customizations."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Segmenting solutions by functional area reduces conflicts and allows independent deployment cycles. A dedicated publisher with a meaningful prefix ensures proper namespacing. A single monolithic solution creates deployment bottlenecks. The default publisher should be avoided as its prefix is generic."
+    },
+    {
+      "id": 13,
+      "topic": "Solution Design - Scalability",
+      "type": "SingleChoice",
+      "questionText": "When designing a Power Platform solution that must scale to millions of records, which data storage approach should the architect consider?",
+      "options": ["A. Store all data in SharePoint lists.", "B. Use Dataverse with appropriate indexing, and consider Azure SQL or data lake for archival.", "C. Store data in Excel files.", "D. Use only local variables in canvas apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse with proper indexing handles large datasets efficiently, and Azure SQL or data lakes can be used for archival or heavy analytical workloads. SharePoint lists have row limits. Excel files are not suitable for millions of records. Local variables are ephemeral and limited."
+    },
+    {
+      "id": 14,
+      "topic": "Integration Patterns - Azure Service Bus",
+      "type": "SingleChoice",
+      "questionText": "When would a Solution Architect recommend using Azure Service Bus for Power Platform integration?",
+      "options": ["A. For simple, direct point-to-point integrations.", "B. When asynchronous, reliable message-based communication is needed between systems with decoupled producers and consumers.", "C. For real-time video streaming.", "D. For hosting Power BI reports."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Service Bus provides reliable, asynchronous message queuing that decouples systems, handles spikes, and ensures message delivery with features like dead-letter queues. Simple point-to-point may not need a message broker. Service Bus is not for video streaming or hosting reports."
+    },
+    {
+      "id": 15,
+      "topic": "Security Architecture - Column-Level Security",
+      "type": "SingleChoice",
+      "questionText": "How do you restrict access to sensitive columns (fields) in a Dataverse table so only specific users can see them?",
+      "options": ["A. By hiding the column in the form.", "B. By configuring field security profiles and adding users or teams to the profile.", "C. By renaming the column.", "D. By storing sensitive data in a separate environment."],
+      "correctAnswers": ["B"],
+      "explanation": "Field security profiles control read, create, and update access to secured columns, and users or teams are assigned to profiles to grant access. Hiding columns on forms does not secure the data (it is still accessible via API). Renaming does not secure. Separate environments add unnecessary complexity."
+    },
+    {
+      "id": 16,
+      "topic": "CoE Toolkit - Inventory",
+      "type": "SingleChoice",
+      "questionText": "Which CoE Starter Kit component provides visibility into all apps, flows, and makers across the tenant?",
+      "options": ["A. Core Components (inventory and environment details).", "B. Innovation Backlog.", "C. Nurture Components only.", "D. Theme Builder."],
+      "correctAnswers": ["A"],
+      "explanation": "The Core Components of the CoE Starter Kit sync environment and resource data, providing a comprehensive inventory of all apps, flows, connectors, and makers across the tenant. Innovation Backlog is for idea management. Nurture Components support adoption. Theme Builder is for branding."
+    },
+    {
+      "id": 17,
+      "topic": "Environment Strategy - Default Environment",
+      "type": "SingleChoice",
+      "questionText": "Why should a Solution Architect limit the use of the default environment in an organization?",
+      "options": ["A. The default environment has better performance.", "B. The default environment is shared by all users, making governance difficult and increasing the risk of uncontrolled growth.", "C. The default environment costs extra.", "D. The default environment cannot store any data."],
+      "correctAnswers": ["B"],
+      "explanation": "The default environment is automatically accessible to all licensed users in the organization, making it difficult to govern and prone to uncontrolled proliferation of apps and flows. Dedicated environments provide better isolation and governance. It does not have better performance. It has no extra cost. It can store data."
+    },
+    {
+      "id": 18,
+      "topic": "Solution Design - Automation Strategy",
+      "type": "SingleChoice",
+      "questionText": "When designing the automation strategy, which approach should the Solution Architect take for selecting between cloud flows, desktop flows, and business rules?",
+      "options": ["A. Use desktop flows for everything.", "B. Match each automation requirement to the most appropriate technology based on the scenario: business rules for form logic, cloud flows for cloud integration, desktop flows for legacy UI automation.", "C. Avoid all automation.", "D. Use only Power Automate cloud flows for every scenario."],
+      "correctAnswers": ["B"],
+      "explanation": "The architect should evaluate each requirement and match it to the best technology: business rules for simple form-level validation, cloud flows for cloud-based orchestration and integration, and desktop flows for automating legacy applications. Using a single technology for everything is not optimal."
+    },
+    {
+      "id": 19,
+      "topic": "Integration Patterns - Dataverse APIs",
+      "type": "MultipleChoice",
+      "questionText": "Which two APIs does Dataverse provide for external system integration? (Choose two.)",
+      "options": ["A. Web API (OData v4 RESTful API).", "B. Organization Service (SOAP-based SDK).", "C. MQTT protocol.", "D. GraphQL native endpoint."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Dataverse provides the Web API (RESTful OData v4) for modern integrations and the Organization Service (SOAP-based SDK) for .NET applications. MQTT is an IoT protocol not natively provided by Dataverse. GraphQL is not a native Dataverse endpoint."
+    },
+    {
+      "id": 20,
+      "topic": "Governance - Environment Groups",
+      "type": "SingleChoice",
+      "questionText": "What do environment groups enable in Power Platform governance?",
+      "options": ["A. Grouping environments for bulk DLP policy application and management.", "B. Merging environments into one.", "C. Deleting environments automatically.", "D. Converting environments to Azure subscriptions."],
+      "correctAnswers": ["A"],
+      "explanation": "Environment groups allow administrators to organize environments and apply DLP policies, rules, and management operations to the group rather than individually. They do not merge, delete, or convert environments."
+    },
+    {
+      "id": 21,
+      "topic": "Security Architecture - Business Units",
+      "type": "SingleChoice",
+      "questionText": "How do business units affect data access in Dataverse?",
+      "options": ["A. Business units have no effect on security.", "B. Business units create organizational boundaries that restrict record visibility based on user membership and security role access levels.", "C. Business units only affect dashboard layouts.", "D. Business units determine the number of licenses needed."],
+      "correctAnswers": ["B"],
+      "explanation": "Business units create hierarchical organizational boundaries. Security roles are granted at specific access levels (User, Business Unit, Parent-Child Business Units, Organization), controlling which records users can see based on their business unit membership. They significantly affect security, not layouts or licensing."
+    },
+    {
+      "id": 22,
+      "topic": "ALM - CI/CD with Azure DevOps",
+      "type": "SingleChoice",
+      "questionText": "Which tool or extension is commonly used in Azure DevOps pipelines to automate Power Platform solution deployment?",
+      "options": ["A. Visual Studio Test runner.", "B. Power Platform Build Tools extension for Azure DevOps.", "C. Azure DevOps Wiki.", "D. Azure Boards work items."],
+      "correctAnswers": ["B"],
+      "explanation": "The Power Platform Build Tools extension provides pipeline tasks for exporting, importing, packing, unpacking, and managing Power Platform solutions in Azure DevOps CI/CD pipelines. VS Test runner is for testing. Wiki is for documentation. Boards is for work tracking."
+    },
+    {
+      "id": 23,
+      "topic": "Solution Design - Data Migration",
+      "type": "SingleChoice",
+      "questionText": "Which tool is recommended for bulk data migration into Dataverse when migrating from a legacy system?",
+      "options": ["A. Power Automate cloud flows for millions of records.", "B. Dataverse import wizard for simple scenarios or tools like Azure Data Factory for complex migrations.", "C. Copy-pasting from Excel.", "D. Manually creating each record."],
+      "correctAnswers": ["B"],
+      "explanation": "For simple migrations, the Dataverse import wizard handles CSV/Excel imports. For complex, large-scale migrations, Azure Data Factory with the Dataverse connector provides robust ETL capabilities. Cloud flows have throttling limits for bulk operations. Manual methods are not feasible at scale."
+    },
+    {
+      "id": 24,
+      "topic": "Integration Patterns - Dual-Write",
+      "type": "SingleChoice",
+      "questionText": "What is dual-write in the context of Dynamics 365 and Dataverse integration?",
+      "options": ["A. Writing data to two databases manually.", "B. A near real-time bidirectional synchronization between Dynamics 365 Finance and Operations apps and Dataverse.", "C. A backup replication strategy.", "D. A two-factor authentication method."],
+      "correctAnswers": ["B"],
+      "explanation": "Dual-write provides near real-time, bidirectional data synchronization between Dynamics 365 Finance and Operations apps and Dataverse, enabling seamless data flow between CE and FO apps. It is not manual, not a backup strategy, and not an authentication method."
+    },
+    {
+      "id": 25,
+      "topic": "Governance - Tenant Isolation",
+      "type": "SingleChoice",
+      "questionText": "What does Power Platform tenant isolation control?",
+      "options": ["A. Which users can log into Microsoft 365.", "B. Inbound and outbound connector traffic between your tenant and other Microsoft tenants.", "C. The color theme of the admin portal.", "D. The number of environments allowed."],
+      "correctAnswers": ["B"],
+      "explanation": "Tenant isolation restricts Power Platform connectors from establishing connections to external tenants (outbound) and from external tenants connecting to yours (inbound). It does not control M365 login, portal themes, or environment limits."
+    },
+    {
+      "id": 26,
+      "topic": "CoE Toolkit - Compliance",
+      "type": "SingleChoice",
+      "questionText": "How does the CoE Starter Kit help with compliance and cleanup of unused resources?",
+      "options": ["A. It automatically deletes all apps after 30 days.", "B. It provides flows that identify unused apps and flows, notifying makers and requesting justification or archival.", "C. It generates compliance certificates.", "D. It disables all non-admin accounts."],
+      "correctAnswers": ["B"],
+      "explanation": "The CoE Starter Kit includes compliance flows that identify apps and flows not used for a specified period, then contact makers to justify continued use or archive/delete them. It does not auto-delete everything, generate certificates, or disable accounts."
+    },
+    {
+      "id": 27,
+      "topic": "Environment Strategy - Sandbox vs Production",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between a sandbox environment and a production environment in Power Platform?",
+      "options": ["A. Sandbox environments have better performance.", "B. Sandbox environments can be reset (data deleted) while production environments cannot be easily reset.", "C. Production environments cannot store data.", "D. There is no difference."],
+      "correctAnswers": ["B"],
+      "explanation": "Sandbox environments support reset operations that clear all data and customizations, making them ideal for testing and development. Production environments do not support easy reset to protect business data. Performance is comparable. Both store data. They have distinct differences."
+    },
+    {
+      "id": 28,
+      "topic": "Solution Design - Performance Optimization",
+      "type": "MultipleChoice",
+      "questionText": "Which two design decisions help optimize the performance of a model-driven app? (Choose two.)",
+      "options": ["A. Limiting the number of columns displayed on forms and views.", "B. Using appropriate indexes on frequently queried columns in Dataverse.", "C. Loading all related records on every form.", "D. Using synchronous plug-ins for all business logic."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Reducing the number of columns on forms and views decreases data transfer and rendering time. Proper indexes speed up queries on frequently filtered columns. Loading all related records increases load time. Excessive synchronous plug-ins slow down save operations."
+    },
+    {
+      "id": 29,
+      "topic": "Integration Patterns - Power Automate vs Logic Apps",
+      "type": "SingleChoice",
+      "questionText": "When should a Solution Architect recommend Azure Logic Apps over Power Automate for integration?",
+      "options": ["A. For citizen developer scenarios.", "B. When the integration requires advanced enterprise features like B2B/EDI, custom hosting, and developer-centric management in Azure.", "C. For simple approval workflows.", "D. Logic Apps and Power Automate are identical."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Logic Apps are preferred for advanced enterprise integration scenarios requiring B2B/EDI capabilities, ISE (Integration Service Environment), developer-centric Azure management, and custom hosting. Power Automate is better for citizen developers and standard business workflows. They share the same connector ecosystem but have different management and hosting models."
+    },
+    {
+      "id": 30,
+      "topic": "Security Architecture - Sharing and Access",
+      "type": "SingleChoice",
+      "questionText": "What security consideration should an architect address when a canvas app is shared with the entire organization?",
+      "options": ["A. No security concerns; sharing is always safe.", "B. Ensure that the underlying data connections respect proper security boundaries and that the app does not expose sensitive data through its connections.", "C. Canvas apps cannot be shared.", "D. Sharing automatically encrypts all data."],
+      "correctAnswers": ["B"],
+      "explanation": "When sharing canvas apps broadly, the architect must ensure data connections use delegated authentication or appropriate service accounts, and that the app logic does not inadvertently expose sensitive data. Sharing always has security implications. Canvas apps can be shared. Sharing does not auto-encrypt."
+    },
+    {
+      "id": 31,
+      "topic": "Governance - Request and Approval Process",
+      "type": "SingleChoice",
+      "questionText": "Why should an organization implement a request and approval process for creating new Power Platform environments?",
+      "options": ["A. It is technically required by the platform.", "B. To control environment sprawl, ensure proper governance, track resource usage, and align environments with business needs.", "C. To slow down innovation.", "D. Environments are free and unlimited."],
+      "correctAnswers": ["B"],
+      "explanation": "A request and approval process prevents environment sprawl, ensures environments are properly configured with appropriate DLP policies, tracks storage and license consumption, and aligns with IT governance requirements. It is not technically required but is a best practice. The goal is not to slow innovation but to govern it. Environments consume storage capacity."
+    },
+    {
+      "id": 32,
+      "topic": "ALM - Testing Strategy",
+      "type": "SingleChoice",
+      "questionText": "What testing approach should a Solution Architect recommend for Power Platform solutions?",
+      "options": ["A. No testing is needed for low-code solutions.", "B. A layered approach including unit testing of business logic, integration testing, UI testing with tools like EasyRepro, and user acceptance testing.", "C. Only user acceptance testing.", "D. Testing only in production."],
+      "correctAnswers": ["B"],
+      "explanation": "A comprehensive testing strategy includes unit testing of custom code and business logic, integration testing of connectors and flows, automated UI testing, and user acceptance testing. Low-code solutions still need testing. UAT alone is insufficient. Testing in production is risky."
+    },
+    {
+      "id": 33,
+      "topic": "Solution Design - Mixed Reality and AI",
+      "type": "SingleChoice",
+      "questionText": "When should a Solution Architect consider incorporating AI Builder into a Power Platform solution?",
+      "options": ["A. For all solutions regardless of requirements.", "B. When the solution requires AI capabilities like document processing, prediction, object detection, or text analysis.", "C. Only for manufacturing solutions.", "D. AI Builder cannot be used in Power Platform."],
+      "correctAnswers": ["B"],
+      "explanation": "AI Builder should be incorporated when specific AI capabilities are needed such as form processing, receipt scanning, prediction models, object detection, or sentiment analysis. It is not needed for all solutions. It works across industries. It is a native Power Platform capability."
+    },
+    {
+      "id": 34,
+      "topic": "Integration Patterns - On-Premises Data Gateway",
+      "type": "SingleChoice",
+      "questionText": "When is an on-premises data gateway required for Power Platform?",
+      "options": ["A. For all Power Platform connections.", "B. When connecting to on-premises data sources like SQL Server, file shares, or other systems not accessible from the cloud.", "C. For connecting to Microsoft 365 services.", "D. When using premium connectors."],
+      "correctAnswers": ["B"],
+      "explanation": "The on-premises data gateway is required when Power Platform needs to access data sources that are behind a firewall or on-premises network (SQL Server, Oracle, file shares, etc.). Cloud-to-cloud connections do not need it. M365 services are cloud-based. Premium connectors may or may not need a gateway depending on the source."
+    },
+    {
+      "id": 35,
+      "topic": "Security Architecture - Conditional Access",
+      "type": "SingleChoice",
+      "questionText": "How can Microsoft Entra Conditional Access policies enhance Power Platform security?",
+      "options": ["A. By controlling which colors the apps display.", "B. By enforcing conditions like MFA, device compliance, and location restrictions before users can access Power Platform services.", "C. By automatically building apps.", "D. By replacing Dataverse security roles."],
+      "correctAnswers": ["B"],
+      "explanation": "Conditional Access policies can require multi-factor authentication, enforce device compliance, restrict access by location or risk level, and more before allowing access to Power Platform. They do not control visual styling, build apps, or replace Dataverse security (they complement it)."
+    },
+    {
+      "id": 36,
+      "topic": "CoE Toolkit - Nurture",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Nurture Components in the CoE Starter Kit?",
+      "options": ["A. To block all maker activity.", "B. To foster community engagement, provide training resources, and support citizen developer growth.", "C. To delete unused environments.", "D. To generate billing invoices."],
+      "correctAnswers": ["B"],
+      "explanation": "Nurture Components provide tools for community engagement like a training portal, maker showcase app, and communication templates that support citizen developer growth and adoption. They do not block activity, delete environments, or generate invoices."
+    },
+    {
+      "id": 37,
+      "topic": "Environment Strategy - Capacity Management",
+      "type": "SingleChoice",
+      "questionText": "What types of capacity should a Solution Architect monitor for Power Platform environments?",
+      "options": ["A. Only file storage.", "B. Database capacity (Dataverse), file capacity, and log capacity across environments.", "C. Only the number of users.", "D. CPU and memory of the server hardware."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Platform capacity includes Dataverse database storage, file storage (attachments, images), and log storage (audit logs, plug-in trace logs) that must be monitored across all environments. It is not just file storage or user count. Cloud platform capacity is managed by Microsoft, not hardware."
+    },
+    {
+      "id": 38,
+      "topic": "Solution Design - Offline Capabilities",
+      "type": "SingleChoice",
+      "questionText": "When designing a Power Platform solution that must work offline for field workers, which approach should the architect recommend?",
+      "options": ["A. Use only cloud flows for all operations.", "B. Configure the model-driven app's mobile offline profile with the appropriate tables and filters for offline access.", "C. Download data to Excel manually.", "D. Offline is not supported in Power Platform."],
+      "correctAnswers": ["B"],
+      "explanation": "Model-driven apps support mobile offline profiles that define which tables and records are available offline, enabling field workers to access and modify data without connectivity. Cloud flows require connectivity. Manual Excel download is not integrated. Offline is supported in Power Platform."
+    },
+    {
+      "id": 39,
+      "topic": "Governance - Power Platform Advisor",
+      "type": "MultipleChoice",
+      "questionText": "Which two areas does Power Platform Advisor provide recommendations on? (Choose two.)",
+      "options": ["A. Security best practices and policy compliance.", "B. Performance optimization and solution health.", "C. Office furniture arrangement.", "D. Employee vacation scheduling."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Power Platform Advisor analyzes your environment and provides recommendations on security, compliance, performance, and solution health to help maintain a well-governed and optimized platform. It does not cover physical office setup or HR scheduling."
+    },
+    {
+      "id": 40,
+      "topic": "Solution Design - Solution Architecture Document",
+      "type": "SingleChoice",
+      "questionText": "What should a Solution Architecture Document (SAD) for a Power Platform project include?",
+      "options": ["A. Only the list of required licenses.", "B. Business requirements, solution overview, data model, security design, integration architecture, ALM strategy, and non-functional requirements.", "C. Only screenshots of the finished application.", "D. Only the project timeline."],
+      "correctAnswers": ["B"],
+      "explanation": "A comprehensive SAD covers business requirements, solution overview with component diagrams, data model design, security architecture, integration patterns, ALM and deployment strategy, and non-functional requirements like performance and scalability. Licenses, screenshots, and timelines are supporting details but not the complete document."
+    }
+  ]
+}

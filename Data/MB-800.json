@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-800",
+  "examTitle": "Dynamics 365 Business Central Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Financial Management - Chart of Accounts",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Business Central, what must you configure before posting any financial transactions?",
+      "options": ["A. Warehouse locations.", "B. The chart of accounts.", "C. Manufacturing routings.", "D. Service management contracts."],
+      "correctAnswers": ["B"],
+      "explanation": "The chart of accounts is the foundation of financial management and must be configured before any financial transactions can be posted. Warehouse locations are for inventory management. Manufacturing routings are for production. Service contracts are for service management."
+    },
+    {
+      "id": 2,
+      "topic": "Financial Management - General Journals",
+      "type": "SingleChoice",
+      "questionText": "Which journal type in Business Central is used to post transactions directly to general ledger accounts, bank accounts, customer accounts, and vendor accounts?",
+      "options": ["A. Item journal.", "B. General journal.", "C. Job journal.", "D. Resource journal."],
+      "correctAnswers": ["B"],
+      "explanation": "The general journal is used to post transactions directly to G/L accounts, bank accounts, customer, vendor, and fixed asset accounts. Item journals are for inventory adjustments. Job journals track job-related entries. Resource journals track resource usage."
+    },
+    {
+      "id": 3,
+      "topic": "Financial Management - Dimensions",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of dimensions in Business Central?",
+      "options": ["A. To define the physical size of products.", "B. To add analytical tags to transactions for reporting and analysis.", "C. To set up user security permissions.", "D. To configure printing layouts for documents."],
+      "correctAnswers": ["B"],
+      "explanation": "Dimensions are analytical tags (such as department, project, or region) that can be attached to transactions to enable multi-dimensional reporting and analysis. They do not relate to physical product size, user permissions, or print layouts."
+    },
+    {
+      "id": 4,
+      "topic": "Sales - Sales Order Processing",
+      "type": "SingleChoice",
+      "questionText": "What is the correct document flow for a standard sales process in Business Central?",
+      "options": ["A. Sales Invoice > Sales Order > Sales Quote.", "B. Sales Quote > Sales Order > Sales Invoice.", "C. Sales Credit Memo > Sales Invoice > Sales Order.", "D. Sales Return Order > Sales Quote > Sales Invoice."],
+      "correctAnswers": ["B"],
+      "explanation": "The standard sales flow is: Sales Quote (optional proposal) > Sales Order (confirmed order) > Sales Invoice (billing). Reversing the order or starting with credit memos/returns does not represent the standard sales process."
+    },
+    {
+      "id": 5,
+      "topic": "Purchasing - Purchase Order",
+      "type": "SingleChoice",
+      "questionText": "When you post a purchase order in Business Central with the Ship and Invoice option, which ledger entries are created?",
+      "options": ["A. Only general ledger entries.", "B. Item ledger entries, value entries, vendor ledger entries, and G/L entries.", "C. Only vendor ledger entries.", "D. Only item ledger entries."],
+      "correctAnswers": ["B"],
+      "explanation": "Posting a purchase order with Ship and Invoice creates item ledger entries (inventory receipt), value entries (cost), vendor ledger entries (accounts payable), and corresponding G/L entries. It is not limited to only one type of entry."
+    },
+    {
+      "id": 6,
+      "topic": "Inventory - Item Card",
+      "type": "SingleChoice",
+      "questionText": "On an item card in Business Central, which field determines how the item's cost is calculated?",
+      "options": ["A. Base Unit of Measure.", "B. Costing Method.", "C. Item Category Code.", "D. Shelf No."],
+      "correctAnswers": ["B"],
+      "explanation": "The Costing Method field (FIFO, LIFO, Average, Standard, Specific) determines how the cost of the item is calculated and applied to inventory transactions. Base Unit of Measure defines measurement. Item Category is for classification. Shelf No. is for physical location."
+    },
+    {
+      "id": 7,
+      "topic": "Inventory - Item Tracking",
+      "type": "SingleChoice",
+      "questionText": "Which feature in Business Central allows you to track individual items using serial numbers or lot numbers?",
+      "options": ["A. Bin management.", "B. Item tracking.", "C. Stockkeeping units.", "D. Item charges."],
+      "correctAnswers": ["B"],
+      "explanation": "Item tracking enables serial number and lot number tracking on items throughout the supply chain. Bin management is for warehouse locations. Stockkeeping units define location-specific item variants. Item charges allocate additional costs to purchase/sales."
+    },
+    {
+      "id": 8,
+      "topic": "Warehouse - Basic Warehouse Setup",
+      "type": "SingleChoice",
+      "questionText": "In Business Central, what is the minimum configuration required to enable basic warehouse functionality for a location?",
+      "options": ["A. Enable Directed Put-away and Pick.", "B. Enable Require Receive and Require Shipment on the location card.", "C. Set up bins and zones.", "D. Configure warehouse employees only."],
+      "correctAnswers": ["B"],
+      "explanation": "Basic warehouse functionality requires enabling Require Receive and/or Require Shipment on the location card. Directed Put-away and Pick is for advanced warehousing. Bins and zones are optional for basic setup. Warehouse employees must be set up but alone do not enable warehouse functionality."
+    },
+    {
+      "id": 9,
+      "topic": "Manufacturing - Production BOM",
+      "type": "SingleChoice",
+      "questionText": "What does a production BOM (Bill of Materials) define in Business Central?",
+      "options": ["A. The routing operations for manufacturing an item.", "B. The list of components and quantities needed to produce a finished item.", "C. The vendors who supply raw materials.", "D. The sales price of the finished product."],
+      "correctAnswers": ["B"],
+      "explanation": "A production BOM defines the components (materials) and their quantities required to produce a finished item. Routing operations define the manufacturing process steps. Vendor information is on the vendor card. Sales prices are on the item card or price lists."
+    },
+    {
+      "id": 10,
+      "topic": "Manufacturing - Routing",
+      "type": "SingleChoice",
+      "questionText": "What does a routing define in Business Central manufacturing?",
+      "options": ["A. The delivery route for shipping products.", "B. The sequence of operations and work centers required to produce an item.", "C. The approval workflow for purchase orders.", "D. The network path for data synchronization."],
+      "correctAnswers": ["B"],
+      "explanation": "A routing defines the sequence of manufacturing operations, the work or machine centers where they are performed, and the time required. It is not about delivery routes, approval workflows, or network configurations."
+    },
+    {
+      "id": 11,
+      "topic": "Service Management - Service Items",
+      "type": "SingleChoice",
+      "questionText": "In Business Central service management, what does a service item represent?",
+      "options": ["A. A product available for sale.", "B. A customer's item that requires servicing, repair, or maintenance.", "C. A resource assigned to perform work.", "D. A type of general ledger account."],
+      "correctAnswers": ["B"],
+      "explanation": "A service item represents a customer's item (equipment, machine, etc.) that requires servicing, repair, or maintenance tracking. It differs from a sales item, a resource, or a G/L account."
+    },
+    {
+      "id": 12,
+      "topic": "Job Management - Jobs and Tasks",
+      "type": "SingleChoice",
+      "questionText": "In Business Central, how are jobs structured for project management?",
+      "options": ["A. Jobs contain job tasks, which contain job planning lines.", "B. Job planning lines contain jobs, which contain tasks.", "C. Tasks are independent and not linked to jobs.", "D. Jobs can only contain one task each."],
+      "correctAnswers": ["A"],
+      "explanation": "Jobs in Business Central have a hierarchical structure: Jobs contain Job Tasks, which contain Job Planning Lines (budget, billable, or both). Planning lines do not contain jobs. Tasks are always linked to a job. Jobs can contain multiple tasks."
+    },
+    {
+      "id": 13,
+      "topic": "Financial Management - Bank Reconciliation",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of bank account reconciliation in Business Central?",
+      "options": ["A. To create new bank accounts.", "B. To match bank statement entries with posted bank ledger entries and resolve differences.", "C. To print bank checks.", "D. To set up electronic payments."],
+      "correctAnswers": ["B"],
+      "explanation": "Bank reconciliation matches imported bank statement lines with posted bank ledger entries to ensure the bank balance in Business Central matches the actual bank balance. It does not create bank accounts, print checks, or set up electronic payments."
+    },
+    {
+      "id": 14,
+      "topic": "Sales - Customer Posting Groups",
+      "type": "SingleChoice",
+      "questionText": "What do customer posting groups determine in Business Central?",
+      "options": ["A. The discount percentage for each customer.", "B. The general ledger accounts to which customer transactions are posted.", "C. The shipping method for deliveries.", "D. The credit limit for customers."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer posting groups map customer transactions to the appropriate G/L accounts (receivables, payment discounts, etc.). Discounts are configured separately. Shipping methods are on the customer card. Credit limits are a field on the customer card."
+    },
+    {
+      "id": 15,
+      "topic": "Purchasing - Vendor Management",
+      "type": "MultipleChoice",
+      "questionText": "Which two fields on the vendor card affect how purchase transactions are posted to the general ledger? (Choose two.)",
+      "options": ["A. Vendor Posting Group.", "B. Gen. Bus. Posting Group.", "C. Country/Region Code.", "D. Phone No."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Vendor Posting Group determines the payables G/L account. The Gen. Bus. Posting Group, combined with the Gen. Prod. Posting Group, determines the purchase and COGS accounts via the general posting setup. Country/Region Code and Phone No. do not affect G/L posting."
+    },
+    {
+      "id": 16,
+      "topic": "Financial Management - Fixed Assets",
+      "type": "SingleChoice",
+      "questionText": "Which depreciation method reduces the book value of a fixed asset by a constant percentage each year?",
+      "options": ["A. Straight-Line.", "B. Declining-Balance.", "C. Units of Production.", "D. Manual."],
+      "correctAnswers": ["B"],
+      "explanation": "The Declining-Balance method applies a constant percentage to the remaining book value each year, resulting in higher depreciation early and lower later. Straight-Line spreads cost evenly. Units of Production is based on usage. Manual requires manual entries."
+    },
+    {
+      "id": 17,
+      "topic": "Inventory - Physical Inventory",
+      "type": "SingleChoice",
+      "questionText": "Which journal in Business Central is used to record the results of a physical inventory count?",
+      "options": ["A. General journal.", "B. Physical inventory journal.", "C. Revaluation journal.", "D. Reclassification journal."],
+      "correctAnswers": ["B"],
+      "explanation": "The physical inventory journal is specifically designed to record physical count results and calculate adjustments between the counted quantity and the system quantity. General journals are for G/L entries. Revaluation journals adjust item costs. Reclassification journals move items between locations."
+    },
+    {
+      "id": 18,
+      "topic": "Warehouse - Directed Put-away and Pick",
+      "type": "SingleChoice",
+      "questionText": "What advanced warehouse feature requires the setup of zones and bins with bin types?",
+      "options": ["A. Inventory pick.", "B. Warehouse shipment.", "C. Directed put-away and pick.", "D. Internal movement."],
+      "correctAnswers": ["C"],
+      "explanation": "Directed put-away and pick is the most advanced warehouse configuration in Business Central, requiring zones, bins with bin types, and bin rankings. Inventory picks are for basic warehouse. Warehouse shipments do not require bin types. Internal movements are simpler warehouse operations."
+    },
+    {
+      "id": 19,
+      "topic": "Financial Management - VAT Setup",
+      "type": "MultipleChoice",
+      "questionText": "Which two posting groups must be configured in the VAT posting setup to determine how VAT is calculated and posted? (Choose two.)",
+      "options": ["A. VAT Business Posting Group.", "B. VAT Product Posting Group.", "C. Inventory Posting Group.", "D. Customer Price Group."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The VAT posting setup uses the combination of VAT Business Posting Group (assigned to customers/vendors) and VAT Product Posting Group (assigned to items/G/L accounts) to determine VAT calculation type and G/L accounts. Inventory posting groups and customer price groups serve different purposes."
+    },
+    {
+      "id": 20,
+      "topic": "Sales - Sales Prices and Discounts",
+      "type": "SingleChoice",
+      "questionText": "In Business Central, where do you configure special prices for specific customers or customer groups?",
+      "options": ["A. On the item card's General FastTab.", "B. In the Sales Price List or Price List Lines.", "C. In the General Posting Setup.", "D. On the location card."],
+      "correctAnswers": ["B"],
+      "explanation": "Sales prices for specific customers or customer groups are configured in Price Lists and Price List Lines (the new pricing experience). The item card shows the unit price but not customer-specific pricing. General Posting Setup is for G/L mapping. Location cards are for warehouse configuration."
+    },
+    {
+      "id": 21,
+      "topic": "Purchasing - Requisition Worksheets",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the requisition worksheet in Business Central?",
+      "options": ["A. To track employee time sheets.", "B. To plan and generate purchase orders based on demand and reorder policies.", "C. To reconcile bank statements.", "D. To manage fixed asset depreciation."],
+      "correctAnswers": ["B"],
+      "explanation": "The requisition worksheet helps plan procurement by calculating supply requirements based on demand forecasts, sales orders, and reorder policies, then generating purchase orders. It is not for time sheets, bank reconciliation, or asset depreciation."
+    },
+    {
+      "id": 22,
+      "topic": "Inventory - Item Charges",
+      "type": "SingleChoice",
+      "questionText": "What are item charges used for in Business Central?",
+      "options": ["A. To charge customers a penalty fee.", "B. To allocate additional costs (like freight or insurance) to purchase or sales transactions.", "C. To apply finance charges on overdue invoices.", "D. To calculate employee commissions."],
+      "correctAnswers": ["B"],
+      "explanation": "Item charges allow you to allocate additional costs such as freight, insurance, and handling to the cost of purchased or sold items, adjusting the item's inventory value. They are not penalty fees, finance charges, or commission calculations."
+    },
+    {
+      "id": 23,
+      "topic": "Financial Management - Currencies",
+      "type": "SingleChoice",
+      "questionText": "How does Business Central handle transactions in foreign currencies?",
+      "options": ["A. Foreign currency transactions are not supported.", "B. Transactions are recorded in the foreign currency and converted to the local currency using exchange rates.", "C. All transactions must be manually converted before entry.", "D. Only the Euro is supported as a foreign currency."],
+      "correctAnswers": ["B"],
+      "explanation": "Business Central supports multi-currency transactions by recording amounts in the foreign currency and converting to the local currency (LCY) using the exchange rates defined in the currency exchange rate table. Multiple currencies are supported, not just the Euro."
+    },
+    {
+      "id": 24,
+      "topic": "Manufacturing - Production Orders",
+      "type": "SingleChoice",
+      "questionText": "Which production order status allows you to make changes to the order before releasing it to the shop floor?",
+      "options": ["A. Released.", "B. Finished.", "C. Planned or Firm Planned.", "D. Simulated."],
+      "correctAnswers": ["C"],
+      "explanation": "Planned and Firm Planned production orders allow modifications before being released to the shop floor. Released orders are sent to production. Finished orders are completed. Simulated orders are for what-if scenarios and do not post any entries."
+    },
+    {
+      "id": 25,
+      "topic": "Service Management - Service Orders",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of a service order in Business Central?",
+      "options": ["A. To order items from a vendor.", "B. To document and manage service requests, including repair and maintenance work.", "C. To transfer inventory between locations.", "D. To process employee expense claims."],
+      "correctAnswers": ["B"],
+      "explanation": "A service order documents and manages customer service requests including repairs, maintenance, and spare parts needed. Purchase orders are for vendor ordering. Transfer orders move inventory. Expense claims are not processed through service orders."
+    },
+    {
+      "id": 26,
+      "topic": "Job Management - Job Planning Lines",
+      "type": "SingleChoice",
+      "questionText": "In Business Central, what type of job planning line should you create to track both the budget and the amount to invoice the customer?",
+      "options": ["A. Budget line type.", "B. Billable line type.", "C. Both Budget and Billable line type.", "D. None; budgets and billing are tracked separately."],
+      "correctAnswers": ["C"],
+      "explanation": "The 'Both Budget and Billable' line type tracks both the budgeted cost and the amount that can be invoiced to the customer on a single planning line. Budget-only tracks costs without billing. Billable-only tracks invoicing without budget. Both functions can be combined on one line."
+    },
+    {
+      "id": 27,
+      "topic": "Financial Management - Approval Workflows",
+      "type": "SingleChoice",
+      "questionText": "What must be set up to require manager approval before a purchase order can be posted in Business Central?",
+      "options": ["A. A number series.", "B. An approval workflow.", "C. A posting group.", "D. A dimension value."],
+      "correctAnswers": ["B"],
+      "explanation": "An approval workflow defines the rules for requiring approval before documents like purchase orders can be posted. Number series generate document numbers. Posting groups map to G/L accounts. Dimension values are for analytical tagging."
+    },
+    {
+      "id": 28,
+      "topic": "Sales - Blanket Sales Orders",
+      "type": "SingleChoice",
+      "questionText": "What is a blanket sales order used for in Business Central?",
+      "options": ["A. A one-time sale to a new customer.", "B. A framework agreement for recurring deliveries over time, from which individual sales orders are created.", "C. An internal transfer of goods.", "D. A request for quotation sent to vendors."],
+      "correctAnswers": ["B"],
+      "explanation": "A blanket sales order is a framework agreement with a customer for recurring deliveries over a period, from which individual sales orders are created as needed. It is not for one-time sales, internal transfers, or vendor quotations."
+    },
+    {
+      "id": 29,
+      "topic": "Inventory - Stockkeeping Units",
+      "type": "SingleChoice",
+      "questionText": "When should you create stockkeeping units (SKUs) for an item in Business Central?",
+      "options": ["A. When the item is sold to multiple customers.", "B. When the item needs different replenishment or planning parameters at different locations.", "C. When the item has serial number tracking.", "D. When the item is a service type."],
+      "correctAnswers": ["B"],
+      "explanation": "Stockkeeping units (SKUs) allow you to define location-specific replenishment methods, vendors, lead times, and planning parameters for the same item at different locations. They are not specifically for multiple customers, serial tracking, or service items."
+    },
+    {
+      "id": 30,
+      "topic": "Warehouse - Warehouse Receipt",
+      "type": "SingleChoice",
+      "questionText": "In a warehouse with Require Receive enabled, what document is used to receive items from a purchase order?",
+      "options": ["A. Inventory put-away.", "B. Warehouse receipt.", "C. Transfer order.", "D. Assembly order."],
+      "correctAnswers": ["B"],
+      "explanation": "When Require Receive is enabled on the location card, items from purchase orders are received using a warehouse receipt document. Inventory put-aways are for basic warehouse without Require Receive. Transfer orders move items between locations. Assembly orders combine components."
+    },
+    {
+      "id": 31,
+      "topic": "Financial Management - Intercompany",
+      "type": "SingleChoice",
+      "questionText": "What feature in Business Central enables automatic posting of transactions between related companies?",
+      "options": ["A. Consolidation.", "B. Intercompany postings.", "C. Currency exchange.", "D. Cost accounting."],
+      "correctAnswers": ["B"],
+      "explanation": "Intercompany postings allow related companies in Business Central to exchange transactions automatically, eliminating manual re-entry. Consolidation combines financial statements. Currency exchange handles multi-currency. Cost accounting distributes costs internally."
+    },
+    {
+      "id": 32,
+      "topic": "Sales - Returns and Credit Memos",
+      "type": "MultipleChoice",
+      "questionText": "Which two documents can you use to process a sales return in Business Central? (Choose two.)",
+      "options": ["A. Sales credit memo.", "B. Sales return order.", "C. Purchase credit memo.", "D. Service credit memo."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A sales credit memo or a sales return order can process customer returns. Sales credit memos are for simpler returns without warehouse handling. Sales return orders provide more control with receive and invoice steps. Purchase credit memos are for vendor returns. Service credit memos are for service transactions."
+    },
+    {
+      "id": 33,
+      "topic": "Financial Management - Deferrals",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of deferral templates in Business Central?",
+      "options": ["A. To defer posting of journal entries to a future date.", "B. To spread revenue or expense recognition across multiple accounting periods.", "C. To postpone payment to vendors.", "D. To delay inventory counting."],
+      "correctAnswers": ["B"],
+      "explanation": "Deferral templates allow you to automatically spread revenue or expense recognition across multiple accounting periods according to a defined schedule. They do not defer journal posting dates, vendor payments, or inventory counting."
+    },
+    {
+      "id": 34,
+      "topic": "Purchasing - Combine Receipts",
+      "type": "SingleChoice",
+      "questionText": "How can you create a single purchase invoice for multiple posted purchase receipts from the same vendor?",
+      "options": ["A. By using the Combine Receipts function.", "B. By manually copying each receipt.", "C. This is not possible in Business Central.", "D. By deleting the receipts and creating a new order."],
+      "correctAnswers": ["A"],
+      "explanation": "The Combine Receipts function creates a single purchase invoice from multiple posted receipts for the same vendor, streamlining the invoicing process. Manual copying is inefficient. This functionality is available in Business Central. Deleting receipts is not the correct approach."
+    },
+    {
+      "id": 35,
+      "topic": "Manufacturing - Capacity Planning",
+      "type": "SingleChoice",
+      "questionText": "Which entity in Business Central manufacturing represents the physical location where production operations are performed?",
+      "options": ["A. Production BOM.", "B. Work center.", "C. Item journal.", "D. Vendor card."],
+      "correctAnswers": ["B"],
+      "explanation": "A work center represents a physical production location (a group of machines or workers) where manufacturing operations are performed. Production BOMs list components. Item journals record inventory transactions. Vendor cards store supplier information."
+    },
+    {
+      "id": 36,
+      "topic": "Service Management - Service Contracts",
+      "type": "SingleChoice",
+      "questionText": "What does a service contract in Business Central provide?",
+      "options": ["A. A template for sales quotes.", "B. An agreement defining service levels, response times, and periodic invoicing for service items.", "C. A vendor purchase agreement.", "D. An employment contract for service technicians."],
+      "correctAnswers": ["B"],
+      "explanation": "A service contract defines the terms of service including service levels, response times, and periodic invoicing schedules for specific service items belonging to a customer. It is not a sales quote template, purchase agreement, or employment contract."
+    },
+    {
+      "id": 37,
+      "topic": "Financial Management - General Posting Setup",
+      "type": "SingleChoice",
+      "questionText": "What does the General Posting Setup matrix define in Business Central?",
+      "options": ["A. The tax rates for different regions.", "B. The G/L accounts used when posting transactions based on the combination of Gen. Bus. and Gen. Prod. Posting Groups.", "C. The approval hierarchy for documents.", "D. The number series for all documents."],
+      "correctAnswers": ["B"],
+      "explanation": "The General Posting Setup defines which G/L accounts are used when posting transactions, based on the combination of General Business Posting Group and General Product Posting Group. Tax rates are in VAT setup. Approval hierarchies are in workflow setup. Number series are configured separately."
+    },
+    {
+      "id": 38,
+      "topic": "Inventory - Assembly Management",
+      "type": "SingleChoice",
+      "questionText": "What is the Assemble-to-Order feature in Business Central used for?",
+      "options": ["A. Assembling items in advance for stock.", "B. Assembling items on demand linked directly to a sales order line.", "C. Disassembling returned items.", "D. Ordering assembly services from a vendor."],
+      "correctAnswers": ["B"],
+      "explanation": "Assemble-to-Order links an assembly order directly to a sales order line, assembling the item specifically for that order when the sales order is posted. Assemble-to-Stock is for building inventory. Disassembly is not a standard feature. Vendor assembly ordering is a subcontracting scenario."
+    },
+    {
+      "id": 39,
+      "topic": "Job Management - WIP Calculation",
+      "type": "SingleChoice",
+      "questionText": "What does the Work in Process (WIP) calculation for jobs accomplish in Business Central?",
+      "options": ["A. It calculates employee payroll.", "B. It recognizes revenue and costs for ongoing jobs at the end of a financial period.", "C. It generates purchase orders for job materials.", "D. It schedules job tasks on a calendar."],
+      "correctAnswers": ["B"],
+      "explanation": "The WIP calculation for jobs recognizes revenue and costs for ongoing projects according to the selected WIP method (cost value, sales value, percentage of completion, etc.) at the end of an accounting period. It does not calculate payroll, generate purchase orders, or schedule tasks."
+    },
+    {
+      "id": 40,
+      "topic": "Financial Management - Reporting",
+      "type": "MultipleChoice",
+      "questionText": "Which two financial reports are standard in Business Central? (Choose two.)",
+      "options": ["A. Balance Sheet (Statement of Financial Position).", "B. Income Statement (Profit and Loss).", "C. Social media engagement report.", "D. Website traffic analytics report."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Balance Sheet and Income Statement are standard financial reports in Business Central generated from G/L entries and account schedules (financial reports). Social media engagement and website traffic are not part of ERP financial reporting."
+    }
+  ]
+}
