@@ -7,6 +7,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSingleton<ExamLoaderService>();
 builder.Services.AddScoped<ExamService>();
+builder.Services.AddScoped<ThemeService>();
 
 var app = builder.Build();
 

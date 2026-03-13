@@ -1,6 +1,17 @@
-/* === Azure Exam Simulator - Dark Theme === */
+/* === Azure Exam Simulator - Themed === */
 
 :root {
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+    --transition: 200ms ease;
+}
+
+/* Dark theme (default) */
+:root, [data-theme="dark"] {
     --bg-primary: #0a0c10;
     --bg-secondary: #12151c;
     --bg-card: #181c28;
@@ -21,13 +32,36 @@
     --text-muted: #4d5571;
     --border: #232840;
     --border-light: #2a3050;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
-    --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
-    --transition: 200ms ease;
+    --header-bg: rgba(10, 12, 16, 0.85);
+    --shadow-card: rgba(0, 0, 0, 0.3);
+    --modal-overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --bg-primary: #f4f6f9;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f4fa;
+    --bg-input: #f0f2f5;
+    --accent: #0062b1;
+    --accent-light: #0078d4;
+    --accent-glow: rgba(0, 120, 212, 0.2);
+    --accent-subtle: rgba(0, 120, 212, 0.06);
+    --success: #1a9c54;
+    --success-bg: rgba(26, 156, 84, 0.08);
+    --error: #d43b2f;
+    --error-bg: rgba(212, 59, 47, 0.07);
+    --warning: #c77d0a;
+    --warning-bg: rgba(199, 125, 10, 0.07);
+    --text-primary: #1a1f2e;
+    --text-secondary: #5a6378;
+    --text-muted: #8d95a8;
+    --border: #d8dce6;
+    --border-light: #e4e8f0;
+    --header-bg: rgba(255, 255, 255, 0.88);
+    --shadow-card: rgba(0, 0, 0, 0.06);
+    --modal-overlay: rgba(0, 0, 0, 0.35);
 }
 
 *, *::before, *::after {
@@ -91,10 +125,19 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 12, 16, 0.85);
+    background: var(--header-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0.75rem 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .app-logo {
@@ -298,7 +341,7 @@ button:disabled {
 .exam-card:hover {
     border-color: var(--accent);
     background: var(--bg-card-hover);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--accent-glow);
+    box-shadow: 0 4px 24px var(--shadow-card), 0 0 0 1px var(--accent-glow);
     transform: translateY(-2px);
 }
 
@@ -915,7 +958,7 @@ button:disabled {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--modal-overlay);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -1224,6 +1267,73 @@ button:disabled {
 .results-actions {
     text-align: center;
     padding: 1.5rem 0;
+}
+
+/* === Theme Toggle === */
+
+.theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+}
+
+.theme-toggle:hover {
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+    background: var(--bg-card-hover);
+}
+
+.theme-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Light theme specific overrides */
+[data-theme="light"] .hero h1 {
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme="light"] .exam-card {
+    box-shadow: 0 1px 4px var(--shadow-card);
+}
+
+[data-theme="light"] .stat-card,
+[data-theme="light"] .topic-item,
+[data-theme="light"] .review-item,
+[data-theme="light"] .question-nav-dots,
+[data-theme="light"] .question-text {
+    box-shadow: 0 1px 3px var(--shadow-card);
+}
+
+[data-theme="light"] .modal {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: var(--border);
+}
+
+/* Smooth theme transition */
+html, body, .app-header, .exam-card, .stat-card, .question-text,
+.option-card, .modal, .question-nav-dots, .nav-dot,
+.btn-primary, .btn-secondary, .btn-ghost, .toggle-btn, .chip,
+.topic-item, .review-item, .feedback-panel, .result-banner,
+.setup-summary, .theme-toggle {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* === Animations === */
