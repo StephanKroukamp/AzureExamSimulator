@@ -1,0 +1,61 @@
+<div class="options-list">
+    <div class="multi-hint">Select @Question.CorrectAnswers.Distinct().Count() answer(s)</div>
+    @for (var i = 0; i < Question.Options.Count; i++)
+    {
+        var index = i;
+        var letter = ((char)('A' + i)).ToString();
+        var isSelected = SelectedAnswers.Contains(letter);
+        var isCorrect = Question.CorrectAnswers.Contains(letter);
+        var feedbackClass = ShowFeedback ? (isCorrect ? "correct" : (isSelected ? "incorrect" : "")) : "";
+
+        <button class="option-card multi @(isSelected ? "selected" : "") @feedbackClass"
+                @onclick="() => ToggleOption(letter)"
+                disabled="@Disabled">
+            <span class="option-checkbox @(isSelected ? "checked" : "")">
+                @if (isSelected)
+                {
+                    <text>&#10003;</text>
+                }
+            </span>
+            <span class="option-letter">@letter</span>
+            <span class="option-text">@GetOptionText(Question.Options[index])</span>
+            @if (ShowFeedback && isCorrect)
+            {
+                <span class="option-feedback correct-icon">&#10003;</span>
+            }
+            else if (ShowFeedback && isSelected && !isCorrect)
+            {
+                <span class="option-feedback incorrect-icon">&#10007;</span>
+            }
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Question Question { get; set; } = default!;
+    [Parameter] public string[] SelectedAnswers { get; set; } = [];
+    [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
+    [Parameter] public bool ShowFeedback { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+
+    private async Task ToggleOption(string letter)
+    {
+        if (Disabled) return;
+
+        var current = SelectedAnswers.ToList();
+        if (current.Contains(letter))
+            current.Remove(letter);
+        else
+            current.Add(letter);
+
+        await OnAnswerChanged.InvokeAsync(current.ToArray());
+    }
+
+    private static string GetOptionText(string option)
+    {
+        var trimmed = option.TrimStart();
+        if (trimmed.Length >= 2 && char.IsLetter(trimmed[0]) && trimmed[1] == '.')
+            return trimmed[2..].TrimStart();
+        return option;
+    }
+}

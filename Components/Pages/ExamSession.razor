@@ -1,0 +1,301 @@
+@page "/exam/{ExamCode}/session"
+@inject ExamService ExamService
+@inject NavigationManager Nav
+@implements IDisposable
+
+<div class="session-page">
+    @if (ExamService.CurrentExam is null || !ExamService.IsExamActive)
+    {
+        <div class="empty-state">
+            <p>No active exam session.</p>
+            <a href="/" class="btn-primary">Go Home</a>
+        </div>
+    }
+    else
+    {
+        <div class="session-header">
+            <div class="session-title">
+                <span class="exam-badge small">@ExamService.CurrentExam.ExamCode</span>
+                <span>@ExamService.CurrentExam.ExamTitle</span>
+            </div>
+            <div class="session-info">
+                <span class="question-counter">
+                    @(ExamService.CurrentQuestionIndex + 1) / @ExamService.TotalQuestions
+                </span>
+                <span class="timer @TimerClass">
+                    @if (ExamService.TimeRemaining.HasValue)
+                    {
+                        <text>@FormatTime(ExamService.TimeRemaining.Value) remaining</text>
+                    }
+                    else
+                    {
+                        <text>@FormatTime(ExamService.Elapsed)</text>
+                    }
+                </span>
+            </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: @ProgressPercent%"></div>
+        </div>
+
+        @if (ExamService.CurrentQuestion is not null)
+        {
+            <div class="session-content">
+                <QuestionDisplay Question="ExamService.CurrentQuestion"
+                                 QuestionNumber="ExamService.CurrentQuestionIndex + 1"
+                                 SelectedAnswers="_currentSelection"
+                                 OnAnswerChanged="OnAnswerChanged"
+                                 ShowFeedback="_showFeedback"
+                                 Disabled="_showFeedback" />
+
+                @if (_showFeedback)
+                {
+                    <div class="feedback-panel @(_isCurrentCorrect ? "correct" : "incorrect")">
+                        <div class="feedback-header">
+                            @if (_isCurrentCorrect)
+                            {
+                                <span class="feedback-icon">&#10003;</span>
+                                <span>Correct!</span>
+                            }
+                            else
+                            {
+                                <span class="feedback-icon">&#10007;</span>
+                                <span>Incorrect</span>
+                                <span class="correct-answers">
+                                    Correct: @string.Join(", ", ExamService.CurrentQuestion.CorrectAnswers)
+                                </span>
+                            }
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(ExamService.CurrentQuestion.Explanation))
+                        {
+                            <div class="feedback-explanation">
+                                @ExamService.CurrentQuestion.Explanation
+                            </div>
+                        }
+                    </div>
+                }
+
+                <div class="session-nav">
+                    <button class="btn-secondary" @onclick="PreviousQuestion"
+                            disabled="@(ExamService.CurrentQuestionIndex == 0)">
+                        &larr; Previous
+                    </button>
+
+                    <div class="nav-center">
+                        @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && _currentSelection.Length > 0)
+                        {
+                            <button class="btn-primary" @onclick="SubmitAnswer">
+                                Check Answer
+                            </button>
+                        }
+                        else if (!_showFeedback && ExamService.Config?.IsPracticeMode != true && _currentSelection.Length > 0)
+                        {
+                            <button class="btn-ghost" @onclick="SubmitAndNext">
+                                Submit &amp; Next
+                            </button>
+                        }
+                    </div>
+
+                    @if (ExamService.CurrentQuestionIndex < ExamService.TotalQuestions - 1)
+                    {
+                        <button class="btn-secondary" @onclick="NextQuestion">
+                            Next &rarr;
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn-accent" @onclick="ShowFinishConfirm">
+                            Finish Exam
+                        </button>
+                    }
+                </div>
+
+                @if (ExamService.CurrentQuestionIndex < ExamService.TotalQuestions - 1)
+                {
+                    <div style="text-align: center; margin-top: 0.5rem;">
+                        <button class="btn-finish-early" @onclick="ShowFinishConfirm">Finish exam early</button>
+                    </div>
+                }
+
+                @if (_showFinishConfirm)
+                {
+                    <div class="modal-overlay" @onclick="() => _showFinishConfirm = false">
+                        <div class="modal" @onclick:stopPropagation="true">
+                            <h3>Finish Exam?</h3>
+                            <p>
+                                @{
+                                    var unanswered = ExamService.UserAnswers.Count(a => a.Length == 0);
+                                }
+                                @if (unanswered > 0)
+                                {
+                                    <text>You have @unanswered unanswered question(s).</text>
+                                }
+                                else
+                                {
+                                    <text>You have answered all questions.</text>
+                                }
+                                <br />Are you sure you want to finish?
+                            </p>
+                            <div class="modal-actions">
+                                <button class="btn-secondary" @onclick="() => _showFinishConfirm = false">Cancel</button>
+                                <button class="btn-primary" @onclick="FinishExam">Finish Exam</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="question-nav-dots">
+                    @for (var i = 0; i < ExamService.TotalQuestions; i++)
+                    {
+                        var idx = i;
+                        var answered = ExamService.UserAnswers[i].Length > 0;
+                        var current = i == ExamService.CurrentQuestionIndex;
+                        <button class="nav-dot @(current ? "current" : "") @(answered ? "answered" : "")"
+                                @onclick="() => GoToQuestion(idx)"
+                                title="Question @(idx + 1)">
+                            @(idx + 1)
+                        </button>
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private string[] _currentSelection = [];
+    private bool _showFeedback;
+    private bool _isCurrentCorrect;
+    private bool _showFinishConfirm;
+    private System.Threading.Timer? _timer;
+
+    private double ProgressPercent =>
+        ExamService.TotalQuestions > 0
+            ? (double)(ExamService.CurrentQuestionIndex + 1) / ExamService.TotalQuestions * 100
+            : 0;
+
+    private string TimerClass
+    {
+        get
+        {
+            if (!ExamService.TimeRemaining.HasValue) return "";
+            var remaining = ExamService.TimeRemaining.Value;
+            var total = TimeSpan.FromMinutes(ExamService.Config?.TimeLimitMinutes ?? 0);
+            if (total.TotalMinutes <= 0) return "";
+            var ratio = remaining / total;
+            return ratio < 0.1 ? "danger" : ratio < 0.25 ? "warning" : "";
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (ExamService.CurrentExam is null || !ExamService.IsExamActive)
+        {
+            Nav.NavigateTo("/");
+            return;
+        }
+
+        _currentSelection = ExamService.GetCurrentAnswer();
+
+        _timer = new System.Threading.Timer(async _ =>
+        {
+            if (ExamService.IsTimeExpired && ExamService.IsExamActive)
+            {
+                ExamService.FinishExam();
+                await InvokeAsync(() =>
+                {
+                    Nav.NavigateTo($"/exam/{ExamCode}/results");
+                });
+            }
+            else
+            {
+                await InvokeAsync(StateHasChanged);
+            }
+        }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+    }
+
+    private void OnAnswerChanged(string[] answers)
+    {
+        _currentSelection = answers;
+    }
+
+    private void SubmitAnswer()
+    {
+        ExamService.SubmitAnswer(_currentSelection);
+        _isCurrentCorrect = ExamService.IsCurrentAnswerCorrect();
+        _showFeedback = true;
+    }
+
+    private void SubmitAndNext()
+    {
+        ExamService.SubmitAnswer(_currentSelection);
+        NextQuestion();
+    }
+
+    private void NextQuestion()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        _showFeedback = false;
+        ExamService.NextQuestion();
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void PreviousQuestion()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        _showFeedback = false;
+        ExamService.PreviousQuestion();
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void GoToQuestion(int index)
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        _showFeedback = false;
+        ExamService.GoToQuestion(index);
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void ShowFinishConfirm()
+    {
+        _showFinishConfirm = true;
+    }
+
+    private void FinishExam()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        ExamService.FinishExam();
+        Nav.NavigateTo($"/exam/{ExamCode}/results");
+    }
+
+    private static string FormatTime(TimeSpan ts)
+    {
+        if (ts.TotalHours >= 1)
+            return $"{(int)ts.TotalHours}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+        return $"{(int)ts.TotalMinutes}:{ts.Seconds:D2}";
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+    }
+}

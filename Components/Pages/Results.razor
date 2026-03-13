@@ -1,0 +1,150 @@
+@page "/exam/{ExamCode}/results"
+@inject ExamService ExamService
+@inject NavigationManager Nav
+
+<div class="results-page">
+    @if (ExamService.CurrentExam is null || !ExamService.IsExamFinished)
+    {
+        <div class="empty-state">
+            <p>No exam results available.</p>
+            <a href="/" class="btn-primary">Go Home</a>
+        </div>
+    }
+    else
+    {
+        var result = ExamService.CalculateResult();
+
+        <div class="results-header">
+            <div class="exam-badge large">@ExamService.CurrentExam.ExamCode</div>
+            <h1>@ExamService.CurrentExam.ExamTitle</h1>
+        </div>
+
+        <div class="result-banner @(result.Passed ? "passed" : "failed")">
+            <div class="result-status">@(result.Passed ? "PASSED" : "FAILED")</div>
+            <div class="result-score">@result.ScoreOutOf1000 / 1000</div>
+            <div class="result-percentage">@result.Percentage.ToString("F1")%</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value correct">@result.Correct</div>
+                <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value incorrect">@result.Incorrect</div>
+                <div class="stat-label">Incorrect</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value skipped">@result.Skipped</div>
+                <div class="stat-label">Skipped</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@result.TotalQuestions</div>
+                <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@FormatTime(result.TimeTaken)</div>
+                <div class="stat-label">Time Taken</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">700</div>
+                <div class="stat-label">Passing Score</div>
+            </div>
+        </div>
+
+        @if (result.TopicBreakdown.Count > 1)
+        {
+            <div class="topic-breakdown">
+                <h2>Topic Breakdown</h2>
+                <div class="topic-list">
+                    @foreach (var (topic, (total, correct)) in result.TopicBreakdown.OrderBy(t => t.Key))
+                    {
+                        var pct = total > 0 ? (double)correct / total * 100 : 0;
+                        var barClass = pct >= 70 ? "good" : pct >= 50 ? "warn" : "bad";
+
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                <span class="topic-name">@topic</span>
+                                <span class="topic-score">@correct / @total (@pct.ToString("F0")%)</span>
+                            </div>
+                            <div class="topic-bar">
+                                <div class="topic-bar-fill @barClass" style="width: @pct%"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        @if (ExamService.Config?.IsPracticeMode != true)
+        {
+            <div class="review-section">
+                <h2>Question Review</h2>
+                <div class="review-list">
+                    @for (var i = 0; i < ExamService.CurrentExam.Questions.Count; i++)
+                    {
+                        var q = ExamService.CurrentExam.Questions[i];
+                        var ua = ExamService.UserAnswers[i];
+                        var isCorrect = ExamService.IsAnswerCorrect(i);
+                        var wasSkipped = ua.Length == 0;
+
+                        <div class="review-item @(wasSkipped ? "skipped" : isCorrect ? "correct" : "incorrect")">
+                            <div class="review-status">
+                                @if (wasSkipped)
+                                {
+                                    <span class="status-icon skip">&#8212;</span>
+                                }
+                                else if (isCorrect)
+                                {
+                                    <span class="status-icon correct">&#10003;</span>
+                                }
+                                else
+                                {
+                                    <span class="status-icon incorrect">&#10007;</span>
+                                }
+                            </div>
+                            <div class="review-content">
+                                <div class="review-question">Q@(i + 1): @Truncate(q.QuestionText, 120)</div>
+                                <div class="review-answers">
+                                    <span>Your answer: @(wasSkipped ? "Skipped" : string.Join(", ", ua))</span>
+                                    <span>Correct: @string.Join(", ", q.CorrectAnswers)</span>
+                                </div>
+                                @if (!isCorrect && !wasSkipped && !string.IsNullOrWhiteSpace(q.Explanation))
+                                {
+                                    <div class="review-explanation">@q.Explanation</div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="results-actions">
+            <button class="btn-primary" @onclick="GoHome">Return Home</button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private void GoHome()
+    {
+        ExamService.Reset();
+        Nav.NavigateTo("/");
+    }
+
+    private static string FormatTime(TimeSpan ts)
+    {
+        if (ts.TotalHours >= 1)
+            return $"{(int)ts.TotalHours}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+        return $"{(int)ts.TotalMinutes}:{ts.Seconds:D2}";
+    }
+
+    private static string Truncate(string text, int maxLength)
+    {
+        if (text.Length <= maxLength) return text;
+        return text[..maxLength] + "...";
+    }
+}

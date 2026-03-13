@@ -1,0 +1,49 @@
+@if (Question is not null)
+{
+    <div class="question-display">
+        @if (!string.IsNullOrEmpty(Question.Topic))
+        {
+            <div class="question-topic">@Question.Topic</div>
+        }
+
+        <div class="question-header">
+            <span class="question-number">Question @(QuestionNumber)</span>
+            @if (Question.Type == "MultipleChoice")
+            {
+                <span class="question-type-badge multi">Select multiple</span>
+            }
+            else if (Question.Type is "DragDrop" or "Hotspot")
+            {
+                <span class="question-type-badge info">@Question.Type (presented as selection)</span>
+            }
+        </div>
+
+        <div class="question-text">@Question.QuestionText</div>
+
+        @if (Question.Type == "MultipleChoice" || (Question.Type is "DragDrop" or "Hotspot" && Question.CorrectAnswers.Count > 1))
+        {
+            <MultipleChoiceQuestion Question="Question"
+                                    SelectedAnswers="SelectedAnswers"
+                                    OnAnswerChanged="OnAnswerChanged"
+                                    ShowFeedback="ShowFeedback"
+                                    Disabled="Disabled" />
+        }
+        else
+        {
+            <SingleChoiceQuestion Question="Question"
+                                  SelectedAnswers="SelectedAnswers"
+                                  OnAnswerChanged="OnAnswerChanged"
+                                  ShowFeedback="ShowFeedback"
+                                  Disabled="Disabled" />
+        }
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public Question Question { get; set; } = default!;
+    [Parameter] public int QuestionNumber { get; set; }
+    [Parameter] public string[] SelectedAnswers { get; set; } = [];
+    [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
+    [Parameter] public bool ShowFeedback { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+}

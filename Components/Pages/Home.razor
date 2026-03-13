@@ -1,0 +1,36 @@
+@page "/"
+@inject ExamLoaderService ExamLoader
+
+<div class="home-page">
+    <div class="hero">
+        <h1>Azure Exam Simulator</h1>
+        <p class="hero-sub">Practice for Microsoft Azure Certifications</p>
+    </div>
+
+    @if (_exams is null)
+    {
+        <div class="loading">Loading exams...</div>
+    }
+    else if (_exams.Count == 0)
+    {
+        <div class="empty-state">No exam files found in Data/ directory.</div>
+    }
+    else
+    {
+        <div class="exam-grid">
+            @foreach (var exam in _exams)
+            {
+                <ExamCard Exam="exam" />
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<Exam>? _exams;
+
+    protected override void OnInitialized()
+    {
+        _exams = ExamLoader.LoadAllExams();
+    }
+}
