@@ -1,0 +1,591 @@
+{
+  "examCode": "PL-900",
+  "examTitle": "Microsoft Power Platform Fundamentals",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Power Platform Overview - Components",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform component allows users to build custom business applications with little or no code?",
+      "options": ["A. Power BI.", "B. Power Apps.", "C. Power Automate.", "D. Power Virtual Agents."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Apps is a low-code/no-code application development platform that enables users to build custom business applications for web and mobile without extensive programming knowledge.\n\nA is incorrect because Power BI is for data analytics and visualization, not application building.\n\nC is incorrect because Power Automate is for creating automated workflows, not building applications.\n\nD is incorrect because Power Virtual Agents is for building chatbots, not general business applications."
+    },
+    {
+      "id": 2,
+      "topic": "Power Platform Overview - Power Automate",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform component allows you to create automated workflows between applications and services to synchronize files, get notifications, and collect data?",
+      "options": ["A. Power Apps.", "B. Power BI.", "C. Power Automate.", "D. Power Pages."],
+      "correctAnswers": ["C"],
+      "explanation": "Power Automate enables users to create automated workflows (flows) that connect to hundreds of applications and services. It supports cloud flows, desktop flows (RPA), and business process flows.\n\nA is incorrect because Power Apps builds applications, not automated workflows.\n\nB is incorrect because Power BI creates analytics reports and dashboards.\n\nD is incorrect because Power Pages is for building external-facing websites."
+    },
+    {
+      "id": 3,
+      "topic": "Power Platform Overview - Power BI",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform component is a business analytics tool that provides interactive visualizations and business intelligence capabilities?",
+      "options": ["A. Power Apps.", "B. Power Automate.", "C. Power BI.", "D. Dataverse."],
+      "correctAnswers": ["C"],
+      "explanation": "Power BI is a business analytics service that delivers interactive visualizations and business intelligence capabilities. Users can create reports, dashboards, and share insights across the organization.\n\nA is incorrect because Power Apps is for building custom applications.\n\nB is incorrect because Power Automate is for creating automated workflows.\n\nD is incorrect because Dataverse is a data platform for storing and managing data, not a visualization tool."
+    },
+    {
+      "id": 4,
+      "topic": "Power Platform Overview - Power Virtual Agents",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform component enables users to create intelligent chatbots without writing code?",
+      "options": ["A. Power Apps.", "B. Power Automate.", "C. Power Pages.", "D. Microsoft Copilot Studio (Power Virtual Agents)."],
+      "correctAnswers": ["D"],
+      "explanation": "Microsoft Copilot Studio (formerly Power Virtual Agents) allows users to create powerful chatbots using a guided, no-code graphical interface. The bots can handle customer inquiries, automate responses, and integrate with other services.\n\nA is incorrect because Power Apps builds business applications, not chatbots.\n\nB is incorrect because Power Automate creates automated workflows, not chatbots.\n\nC is incorrect because Power Pages creates external-facing websites, not chatbots."
+    },
+    {
+      "id": 5,
+      "topic": "Dataverse - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is Microsoft Dataverse?",
+      "options": ["A. A cloud-based virtual machine hosting service.", "B. A scalable data platform for storing and managing data used by business applications.", "C. A version control system for code.", "D. A content delivery network."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Dataverse is a cloud-based, scalable data platform that securely stores and manages data used by Power Platform applications. It provides a standard data model, security, and business logic.\n\nA is incorrect because virtual machine hosting is provided by Azure Compute services.\n\nC is incorrect because version control is handled by systems like Git or Azure DevOps.\n\nD is incorrect because a CDN is a content delivery service, not a data platform."
+    },
+    {
+      "id": 6,
+      "topic": "Dataverse - Tables and columns",
+      "type": "SingleChoice",
+      "questionText": "In Dataverse, what is a table?",
+      "options": ["A. A visual component of a Power App.", "B. A set of rows (records) that stores data, similar to a database table.", "C. An automated workflow trigger.", "D. A chart or graph in Power BI."],
+      "correctAnswers": ["B"],
+      "explanation": "A Dataverse table is a set of rows (records) and columns (fields) that stores data, similar to a table in a relational database. Standard tables like Account, Contact, and Activity are included by default.\n\nA is incorrect because visual components in Power Apps are controls, not tables.\n\nC is incorrect because workflow triggers are part of Power Automate, not Dataverse tables.\n\nD is incorrect because charts and graphs are Power BI visualizations, not tables."
+    },
+    {
+      "id": 7,
+      "topic": "Dataverse - Relationships",
+      "type": "SingleChoice",
+      "questionText": "Which type of relationship in Dataverse links one record in a table to many records in another table?",
+      "options": ["A. Many-to-many.", "B. One-to-many.", "C. One-to-one.", "D. Self-referential."],
+      "correctAnswers": ["B"],
+      "explanation": "A one-to-many relationship in Dataverse means one record in a parent table can be related to many records in a child table. For example, one Account can have many Contacts.\n\nA is incorrect because many-to-many relationships link multiple records in both tables through an intersect table.\n\nC is incorrect because one-to-one relationships link a single record in one table to a single record in another.\n\nD is incorrect because self-referential is a relationship where a table references itself, not a standard relationship type in this context."
+    },
+    {
+      "id": 8,
+      "topic": "Dataverse - Environments",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO statements about Dataverse environments are TRUE? (Choose two.)",
+      "options": ["A. An environment is a space to store, manage, and share business data and apps.", "B. All organizations share a single default environment.", "C. Environments can be used to separate development, testing, and production.", "D. Environments cannot have security roles assigned."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because a Dataverse environment is a container that stores, manages, and shares an organization's business data, apps, chatbots, and flows.\n\nC is correct because organizations commonly create separate environments for development, testing, and production to manage the application lifecycle.\n\nB is incorrect because each organization has its own default environment.\n\nD is incorrect because environments support security roles that control access to data and resources."
+    },
+    {
+      "id": 9,
+      "topic": "Power Apps - Canvas apps",
+      "type": "SingleChoice",
+      "questionText": "Which type of Power App starts with a blank canvas where you design the user interface by dragging and dropping controls?",
+      "options": ["A. Model-driven app.", "B. Canvas app.", "C. Portal app.", "D. Component app."],
+      "correctAnswers": ["B"],
+      "explanation": "Canvas apps start with a blank canvas where makers design the UI by dragging and dropping controls. They offer full control over the layout and connect to various data sources using formulas.\n\nA is incorrect because model-driven apps are driven by the data model in Dataverse and auto-generate the UI based on the data structure.\n\nC is incorrect because portal apps (now Power Pages) are external-facing websites.\n\nD is incorrect because component apps are reusable component libraries, not a standalone app type."
+    },
+    {
+      "id": 10,
+      "topic": "Power Apps - Model-driven apps",
+      "type": "SingleChoice",
+      "questionText": "Which type of Power App automatically generates a responsive UI based on the data model defined in Dataverse?",
+      "options": ["A. Canvas app.", "B. Model-driven app.", "C. Power Pages site.", "D. Power BI report."],
+      "correctAnswers": ["B"],
+      "explanation": "Model-driven apps use a component-focused approach where the UI is automatically generated based on the data model defined in Dataverse. The app layout is determined by the tables, forms, views, and business rules.\n\nA is incorrect because canvas apps require manual UI design by the maker.\n\nC is incorrect because Power Pages creates external-facing websites, not data model-driven apps.\n\nD is incorrect because Power BI reports are for data visualization, not application building."
+    },
+    {
+      "id": 11,
+      "topic": "Power Apps - Connectors",
+      "type": "SingleChoice",
+      "questionText": "What is a connector in Power Apps?",
+      "options": ["A. A physical cable that connects devices.", "B. A bridge between your app and a data source or service.", "C. A type of Power Apps control.", "D. A security role in Dataverse."],
+      "correctAnswers": ["B"],
+      "explanation": "A connector is a wrapper around an API that allows Power Apps (and Power Automate) to communicate with external data sources and services such as SharePoint, SQL Server, Office 365, and third-party APIs.\n\nA is incorrect because connectors are software abstractions, not physical cables.\n\nC is incorrect because controls are UI elements in canvas apps, not connectors.\n\nD is incorrect because security roles are access control mechanisms in Dataverse, not connectors."
+    },
+    {
+      "id": 12,
+      "topic": "Power Apps - Formulas",
+      "type": "SingleChoice",
+      "questionText": "In a Power Apps canvas app, which function is used to navigate between screens?",
+      "options": ["A. Filter().", "B. Navigate().", "C. Collect().", "D. Patch()."],
+      "correctAnswers": ["B"],
+      "explanation": "The Navigate() function is used in canvas apps to change the displayed screen. You can specify the target screen and optionally include a transition effect.\n\nA is incorrect because Filter() retrieves a filtered set of records from a data source.\n\nC is incorrect because Collect() adds records to a data source or creates collections.\n\nD is incorrect because Patch() creates or modifies records in a data source."
+    },
+    {
+      "id": 13,
+      "topic": "Power Automate - Flow types",
+      "type": "SingleChoice",
+      "questionText": "Which type of Power Automate flow runs in the cloud and is triggered by an event such as receiving an email?",
+      "options": ["A. Desktop flow.", "B. Cloud flow.", "C. Business process flow.", "D. UI flow."],
+      "correctAnswers": ["B"],
+      "explanation": "Cloud flows run in the cloud and can be triggered automatically (by events), instantly (button press), or on a schedule. An email trigger is an example of an automated cloud flow.\n\nA is incorrect because desktop flows use Robotic Process Automation (RPA) on local machines, not cloud events.\n\nC is incorrect because business process flows guide users through a set of stages in a business process, not triggered by events.\n\nD is incorrect because UI flow is a legacy term for desktop flows (RPA)."
+    },
+    {
+      "id": 14,
+      "topic": "Power Automate - Triggers and actions",
+      "type": "SingleChoice",
+      "questionText": "In Power Automate, what is a trigger?",
+      "options": ["A. The final step of a flow that sends a notification.", "B. An event that starts a flow.", "C. A condition that branches the flow logic.", "D. A variable that stores data."],
+      "correctAnswers": ["B"],
+      "explanation": "A trigger is the event that initiates (starts) a Power Automate flow. Examples include receiving an email, a new file being created, or a scheduled time. Every flow must start with a trigger.\n\nA is incorrect because the final step is an action, not a trigger.\n\nC is incorrect because conditions are control actions that add branching logic within a flow.\n\nD is incorrect because variables store data during flow execution but do not start flows."
+    },
+    {
+      "id": 15,
+      "topic": "Power Automate - Approvals",
+      "type": "SingleChoice",
+      "questionText": "Which Power Automate feature allows you to create automated approval workflows where designated approvers can approve or reject requests?",
+      "options": ["A. Connectors.", "B. Approvals.", "C. Variables.", "D. Expressions."],
+      "correctAnswers": ["B"],
+      "explanation": "The Approvals feature in Power Automate enables creating approval workflows where requests are sent to designated approvers who can approve or reject them. It supports different approval types including sequential and parallel approvals.\n\nA is incorrect because connectors connect to data sources and services, not specifically for approvals.\n\nC is incorrect because variables store temporary data during flow execution.\n\nD is incorrect because expressions perform calculations and data transformations within flows."
+    },
+    {
+      "id": 16,
+      "topic": "Power Automate - Desktop flows (RPA)",
+      "type": "SingleChoice",
+      "questionText": "Which Power Automate capability uses Robotic Process Automation (RPA) to automate repetitive tasks on a local computer, including legacy applications?",
+      "options": ["A. Cloud flows.", "B. Desktop flows.", "C. Business process flows.", "D. Scheduled flows."],
+      "correctAnswers": ["B"],
+      "explanation": "Desktop flows in Power Automate use RPA to automate repetitive tasks on local computers. They can record and replay user actions on desktop applications, including legacy apps without APIs.\n\nA is incorrect because cloud flows run in the cloud and connect to cloud services.\n\nC is incorrect because business process flows guide users through defined stages in a process.\n\nD is incorrect because scheduled flows are a type of cloud flow that runs on a schedule."
+    },
+    {
+      "id": 17,
+      "topic": "Power Automate - Cloud flow types",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO are types of cloud flows in Power Automate? (Choose two.)",
+      "options": ["A. Automated flow (triggered by an event).", "B. Desktop flow (RPA).", "C. Instant flow (triggered by a button press).", "D. Component flow (triggered by a control)."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because automated flows are cloud flows triggered by events such as receiving an email, creating a record, or a file being uploaded.\n\nC is correct because instant flows are cloud flows triggered manually, such as pressing a button in Power Apps or the Power Automate mobile app.\n\nB is incorrect because desktop flows run on local machines using RPA, not in the cloud.\n\nD is incorrect because component flows are not a recognized Power Automate flow type."
+    },
+    {
+      "id": 18,
+      "topic": "Power BI - Data model",
+      "type": "SingleChoice",
+      "questionText": "In Power BI, what is a dataset?",
+      "options": ["A. A visual representation of data.", "B. A collection of data imported from one or more sources used for creating reports.", "C. A published interactive report.", "D. A shared workspace for collaboration."],
+      "correctAnswers": ["B"],
+      "explanation": "A Power BI dataset is a collection of data imported or connected from one or more sources. It includes data models, relationships, measures, and calculated columns used as the foundation for creating reports.\n\nA is incorrect because visual representations are called visualizations or visuals in Power BI.\n\nC is incorrect because published reports are called reports, not datasets.\n\nD is incorrect because shared workspaces are called workspaces in the Power BI Service."
+    },
+    {
+      "id": 19,
+      "topic": "Power BI - Visualizations",
+      "type": "SingleChoice",
+      "questionText": "Which Power BI component is a single visualization on a report page, such as a bar chart, pie chart, or map?",
+      "options": ["A. Dashboard.", "B. Dataset.", "C. Visual.", "D. Workspace."],
+      "correctAnswers": ["C"],
+      "explanation": "A visual (visualization) in Power BI is a single representation of data on a report page. Examples include bar charts, pie charts, maps, tables, and many more. Reports are composed of one or more visuals.\n\nA is incorrect because a dashboard is a single-page view of pinned visuals from one or more reports.\n\nB is incorrect because a dataset is the underlying data used by reports.\n\nD is incorrect because a workspace is a collaborative container for dashboards, reports, and datasets."
+    },
+    {
+      "id": 20,
+      "topic": "Power BI - Dashboards vs reports",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between a Power BI dashboard and a Power BI report?",
+      "options": ["A. Dashboards can connect to data sources; reports cannot.", "B. Dashboards are a single-page view with pinned tiles from multiple reports; reports are multi-page and interactive.", "C. Reports are only available in Power BI Desktop; dashboards are only in Power BI Service.", "D. There is no difference; they are the same thing."],
+      "correctAnswers": ["B"],
+      "explanation": "A dashboard is a single-page canvas with pinned tiles (visuals) from one or more reports, providing an at-a-glance view. Reports are multi-page, interactive documents created from a dataset with detailed visualizations.\n\nA is incorrect because both dashboards and reports use data from datasets; dashboards pin visuals from reports.\n\nC is incorrect because reports can be created in Desktop and published to Service; dashboards exist only in Service.\n\nD is incorrect because dashboards and reports serve different purposes and have different capabilities."
+    },
+    {
+      "id": 21,
+      "topic": "Power BI - DAX basics",
+      "type": "SingleChoice",
+      "questionText": "Which language is used to create calculated columns and measures in Power BI data models?",
+      "options": ["A. SQL.", "B. Python.", "C. DAX (Data Analysis Expressions).", "D. Power Query M."],
+      "correctAnswers": ["C"],
+      "explanation": "DAX (Data Analysis Expressions) is a formula language used in Power BI to create calculated columns, measures, and custom tables. It is designed for data modeling and analysis.\n\nA is incorrect because SQL is used to query relational databases, not for creating Power BI measures.\n\nB is incorrect because Python can be used in Power BI for advanced analytics but is not the primary formula language.\n\nD is incorrect because Power Query M is used for data transformation during the data loading process, not for measures and calculated columns."
+    },
+    {
+      "id": 22,
+      "topic": "Power BI - Power Query",
+      "type": "SingleChoice",
+      "questionText": "Which Power BI tool is used to connect, transform, and clean data before loading it into the data model?",
+      "options": ["A. DAX editor.", "B. Power Query Editor.", "C. Report view.", "D. Relationship view."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Query Editor is the data transformation tool in Power BI. It connects to data sources and provides a graphical interface for cleaning, shaping, and transforming data before loading it into the data model.\n\nA is incorrect because the DAX editor is used for writing measures and calculated columns after data is loaded.\n\nC is incorrect because Report view is for creating visualizations, not data transformation.\n\nD is incorrect because Relationship view shows and manages relationships between tables, not data transformation."
+    },
+    {
+      "id": 23,
+      "topic": "Power BI - Sharing and collaboration",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO methods can you use to share Power BI content with others? (Choose two.)",
+      "options": ["A. Publishing to a Power BI workspace.", "B. Sending the .pbix file via Azure Blob Storage.", "C. Embedding reports in a Power BI app.", "D. Printing the report and mailing it."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because publishing reports to a Power BI workspace allows other workspace members to view and interact with the content.\n\nC is correct because Power BI apps package dashboards and reports into a single entity that can be distributed to users within the organization.\n\nB is incorrect because while technically possible, sharing .pbix files via Blob Storage is not a standard Power BI sharing method.\n\nD is incorrect because physically printing and mailing reports is not a digital sharing method."
+    },
+    {
+      "id": 24,
+      "topic": "Dataverse - Business rules",
+      "type": "SingleChoice",
+      "questionText": "Which Dataverse feature allows you to apply business logic to data without writing code, such as setting field values, showing error messages, or making fields required?",
+      "options": ["A. Views.", "B. Business rules.", "C. Charts.", "D. Dashboards."],
+      "correctAnswers": ["B"],
+      "explanation": "Business rules in Dataverse allow you to apply logic at the data layer without coding. They can set field values, show error messages, make fields required or hidden, and validate data based on conditions.\n\nA is incorrect because views define how data is displayed in a list, not business logic.\n\nC is incorrect because charts are visual representations of data, not logic enforcement.\n\nD is incorrect because dashboards display a collection of views and charts, not business logic."
+    },
+    {
+      "id": 25,
+      "topic": "Dataverse - Security roles",
+      "type": "SingleChoice",
+      "questionText": "How does Dataverse control access to data?",
+      "options": ["A. Through network security groups.", "B. Through security roles that define CRUD permissions on tables.", "C. Through Azure Key Vault secrets.", "D. Through IP address restrictions only."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse uses security roles to control access to data. Security roles define Create, Read, Update, Delete, Append, Append To, Assign, and Share permissions on specific tables at different levels (user, business unit, organization).\n\nA is incorrect because network security groups are Azure networking features, not Dataverse access controls.\n\nC is incorrect because Key Vault manages secrets and keys, not Dataverse data access.\n\nD is incorrect because Dataverse uses role-based security, not just IP restrictions."
+    },
+    {
+      "id": 26,
+      "topic": "Power Apps - Data sources",
+      "type": "SingleChoice",
+      "questionText": "Which of the following can be used as a data source for a Power Apps canvas app?",
+      "options": ["A. Only Microsoft Dataverse.", "B. Only SharePoint lists.", "C. Multiple sources including Dataverse, SharePoint, SQL Server, and Excel.", "D. Only Azure SQL Database."],
+      "correctAnswers": ["C"],
+      "explanation": "Power Apps canvas apps can connect to a wide variety of data sources through connectors, including Dataverse, SharePoint, SQL Server, Excel, Azure services, and hundreds of third-party services.\n\nA is incorrect because canvas apps support many data sources beyond Dataverse.\n\nB is incorrect because canvas apps support many data sources beyond SharePoint.\n\nD is incorrect because canvas apps support many data sources beyond Azure SQL."
+    },
+    {
+      "id": 27,
+      "topic": "Power Platform Administration - Environments",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform admin center feature allows administrators to manage and configure environments, connectors, and data policies?",
+      "options": ["A. Azure Portal.", "B. Power Platform admin center.", "C. Microsoft 365 admin center.", "D. Power Apps maker portal."],
+      "correctAnswers": ["B"],
+      "explanation": "The Power Platform admin center is the administrative hub for managing environments, data loss prevention policies, analytics, connectors, and capacity across the Power Platform.\n\nA is incorrect because the Azure Portal manages Azure cloud resources, not Power Platform administration.\n\nC is incorrect because the M365 admin center manages Microsoft 365 services like Exchange and SharePoint.\n\nD is incorrect because the maker portal is for building apps and flows, not administration."
+    },
+    {
+      "id": 28,
+      "topic": "Power Platform Administration - Data Loss Prevention",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Data Loss Prevention (DLP) policies in Power Platform?",
+      "options": ["A. To encrypt data at rest.", "B. To control which connectors can be used together in apps and flows to prevent unauthorized data sharing.", "C. To back up Power Apps data.", "D. To monitor user login activity."],
+      "correctAnswers": ["B"],
+      "explanation": "DLP policies in Power Platform classify connectors into business, non-business, and blocked groups. They prevent connectors from different groups from being used together in the same app or flow, reducing the risk of unauthorized data sharing.\n\nA is incorrect because encryption is handled by the underlying data stores, not DLP policies.\n\nC is incorrect because backups are a separate administrative function.\n\nD is incorrect because login monitoring is handled by audit logs and Entra ID, not DLP policies."
+    },
+    {
+      "id": 29,
+      "topic": "Power Apps - Solutions",
+      "type": "SingleChoice",
+      "questionText": "What is a solution in the context of Power Platform?",
+      "options": ["A. A fix for a bug in a Power App.", "B. A container for packaging and transporting Power Platform components (apps, flows, tables) between environments.", "C. A customer support ticket system.", "D. A type of database query."],
+      "correctAnswers": ["B"],
+      "explanation": "A solution in Power Platform is a container that packages components such as apps, flows, tables, and other artifacts. Solutions enable Application Lifecycle Management (ALM) by allowing you to transport components between development, test, and production environments.\n\nA is incorrect because a solution is not a bug fix; it is a deployment container.\n\nC is incorrect because solutions are not support ticket systems.\n\nD is incorrect because solutions are not database queries."
+    },
+    {
+      "id": 30,
+      "topic": "AI Builder - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform feature allows you to add AI capabilities such as form processing, object detection, and prediction to your apps and flows without writing code?",
+      "options": ["A. Power Query.", "B. AI Builder.", "C. Dataverse.", "D. Power Automate."],
+      "correctAnswers": ["B"],
+      "explanation": "AI Builder is a Power Platform capability that provides pre-built and custom AI models for form processing, object detection, text recognition, prediction, and sentiment analysis that can be used in Power Apps and Power Automate.\n\nA is incorrect because Power Query is for data transformation, not AI capabilities.\n\nC is incorrect because Dataverse is a data platform, not an AI tool.\n\nD is incorrect because Power Automate creates workflows; AI Builder provides the AI models used within those workflows."
+    },
+    {
+      "id": 31,
+      "topic": "Power Pages - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Power Platform component is designed for building secure, external-facing business websites?",
+      "options": ["A. Power Apps canvas apps.", "B. Power Apps model-driven apps.", "C. Power Pages.", "D. Power BI."],
+      "correctAnswers": ["C"],
+      "explanation": "Power Pages (formerly Power Apps Portals) is designed for creating secure, external-facing business websites that allow users outside your organization to interact with data stored in Dataverse.\n\nA is incorrect because canvas apps are internal business applications, not external-facing websites.\n\nB is incorrect because model-driven apps are internal data-driven applications.\n\nD is incorrect because Power BI is for data analytics and visualization, not website creation."
+    },
+    {
+      "id": 32,
+      "topic": "Connectors - Standard vs Premium",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO statements about Power Platform connectors are TRUE? (Choose two.)",
+      "options": ["A. Standard connectors are included with most Power Platform licenses.", "B. Premium connectors require an additional license or Power Apps/Power Automate per-user plan.", "C. Custom connectors cannot be created.", "D. All connectors are free to use with any license."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because standard connectors (like Office 365, SharePoint, Outlook) are included with most Power Platform licenses.\n\nB is correct because premium connectors (like SQL Server, Dataverse, HTTP) require a premium license such as Power Apps per-user plan or Power Automate per-user plan.\n\nC is incorrect because custom connectors can be created to connect to APIs not covered by existing connectors.\n\nD is incorrect because premium connectors require additional licensing beyond basic plans."
+    },
+    {
+      "id": 33,
+      "topic": "Power Automate - Business process flows",
+      "type": "SingleChoice",
+      "questionText": "Which Power Automate feature provides a guided experience that leads users through defined stages of a business process?",
+      "options": ["A. Cloud flow.", "B. Desktop flow.", "C. Business process flow.", "D. Instant flow."],
+      "correctAnswers": ["C"],
+      "explanation": "Business process flows provide a visual guide that leads users through defined stages of a business process. They appear as a progress bar at the top of a form, showing the steps and data required at each stage.\n\nA is incorrect because cloud flows automate tasks in the background, not guide users through stages.\n\nB is incorrect because desktop flows automate tasks on local machines using RPA.\n\nD is incorrect because instant flows are triggered manually for one-time actions."
+    },
+    {
+      "id": 34,
+      "topic": "Power BI - Gateways",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of an on-premises data gateway in Power BI?",
+      "options": ["A. To provide a firewall for Power BI reports.", "B. To enable secure data transfer between on-premises data sources and Power BI in the cloud.", "C. To cache Power BI dashboards locally.", "D. To manage Power BI user licenses."],
+      "correctAnswers": ["B"],
+      "explanation": "The on-premises data gateway acts as a bridge that provides quick and secure data transfer between on-premises data sources (like SQL Server, Oracle, or files) and Power BI, Power Apps, and Power Automate in the cloud.\n\nA is incorrect because the gateway is not a firewall; it facilitates data connectivity.\n\nC is incorrect because the gateway does not cache dashboards locally.\n\nD is incorrect because license management is done in the admin center, not through the gateway."
+    },
+    {
+      "id": 35,
+      "topic": "Power Apps - Responsive design",
+      "type": "SingleChoice",
+      "questionText": "Which Power Apps app type automatically generates a responsive layout that adapts to different screen sizes based on the data model?",
+      "options": ["A. Canvas app.", "B. Model-driven app.", "C. Power Pages.", "D. Desktop app."],
+      "correctAnswers": ["B"],
+      "explanation": "Model-driven apps automatically generate a responsive UI that adapts to different screen sizes based on the underlying data model in Dataverse. The layout adjusts without manual design effort.\n\nA is incorrect because canvas apps require the maker to manually configure responsive layouts using containers and formulas.\n\nC is incorrect because Power Pages is for external websites, not model-driven responsive apps.\n\nD is incorrect because desktop apps are not a Power Apps type."
+    },
+    {
+      "id": 36,
+      "topic": "Power Automate - Expressions and conditions",
+      "type": "SingleChoice",
+      "questionText": "In Power Automate, what is a condition action used for?",
+      "options": ["A. To connect to a data source.", "B. To create a branching path based on whether an expression evaluates to true or false.", "C. To send an email notification.", "D. To trigger the flow on a schedule."],
+      "correctAnswers": ["B"],
+      "explanation": "A condition action in Power Automate creates a branching path in the flow. If the expression evaluates to true, one set of actions runs; if false, a different set of actions runs.\n\nA is incorrect because connecting to data sources is done through connectors and triggers.\n\nC is incorrect because sending emails is an action, not a condition.\n\nD is incorrect because scheduling is done through triggers, not conditions."
+    },
+    {
+      "id": 37,
+      "topic": "Microsoft Copilot Studio - Topics",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Copilot Studio (Power Virtual Agents), what is a topic?",
+      "options": ["A. A database table.", "B. A conversation pathway that defines how the chatbot responds to user input on a specific subject.", "C. A Power BI visualization.", "D. A type of connector."],
+      "correctAnswers": ["B"],
+      "explanation": "A topic in Microsoft Copilot Studio is a discrete conversation pathway that defines how the chatbot handles a specific subject or user intent. Topics include trigger phrases and conversation nodes that guide the interaction.\n\nA is incorrect because database tables are in Dataverse, not chatbot topics.\n\nC is incorrect because visualizations are Power BI components.\n\nD is incorrect because connectors are integration bridges, not chatbot conversation paths."
+    },
+    {
+      "id": 38,
+      "topic": "Power Platform - Microsoft 365 integration",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO Microsoft 365 services commonly integrate with Power Platform? (Choose two.)",
+      "options": ["A. SharePoint.", "B. Azure Kubernetes Service.", "C. Microsoft Teams.", "D. Azure Virtual Machines."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because SharePoint is a commonly used data source and collaboration platform that integrates deeply with Power Apps and Power Automate.\n\nC is correct because Microsoft Teams integrates with Power Apps (embedded apps), Power Automate (workflows), and Power Virtual Agents (chatbots in Teams).\n\nB is incorrect because AKS is an Azure infrastructure service, not a common M365 integration.\n\nD is incorrect because Azure VMs are infrastructure, not a common Power Platform integration."
+    },
+    {
+      "id": 39,
+      "topic": "Power Apps - Galleries and forms",
+      "type": "SingleChoice",
+      "questionText": "In a Power Apps canvas app, which control displays a list of records from a data source and allows users to select a record?",
+      "options": ["A. Form control.", "B. Gallery control.", "C. Button control.", "D. Label control."],
+      "correctAnswers": ["B"],
+      "explanation": "The Gallery control displays a scrollable list of records from a data source. Users can browse and select records, and the gallery template can be customized to show specific fields.\n\nA is incorrect because a Form control displays and edits the details of a single record.\n\nC is incorrect because a Button control triggers an action when clicked.\n\nD is incorrect because a Label control displays static text."
+    },
+    {
+      "id": 40,
+      "topic": "Power Platform - Licensing",
+      "type": "SingleChoice",
+      "questionText": "Which licensing model for Power Apps charges based on the number of individual users who run the app?",
+      "options": ["A. Per-app plan.", "B. Per-user plan.", "C. Pay-as-you-go plan.", "D. Developer plan."],
+      "correctAnswers": ["B"],
+      "explanation": "The per-user plan licenses individual users to run unlimited Power Apps within the organization. Each user who needs to run apps is assigned a license.\n\nA is incorrect because the per-app plan licenses access to a specific number of apps, not per user across all apps.\n\nC is incorrect because pay-as-you-go charges based on usage per app per active user rather than a fixed per-user subscription.\n\nD is incorrect because the developer plan is a free plan for individual use in development/test environments."
+    },
+    {
+      "id": 41,
+      "topic": "Power FX - Low-code language",
+      "type": "SingleChoice",
+      "questionText": "What is Power FX in the context of Microsoft Power Platform?",
+      "options": ["A. A programming language similar to C# used for building server-side applications.", "B. A low-code formula language inspired by Microsoft Excel that is used across Power Platform.", "C. A database query language used exclusively in Dataverse.", "D. A markup language used to design Power Pages websites."],
+      "correctAnswers": ["B"],
+      "explanation": "Power FX is a low-code, general-purpose programming language based on spreadsheet-like formulas similar to Excel. It is used across Power Platform, especially in canvas apps, to define app behavior, data manipulation, and UI logic.\n\nA is incorrect because Power FX is a low-code formula language, not a general-purpose language like C#.\n\nC is incorrect because Power FX is used across Power Platform, not exclusively in Dataverse.\n\nD is incorrect because Power FX is a formula language, not a markup language."
+    },
+    {
+      "id": 42,
+      "topic": "Power Apps - Copilot capabilities",
+      "type": "SingleChoice",
+      "questionText": "How can Copilot assist makers when building canvas apps in Power Apps?",
+      "options": ["A. Copilot can only generate Power BI reports.", "B. Copilot can generate app screens, suggest formulas, and create Dataverse tables from natural language descriptions.", "C. Copilot replaces the need for any data source connections.", "D. Copilot is only available in model-driven apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Power Apps can generate app screens and layouts, suggest Power FX formulas, create and modify Dataverse tables, and build entire app structures from natural language descriptions provided by the maker.\n\nA is incorrect because Copilot in Power Apps assists with app building, not Power BI report generation.\n\nC is incorrect because Copilot helps build apps but data sources are still required.\n\nD is incorrect because Copilot is available in canvas apps and for building model-driven apps from Dataverse tables."
+    },
+    {
+      "id": 43,
+      "topic": "Power Automate - Process Mining",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Process Mining in Power Automate?",
+      "options": ["A. To create desktop flows that automate manual processes.", "B. To analyze and visualize existing business processes to identify inefficiencies and optimization opportunities.", "C. To mine cryptocurrency using cloud computing resources.", "D. To extract data from databases automatically."],
+      "correctAnswers": ["B"],
+      "explanation": "Process Mining in Power Automate analyzes event log data from business applications to create visual maps of actual business processes, helping organizations discover inefficiencies, bottlenecks, and opportunities for automation.\n\nA is incorrect because creating desktop flows is a separate capability from process mining.\n\nC is incorrect because process mining has nothing to do with cryptocurrency.\n\nD is incorrect because extracting data from databases is done through connectors, not process mining."
+    },
+    {
+      "id": 44,
+      "topic": "Power Automate - Loops",
+      "type": "SingleChoice",
+      "questionText": "In a Power Automate cloud flow, which action allows you to iterate over a collection of items and perform the same actions on each item?",
+      "options": ["A. Condition.", "B. Apply to each.", "C. Compose.", "D. Initialize variable."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'Apply to each' action in Power Automate is a loop that iterates over an array or collection and executes the enclosed actions for each item in the collection.\n\nA is incorrect because a Condition creates a branching path (if/else), not a loop.\n\nC is incorrect because Compose constructs a data output from inputs, not a looping mechanism.\n\nD is incorrect because Initialize variable creates a variable but does not iterate over items."
+    },
+    {
+      "id": 45,
+      "topic": "Power Apps - Containers",
+      "type": "SingleChoice",
+      "questionText": "In a Power Apps canvas app, which feature is used to build responsive pages that adapt to different screen sizes?",
+      "options": ["A. Gallery controls.", "B. Containers.", "C. Data tables.", "D. Timer controls."],
+      "correctAnswers": ["B"],
+      "explanation": "Containers in canvas apps allow makers to group controls together and configure flexible, responsive layouts that automatically adjust to different screen sizes and orientations.\n\nA is incorrect because gallery controls display lists of data records, not manage responsive layouts.\n\nC is incorrect because data tables display tabular data, not control layout responsiveness.\n\nD is incorrect because timer controls trigger actions after a time delay, not layout management."
+    },
+    {
+      "id": 46,
+      "topic": "Power Apps - Sharing",
+      "type": "SingleChoice",
+      "questionText": "When you share a canvas app with a user, what must the user have to run the app if it uses premium connectors?",
+      "options": ["A. A Power BI Pro license.", "B. A Power Apps premium license (per-user or per-app plan).", "C. An Azure subscription.", "D. A Microsoft 365 E5 license."],
+      "correctAnswers": ["B"],
+      "explanation": "If a canvas app uses premium connectors (such as Dataverse or SQL Server), each user running the app needs a Power Apps premium license, either a per-user plan or a per-app plan.\n\nA is incorrect because Power BI Pro licenses are for Power BI, not running Power Apps with premium connectors.\n\nC is incorrect because an Azure subscription is not required to run Power Apps.\n\nD is incorrect because M365 E5 does not include Power Apps premium licenses by default."
+    },
+    {
+      "id": 47,
+      "topic": "Power Pages - Security",
+      "type": "SingleChoice",
+      "questionText": "How does Power Pages control which data external users can access on the website?",
+      "options": ["A. Through Azure Active Directory Conditional Access only.", "B. Through table permissions that define CRUD access for web roles.", "C. Through Power BI row-level security.", "D. Data access cannot be restricted on Power Pages."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Pages uses table permissions combined with web roles to control which Dataverse records external users can create, read, update, or delete. Web roles are assigned to authenticated users to grant specific access levels.\n\nA is incorrect because while identity providers can be configured, data access is controlled through table permissions, not solely Conditional Access.\n\nC is incorrect because Power BI row-level security applies to Power BI reports, not Power Pages data.\n\nD is incorrect because Power Pages provides granular data access control through table permissions."
+    },
+    {
+      "id": 48,
+      "topic": "Power Pages - Design Studio",
+      "type": "SingleChoice",
+      "questionText": "Which tool provides a visual, low-code interface for designing and customizing Power Pages websites?",
+      "options": ["A. Power Apps maker portal.", "B. Power Pages design studio.", "C. Visual Studio Code.", "D. Power Automate designer."],
+      "correctAnswers": ["B"],
+      "explanation": "The Power Pages design studio provides a visual, low-code interface with multiple workspaces (Pages, Styling, Data, Set up) for designing, customizing, and managing Power Pages websites.\n\nA is incorrect because the Power Apps maker portal is for building Power Apps, not Power Pages websites.\n\nC is incorrect because Visual Studio Code is a general-purpose code editor, not the primary design tool for Power Pages.\n\nD is incorrect because Power Automate designer is for building flows, not websites."
+    },
+    {
+      "id": 49,
+      "topic": "Dataverse - Differences from traditional databases",
+      "type": "SingleChoice",
+      "questionText": "Which of the following is a key difference between Microsoft Dataverse and a traditional relational database like SQL Server?",
+      "options": ["A. Dataverse does not support storing data.", "B. Dataverse includes built-in security, business logic, and a standard data model out of the box, while traditional databases require custom implementation.", "C. Traditional databases cannot store relational data.", "D. Dataverse cannot be accessed by external applications."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse provides built-in features like role-based security, business rules, calculated and rollup columns, auditing, and a standardized data model (with tables like Account and Contact) that traditional databases require custom development to implement.\n\nA is incorrect because Dataverse absolutely supports storing data as its primary purpose.\n\nC is incorrect because traditional relational databases are specifically designed for relational data.\n\nD is incorrect because Dataverse provides APIs and connectors for external application access."
+    },
+    {
+      "id": 50,
+      "topic": "Dataverse - Import and export data",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO are valid methods for importing data into Microsoft Dataverse? (Choose two.)",
+      "options": ["A. Importing data from an Excel file.", "B. Using Power Automate flows to push data from other systems.", "C. Uploading data via FTP directly to Dataverse.", "D. Burning data to a DVD and mailing it to Microsoft."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Dataverse supports importing data from Excel files (and CSV files) through the built-in data import wizard.\n\nB is correct because Power Automate flows can connect to external systems and push data into Dataverse tables using the Dataverse connector.\n\nC is incorrect because Dataverse does not support direct FTP uploads.\n\nD is incorrect because data cannot be physically mailed; Dataverse requires digital import methods."
+    },
+    {
+      "id": 51,
+      "topic": "Power Apps - Model-driven app components",
+      "type": "SingleChoice",
+      "questionText": "In a model-driven app, what is a view?",
+      "options": ["A. A form used to edit a single record.", "B. A filtered list of records from a table displayed in rows and columns.", "C. A chart that shows data visually.", "D. A dashboard with multiple components."],
+      "correctAnswers": ["B"],
+      "explanation": "A view in a model-driven app is a filtered, sorted list of records from a Dataverse table displayed in a grid format with rows and columns. Examples include Active Contacts, My Open Cases, etc.\n\nA is incorrect because forms are used to view and edit individual records, not lists.\n\nC is incorrect because charts are visual representations of data, not tabular record lists.\n\nD is incorrect because dashboards aggregate multiple views and charts on a single page."
+    },
+    {
+      "id": 52,
+      "topic": "Power Apps - Model-driven app forms",
+      "type": "SingleChoice",
+      "questionText": "In a model-driven app, what is the purpose of a form?",
+      "options": ["A. To display a list of all records in a table.", "B. To display and edit the details of a single record.", "C. To create automated workflows.", "D. To generate Power BI reports."],
+      "correctAnswers": ["B"],
+      "explanation": "A form in a model-driven app displays the details of a single record from a Dataverse table and allows users to view and edit field values. Forms can include tabs, sections, and various controls.\n\nA is incorrect because lists of records are displayed through views, not forms.\n\nC is incorrect because automated workflows are created in Power Automate.\n\nD is incorrect because Power BI reports are created in Power BI, not through model-driven app forms."
+    },
+    {
+      "id": 53,
+      "topic": "Power Automate - Cloud flow templates",
+      "type": "SingleChoice",
+      "questionText": "What are cloud flow templates in Power Automate?",
+      "options": ["A. Blank flows that must be built from scratch.", "B. Pre-built flow configurations for common scenarios that can be customized.", "C. Templates for designing Power Apps screens.", "D. Documentation templates for describing flow logic."],
+      "correctAnswers": ["B"],
+      "explanation": "Cloud flow templates are pre-built flow configurations that address common automation scenarios (such as saving email attachments to OneDrive or posting Teams messages). Users can select a template and customize it for their needs.\n\nA is incorrect because templates are pre-configured, not blank.\n\nC is incorrect because templates are for flows, not Power Apps screens.\n\nD is incorrect because templates are functional flow configurations, not documentation."
+    },
+    {
+      "id": 54,
+      "topic": "Power Automate - Document automation",
+      "type": "SingleChoice",
+      "questionText": "Which Power Automate capability allows you to extract information from documents such as invoices, receipts, and forms using AI?",
+      "options": ["A. Desktop flows.", "B. AI Builder document processing.", "C. Business process flows.", "D. Cloud flow expressions."],
+      "correctAnswers": ["B"],
+      "explanation": "AI Builder document processing (used within Power Automate) uses AI models to extract key information from structured and semi-structured documents like invoices, receipts, and forms automatically.\n\nA is incorrect because desktop flows automate UI interactions, not intelligent document extraction.\n\nC is incorrect because business process flows guide users through stages, not document processing.\n\nD is incorrect because expressions perform calculations, not document extraction."
+    },
+    {
+      "id": 55,
+      "topic": "Power Automate - Testing flows",
+      "type": "SingleChoice",
+      "questionText": "How can a maker test a Power Automate cloud flow before deploying it?",
+      "options": ["A. Flows cannot be tested; they must be published and run in production.", "B. By using the Test feature in the flow designer, which allows manual or automatic testing.", "C. By exporting the flow to a file and running it locally.", "D. By sending the flow to Microsoft for review."],
+      "correctAnswers": ["B"],
+      "explanation": "The Power Automate flow designer includes a Test feature that allows makers to manually trigger a test run or automatically replay a previous trigger event to validate that the flow works correctly before it processes live data.\n\nA is incorrect because Power Automate specifically provides testing capabilities within the designer.\n\nC is incorrect because flows run in the cloud, not locally from exported files.\n\nD is incorrect because Microsoft does not review individual flows before deployment."
+    },
+    {
+      "id": 56,
+      "topic": "Power Pages - Creating sites with Copilot",
+      "type": "SingleChoice",
+      "questionText": "How can Copilot assist in creating a Power Pages site?",
+      "options": ["A. Copilot can only add images to a site.", "B. Copilot can generate a site layout with pages, text, and forms based on a natural language description.", "C. Copilot replaces the need for a Dataverse database.", "D. Copilot is not available for Power Pages."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Power Pages allows makers to describe their site requirements in natural language and generates a site layout complete with pages, text content, navigation, and forms that can then be customized in the design studio.\n\nA is incorrect because Copilot generates entire site structures, not just images.\n\nC is incorrect because Dataverse is still required as the data platform for Power Pages.\n\nD is incorrect because Copilot is available for Power Pages to assist with site creation."
+    },
+    {
+      "id": 57,
+      "topic": "Power Platform - Security model",
+      "type": "SingleChoice",
+      "questionText": "Which identity service does Power Platform use to authenticate users?",
+      "options": ["A. Local Windows Active Directory only.", "B. Microsoft Entra ID (Azure Active Directory).", "C. A custom Power Platform identity store.", "D. LDAP servers only."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Platform uses Microsoft Entra ID (formerly Azure Active Directory) as its identity provider for authenticating users and managing access to environments, apps, and data.\n\nA is incorrect because Power Platform uses cloud-based identity through Entra ID, not solely on-premises AD.\n\nC is incorrect because Power Platform does not use a custom identity store; it relies on Entra ID.\n\nD is incorrect because LDAP is an on-premises protocol not directly used by Power Platform for authentication."
+    },
+    {
+      "id": 58,
+      "topic": "Power Platform - Accessibility",
+      "type": "SingleChoice",
+      "questionText": "Which statement about accessibility in Power Platform is correct?",
+      "options": ["A. Power Platform apps do not support screen readers.", "B. Power Apps supports accessibility features including screen reader compatibility, keyboard navigation, and high contrast modes.", "C. Accessibility features are only available with Enterprise licenses.", "D. Only model-driven apps support accessibility."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Apps is designed with accessibility in mind and supports screen readers, keyboard navigation, high contrast modes, and other accessibility features to comply with accessibility guidelines.\n\nA is incorrect because Power Platform apps do support screen readers.\n\nC is incorrect because accessibility features are built into the platform regardless of license tier.\n\nD is incorrect because both canvas and model-driven apps support accessibility features."
+    },
+    {
+      "id": 59,
+      "topic": "Power Automate - Scheduled flows",
+      "type": "SingleChoice",
+      "questionText": "Which type of cloud flow trigger runs at specified recurring intervals, such as every hour or every day?",
+      "options": ["A. Automated trigger.", "B. Instant trigger.", "C. Scheduled trigger.", "D. Desktop trigger."],
+      "correctAnswers": ["C"],
+      "explanation": "A scheduled trigger runs a cloud flow at specified recurring intervals. You configure the frequency (e.g., every minute, hour, day, week, or month) and start time.\n\nA is incorrect because automated triggers respond to events (like a new email or file), not time schedules.\n\nB is incorrect because instant triggers run when a user manually initiates the flow (e.g., button press).\n\nD is incorrect because desktop triggers are not a standard cloud flow trigger type."
+    },
+    {
+      "id": 60,
+      "topic": "Power Pages - Site creation methods",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO methods can be used to create a Power Pages site? (Choose two.)",
+      "options": ["A. Using a pre-built site template.", "B. Using Copilot with natural language descriptions.", "C. Writing raw HTML directly in the Azure Portal.", "D. Deploying a virtual machine with IIS."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Power Pages provides pre-built site templates (such as Starter Layout, Application Processing, etc.) that provide a foundation for building websites.\n\nB is correct because Copilot allows makers to describe what they need and generates a site layout automatically.\n\nC is incorrect because Power Pages sites are created through the design studio or Copilot, not by writing raw HTML in the Azure Portal.\n\nD is incorrect because Power Pages is a managed platform-as-a-service, not a VM-based IIS deployment."
+    },
+    {
+      "id": 61,
+      "topic": "Dataverse - Creating tables with Copilot",
+      "type": "SingleChoice",
+      "questionText": "How can Copilot assist with creating tables in Dataverse?",
+      "options": ["A. Copilot can only create standard tables that already exist.", "B. Copilot can generate custom tables with columns and sample data based on natural language descriptions.", "C. Copilot removes the need for tables entirely.", "D. Copilot can only modify existing tables, not create new ones."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Dataverse allows makers to describe the data they need to store in natural language and generates custom tables with appropriate columns, data types, and even sample data.\n\nA is incorrect because Copilot can create new custom tables, not only reference existing standard tables.\n\nC is incorrect because tables are still fundamental to Dataverse; Copilot helps create them faster.\n\nD is incorrect because Copilot can both create new tables and modify existing ones."
+    },
+    {
+      "id": 62,
+      "topic": "Power Automate - Power Automate for Desktop",
+      "type": "SingleChoice",
+      "questionText": "What is Power Automate for Desktop?",
+      "options": ["A. A mobile application for managing cloud flows.", "B. A desktop application that allows users to create and run desktop flows using RPA with a visual recorder and designer.", "C. A tool for building Power Apps on a desktop computer.", "D. A Power BI reporting tool installed on the desktop."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Automate for Desktop is a desktop application that provides a visual flow designer and recorder for creating desktop flows (RPA). It automates repetitive tasks on Windows by recording UI interactions or using pre-built actions.\n\nA is incorrect because the mobile app is a separate application for managing cloud flows on mobile devices.\n\nC is incorrect because Power Apps Studio is used for building Power Apps, not Power Automate for Desktop.\n\nD is incorrect because Power BI Desktop is for building reports, not desktop automation."
+    },
+    {
+      "id": 63,
+      "topic": "Power Pages - Components",
+      "type": "SingleChoice",
+      "questionText": "Which Power Pages component allows external users to submit data through a web form that writes to Dataverse?",
+      "options": ["A. List component.", "B. Form component.", "C. Chart component.", "D. Power BI embedded component."],
+      "correctAnswers": ["B"],
+      "explanation": "The Form component in Power Pages renders a Dataverse form on the website, allowing external users to view and submit data that is written directly to Dataverse tables.\n\nA is incorrect because the List component displays records in a grid view but is not primarily for data submission.\n\nC is incorrect because charts display data visually but do not accept input.\n\nD is incorrect because embedded Power BI shows analytics, not data entry forms."
+    },
+    {
+      "id": 64,
+      "topic": "Power Platform - Copilot and generative AI",
+      "type": "SingleChoice",
+      "questionText": "What is the primary value of Copilot and generative AI features across Microsoft Power Platform?",
+      "options": ["A. They replace all manual testing of applications.", "B. They help makers build solutions faster by generating apps, flows, tables, and content from natural language prompts.", "C. They eliminate the need for any data storage.", "D. They are only useful for professional developers with coding experience."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot and generative AI across Power Platform accelerate solution development by allowing makers to describe what they need in natural language. Copilot can generate apps, flows, Dataverse tables, website pages, and chatbot topics, reducing development time.\n\nA is incorrect because Copilot assists with building, not comprehensive automated testing.\n\nC is incorrect because data storage (Dataverse) is still required regardless of AI assistance.\n\nD is incorrect because Copilot is specifically designed for citizen developers and non-technical makers."
+    },
+    {
+      "id": 65,
+      "topic": "Power Platform - Data privacy",
+      "type": "SingleChoice",
+      "questionText": "How does Microsoft Power Platform support data privacy and compliance?",
+      "options": ["A. Power Platform does not store any data.", "B. Power Platform provides features like data residency options, DLP policies, tenant isolation, and compliance with standards such as GDPR and SOC 2.", "C. Data privacy is handled exclusively by third-party tools.", "D. Only organizations in the United States can achieve compliance."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Platform supports data privacy through data residency options (choosing where data is stored geographically), DLP policies, tenant isolation, audit logging, and compliance with international standards including GDPR, SOC 2, and ISO 27001.\n\nA is incorrect because Power Platform stores data in Dataverse and connected services.\n\nC is incorrect because Power Platform has built-in compliance and privacy features.\n\nD is incorrect because Power Platform supports compliance for organizations globally, not just the US."
+    }
+  ]
+}

@@ -1,0 +1,590 @@
+@page "/exam/{ExamCode}/session"
+@inject ExamService ExamService
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@implements IDisposable
+
+<div class="session-page">
+    @if (ExamService.CurrentExam is null || !ExamService.IsExamActive)
+    {
+        <div class="empty-state">
+            <p>No active exam session.</p>
+            <a href="/" class="btn-primary">Go Home</a>
+        </div>
+    }
+    else
+    {
+        <div class="session-header">
+            <div class="session-title">
+                <span class="exam-badge small">@ExamService.CurrentExam.ExamCode</span>
+                <span>@ExamService.CurrentExam.ExamTitle</span>
+            </div>
+            <div class="session-info">
+                <span class="question-counter">
+                    @(ExamService.CurrentQuestionIndex + 1) / @ExamService.TotalQuestions
+                </span>
+                <button class="flag-btn @(ExamService.IsFlagged(ExamService.CurrentQuestionIndex) ? "flagged" : "")"
+                        @onclick="ToggleFlag" title="Flag for review (F)">
+                    &#9873;
+                </button>
+                <span class="timer @TimerClass">
+                    @if (ExamService.TimeRemaining.HasValue)
+                    {
+                        <text>@FormatTime(ExamService.TimeRemaining.Value) remaining</text>
+                    }
+                    else
+                    {
+                        <text>@FormatTime(ExamService.Elapsed)</text>
+                    }
+                </span>
+            </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: @ProgressPercent%"></div>
+        </div>
+
+        @if (ExamService.CurrentQuestion is not null)
+        {
+            <div class="session-layout">
+                <div class="session-main">
+                    <div class="question-wrapper @(_isTransitioning ? _transitionDir : "")">
+                        <QuestionDisplay Question="ExamService.CurrentQuestion"
+                                         QuestionNumber="ExamService.CurrentQuestionIndex + 1"
+                                         SelectedAnswers="_currentSelection"
+                                         OnAnswerChanged="OnAnswerChanged"
+                                         ShowFeedback="_showFeedback"
+                                         Disabled="_showFeedback"
+                                         FocusedOptionIndex="_focusedOptionIndex" />
+                    </div>
+
+                    @if (_showFeedback)
+                    {
+                        <div class="feedback-panel @(_isCurrentCorrect ? "correct" : "incorrect")">
+                            <div class="feedback-header">
+                                @if (_isCurrentCorrect)
+                                {
+                                    <span class="feedback-icon">&#10003;</span>
+                                    <span>Correct!</span>
+                                }
+                                else
+                                {
+                                    <span class="feedback-icon">&#10007;</span>
+                                    <span>Incorrect</span>
+                                    <span class="correct-answers">
+                                        Correct: @string.Join(", ", ExamService.CurrentQuestion.CorrectAnswers)
+                                    </span>
+                                }
+                            </div>
+                            @if (!string.IsNullOrWhiteSpace(ExamService.CurrentQuestion.Explanation))
+                            {
+                                <div class="feedback-explanation">
+                                    @ExamService.CurrentQuestion.Explanation
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="session-nav">
+                        <button class="btn-secondary" @onclick="PreviousQuestion"
+                                disabled="@(ExamService.CurrentQuestionIndex == 0)">
+                            &larr; Previous
+                        </button>
+
+                        <div class="nav-center">
+                            @if (!_showFeedback && IsMultipleChoice)
+                            {
+                                <div class="selection-counter @(_currentSelection.Length == RequiredAnswerCount ? "complete" : "") @(_selectionWarningPulse ? "pulse" : "")">
+                                    <span class="selection-dots">
+                                        @for (var s = 0; s < RequiredAnswerCount; s++)
+                                        {
+                                            <span class="selection-dot @(s < _currentSelection.Length ? "filled" : "")"></span>
+                                        }
+                                    </span>
+                                    <span class="selection-text">
+                                        @if (_currentSelection.Length == RequiredAnswerCount)
+                                        {
+                                            <text>Ready — press Enter</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Select @(RequiredAnswerCount - _currentSelection.Length) more</text>
+                                        }
+                                    </span>
+                                </div>
+                            }
+                            @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && CanSubmit)
+                            {
+                                <button class="btn-primary" @onclick="SubmitAnswer">
+                                    Check Answer
+                                </button>
+                            }
+                            else if (!_showFeedback && ExamService.Config?.IsPracticeMode != true && CanSubmit)
+                            {
+                                <button class="btn-ghost" @onclick="SubmitAndNext">
+                                    Submit &amp; Next
+                                </button>
+                            }
+                        </div>
+
+                        @if (ExamService.CurrentQuestionIndex < ExamService.TotalQuestions - 1)
+                        {
+                            <button class="btn-secondary" @onclick="NextQuestion">
+                                Next &rarr;
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="btn-accent" @onclick="ShowFinishConfirm">
+                                Finish Exam
+                            </button>
+                        }
+                    </div>
+
+                    @if (ExamService.CurrentQuestionIndex < ExamService.TotalQuestions - 1)
+                    {
+                        <div style="text-align: center; margin-top: 0.5rem;">
+                            <button class="btn-finish-early" @onclick="ShowFinishConfirm">Finish exam early</button>
+                        </div>
+                    }
+
+                    <div class="question-nav-dots mobile-only">
+                        @for (var i = 0; i < ExamService.TotalQuestions; i++)
+                        {
+                            var idx = i;
+                            <button class="nav-dot @(idx == ExamService.CurrentQuestionIndex ? "current" : "") @(ExamService.UserAnswers[idx].Length > 0 ? "answered" : "") @(ExamService.IsFlagged(idx) ? "flagged" : "")"
+                                    @onclick="@(() => GoToQuestion(idx))">
+                                @(idx + 1)
+                            </button>
+                        }
+                    </div>
+                </div>
+
+                <aside class="session-sidebar">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">Questions</span>
+                        <span class="sidebar-progress">@AnsweredCount / @ExamService.TotalQuestions</span>
+                    </div>
+                    <div class="sidebar-dots">
+                        @for (var i = 0; i < ExamService.TotalQuestions; i++)
+                        {
+                            var idx = i;
+                            <button class="nav-dot @(idx == ExamService.CurrentQuestionIndex ? "current" : "") @(ExamService.UserAnswers[idx].Length > 0 ? "answered" : "") @(ExamService.IsFlagged(idx) ? "flagged" : "")"
+                                    @onclick="@(() => GoToQuestion(idx))">
+                                @(idx + 1)
+                            </button>
+                        }
+                    </div>
+                    <div class="sidebar-legend">
+                        <span class="legend-item"><span class="legend-dot current-dot"></span> Current</span>
+                        <span class="legend-item"><span class="legend-dot answered-dot"></span> Answered</span>
+                        <span class="legend-item"><span class="legend-dot flagged-dot"></span> Flagged</span>
+                    </div>
+                    @if (ExamService.FlaggedQuestions.Count > 0)
+                    {
+                        <div class="sidebar-flagged-count">
+                            &#9873; @ExamService.FlaggedQuestions.Count flagged
+                        </div>
+                        <button class="btn-filter-flagged @(_filterFlagged ? "active" : "")"
+                                @onclick="ToggleFlaggedFilter">
+                            @(_filterFlagged ? "Show all" : "Show flagged only")
+                        </button>
+                    }
+                </aside>
+            </div>
+        }
+
+        @if (_showFinishConfirm)
+        {
+            <div class="modal-overlay" @onclick="CancelFinish">
+                <div class="modal" @onclick:stopPropagation="true">
+                    <h3>Finish Exam?</h3>
+                    @if (UnansweredCount > 0)
+                    {
+                        <p>You have <strong>@UnansweredCount unanswered</strong> question(s).</p>
+                    }
+                    else
+                    {
+                        <p>You have answered all questions.</p>
+                    }
+                    @if (ExamService.FlaggedQuestions.Count > 0)
+                    {
+                        <p>You have <strong>@ExamService.FlaggedQuestions.Count flagged</strong> question(s) for review.</p>
+                    }
+                    <p>Are you sure you want to finish?</p>
+                    <div class="modal-actions">
+                        <button class="btn-secondary" @onclick="CancelFinish">Cancel</button>
+                        <button class="btn-primary" @onclick="FinishExam">Finish Exam</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (!_shortcutsDismissed)
+        {
+            <div class="shortcut-bar no-print">
+                <span class="shortcut-hint">Keyboard shortcuts: W/A up, S/D down, Space select, arrows navigate, Enter submit, F flag</span>
+                <button class="shortcut-dismiss" @onclick="DismissShortcuts">&times;</button>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private string[] _currentSelection = [];
+    private bool _showFeedback;
+    private bool _isCurrentCorrect;
+    private bool _showFinishConfirm;
+    private bool _isTransitioning;
+    private string _transitionDir = "";
+    private bool _shortcutsDismissed;
+    private bool _filterFlagged;
+    private bool _selectionWarningPulse;
+    private int _focusedOptionIndex;
+    private System.Threading.Timer? _timer;
+    private DotNetObjectReference<ExamSession>? _dotNetRef;
+
+    private int AnsweredCount => ExamService.UserAnswers.Count(a => a.Length > 0);
+    private int UnansweredCount => ExamService.UserAnswers.Count(a => a.Length == 0);
+
+    private int RequiredAnswerCount =>
+        ExamService.CurrentQuestion?.CorrectAnswers.Distinct().Count() ?? 1;
+
+    private bool IsOrderingQuestion =>
+        ExamService.CurrentQuestion?.Type == "Ordering"
+        && ExamService.CurrentQuestion?.Items is { Count: > 0 };
+
+    private bool IsHotspotQuestion =>
+        ExamService.CurrentQuestion?.Type == "Hotspot"
+        && ExamService.CurrentQuestion?.Regions is { Count: > 0 };
+
+    private bool IsMultipleChoice =>
+        ExamService.CurrentQuestion?.Type == "MultipleChoice"
+        || (ExamService.CurrentQuestion?.Type is "DragDrop" or "Hotspot"
+            && !IsHotspotQuestion && RequiredAnswerCount > 1);
+
+    private bool HasCorrectSelectionCount =>
+        !IsMultipleChoice || _currentSelection.Length == RequiredAnswerCount;
+
+    private bool CanSubmit =>
+        IsOrderingQuestion
+            ? _currentSelection.Length > 0
+            : _currentSelection.Length > 0 && HasCorrectSelectionCount;
+
+    private double ProgressPercent =>
+        ExamService.TotalQuestions > 0
+            ? (double)(ExamService.CurrentQuestionIndex + 1) / ExamService.TotalQuestions * 100
+            : 0;
+
+    private string TimerClass
+    {
+        get
+        {
+            if (!ExamService.TimeRemaining.HasValue) return "";
+            var remaining = ExamService.TimeRemaining.Value;
+            var total = TimeSpan.FromMinutes(ExamService.Config?.TimeLimitMinutes ?? 0);
+            if (total.TotalMinutes <= 0) return "";
+            var ratio = remaining / total;
+            return ratio < 0.1 ? "danger" : ratio < 0.25 ? "warning" : "";
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (ExamService.CurrentExam is null || !ExamService.IsExamActive)
+        {
+            Nav.NavigateTo("/");
+            return;
+        }
+
+        _currentSelection = ExamService.GetCurrentAnswer();
+
+        _timer = new System.Threading.Timer(async _ =>
+        {
+            if (ExamService.IsTimeExpired && ExamService.IsExamActive)
+            {
+                ExamService.FinishExam();
+                await InvokeAsync(() =>
+                {
+                    Nav.NavigateTo($"/exam/{ExamCode}/report");
+                });
+            }
+            else
+            {
+                await InvokeAsync(StateHasChanged);
+            }
+        }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("window.__registerKeyHandler", _dotNetRef);
+        }
+    }
+
+    [JSInvokable]
+    public async Task OnKeyPress(string key)
+    {
+        if (_showFinishConfirm) return;
+
+        switch (key)
+        {
+            case "ArrowRight":
+                NextQuestion();
+                break;
+            case "ArrowLeft":
+                PreviousQuestion();
+                break;
+            case "Enter":
+                if (!_showFeedback && CanSubmit)
+                {
+                    if (ExamService.Config?.IsPracticeMode == true)
+                        SubmitAnswer();
+                    else if (ExamService.CurrentQuestionIndex >= ExamService.TotalQuestions - 1)
+                    {
+                        ExamService.SubmitAnswer(_currentSelection);
+                        ShowFinishConfirm();
+                    }
+                    else
+                        SubmitAndNext();
+                }
+                else if (!_showFeedback && !CanSubmit && IsMultipleChoice && _currentSelection.Length > 0)
+                {
+                    PulseSelectionWarning();
+                }
+                else if (_showFeedback)
+                {
+                    if (ExamService.CurrentQuestionIndex >= ExamService.TotalQuestions - 1)
+                        ShowFinishConfirm();
+                    else
+                        NextQuestion();
+                }
+                break;
+            case "f":
+            case "F":
+                ToggleFlag();
+                break;
+            case "w": case "W": case "a": case "A":
+                if (!IsOrderingQuestion && !IsHotspotQuestion)
+                    MoveFocus(-1);
+                break;
+            case "s": case "S": case "d": case "D":
+                if (!IsOrderingQuestion && !IsHotspotQuestion)
+                    MoveFocus(1);
+                break;
+            case " ":
+                if (!IsOrderingQuestion && !IsHotspotQuestion)
+                    SelectOption(_focusedOptionIndex);
+                break;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void MoveFocus(int direction)
+    {
+        if (_showFeedback || ExamService.CurrentQuestion is null) return;
+        var count = ExamService.CurrentQuestion.Options.Count;
+        if (count == 0) return;
+        _focusedOptionIndex = (_focusedOptionIndex + direction + count) % count;
+    }
+
+    private void SelectOption(int index)
+    {
+        if (_showFeedback || ExamService.CurrentQuestion is null) return;
+        if (index >= ExamService.CurrentQuestion.Options.Count) return;
+
+        var letter = ExamService.CurrentQuestion.Options[index][0].ToString().ToUpperInvariant();
+
+        if (ExamService.CurrentQuestion.Type == "MultipleChoice")
+        {
+            if (_currentSelection.Contains(letter))
+                _currentSelection = _currentSelection.Where(s => s != letter).ToArray();
+            else if (_currentSelection.Length < RequiredAnswerCount)
+                _currentSelection = [.. _currentSelection, letter];
+            // else: at limit, ignore
+        }
+        else
+        {
+            _currentSelection = [letter];
+        }
+    }
+
+    private void ToggleFlag()
+    {
+        ExamService.ToggleFlag(ExamService.CurrentQuestionIndex);
+        if (_filterFlagged && ExamService.FlaggedQuestions.Count == 0)
+            _filterFlagged = false;
+    }
+
+    private void ToggleFlaggedFilter()
+    {
+        _filterFlagged = !_filterFlagged;
+        if (_filterFlagged && ExamService.FlaggedQuestions.Count == 0)
+            _filterFlagged = false;
+    }
+
+    private List<int> FlaggedIndices => ExamService.FlaggedQuestions.OrderBy(x => x).ToList();
+
+    private int? NextFlaggedIndex()
+    {
+        var next = FlaggedIndices.FirstOrDefault(i => i > ExamService.CurrentQuestionIndex, -1);
+        return next >= 0 ? next : null;
+    }
+
+    private int? PreviousFlaggedIndex()
+    {
+        var prev = FlaggedIndices.LastOrDefault(i => i < ExamService.CurrentQuestionIndex, -1);
+        return prev >= 0 ? prev : null;
+    }
+
+    private void OnAnswerChanged(string[] answers)
+    {
+        _currentSelection = answers;
+    }
+
+    private void SubmitAnswer()
+    {
+        ExamService.SubmitAnswer(_currentSelection);
+        _isCurrentCorrect = ExamService.IsCurrentAnswerCorrect();
+        _showFeedback = true;
+    }
+
+    private void SubmitAndNext()
+    {
+        ExamService.SubmitAnswer(_currentSelection);
+        NextQuestion();
+    }
+
+    private async void AnimateTransition(string direction)
+    {
+        _transitionDir = direction;
+        _isTransitioning = true;
+        StateHasChanged();
+        await Task.Delay(200);
+        _isTransitioning = false;
+        StateHasChanged();
+    }
+
+    private void NextQuestion()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        _showFeedback = false;
+        _focusedOptionIndex = 0;
+
+        if (_filterFlagged)
+        {
+            var next = NextFlaggedIndex();
+            if (next.HasValue)
+            {
+                ExamService.GoToQuestion(next.Value);
+                AnimateTransition("slide-in-right");
+            }
+        }
+        else if (ExamService.NextQuestion())
+        {
+            AnimateTransition("slide-in-right");
+        }
+
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void PreviousQuestion()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        _showFeedback = false;
+        _focusedOptionIndex = 0;
+
+        if (_filterFlagged)
+        {
+            var prev = PreviousFlaggedIndex();
+            if (prev.HasValue)
+            {
+                ExamService.GoToQuestion(prev.Value);
+                AnimateTransition("slide-in-left");
+            }
+        }
+        else if (ExamService.PreviousQuestion())
+        {
+            AnimateTransition("slide-in-left");
+        }
+
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void GoToQuestion(int index)
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        var dir = index > ExamService.CurrentQuestionIndex ? "slide-in-right" : "slide-in-left";
+        _showFeedback = false;
+        ExamService.GoToQuestion(index);
+        AnimateTransition(dir);
+        _currentSelection = ExamService.GetCurrentAnswer();
+    }
+
+    private void ShowFinishConfirm()
+    {
+        _showFinishConfirm = true;
+    }
+
+    private void CancelFinish()
+    {
+        _showFinishConfirm = false;
+    }
+
+    private void FinishExam()
+    {
+        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        {
+            ExamService.SubmitAnswer(_currentSelection);
+        }
+
+        ExamService.FinishExam();
+        Nav.NavigateTo($"/exam/{ExamCode}/report");
+    }
+
+    private async void PulseSelectionWarning()
+    {
+        _selectionWarningPulse = true;
+        StateHasChanged();
+        await Task.Delay(400);
+        _selectionWarningPulse = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void DismissShortcuts()
+    {
+        _shortcutsDismissed = true;
+    }
+
+    private static string FormatTime(TimeSpan ts)
+    {
+        if (ts.TotalHours >= 1)
+            return $"{(int)ts.TotalHours}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+        return $"{(int)ts.TotalMinutes}:{ts.Seconds:D2}";
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+        _ = JS.InvokeVoidAsync("window.__unregisterKeyHandler");
+        _dotNetRef?.Dispose();
+    }
+}

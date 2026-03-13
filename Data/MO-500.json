@@ -1,0 +1,916 @@
+{
+  "examCode": "MO-500",
+  "examTitle": "Microsoft Access",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Database Design - Normalization",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of database normalization?",
+      "options": [
+        "A. To make the database run faster.",
+        "B. To organize data to reduce redundancy and improve data integrity.",
+        "C. To add more tables to the database.",
+        "D. To create a backup of the database."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because normalization is the process of structuring a relational database to reduce data redundancy (duplicate data) and ensure data integrity through proper table design and relationships.\n\nA is incorrect because normalization can sometimes make queries slower due to additional joins, though it improves data quality.\n\nC is incorrect because adding tables is a result of normalization, not its purpose.\n\nD is incorrect because backups are a separate process from database design."
+    },
+    {
+      "id": 2,
+      "topic": "Database Design - Primary keys",
+      "type": "SingleChoice",
+      "questionText": "What is a primary key in an Access database table?",
+      "options": [
+        "A. The first field in every table.",
+        "B. A field or combination of fields that uniquely identifies each record in a table.",
+        "C. A field that stores passwords for database access.",
+        "D. The most important field in terms of data value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a primary key uniquely identifies each record in a table, preventing duplicate records and serving as the basis for relationships with other tables.\n\nA is incorrect because the primary key does not have to be the first field.\n\nC is incorrect because primary keys are about record identification, not security.\n\nD is incorrect because importance of data content is not related to primary keys."
+    },
+    {
+      "id": 3,
+      "topic": "Tables - Data types",
+      "type": "SingleChoice",
+      "questionText": "Which data type should you use for a field that will store monetary values such as product prices?",
+      "options": [
+        "A. Short Text",
+        "B. Number",
+        "C. Currency",
+        "D. Long Text"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because the Currency data type is specifically designed for monetary values, preventing rounding errors that can occur with floating-point Number types, and it stores values with up to four decimal places.\n\nA is incorrect because Short Text stores text strings, not numeric values for calculations.\n\nB is incorrect because while Number can store numeric values, it may introduce floating-point rounding errors with financial calculations.\n\nD is incorrect because Long Text is for large text entries, not monetary values."
+    },
+    {
+      "id": 4,
+      "topic": "Tables - AutoNumber",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the AutoNumber data type in Access?",
+      "options": [
+        "A. To automatically format numbers with thousand separators.",
+        "B. To automatically generate a unique sequential or random number for each new record.",
+        "C. To automatically calculate the sum of numeric fields.",
+        "D. To automatically count the number of records in a table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because AutoNumber automatically assigns a unique number to each new record, typically used as a primary key. It can be sequential (incrementing by 1) or random.\n\nA is incorrect because AutoNumber generates IDs, not formats existing numbers.\n\nC is incorrect because calculations are done with expressions or queries, not AutoNumber.\n\nD is incorrect because record counting is done with aggregate functions, not AutoNumber."
+    },
+    {
+      "id": 5,
+      "topic": "Queries - Select queries",
+      "type": "SingleChoice",
+      "questionText": "What does a Select query do in Access?",
+      "options": [
+        "A. It selects and deletes records from a table.",
+        "B. It retrieves data from one or more tables based on specified criteria and displays the results.",
+        "C. It selects which users can access the database.",
+        "D. It automatically selects the best index for a table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Select query retrieves data from one or more tables based on the criteria you specify, displaying the matching records in a datasheet view.\n\nA is incorrect because deleting records is done with a Delete query, not a Select query.\n\nC is incorrect because user access is managed through database security settings, not queries.\n\nD is incorrect because indexing is managed in table design, not through Select queries."
+    },
+    {
+      "id": 6,
+      "topic": "Queries - Criteria",
+      "type": "SingleChoice",
+      "questionText": "In the query design grid, you enter >100 in the Criteria row under the Price field. What does this do?",
+      "options": [
+        "A. It sets all prices to values greater than 100.",
+        "B. It filters the results to show only records where the Price is greater than 100.",
+        "C. It sorts prices in ascending order starting from 100.",
+        "D. It adds 100 to all price values."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because entering >100 in the Criteria row filters the query results to include only records where the Price field value exceeds 100.\n\nA is incorrect because criteria filter data, they do not modify it (that would require an Update query).\n\nC is incorrect because sorting is controlled by the Sort row, not the Criteria row.\n\nD is incorrect because adding values requires an expression in an Update query."
+    },
+    {
+      "id": 7,
+      "topic": "Forms - Creating forms",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of a form in Access?",
+      "options": [
+        "A. To print data in a formatted layout.",
+        "B. To provide a user-friendly interface for viewing, entering, and editing data in tables or queries.",
+        "C. To run calculations on data.",
+        "D. To create relationships between tables."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because forms provide a graphical interface that makes it easier for users to view, enter, and modify data compared to working directly in table datasheets.\n\nA is incorrect because printing formatted data is the purpose of reports.\n\nC is incorrect because calculations are typically done in queries or with expressions.\n\nD is incorrect because relationships are created in the Relationships window."
+    },
+    {
+      "id": 8,
+      "topic": "Reports - Creating reports",
+      "type": "SingleChoice",
+      "questionText": "What is the main purpose of a report in Access?",
+      "options": [
+        "A. To enter new data into the database.",
+        "B. To format and present data for viewing or printing in a professional layout.",
+        "C. To define relationships between tables.",
+        "D. To execute SQL statements."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because reports are designed to format, summarize, and present data from tables or queries in a professional layout suitable for viewing on screen or printing.\n\nA is incorrect because data entry is done through forms or directly in tables.\n\nC is incorrect because relationships are defined in the Relationships window.\n\nD is incorrect because SQL statements are executed through queries."
+    },
+    {
+      "id": 9,
+      "topic": "Relationships - One-to-many",
+      "type": "SingleChoice",
+      "questionText": "What does a one-to-many relationship between two tables mean?",
+      "options": [
+        "A. One record in the first table has exactly one matching record in the second table.",
+        "B. One record in the first table can be related to multiple records in the second table.",
+        "C. Many records in the first table relate to many records in the second table.",
+        "D. The tables have no relationship."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because in a one-to-many relationship, a single record in the primary (one) table can be associated with multiple records in the related (many) table. For example, one customer can have many orders.\n\nA is incorrect because that describes a one-to-one relationship.\n\nC is incorrect because that describes a many-to-many relationship.\n\nD is incorrect because a one-to-many relationship explicitly defines a connection between tables."
+    },
+    {
+      "id": 10,
+      "topic": "Relationships - Referential integrity",
+      "type": "SingleChoice",
+      "questionText": "What does enforcing referential integrity in a relationship do?",
+      "options": [
+        "A. It encrypts the data in both tables.",
+        "B. It ensures that a record cannot exist in the related table without a corresponding record in the primary table.",
+        "C. It automatically deletes all related records when a primary record is deleted.",
+        "D. It prevents any changes to the primary table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because referential integrity prevents orphaned records by ensuring that a foreign key value in the related table must match a primary key value in the primary table.\n\nA is incorrect because referential integrity is about data consistency, not encryption.\n\nC is incorrect because automatic deletion is an option called Cascade Delete, which is separate from simply enforcing referential integrity.\n\nD is incorrect because referential integrity does not prevent all changes to the primary table; it only restricts changes that would create orphaned records."
+    },
+    {
+      "id": 11,
+      "topic": "SQL - SELECT statement",
+      "type": "SingleChoice",
+      "questionText": "Which SQL statement retrieves all fields from the Customers table where the City is 'London'?",
+      "options": [
+        "A. SELECT * FROM Customers WHERE City = 'London';",
+        "B. GET ALL FROM Customers WHERE City = 'London';",
+        "C. FIND * IN Customers WHERE City = 'London';",
+        "D. SELECT City FROM Customers WHERE * = 'London';"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because SELECT * FROM Customers WHERE City = 'London' is valid SQL that selects all fields (*) from the Customers table, filtering for records where the City field equals 'London'.\n\nB is incorrect because GET ALL is not a valid SQL keyword.\n\nC is incorrect because FIND and IN used in this way are not valid SQL syntax.\n\nD is incorrect because the WHERE clause is malformed; * cannot be used as a field name in a condition."
+    },
+    {
+      "id": 12,
+      "topic": "SQL - JOIN",
+      "type": "SingleChoice",
+      "questionText": "What does an INNER JOIN do in a SQL query?",
+      "options": [
+        "A. It returns all records from both tables regardless of matches.",
+        "B. It returns only records that have matching values in both tables.",
+        "C. It returns all records from the left table and matching records from the right table.",
+        "D. It combines the structures of two tables into one."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an INNER JOIN returns only the records where there is a match between the joined fields in both tables.\n\nA is incorrect because returning all records regardless of matches describes a FULL OUTER JOIN.\n\nC is incorrect because returning all left records with matching right records describes a LEFT JOIN.\n\nD is incorrect because JOIN operations combine data, not table structures."
+    },
+    {
+      "id": 13,
+      "topic": "Macros - Basics",
+      "type": "SingleChoice",
+      "questionText": "What is a macro in Microsoft Access?",
+      "options": [
+        "A. A VBA module that contains complex programming code.",
+        "B. A set of predefined actions that automate tasks, defined without writing code.",
+        "C. A type of query that runs calculations.",
+        "D. A security feature that restricts database access."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Access macros are composed of predefined actions (like OpenForm, SendEmail, SetValue) that automate common tasks without requiring VBA programming knowledge.\n\nA is incorrect because macros are not VBA modules; they are a separate no-code automation feature.\n\nC is incorrect because calculations are done in queries, not macros.\n\nD is incorrect because macros automate tasks, not manage security."
+    },
+    {
+      "id": 14,
+      "topic": "Data Types - Yes/No",
+      "type": "SingleChoice",
+      "questionText": "Which data type should you use for a field that stores only True or False values, such as whether an employee is active?",
+      "options": [
+        "A. Short Text with values 'Yes' or 'No'.",
+        "B. Number with values 1 or 0.",
+        "C. Yes/No data type.",
+        "D. Long Text."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because the Yes/No data type is specifically designed for Boolean (True/False) values and displays as a checkbox in forms and datasheets.\n\nA is incorrect because storing Boolean values as text wastes space and does not enforce validation.\n\nB is incorrect because while 1/0 can represent Boolean values, the Yes/No type is purpose-built and more appropriate.\n\nD is incorrect because Long Text is for large text entries, not Boolean values."
+    },
+    {
+      "id": 15,
+      "topic": "Database Design - Foreign keys",
+      "type": "SingleChoice",
+      "questionText": "What is a foreign key in a database?",
+      "options": [
+        "A. A key that opens encrypted database files.",
+        "B. A field in one table that references the primary key of another table, creating a relationship between them.",
+        "C. The first field created in a new table.",
+        "D. A field that stores unique values only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a foreign key is a field in one table whose values correspond to the primary key values in another table, establishing a link between the two tables.\n\nA is incorrect because foreign keys are about relationships, not encryption.\n\nC is incorrect because foreign keys can be any field, not necessarily the first one.\n\nD is incorrect because foreign keys can contain duplicate values (the same foreign key value can appear in multiple records)."
+    },
+    {
+      "id": 16,
+      "topic": "Tables - Field properties",
+      "type": "SingleChoice",
+      "questionText": "What does the Required property of a field in Access do when set to Yes?",
+      "options": [
+        "A. It makes the field read-only.",
+        "B. It ensures that a value must be entered in the field for every record; null values are not allowed.",
+        "C. It automatically fills the field with a default value.",
+        "D. It makes the field appear as the first column in the datasheet."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because setting Required to Yes ensures that every record must have a value in that field. Access will display an error if a user tries to save a record without entering a value.\n\nA is incorrect because read-only is controlled by other properties or permissions.\n\nC is incorrect because default values are set with the Default Value property.\n\nD is incorrect because column order is determined by field order in the table design."
+    },
+    {
+      "id": 17,
+      "topic": "Queries - Parameter queries",
+      "type": "SingleChoice",
+      "questionText": "What is a parameter query in Access?",
+      "options": [
+        "A. A query that runs automatically when the database opens.",
+        "B. A query that prompts the user to enter criteria values when it is run.",
+        "C. A query that modifies table parameters like field sizes.",
+        "D. A query that only returns a single parameter value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a parameter query contains prompts (enclosed in square brackets like [Enter City:]) that ask the user to input criteria values when the query runs, making the query dynamic and reusable.\n\nA is incorrect because autorun is configured through macros, not parameter queries.\n\nC is incorrect because table structure changes are done in Design View, not queries.\n\nD is incorrect because parameter queries can return multiple records."
+    },
+    {
+      "id": 18,
+      "topic": "Forms - Subforms",
+      "type": "SingleChoice",
+      "questionText": "What is a subform in Access?",
+      "options": [
+        "A. A smaller version of the main form.",
+        "B. A form embedded within another form that displays related records from a linked table.",
+        "C. A form that only appears on mobile devices.",
+        "D. A hidden form used for background processing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a subform is a form that is embedded within a main form and typically displays records from a related table. For example, an Orders subform within a Customers form shows all orders for the currently displayed customer.\n\nA is incorrect because a subform is not just a smaller version; it displays related data.\n\nC is incorrect because subforms work on all platforms, not just mobile.\n\nD is incorrect because subforms are visible and interactive."
+    },
+    {
+      "id": 19,
+      "topic": "Reports - Grouping and sorting",
+      "type": "SingleChoice",
+      "questionText": "How do you group records in an Access report by a specific field, such as Category?",
+      "options": [
+        "A. Sort the data in the underlying table before creating the report.",
+        "B. Open the report in Design or Layout view and use the Group & Sort pane to add a grouping level.",
+        "C. Create a separate report for each category.",
+        "D. Use conditional formatting to highlight categories."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Group & Sort pane in Design or Layout view allows you to add grouping levels, set sort orders, and configure group headers and footers for organized report output.\n\nA is incorrect because sorting the table does not create report groupings.\n\nC is incorrect because separate reports are unnecessary when grouping is available.\n\nD is incorrect because conditional formatting changes appearance but does not group records."
+    },
+    {
+      "id": 20,
+      "topic": "Relationships - Many-to-many",
+      "type": "SingleChoice",
+      "questionText": "How do you implement a many-to-many relationship between Students and Courses in Access?",
+      "options": [
+        "A. Add a multi-value field in the Students table to store multiple Course IDs.",
+        "B. Create a junction table (such as Enrollments) with foreign keys to both the Students and Courses tables.",
+        "C. Create a direct relationship between the Students and Courses tables.",
+        "D. Store all data in a single table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Access (and relational databases in general) implement many-to-many relationships using a junction table that contains foreign keys referencing both related tables, creating two one-to-many relationships.\n\nA is incorrect because multi-value fields violate normalization principles and have limitations.\n\nC is incorrect because you cannot create a direct many-to-many relationship in Access without a junction table.\n\nD is incorrect because storing all data in a single table leads to massive redundancy and data integrity issues."
+    },
+    {
+      "id": 21,
+      "topic": "SQL - INSERT statement",
+      "type": "SingleChoice",
+      "questionText": "Which SQL statement adds a new record to the Products table?",
+      "options": [
+        "A. ADD INTO Products (ProductName, Price) VALUES ('Widget', 9.99);",
+        "B. INSERT INTO Products (ProductName, Price) VALUES ('Widget', 9.99);",
+        "C. CREATE Products (ProductName, Price) VALUES ('Widget', 9.99);",
+        "D. UPDATE Products SET ProductName = 'Widget', Price = 9.99;"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because INSERT INTO is the SQL statement for adding new records to a table, specifying the fields and their values.\n\nA is incorrect because ADD INTO is not a valid SQL statement.\n\nC is incorrect because CREATE is used for creating tables or databases, not inserting records.\n\nD is incorrect because UPDATE modifies existing records, not adds new ones."
+    },
+    {
+      "id": 22,
+      "topic": "SQL - UPDATE statement",
+      "type": "SingleChoice",
+      "questionText": "Which SQL statement updates the price of the product 'Widget' to 12.99?",
+      "options": [
+        "A. UPDATE Products SET Price = 12.99 WHERE ProductName = 'Widget';",
+        "B. CHANGE Products SET Price = 12.99 WHERE ProductName = 'Widget';",
+        "C. MODIFY Products SET Price = 12.99 WHERE ProductName = 'Widget';",
+        "D. SET Products.Price = 12.99 WHERE ProductName = 'Widget';"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because UPDATE ... SET ... WHERE is the standard SQL syntax for modifying existing records in a table based on a condition.\n\nB is incorrect because CHANGE is not a valid SQL command.\n\nC is incorrect because MODIFY is not a valid SQL command for updating records.\n\nD is incorrect because SET by itself is not a valid SQL statement for updates."
+    },
+    {
+      "id": 23,
+      "topic": "Macros - Common actions",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are common macro actions in Access? (Choose two.)",
+      "options": [
+        "A. OpenForm",
+        "B. CompileCode",
+        "C. RunQuery",
+        "D. DefragmentDatabase"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. OpenForm opens a specified form and RunQuery executes a specified query. These are among the most commonly used macro actions in Access.\n\nB is incorrect because CompileCode is not a macro action; code compilation is done in the VBA editor.\n\nD is incorrect because DefragmentDatabase is not a macro action; database compaction is done through Compact and Repair."
+    },
+    {
+      "id": 24,
+      "topic": "Data Types - Attachment",
+      "type": "SingleChoice",
+      "questionText": "What is the Attachment data type in Access used for?",
+      "options": [
+        "A. To link to external database files.",
+        "B. To store files such as images, documents, and spreadsheets directly within a database record.",
+        "C. To attach macros to specific fields.",
+        "D. To create hyperlinks to web pages."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Attachment data type allows you to store one or more files (such as images, Word documents, or Excel files) directly within a database record, and each record can have multiple attachments.\n\nA is incorrect because linking to external databases is done through linked tables.\n\nC is incorrect because macros are not attached to fields via the Attachment data type.\n\nD is incorrect because hyperlinks have their own data type; Attachment is for file storage."
+    },
+    {
+      "id": 25,
+      "topic": "Database Design - Lookup fields",
+      "type": "SingleChoice",
+      "questionText": "What is a Lookup field in Access?",
+      "options": [
+        "A. A field that searches the internet for matching values.",
+        "B. A field configured to display a dropdown list of values from another table or a value list, making data entry easier and more consistent.",
+        "C. A field that automatically looks up and corrects spelling errors.",
+        "D. A field that stores search queries."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Lookup field displays a dropdown list (combo box or list box) of values sourced from another table/query or a static list, ensuring data entry consistency and ease of use.\n\nA is incorrect because Lookup fields work within the database, not the internet.\n\nC is incorrect because spell-checking is not related to Lookup fields.\n\nD is incorrect because Lookup fields present options for data entry, not store search queries."
+    },
+    {
+      "id": 26,
+      "topic": "Tables - Input masks",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of an input mask on a table field in Access?",
+      "options": [
+        "A. To hide sensitive data from unauthorized users.",
+        "B. To define a pattern that controls how data is entered into the field, such as phone number formatting.",
+        "C. To mask the field so it does not appear in queries.",
+        "D. To apply a visual theme to the field."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an input mask defines a template that controls the format of data entry, such as (###) ###-#### for phone numbers, ensuring consistent data formatting.\n\nA is incorrect because input masks format data entry, not control security.\n\nC is incorrect because input masks do not affect field visibility in queries.\n\nD is incorrect because input masks control data formatting, not visual themes."
+    },
+    {
+      "id": 27,
+      "topic": "Queries - Action queries",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are types of action queries in Access? (Choose two.)",
+      "options": [
+        "A. Update query",
+        "B. Select query",
+        "C. Delete query",
+        "D. Crosstab query"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. Update and Delete queries are action queries that modify data in tables. Other action query types include Append (insert) and Make-Table queries.\n\nB is incorrect because a Select query retrieves data but does not modify it.\n\nD is incorrect because a Crosstab query is a specialized select query that displays data in a spreadsheet-like format, not an action query."
+    },
+    {
+      "id": 28,
+      "topic": "Forms - Form controls",
+      "type": "SingleChoice",
+      "questionText": "What is a combo box control on an Access form?",
+      "options": [
+        "A. A text box that accepts only numeric input.",
+        "B. A dropdown list that allows users to select from predefined options or type a custom value.",
+        "C. A button that combines multiple actions.",
+        "D. A read-only label that displays calculated results."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a combo box combines a text box and a dropdown list, allowing users to either select from a list of predefined values or type their own value.\n\nA is incorrect because numeric-only input is controlled by the data type or validation rule, not the combo box itself.\n\nC is incorrect because buttons are separate controls; combo boxes are for data selection.\n\nD is incorrect because labels and calculated controls are different from combo boxes."
+    },
+    {
+      "id": 29,
+      "topic": "Reports - Calculated controls",
+      "type": "SingleChoice",
+      "questionText": "How do you add a calculated field to an Access report that shows the total of the Amount field?",
+      "options": [
+        "A. Sort the Amount field in descending order.",
+        "B. Add a text box in the report footer and set its Control Source to =Sum([Amount]).",
+        "C. Create a new table to store totals.",
+        "D. Use the Format Painter to copy the total from another report."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because adding a text box control in the report footer (or group footer) with the expression =Sum([Amount]) as the Control Source creates a calculated field that displays the total of all Amount values.\n\nA is incorrect because sorting arranges data but does not calculate totals.\n\nC is incorrect because creating a separate table is unnecessary for report calculations.\n\nD is incorrect because Format Painter copies formatting, not calculated values."
+    },
+    {
+      "id": 30,
+      "topic": "Relationships - Cascade operations",
+      "type": "SingleChoice",
+      "questionText": "What does enabling 'Cascade Delete Related Records' do in a relationship?",
+      "options": [
+        "A. It prevents deletion of records in the primary table.",
+        "B. When a record in the primary table is deleted, all related records in the related table are automatically deleted as well.",
+        "C. It moves deleted records to a recycle bin table.",
+        "D. It requires approval before deleting any record."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Cascade Delete automatically removes all related records in the child table when the parent record is deleted, maintaining referential integrity.\n\nA is incorrect because Cascade Delete allows deletion, not prevents it.\n\nC is incorrect because Access does not have a recycle bin table for deleted records.\n\nD is incorrect because Cascade Delete is automatic and does not require additional approval."
+    },
+    {
+      "id": 31,
+      "topic": "SQL - Aggregate functions",
+      "type": "SingleChoice",
+      "questionText": "Which SQL query returns the average price of all products?",
+      "options": [
+        "A. SELECT AVERAGE(Price) FROM Products;",
+        "B. SELECT AVG(Price) FROM Products;",
+        "C. SELECT MEAN(Price) FROM Products;",
+        "D. SELECT SUM(Price)/COUNT(*) FROM Products;"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because AVG() is the standard SQL aggregate function for calculating the average of a numeric column.\n\nA is incorrect because AVERAGE is not a standard SQL function (though it works in some systems).\n\nC is incorrect because MEAN is not a standard SQL function.\n\nD is incorrect because while mathematically equivalent, it is not the standard approach and may produce different results with NULL values."
+    },
+    {
+      "id": 32,
+      "topic": "SQL - GROUP BY",
+      "type": "SingleChoice",
+      "questionText": "What does the GROUP BY clause in SQL do?",
+      "options": [
+        "A. It sorts the results in alphabetical order.",
+        "B. It groups rows that have the same values in specified columns, enabling aggregate functions to be applied to each group.",
+        "C. It limits the number of results returned.",
+        "D. It joins two tables together."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GROUP BY organizes rows with identical values in specified columns into groups, allowing aggregate functions like SUM, COUNT, AVG to calculate results for each group.\n\nA is incorrect because sorting is done with ORDER BY, not GROUP BY.\n\nC is incorrect because limiting results is done with TOP or LIMIT.\n\nD is incorrect because joining tables is done with JOIN clauses."
+    },
+    {
+      "id": 33,
+      "topic": "Macros - Data macros",
+      "type": "SingleChoice",
+      "questionText": "What is a data macro in Access?",
+      "options": [
+        "A. A macro that runs when you click a button on a form.",
+        "B. A macro that is triggered by table events such as Before Change, After Insert, or After Delete.",
+        "C. A macro that formats data in a report.",
+        "D. A macro that imports data from external sources."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because data macros are attached to table events and run automatically when data changes occur, such as before a record is changed, after a new record is inserted, or after a record is deleted. They work like database triggers.\n\nA is incorrect because button-click macros are embedded or standalone macros, not data macros.\n\nC is incorrect because report formatting is not handled by data macros.\n\nD is incorrect because data import is a separate feature."
+    },
+    {
+      "id": 34,
+      "topic": "Data Types - Calculated fields",
+      "type": "SingleChoice",
+      "questionText": "What is a calculated field in an Access table?",
+      "options": [
+        "A. A field that stores the result of a manual calculation entered by the user.",
+        "B. A field that automatically computes its value based on an expression using other fields in the same table.",
+        "C. A field that counts the number of records in the table.",
+        "D. A field that links to a calculator application."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a calculated field in a table uses an expression that references other fields in the same record to automatically compute its value. For example, [Quantity] * [UnitPrice] calculates the total.\n\nA is incorrect because calculated fields compute values automatically, not from manual input.\n\nC is incorrect because counting records is done with aggregate queries, not calculated fields.\n\nD is incorrect because calculated fields use built-in expressions, not external applications."
+    },
+    {
+      "id": 35,
+      "topic": "Database Design - Validation rules",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a validation rule on a table field?",
+      "options": [
+        "A. To encrypt the field data.",
+        "B. To define criteria that data must meet before it is accepted into the field.",
+        "C. To automatically correct invalid data.",
+        "D. To display a warning when the database is low on storage."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a validation rule specifies criteria that data must satisfy before Access accepts the entry. For example, >0 ensures only positive numbers are entered, and a Validation Text property provides a custom error message.\n\nA is incorrect because validation rules control data quality, not encryption.\n\nC is incorrect because validation rules reject invalid data; they do not auto-correct it.\n\nD is incorrect because storage warnings are unrelated to validation rules."
+    },
+    {
+      "id": 36,
+      "topic": "Queries - Crosstab queries",
+      "type": "SingleChoice",
+      "questionText": "What does a Crosstab query in Access produce?",
+      "options": [
+        "A. A query that crosses data between two unrelated databases.",
+        "B. A spreadsheet-like summary that uses one field as row headings, another as column headings, and calculates values at the intersections.",
+        "C. A query that detects cross-references between tables.",
+        "D. A query that runs across multiple databases simultaneously."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Crosstab query pivots data to display values at the intersections of row and column headings, similar to a PivotTable. For example, it could show sales amounts by product (rows) and month (columns).\n\nA is incorrect because Crosstab queries work within a single database.\n\nC is incorrect because cross-references are handled by relationships, not Crosstab queries.\n\nD is incorrect because Crosstab queries operate on data within the current database."
+    },
+    {
+      "id": 37,
+      "topic": "Forms - Navigation forms",
+      "type": "SingleChoice",
+      "questionText": "What is a Navigation form in Access?",
+      "options": [
+        "A. A form that displays a map for geographic navigation.",
+        "B. A form with tabs or buttons that serves as a menu system, allowing users to navigate between different forms and reports.",
+        "C. A form that only shows the navigation pane.",
+        "D. A form that automatically moves between records."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Navigation form provides a tabbed or button-based interface that acts as a switchboard, allowing users to navigate between different forms and reports within the database application.\n\nA is incorrect because Navigation forms are for database navigation, not geographic.\n\nC is incorrect because the Navigation Pane is a built-in Access feature, not a form type.\n\nD is incorrect because automatic record navigation is not what Navigation forms do."
+    },
+    {
+      "id": 38,
+      "topic": "Reports - Report sections",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are standard sections of an Access report? (Choose two.)",
+      "options": [
+        "A. Report Header",
+        "B. Detail section",
+        "C. Query Section",
+        "D. Macro Section"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Access reports have several standard sections including Report Header/Footer, Page Header/Footer, Group Header/Footer, and the Detail section (which repeats for each record).\n\nC is incorrect because there is no Query Section in a report.\n\nD is incorrect because there is no Macro Section in a report."
+    },
+    {
+      "id": 39,
+      "topic": "SQL - DELETE statement",
+      "type": "SingleChoice",
+      "questionText": "Which SQL statement deletes all records from the Orders table where the OrderDate is before January 1, 2020?",
+      "options": [
+        "A. REMOVE FROM Orders WHERE OrderDate < #1/1/2020#;",
+        "B. DELETE FROM Orders WHERE OrderDate < #1/1/2020#;",
+        "C. DROP Orders WHERE OrderDate < #1/1/2020#;",
+        "D. DELETE Orders WHERE OrderDate < '2020-01-01';"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because DELETE FROM is the SQL statement for removing records from a table, and in Access, dates are enclosed in # symbols (#1/1/2020#).\n\nA is incorrect because REMOVE is not a valid SQL keyword.\n\nC is incorrect because DROP is used to delete entire tables or databases, not individual records.\n\nD is incorrect because the FROM keyword is required, and Access uses # for date delimiters rather than quotes."
+    },
+    {
+      "id": 40,
+      "topic": "Macros - Conditional logic",
+      "type": "SingleChoice",
+      "questionText": "How do you add conditional logic to an Access macro?",
+      "options": [
+        "A. Use the If/Then block in the macro designer to execute actions based on specified conditions.",
+        "B. Create separate macros for each condition and run them manually.",
+        "C. Use SQL statements within the macro.",
+        "D. Conditional logic is not available in macros; you must use VBA."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Access macro designer includes If/Then/Else blocks that allow you to specify conditions and execute different actions based on whether the conditions are true or false.\n\nB is incorrect because separate macros are unnecessary when conditional logic is available within a single macro.\n\nC is incorrect because SQL statements are run through the RunSQL action, not as conditional logic.\n\nD is incorrect because conditional logic has been available in Access macros since Access 2010."
+    },
+    {
+      "id": 41,
+      "topic": "Queries - Make-Table queries",
+      "type": "SingleChoice",
+      "questionText": "What does a Make-Table query do in Access?",
+      "options": [
+        "A. It creates a new blank table with specified field structures.",
+        "B. It selects records from one or more tables and creates a new table containing those records.",
+        "C. It creates a temporary table that is deleted when the database closes.",
+        "D. It generates a table design document."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Make-Table query runs a SELECT query and creates a new table with the results, which is useful for creating backup copies, snapshots, or exported datasets.\n\nA is incorrect because Make-Table queries populate the new table with data from existing tables; they do not create empty structures.\n\nC is incorrect because the new table is permanent and persists after the database closes.\n\nD is incorrect because Make-Table queries create actual tables, not documentation."
+    },
+    {
+      "id": 42,
+      "topic": "Queries - Append queries",
+      "type": "SingleChoice",
+      "questionText": "What is an Append query used for in Access?",
+      "options": [
+        "A. To add new fields to an existing table.",
+        "B. To add records from one table or query into an existing table.",
+        "C. To append text to the end of field values.",
+        "D. To merge two tables into one new table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an Append query selects records from a source table or query and inserts them into an existing destination table, adding new rows without removing existing data.\n\nA is incorrect because adding fields is done in Table Design view, not through queries.\n\nC is incorrect because appending text to field values would require an Update query with string concatenation.\n\nD is incorrect because merging tables into a new table is done with a Make-Table query, not an Append query."
+    },
+    {
+      "id": 43,
+      "topic": "Database Design - Compact and Repair",
+      "type": "SingleChoice",
+      "questionText": "What does the Compact and Repair Database tool do in Access?",
+      "options": [
+        "A. It removes all data from the database to free up space.",
+        "B. It reduces the file size by reclaiming space from deleted objects and records, and repairs minor data corruption.",
+        "C. It compresses the database into a ZIP file.",
+        "D. It upgrades the database to the latest file format."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Compact and Repair defragments the database file, reclaims space left by deleted objects and records, resets AutoNumber counters, and can repair minor corruption issues.\n\nA is incorrect because Compact and Repair does not delete any data.\n\nC is incorrect because it optimizes the .accdb file, not creates a ZIP archive.\n\nD is incorrect because file format conversion is a separate operation."
+    },
+    {
+      "id": 44,
+      "topic": "Forms - Form events",
+      "type": "SingleChoice",
+      "questionText": "Which form event fires when a form is opened and before any records are displayed?",
+      "options": [
+        "A. On Click",
+        "B. On Open",
+        "C. After Update",
+        "D. On Close"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the On Open event fires when a form is opened but before any records are loaded and displayed. It is commonly used to set default values, apply filters, or check user permissions.\n\nA is incorrect because On Click fires when a user clicks on a control.\n\nC is incorrect because After Update fires after data in a control or record has been modified.\n\nD is incorrect because On Close fires when the form is being closed."
+    },
+    {
+      "id": 45,
+      "topic": "Tables - Indexing",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of creating an index on a field in an Access table?",
+      "options": [
+        "A. To encrypt the data in that field.",
+        "B. To speed up queries, sorting, and searching on that field at the cost of slightly slower data entry.",
+        "C. To limit the number of records in the table.",
+        "D. To create a table of contents for the database."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an index creates a sorted reference structure for a field, allowing Access to find records more quickly during queries and sorts. The trade-off is slightly slower insert and update operations because the index must be maintained.\n\nA is incorrect because indexing is about performance, not encryption.\n\nC is incorrect because indexes do not limit the number of records.\n\nD is incorrect because indexes are internal performance structures, not user-facing tables of contents."
+    },
+    {
+      "id": 46,
+      "topic": "SQL - HAVING clause",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between WHERE and HAVING in a SQL query?",
+      "options": [
+        "A. There is no difference; they are interchangeable.",
+        "B. WHERE filters individual rows before grouping, while HAVING filters groups after GROUP BY has been applied.",
+        "C. HAVING is used only with JOIN operations.",
+        "D. WHERE works with text fields and HAVING works with numeric fields."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because WHERE filters rows before any grouping occurs, while HAVING filters the results of aggregate functions applied to groups created by GROUP BY.\n\nA is incorrect because they serve different purposes and cannot always be interchanged.\n\nC is incorrect because HAVING is used with GROUP BY, not specifically with JOIN.\n\nD is incorrect because both clauses work with any data type."
+    },
+    {
+      "id": 47,
+      "topic": "Forms - Split forms",
+      "type": "SingleChoice",
+      "questionText": "What is a Split Form in Access?",
+      "options": [
+        "A. A form that is divided into two separate database windows.",
+        "B. A form that shows a single record form view on one half and a datasheet view of all records on the other half.",
+        "C. A form that splits data between two different tables.",
+        "D. A form that can only display half the fields in a table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Split Form displays both a detailed single-record form view and a datasheet view simultaneously. Selecting a record in the datasheet updates the form view, and vice versa.\n\nA is incorrect because a Split Form is within a single form object, not separate windows.\n\nC is incorrect because Split Forms display data, they do not split it between tables.\n\nD is incorrect because Split Forms can display all fields in both views."
+    },
+    {
+      "id": 48,
+      "topic": "Reports - Page numbering",
+      "type": "SingleChoice",
+      "questionText": "How do you add page numbers to an Access report?",
+      "options": [
+        "A. Type page numbers manually on each page.",
+        "B. In Design View, use Design tab > Insert > Page Numbers, or add a text box with the expression =Page & \" of \" & Pages.",
+        "C. Add page numbers in the underlying query.",
+        "D. Page numbers are added automatically and cannot be customized."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because you can use the Insert Page Numbers dialog or manually add a text box with expressions like =\"Page \" & [Page] & \" of \" & [Pages] in the page header or footer.\n\nA is incorrect because manual page numbers would not update dynamically.\n\nC is incorrect because page numbering is a report feature, not a query feature.\n\nD is incorrect because page numbers are not added automatically; they must be inserted by the developer."
+    },
+    {
+      "id": 49,
+      "topic": "Database Design - Linked tables",
+      "type": "SingleChoice",
+      "questionText": "What is a linked table in Access?",
+      "options": [
+        "A. A table that has relationships defined with other tables.",
+        "B. A table that references data stored in an external source (such as another Access file, SQL Server, or Excel) while displaying it as if it were local.",
+        "C. A table that is linked to a web page.",
+        "D. A copy of a table from another database."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a linked table creates a connection to data stored in an external source, allowing you to view and edit the external data through Access without importing it. The data remains in the external source.\n\nA is incorrect because relationships are defined in the Relationships window and are not what makes a table 'linked'.\n\nC is incorrect because linked tables connect to data sources, not web pages.\n\nD is incorrect because linked tables reference the original data; they do not create a copy."
+    },
+    {
+      "id": 50,
+      "topic": "SQL - DISTINCT keyword",
+      "type": "SingleChoice",
+      "questionText": "What does the DISTINCT keyword do in a SQL SELECT statement?",
+      "options": [
+        "A. It sorts the results in a unique order.",
+        "B. It removes duplicate rows from the query results, returning only unique combinations of the selected fields.",
+        "C. It selects only the first record from each group.",
+        "D. It marks records as distinct in the table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SELECT DISTINCT eliminates duplicate rows from the result set, ensuring each row in the output is unique based on the selected columns.\n\nA is incorrect because DISTINCT removes duplicates, not sorts.\n\nC is incorrect because selecting the first record from groups is done with aggregate functions and GROUP BY.\n\nD is incorrect because DISTINCT is a query modifier, not a data modification."
+    },
+    {
+      "id": 51,
+      "topic": "Forms - Command buttons",
+      "type": "SingleChoice",
+      "questionText": "How do you add a button to an Access form that opens another form when clicked?",
+      "options": [
+        "A. Insert a hyperlink control that links to the other form.",
+        "B. Use the Command Button Wizard (or add a button and set its On Click event to a macro or VBA code that runs the OpenForm action).",
+        "C. Create a calculated control that references the other form.",
+        "D. Add a label with the form name and set it to clickable."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Command Button Wizard creates a button and automatically generates the macro or VBA code for common actions like opening forms, running queries, or printing reports. You can also manually create a button and set its On Click event.\n\nA is incorrect because hyperlinks navigate to URLs or files, not Access forms.\n\nC is incorrect because calculated controls display computed values, not open forms.\n\nD is incorrect because labels are not interactive controls designed for navigation."
+    },
+    {
+      "id": 52,
+      "topic": "Database Design - Database splitting",
+      "type": "SingleChoice",
+      "questionText": "What does the Database Splitter tool do in Access?",
+      "options": [
+        "A. It splits a large table into smaller tables.",
+        "B. It separates the database into a back-end file (containing tables) and a front-end file (containing queries, forms, reports, and macros), linked together.",
+        "C. It splits the database into multiple copies for different users.",
+        "D. It divides the data evenly between two databases."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Database Splitter creates a back-end database with only the data tables and a front-end database with the user interface objects (forms, reports, queries, macros), linked to the back-end. This supports multi-user access.\n\nA is incorrect because splitting tables is a manual design process, not what the Database Splitter does.\n\nC is incorrect because it creates one back-end and one front-end, not multiple copies.\n\nD is incorrect because it separates objects by type (data vs. UI), not divides data."
+    },
+    {
+      "id": 53,
+      "topic": "Queries - Top values queries",
+      "type": "SingleChoice",
+      "questionText": "How do you create a query that returns only the top 10 most expensive products?",
+      "options": [
+        "A. Add a validation rule to the Price field for the top 10.",
+        "B. In the query design, sort Price in descending order and set the Top Values property to 10 (or use SELECT TOP 10 in SQL).",
+        "C. Manually delete all records except the top 10 from the query results.",
+        "D. Create a report that shows only 10 records."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because you can set the Top Values property (on the Design tab of the query designer) to 10 after sorting Price in descending order, or write SELECT TOP 10 * FROM Products ORDER BY Price DESC in SQL view.\n\nA is incorrect because validation rules control data entry, not query results.\n\nC is incorrect because manually deleting query results is not a proper approach.\n\nD is incorrect because reports display data; the filtering should be done in the query."
+    },
+    {
+      "id": 54,
+      "topic": "Tables - Field size property",
+      "type": "SingleChoice",
+      "questionText": "What does the Field Size property control for a Short Text field in Access?",
+      "options": [
+        "A. The font size used to display the field.",
+        "B. The maximum number of characters that can be stored in the field (up to 255).",
+        "C. The physical size of the field on a form.",
+        "D. The number of records that can contain data in that field."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Field Size property for Short Text fields specifies the maximum number of characters allowed (from 1 to 255). Setting an appropriate size helps optimize storage and enforce data length limits.\n\nA is incorrect because font size is a display property, not a data storage property.\n\nC is incorrect because the control size on a form is set independently in Form Design.\n\nD is incorrect because Field Size does not limit the number of records."
+    },
+    {
+      "id": 55,
+      "topic": "Macros - AutoExec macro",
+      "type": "SingleChoice",
+      "questionText": "What is the AutoExec macro in Access?",
+      "options": [
+        "A. A macro that automatically executes VBA code.",
+        "B. A macro named AutoExec that runs automatically when the database is opened.",
+        "C. A macro that auto-generates itself based on database actions.",
+        "D. A system macro that cannot be modified."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a macro named AutoExec is automatically executed by Access when the database opens. It is commonly used to open a startup form, set application options, or display a splash screen.\n\nA is incorrect because AutoExec is a standard macro, not a VBA module (though it can call VBA).\n\nC is incorrect because AutoExec must be manually created by the developer.\n\nD is incorrect because AutoExec can be created, modified, and deleted like any other macro."
+    },
+    {
+      "id": 56,
+      "topic": "Reports - Subreports",
+      "type": "SingleChoice",
+      "questionText": "What is a subreport in Access?",
+      "options": [
+        "A. A smaller version of the main report printed on the same page.",
+        "B. A report embedded within another report that displays related data, similar to a subform.",
+        "C. A report generated automatically from a subroutine.",
+        "D. A draft version of a report."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a subreport is a report control embedded within a main report that displays data related to the current record or group in the main report, such as order details within a customer summary report.\n\nA is incorrect because a subreport is a separate report object embedded in the main report, not a smaller copy.\n\nC is incorrect because subreports are design objects, not generated by subroutines.\n\nD is incorrect because subreports are functional components, not draft versions."
+    },
+    {
+      "id": 57,
+      "topic": "SQL - Subqueries",
+      "type": "SingleChoice",
+      "questionText": "What is a subquery in SQL?",
+      "options": [
+        "A. A query that runs after the main query completes.",
+        "B. A SELECT statement nested inside another SQL statement, used to provide values for the outer query.",
+        "C. A query that only selects a subset of columns.",
+        "D. A query that runs on a subset of the database."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a subquery (or inner query) is a SELECT statement embedded within another SQL statement (in the WHERE clause, FROM clause, or SELECT list), providing intermediate results used by the outer query.\n\nA is incorrect because a subquery executes as part of the outer query, not sequentially after it.\n\nC is incorrect because selecting a subset of columns is just a normal SELECT, not a subquery.\n\nD is incorrect because subqueries filter or compute values, not run on database subsets."
+    },
+    {
+      "id": 58,
+      "topic": "Forms - Conditional formatting on forms",
+      "type": "SingleChoice",
+      "questionText": "How do you change the background color of a text box on a form based on its value, such as highlighting negative numbers in red?",
+      "options": [
+        "A. Use VBA code to check each value when the form loads.",
+        "B. Select the control, then use Format tab > Conditional Formatting to create rules based on field values.",
+        "C. Create separate forms for positive and negative values.",
+        "D. This is not possible in Access forms."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Access forms support Conditional Formatting, accessible from the Format tab, which allows you to define rules that change the appearance (font color, background color, bold, etc.) of controls based on their values.\n\nA is incorrect because while VBA can achieve this, Conditional Formatting is the built-in no-code approach.\n\nC is incorrect because separate forms are unnecessary when conditional formatting handles this.\n\nD is incorrect because conditional formatting is available on Access forms."
+    },
+    {
+      "id": 59,
+      "topic": "Database Design - Database templates",
+      "type": "SingleChoice",
+      "questionText": "What do Access database templates provide?",
+      "options": [
+        "A. Only the table structures without any data.",
+        "B. Pre-built databases with tables, queries, forms, reports, and macros for common business scenarios like asset tracking, contacts, or task management.",
+        "C. Visual themes for the database interface only.",
+        "D. Sample data for testing purposes only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Access templates provide complete, ready-to-use databases with all necessary objects (tables, forms, reports, queries, macros) for common scenarios, which can be customized as needed.\n\nA is incorrect because templates include full database applications, not just table structures.\n\nC is incorrect because templates provide functional database objects, not just visual themes.\n\nD is incorrect because templates provide working applications, not just sample data."
+    },
+    {
+      "id": 60,
+      "topic": "SQL - UNION queries",
+      "type": "SingleChoice",
+      "questionText": "What does the UNION operator do in SQL?",
+      "options": [
+        "A. It joins two tables based on matching fields.",
+        "B. It combines the result sets of two or more SELECT statements into a single result set, removing duplicates.",
+        "C. It creates a union between two databases.",
+        "D. It merges the structures of two tables into one."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because UNION combines the results of two or more SELECT queries into one result set, automatically removing duplicate rows. UNION ALL can be used to keep duplicates.\n\nA is incorrect because joining tables is done with JOIN, not UNION.\n\nC is incorrect because UNION operates on query results, not databases.\n\nD is incorrect because UNION combines data rows, not table structures."
+    },
+    {
+      "id": 61,
+      "topic": "Tables - Multi-value fields",
+      "type": "SingleChoice",
+      "questionText": "What is a multi-value field in Access and when should it be used cautiously?",
+      "options": [
+        "A. A field that stores multiple data types.",
+        "B. A field that can store multiple values in a single field, useful for simple scenarios but violating normalization principles for complex databases.",
+        "C. A field that spans multiple columns.",
+        "D. A field that automatically calculates multiple results."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because multi-value fields allow storing multiple selections (like checkboxes) in a single field. While convenient for simple applications, they violate first normal form and can complicate queries, reporting, and migration to other database systems.\n\nA is incorrect because multi-value fields store multiple values of the same type, not different types.\n\nC is incorrect because multi-value fields are contained in a single column.\n\nD is incorrect because multi-value fields store data, not perform calculations."
+    },
+    {
+      "id": 62,
+      "topic": "Queries - Totals queries",
+      "type": "MultipleChoice",
+      "questionText": "Which aggregate functions are available in the Totals row of an Access query? (Choose two.)",
+      "options": [
+        "A. Sum",
+        "B. Count",
+        "C. Median",
+        "D. Mode"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. The Totals row in Access queries supports aggregate functions including Sum, Count, Avg, Min, Max, StDev, Var, First, and Last.\n\nC is incorrect because Median is not a built-in aggregate function in Access queries.\n\nD is incorrect because Mode is not a built-in aggregate function in Access queries."
+    },
+    {
+      "id": 63,
+      "topic": "Database Design - Trust Center",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Trust Center in Access?",
+      "options": [
+        "A. To manage user accounts and permissions.",
+        "B. To configure security settings that control which databases, macros, and active content are trusted and allowed to run.",
+        "C. To encrypt the database file.",
+        "D. To back up the database automatically."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Trust Center (File > Options > Trust Center) manages security settings including trusted locations, macro settings, and add-in behavior, controlling which database content is allowed to run.\n\nA is incorrect because user accounts are managed at the operating system or SharePoint level.\n\nC is incorrect because encryption is configured through database password settings.\n\nD is incorrect because automatic backups are not a Trust Center feature."
+    },
+    {
+      "id": 64,
+      "topic": "Reports - Conditional formatting in reports",
+      "type": "SingleChoice",
+      "questionText": "How do you highlight values below a certain threshold in red on an Access report?",
+      "options": [
+        "A. Manually change the font color for each value.",
+        "B. Select the control in Design or Layout view, then apply Conditional Formatting with a rule for values below the threshold.",
+        "C. Create a separate report for values below the threshold.",
+        "D. Use a filter to show only values below the threshold."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Conditional Formatting in Access reports allows you to define rules that automatically change the appearance of a control based on its value, such as turning text red when below a specified amount.\n\nA is incorrect because manually changing colors is impractical and static.\n\nC is incorrect because a separate report is unnecessary when conditional formatting handles this.\n\nD is incorrect because filtering removes records from view rather than highlighting them."
+    },
+    {
+      "id": 65,
+      "topic": "SQL - LEFT JOIN",
+      "type": "SingleChoice",
+      "questionText": "What does a LEFT JOIN return in an Access query?",
+      "options": [
+        "A. Only records that exist in the left table but not the right table.",
+        "B. All records from the left table and matching records from the right table. If there is no match, NULL values are returned for right table fields.",
+        "C. All records from both tables.",
+        "D. Only the first record from each table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a LEFT JOIN (or LEFT OUTER JOIN) returns all records from the left table and the matching records from the right table. Where there is no match in the right table, the result contains NULL values for those fields.\n\nA is incorrect because LEFT JOIN returns all left records, including those with matches, not just unmatched ones.\n\nC is incorrect because returning all records from both tables describes a FULL OUTER JOIN.\n\nD is incorrect because LEFT JOIN returns all matching and unmatched records, not just one from each table."
+    }
+  ]
+}

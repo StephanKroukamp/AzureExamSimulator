@@ -1,0 +1,216 @@
+@page "/exam/{ExamCode}/setup"
+@inject ExamLoaderService ExamLoader
+@inject ExamService ExamService
+@inject NavigationManager Nav
+
+<div class="setup-page">
+    @if (_exam is null)
+    {
+        <div class="empty-state">Exam not found.</div>
+    }
+    else
+    {
+        <div class="setup-header">
+            <a href="/" class="back-link">&larr; Back to exams</a>
+            <div class="exam-badge large">@_exam.ExamCode</div>
+            <h1>@_exam.ExamTitle</h1>
+            <p class="setup-subtitle">@_validCount questions available</p>
+        </div>
+
+        <div class="setup-form">
+            <div class="form-section">
+                <h2>Exam Mode</h2>
+                <div class="toggle-group">
+                    <button class="toggle-btn @(_isPractice ? "active" : "")" @onclick="() => _isPractice = true">
+                        <span class="toggle-icon">&#128218;</span>
+                        <span class="toggle-label">Practice</span>
+                        <span class="toggle-desc">See answers after each question</span>
+                    </button>
+                    <button class="toggle-btn @(!_isPractice ? "active" : "")" @onclick="() => _isPractice = false">
+                        <span class="toggle-icon">&#9200;</span>
+                        <span class="toggle-label">Timed Exam</span>
+                        <span class="toggle-desc">Answers shown at the end</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Number of Questions</h2>
+                <div class="chip-group">
+                    @foreach (var option in _questionOptions)
+                    {
+                        <button class="chip @(_selectedQuestionCount == option.Value ? "active" : "")"
+                                @onclick="() => SelectQuestionCount(option.Value)">
+                            @option.Label
+                        </button>
+                    }
+                </div>
+                @if (_showCustomInput)
+                {
+                    <div class="custom-input-row">
+                        <input type="number" min="1" max="@_validCount" @bind="_customCount"
+                               class="custom-input" placeholder="Enter number..." />
+                    </div>
+                }
+            </div>
+
+            <div class="form-section">
+                <h2>Filter by Topics</h2>
+                <button class="chip @(_showTopicFilter ? "active" : "")" @onclick="() => _showTopicFilter = !_showTopicFilter">
+                    @if (_showTopicFilter) { <text>Hide Topics</text> } else { <text>Show Topics (@_selectedTopics.Count / @_allTopics.Count)</text> }
+                </button>
+                @if (_showTopicFilter)
+                {
+                    <div class="topic-filter">
+                        <div class="topic-filter-actions">
+                            <button class="btn-ghost btn-sm" @onclick="SelectAllTopics">Select All</button>
+                            <button class="btn-ghost btn-sm" @onclick="DeselectAllTopics">Deselect All</button>
+                        </div>
+                        @foreach (var topic in _allTopics)
+                        {
+                            var t = topic;
+                            var count = _topicCounts[t];
+                            <label class="topic-filter-item">
+                                <input type="checkbox" checked="@_selectedTopics.Contains(t)"
+                                       @onchange="() => ToggleTopic(t)" />
+                                <span class="topic-name">@t</span>
+                                <span class="topic-count">(@count)</span>
+                            </label>
+                        }
+                    </div>
+                    <div class="topic-filter-summary">
+                        @_selectedTopics.Count of @_allTopics.Count topics selected (@FilteredQuestionCount questions)
+                    </div>
+                }
+            </div>
+
+            @if (!_isPractice)
+            {
+                <div class="form-section">
+                    <h2>Time Limit</h2>
+                    <div class="chip-group">
+                        <button class="chip @(_timeLimit == 60 ? "active" : "")" @onclick="() => _timeLimit = 60">60 min</button>
+                        <button class="chip @(_timeLimit == 90 ? "active" : "")" @onclick="() => _timeLimit = 90">90 min</button>
+                        <button class="chip @(_timeLimit == 120 ? "active" : "")" @onclick="() => _timeLimit = 120">120 min</button>
+                        <button class="chip @(_timeLimit == 150 ? "active" : "")" @onclick="() => _timeLimit = 150">150 min</button>
+                        <button class="chip @(_timeLimit == 0 ? "active" : "")" @onclick="() => _timeLimit = 0">No limit</button>
+                    </div>
+                </div>
+            }
+
+            <div class="setup-summary">
+                <div class="summary-row">
+                    <span>Mode</span>
+                    <span>@(_isPractice ? "Practice" : "Timed Exam")</span>
+                </div>
+                <div class="summary-row">
+                    <span>Questions</span>
+                    <span>@EffectiveQuestionCount</span>
+                </div>
+                @if (!_isPractice && _timeLimit > 0)
+                {
+                    <div class="summary-row">
+                        <span>Time Limit</span>
+                        <span>@_timeLimit minutes</span>
+                    </div>
+                }
+            </div>
+
+            <button class="btn-primary start-btn" @onclick="StartExam"
+                    disabled="@(_selectedTopics.Count == 0)">
+                Start Exam &rarr;
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private Exam? _exam;
+    private int _validCount;
+    private bool _isPractice = true;
+    private int _selectedQuestionCount;
+    private int _customCount = 10;
+    private int _timeLimit;
+    private bool _showCustomInput;
+    private bool _showTopicFilter;
+    private List<string> _allTopics = [];
+    private HashSet<string> _selectedTopics = [];
+    private Dictionary<string, int> _topicCounts = [];
+
+    private record QuestionOption(string Label, int Value);
+    private List<QuestionOption> _questionOptions = [];
+
+    private int FilteredQuestionCount => _selectedTopics.Count == _allTopics.Count
+        ? _validCount
+        : QuestionValidator.GetValidQuestions(_exam!.Questions)
+            .Count(q => _selectedTopics.Contains(q.Topic));
+
+    private int EffectiveMaxCount => _selectedTopics.Count == _allTopics.Count ? _validCount : FilteredQuestionCount;
+
+    private int EffectiveQuestionCount =>
+        _showCustomInput ? Math.Clamp(_customCount, 1, EffectiveMaxCount) : Math.Min(_selectedQuestionCount, EffectiveMaxCount);
+
+    protected override void OnInitialized()
+    {
+        _exam = ExamLoader.LoadExam(ExamCode);
+        if (_exam is null) return;
+
+        _validCount = QuestionValidator.GetValidCount(_exam.Questions);
+        _selectedQuestionCount = _validCount;
+
+        _questionOptions = [new($"All ({_validCount})", _validCount)];
+        if (_validCount >= 10) _questionOptions.Add(new("10", 10));
+        if (_validCount >= 25) _questionOptions.Add(new("25", 25));
+        if (_validCount >= 50) _questionOptions.Add(new("50", 50));
+        _questionOptions.Add(new("Custom", -1));
+
+        var validQuestions = QuestionValidator.GetValidQuestions(_exam.Questions);
+        _topicCounts = validQuestions
+            .GroupBy(q => q.Topic)
+            .ToDictionary(g => g.Key, g => g.Count());
+        _allTopics = _topicCounts.Keys.OrderBy(t => t).ToList();
+        _selectedTopics = [.. _allTopics];
+    }
+
+    private void SelectQuestionCount(int value)
+    {
+        if (value == -1)
+        {
+            _showCustomInput = true;
+            _selectedQuestionCount = -1;
+        }
+        else
+        {
+            _showCustomInput = false;
+            _selectedQuestionCount = value;
+        }
+    }
+
+    private void ToggleTopic(string topic)
+    {
+        if (!_selectedTopics.Remove(topic))
+            _selectedTopics.Add(topic);
+    }
+
+    private void SelectAllTopics() => _selectedTopics = [.. _allTopics];
+    private void DeselectAllTopics() => _selectedTopics = [];
+
+    private void StartExam()
+    {
+        if (_exam is null || _selectedTopics.Count == 0) return;
+
+        var config = new ExamConfig(
+            IsPracticeMode: _isPractice,
+            TimeLimitMinutes: _isPractice ? 0 : _timeLimit,
+            QuestionCount: EffectiveQuestionCount,
+            SelectedTopics: _selectedTopics.Count == _allTopics.Count
+                ? null
+                : _selectedTopics.ToList()
+        );
+
+        ExamService.StartExam(_exam, config);
+        Nav.NavigateTo($"/exam/{ExamCode}/session");
+    }
+}

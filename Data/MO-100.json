@@ -1,0 +1,874 @@
+{
+  "examCode": "MO-100",
+  "examTitle": "Microsoft Word",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Document Formatting - Paragraph alignment",
+      "type": "SingleChoice",
+      "questionText": "You need to align a paragraph so that text is evenly distributed between the left and right margins. Which alignment option should you use?",
+      "options": [
+        "A. Left alignment",
+        "B. Center alignment",
+        "C. Right alignment",
+        "D. Justify alignment"
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "D is correct because Justify alignment distributes text evenly between the left and right margins, adjusting spacing between words to create uniform line lengths.\n\nA is incorrect because Left alignment aligns text to the left margin only, leaving the right edge ragged.\n\nB is incorrect because Center alignment places text in the center of each line, leaving both edges ragged.\n\nC is incorrect because Right alignment aligns text to the right margin, leaving the left edge ragged."
+    },
+    {
+      "id": 2,
+      "topic": "Styles - Applying styles",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of using styles in a Word document instead of manually formatting text?",
+      "options": [
+        "A. Styles make the document file size smaller.",
+        "B. Styles ensure consistent formatting throughout the document and allow global changes from a single location.",
+        "C. Styles automatically translate the document into multiple languages.",
+        "D. Styles encrypt the document for security."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because styles provide consistent formatting and can be modified in one place to update all instances throughout the document, saving time and ensuring uniformity.\n\nA is incorrect because styles do not significantly affect file size.\n\nC is incorrect because styles control formatting, not translation.\n\nD is incorrect because styles do not provide encryption."
+    },
+    {
+      "id": 3,
+      "topic": "Tables - Inserting tables",
+      "type": "SingleChoice",
+      "questionText": "Which of the following methods can you use to insert a table in Word?",
+      "options": [
+        "A. Insert tab > Table > drag to select rows and columns.",
+        "B. Home tab > Paragraph group > Table button.",
+        "C. View tab > Table Layout option.",
+        "D. Design tab > Insert Table button."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because you insert a table in Word by going to the Insert tab, clicking Table, and then dragging to select the desired number of rows and columns, or using the Insert Table dialog.\n\nB is incorrect because the Home tab's Paragraph group does not contain a table insertion option.\n\nC is incorrect because the View tab controls document views, not table insertion.\n\nD is incorrect because the Design tab (for tables) only appears after a table is selected, and it controls table styling, not insertion."
+    },
+    {
+      "id": 4,
+      "topic": "Mail Merge - Data source",
+      "type": "SingleChoice",
+      "questionText": "During a mail merge in Word, what is the purpose of the data source?",
+      "options": [
+        "A. It provides the template layout for the merged documents.",
+        "B. It contains the recipient-specific information such as names and addresses that will be merged into the document.",
+        "C. It defines the fonts and colors used in the merged output.",
+        "D. It stores the printer settings for the final output."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the data source in a mail merge contains the variable data (such as names, addresses, and other fields) that is merged with the main document template to produce personalized documents.\n\nA is incorrect because the template layout is defined in the main document, not the data source.\n\nC is incorrect because formatting is controlled by the main document, not the data source.\n\nD is incorrect because printer settings are separate from the data source."
+    },
+    {
+      "id": 5,
+      "topic": "References - Table of contents",
+      "type": "SingleChoice",
+      "questionText": "What must you apply to headings in a document before you can automatically generate a Table of Contents?",
+      "options": [
+        "A. Bold formatting",
+        "B. Heading styles (Heading 1, Heading 2, etc.)",
+        "C. A specific font size",
+        "D. Numbered list formatting"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Word's automatic Table of Contents feature relies on heading styles (Heading 1, Heading 2, Heading 3, etc.) to identify the document structure and generate the TOC.\n\nA is incorrect because bold formatting alone does not identify headings for the TOC generator.\n\nC is incorrect because font size alone does not determine heading levels.\n\nD is incorrect because numbered lists are not recognized as heading levels by the TOC feature."
+    },
+    {
+      "id": 6,
+      "topic": "Track Changes - Accepting changes",
+      "type": "SingleChoice",
+      "questionText": "You are reviewing a document with Track Changes enabled. You want to accept all changes in the document at once. What should you do?",
+      "options": [
+        "A. Right-click each change and select Accept.",
+        "B. Go to Review tab > Accept dropdown > Accept All Changes.",
+        "C. Press Ctrl+A to select all, then press Delete.",
+        "D. Go to File > Options > Accept All."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Review tab provides an Accept dropdown with the option 'Accept All Changes' which processes all tracked changes in the document at once.\n\nA is incorrect because right-clicking each change only accepts one at a time and is not efficient for accepting all changes.\n\nC is incorrect because Ctrl+A selects text and Delete removes it; this does not accept tracked changes.\n\nD is incorrect because File > Options does not contain an Accept All feature."
+    },
+    {
+      "id": 7,
+      "topic": "Sections - Section breaks",
+      "type": "SingleChoice",
+      "questionText": "You need to change the page orientation from portrait to landscape for only one page in the middle of a document. What should you use?",
+      "options": [
+        "A. Page breaks before and after the page.",
+        "B. Section breaks (Next Page) before and after the page, then change orientation for that section.",
+        "C. Column breaks before and after the page.",
+        "D. Change the orientation for the entire document."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because section breaks allow different parts of a document to have different formatting, including page orientation. Inserting Next Page section breaks before and after the target page creates an independent section whose orientation can be changed to landscape.\n\nA is incorrect because page breaks start new pages but do not create independent formatting sections.\n\nC is incorrect because column breaks control column layout, not page orientation.\n\nD is incorrect because changing the orientation for the entire document affects all pages, not just one."
+    },
+    {
+      "id": 8,
+      "topic": "Headers and Footers - Different first page",
+      "type": "SingleChoice",
+      "questionText": "You want the first page of your document to have a different header than the rest of the pages. Which option should you enable?",
+      "options": [
+        "A. Link to Previous",
+        "B. Different First Page",
+        "C. Different Odd & Even Pages",
+        "D. Page Number Format"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the 'Different First Page' option in the Header & Footer Design tab allows you to create a unique header and footer for the first page while keeping the rest of the document uniform.\n\nA is incorrect because 'Link to Previous' connects the current section's header to the previous section's header.\n\nC is incorrect because 'Different Odd & Even Pages' creates alternating headers for odd and even pages, not a unique first page.\n\nD is incorrect because 'Page Number Format' controls the numbering style, not header content."
+    },
+    {
+      "id": 9,
+      "topic": "Document Formatting - Line spacing",
+      "type": "SingleChoice",
+      "questionText": "Which keyboard shortcut sets the selected paragraph to double line spacing in Word?",
+      "options": [
+        "A. Ctrl+1",
+        "B. Ctrl+2",
+        "C. Ctrl+5",
+        "D. Ctrl+D"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Ctrl+2 sets the selected paragraph to double line spacing in Microsoft Word.\n\nA is incorrect because Ctrl+1 sets single line spacing.\n\nC is incorrect because Ctrl+5 sets 1.5 line spacing.\n\nD is incorrect because Ctrl+D opens the Font dialog box."
+    },
+    {
+      "id": 10,
+      "topic": "Styles - Modifying styles",
+      "type": "SingleChoice",
+      "questionText": "How do you modify an existing style in Word to change its font and color?",
+      "options": [
+        "A. Delete the style and create a new one from scratch.",
+        "B. Right-click the style in the Styles gallery and select Modify, then change the formatting.",
+        "C. Change the font on one paragraph and hope it updates everywhere.",
+        "D. Go to File > Properties > Styles."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking a style in the Styles gallery and selecting Modify opens the Modify Style dialog where you can change the font, color, spacing, and other formatting properties. All text using that style will be updated.\n\nA is incorrect because deleting and recreating is unnecessary; styles can be modified in place.\n\nC is incorrect because changing formatting on one paragraph does not update the style definition.\n\nD is incorrect because File > Properties does not contain style modification options."
+    },
+    {
+      "id": 11,
+      "topic": "Tables - Merging cells",
+      "type": "SingleChoice",
+      "questionText": "You have a table in Word and need to combine three cells in the top row into a single cell for a title. What should you do?",
+      "options": [
+        "A. Select the three cells, then go to Layout tab > Merge Cells.",
+        "B. Delete two cells and expand the remaining one.",
+        "C. Select the three cells and press Ctrl+M.",
+        "D. Right-click the table and select Split Table."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because selecting the cells you want to combine and then clicking Merge Cells on the Table Layout tab merges them into a single cell.\n\nB is incorrect because deleting cells changes the table structure unpredictably.\n\nC is incorrect because Ctrl+M increases paragraph indent, not merge cells.\n\nD is incorrect because Split Table divides the table into two separate tables."
+    },
+    {
+      "id": 12,
+      "topic": "Mail Merge - Merge fields",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are valid merge field types in a Word mail merge? (Choose two.)",
+      "options": [
+        "A. Address Block",
+        "B. Greeting Line",
+        "C. Paragraph Style",
+        "D. Table Format"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Address Block and Greeting Line are pre-built merge fields that combine multiple data source fields into formatted output for addresses and salutations.\n\nC is incorrect because Paragraph Style is a formatting feature, not a merge field.\n\nD is incorrect because Table Format is not a merge field type."
+    },
+    {
+      "id": 13,
+      "topic": "References - Footnotes and endnotes",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between a footnote and an endnote in Word?",
+      "options": [
+        "A. Footnotes appear at the bottom of the page, while endnotes appear at the end of the document or section.",
+        "B. Footnotes are for citations only, while endnotes are for comments.",
+        "C. Footnotes use numbers and endnotes use letters.",
+        "D. There is no difference; they are the same feature."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because footnotes are placed at the bottom of the page where the reference occurs, while endnotes are collected at the end of the document or section.\n\nB is incorrect because both can be used for citations, comments, or supplementary information.\n\nC is incorrect because both can use numbers, letters, or custom marks as configured.\n\nD is incorrect because they differ in placement location."
+    },
+    {
+      "id": 14,
+      "topic": "Track Changes - Markup options",
+      "type": "SingleChoice",
+      "questionText": "Which Track Changes display option shows the final document with all changes accepted, without showing any markup?",
+      "options": [
+        "A. All Markup",
+        "B. Simple Markup",
+        "C. No Markup",
+        "D. Original"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because 'No Markup' shows how the document would look if all tracked changes were accepted, without displaying any revision marks.\n\nA is incorrect because 'All Markup' shows all tracked changes with detailed revision marks.\n\nB is incorrect because 'Simple Markup' shows a clean view with indicators in the margin that changes exist.\n\nD is incorrect because 'Original' shows the document as it was before any tracked changes were made."
+    },
+    {
+      "id": 15,
+      "topic": "Sections - Page numbering",
+      "type": "SingleChoice",
+      "questionText": "You have a document with a title page and want page numbering to start at 1 on the second page. What is the correct approach?",
+      "options": [
+        "A. Insert a section break after the title page, unlink the headers/footers, and set the page number to start at 1 in the new section.",
+        "B. Manually type page numbers at the bottom of each page.",
+        "C. Use the 'Different First Page' option and leave the first page number blank.",
+        "D. Delete the title page and add it back after numbering."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because inserting a section break creates an independent section where you can restart page numbering at 1, and unlinking the header/footer prevents the first section from being affected.\n\nB is incorrect because manually typed page numbers do not update automatically and are not connected to Word's page numbering system.\n\nC is incorrect because 'Different First Page' hides the number on the first page but does not restart numbering on the second page at 1.\n\nD is incorrect because this workaround is unnecessary and impractical."
+    },
+    {
+      "id": 16,
+      "topic": "Headers and Footers - Page numbers",
+      "type": "SingleChoice",
+      "questionText": "Where do you go to insert an automatic page number in the footer of a Word document?",
+      "options": [
+        "A. Home tab > Paragraph group > Page Number.",
+        "B. Insert tab > Header & Footer group > Page Number.",
+        "C. View tab > Page Layout > Footer.",
+        "D. References tab > Page Number."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Insert tab contains the Header & Footer group where the Page Number button allows you to add automatic page numbers to the header, footer, or margins.\n\nA is incorrect because the Home tab's Paragraph group does not contain a Page Number option.\n\nC is incorrect because the View tab controls document views, not page number insertion.\n\nD is incorrect because the References tab is for citations and table of contents, not page numbers."
+    },
+    {
+      "id": 17,
+      "topic": "Document Formatting - Indentation",
+      "type": "SingleChoice",
+      "questionText": "Which type of indent causes the first line of a paragraph to start farther from the margin than the rest of the paragraph?",
+      "options": [
+        "A. Hanging indent",
+        "B. First line indent",
+        "C. Left indent",
+        "D. Right indent"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a first line indent moves only the first line of a paragraph to the right of the left margin, while subsequent lines start at the normal margin.\n\nA is incorrect because a hanging indent does the opposite: the first line is at the margin while subsequent lines are indented.\n\nC is incorrect because a left indent moves the entire paragraph from the left margin.\n\nD is incorrect because a right indent moves the entire paragraph from the right margin."
+    },
+    {
+      "id": 18,
+      "topic": "Styles - Heading styles and navigation",
+      "type": "SingleChoice",
+      "questionText": "How can you quickly navigate between headings in a long Word document?",
+      "options": [
+        "A. Use Ctrl+F to search for each heading.",
+        "B. Open the Navigation Pane (View tab > Navigation Pane) which displays a list of headings.",
+        "C. Scroll through the document manually.",
+        "D. Use the Replace function to find headings."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Navigation Pane displays a hierarchical list of all headings in the document, allowing you to click any heading to jump directly to that location.\n\nA is incorrect because Ctrl+F opens the search bar but does not provide a structured heading list.\n\nC is incorrect because manual scrolling is inefficient for long documents.\n\nD is incorrect because Replace is for substituting text, not navigation."
+    },
+    {
+      "id": 19,
+      "topic": "Tables - Converting text to table",
+      "type": "SingleChoice",
+      "questionText": "You have a list of comma-separated values and want to convert it into a table. Which feature should you use?",
+      "options": [
+        "A. Insert tab > Table > Convert Text to Table, selecting comma as the separator.",
+        "B. Home tab > Paste Special > Table.",
+        "C. Insert tab > Chart > Data Table.",
+        "D. Layout tab > Split Table."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Convert Text to Table feature on the Insert tab allows you to select the delimiter (comma, tab, etc.) and converts the selected text into a properly structured table.\n\nB is incorrect because Paste Special does not have a direct Text to Table conversion.\n\nC is incorrect because inserting a chart data table is unrelated to converting text to a table.\n\nD is incorrect because Split Table divides an existing table, not convert text."
+    },
+    {
+      "id": 20,
+      "topic": "Mail Merge - Envelope and labels",
+      "type": "SingleChoice",
+      "questionText": "Which tab in Word contains the options to create envelopes and labels using mail merge?",
+      "options": [
+        "A. Home tab",
+        "B. Mailings tab",
+        "C. Insert tab",
+        "D. Layout tab"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Mailings tab contains all mail merge features including the Envelopes and Labels buttons, as well as the Start Mail Merge wizard.\n\nA is incorrect because the Home tab contains basic formatting tools.\n\nC is incorrect because the Insert tab is for inserting objects, not mail merge functions.\n\nD is incorrect because the Layout tab controls page setup and margins."
+    },
+    {
+      "id": 21,
+      "topic": "References - Citations and bibliography",
+      "type": "SingleChoice",
+      "questionText": "You need to add citations in APA format and automatically generate a bibliography. Which tab contains these tools?",
+      "options": [
+        "A. Insert tab",
+        "B. References tab",
+        "C. Mailings tab",
+        "D. Review tab"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the References tab contains the Citations & Bibliography group with tools to insert citations, manage sources, select a citation style (such as APA), and generate a bibliography.\n\nA is incorrect because the Insert tab is for general objects like tables, pictures, and headers.\n\nC is incorrect because the Mailings tab handles mail merge functions.\n\nD is incorrect because the Review tab contains proofing, comments, and track changes tools."
+    },
+    {
+      "id": 22,
+      "topic": "Track Changes - Comments",
+      "type": "SingleChoice",
+      "questionText": "How do you add a comment to selected text in a Word document?",
+      "options": [
+        "A. Right-click the text and select Insert Comment, or use Review tab > New Comment.",
+        "B. Go to File > Comment > Add.",
+        "C. Press Ctrl+Shift+C.",
+        "D. Double-click the text in the margin."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because you can add a comment by right-clicking selected text and choosing New Comment, or by clicking New Comment on the Review tab.\n\nB is incorrect because File does not have a Comment menu.\n\nC is incorrect because Ctrl+Shift+C copies formatting, not inserts a comment.\n\nD is incorrect because double-clicking in the margin selects a paragraph, not inserts a comment."
+    },
+    {
+      "id": 23,
+      "topic": "Sections - Columns",
+      "type": "SingleChoice",
+      "questionText": "You want only one section of your document to display in two columns while the rest remains in a single column. What should you do?",
+      "options": [
+        "A. Select the text and apply two-column formatting, which automatically inserts section breaks.",
+        "B. Change the entire document to two columns and manually adjust each page.",
+        "C. Use a text box to simulate two columns.",
+        "D. Insert a table with two columns instead."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because when you select specific text and apply a column layout from the Layout tab, Word automatically inserts continuous section breaks before and after the selection, limiting the column format to that section.\n\nB is incorrect because changing the entire document to two columns affects all pages.\n\nC is incorrect because text boxes are not the proper way to create newspaper-style columns.\n\nD is incorrect because tables and columns serve different purposes."
+    },
+    {
+      "id": 24,
+      "topic": "Headers and Footers - Fields",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following fields can be inserted into a Word header or footer? (Choose two.)",
+      "options": [
+        "A. Date and Time",
+        "B. Document file name",
+        "C. Mail merge recipient name",
+        "D. Chart data"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Date and Time fields and the Document file name field are commonly inserted into headers and footers using Insert > Quick Parts > Field.\n\nC is incorrect because mail merge fields are used in the document body for personalization, not typically in headers.\n\nD is incorrect because chart data cannot be inserted as a field in headers or footers."
+    },
+    {
+      "id": 25,
+      "topic": "Document Formatting - Tabs",
+      "type": "SingleChoice",
+      "questionText": "Which type of tab stop aligns text to the right of the tab stop position?",
+      "options": [
+        "A. Left tab",
+        "B. Center tab",
+        "C. Right tab",
+        "D. Decimal tab"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because a Right tab stop aligns text so that it ends at the tab stop position, with text extending to the left.\n\nA is incorrect because a Left tab stop aligns text starting from the left of the tab stop position.\n\nB is incorrect because a Center tab stop centers text over the tab stop position.\n\nD is incorrect because a Decimal tab stop aligns numbers at the decimal point."
+    },
+    {
+      "id": 26,
+      "topic": "Styles - Creating new styles",
+      "type": "SingleChoice",
+      "questionText": "How do you create a new style based on the formatting of existing text in Word?",
+      "options": [
+        "A. Select the formatted text, right-click in the Styles gallery, and choose Save Selection as a New Quick Style.",
+        "B. Copy the text and paste it into the Styles pane.",
+        "C. Go to File > New > Style Template.",
+        "D. Press Ctrl+Shift+S and type the style name."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because selecting formatted text and using the Styles gallery option to save the selection as a new Quick Style captures the current formatting as a reusable style.\n\nB is incorrect because you cannot paste text into the Styles pane to create a style.\n\nC is incorrect because File > New is for creating new documents, not styles.\n\nD is incorrect because Ctrl+Shift+S opens the Apply Styles pane but does not create a new style from selected text."
+    },
+    {
+      "id": 27,
+      "topic": "Tables - Sorting data",
+      "type": "SingleChoice",
+      "questionText": "How do you sort data in a Word table alphabetically by a specific column?",
+      "options": [
+        "A. Select the table, then go to Layout tab > Sort.",
+        "B. Manually cut and paste rows into the desired order.",
+        "C. Use Ctrl+S to sort the table.",
+        "D. Right-click the table and select Auto Sort."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Sort button on the Table Layout tab opens the Sort dialog where you can specify which column to sort by and the sort order (ascending or descending).\n\nB is incorrect because manually rearranging rows is impractical and error-prone.\n\nC is incorrect because Ctrl+S saves the document, it does not sort data.\n\nD is incorrect because there is no Auto Sort option in the right-click context menu for tables."
+    },
+    {
+      "id": 28,
+      "topic": "Mail Merge - Rules",
+      "type": "SingleChoice",
+      "questionText": "Which mail merge rule allows you to include different text based on a condition in the data source?",
+      "options": [
+        "A. Next Record",
+        "B. If...Then...Else",
+        "C. Merge Record #",
+        "D. Set Bookmark"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the If...Then...Else rule evaluates a condition from the data source and inserts different text depending on whether the condition is met.\n\nA is incorrect because Next Record advances to the next data record during the merge.\n\nC is incorrect because Merge Record # inserts the current record number.\n\nD is incorrect because Set Bookmark assigns a value to a bookmark, not conditionally changes content."
+    },
+    {
+      "id": 29,
+      "topic": "References - Cross-references",
+      "type": "SingleChoice",
+      "questionText": "What is a cross-reference in Word used for?",
+      "options": [
+        "A. To link to an external website.",
+        "B. To create a clickable reference to another location within the same document, such as a heading, figure, or table.",
+        "C. To insert a citation from an external source.",
+        "D. To add a hyperlink to an email address."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a cross-reference creates a link to another element within the same document (such as a heading, bookmark, figure, table, or equation), and it updates automatically if the referenced item changes.\n\nA is incorrect because linking to websites is done with hyperlinks, not cross-references.\n\nC is incorrect because citations are managed through the Citations & Bibliography tools.\n\nD is incorrect because email hyperlinks are different from cross-references."
+    },
+    {
+      "id": 30,
+      "topic": "Track Changes - Comparing documents",
+      "type": "SingleChoice",
+      "questionText": "You receive two versions of a document and need to see what changed between them. Which feature should you use?",
+      "options": [
+        "A. Review tab > Compare > Compare two versions of a document.",
+        "B. View tab > Side by Side.",
+        "C. File tab > Version History.",
+        "D. Home tab > Find and Replace."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Compare feature on the Review tab analyzes two documents and produces a new document showing all differences as tracked changes.\n\nB is incorrect because Side by Side displays two documents next to each other for manual comparison but does not highlight differences.\n\nC is incorrect because Version History shows previous saves of the same document, not a comparison between two separate files.\n\nD is incorrect because Find and Replace searches for specific text, not document differences."
+    },
+    {
+      "id": 31,
+      "topic": "Document Formatting - Watermarks",
+      "type": "SingleChoice",
+      "questionText": "How do you add a 'DRAFT' watermark to a Word document?",
+      "options": [
+        "A. Insert tab > Text Box > Type 'DRAFT'.",
+        "B. Design tab > Watermark > select DRAFT from the gallery or customize.",
+        "C. View tab > Draft View.",
+        "D. Home tab > Font > Strikethrough."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Watermark feature on the Design tab provides built-in watermark options including DRAFT, CONFIDENTIAL, and others, as well as the ability to create custom watermarks.\n\nA is incorrect because a text box is not a watermark; it would appear as regular content.\n\nC is incorrect because Draft View is a document viewing mode, not a watermark insertion tool.\n\nD is incorrect because Strikethrough is a font formatting option, not a watermark."
+    },
+    {
+      "id": 32,
+      "topic": "Styles - Theme formatting",
+      "type": "SingleChoice",
+      "questionText": "What does changing the document theme in Word affect?",
+      "options": [
+        "A. Only the font used in the document.",
+        "B. The colors, fonts, and effects used throughout the document's styles.",
+        "C. Only the page margins and layout.",
+        "D. Only the header and footer formatting."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a document theme in Word controls three elements: the color palette, font set, and graphical effects. Changing the theme updates all of these elements across the document.\n\nA is incorrect because themes affect more than just fonts.\n\nC is incorrect because margins and layout are controlled by the Layout tab, not themes.\n\nD is incorrect because themes affect the entire document, not just headers and footers."
+    },
+    {
+      "id": 33,
+      "topic": "Tables - Formulas in tables",
+      "type": "SingleChoice",
+      "questionText": "How can you calculate the sum of numbers in a column of a Word table?",
+      "options": [
+        "A. Use the SUM function in the Table Layout tab > Formula.",
+        "B. Manually add the numbers and type the result.",
+        "C. Insert an Excel spreadsheet into the document.",
+        "D. Use the Calculate feature on the Review tab."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Word tables support basic formulas. Placing the cursor in a cell and using Layout > Formula allows you to use functions like =SUM(ABOVE) to calculate totals.\n\nB is incorrect because manual calculation is error-prone and does not update automatically.\n\nC is incorrect because while you can embed Excel, it is not necessary for simple calculations.\n\nD is incorrect because there is no Calculate feature on the Review tab for table formulas."
+    },
+    {
+      "id": 34,
+      "topic": "Mail Merge - Preview results",
+      "type": "SingleChoice",
+      "questionText": "During a mail merge, how can you see how the merged document will look for each recipient before printing?",
+      "options": [
+        "A. Use the Preview Results button on the Mailings tab.",
+        "B. Print a test page.",
+        "C. View the document in Outline view.",
+        "D. Open the data source in a separate window."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Preview Results button on the Mailings tab shows the actual merged data for each record, allowing you to scroll through recipients and verify the output before finalizing.\n\nB is incorrect because printing a test page wastes paper and does not allow easy navigation between records.\n\nC is incorrect because Outline view shows the document structure, not merged data.\n\nD is incorrect because opening the data source shows raw data, not the merged document preview."
+    },
+    {
+      "id": 35,
+      "topic": "References - Captions",
+      "type": "SingleChoice",
+      "questionText": "How do you add an auto-numbered caption to a figure in Word?",
+      "options": [
+        "A. Type 'Figure 1' below the image manually.",
+        "B. Select the figure, then go to References tab > Insert Caption.",
+        "C. Right-click the figure and select Format Picture > Caption.",
+        "D. Use Insert tab > Text Box and type the caption."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Insert Caption feature on the References tab automatically numbers captions sequentially and allows you to add descriptive text. The numbers update automatically when figures are added or reordered.\n\nA is incorrect because manually typed numbers do not update automatically.\n\nC is incorrect because Format Picture does not have a Caption option for auto-numbering.\n\nD is incorrect because a text box does not provide automatic numbering."
+    },
+    {
+      "id": 36,
+      "topic": "Track Changes - Restricting editing",
+      "type": "SingleChoice",
+      "questionText": "You want to allow reviewers to only insert comments but not edit the document text. Which feature should you use?",
+      "options": [
+        "A. Review tab > Restrict Editing > Allow only Comments.",
+        "B. File > Protect Document > Encrypt with Password.",
+        "C. View tab > Read Mode.",
+        "D. Home tab > Lock Paragraph."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Restrict Editing feature on the Review tab allows you to limit editing to specific activities such as comments only, tracked changes only, or filling in forms.\n\nB is incorrect because encrypting with a password prevents opening the document entirely without the password.\n\nC is incorrect because Read Mode changes the display but does not restrict editing.\n\nD is incorrect because there is no Lock Paragraph feature on the Home tab."
+    },
+    {
+      "id": 37,
+      "topic": "Document Formatting - Find and Replace",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following can be found and replaced using the Find and Replace feature in Word? (Choose two.)",
+      "options": [
+        "A. Specific text strings.",
+        "B. Formatting such as bold or italic.",
+        "C. Embedded chart data.",
+        "D. Audio files inserted in the document."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Find and Replace can search for and replace specific text strings and formatting attributes such as bold, italic, font size, styles, and more using the Format button in the dialog.\n\nC is incorrect because chart data is not searchable through Find and Replace.\n\nD is incorrect because audio files cannot be found or replaced using this feature."
+    },
+    {
+      "id": 38,
+      "topic": "Headers and Footers - Odd and even pages",
+      "type": "SingleChoice",
+      "questionText": "You want different headers on odd and even pages for a book-style layout. Which option should you enable?",
+      "options": [
+        "A. Different First Page",
+        "B. Different Odd & Even Pages",
+        "C. Link to Previous",
+        "D. Show Document Text"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'Different Odd & Even Pages' allows you to define separate header and footer content for odd-numbered and even-numbered pages, which is standard for book-style layouts.\n\nA is incorrect because 'Different First Page' only affects the first page, not alternating pages.\n\nC is incorrect because 'Link to Previous' connects headers between sections, not between odd and even pages.\n\nD is incorrect because 'Show Document Text' toggles visibility of body text while editing headers and footers."
+    },
+    {
+      "id": 39,
+      "topic": "Sections - Continuous section breaks",
+      "type": "SingleChoice",
+      "questionText": "What type of section break should you use to change the number of columns without starting a new page?",
+      "options": [
+        "A. Next Page section break",
+        "B. Continuous section break",
+        "C. Even Page section break",
+        "D. Odd Page section break"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Continuous section break starts a new section on the same page, allowing you to change formatting such as column count without forcing a page break.\n\nA is incorrect because a Next Page section break starts the new section on a new page.\n\nC is incorrect because an Even Page break starts the new section on the next even-numbered page.\n\nD is incorrect because an Odd Page break starts the new section on the next odd-numbered page."
+    },
+    {
+      "id": 40,
+      "topic": "Document Formatting - Protecting a document",
+      "type": "SingleChoice",
+      "questionText": "You need to save a Word document so that recipients can read it but cannot modify it. What should you do?",
+      "options": [
+        "A. Save the document as a .txt file.",
+        "B. Mark the document as Final or save it as a PDF.",
+        "C. Save the document with a password-protected file name.",
+        "D. Change the file extension to .doc instead of .docx."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because marking a document as Final discourages editing (though it can be overridden), and saving as a PDF creates a non-editable format that preserves the layout. For stronger protection, Restrict Editing with a password can also be used.\n\nA is incorrect because saving as .txt removes all formatting and does not prevent editing.\n\nC is incorrect because file names do not provide document protection.\n\nD is incorrect because changing the extension does not prevent editing."
+    },
+    {
+      "id": 41,
+      "topic": "Document Formatting - Paragraph spacing",
+      "type": "SingleChoice",
+      "questionText": "You want to add 12pt of spacing after each paragraph without adding extra blank lines. Where do you configure this?",
+      "options": [
+        "A. Press Enter twice after each paragraph.",
+        "B. In the Paragraph dialog box (or Layout tab > Spacing > After), set the After spacing to 12pt.",
+        "C. In File > Options > Display.",
+        "D. In the Home tab > Font group > Character Spacing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Paragraph spacing After setting, accessible from the Paragraph dialog box or the Layout tab, controls the space added after a paragraph without inserting extra line breaks.\n\nA is incorrect because pressing Enter creates additional blank paragraphs, which is not the same as paragraph spacing and creates inconsistent formatting.\n\nC is incorrect because File > Options > Display controls display settings, not paragraph spacing.\n\nD is incorrect because Character Spacing controls spacing between characters within text, not between paragraphs."
+    },
+    {
+      "id": 42,
+      "topic": "Tables - AutoFit options",
+      "type": "SingleChoice",
+      "questionText": "You have a table that extends beyond the page margins. Which AutoFit option should you use to make the table fit within the page width?",
+      "options": [
+        "A. AutoFit Contents",
+        "B. AutoFit Window",
+        "C. Fixed Column Width",
+        "D. Distribute Columns"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because AutoFit Window automatically adjusts the table so that its total width fits within the page margins (the document window).\n\nA is incorrect because AutoFit Contents sizes columns to fit their content, which could make the table wider or narrower than the page.\n\nC is incorrect because Fixed Column Width sets a specific width for each column without considering the page width.\n\nD is incorrect because Distribute Columns makes all columns equal width but does not adjust the total table width to fit the page."
+    },
+    {
+      "id": 43,
+      "topic": "References - Index",
+      "type": "SingleChoice",
+      "questionText": "What must you do before generating an index in a Word document?",
+      "options": [
+        "A. Create a Table of Contents first.",
+        "B. Mark index entries throughout the document using Alt+Shift+X or the Mark Entry button on the References tab.",
+        "C. Apply Heading styles to all relevant paragraphs.",
+        "D. Insert bookmarks at every page."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because before generating an index, you must mark the words or phrases that should appear in the index using the Mark Entry feature (Alt+Shift+X). Word then compiles these marked entries into the index.\n\nA is incorrect because a Table of Contents and an index are separate features; a TOC is not required for an index.\n\nC is incorrect because Heading styles are used for the Table of Contents, not for index entries.\n\nD is incorrect because bookmarks are not required for index generation."
+    },
+    {
+      "id": 44,
+      "topic": "Document Formatting - Nonprinting characters",
+      "type": "SingleChoice",
+      "questionText": "Which keyboard shortcut toggles the display of nonprinting characters such as paragraph marks and spaces in Word?",
+      "options": [
+        "A. Ctrl+Shift+8 (or the paragraph mark button on the Home tab)",
+        "B. Ctrl+P",
+        "C. Ctrl+H",
+        "D. Alt+F4"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Ctrl+Shift+8 (or clicking the paragraph mark button in the Paragraph group on the Home tab) toggles the display of formatting marks including paragraph marks, spaces, tabs, and section breaks.\n\nB is incorrect because Ctrl+P opens the Print dialog.\n\nC is incorrect because Ctrl+H opens the Find and Replace dialog.\n\nD is incorrect because Alt+F4 closes the application."
+    },
+    {
+      "id": 45,
+      "topic": "Styles - Style sets",
+      "type": "SingleChoice",
+      "questionText": "What is a style set in Word?",
+      "options": [
+        "A. A collection of fonts that can be installed in Windows.",
+        "B. A predefined collection of style formatting that can be applied to the entire document to change its overall appearance at once.",
+        "C. A group of macros for automating style creation.",
+        "D. A set of page layout templates for different paper sizes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a style set is a coordinated group of style definitions that, when applied, changes the formatting of all built-in styles throughout the document simultaneously, giving it a consistent new look.\n\nA is incorrect because style sets are Word features, not font installation packages.\n\nC is incorrect because style sets are not macros.\n\nD is incorrect because style sets affect text formatting, not page layout or paper size."
+    },
+    {
+      "id": 46,
+      "topic": "Tables - Table styles",
+      "type": "SingleChoice",
+      "questionText": "After inserting a table, which tab appears on the ribbon to allow you to apply built-in table formatting?",
+      "options": [
+        "A. Home tab",
+        "B. Table Design tab",
+        "C. Insert tab",
+        "D. View tab"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because when a table is selected, the Table Design tab appears on the ribbon, offering built-in table styles with options for banded rows, header rows, and color schemes.\n\nA is incorrect because the Home tab provides general text formatting, not table-specific styles.\n\nC is incorrect because the Insert tab is used to create tables, not style them.\n\nD is incorrect because the View tab controls document views, not table formatting."
+    },
+    {
+      "id": 47,
+      "topic": "Mail Merge - Finishing and merging",
+      "type": "MultipleChoice",
+      "questionText": "When you finish a mail merge, which output options are available? (Choose two.)",
+      "options": [
+        "A. Edit Individual Documents (creates a new document with all merged records).",
+        "B. Print Documents (sends merged output directly to the printer).",
+        "C. Upload Documents to OneDrive automatically.",
+        "D. Convert to PowerPoint presentation."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. The Finish & Merge button offers options to edit individual documents (which generates a new Word document with all merged letters), print documents directly, or send email messages.\n\nC is incorrect because there is no direct OneDrive upload option in the Finish & Merge menu.\n\nD is incorrect because mail merge does not convert output to PowerPoint."
+    },
+    {
+      "id": 48,
+      "topic": "References - Bookmarks",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a bookmark in a Word document?",
+      "options": [
+        "A. To save the document's current scroll position.",
+        "B. To mark a specific location or selection of text that can be referenced, navigated to, or used in cross-references and hyperlinks.",
+        "C. To add a decorative icon in the margin.",
+        "D. To create a shortcut to another file on the computer."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a bookmark identifies a location or text selection in a document, making it possible to navigate to that location, create cross-references, or link hyperlinks to it.\n\nA is incorrect because bookmarks mark document content locations, not the viewing scroll position.\n\nC is incorrect because bookmarks are invisible references, not decorative elements.\n\nD is incorrect because bookmarks reference locations within the same document, not external files."
+    },
+    {
+      "id": 49,
+      "topic": "Track Changes - Reviewing pane",
+      "type": "SingleChoice",
+      "questionText": "What does the Reviewing Pane display in Word?",
+      "options": [
+        "A. A list of all fonts used in the document.",
+        "B. A sequential list of all tracked changes and comments in the document.",
+        "C. The document's print preview.",
+        "D. A list of all styles applied in the document."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Reviewing Pane shows a chronological list of all tracked changes (insertions, deletions, formatting changes) and comments in the document, making it easy to review revisions.\n\nA is incorrect because font information is not displayed in the Reviewing Pane.\n\nC is incorrect because print preview is accessed through File > Print.\n\nD is incorrect because the Styles pane shows applied styles, not the Reviewing Pane."
+    },
+    {
+      "id": 50,
+      "topic": "Document Formatting - Borders and shading",
+      "type": "SingleChoice",
+      "questionText": "You want to add a decorative border around an entire page in Word. Where do you find this option?",
+      "options": [
+        "A. Home tab > Borders dropdown > Borders and Shading > Page Border tab.",
+        "B. Insert tab > Shapes > Rectangle.",
+        "C. Layout tab > Margins > Custom Margins.",
+        "D. Design tab > Colors."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Page Border tab within the Borders and Shading dialog (accessible from the Home tab's Borders dropdown or the Design tab) allows you to add decorative borders around entire pages, including art borders.\n\nB is incorrect because inserting a rectangle shape is not the same as a page border and must be positioned manually.\n\nC is incorrect because Custom Margins controls page margins, not borders.\n\nD is incorrect because the Colors option changes the document's color theme, not page borders."
+    },
+    {
+      "id": 51,
+      "topic": "Headers and Footers - Building blocks",
+      "type": "SingleChoice",
+      "questionText": "What are building blocks in the context of Word headers and footers?",
+      "options": [
+        "A. Predefined reusable content elements such as page numbers, date fields, and decorative header designs that can be quickly inserted.",
+        "B. The physical margins at the top and bottom of the page.",
+        "C. Section breaks that divide the document.",
+        "D. Custom macros for automating header creation."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because building blocks are predesigned reusable content pieces stored in galleries. For headers and footers, they include formatted designs with placeholders for page numbers, dates, document titles, and author names.\n\nB is incorrect because margins are page layout settings, not building blocks.\n\nC is incorrect because section breaks are structural elements, not building blocks.\n\nD is incorrect because building blocks are content templates, not macros."
+    },
+    {
+      "id": 52,
+      "topic": "Sections - Different headers per section",
+      "type": "SingleChoice",
+      "questionText": "You have a document divided into three sections and want each section to have a unique header. What must you do in each section's header?",
+      "options": [
+        "A. Delete the header in each section and retype it.",
+        "B. Deselect (unlink) 'Link to Previous' in each section's header, then edit the header content independently.",
+        "C. Apply a different style to each header.",
+        "D. Insert a section break within the header area."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because by default, headers in new sections are linked to the previous section. Unchecking 'Link to Previous' disconnects the header from the preceding section, allowing you to edit it independently.\n\nA is incorrect because deleting and retyping does not unlink the headers, and changes may still propagate to other sections.\n\nC is incorrect because applying different styles does not unlink the headers between sections.\n\nD is incorrect because section breaks are inserted in the document body, not within header areas."
+    },
+    {
+      "id": 53,
+      "topic": "Document Formatting - Quick Parts",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Quick Parts in Word?",
+      "options": [
+        "A. To quickly format text as bold, italic, or underlined.",
+        "B. To store and insert reusable content blocks such as AutoText, document properties, and custom building blocks.",
+        "C. To split the document into parts for collaboration.",
+        "D. To compress the document for email attachment."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Quick Parts (found on the Insert tab) provides access to reusable content including AutoText entries, document property fields, and custom building blocks that you can save and insert throughout documents.\n\nA is incorrect because Quick Parts is about content reuse, not basic text formatting.\n\nC is incorrect because document splitting for collaboration is not the purpose of Quick Parts.\n\nD is incorrect because Quick Parts does not compress documents."
+    },
+    {
+      "id": 54,
+      "topic": "Tables - Repeating header rows",
+      "type": "SingleChoice",
+      "questionText": "You have a long table that spans multiple pages. How do you make the header row repeat at the top of each page?",
+      "options": [
+        "A. Copy and paste the header row at the top of each page manually.",
+        "B. Select the header row, then go to Table Layout tab > Repeat Header Rows.",
+        "C. Insert a page break after each section of the table.",
+        "D. Use the Header & Footer feature to add the table header."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Repeat Header Rows option on the Table Layout tab automatically displays the selected header row(s) at the top of each page when a table breaks across pages.\n\nA is incorrect because manually copying headers creates duplicate data rows, not repeating headers.\n\nC is incorrect because page breaks would split the table but not repeat the header.\n\nD is incorrect because the Header & Footer feature is for page headers, not table headers."
+    },
+    {
+      "id": 55,
+      "topic": "References - Table of Figures",
+      "type": "SingleChoice",
+      "questionText": "What is a Table of Figures in Word, and what is required to generate one?",
+      "options": [
+        "A. A list of all tables in the document; it requires table styles to be applied.",
+        "B. A list of captioned figures, tables, or equations in the document; it requires that captions have been inserted using the Insert Caption feature.",
+        "C. A summary of all images including their file sizes; it requires images to have alt text.",
+        "D. A Table of Contents for figures only; it requires Heading styles on figure titles."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Table of Figures is an automatically generated list that references captioned items (figures, tables, equations) in the document. It requires that captions were inserted using the Insert Caption feature on the References tab.\n\nA is incorrect because a Table of Figures lists captioned items, and it requires captions, not just table styles.\n\nC is incorrect because a Table of Figures lists captions, not image file sizes or alt text.\n\nD is incorrect because the Table of Figures uses caption labels, not Heading styles."
+    },
+    {
+      "id": 56,
+      "topic": "Track Changes - Lock tracking",
+      "type": "SingleChoice",
+      "questionText": "How can you prevent other users from turning off Track Changes in a shared document?",
+      "options": [
+        "A. Set Track Changes to 'Always On' in File > Options.",
+        "B. Lock Tracking with a password using Review tab > Track Changes > Lock Tracking.",
+        "C. Save the document as read-only.",
+        "D. Enable Track Changes and then close the document immediately."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Lock Tracking feature on the Review tab allows you to set a password that prevents other users from turning off Track Changes, ensuring all edits are recorded.\n\nA is incorrect because there is no 'Always On' setting for Track Changes in File > Options.\n\nC is incorrect because a read-only document prevents all edits, not just prevents disabling Track Changes.\n\nD is incorrect because closing the document does not lock the Track Changes state."
+    },
+    {
+      "id": 57,
+      "topic": "Document Formatting - Templates",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using a Word template (.dotx) file?",
+      "options": [
+        "A. It reduces the file size of all documents based on it.",
+        "B. It provides a pre-formatted starting point with defined styles, layouts, and content that can be reused for new documents.",
+        "C. It automatically translates the document into multiple languages.",
+        "D. It encrypts the document with a password."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Word template (.dotx) contains predefined styles, page layouts, placeholder content, and formatting that serve as a starting point for new documents, ensuring consistency across multiple documents.\n\nA is incorrect because templates do not reduce the file size of documents created from them.\n\nC is incorrect because templates do not provide translation capabilities.\n\nD is incorrect because templates do not automatically encrypt documents."
+    },
+    {
+      "id": 58,
+      "topic": "Styles - Multilevel list styles",
+      "type": "SingleChoice",
+      "questionText": "You need to create a numbered outline with multiple levels (1, 1.1, 1.1.1, etc.) in Word. Which feature should you use?",
+      "options": [
+        "A. Home tab > Numbering button.",
+        "B. Home tab > Multilevel List button, and select or define a list style that links to heading levels.",
+        "C. Insert tab > Table of Contents.",
+        "D. References tab > Insert Endnote."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Multilevel List button on the Home tab provides options for creating numbered outlines with multiple indent levels. You can select a predefined format or define a custom list style linked to heading levels.\n\nA is incorrect because the basic Numbering button creates a single-level numbered list, not a multilevel outline.\n\nC is incorrect because a Table of Contents displays headings as a reference, not as a numbered outline in the body text.\n\nD is incorrect because endnotes are reference annotations, not outline numbering."
+    },
+    {
+      "id": 59,
+      "topic": "Tables - Nested tables",
+      "type": "SingleChoice",
+      "questionText": "What is a nested table in Word?",
+      "options": [
+        "A. A table that has been converted to text.",
+        "B. A table inserted inside a cell of another table.",
+        "C. Two tables placed side by side on the same page.",
+        "D. A table with merged cells that span multiple rows."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a nested table is a table placed within a cell of a parent table, creating a table-within-a-table structure for complex layouts.\n\nA is incorrect because converting a table to text removes the table structure entirely.\n\nC is incorrect because side-by-side tables are separate tables, not nested.\n\nD is incorrect because merged cells are within a single table, not a nested table."
+    },
+    {
+      "id": 60,
+      "topic": "Document Formatting - Text effects",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following text effects can be applied in Word? (Choose two.)",
+      "options": [
+        "A. Shadow",
+        "B. Glow",
+        "C. 3D rotation of individual characters",
+        "D. Animated sparkle effect"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Word supports text effects including shadow, glow, reflection, and outline through the Text Effects and Typography button on the Home tab.\n\nC is incorrect because individual character 3D rotation is not available as a Word text effect.\n\nD is incorrect because animated text effects like sparkle were removed in modern versions of Word."
+    },
+    {
+      "id": 61,
+      "topic": "References - Managing sources",
+      "type": "SingleChoice",
+      "questionText": "Where are citation sources managed in Word so they can be reused across multiple documents?",
+      "options": [
+        "A. In the document's header.",
+        "B. In the Source Manager, accessible from References tab > Manage Sources, which maintains a master list of sources.",
+        "C. In the File > Properties dialog.",
+        "D. In the Windows Registry."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Source Manager maintains a master list of citation sources on the computer and a current list for the active document. Sources from the master list can be copied to any document for reuse.\n\nA is incorrect because the header is for page-level content, not citation management.\n\nC is incorrect because File > Properties contains document metadata, not citation sources.\n\nD is incorrect because the Windows Registry stores system settings, not citation sources."
+    },
+    {
+      "id": 62,
+      "topic": "Document Formatting - Accessibility Checker",
+      "type": "SingleChoice",
+      "questionText": "What does the Accessibility Checker in Word help you identify?",
+      "options": [
+        "A. Spelling and grammar errors.",
+        "B. Issues that might make the document difficult for people with disabilities to read, such as missing alt text on images or poor heading structure.",
+        "C. Copyright violations in the document.",
+        "D. Security vulnerabilities in macros."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Accessibility Checker (found under Review tab or File > Check for Issues) identifies elements that may be problematic for users with disabilities, such as images without alternative text, insufficient color contrast, or missing heading structure.\n\nA is incorrect because spelling and grammar checking is a separate proofing feature.\n\nC is incorrect because the Accessibility Checker does not detect copyright issues.\n\nD is incorrect because macro security is handled by Trust Center settings, not the Accessibility Checker."
+    }
+  ]
+}

@@ -1,0 +1,874 @@
+{
+  "examCode": "DP-600",
+  "examTitle": "Fabric Analytics Engineer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Microsoft Fabric - OneLake architecture",
+      "type": "SingleChoice",
+      "questionText": "What is OneLake in Microsoft Fabric?",
+      "options": [
+        "A. A relational database engine for OLTP workloads",
+        "B. A single, unified data lake for the entire organization built on Azure Data Lake Storage Gen2",
+        "C. A virtual machine hosting SQL Server",
+        "D. A Power BI visualization tool"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. OneLake is Microsoft Fabric's unified, organization-wide data lake built on top of Azure Data Lake Storage Gen2. It provides a single storage layer that all Fabric workloads (lakehouse, warehouse, notebooks, etc.) share, eliminating data silos.\n\nWhy the others are wrong:\n- A. OneLake is a data lake, not a relational database engine.\n- C. OneLake is a SaaS data lake service, not a virtual machine.\n- D. OneLake is the storage foundation, not a visualization tool."
+    },
+    {
+      "id": 2,
+      "topic": "Lakehouses - Table format",
+      "type": "SingleChoice",
+      "questionText": "In a Microsoft Fabric lakehouse, managed tables are stored in which open file format by default?",
+      "options": [
+        "A. CSV",
+        "B. JSON",
+        "C. Delta Lake (Parquet with Delta transaction log)",
+        "D. Avro"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Fabric lakehouses use Delta Lake format for managed tables. Delta Lake stores data in Parquet files with a transaction log that provides ACID transactions, time travel, and schema enforcement.\n\nWhy the others are wrong:\n- A. CSV is a text-based format without ACID transactions or schema enforcement.\n- B. JSON is a row-based format not optimized for analytical queries.\n- D. Avro is a row-based serialization format, not the default for Fabric lakehouse tables."
+    },
+    {
+      "id": 3,
+      "topic": "Warehouses - SQL analytics endpoint",
+      "type": "SingleChoice",
+      "questionText": "You need to run T-SQL queries against lakehouse tables in Microsoft Fabric without creating a separate data warehouse. Which feature enables this?",
+      "options": [
+        "A. The SQL analytics endpoint of the lakehouse",
+        "B. An Azure SQL Database connection",
+        "C. A dedicated SQL pool in Synapse",
+        "D. Power BI Desktop import"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Every Fabric lakehouse automatically creates a SQL analytics endpoint that provides a read-only T-SQL interface over the lakehouse's Delta tables. This allows SQL-based analysis without creating a separate warehouse.\n\nWhy the others are wrong:\n- B. Azure SQL Database is a separate service outside Microsoft Fabric.\n- C. Dedicated SQL pools are part of Azure Synapse Analytics, not Microsoft Fabric.\n- D. Power BI Desktop import doesn't provide a T-SQL query interface."
+    },
+    {
+      "id": 4,
+      "topic": "Notebooks - Spark development",
+      "type": "SingleChoice",
+      "questionText": "You are developing a data transformation in a Microsoft Fabric notebook. Which programming languages are natively supported?",
+      "options": [
+        "A. Only Python",
+        "B. PySpark, Scala, SQL, and R",
+        "C. Only T-SQL",
+        "D. Only JavaScript"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Fabric notebooks support PySpark (Python), Scala, Spark SQL, and R as primary languages. You can switch between languages within the same notebook using magic commands.\n\nWhy the others are wrong:\n- A. Python (PySpark) is supported but not the only language.\n- C. T-SQL is available through the SQL analytics endpoint, but notebooks use Spark languages.\n- D. JavaScript is not a supported language in Fabric notebooks."
+    },
+    {
+      "id": 5,
+      "topic": "Data Pipelines - Orchestration",
+      "type": "SingleChoice",
+      "questionText": "You need to orchestrate a data pipeline in Microsoft Fabric that copies data from an external source, transforms it in a notebook, and loads it into a lakehouse. Which Fabric item should you create?",
+      "options": [
+        "A. A Power BI dataflow",
+        "B. A Data Pipeline",
+        "C. A KQL queryset",
+        "D. A Direct Lake dataset"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Data Pipelines in Microsoft Fabric provide orchestration capabilities similar to Azure Data Factory. They support Copy activities, Notebook activities, and other activities that can be chained together for end-to-end data workflows.\n\nWhy the others are wrong:\n- A. Power BI dataflows handle data transformation for Power BI but aren't the primary orchestration tool in Fabric.\n- C. KQL querysets are for querying real-time analytics data, not orchestrating pipelines.\n- D. Direct Lake datasets are semantic models that read directly from the lakehouse; they don't orchestrate pipelines."
+    },
+    {
+      "id": 6,
+      "topic": "Semantic Models - Direct Lake mode",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Fabric, what is a Direct Lake semantic model?",
+      "options": [
+        "A. A model that imports all data into Power BI's in-memory engine",
+        "B. A model that reads data directly from Delta tables in OneLake without import or DirectQuery",
+        "C. A model that connects to an external SQL Server via DirectQuery",
+        "D. A model stored exclusively in Azure Blob Storage"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Direct Lake is a new storage mode that reads data directly from Delta Parquet files in OneLake. It provides Import-like performance without needing to copy data into the Power BI engine, and without the source system impact of DirectQuery.\n\nWhy the others are wrong:\n- A. Import mode copies data into the in-memory VertiPaq engine; Direct Lake reads from the lake directly.\n- C. DirectQuery sends queries to external sources; Direct Lake reads from OneLake's Delta tables.\n- D. Direct Lake reads from OneLake, not from standalone Azure Blob Storage."
+    },
+    {
+      "id": 7,
+      "topic": "OneLake - Shortcuts",
+      "type": "SingleChoice",
+      "questionText": "You have data stored in an external Azure Data Lake Storage Gen2 account that you want to access from a Fabric lakehouse without copying the data. Which feature should you use?",
+      "options": [
+        "A. OneLake shortcuts",
+        "B. Data pipeline copy activity",
+        "C. Fabric dataflow Gen2",
+        "D. Mirror database"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. OneLake shortcuts create virtual references to data in external storage locations (ADLS Gen2, S3, Google Cloud Storage) or other Fabric items. The data remains in its original location but appears as if it's part of the lakehouse.\n\nWhy the others are wrong:\n- B. A copy activity physically moves data, which contradicts the requirement of not copying.\n- C. Dataflow Gen2 transforms and loads data, creating a copy in the destination.\n- D. Mirror database replicates data from external databases, not from data lake storage."
+    },
+    {
+      "id": 8,
+      "topic": "Lakehouses - Tables vs Files",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric lakehouse, what is the difference between the Tables section and the Files section?",
+      "options": [
+        "A. Tables section stores managed Delta tables; Files section stores unmanaged files in any format",
+        "B. Tables are for SQL only; Files are for Spark only",
+        "C. Tables and Files are identical in functionality",
+        "D. Tables are stored in Azure SQL; Files are stored in OneLake"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Tables section contains managed Delta Lake tables that are automatically registered in the metastore and queryable via SQL and Spark. The Files section stores unmanaged files in any format (CSV, JSON, Parquet, images) that need explicit loading before querying.\n\nWhy the others are wrong:\n- B. Both Tables and Files can be accessed via Spark; Tables are additionally accessible via the SQL analytics endpoint.\n- C. They serve different purposes: managed structured data vs unmanaged raw files.\n- D. Both are stored in OneLake; Tables use Delta format with metastore registration."
+    },
+    {
+      "id": 9,
+      "topic": "Warehouses - Fabric warehouse capabilities",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does a Microsoft Fabric warehouse provide that the lakehouse SQL analytics endpoint does not? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Full DML support (INSERT, UPDATE, DELETE) via T-SQL",
+        "B. Creating stored procedures and functions",
+        "C. Reading Parquet files",
+        "D. Connecting to Power BI"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The Fabric warehouse provides full read-write T-SQL capabilities including DML statements (INSERT, UPDATE, DELETE, MERGE) and the ability to create stored procedures, functions, and views. The lakehouse SQL analytics endpoint is read-only.\n\nWhy the others are wrong:\n- C. Both the warehouse and the lakehouse SQL endpoint can query data stored as Parquet/Delta files.\n- D. Both can serve as data sources for Power BI semantic models."
+    },
+    {
+      "id": 10,
+      "topic": "Notebooks - Data transformation",
+      "type": "SingleChoice",
+      "questionText": "You are writing a PySpark transformation in a Fabric notebook. You read data from the lakehouse Files section (CSV files), transform it, and want to save it as a managed Delta table in the Tables section. Which command should you use?",
+      "options": [
+        "A. df.write.format('csv').save('/Tables/output')",
+        "B. df.write.format('delta').mode('overwrite').saveAsTable('output_table')",
+        "C. df.toPandas().to_csv('output.csv')",
+        "D. df.write.format('json').save('/Files/output')"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. saveAsTable() with Delta format creates a managed table in the lakehouse metastore, making it visible in the Tables section and automatically accessible via the SQL analytics endpoint.\n\nWhy the others are wrong:\n- A. Saving as CSV to the Tables path doesn't create a managed Delta table with metastore registration.\n- C. Converting to Pandas and writing CSV is inefficient and doesn't create a managed lakehouse table.\n- D. Writing JSON to the Files section creates an unmanaged file, not a queryable managed table."
+    },
+    {
+      "id": 11,
+      "topic": "Data Pipelines - Copy activity",
+      "type": "SingleChoice",
+      "questionText": "You need to ingest data from an on-premises SQL Server into a Fabric lakehouse using a data pipeline. Which gateway component is required for the on-premises connection?",
+      "options": [
+        "A. On-premises data gateway",
+        "B. Azure ExpressRoute only",
+        "C. VPN Gateway only",
+        "D. No gateway is needed; Fabric connects directly"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. An on-premises data gateway is required to securely bridge the connection between Microsoft Fabric (cloud service) and on-premises data sources like SQL Server. The gateway runs on a local machine with access to the data source.\n\nWhy the others are wrong:\n- B. ExpressRoute provides network connectivity but still requires a gateway for Fabric to communicate with the data source.\n- C. VPN provides network connectivity but the data gateway is still needed for the Fabric service integration.\n- D. Fabric cannot connect directly to on-premises systems without a gateway."
+    },
+    {
+      "id": 12,
+      "topic": "Semantic Models - DAX calculations",
+      "type": "SingleChoice",
+      "questionText": "You are creating a semantic model in Microsoft Fabric. You need to add a calculated measure that shows the year-over-year sales growth percentage. Where should you define this measure?",
+      "options": [
+        "A. In the lakehouse SQL analytics endpoint as a SQL view",
+        "B. In the semantic model using DAX",
+        "C. In a Fabric notebook using PySpark",
+        "D. In the data pipeline as a derived column"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DAX measures in the semantic model are the standard way to define business calculations like YoY growth. They evaluate dynamically based on the filter context of the report visual, providing interactive analysis.\n\nWhy the others are wrong:\n- A. SQL views in the analytics endpoint are static and don't respond to interactive filter context from Power BI visuals.\n- C. PySpark calculations are batch-oriented and don't provide interactive, filter-context-aware measures.\n- D. Pipeline derived columns are for ETL transformations, not interactive analytical measures."
+    },
+    {
+      "id": 13,
+      "topic": "OneLake - Data governance",
+      "type": "SingleChoice",
+      "questionText": "How does Microsoft Fabric enforce security on data stored in OneLake?",
+      "options": [
+        "A. Through storage account access keys shared with all users",
+        "B. Through Fabric workspace roles and item-level permissions integrated with Microsoft Entra ID",
+        "C. Through public access URLs",
+        "D. Through manual file-level ACLs set via Azure Portal"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fabric uses workspace roles (Admin, Member, Contributor, Viewer) and item-level permissions, all integrated with Microsoft Entra ID (Azure AD). This provides identity-based access control without exposing storage keys.\n\nWhy the others are wrong:\n- A. OneLake doesn't expose storage account access keys to end users; access is managed through Fabric's security model.\n- C. Public access URLs would be a security risk and are not how Fabric manages access.\n- D. Manual ACLs at the file level are not the primary security mechanism; Fabric abstracts this through its permission model."
+    },
+    {
+      "id": 14,
+      "topic": "Lakehouses - V-Order optimization",
+      "type": "SingleChoice",
+      "questionText": "Microsoft Fabric applies V-Order optimization to Delta tables written in the lakehouse. What does V-Order provide?",
+      "options": [
+        "A. Row-level security on the table",
+        "B. Optimized column sorting and compression for faster read performance by Power BI and SQL engines",
+        "C. Automatic data encryption at rest",
+        "D. Real-time streaming data ingestion"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. V-Order is a write-time optimization that applies special sorting and compression to Parquet files. This improves read performance significantly, especially for analytical queries from Power BI (Direct Lake mode) and the SQL analytics endpoint.\n\nWhy the others are wrong:\n- A. V-Order is a performance optimization, not a security feature.\n- C. Encryption at rest is handled by the platform infrastructure, not by V-Order.\n- D. V-Order optimizes stored data; it doesn't provide streaming ingestion capabilities."
+    },
+    {
+      "id": 15,
+      "topic": "Warehouses - Cross-database queries",
+      "type": "SingleChoice",
+      "questionText": "You need to join data from a Fabric warehouse table with data from a lakehouse table in a single T-SQL query. How can you achieve this?",
+      "options": [
+        "A. This is not possible; you must copy data to one location first",
+        "B. Use three-part naming (database.schema.table) in cross-database queries within the same workspace",
+        "C. Create a linked server connection",
+        "D. Use a Spark notebook to perform the join"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fabric supports cross-database queries using three-part naming (database.schema.table) within the same workspace. You can query warehouse tables and lakehouse SQL analytics endpoint tables together in a single T-SQL statement.\n\nWhy the others are wrong:\n- A. Cross-database queries are supported within Fabric workspaces.\n- C. Linked servers are a traditional SQL Server concept not needed in Fabric.\n- D. While Spark notebooks can join data, the question specifically asks about T-SQL queries, which support cross-database queries natively."
+    },
+    {
+      "id": 16,
+      "topic": "Notebooks - Lakehouse integration",
+      "type": "SingleChoice",
+      "questionText": "When you attach a lakehouse to a Fabric notebook, what happens automatically?",
+      "options": [
+        "A. The notebook's Spark session is configured with the lakehouse's storage path and metastore catalog",
+        "B. All lakehouse data is loaded into the notebook's memory",
+        "C. The notebook language is changed to SQL",
+        "D. A new Spark cluster is provisioned exclusively for the notebook"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Attaching a lakehouse to a notebook automatically configures the Spark session's default storage path and metastore catalog. You can reference lakehouse tables by name (spark.sql('SELECT * FROM table_name')) without specifying full paths.\n\nWhy the others are wrong:\n- B. Data is not loaded into memory; it's read on-demand when queries are executed.\n- C. The notebook language remains whatever you set; attaching a lakehouse doesn't change it.\n- D. Spark compute in Fabric is shared (starter pools or custom Spark pools), not exclusively provisioned per notebook."
+    },
+    {
+      "id": 17,
+      "topic": "Data Pipelines - Scheduling",
+      "type": "SingleChoice",
+      "questionText": "You need to run a Fabric data pipeline every day at 6 AM UTC. Which configuration should you use?",
+      "options": [
+        "A. Configure a schedule trigger on the pipeline with the desired recurrence",
+        "B. Create an Azure Logic App to call the pipeline",
+        "C. Use a manual trigger every morning",
+        "D. Set the pipeline to continuous execution mode"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Fabric data pipelines support built-in schedule triggers that allow you to configure recurrence patterns (daily, weekly, etc.) with specific times. This is the native and simplest way to schedule pipeline execution.\n\nWhy the others are wrong:\n- B. Azure Logic Apps could trigger pipelines but adds unnecessary complexity when built-in scheduling exists.\n- C. Manual triggers require human intervention and are not suitable for automated daily processing.\n- D. Continuous execution mode doesn't exist for scheduled batch pipelines."
+    },
+    {
+      "id": 18,
+      "topic": "Semantic Models - Relationships",
+      "type": "MultipleChoice",
+      "questionText": "You are building a semantic model in Fabric for sales analysis. Which TWO relationship design principles should you follow? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Use star schema design with fact tables surrounded by dimension tables",
+        "B. Create one-to-many relationships from dimension to fact tables",
+        "C. Create many-to-many relationships between all tables",
+        "D. Use snowflake schema with deeply nested dimensions for best performance"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Star schema is the recommended design pattern for semantic models. Dimension tables (one side) connect to fact tables (many side) via one-to-many relationships, enabling efficient filtering and aggregation.\n\nWhy the others are wrong:\n- C. Many-to-many relationships between all tables creates ambiguity and poor performance in the VertiPaq engine.\n- D. Snowflake schemas with deeply nested dimensions add complexity and can degrade query performance compared to a flattened star schema."
+    },
+    {
+      "id": 19,
+      "topic": "OneLake - File formats",
+      "type": "SingleChoice",
+      "questionText": "You upload a CSV file to the Files section of a Fabric lakehouse. Can you query this file directly using the SQL analytics endpoint?",
+      "options": [
+        "A. Yes, the SQL endpoint automatically reads CSV files",
+        "B. No, CSV files in the Files section are not exposed through the SQL analytics endpoint; only Delta tables are",
+        "C. Yes, but only if the CSV is smaller than 1 MB",
+        "D. Yes, using OPENROWSET function"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The SQL analytics endpoint only exposes managed Delta tables from the Tables section. Files in the Files section (CSV, JSON, etc.) must be loaded into Delta tables first using Spark notebooks or dataflows before they can be queried via SQL.\n\nWhy the others are wrong:\n- A. The SQL analytics endpoint doesn't automatically read arbitrary file formats from the Files section.\n- C. File size doesn't affect whether the SQL endpoint can read it.\n- D. OPENROWSET is available in Synapse serverless SQL pools but is not the mechanism used in Fabric's lakehouse SQL analytics endpoint."
+    },
+    {
+      "id": 20,
+      "topic": "Lakehouses - Table maintenance",
+      "type": "SingleChoice",
+      "questionText": "Over time, your lakehouse Delta tables accumulate many small files from frequent inserts, degrading read performance. Which operation should you run to consolidate these files?",
+      "options": [
+        "A. OPTIMIZE (bin-compaction)",
+        "B. TRUNCATE TABLE",
+        "C. DROP TABLE and recreate",
+        "D. ALTER TABLE ADD COLUMN"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The OPTIMIZE command (bin-compaction) merges small files into larger, optimally sized files. This is essential maintenance for Delta tables that receive frequent small writes, improving read performance significantly.\n\nWhy the others are wrong:\n- B. TRUNCATE TABLE removes all data from the table, not just small files.\n- C. Dropping and recreating the table loses data and is destructive.\n- D. ALTER TABLE ADD COLUMN modifies the schema, not the file structure."
+    },
+    {
+      "id": 21,
+      "topic": "Warehouses - Data modeling",
+      "type": "SingleChoice",
+      "questionText": "You are building a data warehouse in Microsoft Fabric. You need to create a dimension table that tracks the history of customer address changes. Which SCD type should you implement?",
+      "options": [
+        "A. Type 0 (no changes tracked)",
+        "B. Type 1 (overwrite old values)",
+        "C. Type 2 (add new rows with effective dates)",
+        "D. Type 3 (add a new column for the previous value)"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. SCD Type 2 adds new rows for each change with effective start/end dates and a current flag. This preserves the complete history of address changes, allowing you to analyze data as it was at any point in time.\n\nWhy the others are wrong:\n- A. Type 0 never changes the dimension record, losing all address updates.\n- B. Type 1 overwrites old values, losing historical address information.\n- D. Type 3 only stores one previous value, not the full history of all changes."
+    },
+    {
+      "id": 22,
+      "topic": "Notebooks - Data visualization",
+      "type": "SingleChoice",
+      "questionText": "You are working in a Fabric notebook and want to quickly visualize the results of a Spark DataFrame. What is the simplest built-in approach?",
+      "options": [
+        "A. Export to Power BI and create a report",
+        "B. Use the display() function or the built-in notebook chart view",
+        "C. Install matplotlib separately and create custom plots",
+        "D. Copy data to Excel for charting"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fabric notebooks provide a built-in display() function and chart view that renders DataFrames as interactive tables and charts directly in the notebook output. This requires no additional libraries or tools.\n\nWhy the others are wrong:\n- A. Exporting to Power BI is a more involved process for quick data exploration.\n- C. While matplotlib works in Fabric notebooks, it requires additional code; display() is simpler.\n- D. Copying to Excel adds unnecessary steps for quick visualization."
+    },
+    {
+      "id": 23,
+      "topic": "Data Pipelines - Dataflow Gen2",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of Dataflow Gen2 in Microsoft Fabric?",
+      "options": [
+        "A. To orchestrate multiple activities in sequence",
+        "B. To provide a low-code/no-code data transformation experience using Power Query Online",
+        "C. To run Spark notebooks on a schedule",
+        "D. To create real-time dashboards"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dataflow Gen2 uses the Power Query Online interface to provide a low-code data transformation experience. Analysts can connect to data sources, apply transformations visually, and load results into Fabric destinations without writing code.\n\nWhy the others are wrong:\n- A. Pipeline orchestration is handled by Data Pipelines, not Dataflow Gen2.\n- C. Notebook scheduling is done through Data Pipelines or notebook scheduling features.\n- D. Real-time dashboards are created using KQL databases and Real-Time Analytics."
+    },
+    {
+      "id": 24,
+      "topic": "Semantic Models - Row-level security",
+      "type": "SingleChoice",
+      "questionText": "You need to implement row-level security on a Direct Lake semantic model in Fabric so that each salesperson only sees their own sales data. Where do you define the security roles?",
+      "options": [
+        "A. In the lakehouse SQL analytics endpoint using T-SQL",
+        "B. In the semantic model using DAX-based security roles",
+        "C. In the OneLake file permissions",
+        "D. In the Fabric workspace access settings"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Row-level security for semantic models (including Direct Lake models) is defined using DAX-based security roles within the semantic model. These roles contain DAX filter expressions that restrict which rows each user can see.\n\nWhy the others are wrong:\n- A. SQL analytics endpoint security doesn't propagate to the semantic model layer.\n- C. OneLake file permissions control access to files, not row-level filtering within a semantic model.\n- D. Workspace access settings control who can see and edit workspace items, not row-level data filtering."
+    },
+    {
+      "id": 25,
+      "topic": "OneLake - Data organization",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Fabric's OneLake, how is data organized?",
+      "options": [
+        "A. By Azure subscription and resource group",
+        "B. By tenant, then workspace, then Fabric items (lakehouse, warehouse, etc.)",
+        "C. By geographic region only",
+        "D. By file type (all CSVs together, all Parquet together)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. OneLake is organized hierarchically: Tenant (one OneLake per organization) > Workspaces (logical containers) > Items (lakehouses, warehouses, etc.). Each item has its own dedicated storage within the workspace.\n\nWhy the others are wrong:\n- A. OneLake uses Fabric's organizational model (tenants and workspaces), not Azure subscription/resource group hierarchy.\n- C. Data is organized logically by workspace and item, not by geography.\n- D. Files are organized by their parent Fabric item, not by file type."
+    },
+    {
+      "id": 26,
+      "topic": "Lakehouses - Schema enforcement",
+      "type": "SingleChoice",
+      "questionText": "You try to write a DataFrame to an existing Delta table in a Fabric lakehouse, but the DataFrame has an additional column not in the table schema. What happens with the default settings?",
+      "options": [
+        "A. The write succeeds and the new column is automatically added",
+        "B. The write fails with a schema mismatch error",
+        "C. The extra column is silently dropped",
+        "D. The entire table is overwritten with the new schema"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. By default, Delta Lake enforces schema on write. If the DataFrame has columns not present in the target table, the write fails with a schema mismatch error. You must explicitly enable schema evolution (mergeSchema) to allow adding columns.\n\nWhy the others are wrong:\n- A. Automatic column addition requires mergeSchema=true; it doesn't happen by default.\n- C. Delta Lake doesn't silently drop columns; it raises an error.\n- D. Overwriting the table would require explicit overwrite mode; it doesn't happen on a failed append."
+    },
+    {
+      "id": 27,
+      "topic": "Warehouses - Performance optimization",
+      "type": "SingleChoice",
+      "questionText": "You have a large Fabric warehouse table that is frequently queried with filters on the OrderDate column. You want to improve query performance. Which technique should you use?",
+      "options": [
+        "A. Create a nonclustered index on OrderDate",
+        "B. Fabric warehouse tables are automatically optimized; no manual tuning is needed",
+        "C. Convert the table to a heap",
+        "D. Create a clustered columnstore index manually"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fabric warehouse uses an automatic optimization engine. Tables are stored in a columnar format with automatic statistics and optimization. Traditional SQL Server index management (creating, dropping indexes) is not supported or needed in Fabric warehouses.\n\nWhy the others are wrong:\n- A. Nonclustered indexes are not a feature of Fabric warehouse tables.\n- C. Heaps are less performant and not applicable to Fabric's storage architecture.\n- D. Manual index creation is not supported in Fabric warehouses; the system handles optimization automatically."
+    },
+    {
+      "id": 28,
+      "topic": "Notebooks - Library management",
+      "type": "MultipleChoice",
+      "questionText": "You need to use a custom Python library in your Fabric notebook that is not pre-installed. Which TWO approaches can you use to install it? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Use %pip install in a notebook cell",
+        "B. Upload the library to the workspace environment settings",
+        "C. Download and install it on the local machine",
+        "D. Request Microsoft to add it to the Fabric base image"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. %pip install in a notebook cell installs the library for the current session. Uploading the library to the workspace environment settings makes it available across all notebooks in the workspace persistently.\n\nWhy the others are wrong:\n- C. Installing on a local machine doesn't affect the Fabric Spark compute environment.\n- D. Requesting changes to the base image is not a practical or available approach."
+    },
+    {
+      "id": 29,
+      "topic": "Data Pipelines - Error handling",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric data pipeline, you have a sequence of activities. If the notebook activity fails, you want to send an email notification and then stop the pipeline. How should you configure this?",
+      "options": [
+        "A. Use the On Failure output of the notebook activity to chain to an Office 365 Outlook activity",
+        "B. Wrap everything in a try-catch block in the pipeline",
+        "C. Set the pipeline to ignore all errors",
+        "D. Create a separate monitoring pipeline that checks for failures"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Fabric data pipeline activities support conditional outputs: On Success, On Failure, On Completion, and On Skip. Connecting the notebook's On Failure output to an email notification activity creates automatic failure handling.\n\nWhy the others are wrong:\n- B. Try-catch blocks are programming concepts; pipeline error handling uses activity output conditions.\n- C. Ignoring errors would prevent notification and allow bad data to propagate.\n- D. A separate monitoring pipeline adds complexity when built-in activity failure paths handle this natively."
+    },
+    {
+      "id": 30,
+      "topic": "Semantic Models - Refresh strategies",
+      "type": "SingleChoice",
+      "questionText": "Your Direct Lake semantic model in Fabric shows stale data after new data is loaded into the lakehouse. What must happen for the model to reflect the new data?",
+      "options": [
+        "A. Nothing; Direct Lake always reads the latest data automatically",
+        "B. The semantic model's Delta tables must be framed (a lightweight metadata sync operation)",
+        "C. A full import refresh must be triggered manually",
+        "D. The Fabric capacity must be restarted"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Direct Lake models require a framing operation to update the table metadata pointers to the latest Delta table versions. This is a lightweight operation (not a full data copy) that tells the model which Parquet files to read.\n\nWhy the others are wrong:\n- A. While Direct Lake reads from Delta files, it needs a framing sync to point to the latest file versions.\n- C. Full import refresh is not how Direct Lake works; it reads from the lake, not from an imported copy.\n- D. Restarting the capacity is extreme and unnecessary; framing is the correct operation."
+    },
+    {
+      "id": 31,
+      "topic": "OneLake - Mirroring",
+      "type": "SingleChoice",
+      "questionText": "You want to bring data from Azure SQL Database into OneLake and keep it continuously synchronized. Which Fabric feature should you use?",
+      "options": [
+        "A. OneLake shortcut",
+        "B. Mirrored database",
+        "C. Data pipeline with full copy",
+        "D. Dataflow Gen2 with manual refresh"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Mirrored databases in Fabric replicate data from external sources (Azure SQL Database, Azure Cosmos DB, Snowflake) into OneLake as Delta tables. The replication is near-real-time and continuous, keeping data synchronized automatically.\n\nWhy the others are wrong:\n- A. Shortcuts provide read access to external data without copying, but don't create Delta tables or provide continuous sync.\n- C. Data pipelines require scheduled runs and full copies, not continuous real-time synchronization.\n- D. Dataflow Gen2 is batch-oriented and requires manual or scheduled refresh."
+    },
+    {
+      "id": 32,
+      "topic": "Lakehouses - Medallion architecture",
+      "type": "SingleChoice",
+      "questionText": "You are implementing a medallion architecture in a Fabric lakehouse. Where should you store raw, unprocessed data?",
+      "options": [
+        "A. Gold layer tables",
+        "B. Silver layer tables",
+        "C. Bronze layer (raw data in Files or as Delta tables)",
+        "D. The semantic model"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The Bronze layer stores raw, unprocessed data exactly as received from source systems. In a Fabric lakehouse, this can be stored in the Files section (raw files) or as Delta tables in the Tables section preserving the original data.\n\nWhy the others are wrong:\n- A. Gold layer stores curated, business-ready aggregated data, not raw data.\n- B. Silver layer stores cleansed and validated data, not raw unprocessed data.\n- D. The semantic model contains business-ready measures and relationships for reporting, not raw data storage."
+    },
+    {
+      "id": 33,
+      "topic": "Warehouses - Column-level security",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent certain users from seeing the Salary column in a Fabric warehouse table while allowing them to query all other columns. Which T-SQL approach should you use?",
+      "options": [
+        "A. DENY SELECT on the Salary column to the restricted role",
+        "B. Encrypt the entire table",
+        "C. Create a separate table without the Salary column",
+        "D. Use Dynamic Data Masking on all columns"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Column-level security in Fabric warehouse uses GRANT/DENY permissions at the column level. DENY SELECT on the Salary column for specific roles prevents those users from reading salary data while allowing access to all other columns.\n\nWhy the others are wrong:\n- B. Encrypting the entire table doesn't provide column-level selective access.\n- C. Maintaining a separate table without Salary adds complexity and data duplication.\n- D. Dynamic Data Masking hides values but doesn't truly deny access; users with elevated permissions can still see the data."
+    },
+    {
+      "id": 34,
+      "topic": "Notebooks - Spark configuration",
+      "type": "SingleChoice",
+      "questionText": "Your Fabric notebook Spark job is running slowly due to insufficient parallelism. You want to increase the number of Spark executors. Where should you configure this?",
+      "options": [
+        "A. In the notebook's Spark session configuration or the workspace Spark settings",
+        "B. In the Power BI admin portal",
+        "C. In the Azure portal's Fabric capacity settings",
+        "D. In the lakehouse's table properties"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Spark executor count and configuration can be set in the notebook's session configuration (%%configure magic command) or in the workspace-level Spark settings under environment configurations.\n\nWhy the others are wrong:\n- B. The Power BI admin portal manages Power BI-specific settings, not Spark compute configuration.\n- C. Fabric capacity settings manage overall capacity resources, not individual Spark job parallelism.\n- D. Lakehouse table properties control table metadata, not Spark compute resources."
+    },
+    {
+      "id": 35,
+      "topic": "Data Pipelines - ForEach activity",
+      "type": "SingleChoice",
+      "questionText": "You need a Fabric data pipeline that iterates over a list of 50 source tables and copies each one to the lakehouse. Which activity pattern should you use?",
+      "options": [
+        "A. Create 50 separate copy activities manually",
+        "B. Use a ForEach activity that iterates over the table list and executes a parameterized copy activity",
+        "C. Use a single copy activity with all 50 tables specified",
+        "D. Create 50 separate pipelines"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The ForEach activity iterates over a collection (the list of 50 tables) and executes an inner activity (parameterized copy) for each item. This is the standard pattern for processing multiple items in a single pipeline.\n\nWhy the others are wrong:\n- A. Creating 50 separate activities is tedious and hard to maintain.\n- C. A single copy activity can only copy from one source to one destination.\n- D. Creating 50 separate pipelines creates massive management overhead."
+    },
+    {
+      "id": 36,
+      "topic": "Semantic Models - Object-level security",
+      "type": "SingleChoice",
+      "questionText": "You want to hide an entire table from certain users in a Fabric semantic model while allowing other users to see it. Which security feature should you use?",
+      "options": [
+        "A. Row-level security (RLS)",
+        "B. Object-level security (OLS)",
+        "C. Workspace viewer role",
+        "D. Column-level encryption"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Object-level security (OLS) allows you to restrict access to entire tables or specific columns in a semantic model. Users in restricted roles cannot see or query the hidden objects in their reports.\n\nWhy the others are wrong:\n- A. RLS filters rows within a table, not entire table visibility.\n- C. Workspace viewer role controls workspace-level access, not table-level visibility within a model.\n- D. Column-level encryption protects data but doesn't hide entire tables from the model."
+    },
+    {
+      "id": 37,
+      "topic": "OneLake - Compute and storage separation",
+      "type": "SingleChoice",
+      "questionText": "What is a key architectural benefit of OneLake in Microsoft Fabric?",
+      "options": [
+        "A. Compute and storage are tightly coupled for maximum performance",
+        "B. Compute and storage are separated, allowing multiple compute engines to access the same data",
+        "C. Each compute engine requires its own copy of the data",
+        "D. Data must be exported before different engines can access it"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. OneLake separates storage from compute, allowing multiple Fabric compute engines (Spark, SQL, Power BI Direct Lake, KQL) to access the same data without duplication. This eliminates data silos and reduces storage costs.\n\nWhy the others are wrong:\n- A. Tight coupling would mean each compute has its own storage, which is the opposite of OneLake's design.\n- C. The whole point of OneLake is that engines share data without requiring separate copies.\n- D. Data in OneLake is directly accessible by all Fabric compute engines without export."
+    },
+    {
+      "id": 38,
+      "topic": "Lakehouses - Time travel",
+      "type": "SingleChoice",
+      "questionText": "A user accidentally overwrote important data in a lakehouse Delta table. You need to restore the table to its state from 2 hours ago. Which Delta Lake feature enables this?",
+      "options": [
+        "A. Time travel using RESTORE TABLE to a previous version",
+        "B. Azure Backup and Recovery",
+        "C. Undo button in the Fabric portal",
+        "D. Recreate the table from the original source"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Delta Lake's time travel feature maintains a history of table versions. You can use RESTORE TABLE command to restore the table to a specific version or timestamp, recovering the data from before the accidental overwrite.\n\nWhy the others are wrong:\n- B. Azure Backup and Recovery doesn't apply to individual Delta tables in Fabric lakehouses.\n- C. There is no undo button for data operations in the Fabric portal.\n- D. Recreating from the original source is unnecessary when Delta time travel provides built-in recovery."
+    },
+    {
+      "id": 39,
+      "topic": "Warehouses - Ingestion patterns",
+      "type": "MultipleChoice",
+      "questionText": "You need to load data into a Fabric warehouse. Which TWO methods can you use for data ingestion? Each correct answer presents a complete solution.",
+      "options": [
+        "A. T-SQL COPY INTO statement",
+        "B. Data pipeline with copy activity targeting the warehouse",
+        "C. Power BI Desktop publish",
+        "D. Azure CLI upload command"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The T-SQL COPY INTO statement loads data from files in OneLake or external storage into warehouse tables. Data pipelines with copy activities provide a visual, orchestrated approach to ingesting data into the warehouse.\n\nWhy the others are wrong:\n- C. Power BI Desktop publishes reports and semantic models, not raw data into warehouse tables.\n- D. Azure CLI doesn't have a direct command for loading data into Fabric warehouses."
+    },
+    {
+      "id": 40,
+      "topic": "Semantic Models - Performance tuning",
+      "type": "SingleChoice",
+      "questionText": "Your Direct Lake semantic model in Fabric is falling back to DirectQuery mode frequently, degrading report performance. What is the most likely cause?",
+      "options": [
+        "A. The semantic model has too few measures",
+        "B. The underlying Delta tables have too many small files or the data exceeds the Direct Lake guardrails",
+        "C. The Power BI visuals are using the wrong chart types",
+        "D. The workspace doesn't have enough members"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Direct Lake has guardrails (maximum rows, columns, and Parquet file sizes per table) based on the Fabric SKU. When these limits are exceeded, or when Delta tables have too many small files (not optimized), the model falls back to DirectQuery mode. Running OPTIMIZE on the Delta tables and ensuring data stays within guardrails prevents fallback.\n\nWhy the others are wrong:\n- A. The number of measures doesn't cause DirectQuery fallback.\n- C. Visual chart types affect rendering, not the storage mode behavior.\n- D. Workspace membership has no effect on semantic model performance."
+    },
+    {
+      "id": 41,
+      "topic": "Lakehouses - Data ingestion methods",
+      "type": "MultipleChoice",
+      "questionText": "You need to load data into a Fabric lakehouse. Which TWO methods can you use? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Upload files directly through the lakehouse explorer in the Fabric portal",
+        "B. Use a Spark notebook with spark.read to load and saveAsTable to write",
+        "C. Use SQL Server Integration Services (SSIS) packages",
+        "D. Use Azure Data Studio query editor"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The lakehouse explorer allows direct file uploads via the browser interface. Spark notebooks provide programmatic data loading with full transformation capabilities using PySpark or Scala.\n\nWhy the others are wrong:\n- C. SSIS is a traditional on-premises ETL tool that does not have native Fabric lakehouse connectors.\n- D. Azure Data Studio is for querying databases, not for loading data into Fabric lakehouses."
+    },
+    {
+      "id": 42,
+      "topic": "Semantic Models - Calculation groups",
+      "type": "SingleChoice",
+      "questionText": "You have a Fabric semantic model with 20 measures that all need time intelligence variants (YTD, MTD, PY). Instead of creating 60 additional measures, which feature should you use?",
+      "options": [
+        "A. Calculation groups",
+        "B. Calculated tables",
+        "C. Quick measures",
+        "D. Dynamic M parameters"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Calculation groups allow you to define time intelligence calculations (YTD, MTD, PY, etc.) once and apply them dynamically to any measure in the model. This avoids the measure explosion problem of creating separate variants for each measure.\n\nWhy the others are wrong:\n- B. Calculated tables create new tables from DAX expressions but don't solve the measure variant problem.\n- C. Quick measures provide templates for individual measures but still require creating each variant separately.\n- D. Dynamic M parameters enable dynamic data source or query changes at refresh time, not time intelligence variants."
+    },
+    {
+      "id": 43,
+      "topic": "Warehouses - T-SQL features",
+      "type": "SingleChoice",
+      "questionText": "You are writing T-SQL in a Fabric warehouse and need to create a reusable query that aggregates monthly sales by region. Which database object should you create?",
+      "options": [
+        "A. A view",
+        "B. A temporary table",
+        "C. An index",
+        "D. A trigger"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Views in Fabric warehouse provide reusable, named query definitions that can be referenced by other queries, reports, and semantic models. They encapsulate the aggregation logic and simplify consumption.\n\nWhy the others are wrong:\n- B. Temporary tables exist only for the duration of a session and are not reusable across sessions or by reports.\n- C. Indexes are not manually creatable in Fabric warehouses; optimization is automatic.\n- D. Triggers are not supported in Fabric warehouses."
+    },
+    {
+      "id": 44,
+      "topic": "Notebooks - Spark SQL magic",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric notebook written primarily in PySpark, you want to run a quick SQL query against lakehouse tables without switching to a SQL cell. How can you do this?",
+      "options": [
+        "A. Use spark.sql('SELECT * FROM table_name') in a PySpark cell",
+        "B. You must create a separate SQL notebook",
+        "C. Use the %%sql magic command in a PySpark cell",
+        "D. SQL queries are not possible in PySpark notebooks"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The spark.sql() method executes SQL queries against the Spark catalog (which includes lakehouse tables) from within PySpark code, returning a DataFrame that can be further processed.\n\nWhy the others are wrong:\n- B. You do not need a separate notebook; SQL can be executed within PySpark cells using spark.sql().\n- C. %%sql is used as a cell magic to change the entire cell's language, not within a PySpark cell. The question asks about staying in a PySpark cell.\n- D. SQL queries are fully supported in PySpark notebooks through spark.sql()."
+    },
+    {
+      "id": 45,
+      "topic": "OneLake - ADLS Gen2 API access",
+      "type": "SingleChoice",
+      "questionText": "A data engineer wants to access OneLake data from an external tool using Azure Storage Explorer. Which endpoint and protocol should they use?",
+      "options": [
+        "A. onelake.dfs.fabric.microsoft.com using the ADLS Gen2 DFS APIs",
+        "B. onelake.blob.core.windows.net using Blob Storage APIs",
+        "C. fabric.microsoft.com using REST API",
+        "D. A dedicated SFTP endpoint for OneLake"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. OneLake exposes data through the onelake.dfs.fabric.microsoft.com endpoint using ADLS Gen2 compatible DFS APIs. Tools like Azure Storage Explorer, AzCopy, and custom applications can use this endpoint with Azure AD authentication.\n\nWhy the others are wrong:\n- B. OneLake uses the DFS endpoint (dfs.fabric.microsoft.com), not a blob.core.windows.net endpoint.\n- C. While Fabric has REST APIs, the storage access endpoint uses the ADLS Gen2 DFS protocol specifically.\n- D. OneLake does not provide an SFTP endpoint for data access."
+    },
+    {
+      "id": 46,
+      "topic": "Data Pipelines - Parameterized notebooks",
+      "type": "SingleChoice",
+      "questionText": "You have a data pipeline that runs a Fabric notebook. You need to pass the current date and a source table name to the notebook at runtime. How should you configure this?",
+      "options": [
+        "A. Use the notebook activity's base parameters to pass values, and read them in the notebook using the notebookutils.notebook.parameters property",
+        "B. Hardcode the values in the notebook",
+        "C. Create a separate pipeline for each date and table",
+        "D. Store the values in a lakehouse table and query them"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The notebook activity in a data pipeline supports base parameters that can pass dynamic values (pipeline expressions, variables) to the notebook at runtime. The notebook reads these via notebookutils or by referencing them as variables.\n\nWhy the others are wrong:\n- B. Hardcoding defeats the purpose of parameterization and makes the notebook non-reusable.\n- C. Creating separate pipelines for each combination is not scalable or maintainable.\n- D. While querying configuration from a table works, it adds unnecessary complexity when pipeline parameters provide direct value passing."
+    },
+    {
+      "id": 47,
+      "topic": "Semantic Models - Incremental refresh",
+      "type": "SingleChoice",
+      "questionText": "Your Fabric semantic model imports 2 years of sales data from a warehouse. Only the last 30 days of data changes. How should you configure the refresh to minimize processing time?",
+      "options": [
+        "A. Full refresh of all data every time",
+        "B. Incremental refresh with a 2-year import window and 30-day refresh window",
+        "C. Switch to DirectQuery mode",
+        "D. Delete and recreate the dataset daily"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Incremental refresh partitions the data by time. Only the 30-day refresh window is re-imported on each refresh, while the historical 2-year data is left untouched. This dramatically reduces refresh time and resource consumption.\n\nWhy the others are wrong:\n- A. Full refresh processes all 2 years of data every time, wasting time and compute resources.\n- C. Switching to DirectQuery loses the performance benefits of Import mode and impacts report interactivity.\n- D. Deleting and recreating is destructive, slow, and loses refresh history."
+    },
+    {
+      "id": 48,
+      "topic": "Lakehouses - Managed vs unmanaged tables",
+      "type": "SingleChoice",
+      "questionText": "You create a Delta table in a Fabric lakehouse using CREATE TABLE with a LOCATION clause pointing to a custom path in the Files section. What type of table is this?",
+      "options": [
+        "A. Managed table",
+        "B. External (unmanaged) table",
+        "C. Temporary table",
+        "D. View"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When you specify a LOCATION clause, you create an external (unmanaged) table. The metastore tracks the table metadata, but the data files are stored at the custom location. Dropping the table removes only the metadata, not the data files.\n\nWhy the others are wrong:\n- A. Managed tables are created without a LOCATION clause; Spark manages the data location in the Tables section.\n- C. Temporary tables are session-scoped and are not persisted in the metastore.\n- D. A view is a saved query definition, not a table with data files."
+    },
+    {
+      "id": 49,
+      "topic": "Warehouses - Dynamic Data Masking",
+      "type": "SingleChoice",
+      "questionText": "You need to mask email addresses in a Fabric warehouse table so that most users see partial data (e.g., a***@contoso.com) while authorized users see the full value. Which feature should you use?",
+      "options": [
+        "A. Dynamic Data Masking (DDM)",
+        "B. Column-level encryption",
+        "C. Row-level security",
+        "D. Object-level security"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Dynamic Data Masking applies masking functions (email, partial, default, custom string) to columns. Unauthorized users see masked values; users with UNMASK permission see the original data. No actual data modification occurs.\n\nWhy the others are wrong:\n- B. Column-level encryption encrypts the stored data, making it unreadable without decryption keys, not partially visible.\n- C. Row-level security filters entire rows, not individual column values.\n- D. Object-level security hides entire tables or columns, not partial column values."
+    },
+    {
+      "id": 50,
+      "topic": "Notebooks - Spark session management",
+      "type": "SingleChoice",
+      "questionText": "You notice that starting a new Fabric notebook session takes several minutes before you can run code. Which feature reduces this startup time?",
+      "options": [
+        "A. Starter pools (live pools) that maintain pre-warmed Spark instances",
+        "B. Increasing the notebook's executor count",
+        "C. Switching to SQL-only notebooks",
+        "D. Disabling V-Order optimization"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Starter pools (also called live pools) maintain pre-warmed Spark instances that can be allocated to notebook sessions within seconds, dramatically reducing the cold start time compared to provisioning new Spark clusters.\n\nWhy the others are wrong:\n- B. Increasing executor count doesn't affect startup time; it affects parallelism during execution.\n- C. SQL-only notebooks still require a compute engine; switching languages doesn't eliminate startup overhead.\n- D. V-Order is a data write optimization and has nothing to do with Spark session startup time."
+    },
+    {
+      "id": 51,
+      "topic": "Data Pipelines - Monitoring",
+      "type": "SingleChoice",
+      "questionText": "A data pipeline in Fabric failed overnight. You need to view the error details and identify which activity failed. Where should you look?",
+      "options": [
+        "A. The pipeline's monitoring hub in the Fabric portal, which shows run history with activity-level status and error messages",
+        "B. The Power BI admin portal",
+        "C. Azure Monitor only",
+        "D. The lakehouse's SQL analytics endpoint logs"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Fabric monitoring hub provides detailed pipeline run history, including the status of each individual activity, error messages, duration, and data transfer metrics. This is the primary location for troubleshooting pipeline failures.\n\nWhy the others are wrong:\n- B. The Power BI admin portal manages tenant settings, not pipeline execution monitoring.\n- C. While Azure Monitor can be integrated, the Fabric monitoring hub is the native and primary tool for pipeline monitoring.\n- D. The SQL analytics endpoint provides query capabilities, not pipeline execution logs."
+    },
+    {
+      "id": 52,
+      "topic": "Semantic Models - Composite models in Fabric",
+      "type": "SingleChoice",
+      "questionText": "You have a Direct Lake semantic model in Fabric but need to add an additional table from an Azure SQL Database. What model type does this become?",
+      "options": [
+        "A. A pure Direct Lake model",
+        "B. A composite model combining Direct Lake and DirectQuery",
+        "C. An Import model",
+        "D. This combination is not possible"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When you add a DirectQuery source (like Azure SQL Database) to a Direct Lake model, it becomes a composite model. The lakehouse tables remain in Direct Lake mode while the SQL table uses DirectQuery, combining both storage modes.\n\nWhy the others are wrong:\n- A. Adding a DirectQuery source changes the model from pure Direct Lake to composite.\n- C. The lakehouse tables don't become imported; they remain in Direct Lake mode.\n- D. Fabric supports composite models that combine Direct Lake with DirectQuery sources."
+    },
+    {
+      "id": 53,
+      "topic": "OneLake - Domains",
+      "type": "SingleChoice",
+      "questionText": "Your organization has multiple business units that need to manage their own Fabric workspaces independently while maintaining centralized governance. Which OneLake organizational feature should you use?",
+      "options": [
+        "A. Domains",
+        "B. Capacities",
+        "C. Additional OneLake instances",
+        "D. Resource groups"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Domains in Fabric group workspaces by business area (e.g., Finance, Marketing, HR). Domain admins can manage their workspaces while tenant admins maintain overall governance. This enables federated data management.\n\nWhy the others are wrong:\n- B. Capacities provide compute resources but don't organize workspaces by business function.\n- C. There is only one OneLake per tenant; you cannot create additional instances.\n- D. Resource groups are an Azure resource management concept, not a Fabric organizational feature."
+    },
+    {
+      "id": 54,
+      "topic": "Lakehouses - OPTIMIZE and VACUUM",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO maintenance operations should you regularly perform on lakehouse Delta tables to maintain optimal performance? Each correct answer presents a complete solution.",
+      "options": [
+        "A. OPTIMIZE to compact small files into larger ones",
+        "B. VACUUM to remove old, unreferenced data files",
+        "C. TRUNCATE to clear and reload all data",
+        "D. REBUILD INDEX to refresh table indexes"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. OPTIMIZE compacts small files to improve read performance. VACUUM removes old files no longer referenced by the transaction log, reclaiming storage space. Together, they maintain Delta table health.\n\nWhy the others are wrong:\n- C. TRUNCATE removes all data from the table; it is not a maintenance operation.\n- D. REBUILD INDEX is not applicable to Delta tables in Fabric; there are no traditional indexes to rebuild."
+    },
+    {
+      "id": 55,
+      "topic": "Warehouses - CLONE TABLE",
+      "type": "SingleChoice",
+      "questionText": "You need to create a copy of a large warehouse table for testing purposes without consuming additional storage. Which Fabric warehouse feature should you use?",
+      "options": [
+        "A. CREATE TABLE AS CLONE OF (zero-copy clone)",
+        "B. SELECT INTO to create a new table",
+        "C. COPY INTO from the original table",
+        "D. CREATE TABLE with INSERT INTO SELECT"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Zero-copy clone in Fabric warehouse creates a table clone that shares the underlying data files with the original table. It is nearly instantaneous and consumes no additional storage until modifications are made to either table.\n\nWhy the others are wrong:\n- B. SELECT INTO creates a full physical copy, consuming storage and taking time proportional to table size.\n- C. COPY INTO is for loading data from files, not cloning existing tables.\n- D. INSERT INTO SELECT creates a full data copy, consuming additional storage."
+    },
+    {
+      "id": 56,
+      "topic": "Notebooks - Delta Lake merge operation",
+      "type": "SingleChoice",
+      "questionText": "You need to upsert (update existing rows, insert new rows) data from a staging table into a target Delta table in a Fabric lakehouse notebook. Which operation should you use?",
+      "options": [
+        "A. MERGE INTO target USING staging ON condition WHEN MATCHED THEN UPDATE WHEN NOT MATCHED THEN INSERT",
+        "B. INSERT OVERWRITE target SELECT * FROM staging",
+        "C. UPDATE target SET columns = staging.columns",
+        "D. DELETE FROM target; INSERT INTO target SELECT * FROM staging"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. MERGE INTO provides atomic upsert functionality, updating matched rows and inserting unmatched rows in a single operation. This is the standard pattern for incremental data loading in Delta Lake.\n\nWhy the others are wrong:\n- B. INSERT OVERWRITE replaces all data in the target, losing rows that aren't in the staging table.\n- C. UPDATE alone cannot insert new rows; it only modifies existing ones.\n- D. DELETE followed by INSERT is not atomic and risks data loss if the process fails between the two operations."
+    },
+    {
+      "id": 57,
+      "topic": "Semantic Models - Auto-generated default models",
+      "type": "SingleChoice",
+      "questionText": "When you create a lakehouse in Fabric, a default semantic model is automatically generated. What does this model contain?",
+      "options": [
+        "A. All Delta tables from the Tables section with auto-detected relationships",
+        "B. Only the first 3 tables created in the lakehouse",
+        "C. A pre-built star schema with fact and dimension tables",
+        "D. Only files from the Files section"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The default semantic model automatically includes all Delta tables from the Tables section. It attempts to detect relationships based on column names and types. You can customize the model by adding measures, modifying relationships, and adjusting table visibility.\n\nWhy the others are wrong:\n- B. All tables are included, not just the first 3.\n- C. The auto-generated model reflects the actual table structure; it doesn't automatically create a star schema.\n- D. Files from the Files section are not included; only managed Delta tables from the Tables section are part of the semantic model."
+    },
+    {
+      "id": 58,
+      "topic": "Data Pipelines - Lookup activity",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric data pipeline, you need to read a configuration value from a SQL table before using it in a subsequent copy activity. Which activity should you use?",
+      "options": [
+        "A. Lookup activity",
+        "B. Get Metadata activity",
+        "C. Web activity",
+        "D. Set Variable activity"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Lookup activity executes a query against a data source and returns the result set. You can reference the output in subsequent activities using expressions like @activity('Lookup1').output.firstRow.configValue.\n\nWhy the others are wrong:\n- B. Get Metadata activity retrieves metadata about a dataset (file name, size, last modified), not data content.\n- C. Web activity calls HTTP endpoints, not SQL data sources.\n- D. Set Variable activity assigns values to pipeline variables but cannot query data sources directly."
+    },
+    {
+      "id": 59,
+      "topic": "OneLake - Data access roles",
+      "type": "SingleChoice",
+      "questionText": "You need to grant a team of analysts read access to specific folders within a lakehouse in OneLake, while restricting access to other folders. Which feature should you use?",
+      "options": [
+        "A. OneLake data access roles with folder-level permissions",
+        "B. Workspace viewer role for the entire workspace",
+        "C. Azure storage account access keys",
+        "D. Item-level sharing for each individual file"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. OneLake data access roles enable granular, folder-level permissions within a lakehouse. You can define roles that grant read access to specific folders, providing fine-grained data access control beyond workspace-level permissions.\n\nWhy the others are wrong:\n- B. Workspace viewer role grants access to all items in the workspace, not specific folders within a lakehouse.\n- C. OneLake does not expose storage account access keys; access is identity-based through Fabric.\n- D. Item-level sharing works at the lakehouse level, not at the individual folder level within a lakehouse."
+    },
+    {
+      "id": 60,
+      "topic": "Warehouses - Stored procedures",
+      "type": "SingleChoice",
+      "questionText": "You need to encapsulate complex ETL logic in a Fabric warehouse that can be called from a data pipeline. Which T-SQL feature should you use?",
+      "options": [
+        "A. A stored procedure",
+        "B. A view",
+        "C. A table-valued function",
+        "D. A trigger"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Stored procedures in Fabric warehouse encapsulate T-SQL logic (INSERT, UPDATE, DELETE, MERGE, control flow) that can be executed by pipeline activities (Stored Procedure activity) or other T-SQL clients.\n\nWhy the others are wrong:\n- B. Views are read-only query definitions; they cannot contain DML statements or procedural logic.\n- C. Table-valued functions return result sets but are not designed for ETL operations with side effects.\n- D. Triggers are not supported in Fabric warehouses."
+    },
+    {
+      "id": 61,
+      "topic": "Notebooks - Data engineering best practices",
+      "type": "MultipleChoice",
+      "questionText": "You are developing a data transformation notebook in Fabric. Which TWO best practices should you follow? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Use the Delta format for all output tables to ensure ACID transactions and time travel",
+        "B. Use df.collect() frequently to inspect all data locally",
+        "C. Partition large tables by a low-cardinality column used in common query filters",
+        "D. Store final output tables in CSV format in the Files section"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. Delta format provides ACID transactions, time travel, and schema enforcement essential for reliable data engineering. Partitioning by a low-cardinality column (like year or region) enables partition pruning for faster queries.\n\nWhy the others are wrong:\n- B. df.collect() pulls all data to the driver node, which can cause out-of-memory errors on large datasets and defeats the purpose of distributed processing.\n- D. CSV format lacks ACID transactions, schema enforcement, and is not queryable via the SQL analytics endpoint."
+    },
+    {
+      "id": 62,
+      "topic": "Semantic Models - Deployment and versioning",
+      "type": "SingleChoice",
+      "questionText": "You want to maintain version history of your Fabric semantic model and deploy it through development, test, and production stages. Which approach should you use?",
+      "options": [
+        "A. Use Fabric deployment pipelines to promote the semantic model through stages",
+        "B. Manually export and import .pbix files between workspaces",
+        "C. Use git integration to version control the semantic model definition",
+        "D. Both A and C can be used together for comprehensive lifecycle management"
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. Fabric supports both deployment pipelines (for managed stage promotion) and git integration (for version control with Azure DevOps or GitHub). Using both together provides comprehensive lifecycle management with version history and controlled deployments.\n\nWhy the others are wrong:\n- A. Deployment pipelines alone provide stage promotion but not full version history in source control.\n- B. Manual export/import is error-prone and lacks version tracking.\n- C. Git integration alone provides version control but doesn't provide the managed deployment pipeline experience."
+    }
+  ]
+}

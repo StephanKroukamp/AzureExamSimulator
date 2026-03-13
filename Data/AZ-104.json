@@ -1,0 +1,1014 @@
+{
+  "examCode": "AZ-104",
+  "examTitle": "Microsoft Azure Administrator",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Topic 6 - You need to configure an Azure web app named contoso.azurewebsites.net to host www.contoso.com.",
+      "type": "SingleChoice",
+      "questionText": "You need to configure an Azure web app named contoso.azurewebsites.net to host www.contoso.com. What should you do first?",
+      "options": [
+        "A. Create A records named www.contoso.com and asuid.contoso.com.",
+        "B. Create a TXT record named asuid that contains the domain verification ID.",
+        "C. Create a CNAME record named asuid that contains the domain verification ID."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Create a TXT record named asuid that contains the domain verification ID). When configuring a custom domain for an Azure web app, you first create a TXT record named 'asuid' with the domain verification ID to prove domain ownership. This is the verification step required before the custom domain can be added. Option A is incorrect because A records are for mapping to IP addresses, not verification. Option C is incorrect because the asuid record should be a TXT record, not a CNAME."
+    },
+    {
+      "id": 2,
+      "topic": "Topic 2 - You have an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription. Users access the resources in the subscription from either home or from customer sites. From home, users must establish a point-to-site VPN to access the Azure resources. The users on the customer sites access the Azure resources by using site-to-site VPNs. You have a line-of-business-app named App1 that runs on several Azure virtual machine. The virtual machines run Windows Server 2016. You need to ensure that the connections to App1 are spread across all the virtual machines. What are two possible Azure services that you can use? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. an internal load balancer",
+        "B. a public load balancer",
+        "C. an Azure Content Delivery Network (CDN)",
+        "D. Traffic Manager"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (an internal load balancer). Since all users connect through VPNs (either point-to-site from home or site-to-site from customer sites), the traffic is routed through the VPN gateway and stays within the virtual network. An internal load balancer operates within the virtual network and distributes traffic from the VPN connections across the VMs. Option B (public load balancer) is incorrect because the users are connecting via VPN, not directly from the internet. Option C (Azure CDN) is incorrect because CDN is for caching static content at edge locations, not for load balancing line-of-business application traffic. Option D (Traffic Manager) is incorrect because Traffic Manager is a DNS-based traffic load balancer that works at the DNS level for distributing traffic across regions, not for load balancing within a VNet."
+    },
+    {
+      "id": 3,
+      "topic": "Topic 4 - You create the following resources in an Azure subscription:",
+      "type": "SingleChoice",
+      "questionText": "You create the following resources in an Azure subscription: ✑ An Azure Container Registry instance named Registry1 ✑ An Azure Kubernetes Service (AKS) cluster named Cluster1 You create a container image named App1 on your administrative workstation. You need to deploy App1 to Cluster1. What should you do first?",
+      "options": [
+        "A. Run the docker push command.",
+        "B. Create an App Service plan.",
+        "C. Run the az acr build command."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Run the docker push command). When you have a container image on your local workstation that needs to be deployed to an AKS cluster through Azure Container Registry, the first step is to push the image to the registry using 'docker push'. After tagging the image with the registry name, you push it so that AKS can pull it during deployment. Option B (App Service plan) is incorrect because AKS does not use App Service plans. Option C (az acr build) builds an image from source code in the registry, but since the image is already built locally, docker push is more appropriate."
+    },
+    {
+      "id": 4,
+      "topic": "Topic 3 - You have an Azure subscription that contains the resources in the following table.",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure subscription that contains the resources in the following table. Store1 contains a file share named data. Data contains 5,000 files. You need to synchronize the files in the file share named data to an on-premises server named Server1. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Create a container instance",
+        "B. Register Server1",
+        "C. Install the Azure File Sync agent on Server1",
+        "D. Download an automation script"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": "The correct answers are B (Register Server1) and C (Install the Azure File Sync agent on Server1), plus creating a sync group (which would be another option not listed here). To synchronize files from an Azure file share to an on-premises server: Step 1 - Install the Azure File Sync agent on Server1. Step 2 - Register Server1 with the Storage Sync Service. Step 3 - Create a sync group and add a cloud endpoint (the Azure file share) and a server endpoint (the folder on Server1). Option A (container instance) is incorrect because container instances are not part of Azure File Sync. Option D (download automation script) is incorrect because this is not a step in the File Sync setup process."
+    },
+    {
+      "id": 5,
+      "topic": "Topic 2 - You have an Azure subscription linked to an Azure Active Directory tenant. The tenant includes a user account named User1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription linked to an Azure Active Directory tenant. The tenant includes a user account named User1. You need to ensure that User1 can assign a policy to the tenant root management group. What should you do?",
+      "options": [
+        "A. Assign the Owner role for the Azure Subscription to User1, and then modify the default conditional access policies.",
+        "B. Assign the Owner role for the Azure subscription to User1, and then instruct User1 to configure access management for Azure resources.",
+        "C. Assign the Global administrator role to User1, and then instruct User1 to configure access management for Azure resources."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C. To assign a policy to the tenant root management group, a user needs elevated access. An Azure AD Global Administrator must first elevate their access using the 'Access management for Azure resources' toggle in Azure AD Properties. This grants the Global Administrator the User Access Administrator role at the root scope, allowing them to then assign policies. Option A is incorrect because the Owner role on the subscription does not grant access to the root management group, and conditional access policies are unrelated. Option B is incorrect because while the Owner role on the subscription allows managing subscription resources, access management for Azure resources at the root level requires Global Administrator elevation."
+    },
+    {
+      "id": 6,
+      "topic": "Topic 6 - You have an Azure web app named App1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure web app named App1. You need to monitor the availability of App1 by using a multi-step web test. What should you use in Azure Monitor?",
+      "options": [
+        "A. Azure Service Health",
+        "B. Azure Application Insights",
+        "C. the Diagnostic settings"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Azure Application Insights). Application Insights supports multi-step web tests (also called URL ping tests and classic web tests) that can monitor web application availability through multiple-step scenarios. Option A (Azure Service Health) monitors Azure platform health, not application availability. Option C (Diagnostic settings) configures where platform logs are sent, not web testing."
+    },
+    {
+      "id": 7,
+      "topic": "Topic 2 - You have an Azure subscription named Subscription1 that contains a virtual network named VNet1. VNet1 is in a resource group named RG1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription named Subscription1 that contains a virtual network named VNet1. VNet1 is in a resource group named RG1. Subscription1 has a user named User1. User1 has the following roles: ✑ Reader ✑ Security Admin ✑ Security Reader You need to ensure that User1 can assign the Reader role for VNet1 to other users. What should you do?",
+      "options": [
+        "A. Remove User1 from the Security Reader and Reader roles for Subscription1.",
+        "B. Assign User1 the User Access Administrator role for VNet1.",
+        "C. Assign User1 the Network Contributor role for VNet1."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B. To allow a user to assign roles to other users, you need to assign them a role that includes the Microsoft.Authorization/roleAssignments/write permission. The User Access Administrator role grants this capability for a specific scope. The Owner role also includes this permission. The Reader, Security Admin, and Security Reader roles that User1 currently has do not include role assignment permissions. Option A (remove roles) is incorrect because removing roles would reduce User1's permissions, not add role assignment capability. Option C (Network Contributor) is incorrect because this role manages network resources but does not include the ability to assign roles to other users."
+    },
+    {
+      "id": 8,
+      "topic": "Topic 1 - You administer a solution in Azure that is currently having performance issues.",
+      "type": "SingleChoice",
+      "questionText": "You administer a solution in Azure that is currently having performance issues. You need to find the cause of the performance issues pertaining to metrics on the Azure infrastructure. Which of the following is the tool you should use?",
+      "options": [
+        "A. Azure Traffic Analytics",
+        "B. Azure Monitor",
+        "C. Azure Activity Log"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Azure Monitor (Option B) is the correct tool for finding performance issues related to metrics on Azure infrastructure. Azure Monitor collects and analyzes metrics and logs from Azure resources, providing insights into performance and helping identify bottlenecks. Metrics in Azure Monitor are stored in a time-series database optimized for analyzing time-stamped data, making them suited for alerting and fast detection of issues. Option A (Azure Traffic Analytics) is incorrect because Traffic Analytics is specifically for analyzing Network Security Group (NSG) flow logs, not general infrastructure performance metrics. Option C (Azure Activity Log) is incorrect because Activity Log records management-plane operations (who did what and when) on resources, not performance metrics."
+    },
+    {
+      "id": 9,
+      "topic": "Topic 1 - Your company has a Microsoft Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "Your company has a Microsoft Azure subscription. The company has datacenters in Los Angeles and New York. You are configuring the two datacenters as geo-clustered sites for site resiliency. You need to recommend an Azure storage redundancy option. You have the following data storage requirements: ✑ Data must be stored on multiple nodes. ✑ Data must be stored on nodes in separate geographic locations. ✑ Data can be read from the secondary location as well as from the primary location. Which of the following Azure stored redundancy options should you recommend?",
+      "options": [
+        "A. Geo-redundant storage",
+        "B. Read-only geo-redundant storage",
+        "C. Zone-redundant storage"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Read-only geo-redundant storage (RA-GRS) is the correct answer. RA-GRS provides all the features of geo-redundant storage (data replicated to a secondary geographic location) plus read access to the secondary location. This meets all three requirements: data is stored on multiple nodes (redundancy within each location), data is stored in separate geographic locations (geo-replication between regions), and data can be read from both the primary and secondary locations. Option A (GRS) is incorrect because while GRS replicates data to a secondary geographic location, it does not allow read access from the secondary location until a failover occurs. Option C (ZRS) is incorrect because zone-redundant storage replicates data across availability zones within a single region, not across separate geographic locations."
+    },
+    {
+      "id": 10,
+      "topic": "Topic 4 - You have an Azure web app named App1. App1 has the deployment slots shown in the following table:",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure web app named App1. App1 has the deployment slots shown in the following table: In webapp1-test, you test several changes to App1. You back up App1. You swap webapp1-test for webapp1-prod and discover that App1 is experiencing performance issues. You need to revert to the previous version of App1 as quickly as possible. What should you do?",
+      "options": [
+        "A. Redeploy App1",
+        "B. Swap the slots",
+        "C. Clone App1"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Swap the slots). When you swap deployment slots and discover issues, you can quickly revert by swapping the slots again. This immediately returns the production slot to its previous state. Option A (Redeploy) is incorrect because redeploying takes longer and requires having the previous version's deployment package. Option C (Clone) is incorrect because cloning creates a copy of the app but does not restore the previous version to production."
+    },
+    {
+      "id": 11,
+      "topic": "Topic 1 - Your company has several departments. Each department has a number of virtual machines (VMs).",
+      "type": "SingleChoice",
+      "questionText": "Your company has several departments. Each department has a number of virtual machines (VMs). The company has an Azure subscription that contains a resource group named RG1. All VMs are located in RG1. You want to associate each VM with its respective department. What should you do?",
+      "options": [
+        "A. Create Azure Management Groups for each department.",
+        "B. Create a resource group for each department.",
+        "C. Assign tags to the virtual machines."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Assigning tags to the virtual machines is the correct approach. Tags are name-value pairs that allow you to categorize and organize Azure resources. By assigning department-specific tags (e.g., Department: Marketing) to each VM, you can associate each VM with its respective department while keeping all VMs in the same resource group RG1. Creating Azure Management Groups (Option A) is incorrect because management groups are used to manage access, policy, and compliance across multiple subscriptions, not to associate VMs with departments. Creating a resource group for each department (Option B) is incorrect because the question states all VMs are in RG1 and you simply need to associate them with departments, not move them. Tags are the lightweight, flexible solution for resource categorization."
+    },
+    {
+      "id": 12,
+      "topic": "Topic 3 - You have an Azure Storage account named storage1 that contains a blob container named container1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Storage account named storage1 that contains a blob container named container1. You need to prevent new content added to container1 from being modified for one year. What should you configure?",
+      "options": [
+        "A. the access tier",
+        "B. an access policy",
+        "C. the Access control (IAM) settings"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (an access policy). To prevent content from being modified for a specified period, you configure an immutability policy (time-based retention policy) on the blob container. This is done through the access policy settings for the container. The policy enforces a WORM (Write Once, Read Many) state. Option A (access tier) is incorrect because access tiers (Hot, Cool, Archive) affect storage costs and availability, not data immutability. Option C (Access control/IAM) is incorrect because RBAC controls who can access resources, not whether data can be modified after creation."
+    },
+    {
+      "id": 13,
+      "topic": "Topic 2 - You have an Azure policy as shown in the following exhibit:",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure policy as shown in the following exhibit: What is the effect of the policy?",
+      "options": [
+        "A. You are prevented from creating Azure SQL servers anywhere in Subscription 1.",
+        "B. You can create Azure SQL servers in ContosoRG1 only.",
+        "C. You are prevented from creating Azure SQL Servers in ContosoRG1 only."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B. The Azure policy, when configured with a deny effect for Azure SQL servers at the Subscription 1 scope with an exclusion for ContosoRG1, means you can only create Azure SQL servers in ContosoRG1. The policy prevents SQL server creation everywhere in Subscription 1 except where excluded. Option A is incorrect because the policy has an exclusion for ContosoRG1, so you are not prevented from creating SQL servers everywhere. Option C is incorrect because the policy denies SQL server creation across the subscription except in ContosoRG1, not only in ContosoRG1."
+    },
+    {
+      "id": 14,
+      "topic": "Topic 2 - You have an Azure Active Directory (Azure AD) tenant named contoso.onmicrosoft.com.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Active Directory (Azure AD) tenant named contoso.onmicrosoft.com. The User administrator role is assigned to a user named Admin1. An external partner has a Microsoft account that uses the user1@outlook.com sign in. Admin1 attempts to invite the external partner to sign in to the Azure AD tenant and receives the following error message: `Unable to invite user user1@outlook.com `\" Generic authorization exception.` You need to ensure that Admin1 can invite the external partner to sign in to the Azure AD tenant. What should you do?",
+      "options": [
+        "A. From the Users settings blade, modify the External collaboration settings.",
+        "B. From the Custom domain names blade, add a custom domain.",
+        "C. From the Organizational relationships blade, add an identity provider."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A. The error 'Generic authorization exception' when inviting external users indicates that external collaboration settings are restricting guest invitations. From the External collaboration settings (under Users settings or External Identities), you can configure who can invite guests and which domains are allowed. Ensuring that the User administrator role or all members can invite guests resolves this issue. Option B (add a custom domain) is incorrect because custom domains are for verifying your organization's domain, not for enabling guest invitations. Option C (add an identity provider) is incorrect because Outlook.com is already supported as a Microsoft account identity provider by default."
+    },
+    {
+      "id": 15,
+      "topic": "Topic 5 - You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and Production. The NVA subnet contains two network virtual appliances (NVAs) that will perform network traffic inspection between the Perimeter subnet and the Production subnet. You need to implement an Azure load balancer for the NVAs. The solution must meet the following requirements: ✑ The NVAs must run in an active-active configuration that uses automatic failover. ✑ The load balancer must load balance traffic to two services on the Production subnet. The services have different IP addresses. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Deploy a basic load balancer",
+        "B. Deploy a standard load balancer",
+        "C. Add two load balancing rules that have HA Ports and Floating IP enabled",
+        "D. Add two load balancing rules that have HA Ports enabled and Floating IP disabled",
+        "E. Add a frontend IP configuration, a backend pool, and a health probe"
+      ],
+      "correctAnswers": [
+        "B",
+        "C",
+        "E"
+      ],
+      "explanation": "The correct answers are B (Deploy a standard load balancer), C (Add two load balancing rules with HA Ports and Floating IP enabled), and E (Add a frontend IP configuration, a backend pool, and a health probe). A Standard load balancer is required because HA Ports is only available on Standard SKU. Floating IP enables the NVAs to serve traffic for multiple services. The basic components (frontend IP, backend pool, health probe) are always required. Option A (Basic load balancer) is incorrect because HA Ports requires Standard. Option D (Floating IP disabled) is incorrect because Floating IP is needed when backend ports are reused for different services."
+    },
+    {
+      "id": 16,
+      "topic": "Topic 3 - You are configuring Azure Active Directory (Azure AD) authentication for an Azure Storage account named storage1.",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring Azure Active Directory (Azure AD) authentication for an Azure Storage account named storage1. You need to ensure that the members of a group named Group1 can upload files by using the Azure portal. The solution must use the principle of least privilege. Which two roles should you configure for storage1? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Storage Account Contributor",
+        "B. Storage Blob Data Contributor",
+        "C. Reader",
+        "D. Contributor"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": "The correct answers are B (Storage Blob Data Contributor) and C (Reader). To upload files via the Azure portal, users need: (1) The Reader role at minimum, which is an Azure Resource Manager role that allows viewing storage account resources and navigating in the portal. (2) A data access role such as Storage Blob Data Contributor, which allows reading, writing, and deleting blob data. Option A (Storage Account Contributor) is incorrect because this manages the storage account but does not provide data plane access. Option D (Contributor) provides more permissions than needed, violating the principle of least privilege."
+    },
+    {
+      "id": 17,
+      "topic": "Topic 4 - You have web apps in the West US, Central US and East US Azure regions.",
+      "type": "SingleChoice",
+      "questionText": "You have web apps in the West US, Central US and East US Azure regions. You have the App Service plans shown in the following table. You plan to create an additional App Service plan named ASP5 that will use the Linux operating system. You need to identify in which of the currently used locations you can deploy ASP5. What should you recommend?",
+      "options": [
+        "A. West US, Central US, or East US",
+        "B. Central US only",
+        "C. East US only"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (West US, Central US, or East US). Linux App Service plans can be created in any Azure region, including regions that already have Windows App Service plans. Windows and Linux App Service plans can coexist in the same region, though they must be in separate resource groups or separate App Service plans. Option B and C are incorrect because they unnecessarily limit the available locations."
+    },
+    {
+      "id": 18,
+      "topic": "Topic 1 - Your company has virtual machines (VMs) hosted in Microsoft Azure. The VMs are located in a single Azure virtual network named VNet1.",
+      "type": "SingleChoice",
+      "questionText": "Your company has virtual machines (VMs) hosted in Microsoft Azure. The VMs are located in a single Azure virtual network named VNet1. The company has users that work remotely. The remote workers require access to the VMs on VNet1. You need to provide access for the remote workers. What should you do?",
+      "options": [
+        "A. Configure a Site-to-Site (S2S) VPN.",
+        "B. Configure a VNet-to-VNet VPN.",
+        "C. Configure a Point-to-Site (P2S) VPN.",
+        "D. Configure DirectAccess on a Windows Server 2012 server VM."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "A Point-to-Site (P2S) VPN (Option C) is the correct answer. P2S VPN allows individual client computers to establish secure connections to an Azure virtual network from remote locations. This is ideal for remote workers connecting from home or while traveling. Option A (Site-to-Site VPN) is incorrect because S2S VPN connects an entire on-premises network to Azure, requiring a VPN device at the on-premises location. Remote workers at home typically do not have dedicated VPN devices. Option B (VNet-to-VNet VPN) is incorrect because this connects two Azure virtual networks together, not individual remote users. Option D (DirectAccess) is incorrect because while DirectAccess provides remote connectivity, it requires significant infrastructure and is not an Azure-native solution."
+    },
+    {
+      "id": 19,
+      "topic": "Topic 2 - You have an Azure subscription that contains an Azure Active Directory (Azure AD) tenant named contoso.com and an Azure Kubernetes Service",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains an Azure Active Directory (Azure AD) tenant named contoso.com and an Azure Kubernetes Service (AKS) cluster named AKS1. An administrator reports that she is unable to grant access to AKS1 to the users in contoso.com. You need to ensure that access to AKS1 can be granted to the contoso.com users. What should you do first?",
+      "options": [
+        "A. From contoso.com, modify the Organization relationships settings.",
+        "B. From contoso.com, create an OAuth 2.0 authorization endpoint.",
+        "C. Recreate AKS1."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B. To enable Azure AD authentication for AKS, you need to create an OAuth 2.0 authorization endpoint in Azure AD. This involves registering server and client applications in Azure AD, creating an OAuth 2.0 authorization endpoint, and then configuring RBAC on the AKS cluster. Option A (modify Organization relationships) is incorrect because Organization relationships are used for B2B collaboration between tenants, not for AKS authentication. Option C (recreate AKS1) is incorrect because you can integrate Azure AD with an existing AKS cluster without recreating it."
+    },
+    {
+      "id": 20,
+      "topic": "Topic 4 - You create an App Service plan named Plan1 and an Azure web app named webapp1.",
+      "type": "SingleChoice",
+      "questionText": "You create an App Service plan named Plan1 and an Azure web app named webapp1. You discover that the option to create a staging slot is unavailable. You need to create a staging slot for Plan1. What should you do first?",
+      "options": [
+        "A. From Plan1, scale up the App Service plan",
+        "B. From webapp1, modify the Application settings",
+        "C. From webapp1, add a custom domain"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (scale up the App Service plan). Deployment slots are only available in Standard, Premium, or Isolated tier App Service plans. If the staging slot option is unavailable, it means the App Service plan is on a Free, Shared, or Basic tier. You need to scale up (change the pricing tier) to at least Standard. Option B (modify Application settings) is incorrect because application settings do not affect deployment slot availability. Option C (add a custom domain) is incorrect because custom domains are unrelated to deployment slot availability."
+    },
+    {
+      "id": 21,
+      "topic": "Topic 2 - You have 15 Azure subscriptions.",
+      "type": "SingleChoice",
+      "questionText": "You have 15 Azure subscriptions. You have an Azure Active Directory (Azure AD) tenant that contains a security group named Group1. You plan to purchase additional Azure subscription. You need to ensure that Group1 can manage role assignments for the existing subscriptions and the planned subscriptions. The solution must meet the following requirements: ✑ Use the principle of least privilege. ✑ Minimize administrative effort. What should you do?",
+      "options": [
+        "A. Assign Group1 the Owner role for the root management group.",
+        "B. Assign Group1 the User Access Administrator role for the root management group.",
+        "C. Create a new management group and assign Group1 the User Access Administrator role for the group."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B. The User Access Administrator role at the root management group scope is the correct choice. This role allows managing role assignments, which is what Group1 needs. The root management group encompasses all subscriptions, so this single assignment covers both existing and future subscriptions, minimizing administrative effort. Option A (Owner) is incorrect because while Owner includes role assignment capability, it violates the principle of least privilege by granting full resource management access. Option C (new management group) is incorrect because it would require additional administration and might not include future subscriptions automatically."
+    },
+    {
+      "id": 22,
+      "topic": "Topic 5 - Your company has three offices. The offices are located in Miami, Los Angeles, and New York. Each office contains datacenter.",
+      "type": "SingleChoice",
+      "questionText": "Your company has three offices. The offices are located in Miami, Los Angeles, and New York. Each office contains datacenter. You have an Azure subscription that contains resources in the East US and West US Azure regions. Each region contains a virtual network. The virtual networks are peered. You need to connect the datacenters to the subscription. The solution must minimize network latency between the datacenters. What should you create?",
+      "options": [
+        "A. three Azure Application Gateways and one On-premises data gateway",
+        "B. three virtual hubs and one virtual WAN",
+        "C. three virtual WANs and one virtual hub"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (three virtual hubs and one virtual WAN). Azure Virtual WAN provides a unified networking framework. To connect three office datacenters with minimal latency, you create one Virtual WAN with three virtual hubs - one for each geographic area. The hubs connect to the on-premises datacenters via VPN connections and automatically route traffic optimally. Option A is incorrect because Application Gateways are web traffic load balancers, not WAN connectivity solutions. Option C (three Virtual WANs and one hub) is incorrect because you need multiple hubs (one per region/site) under a single WAN, not multiple WANs."
+    },
+    {
+      "id": 23,
+      "topic": "Topic 2 - You have an Azure subscription that contains a storage account named storage1. The storage1 account contains a file share named share1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains a storage account named storage1. The storage1 account contains a file share named share1. The subscription is linked to a hybrid Azure Active Directory (Azure AD) tenant that contains a security group named Group1. You need to grant Group1 the Storage File Data SMB Share Elevated Contributor role for share1. What should you do first?",
+      "options": [
+        "A. Enable Active Directory Domain Service (AD DS) authentication for storage1.",
+        "B. Grant share-level permissions by using File Explorer.",
+        "C. Mount share1 by using File Explorer."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A. Before you can grant Azure RBAC roles for Azure file shares (like Storage File Data SMB Share Elevated Contributor), you must first enable identity-based authentication. Enabling Active Directory Domain Services (AD DS) authentication for the storage account allows Azure AD/AD DS identities to be used for share-level access control. Option B (grant permissions via File Explorer) is incorrect because you need to enable identity-based authentication before you can grant RBAC roles. Option C (mount the share) is incorrect because mounting is done after authentication is configured, not before."
+    },
+    {
+      "id": 24,
+      "topic": "Topic 6 - You have an Azure App Service web app named App1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure App Service web app named App1. You need to collect performance traces for App1. What should you use?",
+      "options": [
+        "A. Azure Application Insights Profiler",
+        "B. the Activity log",
+        "C. the Deployment center"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Azure Application Insights Profiler). Application Insights Profiler collects performance traces for web apps, showing execution time for each method call. It is specifically designed for performance profiling. Option B (Activity log) records management operations, not performance traces. Option C (Deployment center) manages deployments, not performance monitoring."
+    },
+    {
+      "id": 25,
+      "topic": "Topic 1 - Your company has three virtual machines (VMs) that are included in an availability set.",
+      "type": "SingleChoice",
+      "questionText": "Your company has three virtual machines (VMs) that are included in an availability set. You try to resize one of the VMs, which returns an allocation failure message. It is imperative that the VM is resized. Which of the following actions should you take?",
+      "options": [
+        "A. You should only stop one of the VMs.",
+        "B. You should stop two of the VMs.",
+        "C. You should stop all three VMs."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "If the VM you wish to resize is part of an availability set, then you must stop all VMs in the availability set before changing the size of any VM in the set. This is because all running VMs in the availability set must be using the same physical hardware cluster. If a change of physical hardware cluster is required to change the VM size, all VMs must be stopped so they can all be restarted on a hardware cluster that supports the new size. Option A (stop only one VM) is incorrect because stopping just one VM may not free up enough resources on the hardware cluster. Option B (stop two VMs) is incorrect for the same reason. The Azure platform requires all VMs in the availability set to be stopped to ensure they can all be allocated to the appropriate hardware cluster."
+    },
+    {
+      "id": 26,
+      "topic": "Topic 5 - You have an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription. You plan to deploy an Azure Kubernetes Service (AKS) cluster to support an app named App1. On-premises clients connect to App1 by using the IP address of the pod. For the AKS cluster, you need to choose a network type that will support App1. What should you choose?",
+      "options": [
+        "A. kubenet",
+        "B. Azure Container Networking Interface (CNI)",
+        "C. Hybrid Connection endpoints"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Azure Container Networking Interface/CNI). With Azure CNI, every pod gets an IP address from the VNet subnet and can be accessed directly by on-premises clients using the pod's IP address. Option A (kubenet) is incorrect because with kubenet, pods get IP addresses from a separate address space and require NAT, so on-premises clients cannot directly access pods by their IP. Option C (Hybrid Connection) is incorrect because this is an App Service feature, not an AKS networking model."
+    },
+    {
+      "id": 27,
+      "topic": "Topic 5 - You have an Azure subscription that contains the resources shown in the following table.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains the resources shown in the following table. LB1 is configured as shown in the following table. You plan to create new inbound NAT rules that meet the following requirements: ✑ Provide Remote Desktop access to VM1 from the internet by using port 3389. ✑ Provide Remote Desktop access to VM2 from the internet by using port 3389. What should you create on LB1 before you can create the new inbound NAT rules?",
+      "options": [
+        "A. a frontend IP address",
+        "B. a load balancing rule",
+        "C. a health probe"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (a frontend IP address). To create inbound NAT rules for RDP access to specific VMs, you need a separate frontend IP address for each NAT rule that maps to a different backend VM on the same port (3389). Since both VMs need RDP on port 3389, you need two frontend IP configurations. Option B (load balancing rule) is incorrect because load balancing rules distribute traffic across the backend pool, not to specific VMs. Option C (health probe) is incorrect because health probes check backend health, not route traffic to specific VMs."
+    },
+    {
+      "id": 28,
+      "topic": "Topic 2 - You sign up for Azure Active Directory (Azure AD) Premium P2.",
+      "type": "SingleChoice",
+      "questionText": "You sign up for Azure Active Directory (Azure AD) Premium P2. You need to add a user named admin1@contoso.com as an administrator on all the computers that will be joined to the Azure AD domain. What should you configure in Azure AD?",
+      "options": [
+        "A. Device settings from the Devices blade",
+        "B. Providers from the MFA Server blade",
+        "C. User settings from the Users blade"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A. To add a user as a local administrator on all Azure AD joined devices, you configure the Device settings from the Devices blade in Azure AD. The 'Additional local administrators on Azure AD joined devices' setting allows you to specify users who will be added to the local Administrators group on all Azure AD joined devices. Option B (MFA Server providers) is incorrect because this is for configuring multi-factor authentication, not device administrator settings. Option C (User settings) is incorrect because user settings control user-level features like app registrations and LinkedIn connections, not device administrator roles."
+    },
+    {
+      "id": 29,
+      "topic": "Topic 5 - You have an Azure subscription that contains a policy-based virtual network gateway named GW1 and a virtual network named VNet1.",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure subscription that contains a policy-based virtual network gateway named GW1 and a virtual network named VNet1. You need to ensure that you can configure a point-to-site connection from an on-premises computer to VNet1. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Add a service endpoint to VNet1",
+        "B. Reset GW1",
+        "C. Create a route-based virtual network gateway",
+        "D. Add a connection to GW1",
+        "E. Delete GW1"
+      ],
+      "correctAnswers": [
+        "C",
+        "E"
+      ],
+      "explanation": "The correct answers are C (Create a route-based virtual network gateway) and E (Delete GW1). Point-to-site VPN connections require a route-based VPN gateway. Since GW1 is policy-based, it must be deleted first (you cannot have two VPN gateways in the same VNet), and then a new route-based gateway must be created. Option A (service endpoint) is incorrect because service endpoints are for Azure services, not VPN. Option B (reset GW1) is incorrect because resetting does not change the gateway type. Option D (add connection) is incorrect because a policy-based gateway does not support P2S."
+    },
+    {
+      "id": 30,
+      "topic": "Topic 2 - You have an Azure Subscription that contains a storage account named storageacct1234 and two users named User1 and User2.",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure Subscription that contains a storage account named storageacct1234 and two users named User1 and User2. You assign User1 the roles shown in the following exhibit. Which two actions can User1 perform? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Assign roles to User2 for storageacct1234.",
+        "B. Upload blob data to storageacct1234.",
+        "C. Modify the firewall of storageacct1234.",
+        "D. View blob data in storageacct1234."
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": "Based on the exhibit showing User1 has the Owner role and Storage Blob Data Reader role, the correct answers would be A (Assign roles to User2 for storageacct1234) and D (View blob data in storageacct1234). The Owner role allows assigning roles to other users (Option A). The Storage Blob Data Reader role allows reading blob data (Option D). Option B (Upload blob data) is incorrect because Storage Blob Data Reader only allows reading, not writing. Option C (Modify the firewall) requires the Storage Account Contributor or Owner role at the resource level, and the exhibit needs to be consulted for exact roles."
+    },
+    {
+      "id": 31,
+      "topic": "Topic 4 - You plan to create the Azure web apps shown in the following table.",
+      "type": "SingleChoice",
+      "questionText": "You plan to create the Azure web apps shown in the following table. What is the minimum number of App Service plans you should create for the web apps?",
+      "options": [
+        "A. 1",
+        "B. 2",
+        "C. 3"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (1). An App Service plan defines a set of compute resources for a web app to run. Multiple web apps can share the same App Service plan as long as they are in the same region and use the same OS. If all web apps listed meet these criteria, they can all run on a single App Service plan, making 1 the minimum. Option B (2) is incorrect because you would only need two plans if the web apps required different operating systems (e.g., some on Windows and some on Linux) or were in different regions. Option C (3) is incorrect because there is no requirement stated that forces three separate plans; multiple apps can coexist on one plan when they share the same region and OS."
+    },
+    {
+      "id": 32,
+      "topic": "Topic 1 - Your company's Azure subscription includes Azure virtual machines (VMs) that run Windows Server 2016.",
+      "type": "SingleChoice",
+      "questionText": "Your company's Azure subscription includes Azure virtual machines (VMs) that run Windows Server 2016. One of the VMs is backed up every day using Azure Backup Instant Restore. When the VM becomes infected with data encrypting ransomware, you decide to recover the VM's files. Which of the following is TRUE in this scenario?",
+      "options": [
+        "A. You can only recover the files to the infected VM.",
+        "B. You can recover the files to any VM within the company's subscription.",
+        "C. You can only recover the files to a new VM."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is A. When using Azure Backup Instant Restore to recover files, you can recover the files to the same (infected) VM or to any other VM that runs the same operating system. However, the file recovery feature mounts the backup as a drive on the target machine. The question states you can only recover files to the infected VM, which is incorrect based on current Azure documentation. Actually, the correct answer should be B: you can recover files to any VM within the subscription that runs a compatible OS. Azure Backup file recovery allows you to mount recovery points on any compatible VM, not just the original. Option C is incorrect because you do not need to create a new VM specifically for file recovery."
+    },
+    {
+      "id": 33,
+      "topic": "Topic 5 - You have an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription. You are deploying an Azure Kubernetes Service (AKS) cluster that will contain multiple pods. The pods will use kubernet networking. You need to restrict network traffic between the pods. What should you configure on the AKS cluster?",
+      "options": [
+        "A. the Azure network policy",
+        "B. the Calico network policy",
+        "C. pod security policies"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (the Calico network policy). When using kubenet networking in AKS, only Calico network policies are supported (not Azure network policies). Azure network policies require Azure CNI networking. Calico provides network policy enforcement for both kubenet and Azure CNI. Option A (Azure network policy) is incorrect because it requires Azure CNI, not kubenet. Option C (pod security policies) is incorrect because these control pod security contexts, not network traffic between pods."
+    },
+    {
+      "id": 34,
+      "topic": "Topic 2 - You have an Azure subscription named AZPT1 that contains the resources shown in the following table:",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription named AZPT1 that contains the resources shown in the following table: You create a new Azure subscription named AZPT2. You need to identify which resources can be moved to AZPT2. Which resources should you identify?",
+      "options": [
+        "A. VM1, storage1, VNET1, and VM1Managed only",
+        "B. VM1 and VM1Managed only",
+        "C. VM1, storage1, VNET1, VM1Managed, and RVAULT1"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C. All listed resources (VM1, storage1, VNET1, VM1Managed, and RVAULT1) can be moved to a different subscription. Azure supports moving VMs, storage accounts, virtual networks, managed disks, and Recovery Services vaults across subscriptions. When moving VMs, all dependent resources (NICs, disks, etc.) must be moved together. Option A is incorrect because it excludes RVAULT1, which can also be moved. Option B is incorrect because it only includes VMs and excludes storage accounts, virtual networks, and Recovery Services vaults."
+    },
+    {
+      "id": 35,
+      "topic": "Topic 2 - You have three offices and an Azure subscription that contains an Azure Active Directory (Azure AD) tenant.",
+      "type": "SingleChoice",
+      "questionText": "You have three offices and an Azure subscription that contains an Azure Active Directory (Azure AD) tenant. You need to grant user management permissions to a local administrator in each office. What should you use?",
+      "options": [
+        "A. Azure AD roles",
+        "B. administrative units",
+        "C. access packages in Azure AD entitlement management"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (administrative units). Administrative units allow you to subdivide your organization into smaller units and assign management permissions scoped to those units. This is ideal for granting local administrators user management permissions for their specific office. Option A (Azure AD roles) is incorrect because standard Azure AD roles are tenant-wide and cannot be scoped to specific groups of users without administrative units. Option C (access packages) is incorrect because entitlement management access packages are for governing access to resources, not for delegating user management."
+    },
+    {
+      "id": 36,
+      "topic": "Topic 2 - You have an Azure DNS zone named adatum.com.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure DNS zone named adatum.com. You need to delegate a subdomain named research.adatum.com to a different DNS server in Azure. What should you do?",
+      "options": [
+        "A. Create an NS record named research in the adatum.com zone.",
+        "B. Create a PTR record named research in the adatum.com zone.",
+        "C. Modify the SOA record of adatum.com."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A. To delegate a subdomain in Azure DNS, you create a Name Server (NS) record in the parent zone. Creating an NS record named 'research' in the adatum.com zone delegates the research.adatum.com subdomain to different DNS servers. Option B (PTR record) is incorrect because PTR records are used for reverse DNS lookups, not for subdomain delegation. Option C (modify SOA record) is incorrect because the SOA record contains authoritative information about the zone itself and is not used for subdomain delegation."
+    },
+    {
+      "id": 37,
+      "topic": "Topic 3 - You plan to use the Azure Import/Export service to copy files to a storage account.",
+      "type": "SingleChoice",
+      "questionText": "You plan to use the Azure Import/Export service to copy files to a storage account. Which two files should you create before you prepare the drives for the import job? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. an XML manifest file",
+        "B. a dataset CSV file",
+        "C. a JSON configuration file",
+        "D. a PowerShell PS1 file"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (a dataset CSV file). When preparing drives for an Azure Import/Export job, you need to create a dataset CSV file that specifies the files and folders to import, and a driveset CSV file that specifies the drives to use. The dataset.csv file lists the source directories and files. Option A (XML manifest) is incorrect because the Import/Export service uses CSV files, not XML manifests. Option C (JSON configuration) is incorrect because configuration is done via CSV files. Option D (PowerShell PS1) is incorrect because the tool uses CSV input, not PowerShell scripts."
+    },
+    {
+      "id": 38,
+      "topic": "Topic 1 - Your company has an Azure Active Directory (Azure AD) tenant that is configured for hybrid coexistence with the on-premises Active Directory",
+      "type": "SingleChoice",
+      "questionText": "Your company has an Azure Active Directory (Azure AD) tenant that is configured for hybrid coexistence with the on-premises Active Directory domain. The on-premise virtual environment consists of virtual machines (VMs) running on Windows Server 2012 R2 Hyper-V host servers. You have created some PowerShell scripts to automate the configuration of newly created VMs. You plan to create several new VMs. You need a solution that ensures the scripts are run on the new VMs. Which of the following is the best solution?",
+      "options": [
+        "A. Configure a SetupComplete.cmd batch file in the %windir%\\setup\\scripts directory.",
+        "B. Configure a Group Policy Object (GPO) to run the scripts as logon scripts.",
+        "C. Configure a Group Policy Object (GPO) to run the scripts as startup scripts."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Configure a SetupComplete.cmd batch file in the %windir%\\setup\\scripts directory). For on-premises VMs running on Hyper-V (not Azure VMs), the SetupComplete.cmd file runs automatically after Windows Setup completes. This is the best solution for running PowerShell scripts on newly created on-premises VMs. Option B (GPO logon scripts) is incorrect because logon scripts run when a user logs on, not during initial VM setup, and may not cover all configuration needs before first logon. Option C (GPO startup scripts) could work but requires the VMs to be domain-joined first and requires additional GPO infrastructure, making it less direct than SetupComplete.cmd for initial configuration."
+    },
+    {
+      "id": 39,
+      "topic": "Topic 4 - You deploy an Azure Kubernetes Service (AKS) cluster named Cluster1 that uses the IP addresses shown in the following table.",
+      "type": "SingleChoice",
+      "questionText": "You deploy an Azure Kubernetes Service (AKS) cluster named Cluster1 that uses the IP addresses shown in the following table. You need to provide internet users with access to the applications that run in Cluster1. Which IP address should you include in the DNS record for Cluster1?",
+      "options": [
+        "A. 131.107.2.1",
+        "B. 10.0.10.11",
+        "C. 172.17.7.1"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (131.107.2.1). For internet users to access applications in an AKS cluster, you need to use the public IP address in the DNS record. The public IP address (131.107.2.1) is the load balancer IP that routes external traffic to the cluster. Option B (10.0.10.11) is incorrect because this is a private IP address and not accessible from the internet. Option C (172.17.7.1) is incorrect because this is typically a Docker bridge network address, also not publicly accessible."
+    },
+    {
+      "id": 40,
+      "topic": "Topic 4 - You have a deployment template named Template1 that is used to deploy 10 Azure web apps.",
+      "type": "SingleChoice",
+      "questionText": "You have a deployment template named Template1 that is used to deploy 10 Azure web apps. You need to identify what to deploy before you deploy Template1. The solution must minimize Azure costs. What should you identify?",
+      "options": [
+        "A. five Azure Application Gateways",
+        "B. one App Service plan",
+        "C. 10 App Service plans",
+        "D. one Azure Traffic Manager"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (one App Service plan). Multiple web apps can share a single App Service plan, which minimizes costs. An App Service plan defines the compute resources, and multiple apps can run on the same plan. Option A (five Application Gateways) is incorrect because Application Gateways are load balancers, not hosting platforms. Option C (10 App Service plans) is incorrect because it is unnecessarily expensive. Option D (one Traffic Manager) is incorrect because Traffic Manager is for DNS-based routing, not for hosting apps."
+    },
+    {
+      "id": 41,
+      "topic": "Topic 4 - You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table. Adatum.com has the following configurations: ✑ Users may join devices to Azure AD is set to User1. ✑ Additional local administrators on Azure AD joined devices is set to None. You deploy Windows 10 to a computer named Computer1. User1 joins Computer1 to adatum.com. You need to identify the local Administrator group membership on Computer1. Which users are members of the local Administrators group?",
+      "options": [
+        "A. User1 only",
+        "B. User2 only",
+        "C. User1 and User2 only",
+        "D. User1, User2, and User3 only"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C (User1 and User2 only). When User1 joins Computer1 to Azure AD: User1 gets local admin rights because they performed the Azure AD join. User2 is a Global Administrator, and Global Administrators automatically get local admin rights on Azure AD joined devices. User3 does not have Global Administrator role and is not the user who joined the device, so User3 does not get local admin rights. Option A is incorrect because User2 (Global Admin) also gets admin rights. Option B is incorrect because User2 is not the only admin. Option D is incorrect because User3 is not automatically an admin."
+    },
+    {
+      "id": 42,
+      "topic": "Topic 6 - Your company has a main office in London that contains 100 client computers.",
+      "type": "SingleChoice",
+      "questionText": "Your company has a main office in London that contains 100 client computers. Three years ago, you migrated to Azure Active Directory (Azure AD). The company's security policy states that all personal devices and corporate-owned devices must be registered or joined to Azure AD. A remote user named User1 is unable to join a personal device to Azure AD from a home network. You verify that User1 was able to join devices to Azure AD in the past. You need to ensure that User1 can join the device to Azure AD. What should you do?",
+      "options": [
+        "A. Assign the User administrator role to User1.",
+        "B. From the Device settings blade, modify the Maximum number of devices per user setting.",
+        "C. Create a point-to-site VPN from the home network of User1 to Azure."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (modify the Maximum number of devices per user setting). Since User1 was previously able to join devices, the issue is likely that they have reached the maximum device limit. Increasing the 'Maximum number of devices per user' setting allows User1 to join additional devices. Option A (User administrator role) is incorrect because the role is not needed to join devices when the setting allows it. Option C (VPN) is incorrect because Azure AD join works over the internet without VPN."
+    },
+    {
+      "id": 43,
+      "topic": "Topic 2 - Your on-premises network contains a VPN gateway.",
+      "type": "SingleChoice",
+      "questionText": "Your on-premises network contains a VPN gateway. You have an Azure subscription that contains the resources shown in the following table. You need to ensure that all the traffic from VM1 to storage1 travels across the Microsoft backbone network. What should you configure?",
+      "options": [
+        "A. Azure Application Gateway",
+        "B. private endpoints",
+        "C. a network security group (NSG)"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (private endpoints). Private endpoints create a private IP address within your VNet for the storage account, ensuring that traffic between VM1 and storage1 travels entirely over the Microsoft backbone network (Azure Private Link). This eliminates any internet routing. Option A (Azure Application Gateway) is incorrect because Application Gateway is a web traffic load balancer, not a solution for private connectivity to storage. Option C (NSG) is incorrect because NSGs filter traffic but do not change the routing path to use the Microsoft backbone."
+    },
+    {
+      "id": 44,
+      "topic": "Topic 2 - You have an Azure subscription named Subscription1 and an on-premises deployment of Microsoft System Center Service Manager.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription named Subscription1 and an on-premises deployment of Microsoft System Center Service Manager. Subscription1 contains a virtual machine named VM1. You need to ensure that an alert is set in Service Manager when the amount of available memory on VM1 is below 10 percent. What should you do first?",
+      "options": [
+        "A. Create an automation runbook",
+        "B. Deploy a function app",
+        "C. Deploy the IT Service Management Connector (ITSM)"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C. The IT Service Management Connector (ITSMC) allows you to connect Azure to supported ITSM products like Microsoft System Center Service Manager. With ITSMC, you can create work items in ITSM tools based on Azure alerts (metric alerts, Activity Log alerts, and Log Analytics alerts). This enables the alert from Azure Monitor about low memory on VM1 to create an alert in Service Manager. Option A (create an automation runbook) is incorrect because while runbooks can automate tasks, they don't directly integrate with Service Manager for alert management. Option B (deploy a function app) is incorrect because a function app alone does not provide the ITSM integration needed."
+    },
+    {
+      "id": 45,
+      "topic": "Topic 3 - You have an on-premises server that contains a folder named D:\\Folder1.",
+      "type": "SingleChoice",
+      "questionText": "You have an on-premises server that contains a folder named D:\\Folder1. You need to copy the contents of D:\\Folder1 to the public container in an Azure Storage account named contosodata. Which command should you run?",
+      "options": [
+        "A. https://contosodata.blob.core.windows.net/public",
+        "B. azcopy sync D:\\folder1 https://contosodata.blob.core.windows.net/public --snapshot",
+        "C. azcopy copy D:\\folder1 https://contosodata.blob.core.windows.net/public --recursive"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C (azcopy copy D:\\folder1 https://contosodata.blob.core.windows.net/public --recursive). The azcopy copy command with the --recursive flag copies a directory and all its contents to a blob container. Option A is an incomplete URL, not a valid command. Option B (azcopy sync with --snapshot) is incorrect because sync replicates source to destination bidirectionally and --snapshot is not the appropriate flag for this operation."
+    },
+    {
+      "id": 46,
+      "topic": "Topic 2 - You have an Azure subscription named Subscription1 that contains an Azure Log Analytics workspace named Workspace1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription named Subscription1 that contains an Azure Log Analytics workspace named Workspace1. You need to view the error events from a table named Event. Which query should you run in Workspace1?",
+      "options": [
+        "A. Get-Event Event | where {$_.EventType == \"error\"}",
+        "B. search in (Event) \"error\"",
+        "C. select * from Event where EventType == \"error\""
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (search in (Event) \"error\"). In Azure Log Analytics (Kusto Query Language - KQL), the search operator allows you to search for a term across columns in a specific table. The syntax 'search in (Event) \"error\"' searches the Event table for the term 'error'. Option A is incorrect because Get-Event is a PowerShell cmdlet, not a KQL query. Option C is incorrect because 'select * from' is SQL syntax, not KQL syntax. Other valid KQL alternatives include 'Event | search \"error\"' and 'Event | where EventType == \"error\"'."
+    },
+    {
+      "id": 47,
+      "topic": "Topic 2 - You have an Azure Active Directory (Azure AD) tenant named contoso.onmicrosoft.com that contains 100 user accounts.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Active Directory (Azure AD) tenant named contoso.onmicrosoft.com that contains 100 user accounts. You purchase 10 Azure AD Premium P2 licenses for the tenant. You need to ensure that 10 users can use all the Azure AD Premium features. What should you do?",
+      "options": [
+        "A. From the Licenses blade of Azure AD, assign a license",
+        "B. From the Groups blade of each user, invite the users to a group",
+        "C. From the Azure AD domain, add an enterprise application"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A. To ensure specific users can use Azure AD Premium features, you must assign Azure AD Premium P2 licenses to those users from the Licenses blade. Navigate to Azure Active Directory > Licenses > All products, select the Azure AD Premium P2 product, and assign it to the 10 desired users. Option B (invite users to a group) is incorrect because simply adding users to a group does not assign licenses. Option C (add an enterprise application) is incorrect because enterprise applications are for integrating third-party or custom applications with Azure AD, not for license assignment."
+    },
+    {
+      "id": 48,
+      "topic": "Topic 5 - You have an Azure subscription that contains the resources in the following table.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains the resources in the following table. VM1 and VM2 are deployed from the same template and host line-of-business applications. You configure the network security group (NSG) shown in the exhibit. (Click the Exhibit tab.) You need to prevent users of VM1 and VM2 from accessing websites on the Internet over TCP port 80. What should you do?",
+      "options": [
+        "A. Disassociate the NSG from a network interface",
+        "B. Change the Port_80 inbound security rule.",
+        "C. Associate the NSG to Subnet1."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C (Associate the NSG to Subnet1). The NSG already has an appropriate outbound deny rule for port 80. By associating the NSG with Subnet1 (where VM1 and VM2 reside), the rule blocks outbound internet access on port 80 for both VMs. Option A (disassociate from network interface) is incorrect because removing the NSG would not help block traffic. Option B (change the inbound rule) is incorrect because you need to block outbound traffic, not inbound."
+    },
+    {
+      "id": 49,
+      "topic": "Topic 3 - You plan to create an Azure Storage account named storage1 that will contain a file share named share1.",
+      "type": "SingleChoice",
+      "questionText": "You plan to create an Azure Storage account named storage1 that will contain a file share named share1. You need to ensure that share1 can support SMB Multichannel. The solution must minimize costs. How should you configure storage?",
+      "options": [
+        "A. Premium performance with locally-redundant storage (LRS)",
+        "B. Standard performance with zone-redundant storage (ZRS)",
+        "C. Premium performance with geo-redundant storage (GRS)"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Premium performance with locally-redundant storage). SMB Multichannel is only supported on premium file shares (FileStorage account kind), which requires Premium performance tier. To minimize costs, LRS is the cheapest redundancy option for premium file shares. Option B (Standard with ZRS) is incorrect because SMB Multichannel is not supported on standard file shares. Option C (Premium with GRS) is incorrect because GRS is not supported for premium FileStorage accounts and would be more expensive."
+    },
+    {
+      "id": 50,
+      "topic": "Topic 1 - Your company has an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "Your company has an Azure subscription. You need to deploy a number of Azure virtual machines (VMs) using Azure Resource Manager (ARM) templates. You have been informed that the VMs will be included in a single availability set. You are required to make sure that the ARM template you configure allows for as many VMs as possible to remain accessible in the event of fabric failure or maintenance. Which of the following is the value that you should configure for the platformUpdateDomainCount property?",
+      "options": [
+        "A. 10",
+        "B. 20",
+        "C. 30"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct value for platformUpdateDomainCount is 20 (Option B). In Azure availability sets, update domains indicate groups of VMs and underlying physical hardware that can be rebooted at the same time during planned maintenance. By default, 5 update domains are assigned, but Resource Manager deployments can be configured with up to 20 update domains. Setting this to 20 maximizes the number of VMs that remain accessible during maintenance, as only 1/20th of VMs would be affected at any given time. Option A (10) is incorrect because while 10 update domains would work, it does not maximize availability. Option C (30) is incorrect because the maximum number of update domains supported is 20."
+    },
+    {
+      "id": 51,
+      "topic": "Topic 4 - You have an Azure Kubernetes Service (AKS) cluster named AKS1.",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure Kubernetes Service (AKS) cluster named AKS1. You need to configure cluster autoscaler for AKS1. Which two tools should you use? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. the kubectl command",
+        "B. the az aks command",
+        "C. the Set-AzVm cmdlet",
+        "D. the Azure portal"
+      ],
+      "correctAnswers": [
+        "B",
+        "D"
+      ],
+      "explanation": "The correct answers are B (az aks command) and D (the Azure portal). The cluster autoscaler for AKS can be configured using the Azure CLI (az aks update command) or through the Azure portal. Option A (kubectl) is incorrect because kubectl autoscale configures the Horizontal Pod Autoscaler (HPA) for pods, not the cluster autoscaler for nodes. Option C (Set-AzVm) is incorrect because this cmdlet manages individual VMs, not AKS cluster autoscaling."
+    },
+    {
+      "id": 52,
+      "topic": "Topic 4 - You have an Azure subscription that contains a web app named webapp1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains a web app named webapp1. You need to add a custom domain named www.contoso.com to webapp1. What should you do first?",
+      "options": [
+        "A. Create a DNS record",
+        "B. Add a connection string",
+        "C. Upload a certificate."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Create a DNS record). Before adding a custom domain to an Azure web app, you must first create a DNS record (either a CNAME or an A record) at your domain registrar that points to the web app. This allows Azure to verify domain ownership. Option B (add a connection string) is incorrect because connection strings are for database connections. Option C (upload a certificate) is incorrect because SSL certificates are needed for HTTPS but are not the first step in adding a custom domain."
+    },
+    {
+      "id": 53,
+      "topic": "Topic 2 - You have an Azure subscription that contains a resource group named TestRG.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains a resource group named TestRG. You use TestRG to validate an Azure deployment. TestRG contains the following resources: You need to delete TestRG. What should you do first?",
+      "options": [
+        "A. Modify the backup configurations of VM1 and modify the resource lock type of VNET1",
+        "B. Remove the resource lock from VNET1 and delete all data in Vault1",
+        "C. Turn off VM1 and remove the resource lock from VNET1"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C. To delete a resource group, you must first remove any resource locks and stop any VMs. VNET1 has a resource lock that prevents deletion, and VM1 must be stopped (or deleted). Turning off VM1 and removing the resource lock from VNET1 allows the resource group to be deleted. Option A is incorrect because modifying backup configurations and the lock type is not sufficient - the lock must be removed entirely. Option B is incorrect because removing the lock and deleting vault data does not address the running VM, though in practice the resource group delete would stop the VM."
+    },
+    {
+      "id": 54,
+      "topic": "Topic 5 - Your company has an Azure subscription named Subscription1.",
+      "type": "SingleChoice",
+      "questionText": "Your company has an Azure subscription named Subscription1. The company also has two on-premises servers named Server1 and Server2 that run Windows Server 2016. Server1 is configured as a DNS server that has a primary DNS zone named adatum.com. Adatum.com contains 1,000 DNS records. You manage Server1 and Subscription1 from Server2. Server2 has the following tools installed: ✑ The DNS Manager console ✑ Azure PowerShell ✑ Azure CLI 2.0 You need to move the adatum.com zone to an Azure DNS zone in Subscription1. The solution must minimize administrative effort. What should you use?",
+      "options": [
+        "A. Azure CLI",
+        "B. Azure PowerShell",
+        "C. the Azure portal"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Azure PowerShell). To migrate a DNS zone with 1,000 records from on-premises to Azure DNS with minimal effort, you can use a PowerShell migration script. The script exports records from the on-premises DNS and imports them into Azure DNS. Option A (Azure CLI) could also work but typically requires more manual steps for DNS zone migration. Option C (Azure portal) would require manual entry of all 1,000 records, which is not minimal effort."
+    },
+    {
+      "id": 55,
+      "topic": "Topic 3 - You have a general-purpose v1 Azure Storage account named storage1 that uses locally-redundant storage (LRS).",
+      "type": "SingleChoice",
+      "questionText": "You have a general-purpose v1 Azure Storage account named storage1 that uses locally-redundant storage (LRS). You need to ensure that the data in the storage account is protected if a zone fails. The solution must minimize costs and administrative effort. What should you do first?",
+      "options": [
+        "A. Create a new storage account.",
+        "B. Configure object replication rules.",
+        "C. Upgrade the account to general-purpose v2."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C (Upgrade the account to general-purpose v2). General-purpose v1 accounts do not support ZRS replication. To enable zone-redundant storage for zone failure protection, you first need to upgrade to general-purpose v2, which supports ZRS. This is the least costly approach compared to creating a new account. Option A (create new storage account) would work but involves more effort and data migration. Option B (object replication) does not provide zone-level redundancy within the same region."
+    },
+    {
+      "id": 56,
+      "topic": "Topic 1 - You are planning to deploy an Ubuntu Server virtual machine to your company's Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You are planning to deploy an Ubuntu Server virtual machine to your company's Azure subscription. You are required to implement a custom deployment that includes adding a particular trusted root certification authority (CA). Which of the following should you use to create the virtual machine?",
+      "options": [
+        "A. The New-AzureRmVm cmdlet.",
+        "B. The New-AzVM cmdlet.",
+        "C. The Create-AzVM cmdlet."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (The New-AzVM cmdlet). When you need a custom deployment of an Azure VM (such as adding a trusted root certification authority using cloud-init), you use the New-AzVM cmdlet along with a cloud-init configuration file specified via the -CustomData parameter. Option A (New-AzureRmVm) is incorrect because this is the old AzureRM module cmdlet which has been deprecated in favor of the Az module. Option C (Create-AzVM) is incorrect because there is no such cmdlet in Azure PowerShell; the correct cmdlet name is New-AzVM. The cloud-init.txt file can be used with New-AzVM to customize the VM during provisioning, including adding trusted root CAs."
+    },
+    {
+      "id": 57,
+      "topic": "Topic 3 - You have an Azure subscription that contains an Azure Storage account.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains an Azure Storage account. You plan to create an Azure container instance named container1 that will use a Docker image named Image1. Image1 contains a Microsoft SQL Server instance that requires persistent storage. You need to configure a storage service for Container1. What should you use?",
+      "options": [
+        "A. Azure Files",
+        "B. Azure Blob storage",
+        "C. Azure Queue storage"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Azure Files). Azure Container Instances supports mounting Azure Files shares for persistent storage. This is the recommended approach for providing persistent storage to containers. Azure Blob storage (Option B) is not directly mountable as a file system in container instances. Azure Queue storage (Option C) is a messaging service, not a storage volume solution for containers."
+    },
+    {
+      "id": 58,
+      "topic": "Topic 6 - You have an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription. You need to receive an email alert when a resource lock is removed from any resource in the subscription. What should you use to create an activity log alert in Azure Monitor?",
+      "options": [
+        "A. a resource, a condition, and an action group",
+        "B. a resource, a condition, and a Microsoft 365 group",
+        "C. a Log Analytics workspace, a resource, and an action group"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (a resource, a condition, and an action group). To create an activity log alert in Azure Monitor, you need: a target resource (or scope), a condition (the specific operation to monitor, such as deleting a lock), and an action group (which defines who receives the email notification). Option B is incorrect because Microsoft 365 groups cannot be used as action targets in Azure Monitor. Option C is incorrect because a Log Analytics workspace is not required for activity log alerts."
+    },
+    {
+      "id": 59,
+      "topic": "Topic 2 - You recently created a new Azure subscription that contains a user named Admin1.",
+      "type": "SingleChoice",
+      "questionText": "You recently created a new Azure subscription that contains a user named Admin1. Admin1 attempts to deploy an Azure Marketplace resource by using an Azure Resource Manager template. Admin1 deploys the template by using Azure PowerShell and receives the following error message: `User failed validation to purchase resources. Error message: `Legal terms have not been accepted for this item on this subscription. To accept legal terms, please go to the Azure portal (http://go.microsoft.com/fwlink/?LinkId=534873) and configure programmatic deployment for the Marketplace item or create it there for the first time.` You need to ensure that Admin1 can deploy the Marketplace resource successfully. What should you do?",
+      "options": [
+        "A. From Azure PowerShell, run the Set-AzApiManagementSubscription cmdlet",
+        "B. From the Azure portal, register the Microsoft.Marketplace resource provider",
+        "C. From Azure PowerShell, run the Set-AzMarketplaceTerms cmdlet"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The correct answer is C (Set-AzMarketplaceTerms cmdlet). The error message indicates that legal terms for the Marketplace item have not been accepted. The Set-AzMarketplaceTerms cmdlet is used to accept or reject the terms for a given publisher, offer, and plan, enabling programmatic deployment. Option A (Set-AzApiManagementSubscription) is incorrect because this cmdlet manages API Management subscriptions, not Marketplace terms. Option B (register Microsoft.Marketplace resource provider) is incorrect because the error is about accepting legal terms, not about resource provider registration."
+    },
+    {
+      "id": 60,
+      "topic": "Topic 6 - You have an Azure subscription that contains a virtual network named VNet1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 uses two ExpressRoute circuits that connect to two separate on-premises datacenters. You need to create a dashboard to display detailed metrics and a visual representation of the network topology. What should you use?",
+      "options": [
+        "A. Azure Monitor Network Insights",
+        "B. a Data Collection Rule (DCR)",
+        "C. Azure Virtual Network Watcher"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Azure Monitor Network Insights). Network Insights provides a comprehensive view of network health and metrics, including visual topology maps and detailed metrics for ExpressRoute circuits, VPN gateways, and virtual networks. Option B (DCR) collects data but does not provide topology visualization. Option C (Network Watcher) provides diagnostic tools but not the comprehensive dashboard and topology view that Network Insights offers."
+    },
+    {
+      "id": 61,
+      "topic": "Topic 4 - You have an Azure subscription named Subscription1 that has the following providers registered:",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure subscription named Subscription1 that has the following providers registered: ✑ Authorization ✑ Automation ✑ Resources ✑ Compute ✑ KeyVault ✑ Network ✑ Storage ✑ Billing ✑ Web Subscription1 contains an Azure virtual machine named VM1 that has the following configurations: ✑ Private IP address: 10.0.0.4 (dynamic) ✑ Network security group (NSG): NSG1 ✑ Public IP address: None ✑ Availability set: AVSet ✑ Subnet: 10.0.0.0/24 ✑ Managed disks: No ✑ Location: East US You need to record all the successful and failed connection attempts to VM1. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Enable Azure Network Watcher in the East US Azure region.",
+        "B. Add an Azure Network Watcher connection monitor.",
+        "C. Register the MicrosoftLogAnalytics provider.",
+        "D. Create an Azure Storage account.",
+        "E. Register the Microsoft.Insights resource provider."
+      ],
+      "correctAnswers": [
+        "A",
+        "D",
+        "E"
+      ],
+      "explanation": "The correct answers are A (Enable Azure Network Watcher in East US), D (Create an Azure Storage account), and E (Register the Microsoft.Insights resource provider). To enable NSG flow logging for recording connection attempts: (1) Enable Network Watcher in the VM's region. (2) Register the Microsoft.Insights provider, which is required for NSG flow logs. (3) Create a storage account to store the flow log data (or use an existing one if available). Option B (connection monitor) monitors connectivity but does not log all connection attempts. Option C (Microsoft.LogAnalytics) is not required for basic flow logging."
+    },
+    {
+      "id": 62,
+      "topic": "Topic 2 - You have a Microsoft 365 tenant and an Azure Active Directory (Azure AD) tenant named contoso.com.",
+      "type": "MultipleChoice",
+      "questionText": "You have a Microsoft 365 tenant and an Azure Active Directory (Azure AD) tenant named contoso.com. You plan to grant three users named User1, User2, and User3 access to a temporary Microsoft SharePoint document library named Library1. You need to create groups for the users. The solution must ensure that the groups are deleted automatically after 180 days. Which two groups should you create? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. a Microsoft 365 group that uses the Assigned membership type",
+        "B. a Security group that uses the Assigned membership type",
+        "C. a Microsoft 365 group that uses the Dynamic User membership type",
+        "D. a Security group that uses the Dynamic User membership type"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "The correct answers are A and C. Azure AD group expiration policies can only be set for Microsoft 365 groups (formerly Office 365 groups). Both Assigned membership type (Option A) and Dynamic User membership type (Option C) Microsoft 365 groups support expiration policies. Option B (Security group with Assigned membership) is incorrect because expiration policies cannot be applied to security groups. Option D (Security group with Dynamic User membership) is incorrect for the same reason - security groups do not support expiration policies regardless of membership type."
+    },
+    {
+      "id": 63,
+      "topic": "Topic 5 - You have an Azure subscription named Subscription1 that contains an Azure virtual network named VNet1. VNet1 connects to your on-premises",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure subscription named Subscription1 that contains an Azure virtual network named VNet1. VNet1 connects to your on-premises network by using Azure ExpressRoute. You plan to prepare the environment for automatic failover in case of ExpressRoute failure. You need to connect VNet1 to the on-premises network by using a site-to-site VPN. The solution must minimize cost. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Create a connection",
+        "B. Create a local site VPN gateway",
+        "C. Create a VPN gateway that uses the VpnGw1 SKU",
+        "D. Create a gateway subnet"
+      ],
+      "correctAnswers": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "The correct answers are A (Create a connection), C (Create a VPN gateway that uses the VpnGw1 SKU), and D (Create a gateway subnet). To set up a site-to-site VPN as failover for ExpressRoute: (1) Create a gateway subnet if one does not exist. (2) Create a VPN gateway (VpnGw1 is the minimum SKU that supports coexistence with ExpressRoute). (3) Create a connection between the VPN gateway and on-premises. Option B (local site VPN gateway) is also needed but may already exist."
+    },
+    {
+      "id": 64,
+      "topic": "Topic 4 - You plan to automate the deployment of a virtual machine scale set that uses the Windows Server 2016 Datacenter image.",
+      "type": "MultipleChoice",
+      "questionText": "You plan to automate the deployment of a virtual machine scale set that uses the Windows Server 2016 Datacenter image. You need to ensure that when the scale set virtual machines are provisioned, they have web server components installed. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Upload a configuration script",
+        "B. Create an automation account",
+        "C. Create an Azure policy",
+        "D. Modify the extensionProfile section of the Azure Resource Manager template"
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": "The correct answers are A (Upload a configuration script) and D (Modify the extensionProfile section of the ARM template). To install web server components on VMSS VMs during provisioning: (1) Upload a DSC configuration script or custom script to Azure storage. (2) Add or modify the extensionProfile in the ARM template to reference the script via a Custom Script Extension or DSC extension. Option B (automation account) is incorrect because an automation account is not required for VMSS extensions. Option C (Azure policy) is incorrect because Azure Policy enforces compliance but does not install software."
+    },
+    {
+      "id": 65,
+      "topic": "Topic 4 - You have an app named App1 that runs on an Azure web app named webapp1.",
+      "type": "MultipleChoice",
+      "questionText": "You have an app named App1 that runs on an Azure web app named webapp1. The developers at your company upload an update of App1 to a Git repository named Git1. Webapp1 has the deployment slots shown in the following table. You need to ensure that the App1 update is tested before the update is made available to users. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Swap the slots",
+        "B. Deploy the App1 update to webapp1-prod, and then test the update",
+        "C. Stop webapp1-prod",
+        "D. Deploy the App1 update to webapp1-test, and then test the update"
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": "The correct answers are A (Swap the slots) and D (Deploy the App1 update to webapp1-test, then test). The correct process is: first deploy the update to the test slot (webapp1-test), test it there, and then swap the test slot with the production slot to make the update available to users. Option B is incorrect because deploying directly to production means untested code reaches users. Option C (stop production) is incorrect and unnecessary for this workflow."
+    }
+  ]
+}

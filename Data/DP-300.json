@@ -1,0 +1,874 @@
+{
+  "examCode": "DP-300",
+  "examTitle": "Azure Database Administrator Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Azure SQL Database - Deployment options",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs a fully managed SQL database with built-in high availability, automated backups, and automatic patching. You want to minimize administrative overhead. Which Azure SQL deployment option should you choose?",
+      "options": [
+        "A. SQL Server on Azure Virtual Machines",
+        "B. Azure SQL Database (single database)",
+        "C. SQL Server on a container instance",
+        "D. On-premises SQL Server with Azure Arc"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure SQL Database (single database) is a fully managed PaaS service that provides built-in high availability, automated backups, automatic patching, and intelligent performance tuning, minimizing administrative overhead.\n\nWhy the others are wrong:\n- A. SQL Server on Azure VMs requires you to manage the OS, patching, backups, and HA configuration yourself.\n- C. SQL Server on a container instance requires container management and doesn't provide built-in HA or automated backups.\n- D. On-premises SQL Server with Azure Arc provides monitoring but still requires full on-premises administration."
+    },
+    {
+      "id": 2,
+      "topic": "Azure SQL Managed Instance - Migration",
+      "type": "SingleChoice",
+      "questionText": "You need to migrate an on-premises SQL Server database that uses SQL Agent jobs, cross-database queries, and CLR assemblies to Azure. Which deployment option provides the highest compatibility?",
+      "options": [
+        "A. Azure SQL Database single database",
+        "B. Azure SQL Database elastic pool",
+        "C. Azure SQL Managed Instance",
+        "D. Azure Database for PostgreSQL"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Azure SQL Managed Instance provides near 100% compatibility with on-premises SQL Server, supporting SQL Agent jobs, cross-database queries, CLR assemblies, linked servers, and other instance-scoped features not available in Azure SQL Database.\n\nWhy the others are wrong:\n- A. Azure SQL Database single database doesn't support SQL Agent jobs, cross-database queries, or CLR assemblies.\n- B. Elastic pools share the same limitations as single databases regarding instance-scoped features.\n- D. Azure Database for PostgreSQL is a different database engine entirely and cannot run SQL Server workloads."
+    },
+    {
+      "id": 3,
+      "topic": "Automated Tuning - Index management",
+      "type": "SingleChoice",
+      "questionText": "Azure SQL Database's automatic tuning recommends creating a new nonclustered index. Before automatically implementing it, what does the service do?",
+      "options": [
+        "A. Immediately creates the index without validation",
+        "B. Validates the recommendation by verifying the index improves query performance, and automatically reverts if performance degrades",
+        "C. Sends an email to the database owner for manual approval",
+        "D. Waits 30 days before implementing any recommendation"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When automatic tuning is enabled, Azure SQL Database validates index recommendations by measuring their actual impact on query performance. If the index doesn't improve or degrades performance, it is automatically reverted.\n\nWhy the others are wrong:\n- A. The service doesn't implement changes without validation; it measures the impact first.\n- C. Automatic tuning (when enabled) doesn't require manual email approval; that would defeat the purpose of automation.\n- D. There is no 30-day waiting period; recommendations are implemented based on confidence level and validated through performance monitoring."
+    },
+    {
+      "id": 4,
+      "topic": "Backup and Restore - Point-in-time restore",
+      "type": "SingleChoice",
+      "questionText": "A user accidentally deleted critical data from an Azure SQL Database at 2:30 PM. You need to recover the data. The database's short-term backup retention is set to the default. What is the best recovery approach?",
+      "options": [
+        "A. Restore from the last full backup taken at midnight",
+        "B. Perform a point-in-time restore to 2:29 PM",
+        "C. Use Azure Site Recovery to failover",
+        "D. Query the recycle bin for deleted rows"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Point-in-time restore (PITR) in Azure SQL Database allows you to restore the database to any point in time within the retention period (default 7 days). Restoring to 2:29 PM recovers the database to just before the accidental deletion.\n\nWhy the others are wrong:\n- A. Restoring from the midnight full backup would lose all changes made between midnight and 2:29 PM.\n- C. Azure Site Recovery is for disaster recovery of VMs and infrastructure, not for point-in-time database recovery.\n- D. Azure SQL Database doesn't have a recycle bin for deleted rows; you need backup-based recovery."
+    },
+    {
+      "id": 5,
+      "topic": "High Availability - Service tiers",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy an Azure SQL Database with a 99.995% SLA and zone-redundant high availability. Which service tier should you choose?",
+      "options": [
+        "A. Basic tier",
+        "B. Standard tier (General Purpose)",
+        "C. Premium tier (Business Critical)",
+        "D. Hyperscale tier without zone redundancy"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The Business Critical (Premium) tier uses an Always On availability group architecture and supports zone-redundant configurations that distribute replicas across Azure Availability Zones, providing a 99.995% SLA.\n\nWhy the others are wrong:\n- A. The Basic tier provides a lower SLA and doesn't support zone-redundant deployment.\n- B. The Standard/General Purpose tier uses remote storage architecture and offers a lower SLA than Business Critical with zone redundancy.\n- D. Hyperscale without zone redundancy provides a lower SLA than Business Critical with zone redundancy enabled."
+    },
+    {
+      "id": 6,
+      "topic": "Security - Transparent Data Encryption",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that you manage the encryption keys for Azure SQL Database data-at-rest encryption yourself. What should you configure?",
+      "options": [
+        "A. TDE with service-managed key (default)",
+        "B. TDE with customer-managed key (Bring Your Own Key) stored in Azure Key Vault",
+        "C. Always Encrypted with column master key",
+        "D. Dynamic data masking on all columns"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. TDE with customer-managed key (BYOK) allows you to manage the TDE protector key in Azure Key Vault, giving you full control over key lifecycle, rotation, and access policies.\n\nWhy the others are wrong:\n- A. Service-managed keys are managed by Microsoft, not by the customer.\n- C. Always Encrypted protects specific columns in transit and at rest on the client side, but doesn't replace TDE for full database encryption key management.\n- D. Dynamic data masking obfuscates data display but doesn't encrypt data at rest."
+    },
+    {
+      "id": 7,
+      "topic": "Monitoring - Query Performance Insight",
+      "type": "SingleChoice",
+      "questionText": "You notice that your Azure SQL Database is experiencing high DTU consumption. You need to identify which queries are consuming the most resources. Which tool should you use?",
+      "options": [
+        "A. Azure Advisor",
+        "B. Query Performance Insight in the Azure portal",
+        "C. Azure Service Health",
+        "D. Azure Cost Management"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Query Performance Insight provides a visual dashboard showing the top resource-consuming queries by CPU, duration, and execution count. It leverages Query Store data to help identify and optimize problematic queries.\n\nWhy the others are wrong:\n- A. Azure Advisor provides general best practice recommendations but doesn't show individual query resource consumption.\n- C. Azure Service Health shows platform-level incidents and maintenance events, not query-level performance data.\n- D. Azure Cost Management tracks spending, not query performance metrics."
+    },
+    {
+      "id": 8,
+      "topic": "Azure SQL Database - Elastic pools",
+      "type": "SingleChoice",
+      "questionText": "You manage 20 Azure SQL databases for different customers. Each database has unpredictable usage patterns with peak usage at different times. You want to optimize costs. What should you use?",
+      "options": [
+        "A. Deploy each database on a separate dedicated SQL pool",
+        "B. Use an elastic pool to share resources among the databases",
+        "C. Migrate all databases to a single database with schemas per customer",
+        "D. Use serverless compute for all databases"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Elastic pools allow multiple databases to share a set of resources (eDTUs or vCores). Since the databases have staggered peak usage, they can share resources efficiently, reducing overall costs compared to provisioning each database individually for peak demand.\n\nWhy the others are wrong:\n- A. Separate dedicated SQL pools (Synapse) are for data warehousing, not OLTP databases, and would be extremely expensive.\n- C. Consolidating into a single database with schemas loses tenant isolation and makes management more complex.\n- D. Serverless compute can help individual databases but doesn't provide the shared resource pooling benefit across databases."
+    },
+    {
+      "id": 9,
+      "topic": "Disaster Recovery - Active geo-replication",
+      "type": "SingleChoice",
+      "questionText": "You need to configure disaster recovery for an Azure SQL Database so that a readable secondary copy is maintained in a different Azure region. Which feature should you use?",
+      "options": [
+        "A. Azure SQL Database active geo-replication",
+        "B. Azure Site Recovery",
+        "C. Azure Backup with cross-region restore",
+        "D. Log shipping to an Azure VM"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Active geo-replication creates a continuously synchronized, readable secondary database in a different region. It supports up to four secondaries and allows manual or planned failover for disaster recovery.\n\nWhy the others are wrong:\n- B. Azure Site Recovery is for VM-level replication, not for PaaS SQL Database DR.\n- C. Azure Backup with cross-region restore provides backup-based recovery but not a continuously synchronized readable replica.\n- D. Log shipping to an Azure VM requires IaaS management and is not the recommended approach for PaaS SQL Database."
+    },
+    {
+      "id": 10,
+      "topic": "Security - Row-level security",
+      "type": "SingleChoice",
+      "questionText": "You have a multi-tenant Azure SQL Database where each tenant's data is stored in the same table. You need to ensure that each tenant can only see their own rows. Which security feature should you implement?",
+      "options": [
+        "A. Dynamic data masking",
+        "B. Row-level security (RLS) with a security policy",
+        "C. Column-level encryption",
+        "D. Firewall rules per tenant"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Row-level security uses security policies with filter predicates to transparently restrict which rows a user can access. A predicate function checks the tenant ID against the user's identity and filters rows accordingly.\n\nWhy the others are wrong:\n- A. Dynamic data masking hides column values from unauthorized users but doesn't restrict which rows are returned.\n- C. Column-level encryption protects data in columns but doesn't filter rows based on tenant identity.\n- D. Firewall rules control network access to the server, not row-level data access within tables."
+    },
+    {
+      "id": 11,
+      "topic": "Monitoring - Azure SQL Analytics",
+      "type": "SingleChoice",
+      "questionText": "You need a centralized monitoring solution to track performance metrics, intelligent insights, and diagnostics across multiple Azure SQL databases and managed instances. Which solution should you configure?",
+      "options": [
+        "A. SQL Server Management Studio (SSMS) connected to each database",
+        "B. Azure SQL Analytics in Azure Monitor (Log Analytics workspace)",
+        "C. Windows Performance Monitor",
+        "D. Extended Events on each database individually"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure SQL Analytics is a cloud monitoring solution in Azure Monitor that provides centralized, cross-database performance monitoring, intelligent insights, and diagnostic data using a Log Analytics workspace.\n\nWhy the others are wrong:\n- A. SSMS provides individual database management but not centralized monitoring across many databases.\n- C. Windows Performance Monitor is for on-premises Windows server monitoring, not Azure PaaS databases.\n- D. Extended Events capture detailed diagnostics per database but don't provide centralized cross-database monitoring."
+    },
+    {
+      "id": 12,
+      "topic": "Azure SQL Database - Serverless compute",
+      "type": "SingleChoice",
+      "questionText": "You have a development database that is used intermittently during business hours and not used at all during nights and weekends. You want to minimize costs. Which compute tier should you use?",
+      "options": [
+        "A. Provisioned compute with the smallest vCore count",
+        "B. Serverless compute tier with auto-pause enabled",
+        "C. Hyperscale tier with 2 vCores",
+        "D. Basic tier with 5 DTUs"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The serverless compute tier automatically scales compute based on workload demand and can auto-pause the database during periods of inactivity (like nights and weekends), billing only for storage while paused. This is ideal for intermittent usage patterns.\n\nWhy the others are wrong:\n- A. Provisioned compute runs continuously and charges for the allocated vCores even when the database is idle.\n- C. Hyperscale is designed for large databases and doesn't offer auto-pause capabilities.\n- D. Basic tier is always provisioned and doesn't auto-pause, though it is cheap, it still charges when unused."
+    },
+    {
+      "id": 13,
+      "topic": "Backup and Restore - Long-term retention",
+      "type": "SingleChoice",
+      "questionText": "Your compliance requirements mandate that you retain database backups for 5 years. The default short-term retention is 7 days. What should you configure?",
+      "options": [
+        "A. Increase short-term retention to 5 years",
+        "B. Configure long-term retention (LTR) policy to retain weekly backups for 5 years",
+        "C. Manually export the database to a BACPAC file every week",
+        "D. Enable geo-replication to a secondary region"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Long-term retention (LTR) policies allow you to retain full backups in Azure Blob Storage for up to 10 years. You can configure weekly, monthly, and yearly retention policies to meet compliance requirements.\n\nWhy the others are wrong:\n- A. Short-term retention (PITR) supports a maximum of 35 days, not 5 years.\n- C. Manually exporting BACPAC files is error-prone, requires ongoing management, and doesn't integrate with Azure's backup infrastructure.\n- D. Geo-replication provides a live copy for DR but doesn't provide long-term backup retention."
+    },
+    {
+      "id": 14,
+      "topic": "High Availability - Failover groups",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring an auto-failover group for Azure SQL Database to provide automatic disaster recovery. Which TWO characteristics describe failover groups? Each correct answer presents part of the solution.",
+      "options": [
+        "A. They provide a read-write listener endpoint that automatically redirects connections after failover",
+        "B. They support automatic failover based on a configurable grace period",
+        "C. They require manual DNS updates after every failover",
+        "D. They only work within the same Azure region"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Failover groups provide listener endpoints (read-write and read-only) that automatically redirect client connections after failover, requiring no application changes. They support automatic failover with a configurable grace period that defines how long to wait before initiating failover after an outage.\n\nWhy the others are wrong:\n- C. The listener endpoints handle DNS redirection automatically; no manual DNS updates are needed.\n- D. Failover groups are specifically designed for cross-region disaster recovery; they create secondaries in a different region."
+    },
+    {
+      "id": 15,
+      "topic": "Security - Azure AD authentication",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Azure SQL Database authentication so that users sign in using their corporate Azure AD (Entra ID) credentials with multi-factor authentication. What must you configure?",
+      "options": [
+        "A. SQL authentication with complex password requirements",
+        "B. An Azure AD admin for the SQL server and Azure AD authentication",
+        "C. Windows authentication pass-through",
+        "D. Certificate-based authentication"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. You must set an Azure AD administrator for the Azure SQL logical server, which enables Azure AD authentication. Users can then connect using their Azure AD credentials, and MFA is enforced through Azure AD conditional access policies.\n\nWhy the others are wrong:\n- A. SQL authentication uses username/password stored in the database and doesn't integrate with Azure AD or MFA.\n- C. Windows authentication pass-through is not supported for Azure SQL Database (PaaS).\n- D. Certificate-based authentication is not the standard mechanism for Azure AD integration with SQL Database."
+    },
+    {
+      "id": 16,
+      "topic": "Monitoring - Intelligent insights",
+      "type": "SingleChoice",
+      "questionText": "Azure SQL Database's Intelligent Insights detected that a query is experiencing a regression in execution plan. What has the service identified?",
+      "options": [
+        "A. The database is running out of storage space",
+        "B. The query optimizer has chosen a less efficient execution plan compared to a previously well-performing plan",
+        "C. The database firewall is blocking the query",
+        "D. The query syntax contains errors"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An execution plan regression means the query optimizer has selected a different (less efficient) execution plan than a previously well-performing one. This typically happens due to data distribution changes, statistics updates, or parameter sniffing issues.\n\nWhy the others are wrong:\n- A. Storage space issues would manifest as write failures, not plan regressions.\n- C. Firewall issues would prevent connections, not cause plan changes.\n- D. Syntax errors would prevent the query from compiling, not cause plan regressions."
+    },
+    {
+      "id": 17,
+      "topic": "Azure SQL Managed Instance - Networking",
+      "type": "SingleChoice",
+      "questionText": "You are deploying an Azure SQL Managed Instance. Which networking requirement must be met?",
+      "options": [
+        "A. The managed instance must be deployed into a dedicated subnet within a virtual network",
+        "B. The managed instance requires a public IP address for all connections",
+        "C. The managed instance must be in the same region as all client applications",
+        "D. The managed instance requires Azure ExpressRoute for any connectivity"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure SQL Managed Instance must be deployed into a dedicated subnet within a virtual network (VNet). The subnet must be delegated to the Managed Instance service and meet specific sizing requirements.\n\nWhy the others are wrong:\n- B. A public endpoint is optional and disabled by default; private connectivity through the VNet is the standard.\n- C. Client applications can be in any region; they connect through VNet peering, VPN, or the optional public endpoint.\n- D. ExpressRoute is one connectivity option but not required; VPN Gateway and VNet peering are alternatives."
+    },
+    {
+      "id": 18,
+      "topic": "Automated Tuning - Force plan",
+      "type": "SingleChoice",
+      "questionText": "You have a critical query that intermittently uses a bad execution plan. Automatic tuning suggests forcing a known good plan. Where does Azure SQL Database store the plan information used for automatic plan correction?",
+      "options": [
+        "A. In the master database",
+        "B. In the Query Store",
+        "C. In sys.dm_exec_query_stats DMV only",
+        "D. In the transaction log"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Query Store captures and retains execution plans and runtime statistics for queries. Automatic plan correction uses Query Store data to identify plan regressions and force known-good plans.\n\nWhy the others are wrong:\n- A. The master database stores server-level metadata, not individual query plans for user databases.\n- C. sys.dm_exec_query_stats is a DMV that shows cached plan statistics but doesn't persist historical plan information like Query Store does.\n- D. The transaction log records data modifications, not execution plan history."
+    },
+    {
+      "id": 19,
+      "topic": "Backup and Restore - Geo-restore",
+      "type": "SingleChoice",
+      "questionText": "An entire Azure region becomes unavailable due to a catastrophic event. You need to restore your Azure SQL Database in a different region. Which feature enables this recovery?",
+      "options": [
+        "A. Point-in-time restore to the same region",
+        "B. Geo-restore using geo-redundant backup storage",
+        "C. Import from a local BACPAC file",
+        "D. Restore from a database snapshot"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Geo-restore uses geo-redundant backups (GRS) that are automatically replicated to a paired region. If the primary region is unavailable, you can restore the database to any Azure region from the geo-replicated backup.\n\nWhy the others are wrong:\n- A. Point-in-time restore to the same region won't work if the entire region is unavailable.\n- C. Importing from a local BACPAC file requires having a recent export, which may not exist or may be outdated.\n- D. Database snapshots are not a feature of Azure SQL Database (PaaS); they're a SQL Server on VM feature."
+    },
+    {
+      "id": 20,
+      "topic": "Security - Advanced Threat Protection",
+      "type": "MultipleChoice",
+      "questionText": "You want to detect potential security threats to your Azure SQL Database, such as SQL injection attempts and anomalous database access patterns. Which TWO features should you enable? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Microsoft Defender for SQL",
+        "B. Azure SQL Auditing",
+        "C. Transparent Data Encryption",
+        "D. Dynamic Data Masking"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Microsoft Defender for SQL provides Advanced Threat Protection, which detects anomalous activities including SQL injection, unusual access patterns, and data exfiltration. Azure SQL Auditing records database events and operations, providing an audit trail for security analysis and compliance.\n\nWhy the others are wrong:\n- C. TDE encrypts data at rest but doesn't detect security threats or anomalous access patterns.\n- D. Dynamic Data Masking obfuscates data display but doesn't detect or alert on security threats."
+    },
+    {
+      "id": 21,
+      "topic": "Azure SQL Database - Scaling",
+      "type": "SingleChoice",
+      "questionText": "Your Azure SQL Database is experiencing performance issues due to high CPU usage during business hours. You need to increase resources without downtime. What should you do?",
+      "options": [
+        "A. Scale up the database by increasing the service tier or vCores online",
+        "B. Delete and recreate the database with a higher tier",
+        "C. Detach and reattach the database to a bigger server",
+        "D. Export the database and import to a new server"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure SQL Database supports online scaling (up or down) of service tier, DTUs, or vCores. The operation runs in the background with a brief connection reset at the end, providing near-zero downtime.\n\nWhy the others are wrong:\n- B. Deleting and recreating would cause significant downtime and data loss risk.\n- C. Azure SQL Database is PaaS; you cannot detach/reattach databases like on-premises SQL Server.\n- D. Export/import would cause substantial downtime and is not necessary for simple scaling."
+    },
+    {
+      "id": 22,
+      "topic": "Monitoring - Dynamic Management Views",
+      "type": "SingleChoice",
+      "questionText": "You need to identify the currently executing queries and their wait types in an Azure SQL Database to troubleshoot a performance bottleneck. Which DMV should you query?",
+      "options": [
+        "A. sys.dm_exec_sessions joined with sys.dm_exec_requests",
+        "B. sys.databases",
+        "C. sys.dm_os_memory_clerks",
+        "D. sys.dm_db_index_physical_stats"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. sys.dm_exec_requests shows currently executing requests with wait types, wait times, and resource usage. Joining with sys.dm_exec_sessions provides session-level context. This combination is the primary tool for real-time performance troubleshooting.\n\nWhy the others are wrong:\n- B. sys.databases shows database metadata, not query execution information.\n- C. sys.dm_os_memory_clerks shows memory allocation details, not actively running queries.\n- D. sys.dm_db_index_physical_stats provides index fragmentation information, not running query details."
+    },
+    {
+      "id": 23,
+      "topic": "Azure SQL Database - Read replicas",
+      "type": "SingleChoice",
+      "questionText": "You want to offload read-only reporting queries from your primary Azure SQL Database to reduce the load on the primary. The Business Critical tier is deployed with zone redundancy. Which feature should you use?",
+      "options": [
+        "A. Active geo-replication to another region",
+        "B. Read scale-out using the built-in readable secondary replica",
+        "C. Create a database copy and refresh it manually",
+        "D. Use serverless SQL pool in Synapse Analytics"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Business Critical tier includes built-in readable secondary replicas. Read scale-out allows you to route read-only connections to these replicas by adding ApplicationIntent=ReadOnly to the connection string, offloading the primary.\n\nWhy the others are wrong:\n- A. Geo-replication to another region adds cross-region latency and cost for local read offloading needs.\n- C. Manual database copies are not synchronized in real-time and require ongoing maintenance.\n- D. Serverless SQL pool queries data lake files, not Azure SQL Database tables."
+    },
+    {
+      "id": 24,
+      "topic": "Security - Data classification",
+      "type": "SingleChoice",
+      "questionText": "You need to discover and classify sensitive data (such as social security numbers and credit card numbers) stored in your Azure SQL Database for compliance purposes. Which feature should you use?",
+      "options": [
+        "A. Azure SQL Data Discovery and Classification",
+        "B. Dynamic Data Masking",
+        "C. Transparent Data Encryption",
+        "D. Azure Policy"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure SQL Data Discovery and Classification provides built-in capabilities to discover, classify, label, and protect sensitive data. It scans columns and recommends classifications based on content patterns like SSN, credit card numbers, etc.\n\nWhy the others are wrong:\n- B. Dynamic Data Masking hides data from unauthorized users but doesn't discover or classify sensitive data.\n- C. TDE encrypts all data at rest but doesn't identify which data is sensitive.\n- D. Azure Policy enforces organizational rules but doesn't scan and classify database content."
+    },
+    {
+      "id": 25,
+      "topic": "Automated Tuning - Statistics management",
+      "type": "SingleChoice",
+      "questionText": "You notice that queries are performing poorly because the query optimizer is using outdated statistics. What setting controls automatic statistics updates in Azure SQL Database?",
+      "options": [
+        "A. AUTO_UPDATE_STATISTICS database option",
+        "B. AUTO_CREATE_STATISTICS only",
+        "C. QUERY_STORE_CAPTURE_MODE",
+        "D. MAXDOP server configuration"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. AUTO_UPDATE_STATISTICS controls whether SQL Database automatically updates statistics when a sufficient percentage of rows have changed. When enabled (default), the optimizer maintains accurate statistics for better query plan selection.\n\nWhy the others are wrong:\n- B. AUTO_CREATE_STATISTICS controls whether statistics are automatically created for columns used in predicates, but doesn't control updates to existing statistics.\n- C. QUERY_STORE_CAPTURE_MODE controls what Query Store captures, not statistics updates.\n- D. MAXDOP controls the degree of parallelism for queries, not statistics maintenance."
+    },
+    {
+      "id": 26,
+      "topic": "High Availability - Zone redundancy",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure your Azure SQL Database remains available even if an entire availability zone within the Azure region fails. Which configuration is required?",
+      "options": [
+        "A. Enable zone-redundant deployment for the database",
+        "B. Create a manual failover to another database",
+        "C. Deploy to a single availability zone for lower latency",
+        "D. Use local backup storage redundancy"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Zone-redundant deployment distributes database replicas across multiple availability zones within a region. If one zone fails, the service automatically fails over to replicas in another zone, maintaining availability.\n\nWhy the others are wrong:\n- B. Manual failover requires intervention and is not automated zone-level protection.\n- C. Deploying to a single zone means a zone failure would impact the database.\n- D. Local backup storage redundancy protects backup data within a single zone, not the running database."
+    },
+    {
+      "id": 27,
+      "topic": "Azure SQL Managed Instance - Resource limits",
+      "type": "SingleChoice",
+      "questionText": "You are experiencing tempdb contention on your Azure SQL Managed Instance. What should you check first?",
+      "options": [
+        "A. The number of tempdb files relative to the vCore count",
+        "B. The size of the master database",
+        "C. The number of user databases",
+        "D. The Azure subscription quota"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Tempdb contention often occurs when there aren't enough tempdb data files. Azure SQL Managed Instance creates tempdb files based on the vCore count. Ensuring the number of tempdb files matches the core count (up to 8) can resolve allocation contention.\n\nWhy the others are wrong:\n- B. The master database size is typically very small and doesn't affect tempdb performance.\n- C. The number of user databases affects overall resource consumption but isn't directly related to tempdb file contention.\n- D. Subscription quota affects resource provisioning, not runtime tempdb performance."
+    },
+    {
+      "id": 28,
+      "topic": "Monitoring - Extended events",
+      "type": "SingleChoice",
+      "questionText": "You need to capture detailed information about deadlocks occurring in your Azure SQL Database. Which approach should you use?",
+      "options": [
+        "A. Configure an Extended Events session targeting deadlock events",
+        "B. Check the SQL Server Error Log for deadlock graphs",
+        "C. Query sys.dm_tran_locks only",
+        "D. Enable SQL Profiler traces"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Extended Events (XEvents) in Azure SQL Database can capture deadlock events (sqlserver.xml_deadlock_report) with detailed deadlock graphs showing the involved processes, locks, and resources.\n\nWhy the others are wrong:\n- B. The traditional SQL Server Error Log is not the primary mechanism in Azure SQL Database; Extended Events is the supported approach.\n- C. sys.dm_tran_locks shows current lock information but doesn't capture historical deadlock details.\n- D. SQL Profiler is deprecated and not available for Azure SQL Database (PaaS)."
+    },
+    {
+      "id": 29,
+      "topic": "Backup and Restore - BACPAC operations",
+      "type": "SingleChoice",
+      "questionText": "You need to export an Azure SQL Database for migration to a different Azure subscription. Which operation should you use to create a self-contained file that includes both schema and data?",
+      "options": [
+        "A. Export to a BACPAC file",
+        "B. Create a database copy within the same server",
+        "C. Generate a CREATE DATABASE script",
+        "D. Use Azure Site Recovery replication"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A BACPAC export creates a self-contained file that includes the complete database schema and data. This file can be imported into any Azure subscription or SQL Server instance, making it ideal for cross-subscription migration.\n\nWhy the others are wrong:\n- B. A database copy stays within the same logical server or subscription and isn't a portable file.\n- C. A CREATE DATABASE script captures only the schema, not the data.\n- D. Azure Site Recovery is for VM disaster recovery, not for database migration between subscriptions."
+    },
+    {
+      "id": 30,
+      "topic": "Security - Auditing",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure Azure SQL Database auditing to capture all database activities and store audit logs for long-term retention. Which TWO destinations can you configure for audit logs? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Azure Storage account (Blob Storage)",
+        "B. Log Analytics workspace",
+        "C. Azure Queue Storage",
+        "D. Azure Redis Cache"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Azure SQL auditing supports writing logs to an Azure Storage account (Blob Storage) for long-term archival and to a Log Analytics workspace for advanced querying and analysis using Kusto Query Language.\n\nWhy the others are wrong:\n- C. Azure Queue Storage is a messaging service and is not a supported audit log destination.\n- D. Azure Redis Cache is an in-memory data store and is not supported for audit log storage."
+    },
+    {
+      "id": 31,
+      "topic": "Azure SQL Database - Temporal tables",
+      "type": "SingleChoice",
+      "questionText": "You need to track all changes to a critical configuration table over time and query the data as it existed at any point in the past. Which SQL Server feature should you implement?",
+      "options": [
+        "A. Change Data Capture (CDC)",
+        "B. System-versioned temporal tables",
+        "C. Change Tracking",
+        "D. Database snapshots"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. System-versioned temporal tables automatically maintain the full history of data changes. They allow you to query data as of any point in time using the FOR SYSTEM_TIME clause, making them ideal for auditing and point-in-time queries.\n\nWhy the others are wrong:\n- A. CDC captures changes in a change table but doesn't support direct point-in-time queries using SQL syntax like temporal tables do.\n- C. Change Tracking tracks which rows changed but doesn't store the historical values.\n- D. Database snapshots are not available in Azure SQL Database PaaS and only capture state at snapshot creation time."
+    },
+    {
+      "id": 32,
+      "topic": "Monitoring - Alerts",
+      "type": "SingleChoice",
+      "questionText": "You need to be notified when DTU consumption on your Azure SQL Database exceeds 90% for more than 5 minutes. What should you configure?",
+      "options": [
+        "A. An Azure Monitor alert rule with a metric condition on DTU percentage",
+        "B. A SQL Agent alert job",
+        "C. An Azure Logic App that polls the database",
+        "D. An Application Insights availability test"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Monitor alert rules can be configured with metric-based conditions (DTU percentage > 90%) with a 5-minute evaluation window. When triggered, they can send notifications via email, SMS, or trigger actions through action groups.\n\nWhy the others are wrong:\n- B. SQL Agent is not available in Azure SQL Database (PaaS); it's available only in Managed Instance and SQL Server.\n- C. A Logic App polling approach is unnecessarily complex when Azure Monitor provides native metric alerts.\n- D. Application Insights availability tests check endpoint accessibility, not database resource consumption metrics."
+    },
+    {
+      "id": 33,
+      "topic": "Azure SQL Database - In-memory OLTP",
+      "type": "SingleChoice",
+      "questionText": "You have a high-throughput OLTP workload with significant latch contention on a frequently updated table. Which feature can you use to eliminate latch contention?",
+      "options": [
+        "A. Memory-optimized tables (In-Memory OLTP)",
+        "B. Columnstore indexes",
+        "C. Table partitioning",
+        "D. Indexed views"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Memory-optimized tables use lock-free and latch-free data structures, completely eliminating latch contention. They store data in memory with optimistic concurrency control, providing significant performance improvements for high-throughput OLTP workloads.\n\nWhy the others are wrong:\n- B. Columnstore indexes are optimized for analytical read-heavy workloads, not high-frequency OLTP updates.\n- C. Table partitioning distributes data across filegroups but doesn't eliminate latch contention on hot pages.\n- D. Indexed views precompute query results but don't address latch contention on base table updates."
+    },
+    {
+      "id": 34,
+      "topic": "Disaster Recovery - Recovery objectives",
+      "type": "SingleChoice",
+      "questionText": "Your business requires a Recovery Point Objective (RPO) of less than 5 seconds for a critical database. Which Azure SQL solution meets this requirement?",
+      "options": [
+        "A. Azure SQL Database with default PITR backups",
+        "B. Azure SQL Database with active geo-replication or failover group",
+        "C. Azure SQL Managed Instance with geo-restore only",
+        "D. Weekly BACPAC exports to Azure Storage"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Active geo-replication and failover groups use asynchronous replication with an RPO of less than 5 seconds under normal conditions. Data is continuously replicated to the secondary, keeping it nearly in sync with the primary.\n\nWhy the others are wrong:\n- A. Default PITR backups provide recovery to any point within the retention period but rely on backup frequency, not continuous replication.\n- C. Geo-restore uses geo-redundant backups which have a higher RPO (up to 1 hour for the last differential backup).\n- D. Weekly BACPAC exports would have an RPO of up to 7 days, far exceeding the requirement."
+    },
+    {
+      "id": 35,
+      "topic": "Security - Network security",
+      "type": "MultipleChoice",
+      "questionText": "You need to restrict network access to your Azure SQL Database so that only specific Azure virtual networks and on-premises IP addresses can connect. Which TWO features should you configure? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Virtual network service endpoints or private endpoints",
+        "B. Server-level IP firewall rules for on-premises IP addresses",
+        "C. Database-level contained users",
+        "D. Azure AD conditional access policies"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Virtual network service endpoints (or private endpoints) restrict access to traffic from specified VNets. Server-level IP firewall rules allow connections from specific on-premises public IP addresses. Together, they provide comprehensive network access control.\n\nWhy the others are wrong:\n- C. Contained database users control authentication within the database, not network-level access.\n- D. Azure AD conditional access controls identity-based access conditions but doesn't replace network-level firewall rules."
+    },
+    {
+      "id": 36,
+      "topic": "Automated Tuning - Query Store",
+      "type": "SingleChoice",
+      "questionText": "You want to analyze query performance trends over the last 30 days in Azure SQL Database. The Query Store operation mode is set to Read Only. What is the issue?",
+      "options": [
+        "A. Query Store in Read Only mode cannot collect new query statistics",
+        "B. Query Store in Read Only mode prevents all queries from executing",
+        "C. Read Only mode is the recommended setting for production",
+        "D. Read Only mode only affects DDL statements"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. When Query Store is in Read Only mode, it stops collecting new query statistics and plan information. You can still query historical data, but no new performance data is being captured. This typically happens when the Query Store reaches its maximum size.\n\nWhy the others are wrong:\n- B. Read Only mode doesn't prevent queries from executing; it only stops collecting query statistics.\n- C. The recommended setting for production is Read Write so that new query data is continuously captured.\n- D. Read Only mode affects all data collection, not just DDL statement tracking."
+    },
+    {
+      "id": 37,
+      "topic": "Azure SQL Database - Intelligent performance",
+      "type": "SingleChoice",
+      "questionText": "Your Azure SQL Database is experiencing performance degradation. The Intelligent Insights report shows 'Increased Wait Statistics' as the root cause. What does this indicate?",
+      "options": [
+        "A. Queries are spending more time waiting for resources (CPU, I/O, locks) than executing",
+        "B. The database backup is taking too long",
+        "C. Too many logins are being created",
+        "D. The connection pool is configured incorrectly in the application"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Increased Wait Statistics means queries are spending disproportionate time waiting for resources such as CPU cycles, I/O operations, lock grants, or memory. This indicates a resource bottleneck that needs investigation and resolution.\n\nWhy the others are wrong:\n- B. Backup duration is not reported as 'Increased Wait Statistics' in Intelligent Insights.\n- C. Login creation is an administrative operation and wouldn't appear as a wait statistics insight.\n- D. Connection pool configuration is an application-level setting, not directly reported as increased wait statistics."
+    },
+    {
+      "id": 38,
+      "topic": "Azure SQL Managed Instance - Business continuity",
+      "type": "SingleChoice",
+      "questionText": "You need to maintain a readable copy of your Azure SQL Managed Instance in a secondary region for disaster recovery and reporting offloading. Which feature should you configure?",
+      "options": [
+        "A. Auto-failover group for Managed Instance",
+        "B. Database mirroring",
+        "C. Transactional replication only",
+        "D. Azure Backup with cross-region restore"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Auto-failover groups for Managed Instance create a geo-replicated secondary in another region that can be used for both disaster recovery failover and read-only reporting workloads.\n\nWhy the others are wrong:\n- B. Database mirroring is a deprecated SQL Server feature and is not available in Azure SQL Managed Instance.\n- C. Transactional replication can replicate data but doesn't provide automatic failover capabilities.\n- D. Azure Backup cross-region restore provides backup recovery but not a continuously available readable copy."
+    },
+    {
+      "id": 39,
+      "topic": "Monitoring - Performance recommendations",
+      "type": "SingleChoice",
+      "questionText": "Azure SQL Database recommends creating a nonclustered index on a column that is frequently used in WHERE clauses. Before implementing, what should you verify?",
+      "options": [
+        "A. That the recommendation doesn't negatively impact write performance on the table",
+        "B. That the column is the primary key",
+        "C. That the table has fewer than 100 rows",
+        "D. That no other indexes exist on the table"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. While indexes improve read performance, they add overhead to write operations (INSERT, UPDATE, DELETE) because each index must be maintained. Before implementing, you should verify that the write performance impact is acceptable for the workload.\n\nWhy the others are wrong:\n- B. Nonclustered indexes can be created on any column, not just primary keys. Checking if it's the PK is not relevant.\n- C. Tables with very few rows may not benefit from indexing, but the recommendation system already considers table size.\n- D. Multiple indexes on a table are common and often necessary; the existence of other indexes doesn't prevent adding new ones."
+    },
+    {
+      "id": 40,
+      "topic": "Security - Always Encrypted",
+      "type": "SingleChoice",
+      "questionText": "You need to protect sensitive columns in Azure SQL Database so that even database administrators cannot see the plaintext values. The encryption/decryption must happen on the client side. Which feature should you use?",
+      "options": [
+        "A. Transparent Data Encryption (TDE)",
+        "B. Dynamic Data Masking",
+        "C. Always Encrypted",
+        "D. Row-Level Security"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Always Encrypted provides client-side encryption where data is encrypted before being sent to the database. The encryption keys are never exposed to the database engine, so even database administrators cannot see plaintext values. Only the client application with the column master key can decrypt the data.\n\nWhy the others are wrong:\n- A. TDE encrypts data at rest but data is decrypted when accessed by any authorized database user, including administrators.\n- B. Dynamic Data Masking obfuscates data display but can be bypassed by users with UNMASK permission, including admins.\n- D. Row-Level Security filters which rows users can see but doesn't encrypt column values."
+    },
+    {
+      "id": 41,
+      "topic": "Query Performance - Index maintenance",
+      "type": "SingleChoice",
+      "questionText": "You notice that several indexes on a heavily used Azure SQL Database table have fragmentation levels above 70%. You need to reduce the fragmentation to improve query performance. What should you do?",
+      "options": [
+        "A. Rebuild the indexes",
+        "B. Reorganize the indexes",
+        "C. Drop and recreate the indexes",
+        "D. Update the statistics only"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Rebuilding indexes is recommended when fragmentation exceeds 30%. A rebuild drops and recreates the index with a new fill factor and compacted pages. For fragmentation above 70%, rebuild is the most effective approach to eliminate fragmentation completely.\n\nWhy the others are wrong:\n- B. Reorganizing indexes is a lighter operation recommended for fragmentation between 10-30%. It defragments leaf-level pages in place but is less effective and slower for high fragmentation levels above 30%.\n- C. Dropping and recreating indexes achieves the same result as rebuilding but has the additional risk of queries running without the index during the recreation period, potentially causing severe performance degradation.\n- D. Updating statistics improves the query optimizer's decisions but does not address physical index fragmentation. The pages remain fragmented regardless of statistics accuracy."
+    },
+    {
+      "id": 42,
+      "topic": "HA/DR - Geo-replication",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure SQL Database configured with active geo-replication to a secondary region. The secondary database is readable. You need to perform a planned failover to the secondary region for a scheduled maintenance event. What should you do?",
+      "options": [
+        "A. Run the failover command on the secondary server to promote it to primary",
+        "B. Delete the primary database and let the secondary automatically take over",
+        "C. Create a new database in the secondary region and restore from a backup",
+        "D. Pause the primary database to trigger automatic failover"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. For a planned failover with active geo-replication, you run the failover command on the secondary server. This performs a synchronous data sync, promotes the secondary to primary, and demotes the old primary to secondary, ensuring no data loss.\n\nWhy the others are wrong:\n- B. Deleting the primary database destroys the replication link and the primary data. This is destructive and not a failover mechanism.\n- C. Creating a new database and restoring from backup is a manual recovery process that causes significant downtime and potential data loss. Active geo-replication provides seamless failover without this overhead.\n- D. Pausing is a feature of serverless compute tier and does not trigger a geo-replication failover. It stops the database from processing queries."
+    },
+    {
+      "id": 43,
+      "topic": "Automation - Elastic jobs",
+      "type": "SingleChoice",
+      "questionText": "You manage 50 Azure SQL databases across multiple servers. You need to run the same maintenance T-SQL script across all databases on a weekly schedule. Which feature should you use?",
+      "options": [
+        "A. Azure SQL Database elastic jobs",
+        "B. SQL Server Agent",
+        "C. Azure Logic Apps",
+        "D. Azure Batch"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure SQL Database elastic jobs allow you to run T-SQL scripts against a target group of one or more Azure SQL databases on a schedule. You define a job with steps, a target group containing all 50 databases, and a recurring schedule.\n\nWhy the others are wrong:\n- B. SQL Server Agent is not available in Azure SQL Database (PaaS). It is only available in SQL Server on VMs and Azure SQL Managed Instance.\n- C. Azure Logic Apps can orchestrate workflows and call SQL databases, but it is not designed for running T-SQL maintenance scripts at scale across many databases. It would require complex configuration per database.\n- D. Azure Batch is a service for running large-scale parallel compute workloads. It is designed for compute-intensive tasks, not for running T-SQL scripts against SQL databases."
+    },
+    {
+      "id": 44,
+      "topic": "Security - Microsoft Entra authentication",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring Microsoft Entra ID (formerly Azure AD) authentication for Azure SQL Database. Which TWO steps are required? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Set a Microsoft Entra admin for the Azure SQL logical server",
+        "B. Create contained database users mapped to Entra identities using CREATE USER ... FROM EXTERNAL PROVIDER",
+        "C. Install SQL Server Management Studio on every client machine",
+        "D. Disable SQL authentication entirely on the server"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. You must (A) set a Microsoft Entra admin on the logical server, which enables Entra authentication for the server, and (B) create contained database users mapped to Entra identities so those users can authenticate and access specific databases.\n\nWhy the others are wrong:\n- C. SSMS is just one of many client tools. Entra authentication works with any client that supports it (Azure Data Studio, .NET SqlClient, etc.). Installing SSMS is not a required configuration step.\n- D. Disabling SQL authentication is optional and not required for Entra authentication to work. Both authentication methods can coexist on the same server."
+    },
+    {
+      "id": 45,
+      "topic": "Query Performance - Query Store",
+      "type": "SingleChoice",
+      "questionText": "You are troubleshooting a query that suddenly started running slower. You suspect the query optimizer selected a different execution plan. You need to identify when the plan changed and what the previous plan looked like. Which feature should you use?",
+      "options": [
+        "A. Query Store - Regressed Queries view",
+        "B. Activity Monitor - Recent Expensive Queries",
+        "C. sys.dm_exec_query_stats DMV",
+        "D. Extended Events for deadlock detection"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Query Store Regressed Queries view shows queries whose performance has degraded over time. It displays the different execution plans used for a query, when plan changes occurred, and the performance metrics for each plan, allowing you to identify plan regression.\n\nWhy the others are wrong:\n- B. Activity Monitor shows currently executing and recent expensive queries but does not provide historical plan comparison or show when a plan change occurred.\n- C. sys.dm_exec_query_stats provides aggregated query performance statistics but is reset when the plan cache is cleared and does not persist historical plan information across cache evictions.\n- D. Extended Events for deadlock detection captures deadlock graphs and related information. Deadlocks are a different issue from plan regression and query slowdowns."
+    },
+    {
+      "id": 46,
+      "topic": "Platform Resources - Purchasing models",
+      "type": "SingleChoice",
+      "questionText": "Your Azure SQL Database workload has predictable, steady resource consumption. You want to commit to a fixed amount of compute resources for a one-year or three-year term to save costs. Which purchasing option should you choose?",
+      "options": [
+        "A. DTU-based purchasing model with reserved capacity",
+        "B. vCore-based purchasing model with reserved capacity",
+        "C. Serverless compute tier",
+        "D. Pay-as-you-go with no commitment"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The vCore-based purchasing model with reserved capacity allows you to commit to a specific number of vCores for a one-year or three-year term at a significant discount (up to 33-55% savings) compared to pay-as-you-go pricing. This is ideal for predictable, steady workloads.\n\nWhy the others are wrong:\n- A. Reserved capacity discounts are available through the vCore purchasing model, not the DTU model. DTU-based databases do not support reserved capacity.\n- C. The serverless compute tier automatically scales compute and pauses during inactivity. It is designed for intermittent, unpredictable workloads, not steady workloads, and does not offer long-term commitment discounts.\n- D. Pay-as-you-go provides flexibility but no discount for commitment. For predictable workloads, this is the most expensive option."
+    },
+    {
+      "id": 47,
+      "topic": "Query Performance - Missing indexes",
+      "type": "SingleChoice",
+      "questionText": "Azure SQL Database has identified several missing index recommendations through the automatic tuning feature. Before implementing them, you want to evaluate the potential impact without affecting the production workload. What should you do?",
+      "options": [
+        "A. Enable automatic index creation in automatic tuning settings",
+        "B. Review the recommendations in the Performance overview blade and analyze the estimated improvement",
+        "C. Create all recommended indexes immediately during peak hours",
+        "D. Ignore the recommendations since the database manages indexes automatically"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Performance overview blade (or the Automatic tuning recommendations) shows each missing index recommendation with the estimated query performance improvement, the affected queries, and the impact. Reviewing these allows you to make informed decisions before implementing changes.\n\nWhy the others are wrong:\n- A. Enabling automatic index creation hands control to the system without manual review. While it includes validation, the question asks about evaluating impact first before implementation.\n- C. Creating all recommended indexes during peak hours could negatively impact performance because index creation consumes I/O and CPU resources. Also, not all recommendations may be beneficial since some might increase write overhead.\n- D. Ignoring recommendations means missing potential performance improvements. While automatic tuning exists, it requires explicit enablement and the recommendations still warrant review."
+    },
+    {
+      "id": 48,
+      "topic": "HA/DR - Backup and restore",
+      "type": "SingleChoice",
+      "questionText": "You need to restore an Azure SQL Database to a specific point in time from 3 hours ago. The database uses the default backup configuration. Which type of backups make this point-in-time restore possible?",
+      "options": [
+        "A. Full backups only",
+        "B. Full, differential, and transaction log backups working together",
+        "C. Manual backup files stored in Azure Blob Storage",
+        "D. Azure Site Recovery snapshots"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Point-in-time restore in Azure SQL Database relies on a combination of automated full backups (weekly), differential backups (every 12-24 hours), and transaction log backups (every 5-10 minutes). The restore process applies the most recent full backup, then the latest differential, then replays transaction logs up to the specified point in time.\n\nWhy the others are wrong:\n- A. Full backups alone only provide restore points at the time each full backup was taken. Without differential and transaction log backups, you cannot restore to an arbitrary point in time between full backups.\n- C. Azure SQL Database automated backups are managed by the service and are not manual backup files. You do not manage backup files in Blob Storage for standard PaaS databases.\n- D. Azure Site Recovery is for VM-level disaster recovery and is not used for Azure SQL Database point-in-time restore."
+    },
+    {
+      "id": 49,
+      "topic": "Monitoring - Alerts",
+      "type": "SingleChoice",
+      "questionText": "You need to configure an alert that fires when the storage usage of your Azure SQL Database exceeds 80% of its maximum size. Which monitoring approach should you configure?",
+      "options": [
+        "A. An Azure Monitor metric alert on the 'storage_percent' metric",
+        "B. A SQL Agent alert job",
+        "C. A Query Store notification",
+        "D. An Azure Advisor recommendation"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Monitor provides metric alerts for Azure SQL Database. The 'storage_percent' metric tracks the percentage of database storage used relative to the maximum data size. You can create an alert rule that triggers when this metric exceeds the 80% threshold.\n\nWhy the others are wrong:\n- B. SQL Agent is not available in Azure SQL Database (PaaS). It is only available in SQL Server on VMs and Azure SQL Managed Instance.\n- C. Query Store tracks query performance data (plans, statistics, wait stats). It does not monitor database storage usage or support alerting on storage metrics.\n- D. Azure Advisor provides proactive recommendations but does not provide real-time alerting based on specific metric thresholds."
+    },
+    {
+      "id": 50,
+      "topic": "Platform Resources - Scaling",
+      "type": "SingleChoice",
+      "questionText": "Your Azure SQL Database on the General Purpose tier is experiencing consistent CPU pressure during business hours. You need to increase compute capacity without changing the service tier. What should you do?",
+      "options": [
+        "A. Increase the number of vCores allocated to the database",
+        "B. Add a read replica in the same region",
+        "C. Enable in-memory OLTP",
+        "D. Move the database to a different Azure region"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. In the vCore purchasing model, you can scale up the number of vCores allocated to the database within the General Purpose tier. This increases CPU capacity directly. The scaling operation completes with minimal downtime (typically a brief connection reset at the end).\n\nWhy the others are wrong:\n- B. A read replica offloads read queries but does not increase CPU capacity for write operations or queries that must run on the primary. Also, read replicas in the same region are a Business Critical tier feature.\n- C. In-memory OLTP is only available in the Business Critical tier, not General Purpose. Enabling it requires changing the service tier.\n- D. Moving to a different region does not increase compute capacity. It changes the geographic location of the database."
+    },
+    {
+      "id": 51,
+      "topic": "Security - Auditing",
+      "type": "SingleChoice",
+      "questionText": "Your compliance team requires that all database operations (including read queries) on an Azure SQL Database are captured and retained for 1 year. Which auditing configuration should you implement?",
+      "options": [
+        "A. Enable Azure SQL Auditing with storage account destination and 365-day retention",
+        "B. Enable Extended Events with a file target on the local server",
+        "C. Use SQL Profiler to trace all queries",
+        "D. Configure Query Store with maximum retention"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure SQL Auditing captures database operations and writes audit logs to a storage account, Log Analytics, or Event Hubs. You can configure it to capture all operation types including reads, and set the retention period to 365 days on the storage account.\n\nWhy the others are wrong:\n- B. Extended Events in Azure SQL Database do not support file targets on local storage since there is no access to the file system. Extended Events in PaaS databases use ring_buffer or event_file targets to Blob Storage, and are better suited for targeted diagnostic tracing than comprehensive compliance auditing.\n- C. SQL Profiler is a deprecated tool that connects to SQL Server instances. It is not available for Azure SQL Database and cannot be used for persistent, long-term audit logging.\n- D. Query Store captures query text, execution plans, and runtime statistics for performance tuning. It does not capture who executed queries or provide the detailed audit trail required for compliance."
+    },
+    {
+      "id": 52,
+      "topic": "Query Performance - Execution plans",
+      "type": "SingleChoice",
+      "questionText": "A query against a large table uses a clustered index scan instead of a seek, resulting in poor performance. The query filters on a non-clustered column. What is the most likely cause?",
+      "options": [
+        "A. There is no nonclustered index on the filter column",
+        "B. The table has too many rows",
+        "C. The database compatibility level is too low",
+        "D. The query uses a stored procedure"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. When there is no nonclustered index on the column used in the WHERE clause filter, the query optimizer has no efficient way to locate the matching rows. It must fall back to a clustered index scan (reading every row in the table) to find the filtered data.\n\nWhy the others are wrong:\n- B. Having many rows makes the scan slower but is not the cause of the scan. Even very large tables use index seeks efficiently when appropriate indexes exist.\n- C. Database compatibility level affects query optimizer behavior and available features, but it does not cause index scans when an appropriate index is missing. The lack of an index is the root cause regardless of compatibility level.\n- D. Using a stored procedure does not inherently cause index scans. Stored procedures use the same query optimizer and benefit from indexes just like ad-hoc queries."
+    },
+    {
+      "id": 53,
+      "topic": "HA/DR - Failover groups",
+      "type": "MultipleChoice",
+      "questionText": "You configure an auto-failover group for your Azure SQL Database. Which TWO capabilities does the failover group provide? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A listener endpoint that automatically redirects connections to the current primary",
+        "B. Automatic failover when the primary region becomes unavailable",
+        "C. Automatic schema changes synchronization between primary and secondary",
+        "D. Automatic backup and restore across regions"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Failover groups provide (A) a read-write listener endpoint (and a read-only listener endpoint) that automatically redirect connections to whichever server is currently the primary, eliminating the need for connection string changes during failover. They also provide (B) automatic failover when the primary becomes unavailable, based on a configurable grace period.\n\nWhy the others are wrong:\n- C. Schema changes are replicated through the underlying geo-replication mechanism (transaction log shipping), not as a separate 'schema synchronization' feature. DDL changes in transactions are replicated, but this is part of the data replication, not a distinct failover group capability.\n- D. Failover groups use continuous asynchronous replication, not backup and restore. Automated backups are a separate feature of Azure SQL Database and operate independently of failover groups."
+    },
+    {
+      "id": 54,
+      "topic": "Automation - Azure Automation runbooks",
+      "type": "SingleChoice",
+      "questionText": "You need to automate the scaling of an Azure SQL Database to a higher tier every Monday morning before business hours and back to a lower tier on Friday evening. Which Azure service should you use?",
+      "options": [
+        "A. Azure Automation with PowerShell runbooks and schedules",
+        "B. Azure SQL Database automatic tuning",
+        "C. Azure SQL Database elastic pool auto-scaling",
+        "D. Azure Traffic Manager"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Automation allows you to create PowerShell runbooks that call Azure SQL management APIs to change the database tier. You attach schedules to the runbooks to run at specific times (Monday morning, Friday evening), automating the scaling operations.\n\nWhy the others are wrong:\n- B. Automatic tuning manages indexes and query plans. It does not scale database tiers or compute resources based on a schedule.\n- C. Elastic pool auto-scaling adjusts resources within an elastic pool but does not move databases between service tiers on a schedule. Also, this applies to elastic pools, not individual databases.\n- D. Azure Traffic Manager is a DNS-based load balancer for distributing traffic across endpoints. It has no database scaling capabilities."
+    },
+    {
+      "id": 55,
+      "topic": "Platform Resources - Managed Instance",
+      "type": "SingleChoice",
+      "questionText": "You are deploying an Azure SQL Managed Instance that needs to run SQL Server Agent jobs and use Database Mail. Which service tier supports these features?",
+      "options": [
+        "A. Both General Purpose and Business Critical tiers",
+        "B. Business Critical tier only",
+        "C. General Purpose tier only",
+        "D. Neither tier; these features are not available in Managed Instance"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. SQL Server Agent and Database Mail are both available in Azure SQL Managed Instance on both the General Purpose and Business Critical service tiers. Managed Instance is designed for high compatibility with on-premises SQL Server, and these features are part of that compatibility.\n\nWhy the others are wrong:\n- B. Business Critical is not the only tier that supports these features. General Purpose also supports SQL Server Agent and Database Mail in Managed Instance.\n- C. General Purpose is not the only tier. Both tiers provide these features.\n- D. SQL Server Agent and Database Mail are specifically supported in Managed Instance (unlike Azure SQL Database single database/elastic pool where they are not available)."
+    },
+    {
+      "id": 56,
+      "topic": "Query Performance - Wait statistics",
+      "type": "SingleChoice",
+      "questionText": "You are analyzing query performance in Azure SQL Database and see that the top wait type is PAGEIOLATCH_SH. What does this indicate?",
+      "options": [
+        "A. Queries are waiting to read data pages from disk into the buffer pool",
+        "B. Queries are waiting for locks on data rows",
+        "C. Queries are waiting for network communication with the client",
+        "D. Queries are waiting for CPU time"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. PAGEIOLATCH_SH waits occur when a query needs to read a data page that is not in the buffer pool (memory) and must wait for the page to be read from disk (I/O). High PAGEIOLATCH_SH waits indicate I/O bottlenecks, often caused by insufficient memory, missing indexes, or large table scans.\n\nWhy the others are wrong:\n- B. Waits for locks on data rows show as LCK_M_* wait types (e.g., LCK_M_S, LCK_M_X). PAGEIOLATCH is specifically about I/O operations, not lock contention.\n- C. Network communication waits show as ASYNC_NETWORK_IO wait types. PAGEIOLATCH is about disk I/O, not network activity.\n- D. CPU waits show as SOS_SCHEDULER_YIELD or signal wait times. PAGEIOLATCH indicates I/O waits, not CPU contention."
+    },
+    {
+      "id": 57,
+      "topic": "Security - Firewall rules",
+      "type": "SingleChoice",
+      "questionText": "You deploy a new Azure SQL Database and need to allow a specific client application running in an Azure App Service to connect. The App Service has outbound IP addresses that may change. What is the recommended approach?",
+      "options": [
+        "A. Enable 'Allow Azure services and resources to access this server'",
+        "B. Add each App Service outbound IP address as a server-level firewall rule",
+        "C. Configure a virtual network service endpoint or private endpoint",
+        "D. Disable the firewall entirely"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Configuring a virtual network service endpoint or private endpoint provides secure, stable connectivity between the App Service (using VNet integration) and the SQL Database. This approach does not depend on specific IP addresses and follows the principle of least privilege by restricting access to traffic from the specific virtual network.\n\nWhy the others are wrong:\n- A. 'Allow Azure services and resources to access this server' opens the database to ALL Azure services across ALL subscriptions and tenants. This is overly permissive and a security risk.\n- B. Adding each outbound IP as a firewall rule is fragile because App Service outbound IPs can change (e.g., during scaling events or platform updates), breaking connectivity.\n- D. Disabling the firewall entirely exposes the database to the public internet, which is a severe security vulnerability."
+    },
+    {
+      "id": 58,
+      "topic": "Monitoring - Dynamic Management Views",
+      "type": "SingleChoice",
+      "questionText": "You need to identify the top 10 queries consuming the most CPU in your Azure SQL Database right now. Which DMV query approach should you use?",
+      "options": [
+        "A. Query sys.dm_exec_query_stats ordered by total_worker_time descending",
+        "B. Query sys.dm_db_index_physical_stats for fragmentation",
+        "C. Query sys.dm_os_wait_stats for wait types",
+        "D. Query sys.dm_exec_connections for active connections"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. sys.dm_exec_query_stats contains aggregate performance statistics for cached query plans, including total_worker_time which represents CPU time consumed. Ordering by total_worker_time descending and taking the top 10 gives you the most CPU-intensive queries.\n\nWhy the others are wrong:\n- B. sys.dm_db_index_physical_stats shows index fragmentation levels. While fragmentation can indirectly affect CPU usage, this DMV does not show which queries consume the most CPU.\n- C. sys.dm_os_wait_stats shows aggregate wait statistics for the entire database. It tells you what the database is waiting on but does not identify specific queries consuming CPU.\n- D. sys.dm_exec_connections shows active connection information (login time, protocol, etc.). It does not contain query-level CPU consumption data."
+    },
+    {
+      "id": 59,
+      "topic": "Platform Resources - Elastic pools",
+      "type": "MultipleChoice",
+      "questionText": "You manage an elastic pool containing 15 databases. You need to ensure no single database can consume all the pool's resources, starving other databases. Which TWO settings should you configure? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Set per-database maximum eDTU/vCore limit",
+        "B. Set per-database minimum eDTU/vCore guarantee",
+        "C. Enable Read Scale-Out for all databases",
+        "D. Configure zone redundancy for the pool"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Setting a per-database maximum (A) caps how many resources any single database can consume, preventing one database from monopolizing the pool. Setting a per-database minimum (B) guarantees each database a baseline amount of resources, ensuring no database is starved entirely.\n\nWhy the others are wrong:\n- C. Read Scale-Out offloads read queries to a secondary replica. It is a Business Critical tier feature and does not control resource allocation between databases in a pool.\n- D. Zone redundancy protects against availability zone failures. It does not manage resource distribution among databases within the pool."
+    },
+    {
+      "id": 60,
+      "topic": "Query Performance - Intelligent Query Processing",
+      "type": "SingleChoice",
+      "questionText": "You upgrade your Azure SQL Database to compatibility level 150 (SQL Server 2019). Your application uses table variables in several stored procedures, and performance has historically been poor because the optimizer estimated only 1 row for table variable operations. Which Intelligent Query Processing feature automatically resolves this?",
+      "options": [
+        "A. Table variable deferred compilation",
+        "B. Batch mode on rowstore",
+        "C. Approximate query processing",
+        "D. Memory grant feedback"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Table variable deferred compilation defers the compilation of statements that reference table variables until the first actual execution. At that point, the actual row count in the table variable is known, enabling accurate cardinality estimates instead of the fixed estimate of 1 row.\n\nWhy the others are wrong:\n- B. Batch mode on rowstore enables batch mode processing for analytical queries on rowstore tables. It improves CPU efficiency for aggregations but does not address table variable cardinality estimation.\n- C. Approximate query processing uses approximate algorithms (e.g., APPROX_COUNT_DISTINCT) for faster results on large datasets. It does not improve table variable estimation.\n- D. Memory grant feedback adjusts memory grants for queries based on actual execution. While it improves memory allocation, it does not fix the underlying cardinality estimation issue with table variables."
+    },
+    {
+      "id": 61,
+      "topic": "HA/DR - Long-term retention",
+      "type": "SingleChoice",
+      "questionText": "Your compliance requirements mandate that you retain weekly backups for 1 year, monthly backups for 5 years, and yearly backups for 10 years for an Azure SQL Database. Which feature should you configure?",
+      "options": [
+        "A. Long-term backup retention (LTR) policy",
+        "B. Point-in-time restore with 35-day retention",
+        "C. Geo-redundant backup storage",
+        "D. Azure Backup for SQL"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Long-term backup retention (LTR) allows you to configure retention policies that automatically retain copies of full backups in Azure Blob Storage for up to 10 years. You can set weekly, monthly, and yearly retention periods independently.\n\nWhy the others are wrong:\n- B. Point-in-time restore supports a maximum of 35 days of retention. This is far shorter than the 1-year, 5-year, and 10-year requirements.\n- C. Geo-redundant backup storage controls the geographic redundancy of where backups are stored (LRS, ZRS, GRS) but does not extend the retention period beyond the standard limits.\n- D. Azure Backup for SQL is designed for SQL Server on Azure VMs, not for Azure SQL Database (PaaS). Azure SQL Database uses its built-in LTR feature."
+    },
+    {
+      "id": 62,
+      "topic": "Automation - Database copy and export",
+      "type": "SingleChoice",
+      "questionText": "You need to create an exact copy of a production Azure SQL Database in the same Azure region for testing purposes. The copy must be transactionally consistent. What should you use?",
+      "options": [
+        "A. CREATE DATABASE ... AS COPY OF",
+        "B. BACKUP DATABASE to a URL",
+        "C. bcp.exe to export and import data",
+        "D. Data-tier Application Framework (DACFx) schema compare"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The CREATE DATABASE ... AS COPY OF command creates a transactionally consistent copy of an Azure SQL Database on the same or a different server. It uses the same underlying geo-replication technology to ensure consistency, and the copy is an independent database you can use for testing.\n\nWhy the others are wrong:\n- B. BACKUP DATABASE to a URL is not supported in Azure SQL Database (PaaS). This command is only available in SQL Server on VMs and Managed Instance.\n- C. bcp.exe exports and imports data in bulk but does not copy the schema or ensure transactional consistency across all tables. It is a data transfer tool, not a database copy mechanism.\n- D. DACFx schema compare compares and synchronizes database schemas. It does not copy data, so it would not create a complete copy of the production database."
+    }
+  ]
+}

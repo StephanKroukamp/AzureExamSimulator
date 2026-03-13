@@ -1,0 +1,149 @@
+@page "/"
+@inject ExamLoaderService ExamLoader
+
+<div class="home-page">
+    <div class="hero">
+        <h1>Microsoft Exam Simulator</h1>
+        <p class="hero-sub">Practice for Microsoft Certifications</p>
+    </div>
+
+    @if (_exams is null)
+    {
+        <div class="exam-grid">
+            @for (var i = 0; i < 6; i++)
+            {
+                <div class="exam-card skeleton">
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line long"></div>
+                    <div class="skeleton-row">
+                        <div class="skeleton-block"></div>
+                        <div class="skeleton-block"></div>
+                    </div>
+                    <div class="skeleton-line short"></div>
+                </div>
+            }
+        </div>
+    }
+    else if (_exams.Count == 0)
+    {
+        <div class="empty-state">No exam files found in Data/ directory.</div>
+    }
+    else
+    {
+        <div class="search-bar-container">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" class="search-input" placeholder="Search exams by code or name (e.g. AZ-104, Security...)"
+                   @bind="_searchText" @bind:event="oninput" />
+            @if (!string.IsNullOrEmpty(_searchText))
+            {
+                <button class="search-clear" @onclick="ClearSearch">&times;</button>
+            }
+        </div>
+
+        <div class="progress-summary">
+            <span class="progress-text">@FilteredExams.Count exams available</span>
+            <span class="progress-dot">&#8226;</span>
+            <span class="progress-text">@TotalQuestions questions total</span>
+        </div>
+
+        <div class="category-tabs">
+            @foreach (var cat in _categories)
+            {
+                <button class="category-tab @(cat.Key == _activeCategory ? "active" : "")"
+                        @onclick="() => SetCategory(cat.Key)">
+                    <span class="tab-label">@cat.Key</span>
+                    <span class="tab-count">@GetCategoryExams(cat.Key).Count()</span>
+                </button>
+            }
+        </div>
+
+        @if (FilteredExams.Count == 0)
+        {
+            <div class="empty-state">
+                <div class="empty-icon">&#128269;</div>
+                <p>No exams match your search.</p>
+                <button class="btn-secondary" @onclick="ClearSearch">Clear Search</button>
+            </div>
+        }
+        else
+        {
+            <div class="exam-grid">
+                @foreach (var exam in FilteredExams)
+                {
+                    <ExamCard Exam="exam" />
+                }
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private List<Exam>? _exams;
+    private string _searchText = "";
+    private string _activeCategory = "All";
+
+    private static readonly Dictionary<string, string[]> _categories = new()
+    {
+        ["All"] = [],
+        ["Fundamentals"] = ["AZ-900", "DP-900", "SC-900", "PL-900", "MS-900", "MB-910", "MB-920", "AI-900"],
+        ["Azure"] = ["AZ-104", "AZ-204", "AZ-305", "AZ-400", "AZ-500", "AZ-700", "AZ-800", "AZ-801", "AZ-120", "AZ-140"],
+        ["Data & AI"] = ["DP-100", "DP-203", "DP-300", "DP-420", "DP-500", "DP-600", "DP-700", "AI-102"],
+        ["Security"] = ["SC-100", "SC-200", "SC-300", "SC-400"],
+        ["Microsoft 365"] = ["MS-102", "MS-700", "MS-720", "MS-721"],
+        ["Power Platform"] = ["PL-100", "PL-200", "PL-300", "PL-400", "PL-500", "PL-600"],
+        ["Dynamics 365"] = ["MB-210", "MB-220", "MB-230", "MB-240", "MB-260", "MB-300", "MB-310", "MB-330", "MB-700", "MB-800"],
+        ["GitHub"] = ["GH-900", "GH-300"],
+        ["Office"] = ["MO-100", "MO-200", "MO-300", "MO-400", "MO-500"],
+    };
+
+    private List<Exam> FilteredExams
+    {
+        get
+        {
+            if (_exams is null) return [];
+            var result = _exams.AsEnumerable();
+
+            if (_activeCategory != "All" && _categories.TryGetValue(_activeCategory, out var codes) && codes.Length > 0)
+            {
+                var codeSet = new HashSet<string>(codes, StringComparer.OrdinalIgnoreCase);
+                result = result.Where(e => codeSet.Contains(e.ExamCode));
+            }
+
+            if (!string.IsNullOrWhiteSpace(_searchText))
+            {
+                var search = _searchText.Trim();
+                result = result.Where(e =>
+                    e.ExamCode.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    e.ExamTitle.Contains(search, StringComparison.OrdinalIgnoreCase));
+            }
+
+            return result.ToList();
+        }
+    }
+
+    private int TotalQuestions => FilteredExams.Sum(e => QuestionValidator.GetValidCount(e.Questions));
+
+    private IEnumerable<Exam> GetCategoryExams(string category)
+    {
+        if (_exams is null) return [];
+        if (category == "All") return _exams;
+        if (!_categories.TryGetValue(category, out var codes) || codes.Length == 0) return _exams;
+        var codeSet = new HashSet<string>(codes, StringComparer.OrdinalIgnoreCase);
+        return _exams.Where(e => codeSet.Contains(e.ExamCode));
+    }
+
+    protected override void OnInitialized()
+    {
+        _exams = ExamLoader.LoadAllExams();
+    }
+
+    private void SetCategory(string category)
+    {
+        _activeCategory = category;
+    }
+
+    private void ClearSearch()
+    {
+        _searchText = "";
+    }
+}

@@ -1,0 +1,591 @@
+{
+  "examCode": "AZ-700",
+  "examTitle": "Azure Network Engineer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Virtual Networks - Designing and implementing core networking infrastructure",
+      "type": "SingleChoice",
+      "questionText": "You are designing an Azure virtual network for a multi-tier application. The application tier must communicate with the database tier, but the database tier must not be accessible from the internet. What should you implement?",
+      "options": ["A. Deploy both tiers in the same subnet and use a network security group (NSG) to block internet traffic to the database tier.", "B. Deploy the database tier in a separate subnet with an NSG that denies all inbound traffic from the internet.", "C. Deploy the database tier in a separate virtual network with no virtual network peering.", "D. Deploy the database tier in a subnet with a service endpoint for Azure SQL Database."],
+      "correctAnswers": ["B"],
+      "explanation": "Deploying the database tier in a separate subnet with an NSG that denies all inbound traffic from the internet is the best approach. This provides network segmentation while still allowing the application tier to communicate with the database tier within the same VNet. Option A is incorrect because placing both tiers in the same subnet makes it harder to manage security rules independently. Option C is incorrect because without peering or connectivity, the application tier cannot reach the database tier. Option D is incorrect because a service endpoint is used to secure traffic to Azure PaaS services, not to protect a database tier running on VMs."
+    },
+    {
+      "id": 2,
+      "topic": "Load Balancing - Configuring Azure Load Balancer",
+      "type": "SingleChoice",
+      "questionText": "You need to distribute incoming HTTPS traffic across multiple virtual machines in different Azure regions. Which load balancing solution should you use?",
+      "options": ["A. Azure Load Balancer (Standard SKU).", "B. Azure Application Gateway.", "C. Azure Front Door.", "D. Azure Traffic Manager with performance routing."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Front Door is a global load balancing service that operates at Layer 7 and can distribute HTTPS traffic across multiple Azure regions. It provides SSL offloading, URL-based routing, and web application firewall capabilities. Option A is incorrect because Azure Load Balancer operates at Layer 4 and is regional, not global. Option B is incorrect because Application Gateway is also a regional service. Option D is incorrect because while Traffic Manager provides global DNS-based routing, it does not act as a reverse proxy for HTTPS traffic; Azure Front Door provides both routing and request handling at the application layer."
+    },
+    {
+      "id": 3,
+      "topic": "VPN Gateway - Configuring site-to-site VPN connections",
+      "type": "SingleChoice",
+      "questionText": "Your company has an on-premises network with a firewall that supports IKEv2. You need to create a site-to-site VPN connection to Azure. You create a virtual network gateway in Azure. What must you create next in Azure before configuring the connection?",
+      "options": ["A. A VPN client configuration package.", "B. A local network gateway representing the on-premises network.", "C. A route table with a custom route to the on-premises network.", "D. An ExpressRoute circuit."],
+      "correctAnswers": ["B"],
+      "explanation": "A local network gateway is an Azure resource that represents your on-premises network. It contains the public IP address of your on-premises VPN device and the address ranges of your on-premises network. This is required before you can create a site-to-site VPN connection. Option A is incorrect because a VPN client configuration package is used for point-to-site VPN connections, not site-to-site. Option C is incorrect because while custom routes can be useful, they are not required before configuring the connection. Option D is incorrect because an ExpressRoute circuit is a different type of connectivity, not a VPN."
+    },
+    {
+      "id": 4,
+      "topic": "ExpressRoute - Configuring ExpressRoute connections",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires a private, dedicated connection between your on-premises datacenter and Azure that does not traverse the public internet. The connection must support up to 10 Gbps bandwidth. Which solution should you recommend?",
+      "options": ["A. Site-to-site VPN with a VpnGw5 gateway.", "B. ExpressRoute with a Standard circuit.", "C. ExpressRoute Direct.", "D. Point-to-site VPN with OpenVPN protocol."],
+      "correctAnswers": ["C"],
+      "explanation": "ExpressRoute Direct provides dedicated 10 Gbps or 100 Gbps physical connectivity directly into the Microsoft network, offering the highest bandwidth and a truly private connection. Option A is incorrect because even the highest SKU VPN gateway cannot match 10 Gbps throughput and traffic still traverses the internet (encrypted). Option B is incorrect because a Standard ExpressRoute circuit has lower bandwidth tiers (up to 10 Gbps depending on the provider, but ExpressRoute Direct gives you direct port ownership). Option D is incorrect because point-to-site VPN is designed for individual client connections, not datacenter-to-Azure connectivity."
+    },
+    {
+      "id": 5,
+      "topic": "Azure Firewall - Implementing network security",
+      "type": "MultipleChoice",
+      "questionText": "You are deploying Azure Firewall Premium to protect your virtual network. Which TWO features are available exclusively in Azure Firewall Premium and not in Azure Firewall Standard? (Choose two.)",
+      "options": ["A. Threat intelligence-based filtering.", "B. TLS inspection.", "C. IDPS (Intrusion Detection and Prevention System).", "D. FQDN filtering in network rules.", "E. Web categories."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "TLS inspection and IDPS (Intrusion Detection and Prevention System) are features exclusive to Azure Firewall Premium. TLS inspection allows the firewall to decrypt and inspect encrypted traffic, while IDPS provides signature-based detection and prevention of malicious traffic. Option A is incorrect because threat intelligence-based filtering is available in both Standard and Premium SKUs. Option D is incorrect because FQDN filtering in network rules is available in Standard as well. Option E is incorrect because web categories are available in both Standard (at a basic level) and Premium (with enhanced granularity)."
+    },
+    {
+      "id": 6,
+      "topic": "DNS - Configuring Azure DNS",
+      "type": "SingleChoice",
+      "questionText": "You have a virtual network with multiple VMs that need to resolve names of other VMs in the same virtual network using custom domain names. You also need to support name resolution from on-premises to Azure. What should you deploy?",
+      "options": ["A. Azure DNS private zones linked to the virtual network with auto-registration enabled.", "B. Azure-provided name resolution with custom DNS suffix.", "C. A custom DNS server running on a VM in the virtual network.", "D. Azure DNS public zones with A records for each VM."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DNS private zones with auto-registration allow VMs in a linked virtual network to automatically register their DNS records. This provides custom domain name resolution for VMs in the VNet and can be integrated with on-premises DNS through conditional forwarding. Option B is incorrect because Azure-provided name resolution does not support custom domain names. Option C is incorrect because while a custom DNS server would work, it adds unnecessary management overhead when Azure DNS private zones can accomplish this natively. Option D is incorrect because public DNS zones would expose the records publicly, which is not desirable for internal VM name resolution."
+    },
+    {
+      "id": 7,
+      "topic": "Traffic Manager - Configuring DNS-based global load balancing",
+      "type": "SingleChoice",
+      "questionText": "You have web applications deployed in East US and West Europe. You need to route users to the deployment that provides the lowest latency. Which Traffic Manager routing method should you configure?",
+      "options": ["A. Priority routing.", "B. Weighted routing.", "C. Performance routing.", "D. Geographic routing."],
+      "correctAnswers": ["C"],
+      "explanation": "Performance routing directs users to the endpoint with the lowest network latency based on Internet Latency Tables. This ensures users are routed to the closest (in terms of network latency) Azure region. Option A is incorrect because priority routing sends all traffic to a primary endpoint and only uses secondary endpoints when the primary is unavailable. Option B is incorrect because weighted routing distributes traffic based on assigned weights, not latency. Option D is incorrect because geographic routing sends users to endpoints based on their geographic location (continent/country/state), not based on measured latency."
+    },
+    {
+      "id": 8,
+      "topic": "VNet Peering - Configuring virtual network connectivity",
+      "type": "SingleChoice",
+      "questionText": "You have VNet1 in East US peered with VNet2 in West US, and VNet2 is peered with VNet3 in West US. Users in VNet1 report they cannot reach resources in VNet3. What is the cause?",
+      "options": ["A. VNet peering does not support cross-region connectivity.", "B. VNet peering is not transitive by default.", "C. The peering status is in an 'Initiated' state.", "D. The gateway transit setting is not enabled."],
+      "correctAnswers": ["B"],
+      "explanation": "VNet peering is not transitive. Even though VNet1 is peered with VNet2 and VNet2 is peered with VNet3, VNet1 cannot automatically communicate with VNet3 through VNet2. You would need to create a direct peering between VNet1 and VNet3, use a hub-and-spoke topology with a virtual network gateway or Azure Firewall/NVA in VNet2 to route traffic. Option A is incorrect because VNet peering does support cross-region (global) peering. Option C is incorrect because if the peering were in 'Initiated' state, VNet1 could not reach VNet2 either. Option D is incorrect because gateway transit is used for sharing a VPN/ExpressRoute gateway, not for enabling transitive peering."
+    },
+    {
+      "id": 9,
+      "topic": "Application Gateway - Implementing web application delivery",
+      "type": "SingleChoice",
+      "questionText": "You need to configure an Azure Application Gateway to route traffic based on the URL path. Requests to /api/* should go to a backend pool of API servers, and requests to /images/* should go to a different backend pool. What should you configure?",
+      "options": ["A. URL path-based routing rules.", "B. Multi-site listeners.", "C. URL rewrite rules.", "D. HTTP settings with custom probes."],
+      "correctAnswers": ["A"],
+      "explanation": "URL path-based routing rules allow Application Gateway to route traffic to different backend pools based on the URL path of the request. You would configure path rules mapping /api/* to the API backend pool and /images/* to the images backend pool. Option B is incorrect because multi-site listeners are used to route traffic based on the hostname (e.g., api.contoso.com vs. images.contoso.com), not the URL path. Option C is incorrect because URL rewrite rules are used to modify request/response headers and URLs, not to make routing decisions. Option D is incorrect because HTTP settings and custom probes configure how Application Gateway communicates with backend servers and monitors their health, not how routing decisions are made."
+    },
+    {
+      "id": 10,
+      "topic": "Network Security Groups - Implementing traffic filtering",
+      "type": "SingleChoice",
+      "questionText": "You have an NSG associated with a subnet. The NSG has the following inbound rules: Rule 100 allows TCP port 443 from 10.0.0.0/8. Rule 200 denies all traffic from any source. Rule 300 allows TCP port 80 from any source. A user at IP address 10.1.0.5 attempts to connect to a VM in the subnet on TCP port 80. What happens?",
+      "options": ["A. The connection is allowed by Rule 300.", "B. The connection is denied by Rule 200.", "C. The connection is allowed by the default AllowVNetInBound rule.", "D. The connection is denied because port 80 is not in Rule 100."],
+      "correctAnswers": ["B"],
+      "explanation": "NSG rules are evaluated in priority order (lowest number = highest priority). The traffic from 10.1.0.5 on port 80 does not match Rule 100 (which only allows port 443). Rule 200 (deny all traffic from any source) is evaluated next and matches the traffic, so the connection is denied. Rule 300 is never evaluated because Rule 200 (priority 200) has a lower number and therefore higher priority. Option A is incorrect because Rule 300 is never reached. Option C is incorrect because custom rules are evaluated before default rules, and Rule 200 matches first. Option D is incorrect in its reasoning, though the result is a deny—the deny happens because of Rule 200, not simply because port 80 is not in Rule 100."
+    },
+    {
+      "id": 11,
+      "topic": "VPN Gateway - Configuring point-to-site VPN",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a point-to-site VPN connection to Azure that supports both Windows and macOS clients. You want to use certificate-based authentication. Which tunnel type should you select?",
+      "options": ["A. IKEv2 only.", "B. SSTP only.", "C. OpenVPN.", "D. IKEv2 and SSTP."],
+      "correctAnswers": ["C"],
+      "explanation": "OpenVPN protocol supports both Windows and macOS (as well as Linux) clients and works with certificate-based authentication. It uses TLS/SSL and can traverse most firewalls. Option A is incorrect because while IKEv2 supports both Windows and macOS, the question asks for the broadest compatibility and OpenVPN provides the widest platform support. Option B is incorrect because SSTP only supports Windows clients, not macOS. Option D is incorrect because SSTP does not support macOS, so this combination would not meet the requirement for both platforms."
+    },
+    {
+      "id": 12,
+      "topic": "Azure Firewall - Configuring firewall rules",
+      "type": "SingleChoice",
+      "questionText": "You configure Azure Firewall with the following rules: a NAT rule collection (priority 100) to DNAT traffic on port 443, a Network rule collection (priority 200) to allow TCP port 443, and an Application rule collection (priority 300) to deny HTTPS traffic. Inbound traffic arrives on port 443. In what order are the rules processed?",
+      "options": ["A. Application rules, then network rules, then NAT rules.", "B. NAT rules, then network rules, then application rules.", "C. Network rules, then application rules, then NAT rules.", "D. All rule collections are evaluated based on priority number regardless of type."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Firewall processes rules in a specific order: NAT rules are processed first, followed by network rules, and then application rules. This is by design, regardless of the priority numbers assigned to each collection. Within the same rule type, rules are processed by priority. So the NAT rule (priority 100) would be processed first, then the network rule (priority 200), and finally the application rule (priority 300). Option A is incorrect because application rules are processed last, not first. Option C is incorrect because NAT rules are processed first, not last. Option D is incorrect because rule type determines the processing order, not just priority numbers."
+    },
+    {
+      "id": 13,
+      "topic": "ExpressRoute - Understanding ExpressRoute peering",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring ExpressRoute for your organization. Which TWO peering types can be configured on an ExpressRoute circuit? (Choose two.)",
+      "options": ["A. Azure private peering.", "B. Azure public peering.", "C. Microsoft peering.", "D. Internet peering.", "E. Global peering."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "ExpressRoute supports two peering types: Azure private peering and Microsoft peering. Azure private peering connects to Azure IaaS and PaaS services deployed in virtual networks. Microsoft peering connects to Microsoft 365 and Azure PaaS services using public IP addresses. Option B is incorrect because Azure public peering has been deprecated and replaced by Microsoft peering. Option D is incorrect because Internet peering is not a valid ExpressRoute peering type. Option E is incorrect because global peering is not a valid peering type—you may be thinking of ExpressRoute Global Reach, which connects ExpressRoute circuits together."
+    },
+    {
+      "id": 14,
+      "topic": "Virtual Networks - Implementing IP addressing",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy a virtual network that can support up to 1,000 virtual machines across 4 subnets, with each subnet supporting roughly equal numbers of VMs. Which address space and subnet configuration is most appropriate?",
+      "options": ["A. Address space 10.0.0.0/22 with four /24 subnets.", "B. Address space 10.0.0.0/20 with four /22 subnets.", "C. Address space 10.0.0.0/24 with four /26 subnets.", "D. Address space 10.0.0.0/16 with four /18 subnets."],
+      "correctAnswers": ["B"],
+      "explanation": "A /20 address space provides 4,096 addresses. Four /22 subnets each provide 1,019 usable addresses (1,024 minus 5 reserved by Azure), totaling about 4,076 usable addresses across all subnets. This comfortably supports 250 VMs per subnet and allows for future growth. Option A is incorrect because a /22 only provides 1,024 total addresses, and four /24 subnets would give only about 251 usable addresses each—barely meeting the requirement with no room for growth. Option C is incorrect because a /24 only provides 256 addresses total, far too few for 1,000 VMs. Option D is incorrect because while it would work, it vastly over-allocates addresses (65,536 total) and wastes IP address space unnecessarily."
+    },
+    {
+      "id": 15,
+      "topic": "Load Balancing - Configuring health probes",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Standard Load Balancer distributing traffic to three VMs running a web application. Users report intermittent 503 errors. You notice that one VM's application process has crashed but the VM is still running. What should you configure to automatically detect this issue?",
+      "options": ["A. A TCP health probe on port 80.", "B. An HTTP health probe on port 80 that checks a specific application endpoint.", "C. An ICMP ping health probe.", "D. A TCP health probe on port 3389."],
+      "correctAnswers": ["B"],
+      "explanation": "An HTTP health probe that checks a specific application endpoint can detect whether the application is actually running and healthy, not just whether the OS is accepting TCP connections. If the application crashes but the VM is still running, an HTTP probe to an application health endpoint will fail, causing the load balancer to remove the VM from rotation. Option A is incorrect because a TCP probe on port 80 may succeed as long as the OS is accepting connections on that port, even if the web application has crashed. Option C is incorrect because Azure Load Balancer does not support ICMP probes. Option D is incorrect because port 3389 is RDP, which tests OS-level connectivity, not application health."
+    },
+    {
+      "id": 16,
+      "topic": "Azure Firewall - Implementing DNAT rules",
+      "type": "SingleChoice",
+      "questionText": "You need to allow external users to access a web server at private IP 10.0.1.4 on port 443 through Azure Firewall's public IP. What type of Azure Firewall rule should you create?",
+      "options": ["A. An application rule allowing HTTPS traffic.", "B. A network rule allowing TCP port 443.", "C. A DNAT rule translating the firewall's public IP port 443 to 10.0.1.4 port 443.", "D. An SNAT rule mapping 10.0.1.4 to the firewall's public IP."],
+      "correctAnswers": ["C"],
+      "explanation": "A Destination NAT (DNAT) rule translates inbound traffic arriving at the Azure Firewall's public IP address to a private IP address in your virtual network. This allows external users to reach internal resources through the firewall. Option A is incorrect because application rules are used for outbound FQDN-based filtering, not for inbound NAT. Option B is incorrect because a network rule alone does not perform address translation; it only allows or denies traffic. Option D is incorrect because SNAT is used for outbound traffic (translating private source IPs to the firewall's public IP), not for inbound traffic routing."
+    },
+    {
+      "id": 17,
+      "topic": "Virtual WAN - Configuring Azure Virtual WAN",
+      "type": "SingleChoice",
+      "questionText": "Your company has offices in 15 countries and needs a global hub-and-spoke network topology with branch-to-branch connectivity through Azure. Which service should you use?",
+      "options": ["A. Virtual network peering with gateway transit.", "B. Azure Virtual WAN with Standard tier.", "C. Azure Virtual WAN with Basic tier.", "D. Multiple VPN gateways with BGP enabled."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Virtual WAN Standard tier provides a fully meshed hub-and-spoke topology with support for branch-to-branch, VNet-to-VNet, branch-to-VNet connectivity, and integration with ExpressRoute, site-to-site VPN, and point-to-site VPN. It is designed for large-scale global connectivity. Option A is incorrect because managing peering across 15 countries manually would be extremely complex and does not provide automatic any-to-any connectivity. Option C is incorrect because the Basic tier only supports site-to-site VPN connectivity and does not support branch-to-branch or hub-to-hub communication. Option D is incorrect because managing multiple VPN gateways manually is operationally complex and does not provide the integrated global routing that Virtual WAN offers."
+    },
+    {
+      "id": 18,
+      "topic": "DNS - Configuring DNS resolution between VNets",
+      "type": "SingleChoice",
+      "questionText": "You have two virtual networks, VNet1 and VNet2, peered together. Each VNet has an Azure DNS private zone linked to it. VMs in VNet1 cannot resolve DNS names registered in VNet2's private zone. What should you do?",
+      "options": ["A. Enable auto-registration on both private zones.", "B. Link VNet1 to VNet2's DNS private zone.", "C. Create a DNS forwarder VM in each VNet.", "D. Configure custom DNS server settings on both VNets."],
+      "correctAnswers": ["B"],
+      "explanation": "To allow VMs in VNet1 to resolve records in VNet2's private DNS zone, you need to link VNet1 to VNet2's DNS private zone. A virtual network link allows VMs in the linked VNet to query the private zone for DNS resolution. Option A is incorrect because auto-registration controls whether VMs automatically register their records in the zone, not whether other VNets can resolve those records. Option C is incorrect because DNS forwarders add unnecessary complexity when a simple VNet link can solve the problem. Option D is incorrect because custom DNS settings would override Azure-provided DNS and require additional infrastructure."
+    },
+    {
+      "id": 19,
+      "topic": "Network Security - Implementing service endpoints",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that traffic from your VNet to Azure Storage travels over the Azure backbone network and not the public internet. You also need to restrict the storage account to accept traffic only from your VNet. What should you implement?",
+      "options": ["A. A private endpoint for the storage account.", "B. A service endpoint for Microsoft.Storage on the subnet and a storage firewall rule.", "C. An Azure Firewall with a network rule for the storage account IP.", "D. A NAT gateway on the subnet."],
+      "correctAnswers": ["B"],
+      "explanation": "A virtual network service endpoint for Microsoft.Storage ensures traffic to Azure Storage uses the Azure backbone network. Combined with a storage account firewall rule that allows traffic only from the specific subnet, this restricts access to the storage account from your VNet only. Option A is also a valid approach (private endpoints assign a private IP to the storage account), but the question specifically asks about keeping traffic on the backbone and restricting by VNet, which is the classic service endpoint scenario. Option C is incorrect because Azure Firewall does not change the routing path for storage traffic. Option D is incorrect because a NAT gateway provides outbound internet connectivity, it does not affect how traffic reaches Azure services."
+    },
+    {
+      "id": 20,
+      "topic": "Traffic Manager - Configuring endpoint monitoring",
+      "type": "SingleChoice",
+      "questionText": "You have a Traffic Manager profile with two endpoints: a primary web app in East US and a secondary web app in West Europe. You need the secondary endpoint to receive traffic only when the primary endpoint is unhealthy. Which routing method should you use?",
+      "options": ["A. Performance routing.", "B. Weighted routing with weight 1 and 0.", "C. Priority routing.", "D. Multivalue routing."],
+      "correctAnswers": ["C"],
+      "explanation": "Priority routing allows you to designate a primary endpoint and one or more failover endpoints. All traffic is sent to the primary endpoint, and if it becomes unhealthy, traffic is automatically redirected to the next priority endpoint. Option A is incorrect because performance routing sends users to the lowest-latency endpoint, not a designated primary. Option B is incorrect because you cannot set a weight of 0 in Traffic Manager, and weighted routing distributes traffic proportionally, not as active/passive. Option D is incorrect because multivalue routing returns multiple healthy endpoints in the DNS response for the client to choose from, rather than directing all traffic to a single primary."
+    },
+    {
+      "id": 21,
+      "topic": "VNet Peering - Configuring gateway transit",
+      "type": "SingleChoice",
+      "questionText": "You have a hub-and-spoke topology with VNet-Hub connected to on-premises via a VPN gateway. VNet-Spoke is peered with VNet-Hub. You need VMs in VNet-Spoke to access on-premises resources through the VPN gateway in VNet-Hub. What should you configure?",
+      "options": ["A. Enable 'Allow gateway transit' on the VNet-Hub peering and 'Use remote gateways' on the VNet-Spoke peering.", "B. Enable 'Allow forwarded traffic' on both peerings.", "C. Deploy a second VPN gateway in VNet-Spoke.", "D. Create a UDR in VNet-Spoke pointing to the VPN gateway's private IP."],
+      "correctAnswers": ["A"],
+      "explanation": "To share a VPN gateway in a hub VNet with spoke VNets, you must enable 'Allow gateway transit' on the hub side of the peering and 'Use remote gateways' on the spoke side. This allows the spoke VNet to use the hub's VPN gateway to reach on-premises. Option B is incorrect because 'Allow forwarded traffic' allows traffic forwarded by an NVA but does not enable gateway sharing. Option C is incorrect because deploying a second VPN gateway is unnecessary and costly when gateway transit can share the hub's gateway. Option D is incorrect because a UDR alone does not enable the spoke VNet to use the hub's gateway; the peering gateway transit settings are required."
+    },
+    {
+      "id": 22,
+      "topic": "Azure Front Door - Configuring global load balancing",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring Azure Front Door for a global web application. Which TWO features does Azure Front Door provide? (Choose two.)",
+      "options": ["A. Layer 4 TCP/UDP load balancing.", "B. SSL offloading and re-encryption.", "C. Web Application Firewall (WAF) integration.", "D. BGP route propagation.", "E. ExpressRoute circuit management."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Azure Front Door provides SSL offloading (terminating SSL at the edge and optionally re-encrypting to the backend) and Web Application Firewall (WAF) integration for protecting web applications against common exploits. Option A is incorrect because Front Door operates at Layer 7, not Layer 4. Option D is incorrect because BGP route propagation is a feature of VPN gateways and ExpressRoute, not Front Door. Option E is incorrect because ExpressRoute circuit management is unrelated to Front Door."
+    },
+    {
+      "id": 23,
+      "topic": "Network Security - Implementing Private Link",
+      "type": "SingleChoice",
+      "questionText": "You need to access an Azure SQL Database from your VNet using a private IP address. You want the DNS resolution for the SQL server FQDN to return the private IP. What should you implement?",
+      "options": ["A. A service endpoint for Microsoft.Sql.", "B. A private endpoint with a private DNS zone for privatelink.database.windows.net.", "C. A custom DNS server that returns the private IP.", "D. An A record in Azure DNS public zone."],
+      "correctAnswers": ["B"],
+      "explanation": "A private endpoint creates a network interface with a private IP address in your VNet for the Azure SQL Database. By integrating with a private DNS zone for privatelink.database.windows.net, the SQL server's FQDN resolves to the private IP address, ensuring all traffic stays on the Microsoft backbone. Option A is incorrect because service endpoints do not assign a private IP; they route traffic over the backbone but the SQL server is still accessed via its public endpoint. Option C is incorrect because while it could work, it requires manual management and does not provide the same level of integration. Option D is incorrect because a public DNS zone would make the private IP visible publicly, which is not appropriate."
+    },
+    {
+      "id": 24,
+      "topic": "Virtual Networks - Implementing network routing",
+      "type": "SingleChoice",
+      "questionText": "You have an NVA (Network Virtual Appliance) deployed in a hub VNet for inspecting traffic. You need to force all traffic from a spoke subnet through the NVA. What should you configure?",
+      "options": ["A. A user-defined route (UDR) on the spoke subnet with next hop type 'Virtual appliance' pointing to the NVA's private IP.", "B. BGP on the NVA to advertise routes to the spoke VNet.", "C. An NSG rule on the spoke subnet redirecting traffic to the NVA.", "D. IP forwarding on the spoke VMs' NICs."],
+      "correctAnswers": ["A"],
+      "explanation": "A user-defined route (UDR) on the spoke subnet with the next hop type set to 'Virtual appliance' and the NVA's private IP forces traffic from the spoke through the NVA for inspection. You must also enable IP forwarding on the NVA's NIC. Option B is incorrect because BGP requires additional infrastructure and is not the simplest way to force traffic through the NVA in a hub-spoke topology. Option C is incorrect because NSGs filter traffic (allow/deny) but cannot redirect traffic to another destination. Option D is incorrect because IP forwarding should be enabled on the NVA's NIC, not on the spoke VMs' NICs."
+    },
+    {
+      "id": 25,
+      "topic": "Azure Firewall - Implementing firewall policies",
+      "type": "SingleChoice",
+      "questionText": "Your organization has Azure Firewalls in 10 regions. You need to centrally manage firewall rules and ensure that base rules are inherited by all regional firewalls while allowing region-specific rules. What should you implement?",
+      "options": ["A. A single Azure Firewall policy associated with all firewalls.", "B. A parent Azure Firewall policy with base rules and child policies for each region.", "C. Azure Firewall Manager with separate rule collections for each firewall.", "D. ARM templates to deploy identical rules to all firewalls."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Firewall policies support a hierarchical structure where a parent policy contains base rules inherited by child policies. Each regional firewall can be associated with its own child policy that inherits the parent's rules and adds region-specific rules. This provides centralized management with regional flexibility. Option A is incorrect because a single policy cannot have region-specific rules; all firewalls would get identical rules. Option C is incorrect because separate rule collections do not provide inheritance. Option D is incorrect because ARM templates require manual synchronization and do not support inheritance."
+    },
+    {
+      "id": 26,
+      "topic": "Load Balancing - Configuring internal load balancer",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy an internal load balancer for a three-tier application. The load balancer must support HA ports to load balance all protocols and ports for the backend pool. Which SKU should you select?",
+      "options": ["A. Basic SKU with a load balancing rule for all ports.", "B. Standard SKU with HA ports rule.", "C. Gateway SKU.", "D. Standard SKU with multiple individual port rules."],
+      "correctAnswers": ["B"],
+      "explanation": "Standard SKU internal load balancer supports HA ports rules, which load balance all TCP and UDP flows on all ports simultaneously. This is essential for scenarios like NVAs where you need to forward all traffic. Option A is incorrect because the Basic SKU does not support HA ports. Option C is incorrect because Gateway Load Balancer is used for chaining third-party NVAs transparently, not for general internal load balancing. Option D is incorrect because creating individual port rules is not the same as HA ports and would not cover all protocols and ports simultaneously."
+    },
+    {
+      "id": 27,
+      "topic": "ExpressRoute - Configuring ExpressRoute Global Reach",
+      "type": "SingleChoice",
+      "questionText": "Your company has two on-premises datacenters: one in New York connected to Azure via ExpressRoute circuit 1, and one in London connected via ExpressRoute circuit 2. You need the two datacenters to communicate with each other through the Microsoft backbone. What should you configure?",
+      "options": ["A. VNet peering between the two regions.", "B. ExpressRoute Global Reach between the two circuits.", "C. A site-to-site VPN between the two on-premises locations.", "D. ExpressRoute FastPath on both circuits."],
+      "correctAnswers": ["B"],
+      "explanation": "ExpressRoute Global Reach enables you to link two ExpressRoute circuits together, allowing your on-premises networks to communicate with each other through the Microsoft global backbone network. This provides a private, high-bandwidth connection between datacenters without traversing the public internet. Option A is incorrect because VNet peering connects Azure virtual networks, not on-premises locations. Option C is incorrect because a site-to-site VPN would traverse the public internet, not the Microsoft backbone. Option D is incorrect because FastPath optimizes data path performance for traffic between on-premises and VNets, it does not enable communication between two on-premises sites."
+    },
+    {
+      "id": 28,
+      "topic": "Network Security - Implementing DDoS Protection",
+      "type": "SingleChoice",
+      "questionText": "Your organization hosts public-facing web applications in Azure. You need to protect them against volumetric DDoS attacks and receive attack analytics and near real-time metrics. Which DDoS protection tier should you enable?",
+      "options": ["A. DDoS Infrastructure Protection (default).", "B. DDoS Network Protection.", "C. Azure Firewall with threat intelligence.", "D. Web Application Firewall on Application Gateway."],
+      "correctAnswers": ["B"],
+      "explanation": "DDoS Network Protection (formerly DDoS Protection Standard) provides enhanced DDoS mitigation features including attack analytics, near real-time metrics, alerting, and access to the DDoS Rapid Response team. It automatically protects all public IP resources in the VNet. Option A is incorrect because the default Infrastructure Protection provides basic protection without analytics, metrics, or alerting. Option C is incorrect because Azure Firewall with threat intelligence protects against known malicious IPs, not volumetric DDoS attacks. Option D is incorrect because WAF protects against application-layer attacks (Layer 7) like SQL injection and XSS, not volumetric DDoS attacks."
+    },
+    {
+      "id": 29,
+      "topic": "VPN Gateway - Configuring active-active VPN",
+      "type": "SingleChoice",
+      "questionText": "You need to implement a highly available VPN connection between your on-premises network and Azure. Both the Azure VPN gateway and on-premises device should actively handle traffic. What should you configure?",
+      "options": ["A. An active-passive VPN gateway with automatic failover.", "B. An active-active VPN gateway with two public IP addresses and two tunnels to on-premises.", "C. Two separate VPN gateways in different regions.", "D. ExpressRoute as a backup to the VPN gateway."],
+      "correctAnswers": ["B"],
+      "explanation": "An active-active VPN gateway configuration deploys two gateway instances, each with its own public IP address. Both instances actively establish S2S VPN tunnels to your on-premises device, distributing traffic across both tunnels. This provides higher availability than active-passive. Option A is incorrect because active-passive means only one instance handles traffic at a time, which does not meet the requirement for both sides actively handling traffic. Option C is incorrect because two separate gateways in different regions create redundancy but add complexity and are not the standard active-active pattern. Option D is incorrect because ExpressRoute as a VPN backup is a different HA strategy that does not address active-active VPN requirements."
+    },
+    {
+      "id": 30,
+      "topic": "Application Gateway - Configuring WAF policies",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring a Web Application Firewall (WAF) policy on Azure Application Gateway. Which TWO rule types can you configure? (Choose two.)",
+      "options": ["A. OWASP Core Rule Set (CRS) managed rules.", "B. Azure DDoS network rules.", "C. Custom rules with match conditions.", "D. NSG flow rules.", "E. Azure Firewall DNAT rules."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "WAF policies on Application Gateway support OWASP Core Rule Set (CRS) managed rules, which provide protection against common web vulnerabilities, and custom rules that allow you to define your own match conditions (IP address, geo-match, request size, string match). Option B is incorrect because DDoS network rules are part of the DDoS Protection service, not WAF. Option D is incorrect because NSG flow rules are network-level access controls, not WAF rules. Option E is incorrect because DNAT rules are specific to Azure Firewall, not Application Gateway WAF."
+    },
+    {
+      "id": 31,
+      "topic": "Virtual Networks - Implementing IPv6",
+      "type": "SingleChoice",
+      "questionText": "You need to add IPv6 support to an existing virtual network that uses IPv4. Which statement is true about Azure dual-stack VNet implementation?",
+      "options": ["A. You must delete and recreate the VNet with dual-stack support.", "B. You can add an IPv6 address space to the existing VNet and configure dual-stack subnets.", "C. IPv6 is only supported with ExpressRoute connectivity.", "D. Azure VNets do not support IPv6 addressing."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure supports adding an IPv6 address space to an existing virtual network. You can configure dual-stack subnets that support both IPv4 and IPv6, and deploy VMs with dual-stack NICs. This can be done without deleting or recreating the VNet. Option A is incorrect because you do not need to recreate the VNet. Option C is incorrect because IPv6 is supported with various connectivity options, not just ExpressRoute. Option D is incorrect because Azure virtual networks fully support IPv6 dual-stack configurations."
+    },
+    {
+      "id": 32,
+      "topic": "Network Security - Implementing Azure Bastion",
+      "type": "SingleChoice",
+      "questionText": "You need to provide secure RDP and SSH access to Azure VMs without exposing them to the public internet. The solution must work through the Azure portal using HTML5. What should you deploy?",
+      "options": ["A. A jump box VM with a public IP.", "B. Azure Bastion in the virtual network.", "C. A point-to-site VPN connection.", "D. Just-in-time VM access with Azure Defender."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Bastion provides secure, seamless RDP and SSH access to VMs directly through the Azure portal using HTML5, without requiring a public IP on the VMs. It is deployed in a dedicated AzureBastionSubnet within the VNet. Option A is incorrect because a jump box with a public IP exposes the jump box to the internet, creating a security risk. Option C is incorrect because a point-to-site VPN requires client software and does not work through the Azure portal. Option D is incorrect because JIT access reduces the exposure window for public IP-based access but still requires a public IP on the VM or network path."
+    },
+    {
+      "id": 33,
+      "topic": "DNS - Configuring Azure DNS Resolver",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure virtual network and an on-premises network connected via ExpressRoute. You need to enable DNS resolution from Azure to on-premises DNS servers and from on-premises to Azure private DNS zones without deploying custom DNS VMs. What should you deploy?",
+      "options": ["A. Azure DNS Private Resolver with inbound and outbound endpoints.", "B. Two VMs running Windows DNS server with conditional forwarders.", "C. Azure Firewall DNS proxy.", "D. Azure DNS public zones with forwarders."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DNS Private Resolver is a managed service that enables DNS resolution between Azure and on-premises networks without deploying VMs. The inbound endpoint allows on-premises to resolve Azure private DNS zones, and the outbound endpoint allows Azure VMs to resolve on-premises DNS names through forwarding rules. Option B is incorrect because while it works, the question specifically asks for a solution without deploying custom DNS VMs. Option C is incorrect because Azure Firewall DNS proxy can resolve FQDNs in network rules but does not provide the full bidirectional DNS resolution required. Option D is incorrect because public DNS zones are not appropriate for private name resolution."
+    },
+    {
+      "id": 34,
+      "topic": "Load Balancing - Configuring cross-region load balancer",
+      "type": "SingleChoice",
+      "questionText": "You need to implement a load balancing solution that provides automatic failover of Layer 4 traffic across Azure regions. The solution must use anycast IP. What should you deploy?",
+      "options": ["A. Azure Traffic Manager.", "B. Azure Front Door.", "C. Cross-region Azure Load Balancer (Global tier).", "D. Two regional Standard Load Balancers with manual failover."],
+      "correctAnswers": ["C"],
+      "explanation": "Cross-region Azure Load Balancer (Global tier) provides Layer 4 global load balancing with an anycast static IP. It distributes traffic across regional load balancers and provides automatic failover if a region goes down. Option A is incorrect because Traffic Manager is DNS-based and subject to DNS TTL delays during failover. Option B is incorrect because Front Door operates at Layer 7, not Layer 4. Option D is incorrect because manual failover does not meet the requirement for automatic failover."
+    },
+    {
+      "id": 35,
+      "topic": "Virtual Networks - Implementing Network Watcher",
+      "type": "SingleChoice",
+      "questionText": "You suspect that traffic between two VMs is being dropped by an NSG rule. Which Network Watcher tool should you use to verify which NSG rule is affecting the traffic?",
+      "options": ["A. Connection troubleshoot.", "B. IP flow verify.", "C. NSG flow logs.", "D. Packet capture."],
+      "correctAnswers": ["B"],
+      "explanation": "IP flow verify checks if a packet is allowed or denied to or from a virtual machine based on current NSG rules. It identifies the specific security rule that allows or denies the traffic. Option A is incorrect because connection troubleshoot tests end-to-end connectivity but does not identify specific NSG rules. Option C is incorrect because NSG flow logs record traffic information for analysis but require additional processing and do not provide real-time specific rule identification. Option D is incorrect because packet capture captures network traffic for analysis but does not identify which NSG rule is responsible for allowing or denying specific traffic."
+    },
+    {
+      "id": 36,
+      "topic": "ExpressRoute - Configuring route filters",
+      "type": "SingleChoice",
+      "questionText": "You have an ExpressRoute circuit with Microsoft peering configured. You notice that your on-premises network is receiving all Microsoft 365 route advertisements, but you only need routes for Exchange Online. What should you configure?",
+      "options": ["A. A route filter associated with the ExpressRoute circuit that includes only the Exchange Online BGP community.", "B. An on-premises firewall rule to block non-Exchange traffic.", "C. A UDR in Azure to control outbound routing.", "D. NSG rules to restrict traffic to Exchange Online IPs."],
+      "correctAnswers": ["A"],
+      "explanation": "Route filters allow you to select a subset of supported services through Microsoft peering by filtering on BGP community values. By configuring a route filter that includes only the Exchange Online BGP community, your on-premises network will only receive the routes for Exchange Online. Option B is incorrect because a firewall rule would block traffic but not prevent the routes from being advertised. Option C is incorrect because UDRs in Azure do not affect BGP route advertisements to on-premises. Option D is incorrect because NSGs are applied at the subnet/NIC level in Azure and do not control BGP route advertisements."
+    },
+    {
+      "id": 37,
+      "topic": "Azure Firewall - Implementing secure hub",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure Virtual WAN and need to inspect and filter traffic between branches and between branches and VNets. You want to use Azure Firewall Manager for centralized policy management. What should you deploy in the Virtual WAN hub?",
+      "options": ["A. An NVA from Azure Marketplace.", "B. A secured virtual hub with Azure Firewall.", "C. An Application Gateway with WAF.", "D. Network security groups on the hub subnets."],
+      "correctAnswers": ["B"],
+      "explanation": "A secured virtual hub is a Virtual WAN hub with Azure Firewall deployed in it, managed through Azure Firewall Manager. This allows you to inspect and filter branch-to-branch, branch-to-VNet, and VNet-to-VNet traffic with centralized firewall policies. Option A is incorrect because while NVAs can be deployed in Virtual WAN, they are not managed by Azure Firewall Manager. Option C is incorrect because Application Gateway with WAF is for web application protection, not for branch-to-branch traffic inspection. Option D is incorrect because NSGs provide basic filtering but cannot inspect traffic at the level Azure Firewall can, and they are not applicable to Virtual WAN hub routing."
+    },
+    {
+      "id": 38,
+      "topic": "Network Security - Implementing service tags",
+      "type": "SingleChoice",
+      "questionText": "You need to create an NSG rule that allows inbound traffic from all Azure Load Balancer health probes. The rule must continue to work even if Microsoft changes the IP addresses used for health probes. What should you use as the source in the NSG rule?",
+      "options": ["A. The specific IP address 168.63.129.16.", "B. The AzureLoadBalancer service tag.", "C. The Internet service tag.", "D. The VirtualNetwork service tag."],
+      "correctAnswers": ["B"],
+      "explanation": "The AzureLoadBalancer service tag represents the Azure infrastructure IP addresses used for health probes. Using service tags ensures the rule remains valid even if Microsoft changes the underlying IP addresses. Option A is incorrect because while 168.63.129.16 is the current health probe source IP, hardcoding IPs is not recommended as they could change in the future. Option C is incorrect because the Internet service tag represents all public IPs, which is too broad. Option D is incorrect because the VirtualNetwork service tag represents the VNet address space, not Azure Load Balancer probe IPs."
+    },
+    {
+      "id": 39,
+      "topic": "Traffic Manager - Configuring nested profiles",
+      "type": "SingleChoice",
+      "questionText": "You need to route traffic to the nearest region using performance routing, but within each region, you need to distribute traffic using weighted routing between a blue and green deployment. What should you configure?",
+      "options": ["A. A single Traffic Manager profile with multivalue routing.", "B. A parent Traffic Manager profile with performance routing containing child profiles with weighted routing.", "C. Two separate Traffic Manager profiles without nesting.", "D. Azure Front Door with origin groups."],
+      "correctAnswers": ["B"],
+      "explanation": "Nested Traffic Manager profiles allow you to combine routing methods. The parent profile uses performance routing to direct users to the nearest region, and the child profiles in each region use weighted routing to distribute traffic between blue and green deployments. Option A is incorrect because a single profile cannot combine performance and weighted routing. Option C is incorrect because without nesting, you cannot combine two routing methods. Option D is incorrect because while Front Door could handle this scenario, the question specifically describes a Traffic Manager configuration."
+    },
+    {
+      "id": 40,
+      "topic": "Virtual Networks - Implementing NAT Gateway",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure outbound internet connectivity for VMs in a subnet using a static public IP. The solution must support up to 64,000 concurrent SNAT ports per public IP. Which TWO statements about Azure NAT Gateway are true? (Choose two.)",
+      "options": ["A. NAT Gateway supports both inbound and outbound traffic.", "B. NAT Gateway provides up to 64,000 SNAT ports per public IP address.", "C. NAT Gateway takes precedence over other outbound configurations on a subnet.", "D. NAT Gateway requires a Basic SKU public IP.", "E. NAT Gateway supports TCP only, not UDP."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Azure NAT Gateway provides up to 64,000 concurrent SNAT ports per public IP address and takes precedence over other outbound connectivity configurations (such as Load Balancer outbound rules or VM public IPs) on a subnet. Option A is incorrect because NAT Gateway only handles outbound (and response) traffic, not unsolicited inbound traffic. Option D is incorrect because NAT Gateway requires Standard SKU public IP addresses, not Basic. Option E is incorrect because NAT Gateway supports both TCP and UDP protocols."
+    },
+    {
+      "id": 41,
+      "topic": "Virtual Networks - Designing and implementing core networking infrastructure",
+      "type": "SingleChoice",
+      "questionText": "You have two Azure virtual networks, VNet1 (10.1.0.0/16) and VNet2 (10.2.0.0/16), in the same region. Resources in VNet1 need to communicate with resources in VNet2 with low latency. What should you configure?",
+      "options": ["A. VNet-to-VNet VPN Gateway connection.", "B. Virtual network peering.", "C. Azure ExpressRoute.", "D. An Azure Load Balancer."],
+      "correctAnswers": ["B"],
+      "explanation": "Virtual network peering provides low-latency, high-bandwidth connectivity between VNets using the Microsoft backbone network, without requiring gateways or public internet traversal. Option A is incorrect because a VPN Gateway connection adds encryption overhead and higher latency compared to peering for same-region VNets. Option C is incorrect because ExpressRoute is designed for private connectivity between on-premises networks and Azure, not for VNet-to-VNet communication. Option D is incorrect because a load balancer distributes traffic to backend resources, not for connecting two VNets."
+    },
+    {
+      "id": 42,
+      "topic": "Virtual Networks - Designing and implementing core networking infrastructure",
+      "type": "SingleChoice",
+      "questionText": "You are designing an Azure hub-and-spoke network topology. Spoke VNets need to communicate with each other through the hub. The hub contains an Azure Firewall. What must you enable on the peering connections from the spokes to the hub?",
+      "options": ["A. Allow forwarded traffic on the spoke peerings and use the hub as a transit hub.", "B. Allow gateway transit on the spoke peerings.", "C. Enable encryption on the peering connections.", "D. Configure BGP route propagation."],
+      "correctAnswers": ["A"],
+      "explanation": "To allow spoke-to-spoke communication through the hub (where Azure Firewall routes traffic), you must enable 'Allow forwarded traffic' on the peering connections. The hub VNet forwards traffic between spokes via Azure Firewall using User Defined Routes (UDRs). Option B is incorrect because Allow gateway transit is used when the hub has a VPN or ExpressRoute gateway that spokes need to use, not for routing through Azure Firewall. Option C is incorrect because peering encryption is an optional feature for data-in-transit encryption, not required for spoke-to-spoke routing. Option D is incorrect because BGP route propagation applies to routes from a VPN/ExpressRoute gateway, not to spoke-to-spoke routing through a firewall."
+    },
+    {
+      "id": 43,
+      "topic": "Load Balancing - Configuring Azure Application Gateway",
+      "type": "SingleChoice",
+      "questionText": "You need to route incoming HTTP requests to different backend pools based on the URL path. Requests to /images/* should go to an image server pool, and requests to /api/* should go to an API server pool. Which Azure service should you use?",
+      "options": ["A. Azure Load Balancer with inbound NAT rules.", "B. Azure Application Gateway with path-based routing rules.", "C. Azure Traffic Manager with priority routing.", "D. Azure Front Door with header-based routing."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Application Gateway supports path-based routing rules that direct requests to different backend pools based on the URL path, making it ideal for routing /images/* and /api/* to separate pools. Option A is incorrect because Azure Load Balancer operates at Layer 4 and cannot inspect HTTP URL paths. Option C is incorrect because Traffic Manager uses DNS-based routing for global traffic distribution and cannot route based on URL paths. Option D is incorrect because while Azure Front Door supports path-based routing, the question specifically describes a scenario best handled by Application Gateway; also, header-based routing was mentioned as the option which is a different routing method."
+    },
+    {
+      "id": 44,
+      "topic": "Load Balancing - Configuring Azure Front Door",
+      "type": "SingleChoice",
+      "questionText": "Your company has web applications deployed in East US and West Europe. You need to route users to the closest healthy region automatically and provide SSL offloading and Web Application Firewall protection. Which service should you use?",
+      "options": ["A. Azure Traffic Manager.", "B. Azure Front Door.", "C. Azure Application Gateway.", "D. Azure Load Balancer."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Front Door is a global Layer 7 load balancer that provides automatic nearest-region routing based on latency, SSL offloading, and integrated Web Application Firewall (WAF) capabilities. Option A is incorrect because Traffic Manager provides DNS-based global routing but does not offer SSL offloading or WAF. Option C is incorrect because Application Gateway is a regional Layer 7 load balancer and does not provide global routing across regions. Option D is incorrect because Azure Load Balancer is a regional Layer 4 load balancer without HTTP awareness, global routing, or WAF capabilities."
+    },
+    {
+      "id": 45,
+      "topic": "Routing - Configuring User Defined Routes",
+      "type": "SingleChoice",
+      "questionText": "You need to force all internet-bound traffic from a subnet through an Azure Firewall for inspection. The Azure Firewall has a private IP of 10.0.1.4. What User Defined Route (UDR) should you create on the subnet's route table?",
+      "options": ["A. Address prefix: 0.0.0.0/0, Next hop type: Virtual appliance, Next hop address: 10.0.1.4.", "B. Address prefix: 0.0.0.0/0, Next hop type: Internet.", "C. Address prefix: 10.0.0.0/8, Next hop type: Virtual appliance, Next hop address: 10.0.1.4.", "D. Address prefix: 0.0.0.0/0, Next hop type: VirtualNetworkGateway."],
+      "correctAnswers": ["A"],
+      "explanation": "A UDR with address prefix 0.0.0.0/0 (default route) and next hop type Virtual appliance pointing to the Azure Firewall's private IP (10.0.1.4) forces all internet-bound traffic through the firewall. Option B is incorrect because setting next hop to Internet routes traffic directly to the internet, bypassing the firewall entirely. Option C is incorrect because 10.0.0.0/8 would only capture private address traffic, not internet-bound traffic. Option D is incorrect because VirtualNetworkGateway as next hop sends traffic to a VPN/ExpressRoute gateway, not to the Azure Firewall."
+    },
+    {
+      "id": 46,
+      "topic": "Routing - Configuring Azure Route Server",
+      "type": "SingleChoice",
+      "questionText": "You deploy a third-party Network Virtual Appliance (NVA) in your Azure VNet. You need the NVA to exchange routes dynamically with the Azure network using BGP without managing UDRs manually. What should you deploy?",
+      "options": ["A. Azure Route Server.", "B. Azure VPN Gateway.", "C. Azure ExpressRoute circuit.", "D. Azure DNS Private Resolver."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Route Server enables dynamic route exchange between Network Virtual Appliances and the Azure virtual network using BGP, eliminating the need to manually manage User Defined Routes. Option B is incorrect because a VPN Gateway provides encrypted connectivity to remote networks but is not designed for dynamic route exchange with NVAs within a VNet. Option C is incorrect because an ExpressRoute circuit provides private connectivity between on-premises and Azure, not dynamic routing with NVAs in Azure. Option D is incorrect because Azure DNS Private Resolver handles DNS resolution, not network route exchange."
+    },
+    {
+      "id": 47,
+      "topic": "Private Access - Configuring Azure Private Link",
+      "type": "SingleChoice",
+      "questionText": "You need to access an Azure Storage account from your VNet using a private IP address. The storage account should not be accessible over its public endpoint. What should you configure?",
+      "options": ["A. A service endpoint for Microsoft.Storage on the subnet.", "B. An Azure Private Endpoint for the storage account and disable public network access.", "C. A NAT Gateway on the subnet.", "D. An Azure Firewall DNAT rule."],
+      "correctAnswers": ["B"],
+      "explanation": "An Azure Private Endpoint assigns a private IP address from your VNet to the storage account, enabling access over the private IP. Disabling public network access on the storage account ensures it is not accessible over its public endpoint. Option A is incorrect because a service endpoint routes traffic over the Microsoft backbone but the storage account retains its public IP address; it does not assign a private IP. Option C is incorrect because a NAT Gateway provides outbound internet connectivity from a subnet, not private access to PaaS services. Option D is incorrect because a DNAT rule translates inbound public traffic to a private IP, not for establishing private PaaS access."
+    },
+    {
+      "id": 48,
+      "topic": "Private Access - Configuring Azure Private DNS",
+      "type": "SingleChoice",
+      "questionText": "You have configured an Azure Private Endpoint for an Azure SQL Database. VMs in the VNet need to resolve the SQL server's FQDN (e.g., myserver.database.windows.net) to the private endpoint IP. What should you configure?",
+      "options": ["A. An Azure Private DNS zone named privatelink.database.windows.net linked to the VNet.", "B. A custom DNS server in the VNet with a conditional forwarder.", "C. An A record in Azure public DNS.", "D. A CNAME record pointing to the private endpoint name."],
+      "correctAnswers": ["A"],
+      "explanation": "An Azure Private DNS zone named privatelink.database.windows.net linked to the VNet automatically resolves the SQL server's FQDN to the private endpoint's IP address for resources within the VNet. Option B is incorrect because a custom DNS server with a conditional forwarder is a valid but more complex approach and is not the recommended method when Azure-provided DNS is used. Option C is incorrect because an A record in Azure public DNS would be publicly visible and is not used for private endpoint resolution. Option D is incorrect because a CNAME alone does not resolve to the private IP without the proper private DNS zone configuration."
+    },
+    {
+      "id": 49,
+      "topic": "Security - Configuring Azure DDoS Protection",
+      "type": "SingleChoice",
+      "questionText": "You need to protect your Azure virtual network resources from volumetric DDoS attacks while also receiving attack analytics and rapid response support from Microsoft. Which SKU of Azure DDoS Protection should you deploy?",
+      "options": ["A. Azure DDoS Network Protection.", "B. Azure DDoS IP Protection.", "C. The default Azure infrastructure DDoS protection.", "D. Azure Firewall Basic."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DDoS Network Protection (formerly Standard) provides enhanced DDoS mitigation for VNet resources, including adaptive tuning, attack analytics, metrics, alerting, and access to the DDoS Rapid Response (DRR) team. Option B is incorrect because DDoS IP Protection is a per-IP SKU that provides core DDoS protection but does not include DDoS rapid response support or cost protection. Option C is incorrect because the default infrastructure protection provides basic DDoS protection but without attack analytics, alerting, or rapid response support. Option D is incorrect because Azure Firewall provides network security filtering, not DDoS protection."
+    },
+    {
+      "id": 50,
+      "topic": "Security - Configuring network security groups",
+      "type": "MultipleChoice",
+      "questionText": "You need to allow HTTPS traffic from the internet to a web server VM and allow the VM to communicate with Azure SQL Database on port 1433. All other traffic should be denied. Which TWO NSG rules should you create? (Choose two.)",
+      "options": ["A. Inbound rule: Allow HTTPS (port 443) from source Internet.", "B. Outbound rule: Allow TCP port 1433 to the AzureSQL service tag.", "C. Inbound rule: Allow TCP port 1433 from any source.", "D. Outbound rule: Allow all traffic to the Internet.", "E. Inbound rule: Allow RDP (port 3389) from the Internet."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "An inbound rule allowing HTTPS (port 443) from the Internet enables web traffic to reach the VM, and an outbound rule allowing TCP port 1433 to the AzureSQL service tag permits the VM to communicate with Azure SQL Database. Option C is incorrect because allowing inbound port 1433 from any source would expose the VM to SQL traffic from the internet, which is not required. Option D is incorrect because allowing all outbound internet traffic is overly permissive and does not follow the principle of least privilege. Option E is incorrect because RDP access from the internet was not required and would create a security vulnerability."
+    },
+    {
+      "id": 51,
+      "topic": "Virtual Networks - Configuring Azure Virtual WAN",
+      "type": "SingleChoice",
+      "questionText": "Your company has branch offices connecting to Azure and needs a centralized, Microsoft-managed hub that supports site-to-site VPN, point-to-site VPN, and ExpressRoute connectivity. Which service should you deploy?",
+      "options": ["A. Azure Virtual WAN.", "B. A hub VNet with VPN Gateway and ExpressRoute Gateway.", "C. Azure Front Door.", "D. Azure Traffic Manager."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Virtual WAN provides a unified, Microsoft-managed hub that supports site-to-site VPN, point-to-site VPN, and ExpressRoute connectivity, along with transitive routing between branches and VNets. Option B is incorrect because while a manual hub-and-spoke topology with gateways works, it requires significant manual configuration and management compared to Virtual WAN. Option C is incorrect because Azure Front Door is a global HTTP/HTTPS load balancer, not a WAN connectivity solution. Option D is incorrect because Traffic Manager provides DNS-based global traffic routing, not branch-to-Azure connectivity."
+    },
+    {
+      "id": 52,
+      "topic": "Load Balancing - Configuring Azure Load Balancer",
+      "type": "SingleChoice",
+      "questionText": "You have a Standard Azure Load Balancer with a backend pool of VMs. You notice that one VM is not receiving traffic. You verify the health probe is successful. What is the most likely cause?",
+      "options": ["A. The VM does not have a network security group rule allowing traffic from the load balancer.", "B. The VM is in a different availability zone than the load balancer.", "C. The VM does not have a public IP address.", "D. The load balancer session persistence is set to Client IP."],
+      "correctAnswers": ["A"],
+      "explanation": "Standard Load Balancer requires an NSG on the backend pool subnet or NIC to allow traffic. If the NSG does not have a rule allowing traffic from the load balancer (typically using the AzureLoadBalancer service tag), the VM will not receive load-balanced traffic even if health probes pass. Option B is incorrect because Standard Load Balancer is zone-redundant by default and works across availability zones. Option C is incorrect because backend VMs behind a Standard Load Balancer do not require public IPs. Option D is incorrect because session persistence affects traffic distribution patterns but would not prevent a VM from receiving all traffic."
+    },
+    {
+      "id": 53,
+      "topic": "Load Balancing - Configuring Azure Application Gateway",
+      "type": "SingleChoice",
+      "questionText": "You need to terminate SSL at the Azure Application Gateway and re-encrypt traffic to the backend servers. What type of SSL configuration should you implement?",
+      "options": ["A. End-to-end SSL/TLS.", "B. SSL offloading.", "C. SSL pass-through.", "D. Mutual TLS (mTLS) only."],
+      "correctAnswers": ["A"],
+      "explanation": "End-to-end SSL/TLS terminates SSL at the Application Gateway for inspection and routing decisions, then re-encrypts the traffic before sending it to the backend servers. This provides both Layer 7 functionality and encryption to the backend. Option B is incorrect because SSL offloading terminates SSL at the gateway but sends unencrypted traffic to the backend, which does not meet the re-encryption requirement. Option C is incorrect because SSL pass-through forwards encrypted traffic directly to the backend without terminating it, preventing Layer 7 inspection. Option D is incorrect because mutual TLS authenticates both client and server but is a different concept from SSL termination and re-encryption."
+    },
+    {
+      "id": 54,
+      "topic": "Virtual Networks - Configuring Azure DNS",
+      "type": "SingleChoice",
+      "questionText": "You need to configure DNS name resolution so that VMs in your Azure VNet can resolve hostnames of VMs in the same VNet. You want to use Azure-managed DNS without deploying custom DNS servers. What should you use?",
+      "options": ["A. Azure DNS private zones with auto-registration enabled.", "B. Azure DNS public zones.", "C. Azure Traffic Manager.", "D. Azure-provided name resolution (default)."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DNS private zones with auto-registration enabled automatically create DNS records for VMs as they are deployed, enabling name resolution within the VNet without custom DNS servers. Option B is incorrect because public DNS zones are for internet-facing name resolution, not internal VNet resolution. Option C is incorrect because Traffic Manager provides DNS-based traffic routing for external endpoints, not internal VNet name resolution. Option D is incorrect because while Azure-provided name resolution works within a single VNet, it does not support custom domain names and has limited functionality compared to private zones."
+    },
+    {
+      "id": 55,
+      "topic": "Routing - Implementing Azure ExpressRoute",
+      "type": "SingleChoice",
+      "questionText": "Your company requires a private, dedicated connection between the on-premises datacenter and Azure that does not traverse the public internet. The connection must support 10 Gbps bandwidth. What should you implement?",
+      "options": ["A. Azure ExpressRoute.", "B. Azure site-to-site VPN.", "C. Azure point-to-site VPN.", "D. Azure Virtual WAN with VPN hub."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure ExpressRoute provides a private, dedicated connection between on-premises datacenters and Azure that does not use the public internet, with bandwidth options up to 100 Gbps. Option B is incorrect because a site-to-site VPN uses encrypted tunnels over the public internet, not a private dedicated connection. Option C is incorrect because point-to-site VPN is for individual client-to-Azure connectivity over the internet, not datacenter connectivity. Option D is incorrect because Azure Virtual WAN with VPN hub still uses VPN technology over the internet, not a dedicated private connection."
+    },
+    {
+      "id": 56,
+      "topic": "Routing - Implementing Azure ExpressRoute",
+      "type": "MultipleChoice",
+      "questionText": "You have an Azure ExpressRoute circuit. You need to connect to both Azure public services (like Azure Storage) and Azure virtual networks. Which TWO ExpressRoute peering types should you configure? (Choose two.)",
+      "options": ["A. Microsoft peering.", "B. Azure private peering.", "C. Azure public peering.", "D. BGP community peering.", "E. ExpressRoute Global Reach peering."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Microsoft peering provides access to Azure public services (Storage, SQL, Microsoft 365), and Azure private peering provides connectivity to Azure virtual networks. Option C is incorrect because Azure public peering has been deprecated and replaced by Microsoft peering. Option D is incorrect because BGP community peering is not a valid ExpressRoute peering type. Option E is incorrect because ExpressRoute Global Reach connects ExpressRoute circuits together across regions, not for connecting to Azure services."
+    },
+    {
+      "id": 57,
+      "topic": "Private Access - Configuring service endpoints",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Cosmos DB account. You need to allow access only from a specific subnet in your VNet. You want to keep the simplest configuration possible. What should you configure?",
+      "options": ["A. A virtual network service endpoint for Microsoft.AzureCosmosDB on the subnet and a virtual network rule on the Cosmos DB account.", "B. An Azure Private Endpoint for Cosmos DB.", "C. A NAT Gateway on the subnet.", "D. An Azure Firewall application rule."],
+      "correctAnswers": ["A"],
+      "explanation": "A service endpoint for Microsoft.AzureCosmosDB on the subnet combined with a virtual network rule on the Cosmos DB account is the simplest configuration to restrict access to a specific subnet. Option B is incorrect because while a Private Endpoint works and provides stronger isolation, it requires additional DNS configuration and is more complex than a service endpoint for this scenario. Option C is incorrect because a NAT Gateway provides outbound internet connectivity, not VNet-to-PaaS access restriction. Option D is incorrect because an Azure Firewall application rule filters outbound traffic by FQDN, not inbound access to Cosmos DB."
+    },
+    {
+      "id": 58,
+      "topic": "Security - Configuring Azure Firewall",
+      "type": "SingleChoice",
+      "questionText": "You need to allow outbound access from your Azure VMs to specific websites by FQDN while blocking all other outbound internet traffic. Which Azure Firewall rule type should you use?",
+      "options": ["A. Application rules.", "B. Network rules.", "C. NAT rules.", "D. DNAT rules."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Firewall application rules allow you to filter outbound traffic based on FQDNs, enabling access to specific websites while denying all other outbound internet traffic. Option B is incorrect because network rules filter based on IP addresses, ports, and protocols, not FQDNs. Option C is incorrect because NAT rules are for inbound traffic translation (DNAT) or outbound source NAT (SNAT), not for FQDN-based filtering. Option D is incorrect because DNAT rules translate inbound destination addresses and are used for publishing internal services, not filtering outbound traffic."
+    },
+    {
+      "id": 59,
+      "topic": "Security - Configuring Azure Firewall",
+      "type": "SingleChoice",
+      "questionText": "You need to publish an internal web server (10.0.1.5:80) through Azure Firewall so that external users can access it via the firewall's public IP on port 8080. Which Azure Firewall rule type should you configure?",
+      "options": ["A. A DNAT rule.", "B. An application rule.", "C. A network rule.", "D. A route rule."],
+      "correctAnswers": ["A"],
+      "explanation": "A DNAT (Destination NAT) rule on Azure Firewall translates the firewall's public IP and port (8080) to the internal web server's private IP and port (10.0.1.5:80), allowing external access to the internal resource. Option B is incorrect because application rules filter outbound traffic by FQDN, not inbound traffic translation. Option C is incorrect because network rules filter traffic by IP and port but do not perform address translation. Option D is incorrect because there is no 'route rule' type in Azure Firewall."
+    },
+    {
+      "id": 60,
+      "topic": "Virtual Networks - Configuring VPN Gateway",
+      "type": "SingleChoice",
+      "questionText": "You need to connect your on-premises network to an Azure VNet using an IPsec/IKE VPN tunnel. The on-premises VPN device has a public IP address. What type of Azure VPN Gateway connection should you create?",
+      "options": ["A. Site-to-site (S2S).", "B. Point-to-site (P2S).", "C. VNet-to-VNet.", "D. ExpressRoute."],
+      "correctAnswers": ["A"],
+      "explanation": "A site-to-site (S2S) connection creates an IPsec/IKE VPN tunnel between your on-premises VPN device and the Azure VPN Gateway, suitable for connecting an entire on-premises network to Azure. Option B is incorrect because point-to-site connects individual client computers to the VNet, not an entire on-premises network. Option C is incorrect because VNet-to-VNet connects two Azure VNets together, not an on-premises network to Azure. Option D is incorrect because ExpressRoute uses a private dedicated connection through a connectivity provider, not an IPsec/IKE tunnel."
+    },
+    {
+      "id": 61,
+      "topic": "Virtual Networks - Configuring VPN Gateway",
+      "type": "MultipleChoice",
+      "questionText": "You need to deploy an Azure VPN Gateway that supports both site-to-site and point-to-site connections simultaneously. Which TWO VPN Gateway configuration choices are required? (Choose two.)",
+      "options": ["A. Deploy a VPN Gateway with a GatewaySubnet.", "B. Select a VPN gateway SKU that supports both connection types.", "C. Deploy two separate VPN Gateways in the same VNet.", "D. Use a Basic SKU VPN Gateway.", "E. Deploy the VPN Gateway in an AzureBastionSubnet."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A VPN Gateway requires a dedicated GatewaySubnet in the VNet, and you must select a SKU (such as VpnGw1 or higher) that supports both site-to-site and point-to-site connections. Option C is incorrect because you can only have one VPN Gateway per VNet; you cannot deploy two. Option D is incorrect because the Basic SKU has limited capabilities and may not support all connection configurations. Option E is incorrect because VPN Gateways must be deployed in a GatewaySubnet, not an AzureBastionSubnet."
+    },
+    {
+      "id": 62,
+      "topic": "Load Balancing - Configuring Azure Traffic Manager",
+      "type": "SingleChoice",
+      "questionText": "You have web applications deployed in two Azure regions. You need to configure DNS-based failover so that if the primary region becomes unhealthy, traffic is automatically directed to the secondary region. Which Traffic Manager routing method should you use?",
+      "options": ["A. Priority routing.", "B. Weighted routing.", "C. Performance routing.", "D. Geographic routing."],
+      "correctAnswers": ["A"],
+      "explanation": "Priority routing allows you to set a primary endpoint and one or more failover endpoints. Traffic goes to the highest-priority healthy endpoint, automatically failing over to lower-priority endpoints when the primary is unhealthy. Option B is incorrect because weighted routing distributes traffic proportionally across endpoints based on assigned weights, not for failover scenarios. Option C is incorrect because performance routing directs users to the closest endpoint by network latency, not based on primary/secondary failover. Option D is incorrect because geographic routing directs users based on their geographic location, not health-based failover."
+    },
+    {
+      "id": 63,
+      "topic": "Private Access - Configuring Azure Bastion",
+      "type": "SingleChoice",
+      "questionText": "You need to securely connect to Azure VMs using RDP and SSH through the Azure portal without exposing the VMs' management ports to the public internet. What should you deploy?",
+      "options": ["A. Azure Bastion.", "B. A jump box VM with a public IP.", "C. Azure VPN Gateway with point-to-site.", "D. Just-in-time VM access."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Bastion provides secure RDP and SSH connectivity to VMs directly through the Azure portal over TLS, without requiring public IPs on the VMs or exposing management ports to the internet. Option B is incorrect because a jump box with a public IP still exposes a management port to the internet, creating a security risk. Option C is incorrect because a VPN Gateway with P2S provides network-level access and requires client configuration, not browser-based portal access. Option D is incorrect because JIT VM access temporarily opens management ports but still requires a client connection and public IP, whereas Bastion eliminates the need for public IP exposure entirely."
+    },
+    {
+      "id": 64,
+      "topic": "Virtual Networks - Designing and implementing core networking infrastructure",
+      "type": "SingleChoice",
+      "questionText": "You are deploying a VNet with address space 10.0.0.0/16. You need to create a subnet that can accommodate exactly 251 usable IP addresses. What is the smallest subnet prefix you should use?",
+      "options": ["A. /24 (256 addresses, 251 usable).", "B. /23 (512 addresses, 507 usable).", "C. /25 (128 addresses, 123 usable).", "D. /22 (1024 addresses, 1019 usable)."],
+      "correctAnswers": ["A"],
+      "explanation": "A /24 subnet provides 256 total addresses, and Azure reserves 5 addresses per subnet (first address for network ID, last for broadcast, and three for Azure internal use), leaving 251 usable addresses. Option B is incorrect because /23 provides 507 usable addresses, which is more than needed and wastes address space. Option C is incorrect because /25 provides only 123 usable addresses, which is insufficient. Option D is incorrect because /22 provides 1019 usable addresses, which is far more than needed."
+    },
+    {
+      "id": 65,
+      "topic": "Security - Configuring network security groups",
+      "type": "SingleChoice",
+      "questionText": "You have an NSG applied to a subnet and another NSG applied to a VM's network interface (NIC) within that subnet. An inbound rule on the subnet NSG allows traffic on port 443, but the NIC-level NSG does not have a rule for port 443. What happens to inbound HTTPS traffic to the VM?",
+      "options": ["A. The traffic is denied because the NIC-level NSG does not allow it.", "B. The traffic is allowed because the subnet NSG allows it.", "C. The traffic is allowed because NSG rules are merged.", "D. The traffic is denied because subnet NSGs always take precedence."],
+      "correctAnswers": ["A"],
+      "explanation": "When NSGs are applied at both the subnet and NIC levels, inbound traffic must pass through both NSGs. Even though the subnet NSG allows port 443, the NIC-level NSG must also have a matching allow rule. Since the NIC-level NSG does not have a rule for port 443, the default deny rule blocks the traffic. Option B is incorrect because traffic must be allowed by both NSGs, not just the subnet-level one. Option C is incorrect because NSG rules are not merged; traffic is evaluated independently at each level. Option D is incorrect because the statement that subnet NSGs always take precedence is false; traffic must be allowed at both levels."
+    }
+  ]
+}

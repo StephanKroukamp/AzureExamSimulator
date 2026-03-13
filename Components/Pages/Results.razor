@@ -1,0 +1,225 @@
+@page "/exam/{ExamCode}/results"
+@inject ExamService ExamService
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="results-page">
+    @if (ExamService.CurrentExam is null || !ExamService.IsExamFinished)
+    {
+        <div class="empty-state">
+            <p>No exam results available.</p>
+            <a href="/" class="btn-primary">Go Home</a>
+        </div>
+    }
+    else
+    {
+        var result = ExamService.CalculateResult();
+
+        <div class="results-header">
+            <div class="exam-badge large">@ExamService.CurrentExam.ExamCode</div>
+            <h1>@ExamService.CurrentExam.ExamTitle</h1>
+        </div>
+
+        <div class="results-actions top">
+            <button class="btn-ghost" @onclick="ViewReport">
+                <span>&#128196;</span> Download Report (PDF)
+            </button>
+            <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
+        </div>
+
+        <!-- Animated SVG Score Gauge -->
+        <div class="score-gauge-container">
+            <svg class="score-gauge" viewBox="0 0 160 160">
+                <circle class="gauge-bg" cx="80" cy="80" r="70" />
+                <circle class="gauge-fill @(result.Passed ? "passed" : "failed")"
+                        cx="80" cy="80" r="70"
+                        style="--gauge-pct: @result.Percentage;" />
+            </svg>
+            <div class="gauge-text">
+                <div class="gauge-score">@_displayScore</div>
+                <div class="gauge-label">/ 1000</div>
+                <div class="gauge-status @(result.Passed ? "passed" : "failed")">
+                    @(result.Passed ? "PASSED" : "FAILED")
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value correct">@_displayCorrect</div>
+                <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value incorrect">@_displayIncorrect</div>
+                <div class="stat-label">Incorrect</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value skipped">@_displaySkipped</div>
+                <div class="stat-label">Skipped</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@result.TotalQuestions</div>
+                <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@FormatTime(result.TimeTaken)</div>
+                <div class="stat-label">Time Taken</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">700</div>
+                <div class="stat-label">Passing Score</div>
+            </div>
+        </div>
+
+        @if (result.TopicBreakdown.Count > 1)
+        {
+            <div class="topic-breakdown">
+                <h2>Topic Breakdown</h2>
+                <div class="topic-list">
+                    @foreach (var (topic, (total, correct)) in result.TopicBreakdown.OrderBy(t => t.Key))
+                    {
+                        var pct = total > 0 ? (double)correct / total * 100 : 0;
+                        var barClass = pct >= 70 ? "good" : pct >= 50 ? "warn" : "bad";
+
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                <span class="topic-name">@topic</span>
+                                <span class="topic-score">@correct / @total (@pct.ToString("F0")%)</span>
+                            </div>
+                            <div class="topic-bar">
+                                <div class="topic-bar-fill @barClass" style="width: @pct%"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        @if (ExamService.Config?.IsPracticeMode != true)
+        {
+            <div class="review-section">
+                <h2>Question Review</h2>
+                <div class="review-list">
+                    @for (var i = 0; i < ExamService.CurrentExam.Questions.Count; i++)
+                    {
+                        var q = ExamService.CurrentExam.Questions[i];
+                        var ua = ExamService.UserAnswers[i];
+                        var isCorrect = ExamService.IsAnswerCorrect(i);
+                        var wasSkipped = ua.Length == 0;
+
+                        <div class="review-item @(wasSkipped ? "skipped" : isCorrect ? "correct" : "incorrect")">
+                            <div class="review-status">
+                                @if (wasSkipped)
+                                {
+                                    <span class="status-icon skip">&#8212;</span>
+                                }
+                                else if (isCorrect)
+                                {
+                                    <span class="status-icon correct">&#10003;</span>
+                                }
+                                else
+                                {
+                                    <span class="status-icon incorrect">&#10007;</span>
+                                }
+                            </div>
+                            <div class="review-content">
+                                <div class="review-question">Q@(i + 1): @Truncate(q.QuestionText, 120)</div>
+                                <div class="review-answers">
+                                    <span>Your answer: @(wasSkipped ? "Skipped" : string.Join(", ", ua))</span>
+                                    <span>Correct: @string.Join(", ", q.CorrectAnswers)</span>
+                                </div>
+                                @if (!isCorrect && !wasSkipped && !string.IsNullOrWhiteSpace(q.Explanation))
+                                {
+                                    <div class="review-explanation">@q.Explanation</div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="results-actions">
+            <button class="btn-ghost" @onclick="ViewReport">
+                <span>&#128196;</span> Download Report (PDF)
+            </button>
+            <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
+            <button class="btn-secondary" @onclick="GoHome">Return Home</button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private int _displayScore;
+    private int _displayCorrect;
+    private int _displayIncorrect;
+    private int _displaySkipped;
+    private bool _animated;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_animated && ExamService.CurrentExam is not null && ExamService.IsExamFinished)
+        {
+            _animated = true;
+            var result = ExamService.CalculateResult();
+            var targetScore = result.ScoreOutOf1000;
+            var targetCorrect = result.Correct;
+            var targetIncorrect = result.Incorrect;
+            var targetSkipped = result.Skipped;
+
+            const int steps = 30;
+            const int delayMs = 35;
+
+            for (var i = 1; i <= steps; i++)
+            {
+                var t = (double)i / steps;
+                // Ease-out curve
+                var eased = 1 - Math.Pow(1 - t, 3);
+                _displayScore = (int)(targetScore * eased);
+                _displayCorrect = (int)(targetCorrect * eased);
+                _displayIncorrect = (int)(targetIncorrect * eased);
+                _displaySkipped = (int)(targetSkipped * eased);
+                await InvokeAsync(StateHasChanged);
+                await Task.Delay(delayMs);
+            }
+
+            // Ensure exact final values
+            _displayScore = targetScore;
+            _displayCorrect = targetCorrect;
+            _displayIncorrect = targetIncorrect;
+            _displaySkipped = targetSkipped;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private void ViewReport()
+    {
+        Nav.NavigateTo($"/exam/{ExamCode}/report");
+    }
+
+    private void RetakeExam()
+    {
+        Nav.NavigateTo($"/exam/{ExamCode}/setup");
+    }
+
+    private void GoHome()
+    {
+        ExamService.Reset();
+        Nav.NavigateTo("/");
+    }
+
+    private static string FormatTime(TimeSpan ts)
+    {
+        if (ts.TotalHours >= 1)
+            return $"{(int)ts.TotalHours}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+        return $"{(int)ts.TotalMinutes}:{ts.Seconds:D2}";
+    }
+
+    private static string Truncate(string text, int maxLength)
+    {
+        if (text.Length <= maxLength) return text;
+        return text[..maxLength] + "...";
+    }
+}

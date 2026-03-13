@@ -1,0 +1,67 @@
+@if (Question.Regions is { Count: > 0 })
+{
+    <div class="hotspot-container">
+        @if (!string.IsNullOrEmpty(Question.ImageUrl))
+        {
+            <img src="@Question.ImageUrl" alt="Hotspot diagram" class="hotspot-image" />
+        }
+        <div class="hotspot-regions @(string.IsNullOrEmpty(Question.ImageUrl) ? "hotspot-no-image" : "")">
+            @foreach (var region in Question.Regions)
+            {
+                var regionId = region.Id;
+                var isSelected = SelectedAnswers.Contains(regionId);
+                var isCorrect = Question.CorrectAnswers.Contains(regionId);
+                var feedbackClass = ShowFeedback ? (isCorrect ? "correct" : (isSelected ? "incorrect" : "")) : "";
+
+                @if (!string.IsNullOrEmpty(Question.ImageUrl))
+                {
+                    <button class="hotspot-region overlay @(isSelected ? "selected" : "") @feedbackClass"
+                            style="left: @(region.X)%; top: @(region.Y)%; width: @(region.Width)%; height: @(region.Height)%;"
+                            @onclick="() => SelectRegion(regionId)"
+                            disabled="@Disabled">
+                        <span class="hotspot-label">@region.Label</span>
+                        @if (ShowFeedback && isCorrect)
+                        {
+                            <span class="option-feedback correct-icon">&#10003;</span>
+                        }
+                        else if (ShowFeedback && isSelected && !isCorrect)
+                        {
+                            <span class="option-feedback incorrect-icon">&#10007;</span>
+                        }
+                    </button>
+                }
+                else
+                {
+                    <button class="hotspot-region card @(isSelected ? "selected" : "") @feedbackClass"
+                            @onclick="() => SelectRegion(regionId)"
+                            disabled="@Disabled">
+                        <span class="hotspot-region-id">@regionId</span>
+                        <span class="hotspot-label">@region.Label</span>
+                        @if (ShowFeedback && isCorrect)
+                        {
+                            <span class="option-feedback correct-icon">&#10003;</span>
+                        }
+                        else if (ShowFeedback && isSelected && !isCorrect)
+                        {
+                            <span class="option-feedback incorrect-icon">&#10007;</span>
+                        }
+                    </button>
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public Question Question { get; set; } = default!;
+    [Parameter] public string[] SelectedAnswers { get; set; } = [];
+    [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
+    [Parameter] public bool ShowFeedback { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+
+    private async Task SelectRegion(string regionId)
+    {
+        if (Disabled) return;
+        await OnAnswerChanged.InvokeAsync([regionId]);
+    }
+}

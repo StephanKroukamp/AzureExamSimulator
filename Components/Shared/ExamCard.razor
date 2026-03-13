@@ -1,0 +1,44 @@
+@inject NavigationManager Nav
+
+<div class="exam-card" @onclick="StartExam">
+    <div class="exam-card-header">
+        <span class="exam-badge">@Exam.ExamCode</span>
+    </div>
+    <h3 class="exam-card-title">@Exam.ExamTitle</h3>
+    <div class="exam-card-stats">
+        <div class="stat">
+            <span class="stat-value">@ValidCount</span>
+            <span class="stat-label">Questions</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">@TopicCount</span>
+            <span class="stat-label">Topics</span>
+        </div>
+    </div>
+    <div class="exam-card-action">
+        <span class="btn-start">Start Exam &rarr;</span>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public Exam Exam { get; set; } = default!;
+
+    private int ValidCount => QuestionValidator.GetValidCount(Exam.Questions);
+
+    private int TopicCount => Exam.Questions
+        .Select(q => q.Topic)
+        .Where(t => !string.IsNullOrEmpty(t))
+        .Select(t =>
+        {
+            var dash = t.IndexOf('-');
+            return dash > 0 ? t[..dash].Trim() : t;
+        })
+        .Distinct()
+        .Count();
+
+    private void StartExam()
+    {
+        Nav.NavigateTo($"/exam/{Exam.ExamCode}/setup");
+    }
+}

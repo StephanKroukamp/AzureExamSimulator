@@ -1,0 +1,49 @@
+<div class="options-list">
+    @for (var i = 0; i < Question.Options.Count; i++)
+    {
+        var index = i;
+        var letter = ((char)('A' + i)).ToString();
+        var isSelected = SelectedAnswers.Contains(letter);
+        var isCorrect = Question.CorrectAnswers.Contains(letter);
+        var feedbackClass = ShowFeedback ? (isCorrect ? "correct" : (isSelected ? "incorrect" : "")) : "";
+        var isFocused = !ShowFeedback && index == FocusedOptionIndex;
+
+        <button class="option-card @(isSelected ? "selected" : "") @(isFocused ? "focused" : "") @feedbackClass"
+                @onclick="() => SelectOption(letter)"
+                disabled="@Disabled">
+            <span class="option-letter">@letter</span>
+            <span class="option-text">@GetOptionText(Question.Options[index])</span>
+            @if (ShowFeedback && isCorrect)
+            {
+                <span class="option-feedback correct-icon">&#10003;</span>
+            }
+            else if (ShowFeedback && isSelected && !isCorrect)
+            {
+                <span class="option-feedback incorrect-icon">&#10007;</span>
+            }
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Question Question { get; set; } = default!;
+    [Parameter] public string[] SelectedAnswers { get; set; } = [];
+    [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
+    [Parameter] public bool ShowFeedback { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+    [Parameter] public int FocusedOptionIndex { get; set; }
+
+    private async Task SelectOption(string letter)
+    {
+        if (Disabled) return;
+        await OnAnswerChanged.InvokeAsync([letter]);
+    }
+
+    private static string GetOptionText(string option)
+    {
+        var trimmed = option.TrimStart();
+        if (trimmed.Length >= 2 && char.IsLetter(trimmed[0]) && trimmed[1] == '.')
+            return trimmed[2..].TrimStart();
+        return option;
+    }
+}

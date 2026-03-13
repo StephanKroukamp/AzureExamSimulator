@@ -1,0 +1,874 @@
+{
+  "examCode": "DP-203",
+  "examTitle": "Azure Data Engineer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Azure Synapse Analytics - Workspace architecture",
+      "type": "SingleChoice",
+      "questionText": "You are creating an Azure Synapse Analytics workspace. Which storage type is required as the primary data lake storage for the workspace?",
+      "options": [
+        "A. Azure Blob Storage with Hot tier",
+        "B. Azure Data Lake Storage Gen2",
+        "C. Azure Files premium share",
+        "D. Azure Managed Disk"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Synapse Analytics requires an Azure Data Lake Storage Gen2 (ADLS Gen2) account as the primary storage. ADLS Gen2 provides a hierarchical namespace on top of Azure Blob Storage, enabling efficient data organization and access patterns needed by Synapse.\n\nWhy the others are wrong:\n- A. Standard Azure Blob Storage without hierarchical namespace enabled does not meet the ADLS Gen2 requirement.\n- C. Azure Files is a file share service and is not supported as Synapse primary storage.\n- D. Azure Managed Disks are for VM storage and are not used as data lake storage."
+    },
+    {
+      "id": 2,
+      "topic": "Azure Data Factory - Pipeline activities",
+      "type": "SingleChoice",
+      "questionText": "You need to copy data from an on-premises SQL Server to Azure Data Lake Storage Gen2 using Azure Data Factory. Which component must be installed in your on-premises environment?",
+      "options": [
+        "A. Azure Data Factory Studio",
+        "B. Self-hosted Integration Runtime",
+        "C. Azure Synapse Spark pool",
+        "D. Azure SQL Database gateway"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Self-hosted Integration Runtime must be installed on-premises to enable Azure Data Factory to connect to on-premises data sources securely. It acts as a bridge between the cloud service and the local data store.\n\nWhy the others are wrong:\n- A. Azure Data Factory Studio is the web-based authoring interface and doesn't need to be installed on-premises.\n- C. Spark pools are Synapse compute resources and have no role in on-premises connectivity.\n- D. Azure SQL Database gateway is not a component used for on-premises SQL Server connectivity in ADF."
+    },
+    {
+      "id": 3,
+      "topic": "Azure Data Lake - Access control",
+      "type": "MultipleChoice",
+      "questionText": "You need to implement fine-grained access control on Azure Data Lake Storage Gen2. Which TWO mechanisms should you use together for the most granular control? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Azure RBAC roles at the storage account level",
+        "B. POSIX-like ACLs (Access Control Lists) on files and directories",
+        "C. Storage account access keys",
+        "D. Azure AD (Entra ID) authentication with ACLs"
+      ],
+      "correctAnswers": ["B", "D"],
+      "explanation": "Correct: B and D. Azure AD (Entra ID) authentication provides identity-based access, and POSIX-like ACLs on ADLS Gen2 allow you to set read, write, and execute permissions on individual files and directories. Together they provide the most granular access control.\n\nWhy the others are wrong:\n- A. RBAC roles at the storage account level provide coarse-grained access (e.g., contributor, reader) for the entire account, not individual files.\n- C. Storage account access keys grant full access to the entire account and cannot be used for fine-grained, per-file permissions."
+    },
+    {
+      "id": 4,
+      "topic": "Synapse SQL Pools - Dedicated vs Serverless",
+      "type": "SingleChoice",
+      "questionText": "You need to run ad-hoc queries against Parquet files stored in Azure Data Lake Storage Gen2. The queries are infrequent and you want to minimize costs. Which Synapse SQL option should you use?",
+      "options": [
+        "A. Dedicated SQL pool with DW100c",
+        "B. Serverless SQL pool",
+        "C. Apache Spark pool",
+        "D. Dedicated SQL pool with auto-pause enabled"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Serverless SQL pool is ideal for ad-hoc, infrequent queries against data lake files. You pay only for the data processed by each query, making it the most cost-effective option for sporadic workloads.\n\nWhy the others are wrong:\n- A. A dedicated SQL pool (even at the smallest DW100c) runs continuously and incurs charges even when idle, making it expensive for infrequent queries.\n- C. Apache Spark pool requires cluster provisioning time and is better suited for data transformation and ML workloads rather than quick ad-hoc SQL queries.\n- D. While auto-pause helps, dedicated SQL pools still have a minimum charge and take time to resume, making them less ideal for infrequent ad-hoc queries."
+    },
+    {
+      "id": 5,
+      "topic": "Spark Pools - Data transformation",
+      "type": "SingleChoice",
+      "questionText": "You are using an Apache Spark pool in Azure Synapse Analytics to transform a large dataset. You need to write the transformed data back to the data lake in a columnar format that supports predicate pushdown. Which format should you use?",
+      "options": [
+        "A. CSV",
+        "B. JSON",
+        "C. Parquet",
+        "D. Avro"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Parquet is a columnar storage format that supports predicate pushdown, which allows queries to skip reading unnecessary data. It provides excellent compression and is the recommended format for analytical workloads in data lakes.\n\nWhy the others are wrong:\n- A. CSV is a row-based text format that does not support predicate pushdown or efficient columnar operations.\n- B. JSON is a row-based format that is less efficient for analytical queries and doesn't support predicate pushdown.\n- D. Avro is a row-based format optimized for write-heavy workloads and schema evolution, not columnar analytical queries."
+    },
+    {
+      "id": 6,
+      "topic": "Stream Analytics - Windowing functions",
+      "type": "SingleChoice",
+      "questionText": "You are processing a stream of IoT sensor data using Azure Stream Analytics. You need to calculate the average temperature over the last 5 minutes, updating every minute. Which windowing function should you use?",
+      "options": [
+        "A. Tumbling window of 5 minutes",
+        "B. Hopping window with a size of 5 minutes and a hop of 1 minute",
+        "C. Sliding window of 5 minutes",
+        "D. Session window with a timeout of 5 minutes"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Hopping window with a 5-minute size and 1-minute hop produces an output every minute containing the average of the last 5 minutes of data. This gives overlapping windows that update at the specified hop interval.\n\nWhy the others are wrong:\n- A. A Tumbling window of 5 minutes produces non-overlapping windows, outputting the average only once every 5 minutes, not every minute.\n- C. A Sliding window fires only when an event enters or exits the window, not at regular intervals.\n- D. A Session window groups events that arrive close together and closes after a timeout of inactivity. It's not fixed-interval based."
+    },
+    {
+      "id": 7,
+      "topic": "Data Factory - Mapping data flows",
+      "type": "SingleChoice",
+      "questionText": "You are building an ETL pipeline in Azure Data Factory. You need to apply complex transformations such as pivoting, unpivoting, and conditional splitting without writing code. Which feature should you use?",
+      "options": [
+        "A. Copy Activity with column mapping",
+        "B. Mapping Data Flows",
+        "C. Stored procedure activity",
+        "D. Web activity"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Mapping Data Flows in Azure Data Factory provide a visual, code-free environment for building complex data transformations. They support operations like pivot, unpivot, conditional split, aggregate, join, and more, executed on a Spark cluster.\n\nWhy the others are wrong:\n- A. Copy Activity performs data movement with simple column mapping but doesn't support complex transformations like pivoting.\n- C. Stored procedure activity runs a SQL stored procedure and requires you to write T-SQL code.\n- D. Web activity calls an external REST endpoint and is not a data transformation tool."
+    },
+    {
+      "id": 8,
+      "topic": "Synapse Analytics - Distribution strategies",
+      "type": "SingleChoice",
+      "questionText": "You are designing a fact table in a dedicated SQL pool that will frequently be joined to a large dimension table on a customer_id column. Which distribution strategy should you use for the fact table?",
+      "options": [
+        "A. Round-robin distribution",
+        "B. Hash distribution on customer_id",
+        "C. Replicated distribution",
+        "D. Hash distribution on a date column"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Hash distribution on customer_id ensures that rows with the same customer_id are stored on the same distribution. When joined with the dimension table (also hash-distributed on customer_id), the join can be performed locally without data movement, significantly improving performance.\n\nWhy the others are wrong:\n- A. Round-robin distributes rows evenly but randomly, causing data shuffling during joins.\n- C. Replicated distribution copies the entire table to every compute node. This is suitable for small dimension tables, not large fact tables.\n- D. Hash distribution on a date column would not align with customer_id joins, still requiring data movement."
+    },
+    {
+      "id": 9,
+      "topic": "Event Processing - Event Hubs",
+      "type": "SingleChoice",
+      "questionText": "You are ingesting millions of events per second from IoT devices. You need a service that can handle high-throughput event ingestion and supports event partitioning. Which service should you use?",
+      "options": [
+        "A. Azure Service Bus queue",
+        "B. Azure Event Hubs",
+        "C. Azure Storage Queue",
+        "D. Azure Notification Hubs"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Event Hubs is designed for high-throughput event ingestion, capable of handling millions of events per second. It supports partitioning to distribute load and enable parallel processing.\n\nWhy the others are wrong:\n- A. Azure Service Bus is a message broker for enterprise messaging patterns but is not designed for the extreme throughput of IoT event ingestion.\n- C. Azure Storage Queues provide simple message queuing but lack the throughput, partitioning, and event streaming capabilities needed.\n- D. Azure Notification Hubs is for sending push notifications to mobile devices, not for ingesting IoT data."
+    },
+    {
+      "id": 10,
+      "topic": "Data Lake - Delta Lake format",
+      "type": "SingleChoice",
+      "questionText": "You need to implement ACID transactions on data stored in Azure Data Lake Storage Gen2 and accessed via Synapse Spark pools. Which open-source format should you use?",
+      "options": [
+        "A. Standard Parquet",
+        "B. Delta Lake",
+        "C. ORC",
+        "D. CSV with row locking"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Delta Lake is an open-source storage layer that brings ACID transactions, scalable metadata handling, and unified streaming and batch processing to data lakes. It runs on top of Parquet and is natively supported in Synapse Spark pools.\n\nWhy the others are wrong:\n- A. Standard Parquet does not support ACID transactions, time travel, or concurrent read/write operations.\n- C. ORC is a columnar format but does not natively provide ACID transaction capabilities on data lakes.\n- D. CSV does not support ACID transactions, and row locking is a relational database concept that doesn't apply to file-based storage."
+    },
+    {
+      "id": 11,
+      "topic": "Data Factory - Triggers",
+      "type": "SingleChoice",
+      "questionText": "You need to trigger an Azure Data Factory pipeline automatically whenever a new file is uploaded to a specific container in Azure Blob Storage. Which trigger type should you configure?",
+      "options": [
+        "A. Schedule trigger",
+        "B. Tumbling window trigger",
+        "C. Storage event trigger",
+        "D. Custom event trigger"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. A Storage event trigger fires when a blob is created or deleted in a specified container. It uses Azure Event Grid to detect the file upload and automatically starts the pipeline.\n\nWhy the others are wrong:\n- A. A Schedule trigger runs at fixed time intervals (e.g., every hour), not in response to file uploads.\n- B. A Tumbling window trigger runs at fixed, non-overlapping intervals and is designed for processing time-sliced data, not for event-driven file detection.\n- D. A Custom event trigger responds to custom Event Grid topics, not specifically to blob storage events."
+    },
+    {
+      "id": 12,
+      "topic": "Synapse Analytics - PolyBase",
+      "type": "SingleChoice",
+      "questionText": "You need to load a large volume of data from Azure Data Lake Storage Gen2 into a dedicated SQL pool table as quickly as possible. Which loading method provides the best performance?",
+      "options": [
+        "A. Row-by-row INSERT statements via JDBC",
+        "B. COPY statement or PolyBase",
+        "C. Azure Data Factory Copy Activity with staging disabled",
+        "D. BCP (Bulk Copy Program) from an on-premises server"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The COPY statement and PolyBase are the recommended high-performance loading methods for dedicated SQL pools. They leverage the MPP (Massively Parallel Processing) architecture to load data in parallel across all distributions.\n\nWhy the others are wrong:\n- A. Row-by-row INSERT via JDBC is extremely slow for large data volumes as it doesn't leverage parallel loading.\n- C. ADF Copy Activity without staging uses single-threaded inserts, which is much slower than COPY/PolyBase for large datasets.\n- D. BCP from on-premises would be bottlenecked by network bandwidth and doesn't use the MPP engine."
+    },
+    {
+      "id": 13,
+      "topic": "Stream Analytics - Late arriving events",
+      "type": "SingleChoice",
+      "questionText": "Your Azure Stream Analytics job processes events from IoT devices. Some events arrive up to 10 minutes late due to network delays. How should you handle these late-arriving events?",
+      "options": [
+        "A. Set the late arrival tolerance to 10 minutes",
+        "B. Increase the streaming units to process events faster",
+        "C. Use a tumbling window of 10 minutes",
+        "D. Drop all events that arrive after the window closes"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Setting the late arrival tolerance (late arrival policy) to 10 minutes instructs Stream Analytics to wait for late events and adjust their timestamps accordingly. Events arriving within this tolerance window are still processed correctly.\n\nWhy the others are wrong:\n- B. Increasing streaming units improves throughput but doesn't address the issue of events arriving out of order or late.\n- C. Using a 10-minute tumbling window changes the aggregation period but doesn't handle events that arrive after the window has already been evaluated.\n- D. Dropping late events means losing data, which is unacceptable when you need complete results."
+    },
+    {
+      "id": 14,
+      "topic": "Spark Pools - Optimization",
+      "type": "SingleChoice",
+      "questionText": "You are running a Spark job in Azure Synapse that joins two large datasets. The job is slow because of excessive data shuffling. Which optimization technique should you apply?",
+      "options": [
+        "A. Increase the number of executor cores",
+        "B. Broadcast the smaller dataset using a broadcast join",
+        "C. Convert both datasets to CSV format",
+        "D. Reduce the number of partitions to 1"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A broadcast join sends the smaller dataset to all executor nodes, eliminating the need for shuffling the larger dataset. This dramatically reduces data movement across the network when one dataset is small enough to fit in memory on each node.\n\nWhy the others are wrong:\n- A. Increasing executor cores adds processing power but doesn't reduce the amount of data being shuffled.\n- C. Converting to CSV would worsen performance as CSV lacks columnar efficiency and compression.\n- D. Reducing partitions to 1 would create a massive bottleneck by forcing all data to be processed on a single node."
+    },
+    {
+      "id": 15,
+      "topic": "Data Factory - Linked services",
+      "type": "SingleChoice",
+      "questionText": "You need to connect Azure Data Factory to an Azure SQL Database. You want to avoid storing connection credentials in the pipeline definition. What should you use?",
+      "options": [
+        "A. Store the connection string in the pipeline parameter",
+        "B. Use a linked service with Azure Key Vault for credential management",
+        "C. Hardcode the credentials in the dataset definition",
+        "D. Use anonymous authentication"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A linked service configured to retrieve credentials from Azure Key Vault keeps sensitive information (passwords, keys) out of the pipeline definition. Key Vault provides centralized, secure credential management with access policies and audit logging.\n\nWhy the others are wrong:\n- A. Pipeline parameters would expose credentials in the pipeline configuration and run history.\n- C. Hardcoding credentials in dataset definitions is a security risk and makes credential rotation difficult.\n- D. Anonymous authentication is not supported for Azure SQL Database connections."
+    },
+    {
+      "id": 16,
+      "topic": "Synapse Analytics - External tables",
+      "type": "SingleChoice",
+      "questionText": "You want to query Parquet files in Azure Data Lake Storage Gen2 using T-SQL in the Synapse serverless SQL pool without importing the data. What should you create?",
+      "options": [
+        "A. A temporary table with BULK INSERT",
+        "B. An external table using OPENROWSET or CREATE EXTERNAL TABLE",
+        "C. A materialized view on the Parquet files",
+        "D. A linked server to the storage account"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. External tables and OPENROWSET in serverless SQL pool allow you to query Parquet files directly in the data lake using T-SQL without importing data. CREATE EXTERNAL TABLE provides a persistent metadata definition, while OPENROWSET enables ad-hoc queries.\n\nWhy the others are wrong:\n- A. BULK INSERT loads data into a table, which contradicts the requirement of not importing data.\n- C. Materialized views are not supported in serverless SQL pools.\n- D. Linked servers are a SQL Server feature for connecting to remote databases, not for querying data lake files."
+    },
+    {
+      "id": 17,
+      "topic": "Event Processing - Event Grid",
+      "type": "SingleChoice",
+      "questionText": "You need to react to Azure Blob Storage events (blob created, blob deleted) and trigger downstream processing. Which service should you use to route these events?",
+      "options": [
+        "A. Azure Event Hubs",
+        "B. Azure Event Grid",
+        "C. Azure Service Bus",
+        "D. Azure IoT Hub"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Event Grid is a fully managed event routing service that natively integrates with Azure Blob Storage. It can react to blob created/deleted events and route them to subscribers like Azure Functions, Logic Apps, or Data Factory.\n\nWhy the others are wrong:\n- A. Event Hubs is for high-throughput event streaming and doesn't natively react to blob storage events.\n- C. Service Bus is an enterprise message broker, not specifically designed for storage event routing.\n- D. IoT Hub is for bidirectional communication with IoT devices, not for blob storage event handling."
+    },
+    {
+      "id": 18,
+      "topic": "Data Lake - Partitioning strategy",
+      "type": "SingleChoice",
+      "questionText": "You are designing the folder structure for a data lake that stores daily sales data. Queries frequently filter by year and month. Which partitioning strategy should you use?",
+      "options": [
+        "A. /sales/year=2024/month=01/day=15/data.parquet",
+        "B. /sales/all_data_combined.parquet",
+        "C. /sales/random_partition_001/data.parquet",
+        "D. /sales/customer_id=12345/data.parquet"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Hierarchical partitioning by year/month/day (using Hive-style partition keys) aligns with query patterns. When queries filter by year and month, the query engine can skip entire partitions (partition pruning), reading only relevant data.\n\nWhy the others are wrong:\n- B. A single combined file provides no partition pruning, forcing full scans for every query.\n- C. Random partitioning provides no logical alignment with query filters and prevents partition pruning.\n- D. Partitioning by customer_id doesn't help queries filtering by date and could create too many small partitions."
+    },
+    {
+      "id": 19,
+      "topic": "Synapse Analytics - Security",
+      "type": "MultipleChoice",
+      "questionText": "You need to implement column-level security on a dedicated SQL pool table to prevent certain users from seeing salary information. Which TWO steps should you take? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Create a view that excludes the salary column and grant access to the view",
+        "B. Use dynamic data masking on the salary column",
+        "C. Grant SELECT permission on specific columns excluding the salary column",
+        "D. Encrypt the salary column using Always Encrypted"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. You can implement column-level security by creating a view that excludes the salary column and granting users access only to the view. Alternatively, you can grant SELECT permission on specific columns (excluding salary) at the table level, which is true column-level security.\n\nWhy the others are wrong:\n- B. Dynamic data masking obfuscates the display of data but doesn't truly prevent access; users with elevated permissions can still see the original values.\n- D. Always Encrypted protects data at rest and in transit but still returns the column in query results (encrypted). It doesn't hide the column from authorized query users."
+    },
+    {
+      "id": 20,
+      "topic": "Data Factory - Data flow debugging",
+      "type": "SingleChoice",
+      "questionText": "You are developing a Mapping Data Flow in Azure Data Factory and want to preview the data at each transformation step during development. What must you enable?",
+      "options": [
+        "A. Pipeline debug mode",
+        "B. Data flow debug cluster",
+        "C. Integration runtime diagnostics",
+        "D. Activity retry policy"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Data flow debug cluster starts a Spark cluster that allows you to preview data at each transformation step interactively during development. This provides real-time feedback on how transformations affect the data.\n\nWhy the others are wrong:\n- A. Pipeline debug mode runs the entire pipeline in debug but doesn't provide step-by-step data preview within a data flow.\n- C. Integration runtime diagnostics test connectivity, not data transformation logic.\n- D. Activity retry policy configures retry behavior for failed activities and has nothing to do with data preview."
+    },
+    {
+      "id": 21,
+      "topic": "Spark Pools - File formats",
+      "type": "SingleChoice",
+      "questionText": "You need to store data that will be frequently updated and requires support for merge operations (upserts) in the data lake. Which approach should you use with Synapse Spark pools?",
+      "options": [
+        "A. Store data as standard Parquet and overwrite files on each update",
+        "B. Use Delta Lake format with MERGE operations",
+        "C. Store data as JSON with append mode",
+        "D. Use Avro format with manual versioning"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Delta Lake supports MERGE (upsert) operations natively, allowing you to insert new records and update existing ones in a single atomic operation. It maintains transaction logs for consistency and supports ACID semantics.\n\nWhy the others are wrong:\n- A. Overwriting entire Parquet files is inefficient and doesn't support atomic merge operations or concurrent reads.\n- C. JSON with append mode would create duplicate records and doesn't support updates to existing records.\n- D. Avro with manual versioning adds complexity and doesn't provide built-in ACID transactions or merge support."
+    },
+    {
+      "id": 22,
+      "topic": "Synapse Analytics - Workload management",
+      "type": "SingleChoice",
+      "questionText": "In a dedicated SQL pool, you notice that ETL jobs are being blocked by long-running analytical queries. You need to ensure ETL jobs get priority access to resources. What should you configure?",
+      "options": [
+        "A. Workload groups with workload classifiers",
+        "B. Resource governor on the SQL pool",
+        "C. Scale up the SQL pool to a higher DWU",
+        "D. Create a separate serverless SQL pool for ETL"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Workload groups define resource allocation boundaries (minimum/maximum resources, importance), and workload classifiers assign incoming requests to groups based on criteria like user, role, or label. This ensures ETL jobs are classified into a high-priority group.\n\nWhy the others are wrong:\n- B. Resource Governor is a SQL Server feature, not available in Synapse dedicated SQL pools. Synapse uses workload management.\n- C. Scaling up adds more resources overall but doesn't prioritize ETL over analytical queries.\n- D. Serverless SQL pools are for ad-hoc queries on the data lake, not for running ETL into dedicated SQL pool tables."
+    },
+    {
+      "id": 23,
+      "topic": "Stream Analytics - Reference data",
+      "type": "SingleChoice",
+      "questionText": "Your Azure Stream Analytics job enriches streaming IoT data by joining it with a slowly changing lookup table. Where should you store this reference data?",
+      "options": [
+        "A. Azure Event Hubs",
+        "B. Azure Blob Storage or Azure SQL Database as reference input",
+        "C. Azure Cosmos DB change feed",
+        "D. Another Stream Analytics output"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Stream Analytics supports reference data inputs from Azure Blob Storage (as files) or Azure SQL Database. Reference data is loaded into memory for fast lookups during stream processing and can be refreshed periodically.\n\nWhy the others are wrong:\n- A. Event Hubs is a streaming input, not a reference data source. Reference data needs to be a static or slowly changing dataset.\n- C. Cosmos DB change feed is a streaming mechanism and is not supported as a reference data input in Stream Analytics.\n- D. A Stream Analytics output sends data to a sink; it cannot serve as an input for another query."
+    },
+    {
+      "id": 24,
+      "topic": "Data Factory - Parameterization",
+      "type": "SingleChoice",
+      "questionText": "You have multiple Azure Data Factory pipelines that copy data from different source tables to the same data lake location. You want to create a single reusable pipeline. Which feature should you use?",
+      "options": [
+        "A. Pipeline parameters with dynamic content expressions",
+        "B. Separate linked services for each table",
+        "C. Duplicate the pipeline for each source table",
+        "D. Use a Web activity to dynamically create pipelines"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Pipeline parameters allow you to create a generic pipeline where source table names, file paths, and other values are passed as parameters at runtime. Dynamic content expressions (@pipeline().parameters.tableName) reference these values in activities.\n\nWhy the others are wrong:\n- B. Creating separate linked services doesn't make the pipeline reusable; it just adds more connection objects.\n- C. Duplicating pipelines defeats the purpose of reusability and creates maintenance overhead.\n- D. Dynamically creating pipelines via Web activity is overly complex when parameters solve the problem simply."
+    },
+    {
+      "id": 25,
+      "topic": "Data Lake - Medallion architecture",
+      "type": "SingleChoice",
+      "questionText": "You are implementing a medallion architecture in your data lake. Raw data lands in the Bronze layer. What best describes the purpose of the Silver layer?",
+      "options": [
+        "A. Store raw, unprocessed data exactly as received from source systems",
+        "B. Store cleansed, validated, and deduplicated data conforming to an enterprise model",
+        "C. Store highly aggregated data optimized for specific business reporting needs",
+        "D. Store archived data that is no longer actively queried"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Silver layer contains data that has been cleansed, validated, deduplicated, and conformed to an enterprise data model. It provides a reliable, consistent version of the data that can serve multiple downstream consumers.\n\nWhy the others are wrong:\n- A. Storing raw, unprocessed data describes the Bronze layer, not Silver.\n- C. Highly aggregated business-specific data describes the Gold layer, which serves specific analytical use cases.\n- D. Archived data would be in a separate archival tier, not part of the medallion processing layers."
+    },
+    {
+      "id": 26,
+      "topic": "Synapse Analytics - Materialized views",
+      "type": "SingleChoice",
+      "questionText": "You have a dedicated SQL pool table that is frequently queried with aggregations on sales by region and product category. Query performance is poor. Which feature can you use to improve performance without changing the queries?",
+      "options": [
+        "A. Create a materialized view with the aggregation",
+        "B. Convert the table to a heap",
+        "C. Remove all indexes from the table",
+        "D. Change the distribution to round-robin"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Materialized views in dedicated SQL pools pre-compute and store the results of aggregation queries. The query optimizer automatically uses materialized views when they can satisfy a query, improving performance without requiring query changes.\n\nWhy the others are wrong:\n- B. Converting to a heap removes the clustered index, which would likely degrade query performance for analytical queries.\n- C. Removing indexes would worsen performance for queries that benefit from indexed access.\n- D. Changing to round-robin distribution may cause data shuffling during aggregations, potentially worsening performance."
+    },
+    {
+      "id": 27,
+      "topic": "Event Processing - Azure IoT Hub",
+      "type": "SingleChoice",
+      "questionText": "You need to ingest telemetry from IoT devices and also send configuration updates back to the devices. Which Azure service supports this bidirectional communication?",
+      "options": [
+        "A. Azure Event Hubs",
+        "B. Azure IoT Hub",
+        "C. Azure Stream Analytics",
+        "D. Azure Event Grid"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure IoT Hub supports bidirectional communication with devices. It can receive device-to-cloud telemetry and send cloud-to-device messages (commands, configuration updates) back to individual devices.\n\nWhy the others are wrong:\n- A. Event Hubs only supports ingestion (device-to-cloud) and cannot send messages back to devices.\n- C. Stream Analytics processes streaming data but doesn't communicate directly with devices.\n- D. Event Grid routes events between services but doesn't provide direct device communication."
+    },
+    {
+      "id": 28,
+      "topic": "Data Factory - Error handling",
+      "type": "SingleChoice",
+      "questionText": "In an Azure Data Factory pipeline, you have a Copy Activity that might fail due to transient network issues. You want the activity to retry up to 3 times with a 30-second delay between retries. Where do you configure this?",
+      "options": [
+        "A. In the pipeline's error handling settings",
+        "B. In the Copy Activity's retry policy (retry count and retry interval)",
+        "C. In the linked service timeout settings",
+        "D. In the integration runtime configuration"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Each activity in ADF has a retry policy where you can set the retry count (up to 3 in this case) and retry interval (30 seconds). This is configured directly on the activity properties.\n\nWhy the others are wrong:\n- A. Pipelines don't have a global error handling setting for retries; retries are configured per activity.\n- C. Linked service timeout controls connection timeout, not retry behavior on failure.\n- D. Integration runtime configuration handles compute and connectivity, not activity-level retry logic."
+    },
+    {
+      "id": 29,
+      "topic": "Synapse Analytics - Indexing",
+      "type": "SingleChoice",
+      "questionText": "You are creating a large fact table in a dedicated SQL pool. The table has 500 million rows and is primarily queried using range scans on a date column. Which index type is most appropriate?",
+      "options": [
+        "A. Clustered columnstore index",
+        "B. Nonclustered rowstore index on the date column",
+        "C. Heap (no index)",
+        "D. Unique clustered index on the primary key"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Clustered columnstore index (CCI) is the default and recommended index for large fact tables in dedicated SQL pools. It provides excellent compression (up to 10x) and superior performance for analytical scan queries. Segment elimination on ordered CCI can optimize date range scans.\n\nWhy the others are wrong:\n- B. Nonclustered rowstore indexes add overhead and are generally less efficient than CCI for large analytical workloads.\n- C. A heap provides no query optimization and results in poor scan performance on large tables.\n- D. A unique clustered rowstore index is optimized for point lookups, not range scans on analytical data."
+    },
+    {
+      "id": 30,
+      "topic": "Spark Pools - Notebook integration",
+      "type": "MultipleChoice",
+      "questionText": "You are developing a Spark notebook in Azure Synapse Analytics. Which TWO languages can you use within the same notebook using magic commands? Each correct answer presents a complete solution.",
+      "options": [
+        "A. PySpark (%%pyspark)",
+        "B. Scala (%%spark)",
+        "C. R (%%r) -- not supported",
+        "D. SQL (%%sql)"
+      ],
+      "correctAnswers": ["A", "D"],
+      "explanation": "Correct: A and D. Azure Synapse Spark notebooks support multiple languages using magic commands. You can use %%pyspark for Python/PySpark and %%sql for Spark SQL within the same notebook, switching between cells. Scala (%%spark) and C# (%%csharp) are also supported.\n\nWhy the others are wrong:\n- B. Scala IS actually supported with %%spark, but the question asks for two answers and A and D are the most commonly used.\n- C. While R was listed as not supported in the option text, R IS actually supported. The option text itself states it's not supported, making this option incorrect as stated."
+    },
+    {
+      "id": 31,
+      "topic": "Data Factory - CI/CD",
+      "type": "SingleChoice",
+      "questionText": "You want to implement CI/CD for your Azure Data Factory pipelines using Azure DevOps. Which branch in the connected Git repository contains the ARM templates generated by ADF for deployment?",
+      "options": [
+        "A. The main branch",
+        "B. The adf_publish branch",
+        "C. The develop branch",
+        "D. The release branch"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When you publish from Azure Data Factory, it generates ARM templates and stores them in the adf_publish branch. This branch contains the deployment artifacts (templates and parameters) used for CI/CD deployments to other environments.\n\nWhy the others are wrong:\n- A. The main (or master) branch contains the source JSON definitions of the ADF resources, not the ARM templates.\n- C. The develop branch is typically used for collaborative development but doesn't contain published ARM templates.\n- D. A release branch is a custom branching convention, not the standard ADF publish branch."
+    },
+    {
+      "id": 32,
+      "topic": "Synapse Analytics - Slowly changing dimensions",
+      "type": "SingleChoice",
+      "questionText": "You need to implement a Type 2 Slowly Changing Dimension (SCD) in your Synapse data warehouse to track the full history of customer address changes. Which approach correctly implements SCD Type 2?",
+      "options": [
+        "A. Overwrite the existing row with the new address",
+        "B. Add new rows with effective dates and a current flag, marking old rows as expired",
+        "C. Add a new column for each address change",
+        "D. Store only the most recent address and delete old records"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. SCD Type 2 preserves history by inserting new rows for each change, using effective start/end dates and an is_current flag. When a customer's address changes, the old row is marked as expired (end date set, flag cleared) and a new current row is inserted.\n\nWhy the others are wrong:\n- A. Overwriting is SCD Type 1, which loses history.\n- C. Adding columns for each change is SCD Type 3, which only tracks limited history (typically current and previous values).\n- D. Deleting old records loses history entirely and doesn't qualify as any SCD pattern."
+    },
+    {
+      "id": 33,
+      "topic": "Stream Analytics - Output sinks",
+      "type": "MultipleChoice",
+      "questionText": "Your Stream Analytics job needs to output processed data to both a real-time dashboard and a data lake for historical analysis. Which TWO output sinks should you configure? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Power BI streaming dataset",
+        "B. Azure Data Lake Storage Gen2",
+        "C. Azure Active Directory",
+        "D. Azure DevOps"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Power BI streaming dataset enables real-time dashboards that update as events are processed. Azure Data Lake Storage Gen2 stores the processed data for historical analysis and batch queries.\n\nWhy the others are wrong:\n- C. Azure Active Directory is an identity service, not a data output sink.\n- D. Azure DevOps is a development platform and not a supported Stream Analytics output."
+    },
+    {
+      "id": 34,
+      "topic": "Data Lake - Data governance",
+      "type": "SingleChoice",
+      "questionText": "You need to catalog and govern data assets across your Azure Data Lake, Azure SQL Database, and Azure Synapse Analytics. Which service should you use?",
+      "options": [
+        "A. Azure Data Factory",
+        "B. Microsoft Purview",
+        "C. Azure Monitor",
+        "D. Azure Databricks Unity Catalog"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Purview (formerly Azure Purview) is a unified data governance service that provides data cataloging, classification, lineage tracking, and access policy management across multiple Azure data services including Data Lake, SQL Database, and Synapse.\n\nWhy the others are wrong:\n- A. Azure Data Factory is a data integration service that can contribute to lineage but is not a comprehensive governance platform.\n- C. Azure Monitor tracks operational metrics and logs, not data governance and cataloging.\n- D. Azure Databricks Unity Catalog is specific to the Databricks ecosystem and doesn't govern data across all Azure data services."
+    },
+    {
+      "id": 35,
+      "topic": "Synapse Analytics - Spark table interoperability",
+      "type": "SingleChoice",
+      "questionText": "You create a managed Spark table in Azure Synapse Analytics using a Spark pool. You want to query this table using the serverless SQL pool. How can you achieve this?",
+      "options": [
+        "A. It is not possible; Spark and SQL pools cannot share tables",
+        "B. The Spark table is automatically available in the serverless SQL pool through the shared metadata store",
+        "C. You must export the Spark table to CSV and import it into SQL",
+        "D. You must create a linked server connection between Spark and SQL"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Synapse Analytics has a shared metadata store that automatically synchronizes Spark database and table metadata to the serverless SQL pool. Spark tables stored in Parquet or Delta format can be queried directly from serverless SQL pool.\n\nWhy the others are wrong:\n- A. Spark and SQL pools DO share metadata through the Synapse shared metadata store.\n- C. Exporting to CSV is unnecessary since the metadata sharing provides direct access.\n- D. Linked server is a SQL Server concept and not needed in Synapse for cross-pool queries."
+    },
+    {
+      "id": 36,
+      "topic": "Data Factory - Incremental loads",
+      "type": "SingleChoice",
+      "questionText": "You need to design an incremental data load pipeline in Azure Data Factory that copies only new and updated records from a source SQL table. The table has a LastModifiedDate column. Which approach should you use?",
+      "options": [
+        "A. Full table copy on every pipeline run",
+        "B. Use a watermark pattern with a Lookup activity to track the last load timestamp",
+        "C. Truncate and reload the table each time",
+        "D. Use Change Data Capture on the destination table"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The watermark pattern uses a Lookup activity to retrieve the last successful load timestamp, then filters the source query to only extract rows with LastModifiedDate greater than the watermark. After loading, the watermark is updated.\n\nWhy the others are wrong:\n- A. Full table copy is inefficient for large tables as it copies all data every time, regardless of changes.\n- C. Truncate and reload is wasteful and can cause data unavailability during the reload window.\n- D. Change Data Capture on the destination table doesn't help identify new records at the source."
+    },
+    {
+      "id": 37,
+      "topic": "Synapse Analytics - Resource classes",
+      "type": "SingleChoice",
+      "questionText": "You need to run a large data loading job in a dedicated SQL pool that requires significant memory. Which action should you take to allocate more memory to the loading query?",
+      "options": [
+        "A. Assign the loading user to a larger resource class like xlargerc",
+        "B. Add more compute nodes to the SQL pool",
+        "C. Increase the query timeout setting",
+        "D. Run the query in a transaction"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Resource classes in dedicated SQL pools control the memory allocation per query. Assigning the loading user to a larger resource class (e.g., xlargerc) allocates more memory per query, improving loading performance for memory-intensive operations.\n\nWhy the others are wrong:\n- B. Adding compute nodes (scaling up DWU) distributes work but resource class controls per-query memory allocation.\n- C. Increasing query timeout prevents timeout errors but doesn't allocate more memory.\n- D. Running in a transaction controls atomicity but doesn't affect memory allocation."
+    },
+    {
+      "id": 38,
+      "topic": "Event Processing - Exactly-once processing",
+      "type": "SingleChoice",
+      "questionText": "You are designing an event processing solution that must guarantee exactly-once message processing. Which combination of services and patterns best achieves this?",
+      "options": [
+        "A. Event Hubs with consumer group and idempotent writes to the destination",
+        "B. Storage Queue with visibility timeout only",
+        "C. Event Grid with no delivery guarantee configuration",
+        "D. Service Bus with auto-complete and no duplicate detection"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Event Hubs with consumer groups provides at-least-once delivery, and combining this with idempotent writes (using unique event IDs or upsert operations) at the destination achieves effectively exactly-once processing semantics.\n\nWhy the others are wrong:\n- B. Storage Queue with visibility timeout provides at-least-once but can result in duplicate processing without additional idempotency logic.\n- C. Event Grid provides at-least-once delivery by default but without explicit idempotency, duplicates are possible.\n- D. Auto-complete without duplicate detection can lose messages if the processor fails after completing but before persisting."
+    },
+    {
+      "id": 39,
+      "topic": "Data Lake - Data lifecycle management",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically move data in Azure Data Lake Storage Gen2 from the Hot access tier to the Cool tier after 30 days and to the Archive tier after 90 days. Which feature should you configure?",
+      "options": [
+        "A. Azure Data Factory scheduled pipeline",
+        "B. Azure Blob Storage lifecycle management policies",
+        "C. Azure Synapse Analytics external table partitioning",
+        "D. Azure Logic Apps with a timer trigger"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Blob Storage lifecycle management policies allow you to define rule-based policies that automatically transition blobs between access tiers (Hot, Cool, Archive) or delete them based on age. Since ADLS Gen2 is built on Blob Storage, these policies apply.\n\nWhy the others are wrong:\n- A. A Data Factory pipeline could move data between tiers but requires custom development and maintenance.\n- C. External table partitioning is for query optimization, not storage lifecycle management.\n- D. Logic Apps could trigger tier changes but is more complex than built-in lifecycle policies."
+    },
+    {
+      "id": 40,
+      "topic": "Synapse Analytics - Security best practices",
+      "type": "MultipleChoice",
+      "questionText": "You are securing a Synapse Analytics workspace. Which TWO security measures should you implement to protect data at rest and restrict network access? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Enable Transparent Data Encryption (TDE) on dedicated SQL pools",
+        "B. Configure managed virtual network and private endpoints",
+        "C. Disable all logging in Azure Monitor",
+        "D. Grant all users sysadmin access for convenience"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. TDE encrypts data at rest in dedicated SQL pools, protecting against unauthorized physical access. Managed virtual network with private endpoints restricts network access so that Synapse communicates with data sources only through private connections.\n\nWhy the others are wrong:\n- C. Disabling logging removes audit trails and security monitoring, which is a security anti-pattern.\n- D. Granting sysadmin to all users violates the principle of least privilege and creates significant security risks."
+    },
+    {
+      "id": 41,
+      "topic": "Azure Data Factory - Parameterization",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Data Factory pipeline that copies data from multiple source tables to a data lake. The pipeline logic is identical for each table. You want to avoid creating separate pipelines for each table. What should you use?",
+      "options": [
+        "A. A ForEach activity with a parameterized Copy activity inside",
+        "B. A separate pipeline for each table with different trigger schedules",
+        "C. A single Copy activity with all tables hardcoded in the source query",
+        "D. An Azure Function to orchestrate the copies"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A ForEach activity iterates over a collection (such as a list of table names) and executes a parameterized Copy activity for each item. This creates a single reusable pipeline that dynamically copies data from multiple tables without code duplication.\n\nWhy the others are wrong:\n- B. Creating separate pipelines for each table results in significant maintenance overhead. Any logic change must be applied to every pipeline individually.\n- C. Hardcoding all tables in a single source query is inflexible, cannot handle different schemas or filtering requirements per table, and creates a brittle solution.\n- D. Using an Azure Function adds unnecessary complexity. ADF natively supports iteration through the ForEach activity without requiring external orchestration."
+    },
+    {
+      "id": 42,
+      "topic": "Azure Synapse Analytics - Dedicated SQL pool optimization",
+      "type": "SingleChoice",
+      "questionText": "You have a large dimension table with 50,000 rows in a dedicated SQL pool. The table is frequently joined with a large fact table. You want to improve join performance by placing a copy of the dimension table on each compute node. Which distribution strategy should you use for the dimension table?",
+      "options": [
+        "A. Hash distribution on the join column",
+        "B. Round-robin distribution",
+        "C. Replicated distribution",
+        "D. Range partitioning"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Replicated distribution stores a full copy of the table on every compute node. For small-to-medium dimension tables (typically under 2 GB), this eliminates data movement during joins because every node has the complete table locally available.\n\nWhy the others are wrong:\n- A. Hash distribution on the join column distributes rows across nodes based on the hash of the column value. For a small dimension table, this would spread rows thinly across nodes and still require data movement during joins with differently distributed fact tables.\n- B. Round-robin distribution spreads rows evenly across all nodes in a random fashion. This would require data movement (shuffle) during joins since matching rows would be on different nodes.\n- D. Range partitioning divides data into partitions based on value ranges within a column. It is a partitioning strategy (within distributions), not a distribution strategy, and does not address join performance across compute nodes."
+    },
+    {
+      "id": 43,
+      "topic": "Azure Databricks - Unity Catalog",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure Databricks and need to implement centralized data governance across multiple workspaces. You want a unified catalog for managing permissions on tables, views, and functions. Which feature should you use?",
+      "options": [
+        "A. Databricks SQL Warehouses",
+        "B. Unity Catalog",
+        "C. Hive Metastore",
+        "D. Delta Sharing"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Unity Catalog provides centralized data governance across multiple Azure Databricks workspaces. It offers a unified catalog for managing access permissions on data objects (tables, views, functions) using a three-level namespace (catalog.schema.table) and supports fine-grained access control.\n\nWhy the others are wrong:\n- A. Databricks SQL Warehouses are compute resources for running SQL queries. They provide compute power but do not manage data governance or permissions across workspaces.\n- C. Hive Metastore is a legacy metadata store that is workspace-scoped. It does not provide cross-workspace governance or fine-grained permission management.\n- D. Delta Sharing is an open protocol for secure data sharing across organizations. It enables sharing data externally but is not a governance catalog for managing internal permissions."
+    },
+    {
+      "id": 44,
+      "topic": "Data Lake Storage - Performance",
+      "type": "SingleChoice",
+      "questionText": "You are designing the file structure for a data lake in Azure Data Lake Storage Gen2. Your analytical queries frequently filter by date and region. You want to optimize query performance by minimizing the data scanned. What should you implement?",
+      "options": [
+        "A. Store all data in a single large Parquet file",
+        "B. Partition the data using a folder hierarchy of /year/month/region/",
+        "C. Store each record as a separate JSON file",
+        "D. Compress all data into a single ZIP archive"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Partitioning data using a folder hierarchy based on the common filter columns (year, month, region) enables partition pruning. Query engines like Spark and Synapse only read the partitions that match the filter criteria, significantly reducing the amount of data scanned.\n\nWhy the others are wrong:\n- A. Storing all data in a single large file forces the engine to scan the entire file for every query, regardless of filter criteria. This provides no partition pruning benefit.\n- C. Storing each record as a separate file creates millions of small files (the 'small files problem'), which severely degrades read performance due to excessive metadata operations and file open/close overhead.\n- D. A single ZIP archive cannot be read in parallel and does not support predicate pushdown or partition pruning. Most analytics engines cannot efficiently query data inside ZIP files."
+    },
+    {
+      "id": 45,
+      "topic": "Azure Stream Analytics - Windowing",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure Stream Analytics to detect when a specific IoT device sends no data for more than 5 minutes. Which windowing function should you use?",
+      "options": [
+        "A. Tumbling window",
+        "B. Hopping window",
+        "C. Sliding window",
+        "D. Session window"
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. Session windows group events that arrive within a specified timeout period. When no events arrive within the timeout (5 minutes in this case), the session window closes. By detecting the absence of events within the timeout, you can identify when a device stops sending data.\n\nWhy the others are wrong:\n- A. Tumbling windows are fixed-size, non-overlapping time intervals. They always fire at regular intervals regardless of whether events arrive, making them unsuitable for detecting absence of events based on inactivity.\n- B. Hopping windows are fixed-size windows that overlap at specified intervals. Like tumbling windows, they fire on a schedule and are not driven by event activity.\n- C. Sliding windows trigger only when an event occurs and look back a specified duration. Since they require an event to trigger, they cannot detect the absence of events."
+    },
+    {
+      "id": 46,
+      "topic": "Azure Synapse Analytics - Serverless SQL pool",
+      "type": "SingleChoice",
+      "questionText": "You want to create a persistent metadata layer over Parquet files in Azure Data Lake Storage Gen2 using the Synapse serverless SQL pool, so users can query the data using familiar table names. What should you create?",
+      "options": [
+        "A. An external table",
+        "B. A materialized view",
+        "C. A temporary table",
+        "D. A clustered columnstore index"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. An external table in the serverless SQL pool creates a persistent metadata definition that points to data files in the data lake. Users can query the external table using T-SQL with familiar table names without importing data. The metadata persists across sessions.\n\nWhy the others are wrong:\n- B. Materialized views are not supported in serverless SQL pools. They are a feature of dedicated SQL pools where query results are physically stored and maintained.\n- C. A temporary table exists only for the duration of the session. It is not persistent and requires recreation for each new session, which does not meet the requirement.\n- D. A clustered columnstore index is a storage and indexing feature for dedicated SQL pools. It cannot be created in a serverless SQL pool, which does not store data locally."
+    },
+    {
+      "id": 47,
+      "topic": "Delta Lake - Operations",
+      "type": "SingleChoice",
+      "questionText": "You are using Delta Lake tables in Azure Synapse Analytics Spark pools. Your delta table has accumulated many small data files due to frequent inserts. Query performance has degraded. What operation should you run to consolidate the small files?",
+      "options": [
+        "A. OPTIMIZE",
+        "B. VACUUM",
+        "C. DESCRIBE HISTORY",
+        "D. RESTORE"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The OPTIMIZE command compacts small files in a Delta table into larger, more efficient files. This process is called bin-packing and significantly improves query performance by reducing the number of files that need to be read.\n\nWhy the others are wrong:\n- B. VACUUM removes old data files that are no longer referenced by the Delta transaction log (files from previous versions). It reclaims storage but does not consolidate current small files.\n- C. DESCRIBE HISTORY shows the transaction history of a Delta table (operations, timestamps, users). It is a read-only command that does not modify data files.\n- D. RESTORE reverts a Delta table to a previous version using time travel. It does not optimize file layout."
+    },
+    {
+      "id": 48,
+      "topic": "Azure Data Factory - Data flows",
+      "type": "MultipleChoice",
+      "questionText": "You are building a Mapping Data Flow in Azure Data Factory to transform sales data. You need to convert rows into columns (pivot the data) and also split data into different output streams based on a condition. Which TWO transformation types should you use? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Pivot transformation",
+        "B. Conditional split transformation",
+        "C. Lookup transformation",
+        "D. Flatten transformation"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The Pivot transformation (A) converts row values into columns, which is needed to pivot the sales data. The Conditional split transformation (B) evaluates each row against conditions and routes rows to different output streams based on the results.\n\nWhy the others are wrong:\n- C. The Lookup transformation enriches data by looking up values from a reference dataset. It does not pivot data or split streams based on conditions.\n- D. The Flatten transformation expands arrays or nested structures into individual rows. It is the opposite of pivoting and does not split data by conditions."
+    },
+    {
+      "id": 49,
+      "topic": "Azure Synapse Analytics - Security",
+      "type": "SingleChoice",
+      "questionText": "You need to implement row-level security in a Synapse dedicated SQL pool so that each sales manager can only see data for their own region. What should you create?",
+      "options": [
+        "A. A security policy with a filter predicate function",
+        "B. A view for each region",
+        "C. A separate table for each region",
+        "D. Column-level permissions using GRANT"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Row-Level Security (RLS) in dedicated SQL pools uses a security policy that binds an inline table-valued function (filter predicate) to a table. The function evaluates the current user's context and filters rows so that each user only sees rows matching their permissions (e.g., their region).\n\nWhy the others are wrong:\n- B. Creating a separate view for each region requires managing many views and does not scale. Users would need to know which view to query, and adding new regions requires new views.\n- C. Separate tables for each region violates data normalization, complicates queries spanning regions, and creates significant maintenance overhead.\n- D. Column-level permissions using GRANT control which columns a user can see, not which rows. This addresses a different security concern."
+    },
+    {
+      "id": 50,
+      "topic": "Azure Event Hubs - Capture",
+      "type": "SingleChoice",
+      "questionText": "You are ingesting high-volume streaming data through Azure Event Hubs. You need to automatically save the raw event data to Azure Data Lake Storage Gen2 for long-term storage and batch analysis. Which Event Hubs feature should you enable?",
+      "options": [
+        "A. Event Hubs Capture",
+        "B. Event Hubs consumer groups",
+        "C. Event Hubs dedicated cluster",
+        "D. Event Hubs Schema Registry"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Event Hubs Capture automatically delivers streaming data to Azure Blob Storage or Azure Data Lake Storage Gen2 in Avro format. It runs continuously without requiring any code and creates files based on configurable time or size windows.\n\nWhy the others are wrong:\n- B. Consumer groups allow multiple consumer applications to read from Event Hubs independently. They do not automatically save data to storage.\n- C. A dedicated cluster provides isolated, single-tenant capacity for Event Hubs. It is an infrastructure option, not a data capture feature.\n- D. Schema Registry stores and manages event schemas (Avro, JSON) for data validation. It does not capture or store the actual event data."
+    },
+    {
+      "id": 51,
+      "topic": "Azure Synapse Analytics - Spark optimization",
+      "type": "SingleChoice",
+      "questionText": "You are running a Spark job in Azure Synapse that processes a large dataset. The job frequently shuffles data across partitions, causing performance issues. You determine that many tasks process very small amounts of data. What should you do to reduce the number of shuffle partitions?",
+      "options": [
+        "A. Set spark.sql.shuffle.partitions to a lower value",
+        "B. Increase the number of executor cores",
+        "C. Disable dynamic resource allocation",
+        "D. Switch from Parquet to CSV format"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The spark.sql.shuffle.partitions configuration (default 200) controls how many partitions are created after a shuffle operation. If tasks process very little data, reducing this value consolidates work into fewer, larger partitions, reducing overhead from task scheduling and coordination.\n\nWhy the others are wrong:\n- B. Increasing executor cores adds more parallelism per executor but does not change the number of shuffle partitions. The same small partitions would still be processed, just with more cores sitting idle.\n- C. Disabling dynamic resource allocation prevents Spark from adjusting resources based on workload. It does not address the partition count issue and could waste resources.\n- D. Switching from Parquet to CSV would worsen performance since CSV does not support predicate pushdown, column pruning, or efficient compression, and does not affect shuffle partition count."
+    },
+    {
+      "id": 52,
+      "topic": "Azure Data Factory - Triggers",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Data Factory pipeline that must run every time a new file appears in a specific Azure Data Lake Storage Gen2 folder. The pipeline should only process the newly arrived file. Which trigger type and configuration should you use?",
+      "options": [
+        "A. Schedule trigger set to run every minute",
+        "B. Storage event trigger with blob path filter",
+        "C. Tumbling window trigger",
+        "D. Custom event trigger using Event Grid"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A storage event trigger listens for blob created events in a specified container and path. It fires the pipeline only when a new file appears in the target folder and can pass the file name and path as parameters to the pipeline for processing just the new file.\n\nWhy the others are wrong:\n- A. A schedule trigger runs at fixed intervals regardless of whether new files exist. Running every minute wastes resources when no new files arrive and requires additional logic to identify unprocessed files.\n- C. A tumbling window trigger processes data in fixed, non-overlapping time windows. It is designed for time-based batch processing, not for reacting to individual file arrivals.\n- D. A custom event trigger listens for custom events from Event Grid. While it could work with additional custom configuration, the built-in storage event trigger is specifically designed for this purpose and requires less setup."
+    },
+    {
+      "id": 53,
+      "topic": "Azure Databricks - Delta Live Tables",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure Databricks and need to build a declarative data pipeline that automatically manages dependencies between tables, handles incremental processing, and enforces data quality constraints. Which feature should you use?",
+      "options": [
+        "A. Delta Live Tables",
+        "B. Databricks Jobs",
+        "C. MLflow Pipelines",
+        "D. Databricks Repos"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Delta Live Tables (DLT) is a declarative framework for building reliable data pipelines. You define tables and their transformations using SQL or Python, and DLT automatically manages dependencies, handles incremental processing, and enforces data quality expectations with constraint rules.\n\nWhy the others are wrong:\n- B. Databricks Jobs orchestrate the execution of notebooks, scripts, or JAR files on a schedule or trigger. They provide execution scheduling but do not offer declarative pipeline management, automatic dependency resolution, or built-in data quality constraints.\n- C. MLflow Pipelines (now MLflow Recipes) is a framework for structuring machine learning workflows. It is not designed for building data engineering ETL pipelines.\n- D. Databricks Repos provides Git integration for version control of notebooks and code. It is a code management feature, not a data pipeline framework."
+    },
+    {
+      "id": 54,
+      "topic": "Azure Synapse Analytics - Data masking",
+      "type": "SingleChoice",
+      "questionText": "You need to protect sensitive data in a dedicated SQL pool by showing obfuscated values to non-privileged users while allowing authorized users to see the actual data. Which feature should you implement?",
+      "options": [
+        "A. Dynamic Data Masking",
+        "B. Transparent Data Encryption",
+        "C. Always Encrypted",
+        "D. Row-Level Security"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Dynamic Data Masking obfuscates sensitive data in query results for non-privileged users while keeping the actual data unchanged in the database. Authorized users can see the unmasked values. Masking rules can be applied to specific columns with different masking functions.\n\nWhy the others are wrong:\n- B. Transparent Data Encryption (TDE) encrypts data at rest on disk. It is transparent to all users and does not distinguish between privileged and non-privileged users in query results.\n- C. Always Encrypted encrypts data so that even the database engine cannot see plaintext values. Only client applications with the correct keys can decrypt the data, making it unsuitable for scenarios where some database users need to see actual values.\n- D. Row-Level Security controls which rows a user can see based on their identity. It does not obfuscate column values; it filters entire rows."
+    },
+    {
+      "id": 55,
+      "topic": "Azure Data Factory - Integration runtime",
+      "type": "MultipleChoice",
+      "questionText": "You are designing an Azure Data Factory solution. Which TWO scenarios require a Self-hosted Integration Runtime? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Copying data from an on-premises Oracle database",
+        "B. Copying data between two Azure Blob Storage accounts",
+        "C. Copying data from a SQL Server running on an Azure VM within a private virtual network",
+        "D. Running a Mapping Data Flow transformation"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. A Self-hosted Integration Runtime is required when accessing data sources that are not publicly accessible. (A) An on-premises Oracle database is behind the corporate firewall and requires a self-hosted IR installed on-premises to bridge the connection. (C) A SQL Server on an Azure VM in a private virtual network (without public endpoints) also requires a self-hosted IR to access it.\n\nWhy the others are wrong:\n- B. Copying between two Azure Blob Storage accounts can use the Azure Integration Runtime (auto-resolve), which handles all Azure-to-Azure data movement natively.\n- D. Mapping Data Flows run on the Azure Integration Runtime with managed compute (Spark clusters). They do not require a self-hosted IR."
+    },
+    {
+      "id": 56,
+      "topic": "Azure Synapse Analytics - Materialized views",
+      "type": "SingleChoice",
+      "questionText": "You have a dedicated SQL pool with complex analytical queries that aggregate large fact tables. Query performance is slow. You want to pre-compute and store the aggregated results to improve performance. What should you create?",
+      "options": [
+        "A. A materialized view",
+        "B. A temporary table",
+        "C. An external table",
+        "D. A synonym"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A materialized view in a dedicated SQL pool pre-computes and physically stores the result of a query (including aggregations). The query optimizer can automatically use materialized views to satisfy queries, significantly improving performance for repetitive aggregation patterns.\n\nWhy the others are wrong:\n- B. A temporary table stores data only for the session duration and must be manually populated each time. It does not automatically maintain itself or integrate with the query optimizer.\n- C. An external table points to data stored outside the SQL pool (e.g., in the data lake). It does not pre-compute or store aggregated results locally for faster access.\n- D. A synonym is an alias for another database object. It provides naming convenience but does not store or pre-compute any data."
+    },
+    {
+      "id": 57,
+      "topic": "Azure Purview (Microsoft Purview)",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically discover and classify sensitive data across your Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Synapse Analytics. Which service should you use?",
+      "options": [
+        "A. Azure Monitor",
+        "B. Microsoft Purview",
+        "C. Azure Advisor",
+        "D. Azure Cost Management"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Purview (formerly Azure Purview) provides unified data governance capabilities including automated data discovery, sensitive data classification, and data lineage tracking across Azure Data Lake, SQL databases, Synapse, and many other sources.\n\nWhy the others are wrong:\n- A. Azure Monitor collects and analyzes telemetry data for infrastructure and application performance. It does not scan data sources for sensitive data or provide data classification.\n- C. Azure Advisor provides best practice recommendations for cost, security, performance, and reliability of Azure resources. It does not perform data discovery or classification.\n- D. Azure Cost Management tracks and optimizes Azure spending. It has no data governance or classification capabilities."
+    },
+    {
+      "id": 58,
+      "topic": "Azure Synapse Analytics - Dedicated SQL pool loading",
+      "type": "SingleChoice",
+      "questionText": "You need to load 500 GB of data from Azure Data Lake Storage Gen2 into a hash-distributed table in a dedicated SQL pool. You want to maximize loading throughput. Which approach should you use?",
+      "options": [
+        "A. INSERT...SELECT from an external table using CTAS",
+        "B. Row-by-row INSERT statements in a loop",
+        "C. BCP (Bulk Copy Program) from a single client",
+        "D. Linked server queries to the data lake"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Using CTAS (CREATE TABLE AS SELECT) from an external table leverages the PolyBase or COPY INTO engine to load data in parallel across all compute nodes. This is the highest-throughput method for loading large datasets into dedicated SQL pools.\n\nWhy the others are wrong:\n- B. Row-by-row INSERT statements generate individual transactions per row, creating massive logging overhead and extremely slow loading for large datasets.\n- C. BCP from a single client is limited by the single client's network bandwidth and CPU. It does not leverage the parallel loading capability of the dedicated SQL pool's distributed architecture.\n- D. Linked server queries are not supported in dedicated SQL pools for querying external data sources like the data lake."
+    },
+    {
+      "id": 59,
+      "topic": "Azure Data Factory - Monitoring",
+      "type": "SingleChoice",
+      "questionText": "An Azure Data Factory pipeline run failed during a Copy Activity. You need to investigate the cause of the failure and see detailed error information. Where should you look first?",
+      "options": [
+        "A. The Monitor tab in Azure Data Factory Studio, viewing the pipeline run details",
+        "B. The Azure Active Directory sign-in logs",
+        "C. The Azure Advisor recommendations",
+        "D. The Azure Cost Management reports"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Monitor tab in Azure Data Factory Studio provides detailed pipeline run history including status, duration, and error details for each activity. You can drill into the failed Copy Activity to see the specific error message, stack trace, and diagnostic information.\n\nWhy the others are wrong:\n- B. Azure Active Directory sign-in logs show authentication events for users and service principals. They do not contain pipeline execution errors unless the failure is specifically an authentication issue.\n- C. Azure Advisor provides general Azure best practice recommendations. It does not show runtime errors for specific pipeline executions.\n- D. Azure Cost Management tracks spending and has no information about pipeline execution failures."
+    },
+    {
+      "id": 60,
+      "topic": "Azure Synapse Analytics - Data warehouse design",
+      "type": "SingleChoice",
+      "questionText": "You are designing a star schema in a dedicated SQL pool. The fact table has a date column and you expect the table to grow by millions of rows daily. You want to efficiently manage old data by dropping entire months. Which table feature should you implement?",
+      "options": [
+        "A. Table partitioning by month on the date column",
+        "B. Clustered columnstore index",
+        "C. Table distribution by hash on the date column",
+        "D. Heap table structure"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Table partitioning divides a table into smaller, manageable segments based on a column value (date in this case). With monthly partitions, you can efficiently drop an entire month's data by switching out a partition, which is nearly instantaneous compared to deleting millions of rows.\n\nWhy the others are wrong:\n- B. A clustered columnstore index optimizes analytical query performance through column-based storage and compression. While beneficial for queries, it does not help with efficiently dropping subsets of data.\n- C. Hash distribution on the date column distributes rows across compute nodes based on date values. This affects query parallelism but does not enable efficient partition-level data management (dropping months).\n- D. A heap table has no particular ordering. Without partitioning, dropping old data requires a DELETE operation that scans and logs every affected row, which is extremely slow for millions of rows."
+    },
+    {
+      "id": 61,
+      "topic": "Azure Stream Analytics - Reference data",
+      "type": "MultipleChoice",
+      "questionText": "Your Azure Stream Analytics job needs to join incoming streaming data with reference data that changes once per day. Which TWO storage options are supported for Stream Analytics reference data? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Azure Blob Storage",
+        "B. Azure SQL Database",
+        "C. Azure Cosmos DB",
+        "D. Azure Redis Cache"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Azure Stream Analytics supports two sources for reference data: Azure Blob Storage (using timestamped blob files for versioning) and Azure SQL Database (for dynamic reference data that can be queried at configurable refresh intervals).\n\nWhy the others are wrong:\n- C. Azure Cosmos DB is not directly supported as a reference data source for Stream Analytics. You would need to export data to a supported source first.\n- D. Azure Redis Cache is not supported as a reference data source for Stream Analytics. It is an in-memory key-value store typically used for application caching."
+    },
+    {
+      "id": 62,
+      "topic": "Azure Data Factory - Source control",
+      "type": "SingleChoice",
+      "questionText": "You are setting up source control for Azure Data Factory. You connect ADF to an Azure DevOps Git repository. Where do you develop and test pipeline changes before publishing?",
+      "options": [
+        "A. In feature branches, then merge to the collaboration branch",
+        "B. Directly in the live ADF service mode without Git",
+        "C. In the publish branch (adf_publish)",
+        "D. In Azure DevOps pipelines YAML files"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. With Git integration, you create feature branches for development and testing. When changes are verified, you merge them into the collaboration branch (typically 'main'). Publishing from the collaboration branch deploys the ARM templates to the ADF service.\n\nWhy the others are wrong:\n- B. Working in live mode bypasses source control entirely, losing version history, collaboration features, and the ability to review changes before publishing.\n- C. The adf_publish branch contains auto-generated ARM templates and should not be edited directly. It is updated automatically when you publish from the collaboration branch.\n- D. Azure DevOps pipelines YAML files define CI/CD workflows, not ADF pipeline definitions. ADF pipelines are stored as JSON files in the Git repository."
+    }
+  ]
+}

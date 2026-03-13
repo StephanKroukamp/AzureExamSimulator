@@ -1,0 +1,591 @@
+{
+  "examCode": "SC-100",
+  "examTitle": "Microsoft Cybersecurity Architect Expert",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Zero Trust - Network segmentation strategy",
+      "type": "SingleChoice",
+      "questionText": "Your organization is implementing a Zero Trust architecture. You need to recommend a network segmentation strategy that ensures all traffic is authenticated and authorized regardless of location. Which approach should you recommend?",
+      "options": ["A. Implement VPN connections for all remote users and trust internal network traffic.", "B. Deploy micro-segmentation with identity-based access controls and continuous verification for all traffic.", "C. Use network perimeter firewalls to separate internal and external traffic zones.", "D. Configure a DMZ for external-facing applications and allow unrestricted internal traffic."],
+      "correctAnswers": ["B"],
+      "explanation": "Micro-segmentation with identity-based access controls and continuous verification aligns with Zero Trust principles. Zero Trust assumes breach and verifies each request as though it originates from an untrusted network. Option A is incorrect because trusting internal traffic violates Zero Trust. Option C is incorrect because perimeter-based security alone is a traditional model, not Zero Trust. Option D is incorrect because allowing unrestricted internal traffic contradicts Zero Trust's verify explicitly principle."
+    },
+    {
+      "id": 2,
+      "topic": "GRC - Regulatory compliance framework",
+      "type": "SingleChoice",
+      "questionText": "Your company needs to demonstrate compliance with multiple regulatory frameworks including GDPR, ISO 27001, and NIST 800-53 across your Azure environment. Which tool should you use as the primary solution to manage and track compliance posture?",
+      "options": ["A. Microsoft Defender for Cloud regulatory compliance dashboard.", "B. Azure Policy guest configuration.", "C. Microsoft Purview Compliance Manager.", "D. Azure Advisor security recommendations."],
+      "correctAnswers": ["C"],
+      "explanation": "Microsoft Purview Compliance Manager provides a comprehensive compliance management solution that supports multiple regulatory frameworks including GDPR, ISO 27001, and NIST 800-53. It offers pre-built assessments, improvement actions, and a compliance score. Option A is incorrect because while Defender for Cloud has regulatory compliance features, it focuses on cloud security posture rather than comprehensive organizational compliance management. Option B is incorrect because guest configuration audits VM settings but doesn't manage overall compliance posture. Option D is incorrect because Azure Advisor provides general recommendations, not regulatory compliance tracking."
+    },
+    {
+      "id": 3,
+      "topic": "Security Operations - SIEM and SOAR design",
+      "type": "SingleChoice",
+      "questionText": "You are designing a security operations center (SOC) architecture. The SOC team needs to collect security logs from Azure resources, on-premises servers, and third-party SaaS applications, and automate incident response. Which combination of services should you recommend?",
+      "options": ["A. Microsoft Sentinel for SIEM and Logic Apps for SOAR.", "B. Azure Monitor for SIEM and Azure Functions for SOAR.", "C. Microsoft Defender for Cloud for SIEM and Power Automate for SOAR.", "D. Azure Log Analytics for SIEM and Azure Automation for SOAR."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel is the cloud-native SIEM/SOAR solution that can collect logs from Azure, on-premises, and third-party sources. Sentinel uses Logic Apps (playbooks) as its built-in SOAR capability for automated incident response. Option B is incorrect because Azure Monitor is a monitoring platform, not a SIEM. Option C is incorrect because Defender for Cloud is a CSPM/CWPP, not a SIEM. Option D is incorrect because Log Analytics is a data platform but lacks the SIEM capabilities like analytics rules, incidents, and threat intelligence integration that Sentinel provides."
+    },
+    {
+      "id": 4,
+      "topic": "Identity Security - Privileged access strategy",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a privileged access strategy for your organization's Azure environment. Which TWO measures should you implement to secure privileged access? (Choose two.)",
+      "options": ["A. Implement Microsoft Entra Privileged Identity Management (PIM) for just-in-time role activation.", "B. Assign permanent Global Administrator roles to all IT managers.", "C. Deploy privileged access workstations (PAWs) for administrative tasks.", "D. Use shared administrator accounts to simplify management.", "E. Disable multi-factor authentication for administrators to reduce friction."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "PIM provides just-in-time privileged access, reducing the attack surface by ensuring administrators only have elevated permissions when needed. Privileged access workstations (PAWs) provide a hardened environment specifically for administrative tasks, reducing the risk of credential theft. Option B is incorrect because permanent Global Administrator assignments violate the principle of least privilege. Option D is incorrect because shared accounts prevent accountability and increase security risks. Option E is incorrect because disabling MFA for administrators dramatically increases the risk of account compromise."
+    },
+    {
+      "id": 5,
+      "topic": "Infrastructure Security - Hybrid cloud protection",
+      "type": "SingleChoice",
+      "questionText": "Your organization has a hybrid infrastructure with workloads running in Azure, AWS, and on-premises data centers. You need to implement a unified cloud security posture management (CSPM) solution. What should you recommend?",
+      "options": ["A. Deploy Microsoft Defender for Cloud with multicloud connectors.", "B. Use Azure Policy to manage compliance across all environments.", "C. Implement Azure Arc for server management only.", "D. Deploy separate security tools for each cloud environment."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Cloud supports multicloud environments through native connectors for AWS and GCP, providing unified CSPM across Azure, AWS, and on-premises (via Azure Arc). Option B is incorrect because Azure Policy alone cannot manage compliance in AWS or other clouds without additional integration. Option C is incorrect because Azure Arc provides management capabilities but not comprehensive CSPM. Option D is incorrect because using separate tools creates operational overhead and prevents a unified security view."
+    },
+    {
+      "id": 6,
+      "topic": "Data Security - Encryption strategy",
+      "type": "SingleChoice",
+      "questionText": "You need to design an encryption strategy for sensitive data stored in Azure. The security team requires that encryption keys are managed by the organization and stored in a FIPS 140-2 Level 3 validated hardware security module. What should you recommend?",
+      "options": ["A. Use Azure Storage Service Encryption with Microsoft-managed keys.", "B. Use customer-managed keys stored in Azure Key Vault with HSM backing.", "C. Use customer-managed keys stored in Azure Key Vault Premium or Azure Managed HSM.", "D. Implement client-side encryption with keys stored in application configuration."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Key Vault Premium and Azure Managed HSM use FIPS 140-2 Level 3 validated HSMs, meeting the requirement for hardware-protected key management. Option A is incorrect because Microsoft-managed keys don't give the organization control over key management. Option B is incorrect because standard Azure Key Vault uses software-protected keys (FIPS 140-2 Level 1), not Level 3 HSMs. Option D is incorrect because storing keys in application configuration is insecure and doesn't use HSM protection."
+    },
+    {
+      "id": 7,
+      "topic": "Zero Trust - Identity verification",
+      "type": "SingleChoice",
+      "questionText": "According to Zero Trust principles, which statement best describes the 'verify explicitly' principle when designing an authentication architecture?",
+      "options": ["A. Trust users once they are inside the corporate network.", "B. Always authenticate and authorize based on all available data points including user identity, location, device health, service or workload, data classification, and anomalies.", "C. Require users to authenticate only when accessing external resources.", "D. Use single-factor authentication for known devices and MFA for unknown devices."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'verify explicitly' principle of Zero Trust requires authentication and authorization based on all available data points for every access request, regardless of network location. This includes user identity, location, device health, the service being accessed, data classification, and anomaly detection. Option A is incorrect because trusting based on network location is the traditional perimeter model. Option C is incorrect because verification must occur for all resources, not just external ones. Option D is incorrect because it still relies on a trust assumption for known devices."
+    },
+    {
+      "id": 8,
+      "topic": "Security Operations - Threat intelligence",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to integrate threat intelligence feeds into the security architecture to proactively detect threats. Where should you centralize threat intelligence indicators for use across Microsoft security products?",
+      "options": ["A. Azure Active Directory Identity Protection.", "B. Microsoft Sentinel Threat Intelligence blade.", "C. Microsoft Defender Threat Intelligence (MDTI).", "D. Azure Firewall threat intelligence."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Sentinel's Threat Intelligence blade serves as the centralized platform for importing, managing, and using threat intelligence indicators (TI) across the security operations workflow. It supports STIX/TAXII feeds and integrates with analytics rules for detection. Option A is incorrect because Identity Protection focuses on user risk signals, not general threat intelligence management. Option C is incorrect because MDTI provides enrichment and investigation capabilities but is not the central TI management platform for detection. Option D is incorrect because Azure Firewall threat intelligence is limited to network-level filtering based on Microsoft's feed."
+    },
+    {
+      "id": 9,
+      "topic": "Application Security - DevSecOps pipeline",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a secure DevSecOps pipeline for your organization's cloud applications. Which THREE security controls should you integrate into the CI/CD pipeline? (Choose three.)",
+      "options": ["A. Static application security testing (SAST) during the build phase.", "B. Dependency vulnerability scanning for open-source components.", "C. Manual code review as the only security gate before deployment.", "D. Container image scanning before pushing to the registry.", "E. Security testing only in the production environment."],
+      "correctAnswers": ["A", "B", "D"],
+      "explanation": "A comprehensive DevSecOps pipeline should include SAST to detect code vulnerabilities during build, dependency scanning to identify known vulnerabilities in third-party components, and container image scanning to detect vulnerabilities before deployment. Option C is incorrect because while manual code review is valuable, relying on it as the only security gate is insufficient and doesn't scale. Option E is incorrect because security testing should be shifted left into development phases, not limited to production."
+    },
+    {
+      "id": 10,
+      "topic": "GRC - Security governance model",
+      "type": "SingleChoice",
+      "questionText": "You need to design a security governance model for an enterprise with multiple Azure subscriptions organized under management groups. You must enforce security baselines across all subscriptions while allowing individual teams some flexibility. What should you recommend?",
+      "options": ["A. Apply Azure Policy initiatives at the management group level with exemptions for specific resources.", "B. Apply Azure Policies individually at each subscription level.", "C. Use Azure Blueprints at the resource group level only.", "D. Rely on Microsoft Defender for Cloud recommendations without enforcement."],
+      "correctAnswers": ["A"],
+      "explanation": "Applying Azure Policy initiatives at the management group level ensures consistent security baselines across all subscriptions, while the exemption mechanism allows flexibility for specific resources that have justified deviations. This follows the governance principle of centralized policy with decentralized execution. Option B is incorrect because managing policies individually per subscription creates inconsistency and operational overhead. Option C is incorrect because applying blueprints only at the resource group level misses the hierarchical governance model. Option D is incorrect because recommendations without enforcement don't ensure compliance."
+    },
+    {
+      "id": 11,
+      "topic": "Infrastructure Security - Network security architecture",
+      "type": "SingleChoice",
+      "questionText": "You are designing the network security architecture for an Azure landing zone. You need to inspect and filter traffic between spoke virtual networks. Which solution should you recommend?",
+      "options": ["A. Network Security Groups (NSGs) on all subnets.", "B. Azure Firewall deployed in the hub virtual network with User Defined Routes (UDRs).", "C. Azure DDoS Protection Standard on each virtual network.", "D. Azure Application Gateway with WAF in each spoke."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Firewall in the hub virtual network with UDRs forcing traffic through it provides centralized inspection and filtering of east-west traffic between spoke networks. This is the recommended pattern for hub-spoke architectures. Option A is incorrect because NSGs filter at the subnet/NIC level and cannot inspect traffic between VNets at a centralized point. Option C is incorrect because DDoS Protection protects against volumetric attacks, not traffic filtering between spokes. Option D is incorrect because Application Gateway is a Layer 7 load balancer for web traffic, not a general-purpose network firewall for inter-VNet traffic."
+    },
+    {
+      "id": 12,
+      "topic": "Identity Security - Conditional Access design",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that all users accessing corporate applications from unmanaged devices must use a web browser with enforced app protection policies, while managed devices should have full application access. Which Conditional Access grant control combination should you configure?",
+      "options": ["A. Require device to be marked as compliant for all devices.", "B. Require approved client app for all access attempts.", "C. Use a Conditional Access policy with 'Require device to be marked as compliant' OR 'Require app protection policy' as grant controls.", "D. Block all access from unmanaged devices."],
+      "correctAnswers": ["C"],
+      "explanation": "Using 'Require device to be marked as compliant' OR 'Require app protection policy' as grant controls allows managed devices full access through compliance, while unmanaged devices can still access resources through browsers or apps that enforce app protection policies. Option A is incorrect because requiring compliance only would block all unmanaged devices entirely. Option B is incorrect because approved client apps don't address the distinction between managed and unmanaged devices. Option D is incorrect because blocking all unmanaged devices prevents legitimate BYOD scenarios."
+    },
+    {
+      "id": 13,
+      "topic": "Data Security - Data loss prevention architecture",
+      "type": "SingleChoice",
+      "questionText": "You need to design a comprehensive data loss prevention (DLP) strategy that covers Exchange Online, SharePoint Online, Teams, and endpoint devices. Which Microsoft solution provides unified DLP policy management across all these locations?",
+      "options": ["A. Microsoft Defender for Cloud Apps.", "B. Microsoft Purview Data Loss Prevention.", "C. Azure Information Protection client.", "D. Microsoft Defender for Endpoint."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Purview DLP provides unified policy creation and management that can be applied across Exchange Online, SharePoint Online, Teams, endpoint devices, and other locations from a single console. Option A is incorrect because Defender for Cloud Apps provides session-based DLP for cloud apps but doesn't natively manage DLP for endpoints or all Microsoft 365 services. Option C is incorrect because AIP client is focused on labeling and encryption, not comprehensive DLP policy management. Option D is incorrect because Defender for Endpoint provides endpoint protection but doesn't offer unified DLP across all Microsoft 365 services."
+    },
+    {
+      "id": 14,
+      "topic": "Zero Trust - Assume breach principle",
+      "type": "SingleChoice",
+      "questionText": "As part of the 'assume breach' Zero Trust principle, you need to design a strategy that minimizes the blast radius of a potential security incident. Which approach best addresses this requirement?",
+      "options": ["A. Deploy all applications in a single resource group for centralized management.", "B. Implement network micro-segmentation, least-privilege access, and end-to-end encryption.", "C. Use a single administrative account with broad permissions for rapid incident response.", "D. Store all secrets in a shared configuration file for quick access during incidents."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'assume breach' principle requires minimizing the blast radius through segmentation (micro-segmentation limits lateral movement), least-privilege access (limits what a compromised identity can do), and end-to-end encryption (protects data even if intercepted). Option A is incorrect because a single resource group doesn't provide segmentation. Option C is incorrect because a single account with broad permissions maximizes blast radius. Option D is incorrect because shared configuration files with secrets are a security anti-pattern."
+    },
+    {
+      "id": 15,
+      "topic": "Security Operations - Incident response design",
+      "type": "SingleChoice",
+      "questionText": "You are designing an automated incident response workflow for your SOC. When a high-severity incident is detected in Microsoft Sentinel, the system should automatically isolate the affected device, create a ticket in ServiceNow, and notify the on-call analyst. Which component should you use to orchestrate this workflow?",
+      "options": ["A. Microsoft Sentinel automation rules with a Logic Apps playbook.", "B. Azure Monitor action groups with email notifications.", "C. Microsoft Defender for Endpoint automated investigation.", "D. Azure Event Grid with Azure Functions."],
+      "correctAnswers": ["A"],
+      "explanation": "Sentinel automation rules can trigger Logic Apps playbooks that orchestrate complex workflows including device isolation (via Defender for Endpoint API), ticket creation (via ServiceNow connector), and analyst notification. This is the native SOAR capability of Sentinel. Option B is incorrect because action groups are limited to notifications and basic actions, not complex orchestration. Option C is incorrect because automated investigation in Defender for Endpoint is limited to endpoint-specific actions and doesn't integrate with ServiceNow natively. Option D is incorrect because Event Grid with Functions would require custom development and doesn't integrate natively with Sentinel incidents."
+    },
+    {
+      "id": 16,
+      "topic": "Infrastructure Security - Container security",
+      "type": "SingleChoice",
+      "questionText": "You are designing a security architecture for containerized workloads running on Azure Kubernetes Service (AKS). Which solution should you use to detect runtime threats and vulnerabilities in the running containers?",
+      "options": ["A. Azure Policy for AKS.", "B. Microsoft Defender for Containers.", "C. Azure Container Registry vulnerability scanning only.", "D. Kubernetes native RBAC."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Containers provides runtime threat detection for AKS clusters, including anomalous activity detection, vulnerability assessment of running images, and security alerts for suspicious container behavior. Option A is incorrect because Azure Policy for AKS enforces admission controls and configuration standards but doesn't detect runtime threats. Option C is incorrect because ACR scanning only identifies vulnerabilities in stored images, not runtime threats. Option D is incorrect because Kubernetes RBAC manages access control but doesn't detect threats."
+    },
+    {
+      "id": 17,
+      "topic": "GRC - Risk management framework",
+      "type": "SingleChoice",
+      "questionText": "Your CISO asks you to implement a risk management approach that continuously evaluates the security posture of cloud resources and provides a prioritized list of remediation actions. Which solution should you recommend?",
+      "options": ["A. Microsoft Defender for Cloud Secure Score.", "B. Azure Advisor cost recommendations.", "C. Azure Service Health dashboard.", "D. Microsoft 365 compliance score only."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Cloud's Secure Score continuously assesses cloud resources against security best practices and provides a numerical score with prioritized, actionable recommendations for improvement. Option B is incorrect because Azure Advisor cost recommendations focus on cost optimization, not security risk management. Option C is incorrect because Azure Service Health tracks Azure platform incidents, not the security posture of your resources. Option D is incorrect because Microsoft 365 compliance score focuses on compliance posture for Microsoft 365 services, not overall cloud security posture."
+    },
+    {
+      "id": 18,
+      "topic": "Identity Security - External identity management",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to collaborate securely with partner companies. Partners need access to specific SharePoint sites and Teams channels. You must ensure partner accounts are regularly reviewed and access is automatically removed when no longer needed. Which solution should you recommend?",
+      "options": ["A. Create cloud-only accounts for all partner users in your tenant.", "B. Use Microsoft Entra External ID with entitlement management and access reviews.", "C. Share credentials with partner organizations via encrypted email.", "D. Create a separate Azure AD tenant for partners with no integration."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra External ID (B2B collaboration) with entitlement management provides self-service access request workflows and access packages for partners. Access reviews ensure regular validation of partner access, and automatic expiration removes access when no longer needed. Option A is incorrect because creating cloud-only accounts requires manual lifecycle management and doesn't leverage the partner's own identity. Option C is incorrect because sharing credentials is a major security risk. Option D is incorrect because a separate tenant without integration would prevent seamless collaboration."
+    },
+    {
+      "id": 19,
+      "topic": "Application Security - API security",
+      "type": "SingleChoice",
+      "questionText": "You need to design a security architecture for APIs published through Azure API Management. The APIs contain sensitive customer data. Which combination provides the most comprehensive API security?",
+      "options": ["A. API keys only for all consumers.", "B. OAuth 2.0 with Microsoft Entra ID, rate limiting policies, and API Management built-in analytics.", "C. IP restriction policies and basic authentication.", "D. Client certificates only without any rate limiting."],
+      "correctAnswers": ["B"],
+      "explanation": "OAuth 2.0 with Microsoft Entra ID provides robust authentication and authorization, rate limiting prevents abuse and denial-of-service attacks, and built-in analytics enable monitoring for suspicious patterns. This combination addresses authentication, availability, and monitoring. Option A is incorrect because API keys alone don't provide strong authentication and can be easily shared or stolen. Option C is incorrect because IP restrictions and basic authentication are insufficient for protecting sensitive data. Option D is incorrect because client certificates alone without rate limiting leave the API vulnerable to abuse."
+    },
+    {
+      "id": 20,
+      "topic": "Zero Trust - Device trust evaluation",
+      "type": "SingleChoice",
+      "questionText": "Your organization is implementing a Zero Trust approach to device trust. You need to ensure that devices accessing corporate resources meet security requirements including disk encryption, antivirus status, and OS version. Which solution should you use to evaluate device compliance?",
+      "options": ["A. Microsoft Entra device registration only.", "B. Microsoft Intune compliance policies integrated with Conditional Access.", "C. Azure AD join without any compliance evaluation.", "D. Network Access Control (NAC) appliances at the network perimeter."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Intune compliance policies evaluate device health attributes like disk encryption, antivirus status, and OS version. When integrated with Conditional Access, non-compliant devices are blocked from accessing resources. This provides continuous device trust evaluation aligned with Zero Trust. Option A is incorrect because device registration alone doesn't evaluate compliance state. Option C is incorrect because joining without compliance evaluation doesn't enforce security requirements. Option D is incorrect because NAC appliances are perimeter-based and don't provide the granular device compliance evaluation needed for Zero Trust."
+    },
+    {
+      "id": 21,
+      "topic": "Security Operations - Log collection strategy",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a log collection strategy for Microsoft Sentinel. You need to collect logs from Azure Activity Logs, Azure AD sign-in logs, and on-premises Windows servers. Which TWO connector types should you use? (Choose two.)",
+      "options": ["A. Built-in Azure service connectors for Azure Activity and Azure AD logs.", "B. Azure Monitor Agent (AMA) with Data Collection Rules for Windows servers.", "C. Direct API integration using custom REST endpoints for all sources.", "D. Syslog connector for Azure Activity Logs.", "E. SNMP traps for Windows server logs."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Built-in Azure service connectors provide native, low-configuration integration for Azure Activity Logs and Azure AD sign-in logs. The Azure Monitor Agent (AMA) with Data Collection Rules is the recommended method for collecting Windows event logs from on-premises servers. Option C is incorrect because custom REST endpoints are unnecessary when native connectors are available. Option D is incorrect because Syslog is for Linux/network devices, not Azure Activity Logs. Option E is incorrect because SNMP is a network monitoring protocol, not appropriate for Windows event log collection."
+    },
+    {
+      "id": 22,
+      "topic": "Infrastructure Security - Workload protection",
+      "type": "SingleChoice",
+      "questionText": "You need to protect SQL databases running on Azure VMs and Azure SQL Database instances from threats such as SQL injection and anomalous access patterns. Which Microsoft Defender plan should you enable?",
+      "options": ["A. Microsoft Defender for Servers.", "B. Microsoft Defender for SQL.", "C. Microsoft Defender for Storage.", "D. Microsoft Defender for Key Vault."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for SQL provides advanced threat protection for both SQL Server on Azure VMs and Azure SQL Database. It detects threats like SQL injection, anomalous access, and brute-force attacks. Option A is incorrect because Defender for Servers protects the VM operating system but doesn't provide SQL-specific threat detection. Option C is incorrect because Defender for Storage protects storage accounts, not SQL databases. Option D is incorrect because Defender for Key Vault protects key vault resources."
+    },
+    {
+      "id": 23,
+      "topic": "Data Security - Data classification strategy",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to automatically discover and classify sensitive data across Azure SQL databases, Azure Storage accounts, and Azure Data Lake. Which service should you use for automated data discovery and classification?",
+      "options": ["A. Microsoft Purview Data Map.", "B. Azure Data Factory.", "C. Azure Databricks.", "D. Azure Cognitive Services."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview Data Map provides automated scanning and classification of sensitive data across multiple Azure data sources including SQL databases, Storage accounts, and Data Lake. It uses built-in and custom classification rules to identify sensitive data types. Option B is incorrect because Data Factory is a data integration service for ETL/ELT, not data classification. Option C is incorrect because Databricks is an analytics platform, not a data classification tool. Option D is incorrect because Cognitive Services provides AI capabilities but not data classification scanning."
+    },
+    {
+      "id": 24,
+      "topic": "GRC - Security baseline enforcement",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that all newly deployed Azure resources automatically comply with your organization's security baseline, including requirements for encryption, network isolation, and diagnostic logging. What is the most effective approach?",
+      "options": ["A. Send an email reminder to developers with the security requirements.", "B. Use Azure Policy with DeployIfNotExists and Deny effects at the management group level.", "C. Perform monthly manual audits of all Azure resources.", "D. Use Azure Advisor to suggest improvements after deployment."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Policy with DeployIfNotExists can automatically configure resources to meet security baselines (e.g., enable diagnostic logging), while Deny effects prevent non-compliant resource creation (e.g., unencrypted storage). Applying at the management group level ensures coverage across all subscriptions. Option A is incorrect because email reminders are not enforceable technical controls. Option C is incorrect because monthly manual audits are reactive, not preventative. Option D is incorrect because Azure Advisor provides recommendations but doesn't enforce compliance."
+    },
+    {
+      "id": 25,
+      "topic": "Identity Security - Authentication architecture",
+      "type": "SingleChoice",
+      "questionText": "Your organization is migrating from on-premises Active Directory to a hybrid identity model. You need to ensure that users have a seamless single sign-on experience while maintaining the ability to enforce cloud-based Conditional Access policies. Which authentication method should you recommend?",
+      "options": ["A. Password hash synchronization (PHS) with seamless SSO.", "B. Federation with AD FS only.", "C. Pass-through authentication (PTA) without SSO.", "D. Cloud-only accounts with no synchronization."],
+      "correctAnswers": ["A"],
+      "explanation": "Password hash synchronization with seamless SSO provides the best balance of seamless user experience and cloud-based security capabilities. PHS enables all Conditional Access features including risk-based policies (since password hashes are available for leaked credential detection). Option B is incorrect because AD FS adds infrastructure complexity and doesn't improve cloud-based risk detection. Option C is incorrect because PTA without SSO doesn't provide the seamless experience required. Option D is incorrect because cloud-only accounts break the hybrid model and require users to manage separate passwords."
+    },
+    {
+      "id": 26,
+      "topic": "Application Security - Secure application design",
+      "type": "SingleChoice",
+      "questionText": "You are reviewing the security architecture of a web application that uses Azure App Service. The application stores connection strings and API keys. Where should these secrets be stored to follow security best practices?",
+      "options": ["A. In the application's web.config or appsettings.json file.", "B. In Azure Key Vault with managed identity access.", "C. In environment variables directly on the App Service.", "D. In a shared Azure Storage blob."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Key Vault with managed identity is the recommended approach for storing application secrets. Key Vault provides centralized secret management with access logging, rotation capabilities, and RBAC. Managed identity eliminates the need for credential management. Option A is incorrect because storing secrets in configuration files risks exposure through source control or unauthorized file access. Option C is incorrect because while environment variables are better than config files, they lack the auditing, rotation, and access control features of Key Vault. Option D is incorrect because Azure Storage is not designed for secret management."
+    },
+    {
+      "id": 27,
+      "topic": "Zero Trust - Least privilege access",
+      "type": "SingleChoice",
+      "questionText": "You are implementing the 'use least privilege access' Zero Trust principle for Azure resource management. Your development team needs temporary elevated access to production resources for troubleshooting. What should you implement?",
+      "options": ["A. Assign permanent Contributor roles to all developers.", "B. Use Microsoft Entra PIM with time-limited role activation and approval workflows.", "C. Create a shared administrator account for production access.", "D. Disable RBAC and rely on resource locks for protection."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra PIM provides just-in-time (JIT) access with time-limited role activation and approval workflows, perfectly aligning with the least privilege principle. Developers request elevated access only when needed, approvers validate the request, and access automatically expires. Option A is incorrect because permanent elevated roles violate least privilege. Option C is incorrect because shared accounts eliminate accountability. Option D is incorrect because disabling RBAC removes access controls entirely."
+    },
+    {
+      "id": 28,
+      "topic": "Security Operations - Security monitoring architecture",
+      "type": "SingleChoice",
+      "questionText": "You need to design a security monitoring architecture that provides visibility into threats across identities, endpoints, email, and cloud applications in a single unified view. Which Microsoft solution provides this XDR capability?",
+      "options": ["A. Microsoft Sentinel only.", "B. Microsoft Defender XDR (formerly Microsoft 365 Defender).", "C. Azure Monitor.", "D. Microsoft Defender for Cloud only."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender XDR provides unified extended detection and response (XDR) across identities (Defender for Identity), endpoints (Defender for Endpoint), email (Defender for Office 365), and cloud applications (Defender for Cloud Apps). It correlates signals across these domains for comprehensive threat detection. Option A is incorrect because Sentinel is a SIEM that aggregates data from many sources but is not itself an XDR product. Option C is incorrect because Azure Monitor is an infrastructure monitoring platform. Option D is incorrect because Defender for Cloud focuses on cloud workload protection, not the unified XDR experience across identity, endpoint, and email."
+    },
+    {
+      "id": 29,
+      "topic": "Infrastructure Security - DDoS protection",
+      "type": "SingleChoice",
+      "questionText": "You are designing the security architecture for public-facing web applications hosted in Azure. You need to protect against DDoS attacks while also protecting against common web application vulnerabilities like cross-site scripting (XSS) and SQL injection. Which TWO services should you deploy together?",
+      "options": ["A. Azure DDoS Protection and Azure Web Application Firewall (WAF).", "B. Azure Firewall and Azure Front Door without WAF.", "C. Network Security Groups and Azure Bastion.", "D. Azure DDoS Protection and Azure ExpressRoute."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DDoS Protection provides volumetric and protocol attack mitigation at the network layer, while Azure WAF (on Application Gateway or Front Door) protects against Layer 7 web application attacks like XSS and SQL injection. Together they provide comprehensive protection. Option B is incorrect because Azure Firewall without WAF doesn't protect against web application-specific attacks. Option C is incorrect because NSGs provide basic network filtering and Bastion provides secure management access, not DDoS or web app protection. Option D is incorrect because ExpressRoute is a private connectivity service, not a web application protection tool."
+    },
+    {
+      "id": 30,
+      "topic": "Data Security - Backup and recovery security",
+      "type": "SingleChoice",
+      "questionText": "You need to protect Azure backup data from ransomware attacks that might compromise administrator accounts. Which feature should you enable to prevent malicious deletion of backup data?",
+      "options": ["A. Azure Backup soft delete with multi-user authorization.", "B. Azure Storage account firewall rules.", "C. Azure Backup encryption with platform-managed keys only.", "D. Azure role-based access control (RBAC) only."],
+      "correctAnswers": ["A"],
+      "explanation": "Soft delete retains deleted backup data for a configurable period, allowing recovery even if an attacker deletes backups. Multi-user authorization requires multiple users to approve critical operations like disabling soft delete, preventing a single compromised account from destroying backup data. Option B is incorrect because storage firewall rules protect network access but don't prevent authorized admin actions. Option C is incorrect because encryption protects data confidentiality but doesn't prevent deletion. Option D is incorrect because RBAC alone doesn't prevent a compromised administrator from deleting backups."
+    },
+    {
+      "id": 31,
+      "topic": "GRC - Cloud adoption security",
+      "type": "SingleChoice",
+      "questionText": "Your organization is adopting the Microsoft Cloud Adoption Framework. You need to define the security architecture as part of the landing zone design. Which component of the landing zone should be implemented FIRST to establish security governance?",
+      "options": ["A. Application workload deployment.", "B. Management group hierarchy with Azure Policy baselines.", "C. Virtual network peering between all regions.", "D. Azure DevOps pipeline configuration."],
+      "correctAnswers": ["B"],
+      "explanation": "The management group hierarchy with Azure Policy baselines should be established first as it creates the governance foundation for the entire cloud environment. This ensures all subsequent deployments automatically inherit security policies. Option A is incorrect because application deployment should occur after governance is established. Option C is incorrect because network connectivity is important but depends on the governance structure. Option D is incorrect because pipeline configuration is part of the development workflow, not the foundational security governance."
+    },
+    {
+      "id": 32,
+      "topic": "Identity Security - Workload identity security",
+      "type": "SingleChoice",
+      "questionText": "Your development team uses Azure DevOps pipelines to deploy resources to Azure. You need to secure the authentication between the pipeline and Azure without using long-lived secrets. What should you recommend?",
+      "options": ["A. Store a service principal client secret in the pipeline variables.", "B. Use workload identity federation with OpenID Connect (OIDC) for the service connection.", "C. Use a personal access token (PAT) from a team member's account.", "D. Embed Azure credentials directly in the pipeline YAML file."],
+      "correctAnswers": ["B"],
+      "explanation": "Workload identity federation with OIDC eliminates the need for long-lived secrets by using federated credentials. The Azure DevOps pipeline obtains a short-lived token via OIDC exchange, which is used to authenticate to Azure. This is the most secure and recommended approach. Option A is incorrect because client secrets are long-lived credentials that can be compromised. Option C is incorrect because PATs are tied to individual users, creating accountability and lifecycle issues. Option D is incorrect because embedding credentials in code is a critical security anti-pattern."
+    },
+    {
+      "id": 33,
+      "topic": "Application Security - Web application security",
+      "type": "MultipleChoice",
+      "questionText": "You are designing the security architecture for a customer-facing web application hosted on Azure App Service. Which THREE security measures should you implement? (Choose three.)",
+      "options": ["A. Enable Azure App Service managed identity for backend service authentication.", "B. Configure Azure Web Application Firewall (WAF) on Azure Front Door.", "C. Store application secrets in plain text in the source code repository.", "D. Enable HTTPS only and configure minimum TLS 1.2.", "E. Disable all logging to improve application performance."],
+      "correctAnswers": ["A", "B", "D"],
+      "explanation": "Managed identity eliminates credential management for backend service connections. WAF on Front Door protects against OWASP Top 10 threats. HTTPS-only with TLS 1.2 ensures encrypted communications. Option C is incorrect because storing secrets in source code is a critical vulnerability. Option E is incorrect because disabling logging eliminates security visibility and incident investigation capabilities."
+    },
+    {
+      "id": 34,
+      "topic": "Zero Trust - Data protection in Zero Trust",
+      "type": "SingleChoice",
+      "questionText": "In a Zero Trust architecture, how should you protect data when it is being shared externally with partner organizations?",
+      "options": ["A. Remove all sensitivity labels before sharing to avoid compatibility issues.", "B. Apply persistent sensitivity labels with encryption that travels with the data, regardless of where it goes.", "C. Only protect data while it's stored on-premises and remove protection when uploaded to the cloud.", "D. Rely on the partner organization's security controls to protect shared data."],
+      "correctAnswers": ["B"],
+      "explanation": "In Zero Trust, data protection must be persistent and travel with the data. Sensitivity labels with encryption ensure that data remains protected regardless of where it's stored or shared, maintaining control even when data leaves your organization's boundaries. Option A is incorrect because removing labels before sharing exposes data. Option C is incorrect because data needs protection everywhere, not just on-premises. Option D is incorrect because relying solely on partner controls violates the 'never trust, always verify' principle."
+    },
+    {
+      "id": 35,
+      "topic": "Security Operations - Threat hunting strategy",
+      "type": "SingleChoice",
+      "questionText": "You are developing a threat hunting program for your SOC. Your hunters need to proactively search for threats across your environment using hypothesis-driven investigations. Which Microsoft tool should be the primary platform for threat hunting?",
+      "options": ["A. Azure Monitor Metrics Explorer.", "B. Microsoft Sentinel hunting queries with Jupyter notebooks.", "C. Azure Resource Graph Explorer.", "D. Microsoft 365 admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Sentinel provides dedicated hunting capabilities with built-in hunting queries (KQL), Jupyter notebooks for advanced investigations, bookmarks for evidence collection, and Livestream for real-time hunting. It supports hypothesis-driven hunting workflows. Option A is incorrect because Metrics Explorer is for infrastructure performance metrics, not security threat hunting. Option C is incorrect because Resource Graph Explorer queries Azure resource metadata, not security event data. Option D is incorrect because the Microsoft 365 admin center is for service administration, not threat hunting."
+    },
+    {
+      "id": 36,
+      "topic": "Infrastructure Security - Secure remote access",
+      "type": "SingleChoice",
+      "questionText": "You need to design a secure remote access solution for administrators to manage Azure VMs. The solution must not expose management ports to the internet. Which approach should you recommend?",
+      "options": ["A. Open RDP port 3389 to the internet with a strong password.", "B. Deploy Azure Bastion for browser-based RDP/SSH access through the Azure portal.", "C. Use a site-to-site VPN and allow RDP from the entire corporate network.", "D. Configure public IP addresses on all VMs with NSG rules allowing specific IP ranges."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Bastion provides secure, browser-based RDP and SSH connectivity through the Azure portal over TLS without exposing management ports on the VM's public IP. VMs don't need public IP addresses. Option A is incorrect because exposing RDP to the internet is a major security risk regardless of password strength. Option C is incorrect because it allows broad network access rather than targeted, authenticated access. Option D is incorrect because assigning public IPs and using NSG rules still exposes the management ports to the internet from allowed ranges."
+    },
+    {
+      "id": 37,
+      "topic": "Data Security - Information barriers",
+      "type": "SingleChoice",
+      "questionText": "Your financial services organization has regulatory requirements to prevent communication and data sharing between the investment banking and retail banking divisions. Which Microsoft solution should you implement?",
+      "options": ["A. Microsoft Purview Information Barriers.", "B. Azure Virtual Network peering restrictions.", "C. Microsoft Teams external access settings.", "D. Azure Resource Manager locks."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview Information Barriers prevent specific groups of users from communicating with or sharing data with each other in Microsoft Teams, SharePoint, and OneDrive. This is designed specifically for regulatory requirements like Chinese wall policies in financial services. Option B is incorrect because network peering restrictions control network traffic, not user-to-user communications. Option C is incorrect because external access settings control communication with external organizations, not internal divisions. Option D is incorrect because resource locks prevent resource modification, not user communications."
+    },
+    {
+      "id": 38,
+      "topic": "GRC - Security metrics and reporting",
+      "type": "SingleChoice",
+      "questionText": "Your CISO requires a weekly executive security report that includes the overall security posture, active threats, and compliance status across the organization's cloud environment. Which combination of tools should you use to build this reporting capability?",
+      "options": ["A. Microsoft Defender for Cloud Secure Score, Microsoft Sentinel workbooks, and Microsoft Purview Compliance Manager.", "B. Azure Cost Management reports and Azure Service Health.", "C. Azure Monitor logs and Azure Advisor.", "D. Power BI with manual data entry from various sources."],
+      "correctAnswers": ["A"],
+      "explanation": "Defender for Cloud Secure Score provides security posture metrics, Sentinel workbooks provide threat and incident reporting capabilities, and Purview Compliance Manager provides compliance status. Together they cover all three requirements. Option B is incorrect because these tools focus on cost and service health, not security posture. Option C is incorrect because Azure Monitor and Advisor don't provide the security-specific insights required. Option D is incorrect because manual data entry is error-prone and not scalable."
+    },
+    {
+      "id": 39,
+      "topic": "Identity Security - Identity threat detection",
+      "type": "SingleChoice",
+      "questionText": "You need to detect and respond to identity-based attacks such as pass-the-hash, pass-the-ticket, and lateral movement in your hybrid environment that includes on-premises Active Directory. Which solution should you deploy?",
+      "options": ["A. Microsoft Defender for Identity.", "B. Microsoft Entra ID Protection only.", "C. Azure Active Directory Connect Health.", "D. Active Directory Certificate Services."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Identity monitors on-premises Active Directory signals to detect advanced identity attacks including pass-the-hash, pass-the-ticket, golden ticket, and lateral movement patterns. It uses sensors on domain controllers to analyze traffic. Option B is incorrect because Entra ID Protection detects cloud-based identity risks like leaked credentials and impossible travel, but doesn't monitor on-premises AD for these specific attack types. Option C is incorrect because AD Connect Health monitors synchronization health, not identity attacks. Option D is incorrect because AD CS manages certificates, not threat detection."
+    },
+    {
+      "id": 40,
+      "topic": "Application Security - Secure score improvement",
+      "type": "MultipleChoice",
+      "questionText": "You need to improve your organization's Microsoft Secure Score. Which THREE actions would improve the score? (Choose three.)",
+      "options": ["A. Enable multi-factor authentication for all users.", "B. Disable security defaults in Microsoft Entra ID without implementing Conditional Access.", "C. Enable Microsoft Defender for Endpoint on all supported devices.", "D. Configure Conditional Access policies to require compliant devices.", "E. Remove all security audit logs to reduce storage costs."],
+      "correctAnswers": ["A", "C", "D"],
+      "explanation": "Enabling MFA for all users, deploying Defender for Endpoint, and configuring Conditional Access policies requiring compliant devices are all recommended security improvements that increase Secure Score. Option B is incorrect because disabling security defaults without replacement reduces security posture. Option E is incorrect because removing audit logs reduces visibility and compliance capability, negatively impacting security posture."
+    },
+    {
+      "id": 41,
+      "topic": "Zero Trust - Identity pillar",
+      "type": "SingleChoice",
+      "questionText": "You are designing a Zero Trust architecture for a multinational corporation. The identity team asks which principle should guide the approach to authentication across all resources. Which Zero Trust principle is most relevant to identity verification?",
+      "options": ["A. Assume breach and limit blast radius.", "B. Verify explicitly using all available data points including user identity, location, device health, and anomalies.", "C. Use least privilege access by assigning permanent read-only roles.", "D. Trust internal identities and verify only external ones."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'verify explicitly' principle of Zero Trust requires authentication and authorization decisions to use all available signals including identity, location, device compliance, data classification, and anomalies. Option A is incorrect because while 'assume breach' is a valid Zero Trust principle, it is not specifically about identity verification. Option C is incorrect because least privilege is about minimizing access, not about verification, and permanent assignments contradict just-in-time access. Option D is incorrect because Zero Trust does not distinguish between internal and external identities; all must be verified."
+    },
+    {
+      "id": 42,
+      "topic": "Security Operations - SIEM and SOAR integration",
+      "type": "SingleChoice",
+      "questionText": "You need to design a security operations architecture that consolidates security alerts from multiple sources and automates incident response workflows. Which combination of Microsoft services should you recommend?",
+      "options": ["A. Microsoft Sentinel for SIEM and SOAR with automated playbooks using Logic Apps.", "B. Azure Monitor with Action Groups only.", "C. Microsoft Defender for Cloud with manual email notifications.", "D. Azure Event Grid with Azure Functions for custom alert processing."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel serves as both a cloud-native SIEM (for alert aggregation and correlation) and SOAR (for automated response via playbooks built on Logic Apps). This combination addresses both consolidation and automation requirements. Option B is incorrect because Azure Monitor Action Groups handle basic notifications but lack SIEM correlation and SOAR capabilities. Option C is incorrect because manual email notifications don't provide automation. Option D is incorrect because Event Grid and Functions can process events but lack the security-specific analytics, threat intelligence, and incident management capabilities."
+    },
+    {
+      "id": 43,
+      "topic": "Data Security - Encryption at rest strategy",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that encryption keys for Azure Storage accounts are managed by the organization rather than Microsoft. The keys must be stored in a FIPS 140-2 Level 3 validated hardware security module. Which solution should you recommend?",
+      "options": ["A. Microsoft-managed keys with Azure Storage Service Encryption.", "B. Customer-managed keys stored in Azure Key Vault with HSM-backed keys.", "C. Customer-managed keys stored in Azure Key Vault Managed HSM.", "D. Client-side encryption with keys stored in application configuration files."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Key Vault Managed HSM provides FIPS 140-2 Level 3 validated HSMs for key storage, meeting the strict compliance requirement. Customer-managed keys allow the organization to control the encryption keys. Option A is incorrect because Microsoft-managed keys don't give the organization control over the keys. Option B is incorrect because standard Azure Key Vault HSM-backed keys use FIPS 140-2 Level 2 validated HSMs, not Level 3. Option D is incorrect because storing keys in configuration files is insecure and doesn't use HSMs."
+    },
+    {
+      "id": 44,
+      "topic": "Application Security - DevSecOps pipeline",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a DevSecOps strategy for your organization's CI/CD pipelines. Which THREE security controls should you integrate into the pipeline? (Choose three.)",
+      "options": ["A. Static Application Security Testing (SAST) to scan source code for vulnerabilities.", "B. Software Composition Analysis (SCA) to identify vulnerable open-source dependencies.", "C. Skip security scans on hotfix branches to speed up deployment.", "D. Container image scanning before pushing to the registry.", "E. Disable code signing to simplify the deployment process."],
+      "correctAnswers": ["A", "B", "D"],
+      "explanation": "A DevSecOps pipeline should include SAST for source code vulnerabilities, SCA for dependency vulnerabilities, and container image scanning to ensure secure images are deployed. Option C is incorrect because skipping security scans on any branch creates risk; hotfixes are especially risky as they bypass normal review processes. Option E is incorrect because code signing ensures integrity and authenticity of deployed code and should not be disabled."
+    },
+    {
+      "id": 45,
+      "topic": "Zero Trust - Device trust",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that only devices meeting your organization's security requirements can access corporate resources. The solution must work for both managed and BYOD devices. Which approach best aligns with Zero Trust device trust?",
+      "options": ["A. Block all BYOD devices and only allow corporate-managed devices.", "B. Use Conditional Access with device compliance policies for managed devices and app protection policies for unmanaged BYOD devices.", "C. Allow all devices without restrictions to maximize productivity.", "D. Require all users to connect through a corporate VPN regardless of device type."],
+      "correctAnswers": ["B"],
+      "explanation": "This approach uses device compliance for managed devices and app protection policies (MAM without enrollment) for BYOD devices, providing layered security while supporting both device types. This aligns with Zero Trust by verifying device state before granting access. Option A is incorrect because blocking BYOD entirely may not be practical and doesn't align with Zero Trust's adaptive approach. Option C is incorrect because unrestricted access violates Zero Trust principles. Option D is incorrect because VPN alone doesn't verify device compliance or health."
+    },
+    {
+      "id": 46,
+      "topic": "Governance - Cloud security posture management",
+      "type": "SingleChoice",
+      "questionText": "Your organization operates in a multi-cloud environment with resources in Azure, AWS, and Google Cloud. You need a unified cloud security posture management (CSPM) solution. Which Microsoft solution provides multi-cloud CSPM capabilities?",
+      "options": ["A. Microsoft Defender for Cloud with multi-cloud connectors.", "B. Azure Policy applied to Azure resources only.", "C. Microsoft Entra ID with Conditional Access.", "D. Azure Sentinel with third-party connectors."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Cloud supports multi-cloud CSPM through connectors for AWS and GCP, providing unified security posture visibility, recommendations, and compliance assessments across all three major cloud providers. Option B is incorrect because Azure Policy only applies to Azure resources and cannot assess security posture in AWS or GCP. Option C is incorrect because Conditional Access manages identity-based access, not cloud resource security posture. Option D is incorrect because Sentinel is a SIEM for threat detection, not a CSPM solution."
+    },
+    {
+      "id": 47,
+      "topic": "Network Security - DDoS protection strategy",
+      "type": "SingleChoice",
+      "questionText": "You need to protect your organization's public-facing Azure web applications from volumetric DDoS attacks. The solution must provide attack analytics, adaptive tuning, and integration with Azure Monitor. Which service tier should you recommend?",
+      "options": ["A. Azure DDoS Network Protection.", "B. Azure DDoS IP Protection.", "C. Azure Firewall Basic tier.", "D. Network Security Groups (NSGs) with flow logs."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DDoS Network Protection provides advanced DDoS mitigation with attack analytics, adaptive tuning based on application traffic profiles, and integration with Azure Monitor for alerts and metrics. It protects all public IP resources in a virtual network. Option B is incorrect because DDoS IP Protection is a per-IP SKU that lacks the full analytics, adaptive tuning, and cost protection features of Network Protection. Option C is incorrect because Azure Firewall provides traffic filtering but is not designed for volumetric DDoS mitigation. Option D is incorrect because NSGs filter traffic by rules but cannot mitigate large-scale DDoS attacks."
+    },
+    {
+      "id": 48,
+      "topic": "Security Operations - Incident response planning",
+      "type": "SingleChoice",
+      "questionText": "You are developing an incident response plan for a ransomware attack scenario. Which action should be prioritized FIRST when a ransomware incident is detected?",
+      "options": ["A. Pay the ransom to restore operations quickly.", "B. Contain the threat by isolating affected systems to prevent lateral movement.", "C. Begin restoring systems from backups immediately.", "D. Notify law enforcement before taking any technical action."],
+      "correctAnswers": ["B"],
+      "explanation": "Containment is the first priority to prevent the ransomware from spreading to additional systems. Isolating affected devices and network segments limits the blast radius. Option A is incorrect because paying ransom is not recommended as it doesn't guarantee recovery and funds criminal activity. Option C is incorrect because restoring before containment risks reinfection of restored systems. Option D is incorrect because while notification is important, immediate containment takes technical priority to limit damage."
+    },
+    {
+      "id": 49,
+      "topic": "Zero Trust - Data classification",
+      "type": "SingleChoice",
+      "questionText": "As part of your Zero Trust data security strategy, you need to automatically discover and classify sensitive data across your organization's Microsoft 365 environment, Azure SQL databases, and Azure Storage accounts. Which solution should you recommend?",
+      "options": ["A. Microsoft Purview Data Map with automated scanning and classification.", "B. Azure Policy with custom definitions.", "C. Microsoft Defender for Cloud file integrity monitoring.", "D. Azure Monitor with custom Log Analytics queries."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview Data Map provides automated scanning and classification of data across Microsoft 365, Azure SQL, Azure Storage, and many other sources. It uses built-in and custom classifiers to discover sensitive data types. Option B is incorrect because Azure Policy enforces resource configuration compliance but doesn't scan data content for classification. Option C is incorrect because file integrity monitoring detects file changes, not data classification. Option D is incorrect because Azure Monitor collects operational data, not data classification."
+    },
+    {
+      "id": 50,
+      "topic": "Governance - Landing zone security",
+      "type": "SingleChoice",
+      "questionText": "You are designing the security architecture for an Azure landing zone. Which component should you implement to enforce organizational security policies across all subscriptions in the landing zone hierarchy?",
+      "options": ["A. Azure Policy assignments at the management group level.", "B. NSG rules on each virtual network.", "C. Azure AD Conditional Access policies.", "D. Resource locks on individual resources."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy assignments at the management group level enforce security policies across all subscriptions within that hierarchy. This provides centralized governance that scales automatically as new subscriptions are added. Option B is incorrect because NSG rules are per-network and don't enforce organizational policies across subscriptions. Option C is incorrect because Conditional Access manages identity-based access, not resource configuration compliance. Option D is incorrect because resource locks prevent deletion or modification but don't enforce security configurations."
+    },
+    {
+      "id": 51,
+      "topic": "Application Security - API security",
+      "type": "SingleChoice",
+      "questionText": "Your organization exposes several APIs to partner organizations. You need to recommend a solution that provides API gateway capabilities including rate limiting, authentication, and threat protection for these APIs. Which Azure service should you recommend?",
+      "options": ["A. Azure API Management with OAuth 2.0 policies and rate limiting.", "B. Azure Application Gateway with WAF.", "C. Azure Front Door with custom rules.", "D. Azure Load Balancer with health probes."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure API Management provides comprehensive API gateway capabilities including authentication (OAuth 2.0, certificates), rate limiting, request validation, and threat protection policies specifically designed for API security. Option B is incorrect because Application Gateway with WAF provides web application protection but lacks API-specific features like rate limiting per subscription key and API versioning. Option C is incorrect because Front Door provides CDN and WAF but not API-specific management features. Option D is incorrect because Load Balancer operates at Layer 4 and doesn't provide API security features."
+    },
+    {
+      "id": 52,
+      "topic": "Identity Security - Workload identity protection",
+      "type": "SingleChoice",
+      "questionText": "Your organization has numerous service principals and managed identities accessing Azure resources. You need to apply Conditional Access-like controls to these non-human identities. Which feature should you use?",
+      "options": ["A. Conditional Access policies for workload identities.", "B. Standard Conditional Access policies targeting all users.", "C. Azure Policy for resource access.", "D. Network security groups on the resources."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra supports Conditional Access policies specifically for workload identities (service principals and managed identities). These policies can control access based on IP location and risk signals for non-human identities. Option B is incorrect because standard user-targeted Conditional Access policies don't apply to service principals or managed identities. Option C is incorrect because Azure Policy governs resource configuration, not identity-based access control. Option D is incorrect because NSGs filter network traffic but don't provide identity-based conditional access for workload identities."
+    },
+    {
+      "id": 53,
+      "topic": "Network Security - Private connectivity",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that traffic between your Azure virtual network and Azure PaaS services (such as Azure SQL and Azure Storage) does not traverse the public internet. Which networking feature should you recommend?",
+      "options": ["A. Azure Private Link with private endpoints.", "B. Service endpoints with NSG rules.", "C. Azure ExpressRoute public peering.", "D. Azure VPN Gateway with site-to-site connections."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Private Link creates private endpoints that assign private IP addresses to PaaS services within your virtual network. Traffic between your VNet and the service travels entirely over the Microsoft backbone network, never crossing the public internet. Option B is incorrect because service endpoints route traffic over the Microsoft backbone but the PaaS service retains its public IP address and remains accessible from the internet (though you can restrict it). Option C is incorrect because ExpressRoute public peering was deprecated and doesn't provide private connectivity to PaaS services. Option D is incorrect because VPN Gateway connects networks but doesn't provide private endpoints for PaaS services."
+    },
+    {
+      "id": 54,
+      "topic": "Security Operations - Threat intelligence",
+      "type": "SingleChoice",
+      "questionText": "You want to enrich Microsoft Sentinel incidents with threat intelligence data to help analysts understand whether indicators of compromise (IoCs) are associated with known threat actors. Which feature should you configure?",
+      "options": ["A. Microsoft Sentinel Threat Intelligence connector and analytics rules that match TI indicators against log data.", "B. Azure Monitor alert rules with custom webhooks.", "C. Microsoft Defender for Cloud security recommendations.", "D. Azure Active Directory Identity Protection risk detections."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel's Threat Intelligence connector imports IoCs (IP addresses, domains, file hashes) from threat intelligence feeds. Analytics rules can then match these indicators against ingested log data to generate enriched incidents. Option B is incorrect because Azure Monitor alerts don't correlate with threat intelligence feeds. Option C is incorrect because Defender for Cloud recommendations address configuration issues, not IoC matching. Option D is incorrect because Identity Protection focuses on identity-specific risks, not general threat intelligence correlation."
+    },
+    {
+      "id": 55,
+      "topic": "Data Security - Key management architecture",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a key management architecture for your organization. Which TWO best practices should you follow? (Choose two.)",
+      "options": ["A. Use Azure Key Vault to centralize key storage and enable logging of all key access operations.", "B. Store encryption keys alongside the encrypted data for easy access.", "C. Implement key rotation policies with automated rotation where supported.", "D. Share a single encryption key across all applications and environments.", "E. Embed encryption keys in application source code for simplicity."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Centralizing key management in Azure Key Vault with access logging provides security and auditability. Automated key rotation reduces the risk of key compromise over time. Option B is incorrect because storing keys with encrypted data defeats the purpose of encryption. Option D is incorrect because sharing keys across all applications means a single key compromise affects everything. Option E is incorrect because embedding keys in source code is a critical security antipattern that can lead to key exposure through source control."
+    },
+    {
+      "id": 56,
+      "topic": "Zero Trust - Rapid modernization plan",
+      "type": "SingleChoice",
+      "questionText": "Your organization is beginning its Zero Trust journey but has limited budget and staff. The CISO asks you to recommend the highest-impact first initiative. Based on Microsoft's Zero Trust Rapid Modernization Plan (RaMP), which initiative provides the most immediate security value?",
+      "options": ["A. Implement data classification across all repositories.", "B. Explicitly validate trust for all access requests by deploying Conditional Access with MFA.", "C. Deploy micro-segmentation across all network segments.", "D. Implement a full SIEM/SOAR solution."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft's Zero Trust RaMP prioritizes identity and access management as the first initiative because explicitly validating trust through Conditional Access with MFA provides immediate, broad security improvement against the most common attack vector (compromised credentials). Option A is incorrect because data classification is valuable but has lower immediate impact on preventing breaches compared to identity protection. Option C is incorrect because micro-segmentation is complex and time-consuming to implement organization-wide. Option D is incorrect because SIEM/SOAR implementation is a longer-term effort and doesn't prevent initial compromise."
+    },
+    {
+      "id": 57,
+      "topic": "Governance - Security baseline",
+      "type": "SingleChoice",
+      "questionText": "You need to enforce security configuration baselines across all Azure virtual machines in your organization. The baselines must automatically remediate non-compliant settings. Which solution should you recommend?",
+      "options": ["A. Azure Policy with DeployIfNotExists effect and guest configuration policies.", "B. Azure Security Center free tier recommendations.", "C. Custom PowerShell scripts run manually by administrators.", "D. Azure Resource Manager template deployments only at creation time."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy with DeployIfNotExists can automatically remediate non-compliant resources, and guest configuration policies extend this to in-VM settings like OS security baselines. This provides continuous, automated enforcement. Option B is incorrect because the free tier provides recommendations but limited automatic remediation capabilities. Option C is incorrect because manual scripts are not continuous or scalable for enforcement. Option D is incorrect because ARM templates only enforce configuration at deployment time, not continuously."
+    },
+    {
+      "id": 58,
+      "topic": "Application Security - Container security",
+      "type": "SingleChoice",
+      "questionText": "You are architecting security for a containerized application running on Azure Kubernetes Service (AKS). You need to ensure that only trusted container images from your approved registry are deployed. Which control should you implement?",
+      "options": ["A. Azure Policy for AKS with a policy that restricts image sources to your Azure Container Registry.", "B. Kubernetes RBAC roles for developers.", "C. Network policies to restrict pod communication.", "D. Enable Azure Monitor container insights."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy for AKS can enforce that pods only use images from specified container registries, preventing deployment of untrusted or unapproved images. This is implemented via admission controllers. Option B is incorrect because RBAC controls who can perform actions on the cluster, not which images can be deployed. Option C is incorrect because network policies control pod-to-pod communication, not image source validation. Option D is incorrect because container insights provides monitoring, not image policy enforcement."
+    },
+    {
+      "id": 59,
+      "topic": "Network Security - Web application firewall strategy",
+      "type": "SingleChoice",
+      "questionText": "Your organization has web applications deployed across multiple Azure regions. You need a centralized WAF solution that provides global protection, bot mitigation, and rate limiting with a single policy. Which architecture should you recommend?",
+      "options": ["A. Azure Front Door with WAF policy.", "B. Azure Application Gateway with WAF in each region.", "C. Azure Firewall Premium in each region.", "D. Third-party firewall appliances in each region."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Front Door provides global load balancing with a centralized WAF policy that protects applications across all regions from a single point. It includes bot protection, rate limiting, custom rules, and managed rule sets. Option B is incorrect because Application Gateway WAF requires separate instances and policies per region, lacking centralized management. Option C is incorrect because Azure Firewall is a network firewall, not optimized for web application protection with features like bot mitigation. Option D is incorrect because third-party appliances per region create management complexity and lack native Azure integration."
+    },
+    {
+      "id": 60,
+      "topic": "Security Operations - Security automation",
+      "type": "MultipleChoice",
+      "questionText": "You need to automate the response to common security incidents in Microsoft Sentinel. Which TWO components are used to build automated response workflows? (Choose two.)",
+      "options": ["A. Automation rules that trigger when incidents are created or updated.", "B. Playbooks built on Azure Logic Apps that perform response actions.", "C. Azure DevOps pipelines for security deployment.", "D. Power BI dashboards for incident visualization.", "E. Azure Data Factory pipelines for data movement."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Microsoft Sentinel automation uses automation rules (to define triggers and conditions) and playbooks (Logic Apps-based workflows that execute response actions like isolating devices, blocking IPs, or sending notifications). Option C is incorrect because DevOps pipelines are for CI/CD, not incident response automation. Option D is incorrect because Power BI provides visualization, not automated response actions. Option E is incorrect because Data Factory is for data integration, not security incident response."
+    },
+    {
+      "id": 61,
+      "topic": "Identity Security - Privileged access strategy",
+      "type": "SingleChoice",
+      "questionText": "You are designing a privileged access strategy based on Microsoft's enterprise access model. Which tier represents the highest-value assets that require the strictest security controls?",
+      "options": ["A. Tier 0 - Control plane (identity systems, domain controllers, privileged access management).", "B. Tier 1 - Management plane (servers, applications, cloud management).", "C. Tier 2 - User access (workstations, user devices, standard applications).", "D. All tiers require identical security controls."],
+      "correctAnswers": ["A"],
+      "explanation": "In Microsoft's enterprise access model, Tier 0 (Control plane) contains the highest-value assets including identity infrastructure, domain controllers, and privileged access systems. Compromise at this tier gives attackers control over all other tiers. Option B is incorrect because Tier 1 manages servers and applications but is subordinate to the identity control plane. Option C is incorrect because Tier 2 is the user access level with the least privilege. Option D is incorrect because each tier requires security controls proportional to its risk; identical controls across all tiers would be insufficient for higher tiers and excessive for lower tiers."
+    },
+    {
+      "id": 62,
+      "topic": "Data Security - Data residency and sovereignty",
+      "type": "SingleChoice",
+      "questionText": "Your organization operates in the European Union and must ensure that all customer data remains within EU borders to comply with data sovereignty requirements. Which Azure capability helps you enforce data residency?",
+      "options": ["A. Deploy resources in EU Azure regions and use Azure Policy to restrict resource creation to those regions.", "B. Enable geo-replication to all global Azure regions.", "C. Use Azure Traffic Manager to route traffic to the nearest region.", "D. Configure Azure CDN to cache data in EU edge locations only."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy with location restrictions ensures that resources can only be created in approved EU regions, enforcing data residency. Combined with deploying in EU regions, this prevents accidental placement of data outside the EU. Option B is incorrect because geo-replication to all regions would copy data outside the EU. Option C is incorrect because Traffic Manager routes traffic but doesn't control where data is stored. Option D is incorrect because CDN caching is for performance and doesn't enforce data residency for the origin data."
+    },
+    {
+      "id": 63,
+      "topic": "Governance - Microsoft Cloud Security Benchmark",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to assess its Azure security posture against industry best practices. Which built-in initiative in Microsoft Defender for Cloud provides a comprehensive security benchmark with controls mapped to multiple regulatory frameworks?",
+      "options": ["A. Microsoft Cloud Security Benchmark (MCSB).", "B. Azure CIS Foundations Benchmark only.", "C. NIST SP 800-53 initiative only.", "D. ISO 27001 initiative only."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Cloud Security Benchmark (MCSB) is the default security initiative in Defender for Cloud. It provides comprehensive security controls mapped to multiple industry frameworks including CIS, NIST, PCI-DSS, and others, giving a unified security posture view. Option B is incorrect because CIS is one specific framework, not the comprehensive built-in benchmark. Option C is incorrect because NIST SP 800-53 is one regulatory framework, not the unified benchmark. Option D is incorrect because ISO 27001 is one specific standard, not the comprehensive default benchmark."
+    },
+    {
+      "id": 64,
+      "topic": "Application Security - Managed identity strategy",
+      "type": "SingleChoice",
+      "questionText": "You need to recommend how Azure applications should authenticate to other Azure services such as Azure Key Vault and Azure SQL Database. The solution should eliminate the need to manage credentials. Which approach should you recommend?",
+      "options": ["A. Use managed identities for Azure resources.", "B. Store service account passwords in application configuration.", "C. Use shared access signatures (SAS) for all services.", "D. Create Azure AD application registrations with client secrets for each application."],
+      "correctAnswers": ["A"],
+      "explanation": "Managed identities provide automatically managed credentials for Azure resources to authenticate to services that support Azure AD authentication. No secrets are stored or managed by the application. Option B is incorrect because storing passwords in configuration files is insecure and requires credential management. Option C is incorrect because SAS tokens are specific to storage services and still require secret management. Option D is incorrect because client secrets require manual rotation and secure storage, contradicting the goal of eliminating credential management."
+    },
+    {
+      "id": 65,
+      "topic": "Zero Trust - Assume breach strategy",
+      "type": "MultipleChoice",
+      "questionText": "Based on the Zero Trust 'assume breach' principle, which TWO practices should your security architecture include? (Choose two.)",
+      "options": ["A. Implement network micro-segmentation to limit lateral movement.", "B. Trust all traffic within the corporate network perimeter.", "C. Deploy endpoint detection and response (EDR) on all endpoints to detect post-breach activity.", "D. Rely solely on perimeter firewalls for threat prevention.", "E. Disable logging to reduce storage costs."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "The 'assume breach' principle means designing controls as if the attacker is already inside. Micro-segmentation limits lateral movement, and EDR detects malicious activity on endpoints even after initial compromise. Option B is incorrect because trusting internal traffic contradicts the assume breach principle. Option D is incorrect because perimeter-only security assumes the internal network is safe, which contradicts assume breach. Option E is incorrect because logging is essential for detecting and investigating breaches."
+    }
+  ]
+}

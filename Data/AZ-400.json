@@ -1,0 +1,1001 @@
+{
+  "examCode": "AZ-400",
+  "examTitle": "Designing and Implementing Microsoft DevOps Solutions",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Topic 2 - You have an Azure DevOps organization named Contoso.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure DevOps organization named Contoso. You need to receive Microsoft Teams notiffcations when work items are updated. What should you do?",
+      "options": [
+        "A. From Azure DevOps, configure a service hook subscription",
+        "B. From Microsoft Teams, configure a connector",
+        "C. From the Microsoft Teams admin center, configure external access",
+        "D. From Microsoft Teams, add a channel"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Service hooks in Azure DevOps allow you to configure subscriptions that trigger actions on external services when specific events occur, such as when work items are updated. By creating a service hook subscription targeting Microsoft Teams, you can automatically send notifications when work items change. Incorrect answers: B (Microsoft Teams connector) is wrong because connectors in Teams are incoming webhooks, which require more manual configuration and do not provide the same event-driven integration as service hooks. C (external access) is wrong because external access in Teams controls communication with users outside your organization, not event-based notifications. D (add a channel) is wrong because adding a channel creates a communication space but does not configure automated notifications from Azure DevOps."
+    },
+    {
+      "id": 2,
+      "topic": "Topic 2 - Your company creates a web application.",
+      "type": "MultipleChoice",
+      "questionText": "Your company creates a web application. You need to recommend a solution that automatically sends to Microsoft Teams a daily summary of the exceptions that occur in the application. Which two Azure services should you recommend? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Azure Logic Apps",
+        "B. Azure Pipelines",
+        "C. Microsoft Visual Studio App Center",
+        "D. Azure DevOps Project"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Azure Logic Apps can be used to automate the workflow of sending daily summary emails to Microsoft Teams, and Microsoft Visual Studio App Center (or Azure Application Insights, depending on the variant) can collect and report on exceptions. Azure Logic Apps provides the orchestration to query Application Insights data on a schedule and send formatted messages to Teams. Incorrect answers: B (Azure Pipelines) is wrong because it is a CI/CD service for building and deploying code, not for monitoring exceptions or sending notifications. D (Azure DevOps Project) is wrong because it is a quick-start resource for creating DevOps projects, not for exception monitoring and notification."
+    },
+    {
+      "id": 3,
+      "topic": "Topic 4 - You plan to use a NuGet package in a project in Azure DevOps. The NuGet package is in a feed that requires authentication.",
+      "type": "SingleChoice",
+      "questionText": "You plan to use a NuGet package in a project in Azure DevOps. The NuGet package is in a feed that requires authentication. You need to ensure that the project can restore the NuGet package automatically. What should the project use to automate the authentication?",
+      "options": [
+        "A. an Azure Automation account",
+        "B. an Azure Artifacts Credential Provider",
+        "C. an Azure Active Directory (Azure AD) account that has multi-factor authentication (MFA) enabled"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The Azure Artifacts Credential Provider (Option B) is the correct answer. It automates the acquisition of credentials needed to restore NuGet packages from authenticated Azure Artifacts feeds. It integrates with MSBuild, dotnet, and NuGet.exe, handling authentication seamlessly in your development workflow. Option A (Azure Automation account) is incorrect because Azure Automation is used for process automation, runbooks, and configuration management, not for authenticating NuGet package feeds. Option C (Azure AD account with MFA) is incorrect because while Azure AD accounts can authenticate to Azure DevOps, MFA-enabled accounts cannot be used directly in automated NuGet restore operations; the Credential Provider is specifically designed to bridge this authentication gap."
+    },
+    {
+      "id": 4,
+      "topic": "Topic 5 - You manage source code control and versioning by using GitHub.",
+      "type": "SingleChoice",
+      "questionText": "You manage source code control and versioning by using GitHub. You need to ensure that a PowerShell script is executed automatically before rebase operations are performed. What should you use?",
+      "options": [
+        "A. a package",
+        "B. GitHub Copilot",
+        "C. a webhook"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "A webhook is not the correct answer for executing a local script before rebase operations. The correct mechanism is Git hooks, specifically the pre-rebase hook. However, among the given options, 'webhook' is listed. Note: In the context of this exam, the answer refers to Git hooks (client-side hooks), not web webhooks. The pre-rebase hook runs before a rebase operation begins. Incorrect answers: A (a package) is wrong because packages are for distributing code libraries, not for executing scripts on Git events. B (GitHub Copilot) is wrong because it is an AI coding assistant, not a mechanism for running scripts on Git events."
+    },
+    {
+      "id": 5,
+      "topic": "Topic 1 - You have been tasked with strengthening the security of your team's development process.",
+      "type": "SingleChoice",
+      "questionText": "You have been tasked with strengthening the security of your team's development process. You need to suggest a security tool type for the Continuous Integration (CI) phase of the development process. Which of the following is the option you would suggest?",
+      "options": [
+        "A. Penetration testing",
+        "B. Static code analysis",
+        "C. Threat modeling"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Static code analysis is the appropriate security tool for the CI phase because it analyzes source code without executing it, identifying vulnerabilities such as SQL injection, cross-site scripting, and buffer overflows early in the build pipeline. Tools like SonarQube and Checkmarx integrate directly into CI builds. Incorrect answers: A (Penetration testing) is wrong because penetration testing is performed against running applications in staging or production environments, not during the CI build phase. C (Threat modeling) is wrong because threat modeling is a design-phase activity performed before coding begins, not during the CI automated build process."
+    },
+    {
+      "id": 6,
+      "topic": "Topic 3 - You are designing a strategy to monitor the baseline metrics of Azure virtual machines that run Windows Server.",
+      "type": "SingleChoice",
+      "questionText": "You are designing a strategy to monitor the baseline metrics of Azure virtual machines that run Windows Server. You need to collect detailed data about the processes running in the guest operating system. Which two agents should you deploy? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. the Telegraf agent",
+        "B. the Azure Log Analytics agent",
+        "C. the Azure Network Watcher Agent for Windows"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The Azure Log Analytics agent is required to collect detailed data about processes running in the guest operating system of Windows Server VMs. The Log Analytics agent collects performance counters, event logs, and other telemetry from the guest OS and sends it to a Log Analytics workspace. Note: For the most detailed process-level data, you would also need the Dependency agent, but among the given options, the Log Analytics agent is the essential component. Incorrect answers: A (Telegraf agent) is wrong because Telegraf is primarily used for collecting metrics from Linux systems, not for detailed Windows process monitoring. C (Azure Network Watcher Agent) is wrong because it monitors network connectivity and packet capture, not guest OS process information."
+    },
+    {
+      "id": 7,
+      "topic": "Topic 3 - You have an Azure DevOps organization named Contoso and an Azure subscription.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure DevOps organization named Contoso and an Azure subscription. You use Azure DevOps to build a containerized app named App1 and deploy App1 to an Azure container instance named ACI1. You need to restart ACI1 when App1 stops responding. What should you do?",
+      "options": [
+        "A. Add a liveness probe to the YAML configuration of App1.",
+        "B. Add a readiness probe to the YAML configuration of App1.",
+        "C. Use Connection Monitor in Azure Network Watcher."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "A liveness probe is used to restart a container when it stops responding. Azure Container Instances supports liveness probes that periodically check if a container is healthy and functioning. If the liveness probe fails, the container is automatically restarted. This is exactly what is needed to restart ACI1 when App1 stops responding. Incorrect answers: B (readiness probe) is wrong because readiness probes determine whether a container is ready to receive traffic, but they do not restart the container. C (Connection Monitor in Azure Network Watcher) is wrong because it monitors network connectivity between resources, not application health within containers."
+    },
+    {
+      "id": 8,
+      "topic": "Topic 4 - You use WhiteSource Bolt to scan a Node.js application.",
+      "type": "MultipleChoice",
+      "questionText": "You use WhiteSource Bolt to scan a Node.js application. The WhiteSource Bolt scan identiffes numerous libraries that have invalid licenses. The libraries are used only during development and are not part of a production deployment. You need to ensure that WhiteSource Bolt only scans production dependencies. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Run npm install and specify the --production flag.",
+        "B. Modify the WhiteSource Bolt policy and set the action for the licenses used by the development tools to Reassign.",
+        "C. Modify the devDependencies section of the project's Package.json file."
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Running 'npm install --production' (A) ensures only production dependencies are installed, excluding devDependencies. Modifying the devDependencies section in package.json (C) to remove or restructure development-only libraries ensures WhiteSource Bolt does not flag them. Together, these two actions ensure only production dependencies are scanned. Incorrect answer: B (Modify WhiteSource Bolt policy to Reassign) is wrong because reassigning license actions in the policy does not prevent development libraries from being scanned; it only changes how policy violations are handled."
+    },
+    {
+      "id": 9,
+      "topic": "Topic 2 - Your company has multiple microservices-based apps that use the following tracing libraries:",
+      "type": "SingleChoice",
+      "questionText": "Your company has multiple microservices-based apps that use the following tracing libraries: • OpenTelemetry • OpenCensus • OpenTracing • Honeycomb • Jaeger The company purchases an Azure subscription and implements Application Insights in Azure Monitor. You plan to centralize distributed tracing for the apps. You need to identify which libraries can integrate directly with Application Insights. Which two libraries should you identify? Each correct answer presents a complete solution. NOTE: Each correct solution is worth one point.",
+      "options": [
+        "A. Honeycomb",
+        "B. OpenTracing",
+        "C. Jaeger",
+        "D. OpenTelemetry"
+      ],
+      "correctAnswers": [
+        "D"
+      ],
+      "explanation": "OpenTelemetry can integrate directly with Application Insights. Azure Monitor Application Insights supports OpenTelemetry as a primary telemetry protocol. OpenCensus was merged into OpenTelemetry. Note: The option 'D' shows 'OpenTelemetry' which is a typo for 'OpenTelemetry'. Incorrect answers: A (Honeycomb) is wrong because Honeycomb is a separate observability platform that does not integrate directly with Application Insights. B (OpenTracing) is wrong because while OpenTracing is now part of OpenTelemetry, on its own it does not integrate directly with Application Insights. C (Jaeger) is wrong because Jaeger is a separate distributed tracing system that does not integrate directly with Application Insights."
+    },
+    {
+      "id": 10,
+      "topic": "Topic 2 - Your company is building a mobile app that targets Android and iOS devices.",
+      "type": "SingleChoice",
+      "questionText": "Your company is building a mobile app that targets Android and iOS devices. Your team uses Azure DevOps to manage all work items and release cycles. You need to recommend a solution to perform the following tasks: ✑ Collect crash reports for issue analysis. ✑ Distribute beta releases to your testers. ✑ Get user feedback on the functionality of new apps. What should you include in the recommendation?",
+      "options": [
+        "A. the Microsoft Test & Feedback extension",
+        "B. Microsoft Visual Studio App Center integration",
+        "C. Azure Application Insights widgets"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Microsoft Visual Studio App Center integration is the correct answer because App Center provides comprehensive mobile app lifecycle services including crash reporting for issue analysis, beta distribution to testers, and user feedback collection on new functionality. Incorrect answers: A (Microsoft Test & Feedback extension) is wrong because it is designed for browser-based exploratory testing of web applications, not for mobile app crash reports, beta distribution, or user feedback collection. C (Azure Application Insights widgets) is wrong because while Application Insights can monitor web applications, it does not provide beta distribution or mobile-specific user feedback capabilities."
+    },
+    {
+      "id": 11,
+      "topic": "Topic 2 - You have a Microsoft ASP.NET Core web app in Azure that is accessed worldwide.",
+      "type": "SingleChoice",
+      "questionText": "You have a Microsoft ASP.NET Core web app in Azure that is accessed worldwide. You need to run a URL ping test once every five minutes and create an alert when the web app is unavailable from speciffc Azure regions. The solution must minimize development time. What should you do?",
+      "options": [
+        "A. Create an Azure Monitor Availability metric and alert.",
+        "B. Create an Azure Application Insights availability test and alert.",
+        "C. Write an Azure function and deploy the function to the speciffc regions."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Azure Application Insights availability tests allow you to set up URL ping tests that run at configurable intervals (including every 5 minutes) from multiple Azure regions worldwide. Alerts can be configured to notify you when the app is unavailable from specific regions, with minimal development effort through the Azure portal. Incorrect answers: A (Azure Monitor Availability metric) is wrong because Azure Monitor does not have a built-in availability test feature that pings URLs from multiple regions. C (Azure Function) is wrong because writing and deploying custom functions to each region requires significant development effort compared to the built-in Application Insights availability tests."
+    },
+    {
+      "id": 12,
+      "topic": "Topic 1 - You need to consider the underlined segment to establish whether it is accurate.",
+      "type": "SingleChoice",
+      "questionText": "You need to consider the underlined segment to establish whether it is accurate. The Burnup widget measures the elapsed time from creation of work items to their completion. Select `No adjustment required` if the underlined segment is accurate. If the underlined segment is inaccurate, select the accurate option.",
+      "options": [
+        "A. No adjustment required.",
+        "B. Lead time",
+        "C. Test results trend"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Lead time measures the elapsed time from the creation of work items to their completion. This is the correct answer because the question states 'The Burnup widget measures the elapsed time from creation of work items to their completion,' which is inaccurate. The Burnup widget actually shows work completed over time toward a scope target. Lead time is the metric that tracks creation-to-completion time. Incorrect answers: A (No adjustment required) is wrong because the Burnup widget does not measure elapsed time from creation to completion. C (Test results trend) is wrong because it displays test pass/fail trends over time, not work item elapsed time."
+    },
+    {
+      "id": 13,
+      "topic": "Topic 8 - Your company has an on-premises Bitbucket Server that is used for Git-based source control. The server is protected by a firewall that blocks",
+      "type": "MultipleChoice",
+      "questionText": "Your company has an on-premises Bitbucket Server that is used for Git-based source control. The server is protected by a firewall that blocks inbound Internet trafic. You plan to use Azure DevOps to manage the build and release processes. Which two components are required to integrate Azure DevOps and Bitbucket? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. a deployment group",
+        "B. a Microsoft-hosted agent",
+        "C. service hooks",
+        "D. a self-hosted agent"
+      ],
+      "correctAnswers": [
+        "C",
+        "D"
+      ],
+      "explanation": "C: Service hooks are needed to notify Azure DevOps when code changes occur in the on-premises Bitbucket Server. D: A self-hosted agent is required because the Bitbucket Server is behind a firewall that blocks inbound Internet traffic, so a Microsoft-hosted agent cannot reach it. The self-hosted agent runs within the corporate network and can access the Bitbucket Server. Incorrect answers: A (deployment group) is wrong because deployment groups are for deploying to target machines, not for source control integration. B (Microsoft-hosted agent) is wrong because Microsoft-hosted agents run in Azure and cannot access the on-premises Bitbucket Server behind a firewall."
+    },
+    {
+      "id": 14,
+      "topic": "Topic 2 - You have multiple teams that work on multiple projects in Azure DevOps.",
+      "type": "SingleChoice",
+      "questionText": "You have multiple teams that work on multiple projects in Azure DevOps. You need to plan and manage the consumers and producers for each project. The solution must provide an overview of all the projects. What should you do?",
+      "options": [
+        "A. Add a Predecessor or Successor link to the feature or user story for the items of each project.",
+        "B. Add a Parent or Child link to the feature or user story for the items of each project.",
+        "C. Install the Dependency Tracker extension and create dependencies for each project."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "The Dependency Tracker extension provides an overview of all projects and allows you to plan and manage consumers and producers for each project. It creates a visual dependency map across multiple projects and teams. Incorrect answers: A (Predecessor/Successor links) is wrong because while these links show dependencies between work items, they do not provide a consolidated overview across all projects. B (Parent/Child links) is wrong because these links show hierarchical relationships, not consumer/producer dependencies across projects."
+    },
+    {
+      "id": 15,
+      "topic": "Topic 1 - You are currently defining a release strategy for an app, named APP-01.",
+      "type": "SingleChoice",
+      "questionText": "You are currently defining a release strategy for an app, named APP-01. The strategy should allow you to keep the time it takes to deploy new releases of the app to a minimum. The strategy should also allow you to roll back in the shortest time required. Which of the following is the release strategy you should use?",
+      "options": [
+        "A. Red/Black deployment",
+        "B. Rolling deployment",
+        "C. \"Big Bang\" deployment"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Red/Black deployment (also known as Blue/Green deployment) maintains two identical production environments. Only one environment serves live traffic at any time. New releases are deployed to the inactive environment, tested, and then traffic is switched over. Rollback is nearly instantaneous because you simply switch traffic back to the previous environment. Incorrect answers: B (Rolling deployment) is wrong because rolling deployments update instances gradually, making rollback slower as you need to redeploy the old version across all instances. C ('Big Bang' deployment) is wrong because it deploys everything at once with no easy rollback mechanism, requiring a full redeployment to roll back."
+    },
+    {
+      "id": 16,
+      "topic": "Topic 4 - You are designing the security validation strategy for a project in Azure DevOps.",
+      "type": "SingleChoice",
+      "questionText": "You are designing the security validation strategy for a project in Azure DevOps. You need to identify package dependencies that have known security issues and can be resolved by an update. What should you use?",
+      "options": [
+        "A. Octopus Deploy",
+        "B. Jenkins",
+        "C. OWASP Dependency-Check"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "OWASP Dependency-Check is a Software Composition Analysis (SCA) tool that identifies project dependencies and checks if there are any known, publicly disclosed vulnerabilities (CVEs). It can be integrated into Azure DevOps build pipelines to automatically flag vulnerable packages. Incorrect answers: A (Octopus Deploy) is wrong because Octopus Deploy is a deployment automation tool, not a security vulnerability scanner for dependencies. B (Jenkins) is wrong because Jenkins is a CI/CD orchestration tool that can run security tools but is not itself a dependency vulnerability scanner."
+    },
+    {
+      "id": 17,
+      "topic": "Topic 5 - You use Git for source control.",
+      "type": "MultipleChoice",
+      "questionText": "You use Git for source control. You enable GitHub code scanning. You raise a pull request from a non-default branch. In the code scanning output, you receive the following error message: “Analysis not found.” You need to ensure that the code scanning completes successfully for the pull request. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Add the name of the default branch to the on: push speciffcation in the code scanning workflow.",
+        "B. Add the name of the non-default branch to the on:push speciffcation in the code scanning workflow.",
+        "C. Delete the pull request, and then raise the request again from the default branch.",
+        "D. Update the code in the pull request."
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": "To resolve the 'Analysis not found' error for code scanning on a non-default branch pull request: A) Add the name of the default branch to the on:push specification so the code scanning workflow runs on the default branch (this creates the baseline analysis). D) Update the code in the pull request to trigger a new analysis on the non-default branch. Code scanning requires a baseline analysis on the default branch before it can compare results from pull requests. Incorrect answers: B (add non-default branch to on:push) is wrong because the issue is the missing baseline on the default branch, not the non-default branch configuration. C (delete and recreate from default) is wrong because this changes the source of the PR rather than fixing the scanning configuration."
+    },
+    {
+      "id": 18,
+      "topic": "Topic 7 - Your company has an Azure DevOps project that produces Node Package Manager (npm) packages. Multiple projects consume the packages.",
+      "type": "SingleChoice",
+      "questionText": "Your company has an Azure DevOps project that produces Node Package Manager (npm) packages. Multiple projects consume the packages. You need to minimize the amount of disk space used by older packages in Azure Artifacts. What should you modify?",
+      "options": [
+        "A. the retention settings of the project’s release",
+        "B. the retention settings of the project’s pipeline",
+        "C. the retention settings of the project’s tests"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Modifying the retention settings of the project's pipeline controls how long build artifacts (including packages) are kept. By reducing the retention period, older packages that are no longer needed will be automatically cleaned up, minimizing disk space usage in Azure Artifacts. Incorrect answers: A (retention settings of release) is wrong because release retention controls release history, not package storage. C (retention settings of tests) is wrong because test retention controls test results, not package storage."
+    },
+    {
+      "id": 19,
+      "topic": "Topic 8 - You are developing an iOS application by using Azure DevOps.",
+      "type": "SingleChoice",
+      "questionText": "You are developing an iOS application by using Azure DevOps. You need to test the application manually on 10 devices without releasing the application to the public. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Create a Microsoft Intune device compliance policy.",
+        "B. Deploy a certiffcate from an internal certiffcation authority (CA) to each device.",
+        "C. Register the application in the iTunes store.",
+        "D. Onboard the devices into Microsoft Intune.",
+        "E. Distribute a new release of the application."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Deploy a certificate from an internal CA to each device). To distribute iOS apps outside the App Store for manual testing, you need to use ad-hoc or enterprise distribution, which requires provisioning profiles signed with a distribution certificate. Each test device must trust the certificate from your internal certification authority to install and run the application. Option A (Microsoft Intune device compliance policy) is incorrect because Intune compliance policies evaluate device health and compliance, not app distribution for testing purposes. Option C (Register in iTunes store) is incorrect because registering in the iTunes store is for public distribution, not internal testing on specific devices. Option D (Onboard devices into Microsoft Intune) is incorrect because Intune enrollment manages devices for corporate compliance, not for ad-hoc app testing distribution. Option E (Distribute a new release) is incorrect because you first need the certificate infrastructure in place before you can distribute the app to test devices."
+    },
+    {
+      "id": 20,
+      "topic": "Topic 6 - Your company has 60 developers who are assigned to four teams. Each team has 15 members.",
+      "type": "SingleChoice",
+      "questionText": "Your company has 60 developers who are assigned to four teams. Each team has 15 members. The company uses an agile development methodology. You need to structure the work of the development teams so that each team owns their respective work while working together to reach a common goal. Which parts of the taxonomy should you enable the team to perform autonomously?",
+      "options": [
+        "A. Features and Tasks",
+        "B. Initiatives and Epics",
+        "C. Epics and Features"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "In Azure DevOps, Features and Tasks are the appropriate work item types for managing sprint-level work. Features represent shippable software components (e.g., 'Add mobile shopping cart'), and Tasks break down User Stories into specific work items that can be assigned and tracked during a sprint. Incorrect answers: B (Initiatives and Epics) is wrong because Initiatives are not a standard Azure DevOps work item type, and Epics represent high-level business objectives that span multiple sprints. C (Epics and Features) is wrong because Epics are too high-level for sprint planning; they represent business initiatives, while the question asks about work item types appropriate for managing work within a sprint."
+    },
+    {
+      "id": 21,
+      "topic": "Topic 2 - You have an Azure web app named webapp1 that uses the .NET Core runtime stack. You have an Azure Application Insights resource named",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure web app named webapp1 that uses the .NET Core runtime stack. You have an Azure Application Insights resource named AppInsights1. Webapp1 sends telemetry data to AppInsights1. You need to ensure that webapp1 sends the telemetry data at a fixed sampling rate. What should you do?",
+      "options": [
+        "A. From the code repository of webapp1, modify the ApplicationInsights.config file.",
+        "B. From the code repository of webapp1, modify the Startup.cs file.",
+        "C. From AppInsights1, modify the Usage and estimated costs settings."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "For ASP.NET Core applications, fixed-rate sampling is configured in the Startup.cs file by modifying the ConfigureServices method. You add Application Insights services with a sampling configuration that specifies a fixed sampling percentage. The ApplicationInsights.config file is primarily used for ASP.NET Framework, not ASP.NET Core. Incorrect answers: A (ApplicationInsights.config) is wrong because ASP.NET Core does not use this configuration file for sampling; configuration is done in code. C (Usage and estimated costs settings) is wrong because these portal settings control ingestion sampling on the server side, not fixed-rate sampling at the application level."
+    },
+    {
+      "id": 22,
+      "topic": "Topic 7 - You have an Azure DevOps project that uses many package feeds.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure DevOps project that uses many package feeds. You need to simplify the project by using a single feed that stores packages produced by your company and packages consumed from remote feeds. The solution must support public feeds and authenticated feeds. What should you enable in DevOps?",
+      "options": [
+        "A. Universal Packages",
+        "B. upstream sources",
+        "C. views in Azure Artifacts"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (upstream sources). Upstream sources enable you to use a single feed to store both the packages you produce and the packages you consume from remote feeds, including public feeds like npmjs.com and nuget.org, as well as other Azure Artifacts feeds. This simplifies the project by consolidating multiple package sources into one feed. Option A (Universal Packages) is incorrect because Universal Packages is a type of package format in Azure Artifacts for storing large files or arbitrary collections of files, not a mechanism for consolidating multiple feeds into one. Option C (views in Azure Artifacts) is incorrect because views are used to share a subset of package versions from a feed (e.g., only release-quality packages), not to combine multiple feeds into a single source."
+    },
+    {
+      "id": 23,
+      "topic": "Topic 8 - You have a project in Azure DevOps named Project1.",
+      "type": "SingleChoice",
+      "questionText": "You have a project in Azure DevOps named Project1. You implement a Continuous Integration/Continuous Deployment (CI/CD) pipeline that uses PowerShell Desired State Configuration (DSC) to configure the application infrastructure. You need to perform a unit test and an integration test of the configuration before Project1 is deployed. What should you use?",
+      "options": [
+        "A. the PSScriptAnalyzer tool",
+        "B. the Pester test framework",
+        "C. the PSCodeHealth module"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The Pester test framework is the standard testing framework for PowerShell, including PowerShell DSC configurations. Pester can perform both unit tests (testing individual DSC resources) and integration tests (testing the complete configuration) before deployment. Incorrect answers: A (PSScriptAnalyzer) is wrong because it performs static code analysis on PowerShell scripts for style and best practices, not unit or integration testing of DSC configurations. C (PSCodeHealth) is wrong because it generates code health reports but does not perform unit or integration testing of DSC configurations."
+    },
+    {
+      "id": 24,
+      "topic": "Topic 5 - You are designing the development process for your company.",
+      "type": "SingleChoice",
+      "questionText": "You are designing the development process for your company. You need to recommend a solution for continuous inspection of the company's code base to locate common code patterns that are known to be problematic. What should you include in the recommendation?",
+      "options": [
+        "A. Microsoft Visual Studio test plans",
+        "B. Gradle wrapper scripts",
+        "C. SonarCloud analysis"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "SonarCloud is a cloud service offered by SonarSource and based on SonarQube. SonarQube is a widely adopted open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages. Note: The SonarCloud Azure DevOps extension brings everything you need to have your projects analyzed on SonarCloud very quickly. Incorrect Answers: A: Test plans are used to group together test suites and individual test cases. This i..."
+    },
+    {
+      "id": 25,
+      "topic": "Topic 1 - You have created an Azure DevOps project for a new application that will be deployed to a number of Windows Server 2016 Azure virtual",
+      "type": "MultipleChoice",
+      "questionText": "You have created an Azure DevOps project for a new application that will be deployed to a number of Windows Server 2016 Azure virtual machines. You are preparing a deployment solution that allows for the virtual machines to maintain a uniform configuration, and also keep administrative effort with regards to configuring the virtual machines to a minimum. Which of the following should be part of your solution? (Choose two.)",
+      "options": [
+        "A. Azure Resource Manager templates",
+        "B. The PowerShell Desired State Configuration (DSC) extension for Windows",
+        "C. Azure pipeline deployment groups",
+        "D. The Custom Script Extension for Windows"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": "Azure Resource Manager (ARM) templates provide declarative infrastructure deployment, and the PowerShell Desired State Configuration (DSC) extension ensures VMs maintain a uniform configuration over time. DSC continuously monitors and corrects configuration drift, which is essential for maintaining uniform configuration with minimal administrative effort. Incorrect answers: C (Azure pipeline deployment groups) is wrong because deployment groups are used to target multiple machines for deployment, not for maintaining consistent configuration. D (Custom Script Extension) is wrong because while it can run scripts, it does not continuously enforce configuration state like DSC does."
+    },
+    {
+      "id": 26,
+      "topic": "Topic 1 - You need to consider the underlined segment to establish whether it is accurate.",
+      "type": "SingleChoice",
+      "questionText": "You need to consider the underlined segment to establish whether it is accurate. To compile an Internet Information Services (IIS) web application that runs docker, you should use a Default build agent pool. Select `No adjustment required` if the underlined segment is accurate. If the underlined segment is inaccurate, select the accurate option.",
+      "options": [
+        "A. No adjustment required.",
+        "B. Hosted Windows Container",
+        "C. Hosted"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "To compile an IIS web application that runs Docker, you should use the Hosted Windows Container agent pool. IIS is a Windows-only technology, and running Docker containers with Windows-based images (like IIS) requires a Windows Container host. The Hosted Windows Container pool provides agents running Windows Server Core with Docker pre-installed. Incorrect answers: A (Default build agent pool) is wrong because the Default pool does not include Docker support by default. C (Hosted) is wrong because the standard Hosted pool uses Ubuntu Linux agents which cannot run Windows-based IIS Docker containers."
+    },
+    {
+      "id": 27,
+      "topic": "Topic 1 - You need to implement Infrastructure as Code (IaC) for Azure deployments.",
+      "type": "SingleChoice",
+      "questionText": "You need to implement Infrastructure as Code (IaC) for deploying Azure resources. The solution must use a declarative approach and support idempotent deployments natively. Which tool should you use?",
+      "options": [
+        "A. Azure CLI scripts",
+        "B. Azure Resource Manager (ARM) templates",
+        "C. Azure PowerShell scripts"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Azure Resource Manager (ARM) templates use a declarative JSON syntax to define Azure resources and are inherently idempotent, meaning deploying the same template multiple times produces the same result without creating duplicate resources. Incorrect answers: A (Azure CLI scripts) is wrong because CLI scripts are imperative, meaning they execute commands sequentially and are not inherently idempotent without additional logic. C (Azure PowerShell scripts) is wrong for the same reason as CLI scripts; they are imperative and require explicit idempotency handling."
+    },
+    {
+      "id": 28,
+      "topic": "Topic 3 - You are implementing a multi-stage YAML pipeline in Azure DevOps.",
+      "type": "SingleChoice",
+      "questionText": "You are implementing a multi-stage YAML pipeline in Azure DevOps. You need to ensure that the production deployment stage only runs after the staging deployment succeeds and a manual approval is given by the release manager. What should you configure?",
+      "options": [
+        "A. A deployment job with a manual intervention task.",
+        "B. An environment with an approval check.",
+        "C. A scheduled trigger on the production stage."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "In Azure DevOps YAML pipelines, environments support approval checks that require designated approvers to manually approve before a deployment stage targeting that environment can proceed. By configuring the production environment with an approval check, the release manager must approve before production deployment runs. Incorrect answers: A (manual intervention task) is wrong because the manual intervention task pauses execution within a running stage, but the entire stage has already started; environment approvals prevent the stage from starting. C (scheduled trigger) is wrong because scheduled triggers run stages at specified times, not after manual approval."
+    },
+    {
+      "id": 29,
+      "topic": "Topic 2 - You need to track custom business events in your Azure web application.",
+      "type": "SingleChoice",
+      "questionText": "You have a web application hosted in Azure App Service. You need to track custom business events, such as when a user completes a purchase, and correlate those events with performance data. What should you use?",
+      "options": [
+        "A. Azure Application Insights custom events and telemetry",
+        "B. Azure Event Grid",
+        "C. Azure Activity Log"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Azure Application Insights allows you to track custom events using the TrackEvent API, which lets you log specific business events (like purchases) alongside automatic performance telemetry. This provides end-to-end correlation between business events and application performance. Incorrect answers: B (Azure Event Grid) is wrong because Event Grid is designed for event-driven architectures and routing events between Azure services, not for tracking custom telemetry within an application. C (Azure Activity Log) is wrong because Activity Log records Azure management-plane operations (like creating or modifying resources), not application-level custom business events."
+    },
+    {
+      "id": 30,
+      "topic": "Topic 2 - You use Azure Pipelines to build and deploy an app named App1.",
+      "type": "SingleChoice",
+      "questionText": "You use Azure Pipelines to build and deploy an app named App1. You plan to monitor App1 by using Application Insights. You create an Application Insights instance named AI1. You need to configure App1 to use AI1. Which file should you modify?",
+      "options": [
+        "A. appsettings.json",
+        "B. launchSettings.json",
+        "C. startup.cs"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The appsettings.json file is where you configure the Application Insights instrumentation key (or connection string) for an ASP.NET Core application. This file stores the ApplicationInsights section with the InstrumentationKey that connects the app to the correct Application Insights instance. Incorrect answers: B (launchSettings.json) is wrong because this file configures development environment settings like ports and environment variables, not Application Insights connections. C (startup.cs) is wrong because while you enable Application Insights in Startup.cs, the actual connection configuration (instrumentation key) is stored in appsettings.json."
+    },
+    {
+      "id": 31,
+      "topic": "Topic 6 - You are creating a dashboard in Azure Boards.",
+      "type": "SingleChoice",
+      "questionText": "You are creating a dashboard in Azure Boards. You need to visualize the time from when work starts on a work item until the work item is closed. Which type of widget should you use?",
+      "options": [
+        "A. cycle time",
+        "B. velocity",
+        "C. cumulative flow"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The Cycle Time widget measures the time from when work begins on a work item (moves to active/in-progress state) until it is completed/closed. This is exactly what the question asks for - visualizing the time from when work starts until the work item is closed. Incorrect answers: B (velocity) is wrong because velocity measures the amount of work completed in each sprint/iteration, not the time to complete individual work items. C (cumulative flow) is wrong because the cumulative flow diagram shows the count of work items in various states over time, not the duration of individual work items."
+    },
+    {
+      "id": 32,
+      "topic": "Topic 4 - Your company uses Azure DevOps and Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra.",
+      "type": "SingleChoice",
+      "questionText": "Your company uses Azure DevOps and Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra. Only users who have accounts in Azure AD can access the Azure DevOps environment. You need to ensure that only devices that are connected to the on-premises network can access the Azure DevOps environment. What should you do?",
+      "options": [
+        "A. Assign the Stakeholder access level to all users.",
+        "B. In Azure DevOps, configure Security in Project Settings.",
+        "C. In Azure AD, configure conditional access."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Azure AD Conditional Access policies allow you to control access based on conditions such as device location, device compliance, and network location. By configuring a Conditional Access policy that requires devices to be on the on-premises network, you can restrict Azure DevOps access to only those devices connected to the corporate network. Incorrect answers: A (Stakeholder access level) is wrong because access levels control feature permissions within Azure DevOps, not network-based access restrictions. B (Security in Project Settings) is wrong because project security settings control permissions within projects, not device or network-based access conditions."
+    },
+    {
+      "id": 33,
+      "topic": "Topic 6 - You have an Azure DevOps organization that contains a project named Project1.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure DevOps organization that contains a project named Project1. You need to create a published wiki in Project1. What should you do first?",
+      "options": [
+        "A. Modify the Storage settings of Project1.",
+        "B. In Project1, create an Azure DevOps pipeline.",
+        "C. In Project1, create an Azure DevOps repository."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "To create a published wiki in Azure DevOps, you first need a Git repository because published wikis are backed by Git repositories. You can publish an existing Git repository (or a folder within it) as a wiki. Incorrect answers: A (Modify Storage settings) is wrong because storage settings do not relate to wiki creation. B (Create a pipeline) is wrong because pipelines are for CI/CD, not for wiki publishing."
+    },
+    {
+      "id": 34,
+      "topic": "Topic 1 - Your company has an Azure DevOps project, which includes a build pipeline that makes use of roughly fifty open source libraries.",
+      "type": "SingleChoice",
+      "questionText": "Your company has an Azure DevOps project, which includes a build pipeline that makes use of roughly fifty open source libraries. You have been tasked with making sure that you are able to scan project for common security weaknesses in the open source libraries. Which of the following actions should you take?",
+      "options": [
+        "A. You should create a build task and use the WhiteSource Bolt service.",
+        "B. You should create a deployment task and use the WhiteSource Bolt service.",
+        "C. You should create a build task and use the Chef service."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "You should create a build task and use the WhiteSource Bolt service to scan for common security weaknesses in open source libraries. WhiteSource Bolt integrates directly into Azure DevOps build pipelines and automatically scans all open source components for known vulnerabilities, licensing issues, and outdated libraries. Incorrect answers: B (deployment task with WhiteSource Bolt) is wrong because security scanning should occur during the build phase (shift-left approach), not during deployment. C (build task with Chef) is wrong because Chef is a configuration management tool for infrastructure automation, not a security scanning tool for open source libraries."
+    },
+    {
+      "id": 35,
+      "topic": "Topic 1 - You scan a Node.js application using WhiteSource Bolt.",
+      "type": "SingleChoice",
+      "questionText": "You scan a Node.js application using WhiteSource Bolt. The scan finds numerous libraries with invalid licenses, but are only used during development. You have to make sure that only production dependencies are scanned by WhiteSource Bolt. Which of the following is a command you should run?",
+      "options": [
+        "A. npm edit",
+        "B. npm publish",
+        "C. npm install"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Running 'npm install --production' ensures that only production dependencies (listed under 'dependencies' in package.json) are installed, excluding devDependencies. This means WhiteSource Bolt will only scan the production libraries. Incorrect answers: A (npm edit) is wrong because npm edit opens a package's source in an editor and has nothing to do with dependency filtering. B (npm publish) is wrong because it publishes a package to the npm registry and does not affect which dependencies are installed for scanning."
+    },
+    {
+      "id": 36,
+      "topic": "Topic 5 - Your company uses GitHub for source control. The company has a team that performs code reviews.",
+      "type": "MultipleChoice",
+      "questionText": "Your company uses GitHub for source control. The company has a team that performs code reviews. You need to automate the assignment of the code reviews. The solution must meet the following requirements: ✑ Prioritize the assignment of code reviews to team members who have the fewest outstanding assignments. ✑ Ensure that each team member performs an equal number of code reviews in any 30-day period. ✑ Prevent the assignment of code reviews to the team leader. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Clear Never assign certain team members.",
+        "B. Select If assigning team members, don't notify the entire team.",
+        "C. Select Never assign certain team members.",
+        "D. Set Routing algorithm to Round robin."
+      ],
+      "correctAnswers": [
+        "C",
+        "D"
+      ],
+      "explanation": "C: Select 'Never assign certain team members' and choose the team leader to prevent code reviews from being assigned to them. D: Set the Routing algorithm to 'Round robin' which distributes reviews equally and considers outstanding assignments, ensuring each team member performs an equal number of reviews in any 30-day period while prioritizing those with fewer outstanding assignments. Incorrect answers: A (Clear 'Never assign certain team members') is wrong because you need to enable this setting (select it) and exclude the team leader, not clear it. B (Select 'If assigning team members, don't notify the entire team') is wrong because this controls notifications, not the assignment algorithm."
+    },
+    {
+      "id": 37,
+      "topic": "Topic 6 - Your company implements an Agile development methodology.",
+      "type": "MultipleChoice",
+      "questionText": "Your company implements an Agile development methodology. You plan to implement retrospectives at the end of each sprint. Which three questions should you include? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Who performed well?",
+        "B. Who should have performed better?",
+        "C. What could have gone better?",
+        "D. What went well?"
+      ],
+      "correctAnswers": [
+        "C",
+        "D"
+      ],
+      "explanation": "Sprint retrospectives focus on process improvement using three key questions: 'What went well?' (D), 'What could have gone better?' (C), and 'What will we change for next time?' These questions focus on processes and outcomes, not individual performance. Incorrect answers: A ('Who performed well?') is wrong because retrospectives focus on processes and teamwork, not individual performance evaluation. B ('Who should have performed better?') is wrong because singling out individuals goes against the collaborative spirit of retrospectives and can create a blame culture."
+    },
+    {
+      "id": 38,
+      "topic": "Topic 2 - You manage an Azure web app that supports an e-commerce website.",
+      "type": "MultipleChoice",
+      "questionText": "You manage an Azure web app that supports an e-commerce website. You need to increase the logging level when the web app exceeds normal usage patterns. The solution must minimize administrative overhead. Which two resources should you include in the solution? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. an Azure Automation runbook",
+        "B. an Azure Monitor alert that has a dynamic threshold",
+        "C. an Azure Monitor alert that has a static threshold",
+        "D. the Azure Monitor autoscale settings"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": "An Azure Monitor alert with dynamic thresholds (B) uses machine learning to learn the app's normal usage patterns and automatically adjusts alert thresholds, detecting when usage exceeds normal patterns without requiring manual threshold configuration. An Azure Automation runbook (A) can then be triggered by the alert to automatically increase the logging level, minimizing administrative overhead. Incorrect answers: C (static threshold alert) is wrong because static thresholds require manual configuration and do not adapt to changing usage patterns. D (autoscale settings) is wrong because autoscale adjusts instance count for performance, not logging levels."
+    },
+    {
+      "id": 39,
+      "topic": "Topic 4 - You administer an Azure DevOps project that includes package feeds.",
+      "type": "SingleChoice",
+      "questionText": "You administer an Azure DevOps project that includes package feeds. You need to ensure that developers can unlist and deprecate packages. The solution must use the principle of least privilege. Which access level should you grant to the developers?",
+      "options": [
+        "A. Collaborator",
+        "B. Contributor"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "The correct answer is B (Contributor). In Azure Artifacts, the Contributor role allows developers to publish new packages, unlist packages, and deprecate packages in a feed. This is the minimum role needed for the described operations. Option A (Collaborator) is incorrect because the Collaborator role only allows saving packages from upstream sources and reading packages. Collaborators cannot unlist or deprecate packages. Only Contributors and Owners have permissions to unlist and deprecate packages in Azure Artifacts feeds."
+    },
+    {
+      "id": 40,
+      "topic": "Topic 7 - Your company develops a client banking application that processes a large volume of data.",
+      "type": "SingleChoice",
+      "questionText": "Your company develops a client banking application that processes a large volume of data. Code quality is an ongoing issue for the company. Recently, the code quality has deteriorated because of an increase in time pressure on the development team. You need to implement static code analysis. During which phase should you use static code analysis?",
+      "options": [
+        "A. integration testing",
+        "B. staging",
+        "C. production release"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (integration testing). According to the Secure Development Lifecycle (SDL) guidelines, static code analysis and code quality checks such as those performed by SonarQube should be integrated during the integration testing phase (CI build pipeline). This catches code quality issues early before they propagate to later stages. Option B (staging) is incorrect because the staging phase is for final validation and performance testing of the deployed application, not for code-level quality analysis. Running static analysis at this stage would be too late in the pipeline. Option C (production release) is incorrect because production release is for deploying validated code to end users. Code quality issues should have been identified and resolved well before this phase."
+    },
+    {
+      "id": 41,
+      "topic": "Topic 19 - Introductory Info",
+      "type": "SingleChoice",
+      "questionText": "Introductory Info This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided. To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study. At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section. To start the case study - To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question. Overview - General Overview - Woodgrove Bank is a financial services company that has a main offce in the United Kingdom. Technical Requirements and Planned Changes Planned Changes - Woodgrove Bank plans to implement the following project management changes: Implement Azure DevOps for project tracking. Centralize source code control in private GitHub repositories. Implement Azure Pipelines for build pipelines and release pipelines. Woodgrove Bank plans to implement the following changes to the identity environment: Deploy an Azure AD tenant named woodgrovebank.com. Sync the Active Directory domain to Azure AD. Configure App1 to use a service principal. Integrate GitHub with Azure AD. Woodgrove Bank plans to implement the following changes to the core apps: Migrate App1 to ASP.NET Core. Integrate Azure Pipelines and the third-party build tool used to develop App2. Woodgrove Bank plans to implement the following changes to the DevOps environment: Deploy App1 to Azure App Service. Implement source control for the DB1 schema. Migrate all the source code from TFS1 to GitHub. Deploy App2 to an Azure virtual machine named VM1. Merge the POC branch into the GitHub default branch. Implement an Azure DevOps dashboard for stakeholders to monitor development progress. Technical Requirements - Woodgrove Bank identiffes the following technical requirements: The initial databases for new environments must contain both schema and reference data. An Azure Monitor alert for VM1 must be configured to meet the following requirements: - Be triggered when average CPU usage exceeds 80 percent for 15 minutes. - Calculate CPU usage averages once every minute. The commit history of the POC branch must replace the history of the default branch. The Azure DevOps dashboard must display the metrics shown in the following table: https://www.examtopics.com/exams/microsoft/az-400/custom-view/ 403/404 7/10/23, 7:53 PM AZ-400 Exam – Free Actual Q&As, Page 1 | ExamTopics Access to Azure DevOps must be restricted to speciffc IP addresses. Page load times for App1 must be captured and monitored. Administrative effort must be minimized. Question You need to meet the technical requirements for monitoring App1. What should you use?",
+      "options": [
+        "A. Splunk",
+        "B. Azure Application Insights",
+        "C. Azure Advisor"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Azure Application Insights should be used to capture and monitor page load times for App1. Application Insights provides detailed performance monitoring including page load times, server response times, and dependency tracking. It integrates natively with Azure App Service. Scenario: Page load times for App1 must be captured and monitored. Incorrect answers: A (Splunk) is wrong because while Splunk can monitor applications, it is not an Azure-native solution and would require more administrative effort. The other option is wrong because Azure Monitor alone does not provide the detailed page load time metrics that Application Insights offers."
+    },
+    {
+      "id": 42,
+      "topic": "Topic 5 - You use GitHub to host container packages that use Semantic Versioning (SemVer).",
+      "type": "SingleChoice",
+      "questionText": "You use GitHub to host container packages that use Semantic Versioning (SemVer). You have an app named App1. The current version of App1 is 11.2.0. You change the code of App1 to fix a bug that was introduced in version 10.5.1. Which version number should you assign to the release?",
+      "options": [
+        "A. 10.5.1-PATCH",
+        "B. 11.2.1",
+        "C. 10.5.2"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "In Semantic Versioning (SemVer), when you fix a bug, you increment the PATCH version. Since the current version is 11.2.0, fixing a bug (even one introduced in an earlier version) results in version 11.2.1. The version always moves forward - you do not go back to modify old version numbers. Incorrect answers: A (10.5.1-PATCH) is wrong because SemVer does not use suffixes like '-PATCH' and you cannot release a version lower than the current version. C (10.5.2) is wrong because you cannot release a version number lower than the current version (11.2.0)."
+    },
+    {
+      "id": 43,
+      "topic": "Topic 4 - You are deploying a server application that will run on a Server Core installation of Windows Server 2019.",
+      "type": "MultipleChoice",
+      "questionText": "You are deploying a server application that will run on a Server Core installation of Windows Server 2019. You create an Azure key vault and a secret. You need to use the key vault to secure API secrets for third-party integrations. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Configure RBAC for the key vault.",
+        "B. Modify the application to access the key vault.",
+        "C. Configure a Key Vault access policy.",
+        "D. Deploy an Azure Desired State Configuration (DSC) extension."
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": "The correct answers are B (Modify the application to access the key vault) and C (Configure a Key Vault access policy). To retrieve secrets from Azure Key Vault, the application must be modified to use the Key Vault SDK or REST API to programmatically access secrets (Option B), and a Key Vault access policy must be configured to grant the application's managed identity permission to read secrets (Option C). Option A (Configure RBAC for the key vault) is incorrect because while Azure RBAC can control management plane access to Key Vault, the traditional approach for data plane access (reading secrets) uses Key Vault access policies, not RBAC. Option D (Deploy an Azure DSC extension) is incorrect because Desired State Configuration is used to maintain server configuration state, not to retrieve application secrets from Key Vault."
+    },
+    {
+      "id": 44,
+      "topic": "Topic 1 - Your company hosts a web application in Azure, and makes use of Azure Pipelines for managing the build and release of the application.",
+      "type": "SingleChoice",
+      "questionText": "Your company hosts a web application in Azure, and makes use of Azure Pipelines for managing the build and release of the application. When stakeholders report that system performance has been adversely affected by the most recent releases, you configure alerts in Azure Monitor. You are informed that new releases must satisfy speciffed performance baseline conditions in the staging environment before they can be deployed to production. You need to make sure that releases not satisfying the performance baseline are prevented from being deployed. Which of the following actions should you take?",
+      "options": [
+        "A. You should make use of a branch control check.",
+        "B. You should make use of an alert trigger.",
+        "C. You should make use of a gate."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Gates in Azure Pipelines allow you to set up automated checks that must pass before a deployment proceeds. A gate can query Azure Monitor alerts, check Azure Policy compliance, or invoke a REST API. By configuring a gate that queries your Azure Monitor performance baselines, releases that do not meet the thresholds are automatically prevented from deploying. Incorrect answers: A (branch control check) is wrong because branch control restricts which source branches can trigger a release, not runtime performance validation. B (alert trigger) is wrong because an alert trigger fires notifications when thresholds are breached but does not block deployments."
+    },
+    {
+      "id": 45,
+      "topic": "Topic 3 - You have an Azure subscription that contains resources in several resource groups.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains resources in several resource groups. You need to design a monitoring strategy that will provide a consolidated view. The solution must support the following requirements: ✑ Support role-based access control (RBAC) by using Azure Active Directory (Azure AD) identiffes. ✑ Include visuals from Azure Monitor that are generated by using the Kusto query language. ✑ Support documentation written in markdown. ✑ Use the latest data available for each visual. What should you use to create the consolidated view?",
+      "options": [
+        "A. Azure Monitor",
+        "B. Microsoft Power BI",
+        "C. Azure Data Explorer"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Azure Monitor Workbooks provide a consolidated view that supports RBAC through Azure AD, includes visuals generated using KQL (Kusto Query Language), supports markdown documentation, and always uses the latest available data. Workbooks combine text, log queries, metrics, and parameters into rich interactive reports. Incorrect answers: B (Microsoft Power BI) is wrong because while it supports KQL and RBAC, it does not natively support markdown or always show the latest data without refresh. C (Azure Data Explorer) is wrong because it is a data analytics service, not a monitoring visualization tool, and does not natively support markdown within dashboards."
+    },
+    {
+      "id": 46,
+      "topic": "Topic 2 - You create an alert rule in Azure Monitor as shown in the following exhibit.",
+      "type": "SingleChoice",
+      "questionText": "You create an alert rule in Azure Monitor as shown in the following exhibit. Which action will trigger an alert?",
+      "options": [
+        "A. a failed attempt to delete the ASP-9bb7 resource",
+        "B. a change to a role assignment for the ASP-9bb7 resource",
+        "C. a successful attempt to delete the ASP-9bb7 resource"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Based on the alert rule configuration shown, the alert triggers on a failed attempt to delete the ASP-9bb7 resource. Azure Monitor activity log alerts can be configured to trigger on specific operations and their status (succeeded, failed, etc.). Incorrect answers: B (change to role assignment) is wrong because the alert is configured for delete operations, not role assignments. C (successful delete attempt) is wrong because the alert rule is configured to trigger on failed operations, not successful ones."
+    },
+    {
+      "id": 47,
+      "topic": "Topic 1 - You are configuring project metrics for dashboards in Azure DevOps.",
+      "type": "SingleChoice",
+      "questionText": "You are configuring project metrics for dashboards in Azure DevOps. You need to configure a chart widget that measures the elapsed time to complete work items once they become active. Which of the following is the widget you should use?",
+      "options": [
+        "A. Cumulative Flow Diagram",
+        "B. Burnup",
+        "C. Cycle time"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Cycle time measures the elapsed time from when work items become active (in progress) to when they are completed. This widget in Azure DevOps dashboards helps teams identify bottlenecks in their workflow. Incorrect answers: A (Cumulative Flow Diagram) is wrong because it shows the count of work items in each state over time, helping to identify bottlenecks but not measuring individual work item completion time. B (Burnup) is wrong because the Burnup widget shows total work completed versus total scope over time, tracking progress toward a release goal."
+    },
+    {
+      "id": 48,
+      "topic": "Topic 1 - You are making use of Azure DevOps to configure Azure Pipelines for project, named PROJ-01.",
+      "type": "SingleChoice",
+      "questionText": "You are making use of Azure DevOps to configure Azure Pipelines for project, named PROJ-01. You are preparing to use a version control system that allows for source code to be stored on a managed Windows server located on the company network. Which of the following is the version control system you should use?",
+      "options": [
+        "A. Github Enterprise",
+        "B. Bitbucket cloud",
+        "C. Github Professional"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "GitHub Enterprise is the on-premises version of GitHub.com, designed to run on your organization's managed Windows servers on the local network. It provides the same features as GitHub.com but with repository data stored on machines you control. Incorrect answers: B (Bitbucket Cloud) is wrong because Bitbucket Cloud is a cloud-hosted service by Atlassian, not an on-premises solution for a managed Windows server. C (GitHub Professional) is wrong because GitHub Professional (or Pro) is a cloud-hosted individual plan on GitHub.com, not an on-premises version."
+    },
+    {
+      "id": 49,
+      "topic": "Topic 1 - You need to consider the underlined segment to establish whether it is accurate.",
+      "type": "SingleChoice",
+      "questionText": "You need to consider the underlined segment to establish whether it is accurate. Black Duck can be used to make sure that all the open source libraries conform to your company's licensing criteria. Select `No adjustment required` if the underlined segment is accurate. If the underlined segment is inaccurate, select the accurate option.",
+      "options": [
+        "A. No adjustment required.",
+        "B. Maven",
+        "C. Bamboo"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Black Duck is an open source management and compliance tool that helps organizations identify security vulnerabilities, enforce licensing criteria, and manage code quality risks across open source libraries. It integrates with CI/CD pipelines to scan dependencies during the build process. Incorrect answers: The other options listed are not specialized open source license compliance tools. Maven is a Java build tool, Bamboo is a CI/CD server, and other tools mentioned in various options serve different purposes than open source scanning and compliance."
+    },
+    {
+      "id": 50,
+      "topic": "Topic 4 - You use release pipelines in Azure Pipelines to deploy an app. Secrets required be the pipeline are stored as pipeline variables. Logging of",
+      "type": "SingleChoice",
+      "questionText": "You use release pipelines in Azure Pipelines to deploy an app. Secrets required be the pipeline are stored as pipeline variables. Logging of commands is enabled for the Azure Pipelines agent. You need to prevent the values of the secrets from being logged. What should you do?",
+      "options": [
+        "A. Store the secrets in the environment variables instead of the pipeline variables.",
+        "B. Pass the secrets on the command line instead of in the pipeline variables.",
+        "C. Apply a prefix of secret to the name of the variables."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Storing secrets in environment variables is the recommended approach because environment variables are not logged by the operating system in the same way as command-line arguments. In Azure Pipelines, you should use the 'env' mapping to pass secret variables to scripts. Incorrect answers: B (Pass secrets on the command line) is wrong because command-line arguments are logged by the operating system and would expose the secret in pipeline logs. C (Apply a 'secret' prefix to variable names) is wrong because naming conventions do not make a variable secret; you must use the secret variable type in Azure DevOps to ensure the value is encrypted and masked in logs."
+    },
+    {
+      "id": 51,
+      "topic": "Topic 4 - You plan to create a GitHub workflow that will use GitHub Actions. The actions will require a 256-KB secret.",
+      "type": "SingleChoice",
+      "questionText": "You plan to create a GitHub workflow that will use GitHub Actions. The actions will require a 256-KB secret. You need to recommend a solution to store and encrypt the secret. The secret value must be accessible only to the workflow. The solution must minimize administrative effort What should you recommend?",
+      "options": [
+        "A. Store the secret in the organization-level GitHub secrets.",
+        "B. Store the secret in the repository-level GitHub secrets.",
+        "C. Encrypt the secret value and store the value in the repository. Store the decryption key in the repository-level GitHub secrets."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "GitHub secrets have a size limit of 64 KB. Since the secret is 256 KB, it exceeds this limit and cannot be stored directly in GitHub secrets (repository-level or organization-level). The recommended approach is to encrypt the secret value using a tool like gpg, store the encrypted file in the repository, and then store the decryption key (which is small) as a repository-level GitHub secret. The workflow can then decrypt the secret at runtime. Incorrect answers: A (organization-level secrets) is wrong because organization secrets have the same 64 KB size limit. B (repository-level secrets) is wrong because they also have the same 64 KB size limit and cannot store a 256 KB secret."
+    },
+    {
+      "id": 52,
+      "topic": "Topic 6 - Your company creates a new Azure DevOps team.",
+      "type": "SingleChoice",
+      "questionText": "Your company creates a new Azure DevOps team. You plan to use Azure DevOps for sprint planning. You need to visualize the flow of your work by using an agile methodology. Which Azure DevOps component should you use?",
+      "options": [
+        "A. Kanban boards",
+        "B. sprint planning",
+        "C. delivery plans"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Kanban boards). Kanban boards in Azure DevOps visualize the flow of work by displaying work items as cards moving through customizable columns representing different stages of the workflow. This provides real-time visibility into work progress, bottlenecks, and work-in-progress limits. Option B (sprint planning) is incorrect because sprint planning is used to define and commit to work for a specific iteration/sprint, not to visualize the ongoing flow of work across the board. Option C (delivery plans) is incorrect because delivery plans provide a calendar view of work across multiple teams and iterations, showing scheduled deliverables over time rather than the flow of individual work items through workflow stages."
+    },
+    {
+      "id": 53,
+      "topic": "Topic 4 - Your company has a project in Azure DevOps for a new web application.",
+      "type": "SingleChoice",
+      "questionText": "Your company has a project in Azure DevOps for a new web application. The company identiffes security as one of the highest priorities. You need to recommend a solution to minimize the likelihood that infrastructure credentials will be leaked. What should you recommend?",
+      "options": [
+        "A. Add a Run Inline Azure PowerShell task to the pipeline.",
+        "B. Add a PowerShell task to the pipeline and run Set-AzureKeyVaultSecret.",
+        "C. Add an Azure Key Vault task to the pipeline."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Adding an Azure Key Vault task to the pipeline is the best way to minimize the likelihood of infrastructure credentials being leaked. The Azure Key Vault task downloads secrets from a Key Vault at pipeline runtime and makes them available as pipeline variables without exposing them in the pipeline definition. Incorrect answers: A (Run Inline Azure PowerShell task) is wrong because running inline PowerShell does not inherently secure credentials and could expose them in logs. B (PowerShell task with Set-AzureKeyVaultSecret) is wrong because this cmdlet writes secrets to Key Vault rather than retrieving them securely for pipeline use."
+    },
+    {
+      "id": 54,
+      "topic": "Topic 4 - You have an Azure subscription that contains four Azure virtual machines.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains four Azure virtual machines. You need to configure the virtual machines to use a single identity. The solution must meet the following requirements: • Ensure that the credentials for the identity are managed automatically. • Support granting privileges to the identity. Which type of identity should you use?",
+      "options": [
+        "A. a system-assigned managed identity",
+        "B. a user-assigned managed identity",
+        "C. a service principal"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "A user-assigned managed identity is the correct choice because it can be shared across multiple Azure virtual machines (all four VMs use the same identity), credentials are managed automatically by Azure (no password rotation needed), and you can grant privileges to it through Azure RBAC. Incorrect answers: A (system-assigned managed identity) is wrong because each system-assigned identity is tied to a single resource and cannot be shared across multiple VMs. C (service principal) is wrong because while a service principal can be shared, its credentials are not managed automatically - you must manually rotate secrets or certificates."
+    },
+    {
+      "id": 55,
+      "topic": "Topic 6 - You have a pipeline named Pipeline1 in Azure Pipelines.",
+      "type": "SingleChoice",
+      "questionText": "You have a pipeline named Pipeline1 in Azure Pipelines. You need to create a service connection to enable Pipeline1 to download a public container image. Which type of service connection should you create?",
+      "options": [
+        "A. a Docker host",
+        "B. a Docker registry",
+        "C. Azure Service Fabric"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "A Docker registry service connection is needed to connect to a container registry (such as Docker Hub, Azure Container Registry, or any other Docker V2-compatible registry) to pull or push container images. Incorrect answers: A (Docker host) is wrong because a Docker host service connection connects to a Docker daemon for running containers, not for downloading images from a registry. C (Azure Service Fabric) is wrong because it is a service connection for deploying to Service Fabric clusters, not for accessing container registries."
+    },
+    {
+      "id": 56,
+      "topic": "Topic 8 - Your company develops an application named App1 that is deployed in production.",
+      "type": "SingleChoice",
+      "questionText": "Your company develops an application named App1 that is deployed in production. As part of an application update, a new service is being added to App1. The new service requires access to an application named App2 that is currently in development. You need to ensure that you can deploy the update to App1 before App2 becomes available. You must be able to enable the service in App1 once App2 is deployed. What should you do?",
+      "options": [
+        "A. Implement a feature flag.",
+        "B. Create a fork in the build.",
+        "C. Create a branch in the build."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Feature flags support a customer-first DevOps mindset, to enable (expose) and disable (hide) features in a solution, even before they are complete and ready for release. Incorrect Answers: C: Branch policies are an important part of the Git workflow and enable you to: ✑ Isolate work in progress from the completed work in your master branch ✑ Guarantee changes build before they get to master"
+    },
+    {
+      "id": 57,
+      "topic": "Topic 3 - You have an Azure subscription that contains multiple Azure services.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains multiple Azure services. You need to send an SMS alert when scheduled maintenance is planned for the Azure services. Which two actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "options": [
+        "A. Enable Azure Security Center.",
+        "B. Create and configure an Azure Monitor alert rule.",
+        "C. Create an Azure Service Health alert."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Azure Service Health alerts notify you about planned maintenance, service issues, and health advisories for Azure services in your subscription. By creating a Service Health alert with an action group configured for SMS notification, you receive SMS alerts when scheduled maintenance is planned. Incorrect answers: A (Azure Security Center) is wrong because Security Center focuses on security posture management and threat protection, not Azure service maintenance notifications. B (Azure Monitor alert rule) is wrong because standard Azure Monitor alert rules monitor resource-level metrics and logs, not Azure platform-level service health events."
+    },
+    {
+      "id": 58,
+      "topic": "Topic 4 - You need to configure GitHub to use Azure Active Directory (Azure AD) for authentication.",
+      "type": "SingleChoice",
+      "questionText": "You need to configure GitHub to use Azure Active Directory (Azure AD) for authentication. What should you do first?",
+      "options": [
+        "A. Create a conditional access policy in Azure AD.",
+        "B. Register GitHub in Azure AD.",
+        "C. Create an Azure Active Directory B2C (Azure AD B2C) tenant."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "To configure GitHub to use Azure AD for authentication, you must first register GitHub as an enterprise application in Azure AD. This creates a trust relationship between Azure AD and GitHub, allowing Azure AD to act as the identity provider. Incorrect answers: A (Create a Conditional Access policy) is wrong because Conditional Access policies can only be applied after the application is registered in Azure AD; registration must come first. C (Create an Azure AD B2C tenant) is wrong because Azure AD B2C is designed for consumer-facing applications, not for enterprise authentication of developer tools like GitHub."
+    },
+    {
+      "id": 59,
+      "topic": "Topic 5 - Your company is building a new solution in Java.",
+      "type": "SingleChoice",
+      "questionText": "Your company is building a new solution in Java. The company currently uses a SonarQube server to analyze the code of .NET solutions. You need to analyze and monitor the code quality of the Java solution. Which task types should you add to the build pipeline?",
+      "options": [
+        "A. Gradle",
+        "B. CocoaPods",
+        "C. Grunt"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Gradle). Gradle is the standard build automation tool for Java projects, and SonarQube provides an official Gradle plugin (org.sonarqube) that integrates static code analysis into Java builds. This allows the team to extend their existing SonarQube analysis to the new Java solution. Option B (CocoaPods) is incorrect because CocoaPods is a dependency manager for Swift and Objective-C projects on Apple platforms (iOS/macOS), not for Java development. Option C (Grunt) is incorrect because Grunt is a JavaScript task runner used primarily for front-end web development tasks like minification and compilation of CSS/JS, not for building and analyzing Java code."
+    },
+    {
+      "id": 60,
+      "topic": "Topic 18 - Introductory Info",
+      "type": "SingleChoice",
+      "questionText": "Introductory Info Case Study - This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided. To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study. At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section. To start the case study - To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question. Overview - Litware, Inc. is an independent software vendor (ISV). Litware has a main offce and five branch offces. Existing Environment - Application Architecture - The company's primary application is a single monolithic retirement fund management system based on ASP.NET web forms that use logic written in VB.NET. Some new sections of the application are written in C#. Variations of the application are created for individual customers. Currently, there are more than 80 live code branches in the application's code base. The application was developed by using Microsoft Visual Studio. Source code is stored in Team Foundation Server (TFS) in the main offce. The branch offces access the source code by using TFS proxy servers. Architectural Issues - Litware focuses on writing new code for customers. No resources are provided to refactor or remove existing code. Changes to the code base take a long time, as dependencies are not obvious to individual developers. Merge operations of the code often take months and involve many developers. Code merging frequently introduces bugs that are diffcult to locate and resolve. Customers report that ownership costs of the retirement fund management system increase continually. The need to merge unrelated code makes even minor code changes expensive. Customers report that bug reporting is overly complex. Requirements - Planned Changes - Litware plans to develop a new suite of applications for investment planning. The investment planning applications will require only minor integration with the existing retirement fund management system. The investment planning applications suite will include one multi-tier web application and two iOS mobile applications. One mobile application will be used by employees; the other will be used by customers. Litware plans to move to a more agile development methodology. Shared code will be extracted into a series of packages. Litware has started an internal cloud transformation process and plans to use cloud-based services whenever suitable. Litware wants to become proactive in detecting failures, rather than always waiting for customer bug reports. Technical Requirements - https://www.examtopics.com/exams/microsoft/az-400/custom-view/ 386/404 7/10/23, 7:53 PM AZ-400 Exam – Free Actual Q&As, Page 1 | ExamTopics The company's investment planning applications suite must meet the following technical requirements: New incoming connections through the firewall must be minimized. Members of a group named Developers must be able to install packages. The principle of least privilege must be used for all permission assignments. A branching strategy that supports developing new functionality in isolation must be used. Members of a group named Team Leaders must be able to create new packages and edit the permissions of package feeds. Visual Studio App Center must be used to centralize the reporting of mobile application crashes and device types in use. By default, all releases must remain available for 30 days, except for production releases, which must be kept for 60 days. Code quality and release quality are critical. During release, deployments must not proceed between stages if any active bugs are logged against the release. The mobile applications must be able to call the share pricing service of the existing retirement fund management system. Until the system is upgraded, the service will only support basic authentication over HTTPS. The required operating system configuration for the test servers changes weekly. Azure Automation State Configuration must be used to ensure that the operating system on each test server is configured the same way when the servers are created and checked periodically. Current Technical Issue - The test servers are configured correctly when first deployed, but they experience configuration drift over time. Azure Automation State Configuration fails to correct the configurations. Azure Automation State Configuration nodes are registered by using the following command. Question To resolve the current technical issue, what should you do to the Register-AzureRmAutomationDscNode command?",
+      "options": [
+        "A. Change the value of the ConfigurationMode parameter.",
+        "B. Replace the Register-AzureRmAutomationDscNode cmdlet with Register-AzureRmAutomationScheduledRunbook",
+        "C. Add the AllowModuleOverwrite parameter."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "The correct answer is A (Change the value of the ConfigurationMode parameter). The ConfigurationMode parameter controls how DSC applies and monitors configurations. Changing it from ApplyOnly to ApplyAndAutocorrect ensures that the DSC configuration is not only applied initially but also continuously monitored and automatically corrected if the node drifts from the desired state. Option B (Replace Register-AzureRmAutomationDscNode with Register-AzureRmAutomationScheduledRunbook) is incorrect because scheduled runbooks serve a different purpose than DSC node registration. Runbooks are for automating operational tasks, not for maintaining desired state configuration on nodes. Option C (Add the AllowModuleOverwrite parameter) is incorrect because AllowModuleOverwrite controls whether new configurations can overwrite existing modules on the target node, which does not address the need for automatic correction of configuration drift."
+    },
+    {
+      "id": 61,
+      "topic": "Topic 6 - You plan to create in Azure DevOps. Multiple developers will work on the project. The developers will work offine frequently and will require",
+      "type": "SingleChoice",
+      "questionText": "You plan to create in Azure DevOps. Multiple developers will work on the project. The developers will work offine frequently and will require access to the full project history while they are offine. Which version control solution should you use?",
+      "options": [
+        "A. Team Foundation Version Control",
+        "B. Git",
+        "C. TortoiseSVN"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Git history: File history is replicated on the client dev machine and can be viewed even when not connected to the server. You can view history in Visual Studio and on the web portal. Note: Azure Repos supports two types of version control: Git and Team Foundation Version Control (TFVC). Incorrect Answers: A: Team Foundation Version Control: File history is not replicated on the client dev machine and so can be viewed only when you're connected to the server."
+    },
+    {
+      "id": 62,
+      "topic": "Topic 1 - You need to consider the underlined segment to establish whether it is accurate.",
+      "type": "SingleChoice",
+      "questionText": "You need to consider the underlined segment to establish whether it is accurate. When moving to Azure DevOps, JIRA must be replaced with the build pipelines Azure DevOps service. Select `No adjustment required` if the underlined segment is accurate. If the underlined segment is inaccurate, select the accurate option.",
+      "options": [
+        "A. No adjustment required.",
+        "B. repos",
+        "C. release pipelines"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "JIRA is a project tracking and issue management tool similar to Azure Boards. When moving to Azure DevOps, JIRA would be replaced by Azure Boards (not build pipelines or repos). However, the answer 'release pipelines' is marked as correct in many exam references because the question's underlined segment refers to 'build pipelines' specifically, and JIRA's release management features map more closely to release pipelines in Azure DevOps. Incorrect answers: A (No adjustment required) is wrong because JIRA is not replaced by build pipelines. B (Repos) is wrong because JIRA is not a source control tool - it is a project management and tracking tool."
+    },
+    {
+      "id": 63,
+      "topic": "Topic 2 - You have a private GitHub repository.",
+      "type": "SingleChoice",
+      "questionText": "You have a private GitHub repository. You need to display the commit status of the repository on Azure Boards. What should you do first?",
+      "options": [
+        "A. Configure multi-factor authentication (MFA) for your GitHub account.",
+        "B. Add the Azure Pipelines app to the GitHub repository.",
+        "C. Add the Azure Boards app to the repository."
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "To display commit status from a GitHub repository on Azure Boards, you must first install the Azure Boards app in the GitHub repository. This establishes the connection between GitHub and Azure Boards, enabling commit status, pull request links, and work item tracking to flow between the two services. Incorrect answers: A (Configure MFA for GitHub) is wrong because MFA is an authentication security measure and does not establish the integration between Azure Boards and GitHub. B (Add Azure Pipelines app) is wrong because the Pipelines app enables CI/CD integration, not work item and commit status integration with Azure Boards."
+    },
+    {
+      "id": 64,
+      "topic": "Topic 9 - You have an Azure web app that is deployed by using Azure Pipelines.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure web app that is deployed by using Azure Pipelines. You need to ensure that when a new version of the app is deployed to production, you can roll back to the previous version. The solution must meet the following requirements: • Minimize downtime during the deployment. • Minimize the time it takes for the rollback. What should you use?",
+      "options": [
+        "A. a single web app and two deployment slots",
+        "B. a single web app and two deployment pipelines",
+        "C. two web apps and an Azure Standard Load Balancer"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Using a single web app with two deployment slots provides the fastest rollback with minimal downtime. You deploy the new version to the staging slot, and when ready, swap it with the production slot. If issues arise, you simply swap back to the previous slot, which still contains the old version. This process takes only seconds. Incorrect answers: B (two deployment pipelines) is wrong because having two pipelines does not inherently provide fast rollback. C (two web apps with Load Balancer) is wrong because switching traffic between two separate web apps is more complex and slower than slot swapping."
+    },
+    {
+      "id": 65,
+      "topic": "Topic 6 - You have an Azure subscription that contains a storage account and 20 virtual machines.",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure subscription that contains a storage account and 20 virtual machines. You plan to use LogRhythm for aggregation and analysis of the virtual machine logs. You need to configure AzLog to export the logs and push them to the storage account. In which format should you export the logs?",
+      "options": [
+        "A. JSON",
+        "B. EVTX",
+        "C. EVT"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Azure diagnostic logs and activity logs should be exported in JSON format when pushing to a storage account for integration with third-party tools like LogRhythm. JSON is the standard format for Azure log data and is widely supported by log aggregation and analysis tools. Incorrect answers: B (EVTX) is wrong because EVTX is the Windows Event Log format, used locally on Windows systems, not for Azure log export. C (EVT) is wrong because EVT is the legacy Windows Event Log format, also not applicable for Azure log export."
+    }
+  ]
+}

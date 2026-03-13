@@ -1,0 +1,573 @@
+{
+  "examCode": "MB-910",
+  "examTitle": "Microsoft Dynamics 365 Fundamentals (CRM)",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Core Capabilities - Customer engagement apps",
+      "type": "SingleChoice",
+      "questionText": "Which group of Dynamics 365 applications is focused on managing customer relationships, including sales, service, and marketing?",
+      "options": ["A. Dynamics 365 Finance and Operations apps.", "B. Dynamics 365 Customer Engagement apps.", "C. Dynamics 365 Business Central.", "D. Power Platform apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Customer Engagement apps include Sales, Customer Service, Field Service, and Customer Insights (Journeys). They focus on managing customer relationships and interactions throughout the customer lifecycle.\n\nA is incorrect because Finance and Operations apps focus on ERP functions like finance, supply chain, and HR.\n\nC is incorrect because Business Central is an all-in-one business management solution for small and medium businesses.\n\nD is incorrect because Power Platform apps (Power Apps, Power BI, etc.) are a separate low-code platform, not Dynamics 365 CRM."
+    },
+    {
+      "id": 2,
+      "topic": "Core Capabilities - Dataverse foundation",
+      "type": "SingleChoice",
+      "questionText": "Which data platform serves as the foundation for storing and managing data across Dynamics 365 Customer Engagement applications?",
+      "options": ["A. Azure SQL Database.", "B. Microsoft Dataverse.", "C. Azure Cosmos DB.", "D. SharePoint Online."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Dataverse is the underlying data platform for Dynamics 365 Customer Engagement apps. It provides a standardized data model, security, business logic, and integration capabilities shared across all customer engagement applications.\n\nA is incorrect because Azure SQL Database is a general-purpose relational database, not the specific foundation for D365.\n\nC is incorrect because Cosmos DB is a NoSQL database, not the D365 data platform.\n\nD is incorrect because SharePoint is a collaboration platform for documents, not D365 data storage."
+    },
+    {
+      "id": 3,
+      "topic": "Dynamics 365 Sales - Lead management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, what is a lead?",
+      "options": ["A. An existing customer with a signed contract.", "B. A potential customer who has shown interest in your products or services but has not yet been qualified.", "C. A completed sales transaction.", "D. A customer complaint that needs resolution."],
+      "correctAnswers": ["B"],
+      "explanation": "A lead in Dynamics 365 Sales represents a potential customer or prospect who has shown interest in your products or services. Leads need to be qualified before they become opportunities in the sales pipeline.\n\nA is incorrect because an existing customer with a contract is an account or contact, not a lead.\n\nC is incorrect because a completed transaction is an order or invoice.\n\nD is incorrect because a complaint is handled as a case in Customer Service."
+    },
+    {
+      "id": 4,
+      "topic": "Dynamics 365 Sales - Lead qualification",
+      "type": "SingleChoice",
+      "questionText": "What happens when a lead is qualified in Dynamics 365 Sales?",
+      "options": ["A. The lead is deleted from the system.", "B. The lead is converted into an account, contact, and opportunity.", "C. The lead is assigned to a different salesperson.", "D. The lead is sent an automated email."],
+      "correctAnswers": ["B"],
+      "explanation": "When a lead is qualified in Dynamics 365 Sales, it is automatically converted into an account (company), contact (person), and opportunity (potential deal). This moves the prospect into the active sales pipeline for further pursuit.\n\nA is incorrect because qualifying does not delete the lead; it converts and deactivates it.\n\nC is incorrect because reassignment is a separate action from qualification.\n\nD is incorrect because automated emails may be part of workflows but are not the direct result of the qualification action."
+    },
+    {
+      "id": 5,
+      "topic": "Dynamics 365 Sales - Opportunity management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, what does an opportunity represent?",
+      "options": ["A. A lead that has not yet been contacted.", "B. A qualified potential sale with an estimated revenue and close date.", "C. A completed sale with payment received.", "D. A product in the inventory catalog."],
+      "correctAnswers": ["B"],
+      "explanation": "An opportunity in Dynamics 365 Sales represents a qualified potential sale. It includes estimated revenue, expected close date, and associated products or services. Opportunities progress through sales stages until won or lost.\n\nA is incorrect because uncontacted leads are still leads, not opportunities.\n\nC is incorrect because a completed sale is an order or invoice, not an opportunity.\n\nD is incorrect because products are stored in the product catalog, not as opportunities."
+    },
+    {
+      "id": 6,
+      "topic": "Dynamics 365 Sales - Sales pipeline",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO records are part of the sales process in Dynamics 365 Sales? (Choose two.)",
+      "options": ["A. Quote.", "B. Work order.", "C. Order.", "D. Service level agreement."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because a Quote is created from an opportunity to present pricing to the customer as part of the quote lifecycle in the sales process.\n\nC is correct because an Order is created when a customer accepts a quote, formalizing the sale and enabling fulfillment.\n\nB is incorrect because work orders are part of Dynamics 365 Field Service, not the core sales process.\n\nD is incorrect because SLAs are part of Customer Service for tracking response and resolution times, not the sales pipeline."
+    },
+    {
+      "id": 7,
+      "topic": "Dynamics 365 Sales - Product catalog",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, what is the product catalog used for?",
+      "options": ["A. To track customer support cases.", "B. To define the products, pricing, and discount lists available for sales transactions.", "C. To manage employee payroll.", "D. To store marketing email templates."],
+      "correctAnswers": ["B"],
+      "explanation": "The product catalog in Dynamics 365 Sales defines the products and services available for sale, including price lists, discount lists, unit groups, and product families. Sales records reference the catalog for accurate and consistent pricing.\n\nA is incorrect because customer support cases are managed in Customer Service.\n\nC is incorrect because payroll is managed in Dynamics 365 Human Resources or Finance.\n\nD is incorrect because email templates are part of Marketing or email configuration, not the product catalog."
+    },
+    {
+      "id": 8,
+      "topic": "Dynamics 365 Sales - Forecasting",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Sales feature helps sales managers predict future revenue based on the current sales pipeline?",
+      "options": ["A. Lead scoring.", "B. Sales forecasting.", "C. Knowledge articles.", "D. Routing rules."],
+      "correctAnswers": ["B"],
+      "explanation": "Sales forecasting in Dynamics 365 Sales helps managers predict future revenue by analyzing the current pipeline of opportunities, their stages, probability of closing, and committed amounts.\n\nA is incorrect because lead scoring rates the quality of leads based on engagement, not forecasts revenue.\n\nC is incorrect because knowledge articles are information resources used in Customer Service for case resolution.\n\nD is incorrect because routing rules direct records to queues or users, not forecast revenue."
+    },
+    {
+      "id": 9,
+      "topic": "Dynamics 365 Sales - AI features",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Sales AI feature analyzes customer interactions and provides insights about relationship health and engagement?",
+      "options": ["A. Sales Copilot.", "B. Relationship intelligence.", "C. Product catalog.", "D. Business process flows."],
+      "correctAnswers": ["B"],
+      "explanation": "Relationship intelligence in Dynamics 365 Sales uses AI to analyze emails, meetings, and activities to provide insights about the health of customer relationships and suggest next best actions for sales representatives.\n\nA is incorrect because Sales Copilot assists with content generation, summarization, and meeting preparation, not specifically relationship health analysis.\n\nC is incorrect because the product catalog stores product and pricing information.\n\nD is incorrect because business process flows guide users through stages but do not analyze relationship health."
+    },
+    {
+      "id": 10,
+      "topic": "Dynamics 365 Customer Service - Case management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Service, what is a case?",
+      "options": ["A. A potential sales opportunity.", "B. A customer issue, question, or request that needs to be tracked and resolved.", "C. A marketing campaign.", "D. A scheduled field service appointment."],
+      "correctAnswers": ["B"],
+      "explanation": "A case in Dynamics 365 Customer Service represents a customer issue, question, or service request that needs to be tracked, managed, and resolved. Cases track all interactions, activities, and resolution steps related to the issue.\n\nA is incorrect because sales opportunities are managed in Dynamics 365 Sales.\n\nC is incorrect because marketing campaigns are managed in Dynamics 365 Customer Insights - Journeys.\n\nD is incorrect because field service appointments are work orders in Dynamics 365 Field Service."
+    },
+    {
+      "id": 11,
+      "topic": "Dynamics 365 Customer Service - Queues",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of queues in Dynamics 365 Customer Service?",
+      "options": ["A. To store product inventory.", "B. To organize and prioritize cases for agents to pick up and work on.", "C. To create marketing segments.", "D. To schedule field service resources."],
+      "correctAnswers": ["B"],
+      "explanation": "Queues in Dynamics 365 Customer Service organize and prioritize cases (and other activities) into collections from which agents can pick up items to work on. Queues help distribute workload and ensure cases are handled efficiently and fairly.\n\nA is incorrect because inventory is managed in supply chain or commerce modules.\n\nC is incorrect because marketing segments are created in Dynamics 365 Customer Insights.\n\nD is incorrect because field service scheduling is handled by the schedule board in Field Service."
+    },
+    {
+      "id": 12,
+      "topic": "Dynamics 365 Customer Service - Knowledge management",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Customer Service feature provides a repository of articles that agents can use to resolve customer issues?",
+      "options": ["A. Queues.", "B. Knowledge base.", "C. Service level agreements.", "D. Entitlements."],
+      "correctAnswers": ["B"],
+      "explanation": "The knowledge base in Dynamics 365 Customer Service is a repository of articles containing solutions, FAQs, and troubleshooting steps. Agents can search, link, and share knowledge articles to resolve cases quickly and consistently.\n\nA is incorrect because queues organize cases for distribution, not information articles.\n\nC is incorrect because SLAs define response and resolution time commitments.\n\nD is incorrect because entitlements define the terms of support a customer is entitled to."
+    },
+    {
+      "id": 13,
+      "topic": "Dynamics 365 Customer Service - Service Level Agreements",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Service Level Agreements (SLAs) in Dynamics 365 Customer Service?",
+      "options": ["A. To define the products available for sale.", "B. To define the expected response and resolution times for customer cases.", "C. To manage employee schedules.", "D. To create marketing email campaigns."],
+      "correctAnswers": ["B"],
+      "explanation": "SLAs in Dynamics 365 Customer Service define key performance indicators (KPIs) such as first response time and case resolution time. They track whether support teams meet their commitments and trigger warnings or escalations when SLA deadlines approach.\n\nA is incorrect because product definitions are in the product catalog.\n\nC is incorrect because employee scheduling is in HR or Field Service.\n\nD is incorrect because email campaigns are in Dynamics 365 Customer Insights - Journeys."
+    },
+    {
+      "id": 14,
+      "topic": "Dynamics 365 Customer Service - Entitlements",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Service, what do entitlements define?",
+      "options": ["A. The discounts available on products.", "B. The terms and conditions of support that a customer is entitled to receive.", "C. The marketing materials sent to customers.", "D. The inventory levels of products."],
+      "correctAnswers": ["B"],
+      "explanation": "Entitlements in Dynamics 365 Customer Service define the support terms a customer is entitled to, including the number of cases, support hours, or the time period for which support is provided. They can be linked to specific products or contacts.\n\nA is incorrect because discounts are managed in price lists and discount lists.\n\nC is incorrect because marketing materials are managed in Dynamics 365 Customer Insights - Journeys.\n\nD is incorrect because inventory is managed in supply chain modules."
+    },
+    {
+      "id": 15,
+      "topic": "Dynamics 365 Customer Service - Omnichannel",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO channels are supported by the Omnichannel for Customer Service add-in? (Choose two.)",
+      "options": ["A. Live chat.", "B. Inventory management.", "C. Social media messaging (e.g., Facebook Messenger).", "D. General ledger entries."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Omnichannel for Customer Service supports live chat, allowing customers to interact with agents in real-time through a web chat widget embedded on websites.\n\nC is correct because Omnichannel supports social media channels like Facebook Messenger, WhatsApp, LINE, and others for customer communication.\n\nB is incorrect because inventory management is an ERP function, not a customer service channel.\n\nD is incorrect because general ledger entries are financial records, not customer service channels."
+    },
+    {
+      "id": 16,
+      "topic": "Dynamics 365 Customer Service - Customer Voice",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 feature allows you to create and send surveys to collect customer feedback after service interactions?",
+      "options": ["A. Customer Voice (Dynamics 365 Customer Voice).", "B. Knowledge base.", "C. Queues.", "D. Business process flows."],
+      "correctAnswers": ["A"],
+      "explanation": "Dynamics 365 Customer Voice enables organizations to create and send surveys to customers to collect feedback about their service experience. Results can be analyzed and connected to Dynamics 365 records for tracking satisfaction.\n\nB is incorrect because the knowledge base stores solution articles, not surveys.\n\nC is incorrect because queues organize work items, not collect feedback.\n\nD is incorrect because BPFs guide users through processes, not collect survey feedback."
+    },
+    {
+      "id": 17,
+      "topic": "Dynamics 365 Field Service - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application is designed for managing on-site service operations including dispatching technicians, scheduling work orders, and managing inventory?",
+      "options": ["A. Dynamics 365 Sales.", "B. Dynamics 365 Customer Service.", "C. Dynamics 365 Field Service.", "D. Dynamics 365 Customer Insights - Journeys."],
+      "correctAnswers": ["C"],
+      "explanation": "Dynamics 365 Field Service is designed for organizations that deliver on-site services. It manages work orders, dispatches technicians, optimizes schedules, tracks inventory on trucks, and provides mobile access for field workers.\n\nA is incorrect because Sales focuses on the sales pipeline and revenue generation.\n\nB is incorrect because Customer Service focuses on case management and support interactions.\n\nD is incorrect because Customer Insights - Journeys focuses on marketing campaigns and customer journeys."
+    },
+    {
+      "id": 18,
+      "topic": "Dynamics 365 Field Service - Work orders",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Field Service, what is a work order?",
+      "options": ["A. A sales quote sent to a customer.", "B. A record that contains all the information needed to perform on-site service at a customer location.", "C. An email marketing campaign.", "D. A customer satisfaction survey."],
+      "correctAnswers": ["B"],
+      "explanation": "A work order in Dynamics 365 Field Service contains all the information needed to complete an on-site service job, including customer details, service tasks, products/parts needed, assigned resources, and scheduling information. It tracks the complete work order lifecycle.\n\nA is incorrect because sales quotes are part of the Sales module.\n\nC is incorrect because email campaigns are part of Customer Insights - Journeys.\n\nD is incorrect because surveys are part of Customer Voice."
+    },
+    {
+      "id": 19,
+      "topic": "Dynamics 365 Field Service - Schedule board",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Field Service tool provides a visual interface for dispatchers to view and manage the schedules of field technicians?",
+      "options": ["A. Knowledge base.", "B. Schedule Board.", "C. Product catalog.", "D. Pipeline view."],
+      "correctAnswers": ["B"],
+      "explanation": "The Schedule Board in Dynamics 365 Field Service provides a visual, interactive interface where dispatchers can view resource availability, drag and drop work orders to assign them, and optimize technician schedules.\n\nA is incorrect because the knowledge base stores information articles for case resolution.\n\nC is incorrect because the product catalog defines products and pricing.\n\nD is incorrect because the pipeline view is used in Sales for viewing opportunities."
+    },
+    {
+      "id": 20,
+      "topic": "Dynamics 365 Field Service - Resource scheduling",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Field Service capability uses AI to automatically assign the best available technician to a work order based on skills, location, and availability?",
+      "options": ["A. Manual scheduling.", "B. Resource Scheduling Optimization (RSO).", "C. Knowledge management.", "D. Case routing."],
+      "correctAnswers": ["B"],
+      "explanation": "Resource Scheduling Optimization (RSO) uses AI to automatically schedule work orders to the best available resources based on factors like skills, location, travel time, priority, and availability, optimizing the entire schedule.\n\nA is incorrect because manual scheduling requires a dispatcher to manually assign work orders.\n\nC is incorrect because knowledge management stores articles for resolving issues.\n\nD is incorrect because case routing directs cases to queues in Customer Service, not field service scheduling."
+    },
+    {
+      "id": 21,
+      "topic": "Dynamics 365 Field Service - Mobile app",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Field Service feature allows technicians to view their schedules, access work order details, and update job status from their mobile devices?",
+      "options": ["A. Schedule Board.", "B. Field Service mobile app.", "C. Customer portal.", "D. Marketing app."],
+      "correctAnswers": ["B"],
+      "explanation": "The Field Service mobile app provides technicians with on-the-go access to their schedules, work order details, customer information, and the ability to update job status, capture signatures, and log time from their mobile devices.\n\nA is incorrect because the Schedule Board is used by dispatchers to manage schedules, not by technicians in the field.\n\nC is incorrect because the customer portal is for customers to submit requests, not for technician work.\n\nD is incorrect because the Marketing app is for creating campaigns, not field work."
+    },
+    {
+      "id": 22,
+      "topic": "Dynamics 365 Field Service - Inventory management",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO inventory-related features are available in Dynamics 365 Field Service? (Choose two.)",
+      "options": ["A. Tracking inventory in warehouses.", "B. Managing product returns and RMAs.", "C. Processing employee payroll.", "D. Creating financial statements."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Field Service tracks inventory across warehouses, trucks, and customer locations for parts and products needed for service work.\n\nB is correct because Field Service supports managing product returns and Return Merchandise Authorizations (RMAs) for defective or unused parts from field operations.\n\nC is incorrect because payroll processing is an HR/Finance function, not Field Service.\n\nD is incorrect because financial statements are generated in Finance modules, not Field Service."
+    },
+    {
+      "id": 23,
+      "topic": "Dynamics 365 Field Service - IoT and Connected Field Service",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Field Service feature uses IoT sensors to detect equipment issues and automatically create work orders for proactive service?",
+      "options": ["A. Schedule Board.", "B. Connected Field Service (IoT).", "C. Knowledge base.", "D. Customer Voice."],
+      "correctAnswers": ["B"],
+      "explanation": "Connected Field Service uses IoT sensors to monitor customer equipment remotely. When an anomaly is detected, it can automatically create alerts and work orders, enabling proactive service before equipment fails.\n\nA is incorrect because the Schedule Board manages resource scheduling, not IoT monitoring.\n\nC is incorrect because the knowledge base stores articles, not IoT data.\n\nD is incorrect because Customer Voice collects survey feedback, not IoT data."
+    },
+    {
+      "id": 24,
+      "topic": "Dynamics 365 Customer Insights - Journeys overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application is designed for creating multi-channel marketing campaigns, tracking customer interactions, and nurturing leads?",
+      "options": ["A. Dynamics 365 Sales.", "B. Dynamics 365 Customer Service.", "C. Dynamics 365 Customer Insights - Journeys.", "D. Dynamics 365 Field Service."],
+      "correctAnswers": ["C"],
+      "explanation": "Dynamics 365 Customer Insights - Journeys (formerly Dynamics 365 Marketing) is designed for creating and managing multi-channel marketing campaigns, customer journeys, event management, and lead nurturing.\n\nA is incorrect because Sales manages the sales pipeline and opportunities.\n\nB is incorrect because Customer Service manages cases and support.\n\nD is incorrect because Field Service manages on-site service operations."
+    },
+    {
+      "id": 25,
+      "topic": "Dynamics 365 Customer Insights - Customer journeys",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Insights - Journeys, what is a customer journey?",
+      "options": ["A. A GPS route for field service technicians.", "B. An automated marketing workflow that defines how customers interact with your brand across multiple touchpoints.", "C. A customer's purchase history.", "D. A sales pipeline view."],
+      "correctAnswers": ["B"],
+      "explanation": "A customer journey in Dynamics 365 Customer Insights - Journeys is an automated marketing workflow that defines the path a customer takes through various touchpoints (emails, events, landing pages, conditions, triggers) to nurture engagement and drive actions.\n\nA is incorrect because GPS routing is part of Field Service, not marketing.\n\nC is incorrect because purchase history is a sales record, not a marketing workflow.\n\nD is incorrect because a pipeline view is a Sales feature for viewing opportunities."
+    },
+    {
+      "id": 26,
+      "topic": "Dynamics 365 Customer Insights - Segments",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Insights - Journeys, what is a segment?",
+      "options": ["A. A part of a SharePoint site.", "B. A defined group of contacts that share common characteristics and are targeted for marketing activities.", "C. A section of a customer service case.", "D. A type of financial account."],
+      "correctAnswers": ["B"],
+      "explanation": "A segment in Dynamics 365 Customer Insights - Journeys is a collection of contacts grouped by common attributes (like location, industry, behavior, or engagement level). Segments are used to target specific audiences for marketing campaigns and customer journeys.\n\nA is incorrect because SharePoint site sections are not marketing segments.\n\nC is incorrect because case sections are part of Customer Service.\n\nD is incorrect because financial accounts are part of Finance modules."
+    },
+    {
+      "id": 27,
+      "topic": "Dynamics 365 Customer Insights - Email marketing",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Customer Insights - Journeys feature allows you to design and send personalized marketing emails using a drag-and-drop editor?",
+      "options": ["A. Customer journey.", "B. Marketing email designer.", "C. Lead scoring.", "D. Event management."],
+      "correctAnswers": ["B"],
+      "explanation": "The marketing email designer in Dynamics 365 Customer Insights - Journeys provides a drag-and-drop editor for creating visually appealing, personalized marketing emails with dynamic content, images, buttons, and personalization tokens.\n\nA is incorrect because customer journeys orchestrate the overall campaign flow, not individual email design.\n\nC is incorrect because lead scoring rates leads based on engagement, not email design.\n\nD is incorrect because event management handles event planning and registration."
+    },
+    {
+      "id": 28,
+      "topic": "Dynamics 365 Customer Insights - Lead scoring",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Customer Insights - Journeys feature automatically rates leads based on their demographic data and engagement with marketing activities?",
+      "options": ["A. Customer segments.", "B. Lead scoring models.", "C. Marketing forms.", "D. Social posting."],
+      "correctAnswers": ["B"],
+      "explanation": "Lead scoring models in Dynamics 365 Customer Insights - Journeys automatically assign scores to leads based on demographic attributes (like job title or company size) and behavioral engagement (like email opens, link clicks, and event attendance). This supports lead generation and qualification.\n\nA is incorrect because segments group contacts for targeting, not score them.\n\nC is incorrect because marketing forms capture information from contacts.\n\nD is incorrect because social posting schedules social media content."
+    },
+    {
+      "id": 29,
+      "topic": "Dynamics 365 Customer Insights - Event management",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does event management in Dynamics 365 Customer Insights - Journeys provide? (Choose two.)",
+      "options": ["A. Planning and managing in-person and online events.", "B. Processing financial transactions.", "C. Managing event registrations and attendance tracking.", "D. Scheduling field service technicians."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Dynamics 365 Customer Insights - Journeys event management supports planning in-person, online (webinars), and hybrid events including venues, sessions, and speakers.\n\nC is correct because it manages event registrations, check-ins, attendance tracking, and post-event follow-ups for nurturing attendees.\n\nB is incorrect because financial transaction processing is a Finance module function.\n\nD is incorrect because technician scheduling is a Field Service function."
+    },
+    {
+      "id": 30,
+      "topic": "Dynamics 365 Customer Insights - Forms and landing pages",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Insights - Journeys, what are marketing forms used for?",
+      "options": ["A. To create financial reports.", "B. To capture contact information and preferences from visitors on landing pages or websites.", "C. To schedule appointments.", "D. To generate invoices."],
+      "correctAnswers": ["B"],
+      "explanation": "Marketing forms in Dynamics 365 Customer Insights - Journeys are used on landing pages and websites to capture visitor information such as name, email, preferences, and consent. Submitted data creates or updates contact records in Dataverse.\n\nA is incorrect because financial reports are created in Finance modules.\n\nC is incorrect because appointment scheduling uses Bookings or calendar features.\n\nD is incorrect because invoices are generated in Sales or Finance modules."
+    },
+    {
+      "id": 31,
+      "topic": "Core Capabilities - Common data model",
+      "type": "SingleChoice",
+      "questionText": "Which core record types are shared across Dynamics 365 Customer Engagement applications?",
+      "options": ["A. Invoice and journal entries.", "B. Accounts, contacts, and activities.", "C. Products and warehouses.", "D. Budgets and forecasts."],
+      "correctAnswers": ["B"],
+      "explanation": "Accounts (companies), contacts (individuals), and activities (emails, phone calls, appointments, tasks) are core record types shared across all Dynamics 365 Customer Engagement applications, providing a unified view of customer data and interactions.\n\nA is incorrect because invoices and journal entries are primarily financial records in ERP applications.\n\nC is incorrect because warehouses are part of supply chain management.\n\nD is incorrect because budgets and forecasts are primarily financial planning records."
+    },
+    {
+      "id": 32,
+      "topic": "Dynamics 365 Sales - Business process flows",
+      "type": "SingleChoice",
+      "questionText": "Which feature in Dynamics 365 guides users through a defined sequence of stages when working with leads or opportunities?",
+      "options": ["A. Dashboards.", "B. Business process flows.", "C. Charts.", "D. Views."],
+      "correctAnswers": ["B"],
+      "explanation": "Business process flows provide a visual guide bar at the top of records that leads users through defined stages with required fields at each step. For sales, the lead-to-opportunity process flow guides from qualification through proposal to close.\n\nA is incorrect because dashboards display summaries and metrics but do not guide through stages.\n\nC is incorrect because charts visualize data but do not guide processes.\n\nD is incorrect because views filter and display lists of records but do not guide through stages."
+    },
+    {
+      "id": 33,
+      "topic": "Core Capabilities - Unified Interface",
+      "type": "SingleChoice",
+      "questionText": "Which user experience framework provides a consistent, responsive interface across all Dynamics 365 Customer Engagement apps on any device?",
+      "options": ["A. Classic web interface.", "B. Unified Interface.", "C. Mobile-only interface.", "D. Desktop-only interface."],
+      "correctAnswers": ["B"],
+      "explanation": "Unified Interface is the modern user experience framework for Dynamics 365 that provides a consistent, responsive interface across web browsers, tablets, and mobile devices. It automatically adapts the layout based on screen size.\n\nA is incorrect because the classic web interface is the legacy interface that has been replaced.\n\nC is incorrect because the Unified Interface works across all devices, not just mobile.\n\nD is incorrect because the Unified Interface is responsive and works on all devices, not desktop only."
+    },
+    {
+      "id": 34,
+      "topic": "Dynamics 365 Sales - Dashboards and reports",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 feature provides visual summaries of sales performance data including charts, lists, and KPIs on a single page?",
+      "options": ["A. Business process flows.", "B. Dashboards.", "C. Queues.", "D. Entitlements."],
+      "correctAnswers": ["B"],
+      "explanation": "Dashboards in Dynamics 365 provide a single-page view of business data through charts, lists, and KPIs. Sales dashboards can show pipeline value, win/loss ratios, activity summaries, and performance metrics at a glance.\n\nA is incorrect because BPFs guide users through stages, not display performance data.\n\nC is incorrect because queues organize work items, not display performance metrics.\n\nD is incorrect because entitlements define support terms, not sales performance views."
+    },
+    {
+      "id": 35,
+      "topic": "Dynamics 365 Field Service - Agreements",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Field Service, what is an agreement used for?",
+      "options": ["A. To define recurring service contracts that automatically generate work orders.", "B. To store customer email addresses.", "C. To create marketing campaigns.", "D. To process employee expenses."],
+      "correctAnswers": ["A"],
+      "explanation": "Agreements in Dynamics 365 Field Service define recurring service contracts with customers. They can automatically generate work orders and invoices at specified intervals for preventive maintenance or ongoing service schedules.\n\nB is incorrect because contact records store customer information, not agreements.\n\nC is incorrect because marketing campaigns are created in Customer Insights - Journeys, not Field Service.\n\nD is incorrect because expense processing is in Finance or HR modules."
+    },
+    {
+      "id": 36,
+      "topic": "Dynamics 365 Customer Insights - Data",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application creates a unified customer profile by combining data from multiple sources to provide a 360-degree view of each customer?",
+      "options": ["A. Dynamics 365 Sales.", "B. Dynamics 365 Customer Insights - Data.", "C. Dynamics 365 Field Service.", "D. Dynamics 365 Business Central."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Customer Insights - Data unifies customer data from multiple sources (transactional, behavioral, demographic) to create comprehensive unified customer profiles with a 360-degree view for personalized engagement.\n\nA is incorrect because Sales manages the sales pipeline, not data unification from multiple sources.\n\nC is incorrect because Field Service manages on-site service operations.\n\nD is incorrect because Business Central is a small business ERP solution."
+    },
+    {
+      "id": 37,
+      "topic": "Dynamics 365 Customer Service - Agent workspace",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO features does the Customer Service workspace provide for agents? (Choose two.)",
+      "options": ["A. A multi-session interface for handling multiple cases simultaneously.", "B. Automated financial reporting.", "C. AI-suggested knowledge articles and similar cases.", "D. Inventory warehouse management."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because the Customer Service workspace provides a multi-session interface where agents can work on multiple cases, conversations, and activities simultaneously in separate tabs.\n\nC is correct because AI-powered suggestions recommend relevant knowledge articles and similar cases to help agents resolve issues faster, acting as agent productivity tools.\n\nB is incorrect because financial reporting is a Finance module function.\n\nD is incorrect because warehouse management is a Supply Chain function."
+    },
+    {
+      "id": 38,
+      "topic": "Core Capabilities - Integration with Microsoft 365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft application integrates with Dynamics 365 to allow users to track emails and appointments as activities related to customer records?",
+      "options": ["A. Microsoft Excel.", "B. Microsoft Outlook.", "C. Microsoft PowerPoint.", "D. Microsoft Access."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Outlook integrates with Dynamics 365 through the Dynamics 365 App for Outlook, allowing users to track emails and appointments as activities, view customer information, and create records directly from Outlook.\n\nA is incorrect because Excel integrates for data export/import but not email tracking.\n\nC is incorrect because PowerPoint is a presentation tool with no email tracking integration.\n\nD is incorrect because Access is a desktop database tool, not integrated for email tracking."
+    },
+    {
+      "id": 39,
+      "topic": "Dynamics 365 Field Service - Customer assets",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Field Service, what are customer assets?",
+      "options": ["A. Financial investments owned by customers.", "B. Equipment, products, or devices at a customer location that require service and maintenance.", "C. Customer email addresses and phone numbers.", "D. Marketing materials sent to customers."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer assets in Dynamics 365 Field Service represent the equipment, products, or devices located at customer sites that require installation, service, maintenance, or repair. They are linked to work orders and service history for complete asset tracking.\n\nA is incorrect because financial investments are not tracked in Field Service.\n\nC is incorrect because contact information is stored in contact records, not customer assets.\n\nD is incorrect because marketing materials are managed in Customer Insights - Journeys."
+    },
+    {
+      "id": 40,
+      "topic": "Core Capabilities - Power Platform integration",
+      "type": "SingleChoice",
+      "questionText": "How does Power BI integrate with Dynamics 365 Customer Engagement applications?",
+      "options": ["A. Power BI replaces Dynamics 365 dashboards entirely.", "B. Power BI reports and dashboards can be embedded within Dynamics 365 to provide advanced analytics on CRM data.", "C. Power BI manages user security in Dynamics 365.", "D. Power BI creates work orders in Field Service."],
+      "correctAnswers": ["B"],
+      "explanation": "Power BI reports and dashboards can be embedded within Dynamics 365 forms and dashboards, providing advanced analytics, interactive visualizations, and deeper insights into CRM data beyond the built-in reporting capabilities.\n\nA is incorrect because Power BI enhances Dynamics 365 dashboards but does not replace them entirely.\n\nC is incorrect because user security is managed by Dataverse security roles, not Power BI.\n\nD is incorrect because Power BI is for analytics and visualization, not work order creation."
+    },
+    {
+      "id": 41,
+      "topic": "Dynamics 365 Sales - Quote lifecycle",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, what must happen to a quote before it can be converted to an order?",
+      "options": ["A. The quote must be deleted.", "B. The quote must be activated (set to Active status) and then won.", "C. The quote must be assigned to a queue.", "D. The quote must be linked to a marketing campaign."],
+      "correctAnswers": ["B"],
+      "explanation": "A quote must be in Active status and then marked as Won to convert it to an order. The activation step locks the pricing, and winning the quote indicates the customer has accepted the proposal.\n\nA is incorrect because deleting a quote removes it rather than converting it.\n\nC is incorrect because assigning to a queue is for work distribution, not quote conversion.\n\nD is incorrect because marketing campaign linkage is not required for quote-to-order conversion."
+    },
+    {
+      "id": 42,
+      "topic": "Dynamics 365 Sales - Order and invoice management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, after an order is fulfilled, what record is created to bill the customer?",
+      "options": ["A. A new opportunity.", "B. An invoice.", "C. A lead.", "D. A knowledge article."],
+      "correctAnswers": ["B"],
+      "explanation": "An invoice is created from a fulfilled order to bill the customer for the products or services delivered. This completes the order management and invoice management process in the sales lifecycle.\n\nA is incorrect because opportunities are for potential sales, not billing.\n\nC is incorrect because leads are for unqualified prospects, not billing.\n\nD is incorrect because knowledge articles are support resources, not billing documents."
+    },
+    {
+      "id": 43,
+      "topic": "Dynamics 365 Sales - Sales accelerator",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Sales accelerator in Dynamics 365 Sales?",
+      "options": ["A. To speed up database queries.", "B. To provide sellers with a prioritized worklist of activities, leads, and opportunities with recommended next actions.", "C. To accelerate marketing email delivery.", "D. To speed up report generation."],
+      "correctAnswers": ["B"],
+      "explanation": "The Sales accelerator provides sellers with a focused, prioritized worklist showing the most important leads, opportunities, and activities, along with recommended next actions and context from sequence steps to drive efficient selling.\n\nA is incorrect because database performance is an IT concern, not a sales tool.\n\nC is incorrect because email delivery speed is a marketing infrastructure concern.\n\nD is incorrect because report generation speed is a system performance concern."
+    },
+    {
+      "id": 44,
+      "topic": "Dynamics 365 Sales - Copilot",
+      "type": "SingleChoice",
+      "questionText": "What does Microsoft 365 Copilot in Dynamics 365 Sales help sellers with?",
+      "options": ["A. Configuring server infrastructure.", "B. Generating email drafts, summarizing records, and preparing for customer meetings with AI-generated insights.", "C. Processing financial transactions.", "D. Managing warehouse inventory."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Dynamics 365 Sales helps sellers by generating email drafts, summarizing opportunity and account records, providing meeting preparation insights, and catching up on recent changes to records using AI-powered capabilities.\n\nA is incorrect because server configuration is an IT infrastructure task.\n\nC is incorrect because financial transactions are processed in Finance modules.\n\nD is incorrect because warehouse inventory is managed in Supply Chain Management."
+    },
+    {
+      "id": 45,
+      "topic": "Dynamics 365 Customer Service - Unified Routing",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Unified Routing in Dynamics 365 Customer Service?",
+      "options": ["A. To route field service technicians to customer locations.", "B. To intelligently route cases and conversations to the most appropriate agent based on skills, availability, and capacity.", "C. To route marketing emails to contacts.", "D. To route financial transactions to the correct G/L account."],
+      "correctAnswers": ["B"],
+      "explanation": "Unified Routing in Dynamics 365 Customer Service uses intelligent rules to route incoming cases and conversations (from all channels) to the most appropriate agent based on agent skills, current availability, and workload capacity.\n\nA is incorrect because field service routing is handled by the Schedule Board and RSO.\n\nC is incorrect because email routing is a marketing function.\n\nD is incorrect because financial routing is handled by posting groups in Finance modules."
+    },
+    {
+      "id": 46,
+      "topic": "Dynamics 365 Customer Service - Copilot",
+      "type": "SingleChoice",
+      "questionText": "How does Copilot assist agents in Dynamics 365 Customer Service?",
+      "options": ["A. By automatically resolving all cases without agent intervention.", "B. By drafting responses, summarizing cases, and suggesting knowledge articles to help agents resolve issues faster.", "C. By managing the company's financial accounts.", "D. By scheduling field service appointments."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Customer Service assists agents by drafting email and chat responses, summarizing case details and conversation history, and suggesting relevant knowledge articles to accelerate case resolution.\n\nA is incorrect because Copilot assists agents rather than replacing them; agents still make decisions.\n\nC is incorrect because financial management is in Finance modules.\n\nD is incorrect because field service scheduling is in Field Service."
+    },
+    {
+      "id": 47,
+      "topic": "Dynamics 365 Customer Service - Reporting",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO reporting and data visualization options are available in Dynamics 365 Customer Service? (Choose two.)",
+      "options": ["A. Built-in dashboards with charts and KPI tracking.", "B. Embedded Power BI reports for advanced analytics.", "C. Manufacturing production reports.", "D. Payroll processing reports."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Customer Service includes built-in dashboards with charts, lists, and KPIs for tracking case volumes, agent performance, and SLA compliance.\n\nB is correct because Power BI reports can be embedded within Customer Service for advanced analytics on service data, customer satisfaction trends, and operational insights.\n\nC is incorrect because manufacturing reports are in Supply Chain Management.\n\nD is incorrect because payroll reports are in Human Resources or Finance."
+    },
+    {
+      "id": 48,
+      "topic": "Dynamics 365 Field Service - Inspections",
+      "type": "SingleChoice",
+      "questionText": "What are inspections in Dynamics 365 Field Service?",
+      "options": ["A. Financial audits of field service operations.", "B. Customizable checklists and forms that technicians complete during work orders to ensure quality and compliance.", "C. Security checks on user accounts.", "D. Marketing survey forms."],
+      "correctAnswers": ["B"],
+      "explanation": "Inspections in Field Service are customizable digital checklists and forms that technicians complete during work orders. They can include questions, photos, measurements, and pass/fail criteria to ensure quality and compliance with service standards.\n\nA is incorrect because financial audits are in Finance modules.\n\nC is incorrect because security checks are in identity management.\n\nD is incorrect because marketing surveys use Customer Voice."
+    },
+    {
+      "id": 49,
+      "topic": "Dynamics 365 Field Service - Copilot",
+      "type": "SingleChoice",
+      "questionText": "How does Copilot assist in Dynamics 365 Field Service?",
+      "options": ["A. By automatically repairing customer equipment.", "B. By helping create work orders, summarize records, and assist with scheduling through natural language interaction.", "C. By generating financial statements.", "D. By designing marketing campaigns."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Field Service helps dispatchers and managers by enabling natural language work order creation, summarizing work order details, and assisting with scheduling decisions through AI-powered interaction.\n\nA is incorrect because equipment repair requires physical technician intervention.\n\nC is incorrect because financial statements are generated in Finance modules.\n\nD is incorrect because marketing campaigns are designed in Customer Insights - Journeys."
+    },
+    {
+      "id": 50,
+      "topic": "Core Capabilities - Teams integration",
+      "type": "SingleChoice",
+      "questionText": "How does Microsoft Teams integrate with Dynamics 365 Customer Engagement apps?",
+      "options": ["A. Teams replaces Dynamics 365 entirely.", "B. Users can view and collaborate on Dynamics 365 records directly within Teams channels and chats without switching applications.", "C. Teams is only used for phone calls.", "D. Teams manages Dynamics 365 user security."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Teams integration allows users to view, share, and collaborate on Dynamics 365 records directly within Teams conversations, channels, and meetings. Users can link records, get notifications, and discuss CRM data without switching applications.\n\nA is incorrect because Teams complements Dynamics 365 but does not replace it.\n\nC is incorrect because Teams integration goes beyond phone calls to include record viewing and collaboration.\n\nD is incorrect because security is managed by Dataverse, not Teams."
+    },
+    {
+      "id": 51,
+      "topic": "Core Capabilities - Search and filtering",
+      "type": "SingleChoice",
+      "questionText": "Which search capability in Dynamics 365 Customer Engagement apps allows users to find records across multiple tables from a single search box?",
+      "options": ["A. Quick Find.", "B. Relevance Search (Dataverse Search).", "C. Advanced Find only.", "D. SQL queries."],
+      "correctAnswers": ["B"],
+      "explanation": "Relevance Search (also called Dataverse Search) provides a single search box that searches across multiple tables simultaneously, returning results ranked by relevance. It is the recommended global search experience.\n\nA is incorrect because Quick Find searches within a single table/view only.\n\nC is incorrect because Advanced Find provides complex filtering but is not a unified cross-table search.\n\nD is incorrect because end users do not write SQL queries in Dynamics 365."
+    },
+    {
+      "id": 52,
+      "topic": "Dynamics 365 Customer Insights - Data capabilities",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does Dynamics 365 Customer Insights - Data provide? (Choose two.)",
+      "options": ["A. Unified customer profiles combining data from multiple sources.", "B. Predictions and segments based on AI and machine learning.", "C. Direct warehouse management.", "D. Fixed asset depreciation calculations."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Customer Insights - Data creates unified customer profiles by combining and deduplicating data from CRM, ERP, web analytics, and other sources.\n\nB is correct because it provides AI-driven predictions (like churn prediction and customer lifetime value), measures, and segments for targeted marketing and personalized experiences.\n\nC is incorrect because warehouse management is in Supply Chain Management.\n\nD is incorrect because fixed asset depreciation is in Finance modules."
+    },
+    {
+      "id": 53,
+      "topic": "Dynamics 365 Customer Insights - Journeys Copilot",
+      "type": "SingleChoice",
+      "questionText": "How does Copilot help marketers in Dynamics 365 Customer Insights - Journeys?",
+      "options": ["A. By managing server infrastructure.", "B. By helping create segments, draft email content, and design customer journeys using natural language descriptions.", "C. By processing accounts payable invoices.", "D. By scheduling production orders."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Customer Insights - Journeys enables marketers to describe segments, email content, and journey logic in natural language. AI then generates the corresponding segments, email drafts, and journey designs, accelerating campaign creation.\n\nA is incorrect because server management is an IT infrastructure task.\n\nC is incorrect because accounts payable is in Finance modules.\n\nD is incorrect because production scheduling is in Supply Chain Management."
+    },
+    {
+      "id": 54,
+      "topic": "Core Capabilities - Excel and Word integration",
+      "type": "SingleChoice",
+      "questionText": "How do Microsoft Excel and Word integrate with Dynamics 365 Customer Engagement apps?",
+      "options": ["A. They cannot be used with Dynamics 365.", "B. Excel can export and analyze CRM data, while Word templates can generate formatted documents like quotes and contracts from Dynamics 365 records.", "C. They replace the Dynamics 365 user interface.", "D. They are only used for financial reporting."],
+      "correctAnswers": ["B"],
+      "explanation": "Excel integration allows exporting CRM data for analysis and importing updates back. Word templates generate formatted documents (quotes, letters, contracts) populated with data from Dynamics 365 records, providing professional document output.\n\nA is incorrect because both products integrate well with Dynamics 365.\n\nC is incorrect because they complement, not replace, the Dynamics 365 interface.\n\nD is incorrect because Excel and Word integration applies to CRM data broadly, not just financial reporting."
+    },
+    {
+      "id": 55,
+      "topic": "Core Capabilities - SharePoint integration",
+      "type": "SingleChoice",
+      "questionText": "What does SharePoint integration provide for Dynamics 365 Customer Engagement apps?",
+      "options": ["A. A replacement for Dataverse data storage.", "B. Document management capabilities allowing users to store and access files related to Dynamics 365 records.", "C. A marketing automation engine.", "D. A replacement for the Schedule Board."],
+      "correctAnswers": ["B"],
+      "explanation": "SharePoint integration enables document management within Dynamics 365, allowing users to store, organize, and access files (proposals, contracts, attachments) directly from CRM records using SharePoint's document library capabilities.\n\nA is incorrect because SharePoint stores documents, not Dataverse data.\n\nC is incorrect because marketing automation is in Customer Insights - Journeys.\n\nD is incorrect because the Schedule Board is a Field Service scheduling tool."
+    },
+    {
+      "id": 56,
+      "topic": "Dynamics 365 Sales - LinkedIn Sales Insights",
+      "type": "SingleChoice",
+      "questionText": "What do LinkedIn Sales Insights provide in the context of Dynamics 365 Sales?",
+      "options": ["A. Social media posting for marketing campaigns.", "B. Professional profile data, connection insights, and relationship mapping to help sellers identify and engage with prospects.", "C. Financial credit scoring for customers.", "D. Inventory tracking for products."],
+      "correctAnswers": ["B"],
+      "explanation": "LinkedIn Sales Insights integrates LinkedIn professional data with Dynamics 365 Sales, providing sellers with profile information, connection insights, lead recommendations, and relationship mapping to improve prospecting and engagement.\n\nA is incorrect because social media posting is a marketing function.\n\nC is incorrect because credit scoring is a finance function.\n\nD is incorrect because inventory tracking is a supply chain function."
+    },
+    {
+      "id": 57,
+      "topic": "Dynamics 365 Sales - Mobile app",
+      "type": "SingleChoice",
+      "questionText": "What does the Dynamics 365 Sales mobile app enable sellers to do?",
+      "options": ["A. Only view contact phone numbers.", "B. Access their pipeline, update records, log activities, and manage opportunities on the go from mobile devices.", "C. Only send marketing emails.", "D. Only view the org chart."],
+      "correctAnswers": ["B"],
+      "explanation": "The Dynamics 365 Sales mobile app provides sellers with full mobile access to their sales data including pipeline view, record updates, activity logging, meeting notes, and opportunity management from smartphones and tablets.\n\nA is incorrect because the app provides much more than just phone numbers.\n\nC is incorrect because marketing emails are sent from Customer Insights - Journeys.\n\nD is incorrect because the app offers comprehensive sales functionality beyond org charts."
+    },
+    {
+      "id": 58,
+      "topic": "Dynamics 365 Sales - Unit groups and pricing",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Sales, what are unit groups used for in the product catalog?",
+      "options": ["A. To organize sales teams into departments.", "B. To define the different units of measurement in which a product can be sold, such as each, pack, or case.", "C. To group customers by region.", "D. To categorize support cases."],
+      "correctAnswers": ["B"],
+      "explanation": "Unit groups define the different units of measurement for products (e.g., Each, Pack of 6, Case of 24) and the conversion factors between them, enabling accurate pricing and quantity management in sales transactions.\n\nA is incorrect because sales team organization uses teams and business units.\n\nC is incorrect because customer grouping uses segments or territories.\n\nD is incorrect because case categorization is in Customer Service."
+    },
+    {
+      "id": 59,
+      "topic": "Dynamics 365 Customer Service - Inbox for agents",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the inbox for agents in Dynamics 365 Customer Service?",
+      "options": ["A. To manage email marketing campaigns.", "B. To provide a centralized view of assigned cases and conversations that agents need to act on.", "C. To store inventory items.", "D. To manage financial budgets."],
+      "correctAnswers": ["B"],
+      "explanation": "The inbox in Customer Service provides agents with a centralized, prioritized view of all their assigned cases, conversations, and activities requiring attention, streamlining workload management and ensuring nothing falls through the cracks.\n\nA is incorrect because email campaigns are in Customer Insights - Journeys.\n\nC is incorrect because inventory is in Supply Chain Management.\n\nD is incorrect because budgets are in Finance modules."
+    },
+    {
+      "id": 60,
+      "topic": "Dynamics 365 Field Service - Work order lifecycle",
+      "type": "SingleChoice",
+      "questionText": "What is the typical lifecycle of a work order in Dynamics 365 Field Service?",
+      "options": ["A. Lead > Opportunity > Quote > Order.", "B. Unscheduled > Scheduled > In Progress > Completed > Posted.", "C. Draft > Sent > Accepted > Paid.", "D. New > Active > Resolved > Closed."],
+      "correctAnswers": ["B"],
+      "explanation": "The work order lifecycle in Field Service progresses through: Unscheduled (created but not assigned), Scheduled (assigned to a resource and time slot), In Progress (technician working on it), Completed (work finished), and Posted (reviewed and finalized).\n\nA is incorrect because that is the sales pipeline lifecycle.\n\nC is incorrect because that resembles an invoice lifecycle.\n\nD is incorrect because that is the case lifecycle in Customer Service."
+    },
+    {
+      "id": 61,
+      "topic": "Core Capabilities - Copilot across apps",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does Microsoft 365 Copilot provide across Dynamics 365 customer engagement apps? (Choose two.)",
+      "options": ["A. Summarizing records and conversations using natural language.", "B. Generating content drafts for emails and responses.", "C. Automatically manufacturing physical products.", "D. Replacing all human decision-making."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Copilot can summarize records (opportunities, cases, accounts) and conversation histories into concise natural language summaries across customer engagement apps.\n\nB is correct because Copilot can draft email content, chat responses, and other communications using AI-generated text that agents and sellers can review and customize.\n\nC is incorrect because manufacturing is a physical process, not an AI capability.\n\nD is incorrect because Copilot assists and augments human decision-making, not replaces it."
+    },
+    {
+      "id": 62,
+      "topic": "Dynamics 365 Sales - Copilot for Sales (M365)",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between Copilot in Dynamics 365 Sales and Microsoft 365 Copilot for Sales?",
+      "options": ["A. They are exactly the same product.", "B. Copilot in D365 Sales works within the Dynamics 365 app, while Microsoft 365 Copilot for Sales extends CRM capabilities into Outlook and Teams.", "C. Only one of them uses AI.", "D. Microsoft 365 Copilot for Sales replaces Dynamics 365 Sales entirely."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Dynamics 365 Sales provides AI assistance within the D365 Sales application itself. Microsoft 365 Copilot for Sales extends this by bringing CRM context and AI capabilities into Microsoft Outlook and Teams, allowing sellers to access sales data without leaving their productivity tools.\n\nA is incorrect because they serve different contexts (D365 app vs. M365 apps).\n\nC is incorrect because both use AI capabilities.\n\nD is incorrect because Copilot for Sales complements, not replaces, Dynamics 365 Sales."
+    },
+    {
+      "id": 63,
+      "topic": "Core Capabilities - Views and filtering",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Engagement apps, what are views used for?",
+      "options": ["A. To edit the source code of the application.", "B. To define how lists of records are displayed, filtered, and sorted for users.", "C. To configure server hardware.", "D. To manage database backups."],
+      "correctAnswers": ["B"],
+      "explanation": "Views in Dynamics 365 define how lists of records are displayed to users, including which columns are shown, the default filter criteria, and the sort order. System views are shared across users while personal views are individual.\n\nA is incorrect because source code editing is a developer task in separate tools.\n\nC is incorrect because server hardware is managed by Microsoft in the cloud.\n\nD is incorrect because database backups are managed by the platform."
+    }
+  ]
+}

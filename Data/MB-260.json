@@ -1,0 +1,582 @@
+{
+  "examCode": "MB-260",
+  "examTitle": "Dynamics 365 Customer Data Platform Specialist",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Customer Insights - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of Dynamics 365 Customer Insights?",
+      "options": ["A. To manage customer service cases.", "B. To create a unified customer profile by combining data from multiple sources and deriving actionable insights.", "C. To send marketing emails.", "D. To manage field service operations."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights creates unified customer profiles by ingesting data from multiple sources, unifying it, and providing insights through measures, segments, and predictions. It is not for case management (A), email marketing (C), or field service (D)."
+    },
+    {
+      "id": 2,
+      "topic": "Data Unification - Data sources",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of data sources can be ingested into Customer Insights? (Choose two.)",
+      "options": ["A. Azure Data Lake Storage.", "B. Dynamics 365 Dataverse.", "C. Physical paper records.", "D. Analog telephone recordings."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Customer Insights supports data ingestion from Azure Data Lake Storage (A) and Dynamics 365 Dataverse (B), among other digital sources like Azure SQL Database and Power Query connectors. Physical paper records (C) and analog recordings (D) must be digitized first."
+    },
+    {
+      "id": 3,
+      "topic": "Data Unification - Map, match, merge",
+      "type": "SingleChoice",
+      "questionText": "What are the three steps in the data unification process in Customer Insights?",
+      "options": ["A. Import, transform, export.", "B. Map, match, merge.", "C. Extract, load, query.", "D. Clean, validate, publish."],
+      "correctAnswers": ["B"],
+      "explanation": "Data unification in Customer Insights follows three steps: Map (select entities and fields to unify), Match (define rules to identify the same customer across sources), and Merge (combine matched records into unified profiles). The other sequences describe different data processes."
+    },
+    {
+      "id": 4,
+      "topic": "Segments - Segment creation",
+      "type": "SingleChoice",
+      "questionText": "You need to create a segment of customers who made a purchase in the last 30 days and have a loyalty score above 500. What type of segment should you create?",
+      "options": ["A. A static segment with manually selected customers.", "B. A dynamic segment using attribute and behavioral filters.", "C. A projected segment.", "D. An export-only segment."],
+      "correctAnswers": ["B"],
+      "explanation": "A dynamic segment uses filters on customer attributes (loyalty score) and behaviors (recent purchases) to automatically maintain membership. Static segments (A) require manual management. Projected segments (C) and export-only segments (D) are not standard segment types in Customer Insights."
+    },
+    {
+      "id": 5,
+      "topic": "Measures - Customer measures",
+      "type": "SingleChoice",
+      "questionText": "You want to calculate the total lifetime spending for each customer. What should you create in Customer Insights?",
+      "options": ["A. A customer attribute measure that sums all transaction amounts per customer.", "B. A segment.", "C. A new data source.", "D. A Power BI report."],
+      "correctAnswers": ["A"],
+      "explanation": "Customer attribute measures calculate values at the individual customer level, such as total lifetime spending by summing transaction amounts. Segments (B) group customers but do not calculate values. A new data source (C) is for ingestion. Power BI (D) can visualize but the calculation should be in Customer Insights."
+    },
+    {
+      "id": 6,
+      "topic": "Predictions - Churn prediction",
+      "type": "SingleChoice",
+      "questionText": "A subscription-based company wants to identify customers likely to cancel their subscription. What Customer Insights feature should they use?",
+      "options": ["A. Segments based on subscription end date.", "B. Subscription churn prediction model.", "C. A manual review of customer activity.", "D. A Power Automate flow to check subscription status."],
+      "correctAnswers": ["B"],
+      "explanation": "The subscription churn prediction model uses machine learning to analyze customer behavior and predict which customers are likely to cancel. Simple date-based segments (A) only show approaching expirations. Manual review (C) does not scale. Power Automate (D) checks current status, not predicted future behavior."
+    },
+    {
+      "id": 7,
+      "topic": "Enrichment - Data enrichment",
+      "type": "SingleChoice",
+      "questionText": "You want to enhance customer profiles with brand and interest affinities from Microsoft data. What feature should you use?",
+      "options": ["A. Data source import.", "B. Data enrichment with Microsoft Graph.", "C. Manual data entry.", "D. Power Query transformations."],
+      "correctAnswers": ["B"],
+      "explanation": "Data enrichment with Microsoft Graph adds brand affinities, interest affinities, and other demographic data from Microsoft's proprietary data to customer profiles. Data source import (A) is for your own data. Manual entry (C) does not scale. Power Query (D) transforms existing data but does not add external enrichment."
+    },
+    {
+      "id": 8,
+      "topic": "Data Unification - Match rules",
+      "type": "SingleChoice",
+      "questionText": "When configuring match rules, you want to match customer records from two data sources based on email address with exact matching. What should you configure?",
+      "options": ["A. A match rule with the email field and exact match type.", "B. A match rule with fuzzy matching on name fields only.", "C. A merge rule that combines all records.", "D. A data source filter."],
+      "correctAnswers": ["A"],
+      "explanation": "A match rule configured with the email field and exact match type will identify records with identical email addresses as the same customer. Fuzzy matching on names (B) is less precise. Merge rules (C) combine already-matched records. Data source filters (D) restrict ingestion, not matching."
+    },
+    {
+      "id": 9,
+      "topic": "Segments - Segment exports",
+      "type": "SingleChoice",
+      "questionText": "You need to use a Customer Insights segment as an audience in Dynamics 365 Marketing. How do you make the segment available?",
+      "options": ["A. Recreate the segment manually in Marketing.", "B. Configure an export destination to Dynamics 365 Marketing.", "C. Copy the segment data to a shared database.", "D. Use a CSV file export and import."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights supports export destinations, including Dynamics 365 Marketing, which automatically makes segments available as audiences. Manual recreation (A) duplicates effort. Shared databases (C) require custom integration. CSV import (D) is not automated."
+    },
+    {
+      "id": 10,
+      "topic": "Measures - Business measures",
+      "type": "SingleChoice",
+      "questionText": "You want to calculate the average order value across all customers. What type of measure should you create?",
+      "options": ["A. A customer attribute measure.", "B. A business-level measure.", "C. A segment.", "D. A data source transformation."],
+      "correctAnswers": ["B"],
+      "explanation": "Business-level measures calculate aggregate values across all customers, such as average order value. Customer attribute measures (A) calculate per-customer values. Segments (B) group customers. Data source transformations (D) modify incoming data."
+    },
+    {
+      "id": 11,
+      "topic": "Predictions - Product recommendation",
+      "type": "SingleChoice",
+      "questionText": "An e-commerce company wants to suggest products to customers based on their purchase history. What prediction model should they use?",
+      "options": ["A. Churn prediction.", "B. Product recommendation model.", "C. Customer lifetime value prediction.", "D. Sentiment analysis."],
+      "correctAnswers": ["B"],
+      "explanation": "The product recommendation model analyzes purchase history and identifies patterns to suggest products customers are likely to buy. Churn prediction (A) identifies at-risk customers. CLV prediction (C) estimates future spending. Sentiment analysis (D) evaluates customer feelings."
+    },
+    {
+      "id": 12,
+      "topic": "Enrichment - Third-party enrichment",
+      "type": "SingleChoice",
+      "questionText": "You want to enrich customer profiles with company information such as industry and company size. What enrichment option should you use?",
+      "options": ["A. Microsoft Graph enrichment for consumer data.", "B. Leadspace or Dun & Bradstreet enrichment for B2B company data.", "C. A manual research process.", "D. Social media scraping."],
+      "correctAnswers": ["B"],
+      "explanation": "Third-party enrichment providers like Leadspace or Dun & Bradstreet provide B2B company data including industry, size, and firmographic details. Microsoft Graph (A) provides consumer-oriented data. Manual research (C) does not scale. Social media scraping (D) raises privacy and legal concerns."
+    },
+    {
+      "id": 13,
+      "topic": "Data Unification - Deduplication",
+      "type": "SingleChoice",
+      "questionText": "During the match phase, Customer Insights identifies that the same customer exists 3 times within a single data source. What is this called?",
+      "options": ["A. Cross-source matching.", "B. Deduplication rules within a single source.", "C. Data cleansing.", "D. Record deletion."],
+      "correctAnswers": ["B"],
+      "explanation": "Deduplication rules identify and handle duplicate records within a single data source, ensuring one customer is not counted multiple times. Cross-source matching (A) matches across different sources. Data cleansing (C) is a broader concept. Record deletion (D) removes records rather than merging duplicates."
+    },
+    {
+      "id": 14,
+      "topic": "Segments - Segment insights",
+      "type": "SingleChoice",
+      "questionText": "A marketing team wants to understand what differentiates customers in a high-value segment from all other customers. What feature should they use?",
+      "options": ["A. Segment overlap analysis.", "B. Segment differentiators (segment insights).", "C. A Power BI comparison report.", "D. Manual data analysis."],
+      "correctAnswers": ["B"],
+      "explanation": "Segment differentiators analyze what attributes and measures distinguish a segment's members from the rest of the customer base. Segment overlap (A) shows membership overlap between segments. Power BI (C) requires custom report development. Manual analysis (D) does not scale."
+    },
+    {
+      "id": 15,
+      "topic": "Measures - Measure templates",
+      "type": "SingleChoice",
+      "questionText": "You want to quickly create a measure for average transaction value without building it from scratch. What should you look for?",
+      "options": ["A. Import a measure from another environment.", "B. Use a measure template provided in Customer Insights.", "C. Copy a segment and convert it to a measure.", "D. Use a Power BI measure."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights provides measure templates for common calculations like average transaction value, which can be configured quickly. Importing from another environment (A) is for migration. Segments (C) cannot be converted to measures. Power BI measures (D) are separate from Customer Insights measures."
+    },
+    {
+      "id": 16,
+      "topic": "Predictions - Customer lifetime value",
+      "type": "SingleChoice",
+      "questionText": "A business wants to identify their most valuable customers based on predicted future spending. What model should they configure?",
+      "options": ["A. Churn prediction.", "B. Product recommendation.", "C. Customer lifetime value (CLV) prediction.", "D. Sentiment prediction."],
+      "correctAnswers": ["C"],
+      "explanation": "The customer lifetime value prediction model estimates how much revenue each customer is expected to generate in a future period, helping identify the most valuable customers. Churn prediction (A) identifies at-risk customers. Product recommendation (B) suggests products. Sentiment prediction (D) evaluates customer feelings."
+    },
+    {
+      "id": 17,
+      "topic": "Data Unification - Merge preferences",
+      "type": "SingleChoice",
+      "questionText": "During the merge step, two data sources provide different phone numbers for the same customer. How do you determine which phone number appears on the unified profile?",
+      "options": ["A. The system randomly selects one.", "B. Configure merge preferences to prioritize data from a specific source.", "C. Both phone numbers are deleted.", "D. The customer must be contacted to verify."],
+      "correctAnswers": ["B"],
+      "explanation": "Merge preferences allow you to define which data source takes priority for each field when conflicts exist. You can rank sources so the most reliable data wins. Random selection (A) is not how it works. Deleting data (C) loses information. Customer verification (D) is impractical at scale."
+    },
+    {
+      "id": 18,
+      "topic": "Enrichment - Location enrichment",
+      "type": "SingleChoice",
+      "questionText": "You want to normalize and standardize customer address data in Customer Insights. What enrichment feature can help?",
+      "options": ["A. Brand affinity enrichment.", "B. Location data enrichment that normalizes addresses.", "C. A manual address verification process.", "D. A custom Power Query transformation."],
+      "correctAnswers": ["B"],
+      "explanation": "Location data enrichment normalizes and standardizes customer addresses, improving data quality and enabling location-based analysis. Brand affinity (A) is for interest data. Manual verification (C) does not scale. Power Query (D) could help but enrichment is the built-in approach."
+    },
+    {
+      "id": 19,
+      "topic": "Customer Insights - Activities",
+      "type": "SingleChoice",
+      "questionText": "You want to create a timeline of customer interactions including purchases, website visits, and support cases. What should you configure?",
+      "options": ["A. Activities mapped from ingested data sources.", "B. Manual timeline entries.", "C. A custom entity for interaction tracking.", "D. A Power BI timeline visualization."],
+      "correctAnswers": ["A"],
+      "explanation": "Activities in Customer Insights are configured by mapping interaction data from ingested sources to the activity timeline, creating a unified view of customer interactions. Manual entries (B) do not scale. Custom entities (C) are unnecessary. Power BI (D) is external to the customer profile."
+    },
+    {
+      "id": 20,
+      "topic": "Segments - Segment scheduling",
+      "type": "MultipleChoice",
+      "questionText": "Which two options are available for segment refresh scheduling in Customer Insights? (Choose two.)",
+      "options": ["A. Manual refresh on demand.", "B. Scheduled refresh at defined intervals.", "C. Real-time refresh on every data change.", "D. Refresh only during business hours."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Segments can be refreshed manually on demand (A) or on a scheduled basis at defined intervals (B). Real-time refresh on every change (C) is not how segment evaluation works. Business hours restriction (D) is not a standard scheduling option."
+    },
+    {
+      "id": 21,
+      "topic": "Measures - Dimension measures",
+      "type": "SingleChoice",
+      "questionText": "You want to calculate the number of purchases per product category for each customer. What type of measure should you create?",
+      "options": ["A. A simple customer attribute measure.", "B. A customer attribute measure with dimensions.", "C. A business-level measure.", "D. A calculated field on the customer entity."],
+      "correctAnswers": ["B"],
+      "explanation": "A customer attribute measure with dimensions allows you to break down calculations by categories, such as purchase count per product category per customer. A simple measure (A) does not provide category breakdown. Business measures (C) aggregate across all customers. Calculated fields (D) are not a Customer Insights feature."
+    },
+    {
+      "id": 22,
+      "topic": "Predictions - Prediction prerequisites",
+      "type": "SingleChoice",
+      "questionText": "Before configuring a churn prediction model, what is a key prerequisite?",
+      "options": ["A. At least 1,000 customer profiles.", "B. Sufficient historical data with examples of both churned and active customers.", "C. A Power BI Pro license.", "D. Integration with Azure Machine Learning."],
+      "correctAnswers": ["B"],
+      "explanation": "Churn prediction models require sufficient historical data with examples of both churned and retained customers to train the model effectively. While a minimum number of profiles is helpful, the key is historical data quality (A is not the primary requirement). Power BI (C) and Azure ML (D) are not prerequisites."
+    },
+    {
+      "id": 23,
+      "topic": "Data Unification - Intelligent mapping",
+      "type": "SingleChoice",
+      "questionText": "During the map step, Customer Insights suggests that a field named 'EmailAddr' should be mapped to the Email semantic type. What is this feature called?",
+      "options": ["A. Manual mapping.", "B. Intelligent mapping that uses AI to suggest field-to-type matches.", "C. Default mapping.", "D. Schema validation."],
+      "correctAnswers": ["B"],
+      "explanation": "Intelligent mapping uses AI to analyze field names and data patterns to suggest appropriate semantic type mappings, reducing manual configuration effort. Manual mapping (A) is the alternative when suggestions are incorrect. Default mapping (C) is not a specific feature. Schema validation (D) checks data structure, not semantic types."
+    },
+    {
+      "id": 24,
+      "topic": "Enrichment - Engagement data enrichment",
+      "type": "SingleChoice",
+      "questionText": "You want to add digital engagement signals from your website and apps to customer profiles. What should you configure?",
+      "options": ["A. A data source connection to your web analytics platform.", "B. Web tracking and engagement data enrichment.", "C. Manual entry of engagement metrics.", "D. A survey asking customers about their online behavior."],
+      "correctAnswers": ["A"],
+      "explanation": "Connecting a data source from your web analytics platform allows you to ingest digital engagement data into Customer Insights and associate it with customer profiles. Enrichment (B) is for adding external third-party data. Manual entry (C) does not scale. Surveys (D) rely on self-reported data."
+    },
+    {
+      "id": 25,
+      "topic": "Customer Insights - Relationships",
+      "type": "SingleChoice",
+      "questionText": "You have ingested customer data and transaction data as separate entities. To create measures that reference transaction details, what must you define?",
+      "options": ["A. A data source filter.", "B. A relationship between the customer entity and the transaction entity.", "C. A new unified entity.", "D. A Power Query join."],
+      "correctAnswers": ["B"],
+      "explanation": "Relationships define how entities are connected, enabling measures and segments to reference data across related entities. Data source filters (A) restrict data. A new entity (C) is unnecessary. Power Query joins (D) are used during ingestion, not for post-unification entity relationships."
+    },
+    {
+      "id": 26,
+      "topic": "Segments - Segment types",
+      "type": "SingleChoice",
+      "questionText": "You need to create a segment that uses complex logic combining multiple conditions with AND/OR operators across different entities. What segment creation method should you use?",
+      "options": ["A. Quick segment creation.", "B. Blank segment with the segment builder.", "C. Segment from a measure.", "D. Static segment."],
+      "correctAnswers": ["B"],
+      "explanation": "The blank segment builder provides full control over complex query logic with AND/OR operators across multiple entities and attributes. Quick segments (A) are for simple, single-condition segments. Measure-based segments (C) are limited to measure values. Static segments (D) are manually managed."
+    },
+    {
+      "id": 27,
+      "topic": "Measures - Measure calculations",
+      "type": "SingleChoice",
+      "questionText": "You want to calculate the number of days since each customer's last purchase. What function type should you use in the measure builder?",
+      "options": ["A. Sum.", "B. Average.", "C. Count.", "D. First/Last functions combined with date difference."],
+      "correctAnswers": ["D"],
+      "explanation": "To calculate days since last purchase, you need the Last function to find the most recent purchase date, then calculate the difference from today. Sum (A), Average (B), and Count (C) are aggregate functions that do not find the most recent date."
+    },
+    {
+      "id": 28,
+      "topic": "Predictions - Model evaluation",
+      "type": "SingleChoice",
+      "questionText": "After training a churn prediction model, how do you evaluate its accuracy?",
+      "options": ["A. Check if it correctly predicts all customer outcomes.", "B. Review the model performance grade and training metrics provided in the model evaluation results.", "C. Compare results with a manual analysis.", "D. Run the model for 6 months and track results."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights provides model evaluation results including performance grade, accuracy metrics, and feature importance after training. Perfect prediction (A) is unrealistic. Manual comparison (C) is impractical. Waiting 6 months (D) delays actionable insights."
+    },
+    {
+      "id": 29,
+      "topic": "Data Unification - Conflation",
+      "type": "SingleChoice",
+      "questionText": "After the match step identifies that two records are the same customer, what happens during the merge step?",
+      "options": ["A. Both records are deleted.", "B. The records are combined into a single unified customer profile based on merge preferences.", "C. One record is kept and the other is archived.", "D. The records remain separate with a link between them."],
+      "correctAnswers": ["B"],
+      "explanation": "During the merge step, matched records are combined into a single unified customer profile. Merge preferences determine which source's data takes priority for each field. Records are not deleted (A) or archived (C). They are fully merged, not just linked (D)."
+    },
+    {
+      "id": 30,
+      "topic": "Enrichment - SFTP enrichment",
+      "type": "SingleChoice",
+      "questionText": "A partner provides monthly enrichment data via a secure file transfer. How can you bring this data into Customer Insights?",
+      "options": ["A. Manually download and upload the file each month.", "B. Configure an SFTP data source connection to automatically ingest the data.", "C. Have the partner enter data directly into Customer Insights.", "D. Use email attachments as a data source."],
+      "correctAnswers": ["B"],
+      "explanation": "An SFTP data source connection allows automated and secure ingestion of data from external partners on a schedule. Manual download (A) is error-prone. Direct partner access (C) raises security concerns. Email attachments (D) are not a supported data source."
+    },
+    {
+      "id": 31,
+      "topic": "Customer Insights - Customer card",
+      "type": "SingleChoice",
+      "questionText": "You want Dynamics 365 Sales users to see unified customer profile information from Customer Insights directly within a contact form. What should you configure?",
+      "options": ["A. A custom iframe embedding Customer Insights.", "B. The Customer Insights Customer Card add-in for Dynamics 365.", "C. A manual lookup to Customer Insights.", "D. A Power BI embedded report."],
+      "correctAnswers": ["B"],
+      "explanation": "The Customer Card add-in integrates Customer Insights data directly into Dynamics 365 model-driven app forms, showing unified profile details, measures, and segments. Custom iframes (A) require development. Manual lookups (C) are inefficient. Power BI (D) requires separate configuration."
+    },
+    {
+      "id": 32,
+      "topic": "Segments - Suggested segments",
+      "type": "SingleChoice",
+      "questionText": "Customer Insights can suggest segments based on measures or customer attributes. What is this feature called?",
+      "options": ["A. Auto-segmentation.", "B. Suggested segments powered by AI.", "C. Default segments.", "D. Template segments."],
+      "correctAnswers": ["B"],
+      "explanation": "Suggested segments use AI to analyze customer data and recommend meaningful segments based on patterns in measures and attributes. Auto-segmentation (A) is not the correct term. Default segments (C) and template segments (D) are not standard features."
+    },
+    {
+      "id": 33,
+      "topic": "Measures - Measure refresh",
+      "type": "MultipleChoice",
+      "questionText": "Which two factors determine when measures are recalculated in Customer Insights? (Choose two.)",
+      "options": ["A. The system refresh schedule.", "B. Manual refresh triggers.", "C. Real-time calculation on every profile view.", "D. Calendar-based monthly refresh only."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Measures are recalculated based on the system refresh schedule (A) and can be triggered manually (B). They are not calculated in real-time on each view (C). The refresh is not limited to monthly intervals (D)."
+    },
+    {
+      "id": 34,
+      "topic": "Predictions - Custom models",
+      "type": "SingleChoice",
+      "questionText": "The built-in prediction models do not meet a specific business need. What option is available for custom predictions?",
+      "options": ["A. Modify the built-in model code directly.", "B. Integrate a custom Azure Machine Learning model with Customer Insights.", "C. Customer Insights does not support custom models.", "D. Use only Power BI for custom predictions."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights supports integration with custom Azure Machine Learning models, allowing you to bring your own trained models for predictions. Built-in models cannot be modified (A). Custom models are supported (C is incorrect). Power BI (D) provides visualization, not prediction model integration."
+    },
+    {
+      "id": 35,
+      "topic": "Data Unification - Data quality",
+      "type": "SingleChoice",
+      "questionText": "After running the unification process, you notice that many customer profiles have missing email addresses. What should you investigate first?",
+      "options": ["A. The merge preferences to ensure email fields are correctly mapped.", "B. The security settings of the environment.", "C. The Power BI connection.", "D. The customer service configuration."],
+      "correctAnswers": ["A"],
+      "explanation": "Missing fields in unified profiles are typically caused by incorrect merge preferences or mapping issues where the email field is not properly mapped from the source entities. Security settings (B), Power BI (C), and customer service config (D) are not related to data unification quality."
+    },
+    {
+      "id": 36,
+      "topic": "Enrichment - Enrichment scheduling",
+      "type": "SingleChoice",
+      "questionText": "You want enrichment to run automatically after each data refresh. How should you configure this?",
+      "options": ["A. Schedule enrichment to run independently of data refresh.", "B. Configure enrichment to run as part of the system refresh process.", "C. Manually trigger enrichment after each refresh.", "D. Enrichment cannot be automated."],
+      "correctAnswers": ["B"],
+      "explanation": "Enrichment can be configured to run as part of the system refresh process, ensuring customer profiles are enriched after each data update. Independent scheduling (A) may process stale data. Manual triggers (C) are inefficient. Enrichment can be automated (D is incorrect)."
+    },
+    {
+      "id": 37,
+      "topic": "Customer Insights - Environment management",
+      "type": "SingleChoice",
+      "questionText": "A company wants separate Customer Insights environments for development and production. What should they do?",
+      "options": ["A. Use a single environment for both purposes.", "B. Create separate Customer Insights environments for development and production.", "C. Use different user accounts for each purpose.", "D. Create separate Dataverse environments only."],
+      "correctAnswers": ["B"],
+      "explanation": "Separate Customer Insights environments for development and production provide isolation for testing and configuration changes without affecting production data. A single environment (A) risks production data. Different accounts (C) do not provide environment isolation. Dataverse environments alone (D) do not address Customer Insights configuration."
+    },
+    {
+      "id": 38,
+      "topic": "Segments - Segment overlap",
+      "type": "SingleChoice",
+      "questionText": "A marketing team has three segments and wants to understand how many customers are shared between them. What feature should they use?",
+      "options": ["A. Segment export and manual comparison.", "B. Segment overlap analysis in Customer Insights.", "C. A Power BI Venn diagram.", "D. Advanced Find queries."],
+      "correctAnswers": ["B"],
+      "explanation": "Segment overlap analysis shows how many customers are shared between two or more segments, presented as a visual overlap view. Manual comparison (A) is inefficient. Power BI (C) requires custom development. Advanced Find (D) is not a Customer Insights feature."
+    },
+    {
+      "id": 39,
+      "topic": "Predictions - Influence factors",
+      "type": "SingleChoice",
+      "questionText": "After running a churn prediction model, you want to understand which factors most influence the prediction. Where do you find this information?",
+      "options": ["A. In the data source configuration.", "B. In the model's influential factors or feature importance section.", "C. In the segment builder.", "D. In the system administration settings."],
+      "correctAnswers": ["B"],
+      "explanation": "The model evaluation results include influential factors (feature importance) that show which data attributes most strongly affect the prediction outcome. Data source config (A) shows ingestion settings. Segment builder (C) creates audiences. System admin settings (D) manage the environment."
+    },
+    {
+      "id": 40,
+      "topic": "Customer Insights - Exports and integrations",
+      "type": "MultipleChoice",
+      "questionText": "Which two export destinations are natively supported in Customer Insights? (Choose two.)",
+      "options": ["A. Azure Blob Storage.", "B. Dynamics 365 Marketing.", "C. SAP ERP.", "D. Oracle Database direct write."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Customer Insights natively supports exports to Azure Blob Storage (A) and Dynamics 365 Marketing (B), among other Microsoft and partner destinations. Direct SAP ERP (C) and Oracle Database (D) integrations are not natively supported export destinations."
+    },
+    {
+      "id": 41,
+      "topic": "Data Unification - Match rules",
+      "type": "SingleChoice",
+      "questionText": "During the data unification process, you need to define how Customer Insights identifies the same customer across different data sources. Which step handles this?",
+      "options": ["A. Map - where you select entities and fields.", "B. Match - where you define rules to identify duplicate records across sources.", "C. Merge - where you select which fields to keep.", "D. Data source ingestion."],
+      "correctAnswers": ["B"],
+      "explanation": "The Match step in data unification defines the rules that identify the same customer across different data sources by comparing fields like email, name, and phone number. Map (A) selects and standardizes entities and fields but does not identify duplicates. Merge (C) determines which field values to keep from matched records. Data source ingestion (D) imports data but does not perform deduplication."
+    },
+    {
+      "id": 42,
+      "topic": "Measures - Customer measures",
+      "type": "SingleChoice",
+      "questionText": "A retailer wants to calculate the total lifetime purchase value for each customer. What should they create in Customer Insights?",
+      "options": ["A. A customer attribute from the unified profile.", "B. A customer measure that aggregates purchase transaction data per customer.", "C. A segment of high-value customers.", "D. A prediction model for customer value."],
+      "correctAnswers": ["B"],
+      "explanation": "A customer measure calculates and stores a value (such as total purchases) per customer profile by aggregating data from related entities. A customer attribute (A) is a field already on the profile, not a calculated value. A segment (C) groups customers but does not calculate individual values. A prediction model (D) forecasts future values rather than calculating historical totals."
+    },
+    {
+      "id": 43,
+      "topic": "Enrichment - Third-party enrichment",
+      "type": "SingleChoice",
+      "questionText": "A company wants to enrich their customer profiles with brand affinity data and interest information. Which enrichment option in Customer Insights provides this?",
+      "options": ["A. Custom data source import.", "B. Microsoft enrichment with brand and interest affinities.", "C. Manual data entry by sales teams.", "D. Power Automate data enrichment flows."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft enrichment in Customer Insights can add brand affinities and interest data to customer profiles using Microsoft's proprietary data. Custom data imports (A) can add data but do not provide brand affinity intelligence. Manual entry (C) does not scale. Power Automate flows (D) can move data but do not provide enrichment intelligence."
+    },
+    {
+      "id": 44,
+      "topic": "Segments - Segment expansion",
+      "type": "SingleChoice",
+      "questionText": "A marketing team has a segment of 5,000 customers and wants to find similar customers who are not yet in the segment to expand their audience. What feature should they use?",
+      "options": ["A. Add more conditions to the segment definition.", "B. Use segment expansion (find similar customers) powered by AI.", "C. Manually search for similar customers.", "D. Import additional customer data."],
+      "correctAnswers": ["B"],
+      "explanation": "Segment expansion uses AI to identify customers who share characteristics with existing segment members but are not currently in the segment, expanding the potential audience. Adding conditions (A) refines the existing criteria rather than finding lookalikes. Manual search (C) is not scalable. Importing data (D) adds new records but does not identify similarities with existing segment members."
+    },
+    {
+      "id": 45,
+      "topic": "Customer Insights - Activity timeline",
+      "type": "SingleChoice",
+      "questionText": "A company wants to see all customer interactions (purchases, support calls, website visits) in chronological order on the unified customer profile. What must be configured?",
+      "options": ["A. Create a custom entity to store all activities.", "B. Configure activities in Customer Insights by mapping interaction data to the activity timeline.", "C. Export data to Power BI for a timeline view.", "D. Use the Dynamics 365 activity entity only."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights allows you to configure activities by mapping various interaction data sources to the activity timeline on the unified customer profile, providing a complete chronological view. A custom entity (A) duplicates data. Power BI (C) provides visualizations but not within the customer profile. The Dynamics 365 activity entity (D) only captures CRM activities, not all customer interactions from multiple sources."
+    },
+    {
+      "id": 46,
+      "topic": "Data Unification - Merge preferences",
+      "type": "MultipleChoice",
+      "questionText": "During the Merge step of data unification, which two options are available for resolving conflicts when the same field has different values across matched records? (Choose two.)",
+      "options": ["A. Select the most recent value.", "B. Rank data sources by priority and use the highest-ranked value.", "C. Automatically delete conflicting records.", "D. Keep all values as separate profile records."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Merge step allows you to resolve conflicts by selecting the most recently updated value (A) or by ranking data sources so the highest-priority source's value is used (B). Conflicting records are not deleted (C); the unification process creates a single profile. Keeping separate records (D) defeats the purpose of unification, which aims to create a single customer view."
+    },
+    {
+      "id": 47,
+      "topic": "Predictions - Transactional churn",
+      "type": "SingleChoice",
+      "questionText": "A subscription-based company wants to predict which customers are likely to cancel their subscriptions in the next 90 days. What should they configure?",
+      "options": ["A. A custom machine learning model in Azure ML.", "B. The out-of-the-box subscription churn prediction model in Customer Insights.", "C. A segment of customers with low activity.", "D. A Power Automate flow that monitors cancellation signals."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights provides an out-of-the-box subscription churn prediction model that uses historical data to predict which customers are likely to churn within a specified timeframe. Custom Azure ML models (A) can work but require significant data science effort. A segment (C) uses rules rather than predictive analytics. Power Automate (D) can react to events but does not predict future behavior."
+    },
+    {
+      "id": 48,
+      "topic": "Enrichment - Company data enrichment",
+      "type": "SingleChoice",
+      "questionText": "A B2B company wants to enrich their account profiles with company size, industry, and location data. Which enrichment option is most appropriate?",
+      "options": ["A. Leadspace enrichment for company data.", "B. Microsoft enrichment with brand affinities.", "C. Manual data entry from company websites.", "D. Import a purchased contact list."],
+      "correctAnswers": ["A"],
+      "explanation": "Leadspace (or similar B2B data provider) enrichment can add firmographic data such as company size, industry classification, and location to account profiles. Microsoft brand affinity enrichment (B) focuses on consumer interests and brands, not B2B firmographic data. Manual entry (C) is not scalable. Purchased contact lists (D) may not include the firmographic attributes needed and raise data quality concerns."
+    },
+    {
+      "id": 49,
+      "topic": "Measures - Business measures",
+      "type": "SingleChoice",
+      "questionText": "A company wants to track the total number of active customers across all segments as a single KPI. What type of measure should they create?",
+      "options": ["A. A customer measure that calculates a value per customer.", "B. A business measure that calculates a single aggregate value across all customers.", "C. A segment with a count display.", "D. A Power BI report."],
+      "correctAnswers": ["B"],
+      "explanation": "A business measure calculates a single aggregate value across the entire customer base (such as total active customers), unlike customer measures which calculate per-customer values. Customer measures (A) produce individual values, not aggregates. Segments (C) group customers but do not produce a standalone KPI metric. Power BI (D) can display the metric but is a reporting tool, not the calculation mechanism within Customer Insights."
+    },
+    {
+      "id": 50,
+      "topic": "Customer Insights - Data sources",
+      "type": "SingleChoice",
+      "questionText": "A company stores customer data in Azure SQL Database, Dynamics 365 Sales, and a CSV file in Azure Blob Storage. How can all three be ingested into Customer Insights?",
+      "options": ["A. Only Dynamics 365 data can be ingested.", "B. Use built-in connectors for Dynamics 365 and Azure SQL, and Azure Blob Storage for the CSV file.", "C. All data must first be loaded into Dataverse.", "D. Only one data source can be connected at a time."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights provides built-in connectors for various data sources including Dynamics 365, Azure SQL Database, and Azure Blob Storage, allowing all three to be ingested directly. It is not limited to Dynamics 365 data (A). Data does not need to go through Dataverse first (C). Multiple data sources can be connected simultaneously (D is incorrect)."
+    },
+    {
+      "id": 51,
+      "topic": "Segments - Segment scheduling",
+      "type": "SingleChoice",
+      "questionText": "You create a segment in Customer Insights and want it to refresh its membership automatically every 24 hours. How should you configure this?",
+      "options": ["A. Manually run the segment refresh daily.", "B. Configure the segment refresh schedule in the system refresh settings.", "C. Create a Power Automate flow to trigger segment refresh.", "D. Export the segment and reimport it daily."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights system refresh settings control how often data is refreshed, including segment membership recalculation. Segments refresh as part of the system refresh cycle. Manual refresh (A) is not automated. Power Automate (C) can trigger refreshes but the system refresh schedule is the standard approach. Export/reimport (D) is unnecessary and would not update segment membership."
+    },
+    {
+      "id": 52,
+      "topic": "Predictions - Product recommendation",
+      "type": "SingleChoice",
+      "questionText": "An e-commerce company wants to suggest products to customers based on their past purchase behavior. What out-of-the-box prediction model should they use?",
+      "options": ["A. Subscription churn prediction.", "B. Product recommendation model.", "C. Customer lifetime value prediction.", "D. Transaction churn prediction."],
+      "correctAnswers": ["B"],
+      "explanation": "The product recommendation model analyzes past purchase patterns to suggest products that customers are likely to buy, enabling personalized recommendations. Subscription churn (A) predicts cancellations. Customer lifetime value (C) predicts future revenue potential. Transaction churn (D) predicts whether customers will stop making purchases, not what they should buy."
+    },
+    {
+      "id": 53,
+      "topic": "Customer Insights - Relationships",
+      "type": "SingleChoice",
+      "questionText": "After ingesting data from multiple sources, you need to define how the purchase transaction entity relates to the unified customer profile. What should you configure?",
+      "options": ["A. A merge rule in the unification process.", "B. A relationship between the transaction entity and the customer entity.", "C. A new data source that combines both entities.", "D. A segment that includes both entities."],
+      "correctAnswers": ["B"],
+      "explanation": "Relationships in Customer Insights define how different entities (such as transactions) connect to unified customer profiles, enabling measures, segments, and activities to use related data. Merge rules (A) are for unification of customer records, not for relating different entity types. A combined data source (C) is not how entity relationships are established. Segments (D) group customers, not entity relationships."
+    },
+    {
+      "id": 54,
+      "topic": "Enrichment - SFTP enrichment",
+      "type": "SingleChoice",
+      "questionText": "A company has proprietary customer data from an external vendor that they want to incorporate into Customer Insights profiles. The vendor provides the data via SFTP. What should they do?",
+      "options": ["A. Manually copy the data into Customer Insights.", "B. Configure an SFTP data source connection to ingest the vendor data.", "C. Ask the vendor to upload directly to Dataverse.", "D. Use a custom API integration only."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights supports SFTP as a data source, allowing you to connect to the vendor's SFTP server and ingest the data automatically. Manual copying (A) is error-prone and not automated. Asking the vendor to upload to Dataverse (C) may not be feasible and adds dependency on the vendor. While custom APIs (D) could work, the built-in SFTP connector is the standard approach."
+    },
+    {
+      "id": 55,
+      "topic": "Measures - Measure dimensions",
+      "type": "MultipleChoice",
+      "questionText": "When creating a customer measure for average purchase amount, which two dimension options can you use to break down the measure? (Choose two.)",
+      "options": ["A. By product category.", "B. By time period (month, quarter).", "C. By Dynamics 365 security role.", "D. By database table partition."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Customer measures can be dimensioned by business-relevant attributes such as product category (A) and time periods (B), allowing analysis of how the measure varies across different dimensions. Security roles (C) are an access control concept, not a measure dimension. Database partitions (D) are a technical storage concept, not relevant to business measures."
+    },
+    {
+      "id": 56,
+      "topic": "Customer Insights - Consent management",
+      "type": "SingleChoice",
+      "questionText": "A company needs to ensure that customer profiles in Customer Insights respect consent preferences from different source systems. How is this managed?",
+      "options": ["A. Consent is automatically enforced across all data sources.", "B. Configure consent data as part of the data ingestion and map consent fields in the unification process.", "C. Consent does not apply to Customer Insights as it is an analytics platform.", "D. Delete all customer profiles that do not have consent."],
+      "correctAnswers": ["B"],
+      "explanation": "Consent data should be ingested from source systems and mapped during the unification process, allowing consent preferences to be reflected in unified profiles and respected in downstream activations. Automatic enforcement (A) does not happen without configuration. Customer Insights does handle data subject to consent requirements (C is incorrect). Deleting profiles (D) is extreme and may violate data retention requirements."
+    },
+    {
+      "id": 57,
+      "topic": "Segments - Projected attributes",
+      "type": "SingleChoice",
+      "questionText": "When creating a segment, you want to include customer attributes that are calculated from related entities (like total purchase count). What must be in place before you can use these in segment conditions?",
+      "options": ["A. The attributes must exist as fields on the unified customer profile.", "B. Customer measures must be created first, then they can be used as segment conditions.", "C. The data must be exported to Power BI first.", "D. A custom plugin must calculate the values."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer measures calculate values (like total purchase count) and attach them to customer profiles. Once created, these measures become available as conditions in the segment builder. Raw fields (A) may not include calculated values from related entities. Power BI export (C) is for reporting, not segment building. Custom plugins (D) are not part of the Customer Insights architecture."
+    },
+    {
+      "id": 58,
+      "topic": "Predictions - Customer lifetime value",
+      "type": "SingleChoice",
+      "questionText": "A company wants to predict how much revenue each customer will generate over the next 12 months. Which out-of-the-box prediction model should they use?",
+      "options": ["A. Subscription churn prediction.", "B. Product recommendation model.", "C. Customer lifetime value (CLV) prediction.", "D. Transaction churn prediction."],
+      "correctAnswers": ["C"],
+      "explanation": "The Customer Lifetime Value (CLV) prediction model estimates the expected revenue from each customer over a specified future period, enabling businesses to prioritize high-value customers. Subscription churn (A) predicts cancellation likelihood, not revenue value. Product recommendations (B) suggest items for purchase. Transaction churn (D) predicts whether a customer will stop transacting, not the revenue they will generate."
+    },
+    {
+      "id": 59,
+      "topic": "Data Unification - Deduplication rules",
+      "type": "SingleChoice",
+      "questionText": "During data unification in Customer Insights, you notice that the same customer appears multiple times in the unified profile results due to minor variations in their name and address across source systems. What should you configure to resolve this?",
+      "options": ["A. Delete the duplicate source records manually in each source system.", "B. Configure deduplication rules within the match step that use fuzzy matching on name and address fields to identify and merge duplicates.", "C. Increase the data refresh frequency.", "D. Ignore the duplicates as they will resolve automatically."],
+      "correctAnswers": ["B"],
+      "explanation": "Deduplication rules within the match step use fuzzy matching algorithms (such as Levenshtein distance or phonetic matching) to identify records that represent the same customer despite minor variations in spelling or formatting. Manual deletion (A) is impractical across multiple source systems and may not be permitted. Increasing refresh frequency (C) does not address the matching logic. Duplicates do not resolve automatically (D); they require explicit deduplication rules."
+    },
+    {
+      "id": 60,
+      "topic": "Third-Party Connections - Export destinations",
+      "type": "SingleChoice",
+      "questionText": "A marketing team wants to use unified customer segments from Customer Insights to target campaigns in a third-party advertising platform. How should you configure this?",
+      "options": ["A. Manually export the segment to a CSV file and upload it to the advertising platform.", "B. Configure an export destination for the advertising platform (such as Google Ads, Facebook Ads, or Mailchimp) and map the segment for automatic export.", "C. Give the advertising platform direct access to the Customer Insights database.", "D. Print the segment list and fax it to the advertising team."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Insights supports built-in export destinations for many advertising and marketing platforms, allowing segments to be automatically pushed to these platforms on a schedule. Manual CSV export (A) requires ongoing effort and is not real-time. Direct database access (C) is a security risk and not supported. Faxing (D) is not a viable data integration method."
+    },
+    {
+      "id": 61,
+      "topic": "Data Enrichment - Brand and interest enrichment",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of enrichment can Customer Insights provide to enhance unified customer profiles? (Choose two.)",
+      "options": ["A. Brand affinity enrichment that identifies which brands a customer has affinity toward.", "B. Interest enrichment that identifies customer interests and hobbies based on demographic data.", "C. Automatic correction of misspelled customer names.", "D. Generation of customer profile photographs."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Customer Insights offers brand affinity enrichment (A) using Microsoft proprietary data to identify brand preferences, and interest enrichment (B) to identify customer interests based on demographics and behavior patterns. Automatic name correction (C) is not an enrichment feature; it is handled during data quality processing. Profile photograph generation (D) is not a Customer Insights capability."
+    },
+    {
+      "id": 62,
+      "topic": "Administration - Role-based access control",
+      "type": "SingleChoice",
+      "questionText": "A company wants to ensure that marketing users can view segments and measures but cannot modify the data unification configuration. How should you configure access control?",
+      "options": ["A. Give all users the Administrator role.", "B. Assign marketing users the Viewer role, which provides read-only access to insights, segments, and measures without permission to modify data sources or unification settings.", "C. Remove marketing users from Customer Insights entirely.", "D. Create a separate Customer Insights instance for each department."],
+      "correctAnswers": ["B"],
+      "explanation": "The Viewer role in Customer Insights provides read-only access to unified profiles, segments, measures, and enrichments without permission to modify data sources, unification rules, or system configuration. The Administrator role (A) grants full access including configuration changes, which is too permissive. Removing access entirely (C) prevents marketing from using the insights. Separate instances (D) are costly and fragment the unified customer view."
+    },
+    {
+      "id": 63,
+      "topic": "Measures - Customer-level and business-level measures",
+      "type": "SingleChoice",
+      "questionText": "You need to create a measure that calculates the average order value per customer over the last 12 months. What type of measure should you create?",
+      "options": ["A. A business-level measure that calculates a single aggregate value across all customers.", "B. A customer-level measure that calculates the average order value for each individual customer profile.", "C. A segment that filters customers by order value.", "D. A Power BI calculated column."],
+      "correctAnswers": ["B"],
+      "explanation": "A customer-level measure calculates a value (like average order value) for each individual customer profile, attaching the result to the profile for use in segmentation and personalization. A business-level measure (A) produces a single aggregate across all customers, not per-customer values. A segment (C) filters customers based on criteria but does not calculate values. Power BI calculated columns (D) exist only in Power BI reports and are not attached to Customer Insights profiles."
+    },
+    {
+      "id": 64,
+      "topic": "Data Sources - Incremental refresh",
+      "type": "SingleChoice",
+      "questionText": "A Customer Insights instance ingests millions of records from a data lake. The full refresh takes several hours and strains system resources. What should you configure to improve refresh performance?",
+      "options": ["A. Reduce the number of columns ingested to speed up the full refresh.", "B. Configure incremental refresh on the data source, specifying a date column so that only new or modified records are processed during each refresh.", "C. Increase the refresh frequency to run every hour.", "D. Delete old records from the data lake before each refresh."],
+      "correctAnswers": ["B"],
+      "explanation": "Incremental refresh uses a date/timestamp column to identify and process only new or changed records since the last refresh, dramatically reducing processing time and resource usage for large datasets. Reducing columns (A) may help slightly but does not address the volume of rows. More frequent refreshes (C) would compound the performance problem. Deleting old records (D) may violate data retention requirements and does not solve the root cause."
+    }
+  ]
+}

@@ -1,0 +1,916 @@
+{
+  "examCode": "MO-200",
+  "examTitle": "Microsoft Excel",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Formulas - VLOOKUP",
+      "type": "SingleChoice",
+      "questionText": "You need to look up an employee's department based on their Employee ID in a separate table. Which function should you use?",
+      "options": [
+        "A. HLOOKUP",
+        "B. VLOOKUP",
+        "C. CONCATENATE",
+        "D. SUMIF"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because VLOOKUP searches for a value in the first column of a table range and returns a value from a specified column in the same row, which is ideal for looking up department by Employee ID.\n\nA is incorrect because HLOOKUP searches horizontally across the first row of a range, which does not match the described table layout.\n\nC is incorrect because CONCATENATE joins text strings and does not perform lookups.\n\nD is incorrect because SUMIF sums values based on a condition, not looks up related data."
+    },
+    {
+      "id": 2,
+      "topic": "Formulas - VLOOKUP parameters",
+      "type": "SingleChoice",
+      "questionText": "In the VLOOKUP function =VLOOKUP(A2, D2:F100, 3, FALSE), what does the FALSE parameter indicate?",
+      "options": [
+        "A. The function should return FALSE if the value is not found.",
+        "B. The function should perform an exact match lookup.",
+        "C. The function should search from bottom to top.",
+        "D. The function should ignore empty cells."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the FALSE parameter (or 0) in VLOOKUP specifies an exact match lookup, meaning the function will only return a result if it finds an exact match for the lookup value.\n\nA is incorrect because FALSE does not control the error behavior; VLOOKUP returns #N/A if not found.\n\nC is incorrect because VLOOKUP always searches top to bottom; the parameter does not change search direction.\n\nD is incorrect because the parameter does not affect how empty cells are handled."
+    },
+    {
+      "id": 3,
+      "topic": "Formulas - INDEX/MATCH",
+      "type": "SingleChoice",
+      "questionText": "What advantage does INDEX/MATCH have over VLOOKUP?",
+      "options": [
+        "A. INDEX/MATCH is faster on small datasets.",
+        "B. INDEX/MATCH can look up values to the left of the lookup column, while VLOOKUP cannot.",
+        "C. INDEX/MATCH only works with numeric data.",
+        "D. INDEX/MATCH does not require a lookup value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because INDEX/MATCH can return a value from any column, including columns to the left of the lookup column, while VLOOKUP can only return values from columns to the right of the lookup column.\n\nA is incorrect because performance differences on small datasets are negligible.\n\nC is incorrect because INDEX/MATCH works with all data types.\n\nD is incorrect because MATCH requires a lookup value to find the row position."
+    },
+    {
+      "id": 4,
+      "topic": "Formulas - SUMIFS",
+      "type": "SingleChoice",
+      "questionText": "You need to sum sales amounts where the region is 'East' AND the product is 'Widget'. Which function should you use?",
+      "options": [
+        "A. SUMIF",
+        "B. SUMIFS",
+        "C. SUM",
+        "D. COUNTIFS"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SUMIFS allows you to sum values based on multiple criteria, which is necessary when filtering by both region and product simultaneously.\n\nA is incorrect because SUMIF only supports a single condition.\n\nC is incorrect because SUM adds all values without any filtering criteria.\n\nD is incorrect because COUNTIFS counts cells meeting multiple criteria but does not sum values."
+    },
+    {
+      "id": 5,
+      "topic": "PivotTables - Creating a PivotTable",
+      "type": "SingleChoice",
+      "questionText": "What is the first step to create a PivotTable in Excel?",
+      "options": [
+        "A. Select the data range and go to Insert tab > PivotTable.",
+        "B. Go to Data tab > Sort & Filter > PivotTable.",
+        "C. Right-click the worksheet tab and select Insert PivotTable.",
+        "D. Go to Home tab > Styles > PivotTable Style."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because creating a PivotTable starts by selecting the source data range (or clicking anywhere in the data) and then choosing Insert > PivotTable from the ribbon.\n\nB is incorrect because the Data tab's Sort & Filter group does not contain a PivotTable option.\n\nC is incorrect because right-clicking the worksheet tab provides sheet-level options, not PivotTable creation.\n\nD is incorrect because PivotTable styles are applied after creation, not during."
+    },
+    {
+      "id": 6,
+      "topic": "PivotTables - Fields",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following areas can you drag fields into when configuring a PivotTable? (Choose two.)",
+      "options": [
+        "A. Rows",
+        "B. Values",
+        "C. Themes",
+        "D. Macros"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. The PivotTable field areas include Rows, Columns, Values, and Filters. You drag fields into these areas to define the layout and calculations of the PivotTable.\n\nC is incorrect because Themes is a design feature, not a PivotTable field area.\n\nD is incorrect because Macros are VBA programs, not PivotTable field areas."
+    },
+    {
+      "id": 7,
+      "topic": "Charts - Chart types",
+      "type": "SingleChoice",
+      "questionText": "Which chart type is best suited for showing the proportion of each category relative to the whole?",
+      "options": [
+        "A. Line chart",
+        "B. Pie chart",
+        "C. Scatter plot",
+        "D. Histogram"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because pie charts display data as slices of a circle, making it easy to see the proportion each category contributes to the total.\n\nA is incorrect because line charts are best for showing trends over time.\n\nC is incorrect because scatter plots show relationships between two numeric variables.\n\nD is incorrect because histograms show frequency distribution of data."
+    },
+    {
+      "id": 8,
+      "topic": "Conditional Formatting - Rules",
+      "type": "SingleChoice",
+      "questionText": "You want cells containing values greater than 1000 to be highlighted in red. Which feature should you use?",
+      "options": [
+        "A. Data Validation",
+        "B. Conditional Formatting",
+        "C. Cell Styles",
+        "D. Find and Replace"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Conditional Formatting applies formatting (such as colors, icons, or data bars) based on cell values or formulas, making it ideal for highlighting cells that meet specific criteria.\n\nA is incorrect because Data Validation restricts input but does not change cell appearance.\n\nC is incorrect because Cell Styles apply static formatting regardless of cell values.\n\nD is incorrect because Find and Replace is for finding and changing content, not applying conditional formatting."
+    },
+    {
+      "id": 9,
+      "topic": "Data Validation - Input restrictions",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict a cell to only accept whole numbers between 1 and 100. Which feature should you use?",
+      "options": [
+        "A. Conditional Formatting",
+        "B. Data Validation",
+        "C. Cell Protection",
+        "D. Number Format"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Data Validation allows you to set rules that restrict the type and range of data that can be entered into a cell, such as whole numbers between 1 and 100.\n\nA is incorrect because Conditional Formatting changes cell appearance but does not restrict input.\n\nC is incorrect because Cell Protection prevents editing entirely but does not validate input values.\n\nD is incorrect because Number Format controls how numbers are displayed, not what values can be entered."
+    },
+    {
+      "id": 10,
+      "topic": "Tables - Excel tables",
+      "type": "SingleChoice",
+      "questionText": "What happens when you convert a data range to an Excel table using Ctrl+T?",
+      "options": [
+        "A. The data is exported to a database.",
+        "B. The range gets structured references, auto-filters, formatting, and automatic expansion when new data is added.",
+        "C. The data becomes read-only.",
+        "D. All formulas in the range are removed."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because converting to an Excel table adds structured references, automatic filter dropdowns, banded row formatting, and the table automatically expands to include new rows and columns added adjacent to it.\n\nA is incorrect because creating a table does not export data.\n\nC is incorrect because table data remains fully editable.\n\nD is incorrect because existing formulas are preserved and enhanced with structured references."
+    },
+    {
+      "id": 11,
+      "topic": "Formulas - IF function",
+      "type": "SingleChoice",
+      "questionText": "What does the formula =IF(B2>=90, \"Pass\", \"Fail\") return if B2 contains 85?",
+      "options": [
+        "A. Pass",
+        "B. Fail",
+        "C. 85",
+        "D. #VALUE!"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the IF function evaluates whether B2 (85) is greater than or equal to 90. Since 85 < 90, the condition is FALSE, and the function returns 'Fail'.\n\nA is incorrect because 85 does not meet the condition of >= 90.\n\nC is incorrect because the IF function returns the specified text values, not the cell value.\n\nD is incorrect because there is no error in this formula."
+    },
+    {
+      "id": 12,
+      "topic": "Formulas - COUNTIFS",
+      "type": "SingleChoice",
+      "questionText": "Which formula counts the number of orders where the amount is greater than $500 AND the status is 'Shipped'?",
+      "options": [
+        "A. =COUNTIF(B:B, \">500\", C:C, \"Shipped\")",
+        "B. =COUNTIFS(B:B, \">500\", C:C, \"Shipped\")",
+        "C. =COUNT(B:B, \">500\", C:C, \"Shipped\")",
+        "D. =SUMIFS(B:B, \">500\", C:C, \"Shipped\")"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because COUNTIFS accepts multiple criteria range/criteria pairs and counts cells where ALL criteria are met simultaneously.\n\nA is incorrect because COUNTIF only accepts one criteria range and one condition.\n\nC is incorrect because COUNT counts numeric cells but does not accept criteria.\n\nD is incorrect because SUMIFS sums values rather than counting occurrences, and the syntax shown is incorrect."
+    },
+    {
+      "id": 13,
+      "topic": "PivotTables - Grouping",
+      "type": "SingleChoice",
+      "questionText": "You have dates in a PivotTable and want to group them by month and year. How do you achieve this?",
+      "options": [
+        "A. Create a helper column with the month and year formula.",
+        "B. Right-click a date field in the PivotTable, select Group, and choose Months and Years.",
+        "C. Use the MONTH and YEAR functions in the PivotTable Values area.",
+        "D. Sort the PivotTable by date in ascending order."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Excel's PivotTable grouping feature allows you to right-click a date field and select Group to group dates by days, months, quarters, or years.\n\nA is incorrect because while a helper column works, it is not necessary since PivotTables have built-in date grouping.\n\nC is incorrect because MONTH and YEAR functions cannot be used directly in PivotTable field areas.\n\nD is incorrect because sorting arranges data but does not group dates by month or year."
+    },
+    {
+      "id": 14,
+      "topic": "Charts - Combo charts",
+      "type": "SingleChoice",
+      "questionText": "You want to display sales as a bar chart and profit margin as a line on the same chart. Which chart type should you use?",
+      "options": [
+        "A. Stacked bar chart",
+        "B. Combo chart (Clustered Column - Line)",
+        "C. 100% Stacked column chart",
+        "D. Scatter chart with lines"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Combo chart allows you to combine different chart types (such as columns and lines) on the same chart, with the option to add a secondary axis for data series with different scales.\n\nA is incorrect because a stacked bar chart shows parts of a whole, not two different data types.\n\nC is incorrect because 100% stacked columns show proportions, not dual chart types.\n\nD is incorrect because scatter charts with lines show relationships between two variables, not categorical comparisons."
+    },
+    {
+      "id": 15,
+      "topic": "Conditional Formatting - Data bars",
+      "type": "SingleChoice",
+      "questionText": "Which conditional formatting option displays small bars within cells to visually represent the relative magnitude of values?",
+      "options": [
+        "A. Color Scales",
+        "B. Icon Sets",
+        "C. Data Bars",
+        "D. Highlight Cell Rules"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because Data Bars add horizontal bars within cells whose length corresponds to the cell value relative to other values in the range, providing a visual comparison.\n\nA is incorrect because Color Scales apply gradient colors to cells based on values but do not add bars.\n\nB is incorrect because Icon Sets add icons (arrows, flags, etc.) based on value thresholds.\n\nD is incorrect because Highlight Cell Rules change the cell's background or font color based on conditions."
+    },
+    {
+      "id": 16,
+      "topic": "Data Validation - Dropdown lists",
+      "type": "SingleChoice",
+      "questionText": "How do you create a dropdown list in a cell that allows users to select from predefined options?",
+      "options": [
+        "A. Insert tab > Dropdown Menu.",
+        "B. Data tab > Data Validation > Allow: List, then specify the source values.",
+        "C. Home tab > Format Cells > Dropdown.",
+        "D. Review tab > Comments > Add List."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Data Validation with the List option creates an in-cell dropdown that restricts input to the specified values, either from a range reference or a comma-separated list.\n\nA is incorrect because there is no Dropdown Menu option on the Insert tab.\n\nC is incorrect because Format Cells controls appearance, not input validation.\n\nD is incorrect because Comments are for annotations, not dropdown lists."
+    },
+    {
+      "id": 17,
+      "topic": "Tables - Structured references",
+      "type": "SingleChoice",
+      "questionText": "In an Excel table named 'Sales', what does the structured reference =SUM(Sales[Amount]) calculate?",
+      "options": [
+        "A. The sum of all values in the Amount column of the Sales table.",
+        "B. The number of rows in the Sales table.",
+        "C. The average of the Amount column.",
+        "D. The maximum value in the Amount column."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the structured reference Sales[Amount] refers to the entire Amount column in the Sales table, and SUM calculates the total of all values in that column.\n\nB is incorrect because counting rows would require ROWS or COUNTA.\n\nC is incorrect because averaging would require the AVERAGE function.\n\nD is incorrect because finding the maximum would require the MAX function."
+    },
+    {
+      "id": 18,
+      "topic": "Formulas - XLOOKUP",
+      "type": "SingleChoice",
+      "questionText": "What is an advantage of XLOOKUP over VLOOKUP?",
+      "options": [
+        "A. XLOOKUP is available in all Excel versions since 2003.",
+        "B. XLOOKUP can search in any direction, returns exact matches by default, and supports multiple return values.",
+        "C. XLOOKUP can only search numeric values.",
+        "D. XLOOKUP does not require a lookup array."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because XLOOKUP can search vertically or horizontally, defaults to exact match (unlike VLOOKUP which defaults to approximate match), can search from last to first, and can return multiple columns of results.\n\nA is incorrect because XLOOKUP is only available in Microsoft 365 and Excel 2021+.\n\nC is incorrect because XLOOKUP works with any data type.\n\nD is incorrect because XLOOKUP requires both a lookup_array and a return_array."
+    },
+    {
+      "id": 19,
+      "topic": "PivotTables - Calculated fields",
+      "type": "SingleChoice",
+      "questionText": "How do you add a custom calculation to a PivotTable, such as Profit = Revenue - Cost?",
+      "options": [
+        "A. Add a helper column in the source data and refresh the PivotTable.",
+        "B. Use PivotTable Analyze tab > Calculations > Calculated Field.",
+        "C. Manually type the formula in a PivotTable cell.",
+        "D. Use conditional formatting to show the difference."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Calculated Field feature allows you to create new fields in a PivotTable based on formulas using existing fields, without modifying the source data.\n\nA is incorrect because while adding a helper column works, the question asks about PivotTable-native functionality.\n\nC is incorrect because typing directly into PivotTable cells is overwritten when the table is refreshed.\n\nD is incorrect because conditional formatting changes appearance, not calculations."
+    },
+    {
+      "id": 20,
+      "topic": "Charts - Sparklines",
+      "type": "SingleChoice",
+      "questionText": "What are sparklines in Excel?",
+      "options": [
+        "A. Full-sized charts embedded in a worksheet.",
+        "B. Miniature charts that fit within a single cell to show data trends.",
+        "C. Animated chart transitions.",
+        "D. Chart templates saved for reuse."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because sparklines are tiny charts that reside within a single cell, providing a compact visual representation of data trends such as lines, columns, or win/loss indicators.\n\nA is incorrect because sparklines are specifically single-cell mini charts, not full-sized charts.\n\nC is incorrect because sparklines are static visualizations, not animations.\n\nD is incorrect because sparklines are inline charts, not saved templates."
+    },
+    {
+      "id": 21,
+      "topic": "Conditional Formatting - Custom rules",
+      "type": "SingleChoice",
+      "questionText": "You want to highlight entire rows where the value in column E is 'Overdue'. Which conditional formatting approach should you use?",
+      "options": [
+        "A. Apply a Highlight Cell Rule to column E only.",
+        "B. Select the data range, create a New Rule using a formula: =$E1=\"Overdue\", and apply formatting.",
+        "C. Use Icon Sets on column E.",
+        "D. Apply Data Bars to column E."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because creating a formula-based conditional formatting rule with =$E1=\"Overdue\" (using a mixed reference with $ on the column) evaluates the condition for each row and applies formatting to the entire selected range.\n\nA is incorrect because a Highlight Cell Rule on column E would only format the cells in column E, not the entire row.\n\nC is incorrect because Icon Sets add icons to cells, not row-wide highlighting.\n\nD is incorrect because Data Bars show relative values, not conditional row formatting."
+    },
+    {
+      "id": 22,
+      "topic": "Formulas - TEXT function",
+      "type": "SingleChoice",
+      "questionText": "Which formula converts the date in cell A1 to display as 'January 2025'?",
+      "options": [
+        "A. =TEXT(A1, \"MMMM YYYY\")",
+        "B. =FORMAT(A1, \"Month Year\")",
+        "C. =DATEFORMAT(A1, \"January 2025\")",
+        "D. =MONTH(A1) & \" \" & YEAR(A1)"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the TEXT function formats a value according to a specified format string. 'MMMM' returns the full month name and 'YYYY' returns the four-digit year.\n\nB is incorrect because FORMAT is not a standard Excel function.\n\nC is incorrect because DATEFORMAT is not a standard Excel function.\n\nD is incorrect because MONTH returns a number (1-12), not the month name, so it would produce '1 2025' instead of 'January 2025'."
+    },
+    {
+      "id": 23,
+      "topic": "Data Validation - Error messages",
+      "type": "SingleChoice",
+      "questionText": "What happens by default when a user enters data that violates a Data Validation rule with a Stop error style?",
+      "options": [
+        "A. The invalid data is accepted but highlighted in red.",
+        "B. An error message appears and the invalid entry is rejected.",
+        "C. The cell is automatically cleared.",
+        "D. The workbook is locked."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Stop error style prevents invalid data from being entered. An error dialog appears with Retry and Cancel options, and the invalid entry is not accepted into the cell.\n\nA is incorrect because that behavior describes the Information or Warning error styles, not Stop.\n\nC is incorrect because the cell retains its previous value; it is not cleared.\n\nD is incorrect because Data Validation errors do not lock the workbook."
+    },
+    {
+      "id": 24,
+      "topic": "Tables - Slicers",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a slicer in Excel?",
+      "options": [
+        "A. To slice a worksheet into multiple printed pages.",
+        "B. To provide a visual, interactive way to filter data in tables and PivotTables.",
+        "C. To split a cell into multiple cells.",
+        "D. To divide a chart into sections."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because slicers provide visual filter buttons that allow users to interactively filter data in Excel tables and PivotTables by clicking on filter values.\n\nA is incorrect because page setup controls printing, not slicers.\n\nC is incorrect because splitting cells is done through table cell operations.\n\nD is incorrect because slicers filter data, not divide charts."
+    },
+    {
+      "id": 25,
+      "topic": "Formulas - IFERROR",
+      "type": "SingleChoice",
+      "questionText": "What does the formula =IFERROR(VLOOKUP(A2, Data!A:C, 3, FALSE), \"Not Found\") do?",
+      "options": [
+        "A. It always returns 'Not Found'.",
+        "B. It performs a VLOOKUP and returns 'Not Found' if the lookup results in an error.",
+        "C. It checks if A2 contains an error before performing the VLOOKUP.",
+        "D. It returns the error code instead of 'Not Found'."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because IFERROR evaluates the first argument (the VLOOKUP) and if it results in any error (such as #N/A when the value is not found), it returns the second argument ('Not Found') instead of displaying the error.\n\nA is incorrect because it only returns 'Not Found' when the VLOOKUP produces an error.\n\nC is incorrect because IFERROR evaluates the result of the VLOOKUP, not the input cell A2.\n\nD is incorrect because IFERROR replaces the error with the specified value, not returns the error code."
+    },
+    {
+      "id": 26,
+      "topic": "PivotTables - Refresh data",
+      "type": "SingleChoice",
+      "questionText": "After updating the source data for a PivotTable, what must you do to see the updated results?",
+      "options": [
+        "A. Delete the PivotTable and recreate it.",
+        "B. Right-click the PivotTable and select Refresh, or use PivotTable Analyze > Refresh.",
+        "C. Close and reopen the workbook.",
+        "D. Press Ctrl+Z to undo and redo."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because PivotTables do not automatically update when source data changes. You must manually refresh by right-clicking and selecting Refresh or using the Refresh button on the PivotTable Analyze tab.\n\nA is incorrect because deleting and recreating is unnecessary; refreshing updates the existing PivotTable.\n\nC is incorrect because reopening may refresh but is not the standard or efficient approach.\n\nD is incorrect because undo/redo does not refresh PivotTable data."
+    },
+    {
+      "id": 27,
+      "topic": "Charts - Secondary axis",
+      "type": "SingleChoice",
+      "questionText": "When should you add a secondary axis to a chart?",
+      "options": [
+        "A. When you have more than five data series.",
+        "B. When two data series have significantly different value ranges or units of measurement.",
+        "C. When you want to change the chart color scheme.",
+        "D. When the chart has too many data points."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a secondary axis is used when two data series have vastly different scales (e.g., revenue in millions vs. percentage growth), allowing both to be properly visualized on the same chart.\n\nA is incorrect because the number of data series does not determine whether a secondary axis is needed.\n\nC is incorrect because color schemes are managed through chart styles, not axes.\n\nD is incorrect because too many data points is a readability issue, not an axis issue."
+    },
+    {
+      "id": 28,
+      "topic": "Conditional Formatting - Top/bottom rules",
+      "type": "SingleChoice",
+      "questionText": "You want to highlight the top 10 values in a range. Which conditional formatting option should you use?",
+      "options": [
+        "A. Highlight Cell Rules > Greater Than",
+        "B. Top/Bottom Rules > Top 10 Items",
+        "C. Color Scales",
+        "D. Data Bars"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Top/Bottom Rules > Top 10 Items automatically identifies and highlights the ten highest values in the selected range.\n\nA is incorrect because Greater Than requires you to specify a fixed value, and does not guarantee exactly 10 items.\n\nC is incorrect because Color Scales apply a gradient to all cells, not just the top 10.\n\nD is incorrect because Data Bars show relative values for all cells, not just the top 10."
+    },
+    {
+      "id": 29,
+      "topic": "Formulas - Absolute vs relative references",
+      "type": "SingleChoice",
+      "questionText": "In the formula =$A$1*B1, what happens when you copy it from cell C1 to cell C2?",
+      "options": [
+        "A. The formula becomes =$A$2*B2.",
+        "B. The formula becomes =$A$1*B2.",
+        "C. The formula becomes =$A$1*B1.",
+        "D. The formula produces an error."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because $A$1 is an absolute reference (locked with $ signs) and does not change when copied. B1 is a relative reference that adjusts to B2 when the formula is copied one row down.\n\nA is incorrect because $A$1 does not change to $A$2; the dollar signs lock both the column and row.\n\nC is incorrect because the relative reference B1 does adjust when copied.\n\nD is incorrect because this is a valid formula that copies without errors."
+    },
+    {
+      "id": 30,
+      "topic": "Data Validation - Circle invalid data",
+      "type": "SingleChoice",
+      "questionText": "You have data validation rules set up but some cells already contain invalid data entered before the rules were applied. How can you identify these cells?",
+      "options": [
+        "A. Use Find and Replace to search for invalid values.",
+        "B. Go to Data tab > Data Validation dropdown > Circle Invalid Data.",
+        "C. Apply conditional formatting to all cells.",
+        "D. Manually check each cell."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Circle Invalid Data option on the Data tab identifies and visually marks cells that contain data violating the current validation rules with red circles.\n\nA is incorrect because Find and Replace cannot identify data validation violations.\n\nC is incorrect because conditional formatting would need to duplicate the validation logic manually.\n\nD is incorrect because manual checking is impractical for large datasets."
+    },
+    {
+      "id": 31,
+      "topic": "Tables - Total row",
+      "type": "SingleChoice",
+      "questionText": "How do you add a Total row to an Excel table?",
+      "options": [
+        "A. Manually type 'Total' and formulas below the table.",
+        "B. Check the Total Row checkbox on the Table Design tab.",
+        "C. Insert a new row and apply the SUM function.",
+        "D. Go to Data tab > Subtotals."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Total Row checkbox on the Table Design tab automatically adds a total row at the bottom of the table with dropdown options for each column to select summary functions (SUM, AVERAGE, COUNT, etc.).\n\nA is incorrect because manually added rows are not part of the table's Total Row feature.\n\nC is incorrect because inserting a row does not integrate with the table's built-in Total Row functionality.\n\nD is incorrect because Subtotals are for grouped data in regular ranges, not Excel tables."
+    },
+    {
+      "id": 32,
+      "topic": "Formulas - CONCATENATE and TEXTJOIN",
+      "type": "SingleChoice",
+      "questionText": "Which function joins the values from cells A1, B1, and C1 with a comma and space as a delimiter?",
+      "options": [
+        "A. =CONCATENATE(A1, \", \", B1, \", \", C1)",
+        "B. =TEXTJOIN(\", \", TRUE, A1, B1, C1)",
+        "C. Both A and B produce the same result.",
+        "D. =JOIN(A1:C1, \", \")"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because both CONCATENATE with explicit delimiters and TEXTJOIN with a comma-space delimiter produce the same joined text. TEXTJOIN is more efficient for multiple cells and can skip empty cells.\n\nA is partially correct but does not reflect that B also works.\n\nB is partially correct but does not reflect that A also works.\n\nD is incorrect because JOIN is not a standard Excel function."
+    },
+    {
+      "id": 33,
+      "topic": "PivotTables - Slicers with PivotTables",
+      "type": "SingleChoice",
+      "questionText": "How do you connect a single slicer to multiple PivotTables so filtering one updates all of them?",
+      "options": [
+        "A. Copy the slicer onto each PivotTable's sheet.",
+        "B. Right-click the slicer and select Report Connections (or PivotTable Connections) to select multiple PivotTables.",
+        "C. Create separate slicers for each PivotTable with the same field.",
+        "D. This is not possible in Excel."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking a slicer and selecting Report Connections allows you to link the slicer to multiple PivotTables, so filtering with the slicer updates all connected PivotTables simultaneously.\n\nA is incorrect because copying a slicer does not automatically link it to other PivotTables.\n\nC is incorrect because separate slicers would need to be manually synchronized.\n\nD is incorrect because this feature is available in Excel."
+    },
+    {
+      "id": 34,
+      "topic": "Charts - Trendlines",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of adding a trendline to an Excel chart?",
+      "options": [
+        "A. To add decorative lines to the chart.",
+        "B. To visually represent the general direction or pattern of data and optionally forecast future values.",
+        "C. To connect all data points with straight lines.",
+        "D. To draw a horizontal reference line at the average value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because trendlines show the overall direction of data (linear, exponential, polynomial, etc.) and can be extended to forecast future values based on existing data patterns.\n\nA is incorrect because trendlines serve an analytical purpose, not decorative.\n\nC is incorrect because connecting data points is what a line chart does, not a trendline.\n\nD is incorrect because a horizontal line at the average would be a reference line, not a trendline."
+    },
+    {
+      "id": 35,
+      "topic": "Formulas - SUMPRODUCT",
+      "type": "SingleChoice",
+      "questionText": "What does the formula =SUMPRODUCT((A2:A100=\"East\")*(B2:B100>500)) calculate?",
+      "options": [
+        "A. The sum of values in column A where column B is greater than 500.",
+        "B. The count of rows where column A is 'East' AND column B is greater than 500.",
+        "C. The product of all values in columns A and B.",
+        "D. The average of column B where column A is 'East'."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SUMPRODUCT with Boolean conditions (TRUE=1, FALSE=0) multiplied together counts the rows where both conditions are TRUE simultaneously. The multiplication acts as a logical AND.\n\nA is incorrect because the formula counts rows, not sums values.\n\nC is incorrect because the formula evaluates conditions, not multiplies all values.\n\nD is incorrect because the formula counts, not averages."
+    },
+    {
+      "id": 36,
+      "topic": "Conditional Formatting - Icon sets",
+      "type": "SingleChoice",
+      "questionText": "You want to display green, yellow, and red traffic light icons next to values based on their performance thresholds. Which conditional formatting option should you use?",
+      "options": [
+        "A. Color Scales",
+        "B. Data Bars",
+        "C. Icon Sets",
+        "D. Highlight Cell Rules"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because Icon Sets display graphical icons (such as traffic lights, arrows, or flags) in cells based on value thresholds, providing an intuitive visual indicator of performance.\n\nA is incorrect because Color Scales apply background color gradients, not icons.\n\nB is incorrect because Data Bars show proportional bars, not icons.\n\nD is incorrect because Highlight Cell Rules change cell colors, not add icons."
+    },
+    {
+      "id": 37,
+      "topic": "Data Validation - Input message",
+      "type": "SingleChoice",
+      "questionText": "How can you display a helpful message when a user selects a cell with data validation?",
+      "options": [
+        "A. Add a comment to the cell.",
+        "B. Configure an Input Message in the Data Validation dialog.",
+        "C. Use conditional formatting to show a tooltip.",
+        "D. Insert a text box next to the cell."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Input Message tab in the Data Validation dialog allows you to set a title and message that appear as a tooltip when the cell is selected, guiding users on what to enter.\n\nA is incorrect because comments are separate from data validation and require hovering to view.\n\nC is incorrect because conditional formatting does not create tooltips.\n\nD is incorrect because text boxes are static objects that do not respond to cell selection."
+    },
+    {
+      "id": 38,
+      "topic": "Formulas - Array formulas",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are characteristics of dynamic array formulas in Microsoft 365? (Choose two.)",
+      "options": [
+        "A. They can return multiple values that spill into adjacent cells automatically.",
+        "B. They require Ctrl+Shift+Enter to confirm.",
+        "C. They use the # symbol to reference the entire spill range.",
+        "D. They only work in Excel 2010 and earlier."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. Dynamic array formulas in Microsoft 365 automatically spill results into neighboring cells and you can reference the spill range using the # symbol (e.g., A1#).\n\nB is incorrect because dynamic arrays in Microsoft 365 do not require Ctrl+Shift+Enter; that was necessary for legacy CSE array formulas.\n\nD is incorrect because dynamic arrays are a feature of Microsoft 365 and Excel 2021+, not older versions."
+    },
+    {
+      "id": 39,
+      "topic": "PivotTables - Value field settings",
+      "type": "SingleChoice",
+      "questionText": "You have a PivotTable showing sales amounts and want to display them as a percentage of the grand total. How do you configure this?",
+      "options": [
+        "A. Divide each value by the grand total manually.",
+        "B. Right-click a value in the PivotTable, select Value Field Settings > Show Values As > % of Grand Total.",
+        "C. Apply percentage number format to the values.",
+        "D. Add a calculated field with a percentage formula."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Value Field Settings dialog in a PivotTable has a 'Show Values As' tab where you can select '% of Grand Total' to display values as percentages of the overall total.\n\nA is incorrect because manual division is impractical and does not update dynamically.\n\nC is incorrect because applying a percentage format only changes how numbers display, not what they represent.\n\nD is incorrect because a calculated field is not needed when the built-in 'Show Values As' feature provides this functionality."
+    },
+    {
+      "id": 40,
+      "topic": "Charts - Chart formatting",
+      "type": "SingleChoice",
+      "questionText": "How do you add data labels to an Excel chart to show the exact values on each data point?",
+      "options": [
+        "A. Click the chart, then use the + button (Chart Elements) and check Data Labels.",
+        "B. Right-click the chart background and select Format Data Labels.",
+        "C. Go to Insert tab > Data Labels.",
+        "D. Type the values directly onto the chart."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because clicking the chart reveals the Chart Elements button (+) where you can check Data Labels to display values directly on the chart's data points.\n\nB is incorrect because you need to right-click a data series, not the chart background, and the Format Data Labels option only appears after data labels have been added.\n\nC is incorrect because the Insert tab does not have a Data Labels option for charts.\n\nD is incorrect because you cannot type values directly onto a chart."
+    },
+    {
+      "id": 41,
+      "topic": "Workbook Management - Protecting worksheets",
+      "type": "SingleChoice",
+      "questionText": "You want to prevent users from editing formulas in certain cells while allowing them to enter data in other cells. Which approach should you use?",
+      "options": [
+        "A. Lock all cells and protect the workbook structure.",
+        "B. Unlock the data entry cells, keep formula cells locked, and then protect the worksheet.",
+        "C. Hide the formulas using number formatting.",
+        "D. Convert all formulas to static values."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because by default all cells are locked, but locking only takes effect when the worksheet is protected. You must unlock the cells you want users to edit, keep the formula cells locked, and then protect the sheet via Review > Protect Sheet.\n\nA is incorrect because protecting the workbook structure prevents adding/deleting sheets, not editing cells.\n\nC is incorrect because number formatting changes display but does not prevent editing.\n\nD is incorrect because converting to static values destroys the formulas entirely."
+    },
+    {
+      "id": 42,
+      "topic": "Formulas - SWITCH function",
+      "type": "SingleChoice",
+      "questionText": "Which function evaluates an expression against a list of value/result pairs and returns the result for the first matching value?",
+      "options": [
+        "A. CHOOSE",
+        "B. SWITCH",
+        "C. IFS",
+        "D. LOOKUP"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SWITCH evaluates an expression and compares it to a list of value/result pairs, returning the result that corresponds to the first match. For example, =SWITCH(A1, 1, \"Low\", 2, \"Medium\", 3, \"High\").\n\nA is incorrect because CHOOSE selects a value from a list based on an index number, not by matching values.\n\nC is incorrect because IFS evaluates multiple conditions (logical tests), not specific value matches.\n\nD is incorrect because LOOKUP searches a range for a value and returns a corresponding result, but uses a different syntax and matching approach."
+    },
+    {
+      "id": 43,
+      "topic": "Data Management - Flash Fill",
+      "type": "SingleChoice",
+      "questionText": "You have full names in column A (e.g., 'John Smith') and you type 'John' in cell B1. When you begin typing 'Jane' in B2, Excel suggests extracting all first names automatically. What feature is this?",
+      "options": [
+        "A. AutoComplete",
+        "B. Flash Fill",
+        "C. Text to Columns",
+        "D. AutoFill"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Flash Fill recognizes patterns in your data entry and automatically fills the remaining cells based on the detected pattern, such as extracting first names from full names.\n\nA is incorrect because AutoComplete suggests previously entered values in the same column, not pattern-based extraction.\n\nC is incorrect because Text to Columns splits data using delimiters, requiring manual configuration.\n\nD is incorrect because AutoFill extends series (like dates or numbers) but does not detect text extraction patterns."
+    },
+    {
+      "id": 44,
+      "topic": "Formulas - LET function",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the LET function in Excel?",
+      "options": [
+        "A. To restrict cell editing permissions.",
+        "B. To assign names to intermediate calculation results within a formula, improving readability and performance.",
+        "C. To create a dropdown list of allowed values.",
+        "D. To define a named range in the formula bar."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the LET function allows you to define named variables within a formula that can be reused in the calculation, reducing redundancy and improving both readability and performance.\n\nA is incorrect because cell permissions are managed through worksheet protection.\n\nC is incorrect because dropdown lists are created with Data Validation.\n\nD is incorrect because named ranges are defined through the Name Manager, not the LET function."
+    },
+    {
+      "id": 45,
+      "topic": "Data Management - Power Query",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Power Query (Get & Transform) in Excel?",
+      "options": [
+        "A. To create advanced charts and visualizations.",
+        "B. To connect to, import, clean, and transform data from various sources before loading it into Excel.",
+        "C. To write VBA macros for automation.",
+        "D. To manage print layouts and page breaks."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Power Query is a data connection and transformation tool that allows you to import data from diverse sources (databases, web, files), clean it, reshape it, and load the results into Excel worksheets or the data model.\n\nA is incorrect because charts are created through the Insert tab, not Power Query.\n\nC is incorrect because VBA macros are written in the Visual Basic Editor, not Power Query.\n\nD is incorrect because print layout management is done through Page Layout settings."
+    },
+    {
+      "id": 46,
+      "topic": "Formulas - UNIQUE function",
+      "type": "SingleChoice",
+      "questionText": "What does the UNIQUE function return in Microsoft 365 Excel?",
+      "options": [
+        "A. The single largest value in a range.",
+        "B. A dynamic array of distinct values from a range, removing duplicates.",
+        "C. A count of how many unique values exist in a range.",
+        "D. A Boolean value indicating if all values in a range are unique."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the UNIQUE function returns a dynamic array containing only the distinct values from the specified range or array, automatically spilling the results into adjacent cells.\n\nA is incorrect because finding the largest value is done with the MAX function.\n\nC is incorrect because counting unique values would require combining UNIQUE with COUNTA or similar.\n\nD is incorrect because UNIQUE returns the actual unique values, not a Boolean result."
+    },
+    {
+      "id": 47,
+      "topic": "Data Management - Remove duplicates",
+      "type": "SingleChoice",
+      "questionText": "You have a dataset with duplicate rows and need to remove them while keeping one instance of each. Which feature should you use?",
+      "options": [
+        "A. Data tab > Remove Duplicates.",
+        "B. Home tab > Find & Select > Replace.",
+        "C. Data tab > Sort > Ascending.",
+        "D. Review tab > Delete Duplicates."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Remove Duplicates feature on the Data tab allows you to select which columns to check for duplicates and permanently removes duplicate rows, keeping the first occurrence.\n\nB is incorrect because Find & Replace works with specific values, not duplicate detection.\n\nC is incorrect because sorting arranges data but does not remove duplicates.\n\nD is incorrect because there is no Delete Duplicates option on the Review tab."
+    },
+    {
+      "id": 48,
+      "topic": "Formulas - SORT function",
+      "type": "SingleChoice",
+      "questionText": "What does the SORT function in Microsoft 365 Excel do?",
+      "options": [
+        "A. It permanently rearranges the data in the source range.",
+        "B. It returns a dynamically sorted array of the data without changing the original range.",
+        "C. It sorts the current worksheet tabs alphabetically.",
+        "D. It opens the Sort dialog box."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the SORT function returns a new sorted array that spills into adjacent cells, leaving the original data unchanged. It accepts parameters for which column to sort by and the sort order.\n\nA is incorrect because SORT does not modify the source data; it creates a new sorted output.\n\nC is incorrect because worksheet tab sorting is not related to the SORT function.\n\nD is incorrect because the SORT function is a formula, not a menu command."
+    },
+    {
+      "id": 49,
+      "topic": "Workbook Management - Named ranges",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of using named ranges in Excel formulas?",
+      "options": [
+        "A. Named ranges make formulas execute faster.",
+        "B. Named ranges make formulas more readable and easier to maintain by replacing cell references with descriptive names.",
+        "C. Named ranges automatically sort data.",
+        "D. Named ranges prevent cells from being edited."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because named ranges replace cryptic cell references like B2:B500 with descriptive names like SalesData, making formulas like =SUM(SalesData) much easier to read, understand, and maintain.\n\nA is incorrect because named ranges do not significantly affect formula execution speed.\n\nC is incorrect because named ranges are references, not sorting mechanisms.\n\nD is incorrect because named ranges do not provide cell protection."
+    },
+    {
+      "id": 50,
+      "topic": "Data Management - Text to Columns",
+      "type": "SingleChoice",
+      "questionText": "You have a column containing data like 'Smith, John' and need to split last names and first names into separate columns. Which feature should you use?",
+      "options": [
+        "A. Flash Fill",
+        "B. Data tab > Text to Columns",
+        "C. LEFT and RIGHT functions",
+        "D. Home tab > Merge & Center"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Text to Columns on the Data tab allows you to split cell content into multiple columns using a delimiter (such as a comma) or fixed widths.\n\nA is incorrect because while Flash Fill can extract parts of text by example, Text to Columns is the purpose-built tool for splitting delimited data.\n\nC is incorrect because LEFT and RIGHT require knowing exact character positions, which vary.\n\nD is incorrect because Merge & Center combines cells, not splits them."
+    },
+    {
+      "id": 51,
+      "topic": "Formulas - FILTER function",
+      "type": "SingleChoice",
+      "questionText": "What does the FILTER function in Microsoft 365 Excel do?",
+      "options": [
+        "A. It applies AutoFilter dropdown arrows to a range.",
+        "B. It returns a dynamic array of rows from a range that meet specified criteria.",
+        "C. It hides rows that do not match criteria.",
+        "D. It permanently deletes rows that do not match criteria."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the FILTER function returns a new array containing only the rows that satisfy the specified Boolean condition, spilling results into adjacent cells without modifying the original data.\n\nA is incorrect because AutoFilter dropdowns are applied through the Data tab, not the FILTER function.\n\nC is incorrect because FILTER extracts matching data to a new location rather than hiding rows in place.\n\nD is incorrect because FILTER does not delete any data."
+    },
+    {
+      "id": 52,
+      "topic": "Workbook Management - Freeze panes",
+      "type": "SingleChoice",
+      "questionText": "You want to keep row 1 (headers) visible while scrolling through a large dataset. What should you do?",
+      "options": [
+        "A. View tab > Freeze Panes > Freeze Top Row.",
+        "B. Home tab > Lock Row.",
+        "C. Page Layout tab > Fixed Headers.",
+        "D. Data tab > Pin Row."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because View > Freeze Panes > Freeze Top Row locks the first row so it remains visible as you scroll vertically through the worksheet.\n\nB is incorrect because there is no Lock Row option on the Home tab.\n\nC is incorrect because there is no Fixed Headers option on the Page Layout tab.\n\nD is incorrect because there is no Pin Row option on the Data tab."
+    },
+    {
+      "id": 53,
+      "topic": "Formulas - INDIRECT function",
+      "type": "SingleChoice",
+      "questionText": "What does the INDIRECT function do in Excel?",
+      "options": [
+        "A. It returns the cell address of the active cell.",
+        "B. It converts a text string into a cell reference that Excel can evaluate.",
+        "C. It creates an indirect link to an external workbook.",
+        "D. It indirectly calculates values using an iterative method."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because INDIRECT takes a text string (such as \"A1\" or \"Sheet2!B5\") and interprets it as a valid cell reference, allowing dynamic construction of references.\n\nA is incorrect because the active cell address is returned by the CELL function.\n\nC is incorrect because external links are created using standard file path references, not INDIRECT.\n\nD is incorrect because iterative calculations are controlled through Excel Options, not the INDIRECT function."
+    },
+    {
+      "id": 54,
+      "topic": "Data Management - Consolidate",
+      "type": "SingleChoice",
+      "questionText": "You have sales data on three separate worksheets and want to combine them into a summary on a fourth sheet. Which feature is best suited for this?",
+      "options": [
+        "A. Data tab > Consolidate.",
+        "B. Home tab > Merge Worksheets.",
+        "C. Insert tab > Combine Data.",
+        "D. View tab > Arrange All."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Consolidate feature on the Data tab combines data from multiple ranges (including different worksheets) using a summary function such as SUM, AVERAGE, or COUNT.\n\nB is incorrect because there is no Merge Worksheets option on the Home tab.\n\nC is incorrect because there is no Combine Data option on the Insert tab.\n\nD is incorrect because Arrange All controls window layout, not data consolidation."
+    },
+    {
+      "id": 55,
+      "topic": "Charts - Sunburst and Treemap charts",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following chart types are available in Excel for visualizing hierarchical data? (Choose two.)",
+      "options": [
+        "A. Sunburst chart",
+        "B. Treemap chart",
+        "C. Gantt chart",
+        "D. Network diagram"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Sunburst charts display hierarchical data as concentric rings, while Treemap charts show hierarchical data as nested rectangles. Both were introduced in Excel 2016.\n\nC is incorrect because Excel does not have a built-in Gantt chart type (though one can be simulated with stacked bar charts).\n\nD is incorrect because Network diagrams are not a standard Excel chart type."
+    },
+    {
+      "id": 56,
+      "topic": "Workbook Management - Custom views",
+      "type": "SingleChoice",
+      "questionText": "You frequently need to switch between different display settings (hidden columns, zoom levels, filter states) for the same worksheet. Which feature helps with this?",
+      "options": [
+        "A. View tab > Custom Views to save and restore different view configurations.",
+        "B. Create multiple copies of the worksheet with different settings.",
+        "C. Use macros to toggle settings.",
+        "D. Save different versions of the workbook file."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Custom Views allow you to save named snapshots of display and print settings, including hidden rows/columns, filter settings, and zoom levels, so you can quickly switch between them.\n\nB is incorrect because duplicating worksheets wastes space and creates data synchronization issues.\n\nC is incorrect because while macros can work, Custom Views is the purpose-built feature for this task.\n\nD is incorrect because saving separate files creates version management problems."
+    },
+    {
+      "id": 57,
+      "topic": "Formulas - LAMBDA function",
+      "type": "SingleChoice",
+      "questionText": "What does the LAMBDA function allow you to create in Microsoft 365 Excel?",
+      "options": [
+        "A. A macro that runs when a cell value changes.",
+        "B. A custom reusable function that can be named and called like a built-in function.",
+        "C. A connection to an external database.",
+        "D. A chart template for reuse."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because LAMBDA allows you to define custom functions with parameters that can be assigned a name through the Name Manager, making them callable like native Excel functions (e.g., =MyFunction(A1, B1)).\n\nA is incorrect because event-triggered macros require VBA, not LAMBDA.\n\nC is incorrect because database connections are managed through Power Query or Data connections.\n\nD is incorrect because chart templates are saved through chart design tools."
+    },
+    {
+      "id": 58,
+      "topic": "Data Management - Goal Seek",
+      "type": "SingleChoice",
+      "questionText": "You have a loan payment formula and want to find the interest rate that results in a monthly payment of exactly $500. Which tool should you use?",
+      "options": [
+        "A. Solver.",
+        "B. Data tab > What-If Analysis > Goal Seek.",
+        "C. PMT function with trial and error.",
+        "D. Data Validation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Goal Seek finds the input value needed in one cell to produce a desired result in a formula cell. You set the payment cell to 500 and tell Goal Seek to change the interest rate cell.\n\nA is incorrect because while Solver could work, it is designed for more complex optimization problems with multiple variables and constraints; Goal Seek is simpler and more appropriate for single-variable scenarios.\n\nC is incorrect because manual trial and error is inefficient when Goal Seek automates the process.\n\nD is incorrect because Data Validation restricts input values, not calculates them."
+    },
+    {
+      "id": 59,
+      "topic": "Formulas - Nested IF vs IFS",
+      "type": "SingleChoice",
+      "questionText": "You need to assign letter grades based on a score: A for 90+, B for 80-89, C for 70-79, D for 60-69, and F below 60. Which function provides the cleanest solution?",
+      "options": [
+        "A. A single IF function.",
+        "B. =IFS(A1>=90,\"A\",A1>=80,\"B\",A1>=70,\"C\",A1>=60,\"D\",TRUE,\"F\")",
+        "C. =CHOOSE(A1,\"A\",\"B\",\"C\",\"D\",\"F\")",
+        "D. =SWITCH(A1,90,\"A\",80,\"B\",70,\"C\",60,\"D\",\"F\")"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because IFS evaluates multiple conditions in order and returns the result for the first TRUE condition. Using TRUE as the final condition acts as a default case for scores below 60.\n\nA is incorrect because a single IF function can only test one condition; this scenario requires nested IFs or the IFS function.\n\nC is incorrect because CHOOSE requires an index number, not a comparison; it cannot evaluate ranges like 80-89.\n\nD is incorrect because SWITCH matches exact values (90, 80, etc.) rather than evaluating conditions like >=90."
+    },
+    {
+      "id": 60,
+      "topic": "Workbook Management - Shared workbooks and co-authoring",
+      "type": "SingleChoice",
+      "questionText": "How do multiple users simultaneously edit the same Excel workbook in real time?",
+      "options": [
+        "A. Save the workbook to a local network drive and enable the Share Workbook feature.",
+        "B. Save the workbook to OneDrive or SharePoint and use the co-authoring feature in Excel for Microsoft 365.",
+        "C. Email the workbook to each user and merge changes manually.",
+        "D. Use Track Changes to allow sequential editing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because co-authoring in Excel for Microsoft 365 requires the file to be stored on OneDrive or SharePoint. Multiple users can then open and edit the file simultaneously, with changes syncing automatically.\n\nA is incorrect because the legacy Share Workbook feature has been deprecated and does not support true real-time co-authoring.\n\nC is incorrect because emailing copies creates version conflicts and does not allow simultaneous editing.\n\nD is incorrect because Track Changes supports sequential review, not simultaneous editing."
+    },
+    {
+      "id": 61,
+      "topic": "Data Management - Scenario Manager",
+      "type": "SingleChoice",
+      "questionText": "You want to compare different sets of input values (best case, worst case, most likely) in a financial model. Which What-If Analysis tool should you use?",
+      "options": [
+        "A. Goal Seek",
+        "B. Data Table",
+        "C. Scenario Manager",
+        "D. Solver"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because Scenario Manager allows you to define and save multiple sets of input values (scenarios), switch between them, and generate a summary report comparing the results of each scenario.\n\nA is incorrect because Goal Seek finds a single input value to achieve a specific result, not compares multiple scenarios.\n\nB is incorrect because Data Tables show results for one or two variable inputs in a tabular format, but do not name and manage distinct scenarios.\n\nD is incorrect because Solver optimizes toward a target value with constraints, rather than comparing named scenarios."
+    },
+    {
+      "id": 62,
+      "topic": "Formulas - XMATCH function",
+      "type": "SingleChoice",
+      "questionText": "What does the XMATCH function return?",
+      "options": [
+        "A. The value found at the matching position.",
+        "B. The relative position of a lookup value in a range, with support for exact match, approximate match, and wildcard search modes.",
+        "C. A Boolean TRUE or FALSE indicating whether a match was found.",
+        "D. The cell address of the matching value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because XMATCH returns the relative position of a value within a range or array, and supports exact match (default), approximate match (binary search), and wildcard matching. It is the modern replacement for MATCH.\n\nA is incorrect because XMATCH returns a position number, not the matched value itself (that would require INDEX or XLOOKUP).\n\nC is incorrect because XMATCH returns a numeric position, not a Boolean.\n\nD is incorrect because XMATCH returns a relative position number, not a cell address."
+    },
+    {
+      "id": 63,
+      "topic": "Workbook Management - Data model",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are benefits of adding data to the Excel Data Model? (Choose two.)",
+      "options": [
+        "A. You can create relationships between tables from different sources without VLOOKUP.",
+        "B. You can use DAX measures for advanced calculations in PivotTables.",
+        "C. Data Model tables are always smaller in file size than regular worksheets.",
+        "D. The Data Model automatically backs up your workbook."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. The Data Model allows you to define relationships between multiple tables and use them in PivotTables without needing VLOOKUP. It also enables DAX (Data Analysis Expressions) for advanced calculated measures.\n\nC is incorrect because the Data Model can increase file size, especially with large datasets stored in compressed columnar format.\n\nD is incorrect because the Data Model does not provide backup functionality."
+    },
+    {
+      "id": 64,
+      "topic": "Data Management - Subtotals",
+      "type": "SingleChoice",
+      "questionText": "You want to add subtotals for each department in a sorted list. Which feature should you use?",
+      "options": [
+        "A. Insert tab > Subtotal.",
+        "B. Data tab > Subtotal, after sorting the data by the department field.",
+        "C. Home tab > AutoSum for each department group.",
+        "D. Formulas tab > Insert Subtotal Function."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Subtotal feature on the Data tab automatically inserts subtotal rows at each change in the specified grouping field. The data must be sorted by that field first for the subtotals to be meaningful.\n\nA is incorrect because there is no Subtotal option on the Insert tab.\n\nC is incorrect because AutoSum would require manually selecting each department group.\n\nD is incorrect because there is no Insert Subtotal Function on the Formulas tab."
+    },
+    {
+      "id": 65,
+      "topic": "Formulas - CHOOSECOLS and CHOOSEROWS",
+      "type": "SingleChoice",
+      "questionText": "You have a table in A1:E100 and want to extract only columns 1, 3, and 5 into a new dynamic array. Which function should you use?",
+      "options": [
+        "A. =INDEX(A1:E100,,{1,3,5})",
+        "B. =CHOOSECOLS(A1:E100,1,3,5)",
+        "C. =FILTER(A1:E100,{1,0,1,0,1})",
+        "D. =COLUMNS(A1:E100,1,3,5)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because CHOOSECOLS returns specified columns from an array or range. CHOOSECOLS(A1:E100,1,3,5) returns a dynamic array containing only the 1st, 3rd, and 5th columns.\n\nA is incorrect because INDEX with an array constant in the column argument does not work this way in standard Excel.\n\nC is incorrect because FILTER is designed to filter rows based on criteria, not select specific columns.\n\nD is incorrect because COLUMNS returns the count of columns in a range, not selected columns of data."
+    }
+  ]
+}
