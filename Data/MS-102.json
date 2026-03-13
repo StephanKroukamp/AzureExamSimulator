@@ -1,0 +1,571 @@
+{
+  "examCode": "MS-102",
+  "examTitle": "Microsoft 365 Administrator Expert",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Tenant Management - Domain Configuration",
+      "type": "SingleChoice",
+      "questionText": "Your organization has purchased a new domain name and you need to verify it in Microsoft 365. Which DNS record type must you create to verify domain ownership?",
+      "options": [
+        "A. A record pointing to Microsoft 365 IP addresses.",
+        "B. TXT record with the verification string provided by Microsoft 365.",
+        "C. CNAME record pointing to autodiscover.outlook.com.",
+        "D. SRV record for sipfederationtls."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. To verify domain ownership in Microsoft 365, you must create a TXT record in your DNS zone with the specific verification string provided by the Microsoft 365 admin center. This proves you have administrative control over the domain.\n\nWhy the others are wrong:\n- A. An A record is used for pointing a hostname to an IP address, not for domain verification.\n- C. A CNAME record for autodiscover is used for email client autoconfiguration, not domain verification.\n- D. An SRV record for sipfederationtls is used for Skype for Business/Teams federation, not domain verification."
+    },
+    {
+      "id": 2,
+      "topic": "Identity Synchronization - Azure AD Connect",
+      "type": "SingleChoice",
+      "questionText": "You are planning to deploy Azure AD Connect to synchronize your on-premises Active Directory with Microsoft Entra ID. The organization has 150,000 user objects. Which installation mode should you use?",
+      "options": [
+        "A. Express Settings installation.",
+        "B. Custom installation with a SQL Server Express database.",
+        "C. Custom installation with a full SQL Server instance.",
+        "D. Cloud sync agent installation."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. When the number of objects exceeds 100,000, a full SQL Server instance is required for Azure AD Connect. The built-in SQL Server Express LocalDB has a 10 GB database limit and supports up to approximately 100,000 objects.\n\nWhy the others are wrong:\n- A. Express Settings uses SQL Server Express LocalDB, which cannot handle 150,000 objects.\n- B. SQL Server Express has the same 10 GB limitation and cannot support 150,000 objects.\n- D. Cloud sync uses a lightweight agent and does not support all synchronization scenarios, and is not the recommended approach for this scale of deployment with full feature requirements."
+    },
+    {
+      "id": 3,
+      "topic": "Security Policies - Conditional Access",
+      "type": "SingleChoice",
+      "questionText": "You need to create a Conditional Access policy that requires multi-factor authentication for all users when they access Microsoft 365 from outside the corporate network. What should you configure as the condition?",
+      "options": [
+        "A. Device platforms set to All devices.",
+        "B. Named locations excluding the corporate IP ranges.",
+        "C. Client apps set to Browser and Mobile apps and desktop clients.",
+        "D. Sign-in risk set to Medium and above."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Named locations allow you to define trusted IP address ranges representing your corporate network. By setting the condition to exclude these trusted locations, the policy triggers MFA only when users sign in from outside the corporate network.\n\nWhy the others are wrong:\n- A. Device platforms would filter by OS type (Windows, iOS, etc.), not by network location.\n- C. Client apps filters the type of application used to authenticate, not the network origin of the request.\n- D. Sign-in risk is based on Microsoft Entra ID Protection risk detection algorithms, not on network location."
+    },
+    {
+      "id": 4,
+      "topic": "Compliance - Data Loss Prevention",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure a Data Loss Prevention (DLP) policy to prevent users from sharing credit card numbers via Microsoft Teams chat and email. Which two locations should you include in the DLP policy? Each correct answer presents part of the solution.",
+      "options": [
+        "A. SharePoint sites.",
+        "B. Exchange email.",
+        "C. OneDrive accounts.",
+        "D. Teams chat and channel messages.",
+        "E. Power BI dashboards."
+      ],
+      "correctAnswers": ["B", "D"],
+      "explanation": "Correct: B and D. The requirement specifically states preventing sharing via Teams chat and email. Exchange email covers the email component, and Teams chat and channel messages covers the Teams chat component of the DLP policy.\n\nWhy the others are wrong:\n- A. SharePoint sites would protect documents stored in SharePoint but is not required for the stated email and Teams chat scenario.\n- C. OneDrive accounts would protect files stored in OneDrive but is not required for the stated scenario.\n- E. Power BI dashboards is a DLP location for Power BI content but is not relevant to the email and Teams chat requirement."
+    },
+    {
+      "id": 5,
+      "topic": "Device Management - Intune Enrollment",
+      "type": "SingleChoice",
+      "questionText": "Your company has 500 Windows 11 devices that need to be enrolled in Microsoft Intune. The devices are currently joined to an on-premises Active Directory domain and you want to co-manage them. What must you configure first?",
+      "options": [
+        "A. Windows Autopilot deployment profiles.",
+        "B. Hybrid Azure AD join and Azure AD Connect.",
+        "C. Microsoft Entra ID P2 licenses for all users.",
+        "D. Apple Push Notification certificate."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. To co-manage devices that are already domain-joined, you must first configure Hybrid Azure AD join through Azure AD Connect. This registers the on-premises AD-joined devices in Microsoft Entra ID, which is a prerequisite for Intune enrollment and co-management with Configuration Manager.\n\nWhy the others are wrong:\n- A. Windows Autopilot is used for provisioning new or reset devices, not for enrolling existing domain-joined devices into co-management.\n- C. Entra ID P2 licenses provide additional features like Identity Protection and PIM, but are not a prerequisite for co-management enrollment.\n- D. Apple Push Notification certificate is required for iOS/iPadOS device management, not Windows devices."
+    },
+    {
+      "id": 6,
+      "topic": "Teams Administration - Meeting Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that only internal users can present content during Teams meetings while external guests can only view. Which Teams meeting policy setting should you configure?",
+      "options": [
+        "A. Set 'Who can present' to 'Only organizers and co-organizers'.",
+        "B. Set 'Mode for IP audio' to 'Outgoing and incoming audio enabled'.",
+        "C. Set 'Who can present' to 'People in my organization'.",
+        "D. Set 'Allow external participants to give or request control' to Off."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Setting 'Who can present' to 'People in my organization' restricts the presenter role to internal users only. External guests will be attendees and can only view content.\n\nWhy the others are wrong:\n- A. Restricting to organizers and co-organizers is too restrictive and would prevent other internal users from presenting.\n- B. IP audio settings control audio capabilities, not presentation permissions.\n- D. This setting controls whether external users can take or request control of a shared screen, not whether they can present their own content."
+    },
+    {
+      "id": 7,
+      "topic": "Tenant Management - Organizational Settings",
+      "type": "SingleChoice",
+      "questionText": "A user reports that they cannot create a new Microsoft 365 group from Outlook. Other users in the organization can create groups. What is the most likely cause?",
+      "options": [
+        "A. The user does not have an Exchange Online license.",
+        "B. The user is not a Global Administrator.",
+        "C. Group creation has been restricted to members of a specific security group, and the user is not a member.",
+        "D. The user's mailbox is on litigation hold."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Microsoft 365 allows administrators to restrict who can create Microsoft 365 groups by limiting creation to members of a specific security group. If the user is not a member of this group, they cannot create new groups.\n\nWhy the others are wrong:\n- A. If the user lacked an Exchange Online license, they would not be able to use Outlook at all, not just group creation.\n- B. Global Administrator is not required to create groups; by default, all users can create groups unless restricted.\n- D. Litigation hold preserves mailbox content and does not affect the ability to create Microsoft 365 groups."
+    },
+    {
+      "id": 8,
+      "topic": "Identity Synchronization - Password Hash Sync",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses Azure AD Connect with pass-through authentication. Management wants to ensure users can still sign in to Microsoft 365 if the on-premises pass-through authentication agents become unavailable. What should you enable?",
+      "options": [
+        "A. Seamless single sign-on.",
+        "B. Password hash synchronization as a backup.",
+        "C. Federation with AD FS.",
+        "D. Certificate-based authentication."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Enabling password hash synchronization alongside pass-through authentication provides a backup authentication method. If the pass-through authentication agents go offline, Microsoft can fall back to password hash sync to authenticate users.\n\nWhy the others are wrong:\n- A. Seamless SSO provides a smoother sign-in experience but does not provide failover if PTA agents are unavailable.\n- C. Federation with AD FS would add another on-premises dependency, not reduce the risk of on-premises outages.\n- D. Certificate-based authentication is a separate authentication method and does not serve as an automatic failover for PTA."
+    },
+    {
+      "id": 9,
+      "topic": "Security Policies - Microsoft Defender for Office 365",
+      "type": "SingleChoice",
+      "questionText": "You need to protect users from malicious URLs in email messages that appear safe at the time of delivery but are later weaponized. Which Microsoft Defender for Office 365 feature should you configure?",
+      "options": [
+        "A. Anti-phishing policies.",
+        "B. Safe Attachments.",
+        "C. Safe Links with URL detonation at time of click.",
+        "D. Outbound spam filter policies."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Safe Links provides time-of-click URL verification. Even if a URL was safe when the email was delivered, Safe Links re-checks the URL when the user clicks it, protecting against URLs that are weaponized after delivery.\n\nWhy the others are wrong:\n- A. Anti-phishing policies protect against impersonation and spoofing but do not re-verify URLs at time of click.\n- B. Safe Attachments scans email attachments for malware in a sandbox, not URLs in the email body.\n- D. Outbound spam filter policies apply to outgoing email, not incoming threats."
+    },
+    {
+      "id": 10,
+      "topic": "Compliance - Retention Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to retain all Exchange Online email and Teams messages for 7 years to meet regulatory requirements. Users should not be able to delete messages before the retention period expires. What should you configure?",
+      "options": [
+        "A. A retention policy with the action set to 'Retain items for 7 years' and 'Delete items after the retention period'.",
+        "B. A retention label published to Exchange and Teams with the action set to 'Retain' for 7 years.",
+        "C. An eDiscovery hold on all mailboxes.",
+        "D. A retention policy with the action set to 'Only delete items when they reach a certain age' of 7 years."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A retention policy set to retain items for 7 years and then delete ensures that content is preserved for the full retention period (users cannot permanently delete it) and is automatically cleaned up afterward. Retention policies can be applied broadly to Exchange and Teams.\n\nWhy the others are wrong:\n- B. Retention labels must be applied to individual items (manually or via auto-apply), which is less efficient for a blanket requirement across all content.\n- C. eDiscovery holds are intended for legal investigations, not for long-term regulatory retention. They do not have automatic deletion after the period.\n- D. 'Only delete' does not retain items; it only deletes them after the specified age, meaning users could delete content before the 7-year mark."
+    },
+    {
+      "id": 11,
+      "topic": "Device Management - Compliance Policies",
+      "type": "SingleChoice",
+      "questionText": "You create a device compliance policy in Intune that requires BitLocker encryption on Windows devices. You want non-compliant devices to be blocked from accessing Exchange Online. What additional configuration is required?",
+      "options": [
+        "A. Create a device configuration profile for BitLocker.",
+        "B. Create a Conditional Access policy that requires the device to be marked as compliant.",
+        "C. Enable Microsoft Defender for Endpoint integration.",
+        "D. Configure an Exchange ActiveSync access rule."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A compliance policy alone only marks devices as compliant or non-compliant. To enforce access restrictions, you need a Conditional Access policy that uses 'Require device to be marked as compliant' as a grant control. This blocks non-compliant devices from accessing Exchange Online.\n\nWhy the others are wrong:\n- A. A device configuration profile can deploy BitLocker settings but does not block access to Exchange Online for non-compliant devices.\n- C. Defender for Endpoint integration provides risk-level signals to compliance policies but is not required to block access based on BitLocker compliance.\n- D. Exchange ActiveSync access rules are a legacy method and do not integrate with Intune compliance policies for modern authentication scenarios."
+    },
+    {
+      "id": 12,
+      "topic": "Teams Administration - External Access",
+      "type": "SingleChoice",
+      "questionText": "Users in your organization need to communicate with users at a partner organization via Microsoft Teams. The partner organization uses Teams. You need to enable communication while keeping guest access disabled. What should you configure?",
+      "options": [
+        "A. Enable guest access in Teams admin center.",
+        "B. Configure external access to allow the partner's domain.",
+        "C. Create a shared channel and invite the partner organization.",
+        "D. Add partner users as contacts in Exchange Online."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. External access (federation) allows Teams users to communicate with users in other organizations through chat and calls without requiring them to be added as guests in your tenant. You can allow specific domains.\n\nWhy the others are wrong:\n- A. The requirement explicitly states guest access should remain disabled. Guest access adds external users to your tenant.\n- C. Shared channels use Azure AD B2B direct connect, which is a different feature and is not the same as basic external access federation.\n- D. Adding contacts in Exchange Online does not enable Teams communication with external users."
+    },
+    {
+      "id": 13,
+      "topic": "Tenant Management - Service Health",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that specific administrators receive email notifications when there is a service health incident affecting Exchange Online. Where should you configure this?",
+      "options": [
+        "A. Azure Monitor alerts.",
+        "B. Microsoft 365 admin center > Health > Email preferences.",
+        "C. Microsoft Defender portal > Alert policies.",
+        "D. Exchange admin center > Mail flow rules."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft 365 admin center provides email notification preferences under Health where you can specify which administrators receive email alerts about service health incidents for specific services like Exchange Online.\n\nWhy the others are wrong:\n- A. Azure Monitor alerts are for monitoring Azure resources, not Microsoft 365 service health.\n- C. Defender portal alert policies are for security-related alerts, not service availability incidents.\n- D. Exchange mail flow rules process email messages in transit and cannot generate service health notifications."
+    },
+    {
+      "id": 14,
+      "topic": "Identity Synchronization - Filtering",
+      "type": "SingleChoice",
+      "questionText": "You need to synchronize only users in the Sales and Marketing organizational units (OUs) from on-premises Active Directory to Microsoft Entra ID using Azure AD Connect. What should you configure?",
+      "options": [
+        "A. Attribute-based filtering in Azure AD Connect.",
+        "B. OU-based filtering during Azure AD Connect custom installation.",
+        "C. Group-based filtering using a distribution group.",
+        "D. Domain-based filtering in Azure AD Connect."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. OU-based filtering allows you to select specific organizational units to synchronize during Azure AD Connect custom installation. You would select only the Sales and Marketing OUs.\n\nWhy the others are wrong:\n- A. Attribute-based filtering uses object attributes (like department) but is more complex and not necessary when the requirement is OU-based.\n- C. Group-based filtering synchronizes members of a specific group and is intended primarily for pilot deployments, not production OU-based filtering.\n- D. Domain-based filtering selects entire AD domains, not specific OUs within a domain."
+    },
+    {
+      "id": 15,
+      "topic": "Security Policies - Information Protection",
+      "type": "MultipleChoice",
+      "questionText": "You need to protect sensitive documents by automatically applying a sensitivity label that encrypts files containing Social Security numbers. Which two components must you configure? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A sensitivity label with encryption enabled.",
+        "B. An auto-labeling policy that detects Social Security number patterns.",
+        "C. A data loss prevention policy for Exchange Online.",
+        "D. A retention label for regulatory records.",
+        "E. An eDiscovery case for privileged content."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. First, you need a sensitivity label configured with encryption settings. Then, you need an auto-labeling policy that uses sensitive information types (Social Security number pattern) to automatically apply that label to matching documents.\n\nWhy the others are wrong:\n- C. A DLP policy can alert on or block sharing of sensitive content but does not apply sensitivity labels with encryption.\n- D. Retention labels control how long content is retained or deleted, not encryption.\n- E. eDiscovery cases are for legal discovery and investigation, not for automatically protecting sensitive documents."
+    },
+    {
+      "id": 16,
+      "topic": "Compliance - Insider Risk Management",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to detect when departing employees exfiltrate sensitive data before leaving. Which Microsoft Purview solution should you use?",
+      "options": [
+        "A. Communication Compliance.",
+        "B. Insider Risk Management with the 'Data theft by departing users' policy template.",
+        "C. eDiscovery Advanced.",
+        "D. Information Barriers."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Insider Risk Management includes a specific policy template called 'Data theft by departing users' that correlates HR signals (resignation or termination date) with data exfiltration indicators like file downloads, printing, and cloud uploads.\n\nWhy the others are wrong:\n- A. Communication Compliance monitors communications for policy violations like harassment or regulatory compliance, not data exfiltration.\n- C. eDiscovery Advanced is for finding and preserving content for legal cases, not for proactive detection of data theft.\n- D. Information Barriers restrict communication between groups but do not detect data exfiltration activities."
+    },
+    {
+      "id": 17,
+      "topic": "Device Management - App Protection Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from copying data from Microsoft Outlook on their personal iOS devices to unmanaged apps, without requiring device enrollment in Intune. What should you configure?",
+      "options": [
+        "A. A device compliance policy.",
+        "B. A device configuration profile.",
+        "C. An app protection policy (MAM without enrollment).",
+        "D. A Windows Information Protection policy."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. App protection policies (also known as MAM without enrollment) can protect corporate data within managed apps like Outlook on personal devices without requiring the device to be enrolled in Intune. You can restrict cut, copy, and paste to managed apps only.\n\nWhy the others are wrong:\n- A. Device compliance policies require device enrollment in Intune, which the scenario wants to avoid.\n- B. Device configuration profiles require device enrollment and configure device-level settings.\n- D. Windows Information Protection is for Windows devices, not iOS devices."
+    },
+    {
+      "id": 18,
+      "topic": "Teams Administration - Voice Configuration",
+      "type": "SingleChoice",
+      "questionText": "You are configuring Microsoft Teams Phone System for your organization. Users need to be able to make and receive calls to external phone numbers. Which licensing component is required in addition to the Teams Phone license?",
+      "options": [
+        "A. Microsoft Teams Rooms license.",
+        "B. A Calling Plan or Direct Routing configuration.",
+        "C. Audio Conferencing license.",
+        "D. Microsoft 365 E5 Compliance add-on."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Phone provides the PBX functionality, but to connect to the Public Switched Telephone Network (PSTN) for external calls, you need either a Microsoft Calling Plan (adds PSTN connectivity through Microsoft) or Direct Routing (connects your own SBC to Teams).\n\nWhy the others are wrong:\n- A. Teams Rooms licenses are for meeting room devices, not individual user calling.\n- C. Audio Conferencing provides dial-in numbers for meetings but does not provide individual user PSTN calling capability.\n- D. E5 Compliance is for advanced compliance features and has nothing to do with phone connectivity."
+    },
+    {
+      "id": 19,
+      "topic": "Tenant Management - Role-Based Access Control",
+      "type": "SingleChoice",
+      "questionText": "You need to delegate the ability to reset passwords for non-admin users without granting full Global Administrator rights. Which Microsoft Entra ID role should you assign?",
+      "options": [
+        "A. User Administrator.",
+        "B. Helpdesk Administrator.",
+        "C. Security Administrator.",
+        "D. Exchange Administrator."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Helpdesk Administrator role can reset passwords for non-admin users and other Helpdesk Administrators. This is the least-privileged role for password reset delegation.\n\nWhy the others are wrong:\n- A. User Administrator can also reset passwords but has broader permissions including creating users and managing group memberships, which exceeds the requirement.\n- C. Security Administrator manages security features and policies but does not have password reset capabilities for general users.\n- D. Exchange Administrator manages Exchange Online settings and does not have password reset capabilities."
+    },
+    {
+      "id": 20,
+      "topic": "Identity Synchronization - Hybrid Identity",
+      "type": "SingleChoice",
+      "questionText": "Users report that after changing their on-premises Active Directory password, it takes up to 30 minutes before the new password works for Microsoft 365 sign-in. You need to reduce this delay. What should you configure?",
+      "options": [
+        "A. Reduce the Azure AD Connect sync cycle interval.",
+        "B. Enable password writeback.",
+        "C. Enable Azure AD Connect password hash synchronization with the password sync endpoint.",
+        "D. Switch to federation with AD FS."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The default Azure AD Connect sync cycle is 30 minutes. Password changes are synchronized during the delta sync cycle. Reducing the sync cycle interval will reduce the time it takes for password changes to propagate. Note that password hash sync also has a separate, more frequent process, but adjusting the sync cycle addresses the reported 30-minute delay.\n\nWhy the others are wrong:\n- B. Password writeback enables cloud password changes to write back to on-premises AD, not the other direction.\n- C. Password hash sync is already implied to be running since passwords eventually work; the issue is the sync delay.\n- D. Federation with AD FS authenticates directly against on-premises AD, which would solve the delay but is a major architectural change and overly complex for this requirement."
+    },
+    {
+      "id": 21,
+      "topic": "Security Policies - Attack Simulation",
+      "type": "SingleChoice",
+      "questionText": "You want to test your users' susceptibility to phishing attacks by sending simulated phishing emails. Which Microsoft 365 feature should you use?",
+      "options": [
+        "A. Microsoft Defender for Cloud Apps.",
+        "B. Attack simulation training in Microsoft Defender for Office 365.",
+        "C. Microsoft Secure Score recommendations.",
+        "D. Azure AD Identity Protection risk policies."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Attack simulation training in Microsoft Defender for Office 365 Plan 2 allows administrators to create and send simulated phishing campaigns to users, track results, and assign training to users who fall for the simulations.\n\nWhy the others are wrong:\n- A. Defender for Cloud Apps is a CASB for monitoring and controlling cloud app usage, not for phishing simulations.\n- C. Secure Score provides security recommendations but does not include phishing simulation capabilities.\n- D. Identity Protection detects risky sign-ins and user behaviors but does not provide phishing simulation functionality."
+    },
+    {
+      "id": 22,
+      "topic": "Compliance - Audit Log",
+      "type": "SingleChoice",
+      "questionText": "An executive's mailbox was accessed by an unknown user. You need to investigate who accessed the mailbox and when. Where should you search for this information?",
+      "options": [
+        "A. Exchange admin center > Mail flow > Message trace.",
+        "B. Microsoft Purview compliance portal > Audit log search.",
+        "C. Microsoft Entra ID > Sign-in logs.",
+        "D. Microsoft Defender portal > Threat explorer."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Unified Audit Log in the Microsoft Purview compliance portal records mailbox access activities including MailItemsAccessed, FolderAccessed, and other Exchange mailbox events. You can search for specific mailbox access events.\n\nWhy the others are wrong:\n- A. Message trace tracks email delivery and routing, not mailbox access events.\n- C. Sign-in logs show authentication events but do not show which specific mailboxes were accessed after sign-in.\n- D. Threat explorer shows email threats and malware but does not track mailbox access activities."
+    },
+    {
+      "id": 23,
+      "topic": "Device Management - Windows Update for Business",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Windows Update for Business to delay feature updates by 30 days while ensuring security updates are installed within 3 days. Which Intune profile type should you use?",
+      "options": [
+        "A. Device configuration profile with edition upgrade settings.",
+        "B. Windows update rings for Windows 10 and later.",
+        "C. Feature updates policy for Windows 10 and later.",
+        "D. Windows health monitoring profile."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Windows update rings allow you to configure deferral periods for both feature updates and quality (security) updates independently. You can set the feature update deferral to 30 days and the quality update deferral to 3 days.\n\nWhy the others are wrong:\n- A. Edition upgrade profiles change the Windows edition (e.g., Pro to Enterprise), not update deferral settings.\n- C. Feature updates policies target a specific feature update version but do not configure deferral periods for quality updates.\n- D. Windows health monitoring collects diagnostic data but does not configure update deferrals."
+    },
+    {
+      "id": 24,
+      "topic": "Teams Administration - App Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to block all third-party apps in Microsoft Teams while allowing Microsoft-published apps and a specific line-of-business app uploaded to your tenant. What should you configure?",
+      "options": [
+        "A. An app permission policy that blocks all third-party apps and allows specific custom apps.",
+        "B. An app setup policy that pins only Microsoft apps.",
+        "C. An org-wide app setting that disables third-party apps and enables custom apps.",
+        "D. A Teams update policy that restricts app sources."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The org-wide app settings in the Teams admin center allow you to disable all third-party apps globally while keeping custom (LOB) apps enabled. This meets the requirement of blocking third-party apps while allowing the organization's custom app.\n\nWhy the others are wrong:\n- A. App permission policies can control which apps are available to users, but the org-wide setting is the appropriate level for a blanket block of all third-party apps.\n- B. App setup policies control which apps are pinned and installed for users, not which apps are allowed or blocked.\n- D. Teams update policies control the Teams client update channel (public preview, etc.), not app availability."
+    },
+    {
+      "id": 25,
+      "topic": "Tenant Management - Microsoft 365 Groups Expiration",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically delete Microsoft 365 groups that have been inactive for 180 days. Group owners should receive renewal notifications before deletion. What should you configure?",
+      "options": [
+        "A. A retention policy targeting Microsoft 365 groups.",
+        "B. A group expiration policy in Microsoft Entra ID.",
+        "C. A PowerShell script scheduled with Task Scheduler.",
+        "D. An access review for group membership."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Entra ID provides a group expiration policy that can be configured to expire groups after a specified number of days (e.g., 180). Group owners receive email notifications before expiration and can renew the group. Unused groups are automatically deleted.\n\nWhy the others are wrong:\n- A. Retention policies control how long content within groups is retained, not whether the group itself is deleted.\n- C. A custom PowerShell script is not the recommended approach when a built-in feature exists for this purpose.\n- D. Access reviews evaluate group membership and can remove members, but do not delete inactive groups."
+    },
+    {
+      "id": 26,
+      "topic": "Security Policies - Microsoft Defender for Identity",
+      "type": "SingleChoice",
+      "questionText": "You need to detect lateral movement attacks in your hybrid environment where attackers use pass-the-hash techniques. Which Microsoft security solution should you deploy?",
+      "options": [
+        "A. Microsoft Defender for Office 365.",
+        "B. Microsoft Defender for Identity.",
+        "C. Microsoft Defender for Cloud.",
+        "D. Microsoft Sentinel."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Defender for Identity monitors on-premises Active Directory signals to detect identity-based threats including pass-the-hash, pass-the-ticket, and lateral movement attacks. It uses sensors on domain controllers to analyze authentication traffic.\n\nWhy the others are wrong:\n- A. Defender for Office 365 protects against email-based threats like phishing and malware, not identity-based attacks.\n- C. Defender for Cloud protects cloud workloads and resources, not on-premises Active Directory.\n- D. Microsoft Sentinel is a SIEM solution that aggregates alerts but does not directly detect pass-the-hash attacks; it would consume alerts from Defender for Identity."
+    },
+    {
+      "id": 27,
+      "topic": "Identity Synchronization - Troubleshooting",
+      "type": "SingleChoice",
+      "questionText": "After running Azure AD Connect, you notice that a user's on-premises ProxyAddresses attribute is not synchronizing to Microsoft Entra ID. What is the most likely cause?",
+      "options": [
+        "A. The user does not have a Microsoft 365 license.",
+        "B. There is a duplicate ProxyAddresses conflict with another synced object.",
+        "C. The Azure AD Connect service account password has expired.",
+        "D. The user's UPN suffix is not verified in Microsoft Entra ID."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. If another object in Microsoft Entra ID already has the same proxy address, a duplicate attribute conflict occurs and the attribute will not sync for the conflicting user. This is the most common cause of individual attribute sync failures.\n\nWhy the others are wrong:\n- A. Licensing does not affect attribute synchronization; attributes sync regardless of license assignment.\n- C. An expired service account password would cause all synchronization to fail, not just one attribute for one user.\n- D. UPN suffix verification affects the UserPrincipalName attribute, not ProxyAddresses."
+    },
+    {
+      "id": 28,
+      "topic": "Compliance - Information Governance",
+      "type": "MultipleChoice",
+      "questionText": "You need to ensure that documents in a specific SharePoint Online site are retained for 5 years and that users cannot delete them during this period. After 5 years, documents should be reviewed before deletion. Which two actions should you take? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Create a retention label with a 5-year retention period and a disposition review action.",
+        "B. Publish the retention label to the specific SharePoint site.",
+        "C. Create a retention policy with a 5-year retention period applied to the SharePoint site.",
+        "D. Configure an eDiscovery hold on the SharePoint site.",
+        "E. Enable versioning on the SharePoint document library."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. A retention label with a 5-year retention period and disposition review ensures content is retained and cannot be permanently deleted for 5 years. After the period, a disposition review is triggered for manual review before deletion. Publishing the label to the specific SharePoint site makes it available for application to documents.\n\nWhy the others are wrong:\n- C. A retention policy does not support disposition review; it can only retain and then automatically delete.\n- D. An eDiscovery hold preserves content indefinitely for legal purposes and does not support disposition review.\n- E. Versioning preserves previous versions of documents but does not prevent deletion or trigger disposition reviews."
+    },
+    {
+      "id": 29,
+      "topic": "Device Management - Autopilot",
+      "type": "SingleChoice",
+      "questionText": "You are deploying new Windows 11 laptops using Windows Autopilot. You want the devices to be automatically joined to Microsoft Entra ID and enrolled in Intune with a minimal out-of-box experience. Which Autopilot deployment mode should you use?",
+      "options": [
+        "A. User-driven mode with Hybrid Azure AD join.",
+        "B. Self-deploying mode.",
+        "C. User-driven mode with Azure AD join.",
+        "D. White glove (pre-provisioning) mode."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. User-driven mode with Azure AD join provides a streamlined experience where the device is automatically joined to Microsoft Entra ID and enrolled in Intune. The user signs in during OOBE and the device is configured with minimal interaction.\n\nWhy the others are wrong:\n- A. Hybrid Azure AD join requires on-premises Active Directory connectivity and is more complex than the requirement describes.\n- B. Self-deploying mode is designed for shared devices or kiosks where no user signs in during setup, not for standard user laptops.\n- D. Pre-provisioning requires IT to complete part of the setup before the user receives the device, adding steps rather than minimizing them."
+    },
+    {
+      "id": 30,
+      "topic": "Teams Administration - Compliance Recording",
+      "type": "SingleChoice",
+      "questionText": "Your financial services organization requires that all Microsoft Teams calls and meetings be recorded for compliance purposes, regardless of user action. What should you implement?",
+      "options": [
+        "A. Configure a Teams meeting policy to enable cloud recording by default.",
+        "B. Deploy a compliance recording solution integrated via the Teams compliance recording API.",
+        "C. Enable the Teams meeting recording auto-expiration feature.",
+        "D. Configure Exchange Online journaling for Teams content."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Teams compliance recording API allows organizations to deploy certified third-party compliance recording solutions that automatically record all calls and meetings as required by financial regulations. This is policy-based and cannot be bypassed by users.\n\nWhy the others are wrong:\n- A. Enabling cloud recording by default still allows users to stop recording, which does not meet mandatory compliance requirements.\n- C. Auto-expiration controls when recordings are deleted, not whether they are created.\n- D. Exchange Online journaling captures email and chat messages but does not record audio/video calls and meetings."
+    },
+    {
+      "id": 31,
+      "topic": "Tenant Management - License Management",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically assign Microsoft 365 E3 licenses to all members of the Sales department. When users leave the department, their license should be automatically removed. What should you use?",
+      "options": [
+        "A. PowerShell scripts triggered by a scheduled task.",
+        "B. Group-based licensing with a dynamic Microsoft Entra ID group.",
+        "C. Direct license assignment in the Microsoft 365 admin center.",
+        "D. Azure Automation runbooks."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Group-based licensing combined with a dynamic group that filters by department equals 'Sales' automatically assigns licenses when users join the department (group) and removes licenses when they leave. This is fully automated and requires no manual intervention.\n\nWhy the others are wrong:\n- A. PowerShell scripts require maintenance and scheduling, and are not the recommended built-in approach.\n- C. Direct license assignment is manual and does not automatically respond to department changes.\n- D. Azure Automation adds unnecessary complexity when group-based licensing provides the built-in functionality."
+    },
+    {
+      "id": 32,
+      "topic": "Security Policies - Privileged Identity Management",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that Global Administrator role assignments are temporary and require approval before activation. Users should only have the role when they need it. Which Microsoft Entra ID feature should you configure?",
+      "options": [
+        "A. Conditional Access with admin role restrictions.",
+        "B. Privileged Identity Management (PIM) with eligible role assignments.",
+        "C. Access reviews for admin roles.",
+        "D. Administrative units with scoped role assignments."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Privileged Identity Management allows you to configure eligible role assignments that require users to activate the role when needed. You can configure approval requirements, time-limited activation, and justification for each activation.\n\nWhy the others are wrong:\n- A. Conditional Access can add requirements to admin sign-ins but cannot make role assignments temporary or require activation approval.\n- C. Access reviews periodically review role assignments but do not provide just-in-time activation with approval workflows.\n- D. Administrative units scope admin roles to specific users or groups but do not provide just-in-time activation."
+    },
+    {
+      "id": 33,
+      "topic": "Compliance - Content Search",
+      "type": "SingleChoice",
+      "questionText": "The legal department requests that you search all Exchange Online mailboxes and SharePoint Online sites for documents containing the phrase 'Project Falcon' created in the last 90 days. Which tool should you use?",
+      "options": [
+        "A. Microsoft Purview Data Loss Prevention.",
+        "B. Microsoft Purview Content Search.",
+        "C. Microsoft Defender Threat Explorer.",
+        "D. SharePoint Online search center."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Content Search in the Microsoft Purview compliance portal allows you to search across multiple Microsoft 365 locations (Exchange mailboxes, SharePoint sites, OneDrive, Teams) using keywords and date filters. It is designed for legal and compliance search scenarios.\n\nWhy the others are wrong:\n- A. DLP policies monitor and protect sensitive data in real-time but are not designed for retrospective content searches.\n- C. Threat Explorer is for investigating email threats and malware, not for compliance content searches.\n- D. SharePoint search only searches SharePoint content and does not cover Exchange Online mailboxes."
+    },
+    {
+      "id": 34,
+      "topic": "Device Management - Configuration Profiles",
+      "type": "MultipleChoice",
+      "questionText": "You need to deploy Wi-Fi connection settings and a VPN profile to all Intune-enrolled Windows devices. Which two Intune profile types should you create? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A device configuration profile of type Wi-Fi.",
+        "B. A device configuration profile of type VPN.",
+        "C. An app protection policy for network apps.",
+        "D. A compliance policy requiring network connectivity.",
+        "E. An endpoint security profile for network protection."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Intune device configuration profiles include dedicated template types for Wi-Fi and VPN configurations. A Wi-Fi profile deploys SSID, security type, and credentials, while a VPN profile configures the VPN connection settings.\n\nWhy the others are wrong:\n- C. App protection policies protect data within apps and do not configure network connection settings.\n- D. Compliance policies evaluate device state but do not deploy Wi-Fi or VPN configurations.\n- E. Endpoint security network protection profiles deal with network threat protection, not deploying Wi-Fi or VPN connection settings."
+    },
+    {
+      "id": 35,
+      "topic": "Teams Administration - Messaging Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from editing sent messages in Microsoft Teams channels. Which policy type should you modify?",
+      "options": [
+        "A. Teams meeting policy.",
+        "B. Teams messaging policy.",
+        "C. Teams app permission policy.",
+        "D. Teams update policy."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams messaging policies control messaging features including the ability to edit and delete sent messages. You can disable the 'Edit sent messages' setting in a messaging policy and assign it to users.\n\nWhy the others are wrong:\n- A. Meeting policies control meeting-related features like recording, transcription, and screen sharing.\n- C. App permission policies control which Teams apps users can access.\n- D. Update policies control the Teams client update channel and preview features."
+    },
+    {
+      "id": 36,
+      "topic": "Tenant Management - SharePoint Administration",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from sharing SharePoint Online content with anyone outside the organization while still allowing sharing with authenticated external guests. What sharing level should you set?",
+      "options": [
+        "A. Anyone - Users can share files and folders using links that do not require sign-in.",
+        "B. New and existing guests - Guests must sign in or provide a verification code.",
+        "C. Existing guests - Only guests already in the organization's directory.",
+        "D. Only people in your organization - No external sharing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'New and existing guests' sharing level allows sharing with external users who must authenticate (sign in with a Microsoft account or provide a verification code). This enables external guest collaboration while preventing anonymous sharing links.\n\nWhy the others are wrong:\n- A. 'Anyone' allows anonymous sharing links, which contradicts the requirement to prevent sharing with anyone outside.\n- C. 'Existing guests' only allows sharing with guests already in the directory, which is more restrictive than the requirement.\n- D. 'Only people in your organization' blocks all external sharing, but the requirement allows authenticated external guests."
+    },
+    {
+      "id": 37,
+      "topic": "Security Policies - Endpoint Detection",
+      "type": "SingleChoice",
+      "questionText": "You want to use Microsoft Defender for Endpoint risk signals in your Intune device compliance policies. What must you do first?",
+      "options": [
+        "A. Purchase Microsoft Sentinel licenses.",
+        "B. Establish a service-to-service connection between Intune and Microsoft Defender for Endpoint.",
+        "C. Deploy the Microsoft Monitoring Agent to all devices.",
+        "D. Configure Azure AD Application Proxy."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. To use Defender for Endpoint risk levels in Intune compliance policies, you must first establish the service-to-service connection (integration) between Microsoft Intune and Microsoft Defender for Endpoint in both admin consoles.\n\nWhy the others are wrong:\n- A. Microsoft Sentinel is a SIEM product and is not required for Intune-Defender for Endpoint integration.\n- C. The Microsoft Monitoring Agent (MMA) is used for Azure Monitor, not Defender for Endpoint onboarding on modern Windows devices.\n- D. Azure AD Application Proxy is for publishing on-premises web apps externally and is unrelated to Defender for Endpoint integration."
+    },
+    {
+      "id": 38,
+      "topic": "Compliance - Communication Compliance",
+      "type": "SingleChoice",
+      "questionText": "Your organization is required to monitor Teams and email communications for offensive language. Flagged messages must be reviewed by HR. Which Microsoft Purview solution should you configure?",
+      "options": [
+        "A. Data Loss Prevention.",
+        "B. Communication Compliance.",
+        "C. Insider Risk Management.",
+        "D. Information Barriers."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Communication Compliance in Microsoft Purview allows you to create policies that scan communications (Teams, email, Viva Engage) for offensive language using built-in classifiers. Flagged messages are sent to designated reviewers for investigation.\n\nWhy the others are wrong:\n- A. DLP detects and protects sensitive information types but does not monitor for offensive language.\n- C. Insider Risk Management detects risky user activities like data exfiltration, not communication content violations.\n- D. Information Barriers restrict communication between specific groups but do not monitor message content."
+    },
+    {
+      "id": 39,
+      "topic": "Identity Synchronization - Authentication Methods",
+      "type": "MultipleChoice",
+      "questionText": "Your organization is deploying passwordless authentication for Microsoft 365 users. Which two methods are supported for passwordless sign-in to Microsoft Entra ID? Each correct answer presents a complete solution.",
+      "options": [
+        "A. FIDO2 security keys.",
+        "B. SMS-based one-time passcode.",
+        "C. Windows Hello for Business.",
+        "D. Email-based one-time passcode.",
+        "E. Security questions."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. FIDO2 security keys and Windows Hello for Business are both supported passwordless authentication methods in Microsoft Entra ID. FIDO2 uses hardware security keys, while Windows Hello for Business uses biometrics or PIN tied to the device.\n\nWhy the others are wrong:\n- B. SMS one-time pascode is a second factor for MFA verification, not a passwordless primary authentication method.\n- D. Email OTP is used for guest user authentication and self-service password reset, not as a passwordless sign-in method.\n- E. Security questions are used for self-service password reset only and are not a passwordless authentication method."
+    },
+    {
+      "id": 40,
+      "topic": "Device Management - Enrollment Restrictions",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent personal Android devices from enrolling in Intune while allowing corporate-owned Android Enterprise devices. What should you configure?",
+      "options": [
+        "A. A device compliance policy that blocks personal devices.",
+        "B. An enrollment restriction that blocks personally owned Android devices.",
+        "C. A Conditional Access policy that requires corporate device enrollment.",
+        "D. An app protection policy that requires managed devices."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Intune enrollment restrictions allow you to block personally owned devices by platform. You can create a device type restriction that allows Android Enterprise enrollment but blocks personally owned Android devices.\n\nWhy the others are wrong:\n- A. Compliance policies evaluate already-enrolled devices; they cannot prevent enrollment.\n- C. Conditional Access can require compliant devices but cannot directly prevent personal device enrollment.\n- D. App protection policies protect data within apps but do not control device enrollment."
+    }
+  ]
+}

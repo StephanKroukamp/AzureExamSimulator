@@ -1,0 +1,366 @@
+{
+  "examCode": "SC-300",
+  "examTitle": "Microsoft Identity and Access Administrator Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Entra ID - Tenant configuration",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Microsoft Entra ID to allow users to register applications and consent to applications accessing company data on their behalf. Where should you configure this setting?",
+      "options": ["A. Microsoft Entra ID > Enterprise applications > User settings.", "B. Microsoft Entra ID > Devices > Device settings.", "C. Microsoft Entra ID > Security > Authentication methods.", "D. Microsoft Entra ID > Roles and administrators."],
+      "correctAnswers": ["A"],
+      "explanation": "User settings in Enterprise applications allow you to configure whether users can register applications and consent to apps accessing company data on their behalf. Option B is incorrect because Device settings manage device-related configurations, not application consent. Option C is incorrect because Authentication methods configure MFA and passwordless settings. Option D is incorrect because Roles and administrators manages role assignments, not application consent settings."
+    },
+    {
+      "id": 2,
+      "topic": "Conditional Access - Policy design",
+      "type": "SingleChoice",
+      "questionText": "You need to create a Conditional Access policy that requires multi-factor authentication for all users when accessing Microsoft 365 applications from outside the corporate network. Which condition should you configure in the policy?",
+      "options": ["A. Device platforms: Windows.", "B. Locations: Include all locations, exclude trusted corporate locations.", "C. Client apps: Browser only.", "D. User risk: High."],
+      "correctAnswers": ["B"],
+      "explanation": "By including all locations and excluding trusted corporate locations (defined as named locations), the policy will only apply when users access from outside the corporate network. Combined with the MFA grant control, this achieves the requirement. Option A is incorrect because filtering by platform doesn't address the location requirement. Option C is incorrect because filtering by client apps would miss non-browser access. Option D is incorrect because user risk is a dynamic condition based on identity protection, not network location."
+    },
+    {
+      "id": 3,
+      "topic": "MFA - Authentication methods",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to enforce phishing-resistant multi-factor authentication for all administrative accounts. Which authentication method meets this requirement?",
+      "options": ["A. SMS-based one-time passcode.", "B. FIDO2 security keys.", "C. Email-based verification.", "D. Voice call verification."],
+      "correctAnswers": ["B"],
+      "explanation": "FIDO2 security keys provide phishing-resistant authentication because they use public key cryptography bound to the specific website origin, making them immune to phishing attacks. Option A is incorrect because SMS can be intercepted via SIM swapping or SS7 attacks. Option C is incorrect because email-based verification is susceptible to email compromise. Option D is incorrect because voice calls can be intercepted through social engineering or call forwarding attacks."
+    },
+    {
+      "id": 4,
+      "topic": "PIM - Privileged role management",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Microsoft Entra Privileged Identity Management (PIM) so that users must provide a business justification and receive approval from a designated approver before activating the Global Administrator role. Which PIM settings should you configure?",
+      "options": ["A. Set the role as 'Permanent active assignment'.", "B. Configure the role settings to require justification and require approval, then specify an approver.", "C. Set the maximum activation duration to 24 hours.", "D. Enable notifications only without any approval requirements."],
+      "correctAnswers": ["B"],
+      "explanation": "In PIM role settings, you can require justification on activation and require approval with specified approvers. When a user requests activation, they must provide a justification, and the designated approver must approve the request. Option A is incorrect because permanent active assignments bypass PIM activation entirely. Option C is incorrect because setting the duration doesn't enforce justification or approval. Option D is incorrect because notifications alone don't enforce approval workflows."
+    },
+    {
+      "id": 5,
+      "topic": "Identity Governance - Access reviews",
+      "type": "SingleChoice",
+      "questionText": "You need to set up a quarterly access review for all users who have been assigned the Exchange Administrator role. If a reviewer does not respond, access should be automatically removed. How should you configure this?",
+      "options": ["A. Create an access review for the Exchange Administrator role with a quarterly recurrence and set 'If reviewers don't respond' to 'Remove access'.", "B. Manually check role assignments every quarter.", "C. Create an Azure Policy to monitor role assignments.", "D. Use Azure Automation to remove all role assignments quarterly."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra access reviews support recurring reviews with configurable actions for non-responsive reviewers. Setting 'If reviewers don't respond' to 'Remove access' ensures that unreviewed assignments are automatically cleaned up. Option B is incorrect because manual processes are unreliable and not scalable. Option C is incorrect because Azure Policy monitors resource compliance, not role assignment reviews. Option D is incorrect because removing all assignments indiscriminately would disrupt legitimate administrators."
+    },
+    {
+      "id": 6,
+      "topic": "External Identities - B2B collaboration",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to invite external partners to collaborate on a SharePoint site. The partners use Gmail accounts. You need to ensure they can authenticate. Which feature should you configure?",
+      "options": ["A. Microsoft Entra External ID B2B collaboration with Google federation.", "B. Create local Azure AD accounts for each partner.", "C. Configure pass-through authentication for Gmail.", "D. Deploy AD FS for Google integration."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra External ID B2B collaboration allows you to invite external users, and Google federation enables Gmail users to sign in using their Google accounts without needing a Microsoft account. Option B is incorrect because creating local accounts requires the organization to manage partner credentials. Option C is incorrect because pass-through authentication is for on-premises AD synchronization, not Gmail integration. Option D is incorrect because AD FS is not needed for Google federation in Azure AD."
+    },
+    {
+      "id": 7,
+      "topic": "Conditional Access - Device compliance",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that only devices marked as compliant in Microsoft Intune can access corporate email in Exchange Online. Which Conditional Access grant control should you configure?",
+      "options": ["A. Require multi-factor authentication.", "B. Require device to be marked as compliant.", "C. Require approved client app.", "D. Require password change."],
+      "correctAnswers": ["B"],
+      "explanation": "The 'Require device to be marked as compliant' grant control checks the device compliance status in Intune and only allows access from devices that meet the compliance policies. Option A is incorrect because MFA verifies the user's identity but doesn't verify device compliance. Option C is incorrect because approved client apps restrict which applications can be used but don't check device compliance. Option D is incorrect because requiring a password change is a remediation action, not a device compliance check."
+    },
+    {
+      "id": 8,
+      "topic": "App Registrations - Application permissions",
+      "type": "SingleChoice",
+      "questionText": "A developer creates an app registration that needs to read all users' mailboxes without user interaction (as a background service). Which type of permission should be configured?",
+      "options": ["A. Delegated permissions with user consent.", "B. Application permissions with admin consent.", "C. Delegated permissions with admin consent.", "D. No permissions needed for background services."],
+      "correctAnswers": ["B"],
+      "explanation": "Application permissions are used when an app runs as a background service without user interaction. Because the app accesses all users' mailboxes (Mail.Read for the application), admin consent is required since these are high-privilege permissions. Option A is incorrect because delegated permissions require a signed-in user context. Option C is incorrect because delegated permissions always operate in the context of a signed-in user. Option D is incorrect because all API access requires configured permissions."
+    },
+    {
+      "id": 9,
+      "topic": "Entra ID - Hybrid identity",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses on-premises Active Directory and needs to synchronize user accounts to Microsoft Entra ID. You also need to enable password writeback so users can reset their cloud passwords and have them written back to on-premises AD. Which tool should you use?",
+      "options": ["A. Microsoft Entra Connect with password hash synchronization and password writeback enabled.", "B. Azure AD Application Proxy.", "C. Microsoft Entra Domain Services.", "D. Active Directory Certificate Services."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra Connect synchronizes on-premises AD to Azure AD. Password hash synchronization syncs password hashes for cloud authentication, and password writeback enables cloud password changes to be written back to on-premises AD. Option B is incorrect because Application Proxy provides remote access to on-premises web apps. Option C is incorrect because Entra Domain Services provides managed domain services but doesn't synchronize to on-premises AD. Option D is incorrect because Certificate Services manages PKI certificates, not identity synchronization."
+    },
+    {
+      "id": 10,
+      "topic": "MFA - Registration policies",
+      "type": "SingleChoice",
+      "questionText": "You want to require all users to register for multi-factor authentication within 14 days. Users who have not registered should be prompted at their next sign-in. Which feature should you use?",
+      "options": ["A. Conditional Access policy requiring MFA.", "B. Microsoft Entra ID Protection MFA registration policy.", "C. Azure AD Security Defaults.", "D. Authentication methods migration wizard."],
+      "correctAnswers": ["B"],
+      "explanation": "The Microsoft Entra ID Protection MFA registration policy allows you to require MFA registration for users. It prompts unregistered users to register when they sign in and can be targeted to specific groups with a configurable grace period. Option A is incorrect because a Conditional Access policy requiring MFA will fail if users haven't registered for MFA yet, rather than prompting registration. Option C is incorrect because Security Defaults enable MFA but don't provide the granular registration enforcement capabilities. Option D is incorrect because the migration wizard helps transition between authentication method policies."
+    },
+    {
+      "id": 11,
+      "topic": "Identity Governance - Entitlement management",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to create a self-service access request process where external users from partner organizations can request access to a bundle of resources including a SharePoint site, a Teams channel, and an Azure AD group. Which feature should you use?",
+      "options": ["A. Microsoft Entra entitlement management access packages.", "B. Azure AD Dynamic groups.", "C. Microsoft Entra administrative units.", "D. Azure AD self-service group management."],
+      "correctAnswers": ["A"],
+      "explanation": "Entitlement management access packages bundle multiple resources (SharePoint sites, Teams, groups, applications) into a single request. They support self-service request workflows with approval policies, and can be made available to external users from specific organizations. Option B is incorrect because dynamic groups automatically assign membership based on attributes but don't provide self-service request workflows. Option C is incorrect because administrative units scope admin permissions, not resource access requests. Option D is incorrect because self-service group management allows joining individual groups, not bundled resource packages."
+    },
+    {
+      "id": 12,
+      "topic": "Conditional Access - Sign-in risk",
+      "type": "SingleChoice",
+      "questionText": "You need to create a Conditional Access policy that requires users to change their password when Microsoft Entra ID Protection detects a high sign-in risk. Which combination of condition and grant control should you configure?",
+      "options": ["A. Condition: User risk = High; Grant: Require password change.", "B. Condition: Sign-in risk = High; Grant: Require multi-factor authentication.", "C. Condition: Device platform = Any; Grant: Block access.", "D. Condition: Location = Any; Grant: Require compliant device."],
+      "correctAnswers": ["B"],
+      "explanation": "When a high sign-in risk is detected (indicating the sign-in may not be from the legitimate user), requiring MFA is the recommended remediation. If the user passes MFA, the sign-in risk is resolved. Note: password change is used for user risk, not sign-in risk. Option A is incorrect because user risk and sign-in risk are different conditions, and password change addresses user risk, not sign-in risk. Option C is incorrect because blocking all access is too restrictive. Option D is incorrect because device compliance doesn't address sign-in risk."
+    },
+    {
+      "id": 13,
+      "topic": "External Identities - Cross-tenant access",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to establish a bidirectional trust with a partner organization's Microsoft Entra tenant so that both organizations can share resources and enforce each other's Conditional Access policies. Which feature should you configure?",
+      "options": ["A. Cross-tenant access settings with cross-tenant trust enabled.", "B. Azure AD B2C custom policies.", "C. Application Proxy for the partner's applications.", "D. Azure AD Domain Services trust."],
+      "correctAnswers": ["A"],
+      "explanation": "Cross-tenant access settings allow you to configure inbound and outbound trust relationships with specific partner tenants. Trust settings can include accepting MFA claims from the partner tenant and device compliance claims. Option B is incorrect because B2C is for customer-facing identity scenarios, not organization-to-organization trust. Option C is incorrect because Application Proxy provides access to on-premises apps, not cross-tenant trust. Option D is incorrect because Azure AD Domain Services provides managed AD DS, not cross-tenant trust."
+    },
+    {
+      "id": 14,
+      "topic": "PIM - Azure resource roles",
+      "type": "MultipleChoice",
+      "questionText": "You need to use PIM to manage just-in-time access for Azure resource roles. Which TWO actions can you configure in PIM for Azure resource roles? (Choose two.)",
+      "options": ["A. Require approval for role activation.", "B. Set maximum activation duration.", "C. Automatically create Azure resources when a role is activated.", "D. Change Azure subscription pricing tiers.", "E. Delete Azure resource groups automatically."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "PIM for Azure resource roles supports requiring approval for activation and setting maximum activation duration (e.g., 8 hours). These controls ensure privileged access is time-limited and approved. Option C is incorrect because PIM manages access, not resource provisioning. Option D is incorrect because PIM doesn't manage subscription pricing. Option E is incorrect because PIM doesn't delete resources."
+    },
+    {
+      "id": 15,
+      "topic": "Entra ID - Administrative units",
+      "type": "SingleChoice",
+      "questionText": "Your organization has regional offices in North America, Europe, and Asia. Each region has a helpdesk team that should only be able to manage users in their respective region. How should you implement this?",
+      "options": ["A. Create three separate Azure AD tenants.", "B. Create administrative units for each region and assign helpdesk roles scoped to those units.", "C. Give all helpdesk teams Global Administrator access.", "D. Use Azure Resource Groups to separate users by region."],
+      "correctAnswers": ["B"],
+      "explanation": "Administrative units allow you to scope Azure AD administrative roles to a subset of users. By creating administrative units for each region and assigning helpdesk roles scoped to those units, each team can only manage users in their region. Option A is incorrect because separate tenants create management complexity and don't support single-organization identity. Option C is incorrect because Global Administrator provides unrestricted access, violating least privilege. Option D is incorrect because Resource Groups manage Azure resources, not user administration scoping."
+    },
+    {
+      "id": 16,
+      "topic": "Conditional Access - Named locations",
+      "type": "SingleChoice",
+      "questionText": "Your organization has office locations in multiple countries. You need to define these locations in Microsoft Entra ID so they can be used in Conditional Access policies to skip MFA for users signing in from office networks. What should you create?",
+      "options": ["A. Azure Virtual Networks for each office.", "B. Named locations based on IP address ranges and mark them as trusted.", "C. Azure Firewall rules for each office.", "D. DNS zones for each office location."],
+      "correctAnswers": ["B"],
+      "explanation": "Named locations in Microsoft Entra ID define trusted IP address ranges (or countries) that can be used as conditions in Conditional Access policies. Marking them as trusted allows policies to skip MFA for users connecting from these locations. Option A is incorrect because Azure Virtual Networks are for Azure resource networking, not Entra ID location definitions. Option C is incorrect because Azure Firewall rules manage network traffic, not identity-based location conditions. Option D is incorrect because DNS zones manage name resolution, not identity location definitions."
+    },
+    {
+      "id": 17,
+      "topic": "App Registrations - Service principals",
+      "type": "SingleChoice",
+      "questionText": "A developer needs to understand the difference between an app registration and a service principal in Microsoft Entra ID. Which statement is correct?",
+      "options": ["A. An app registration and service principal are the same object.", "B. An app registration is the global definition of the application, while a service principal is the local instance in a specific tenant.", "C. A service principal is created first, and the app registration is created automatically.", "D. Service principals are only used for on-premises applications."],
+      "correctAnswers": ["B"],
+      "explanation": "An app registration is the application's identity definition (global object), while a service principal is the local representation (instance) of that application in a specific tenant. Multi-tenant apps have one app registration but a service principal in each tenant where the app is used. Option A is incorrect because they are distinct but related objects. Option C is incorrect because the app registration is created first, and the service principal is created when the app is consented to or instantiated in a tenant. Option D is incorrect because service principals are used for all application types."
+    },
+    {
+      "id": 18,
+      "topic": "MFA - Per-user MFA vs Conditional Access",
+      "type": "SingleChoice",
+      "questionText": "Your organization currently uses per-user MFA settings. Your security team wants to migrate to a more flexible MFA enforcement approach that allows different MFA requirements based on user risk, location, and application. What should you migrate to?",
+      "options": ["A. Security Defaults.", "B. Conditional Access policies with MFA grant controls.", "C. Azure AD custom roles.", "D. Microsoft Entra ID Free tier."],
+      "correctAnswers": ["B"],
+      "explanation": "Conditional Access policies provide flexible MFA enforcement based on conditions like user risk, location, device state, and target application. This replaces the all-or-nothing approach of per-user MFA. Option A is incorrect because Security Defaults provide basic MFA enforcement without the granular conditions needed. Option C is incorrect because custom roles manage administrative permissions, not MFA enforcement. Option D is incorrect because Entra ID Free tier doesn't include Conditional Access."
+    },
+    {
+      "id": 19,
+      "topic": "Identity Governance - Lifecycle workflows",
+      "type": "SingleChoice",
+      "questionText": "You need to automate the onboarding process for new employees. When a new user account is created in Microsoft Entra ID, you want to automatically add them to specific groups, send a welcome email, and generate a temporary access pass. Which feature should you use?",
+      "options": ["A. Microsoft Entra lifecycle workflows.", "B. Azure Logic Apps.", "C. Power Automate flows.", "D. Azure Automation runbooks."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra lifecycle workflows provide built-in automation for identity lifecycle events including joiner (onboarding), mover, and leaver scenarios. They support tasks like adding users to groups, sending emails, and generating temporary access passes. Option B is incorrect because while Logic Apps could automate these tasks, lifecycle workflows are purpose-built for identity lifecycle management. Option C is incorrect because Power Automate is a general automation tool, not optimized for identity lifecycle. Option D is incorrect because Automation runbooks require custom scripting for each task."
+    },
+    {
+      "id": 20,
+      "topic": "Conditional Access - Authentication strength",
+      "type": "SingleChoice",
+      "questionText": "You need to require FIDO2 security keys specifically (not just any MFA method) for accessing a highly sensitive application. Which Conditional Access feature should you use?",
+      "options": ["A. Standard MFA requirement.", "B. Authentication strength policy.", "C. Session controls.", "D. Terms of use."],
+      "correctAnswers": ["B"],
+      "explanation": "Authentication strength is a Conditional Access grant control that allows you to specify exactly which authentication method combinations are acceptable. You can create a custom authentication strength that only allows FIDO2 security keys. Option A is incorrect because standard MFA allows any registered MFA method, not specifically FIDO2. Option C is incorrect because session controls manage session properties like token lifetime and app-enforced restrictions. Option D is incorrect because terms of use present legal documents, not authentication requirements."
+    },
+    {
+      "id": 21,
+      "topic": "External Identities - B2C configuration",
+      "type": "SingleChoice",
+      "questionText": "Your organization is building a customer-facing web application that needs to support sign-up and sign-in using social identities (Google, Facebook) and local email accounts with custom branding. Which Microsoft identity solution should you use?",
+      "options": ["A. Microsoft Entra ID B2B collaboration.", "B. Azure AD B2C with user flows or custom policies.", "C. Microsoft Entra ID with Security Defaults.", "D. Active Directory Federation Services (AD FS)."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure AD B2C is designed for customer-facing (CIAM) scenarios, supporting social identity providers (Google, Facebook), local accounts, custom branding, and user flows or custom policies for sign-up/sign-in experiences. Option A is incorrect because B2B collaboration is for partner organizations, not customer-facing applications. Option C is incorrect because Entra ID with Security Defaults is for organizational identities, not consumer identities. Option D is incorrect because AD FS is for on-premises federation, not modern customer identity management."
+    },
+    {
+      "id": 22,
+      "topic": "PIM - Access reviews for roles",
+      "type": "SingleChoice",
+      "questionText": "You configure PIM for the Security Administrator role and want to ensure that all current role holders are reviewed monthly. If a reviewer doesn't respond within the review period, the assignment should remain unchanged. How should you configure this?",
+      "options": ["A. Create a PIM access review with monthly recurrence and set 'If reviewers don't respond' to 'No change'.", "B. Manually review role assignments each month.", "C. Set the role to auto-expire after 30 days.", "D. Disable the role entirely and re-enable it monthly."],
+      "correctAnswers": ["A"],
+      "explanation": "PIM access reviews can be configured with recurring schedules and specific actions for non-responsive reviewers. Setting 'No change' for non-responsive reviewers maintains existing assignments while still prompting regular review. Option B is incorrect because manual reviews are unreliable and not auditable. Option C is incorrect because auto-expiration would disrupt legitimate administrators. Option D is incorrect because disabling and re-enabling roles would cause service disruption."
+    },
+    {
+      "id": 23,
+      "topic": "Entra ID - Dynamic group membership",
+      "type": "SingleChoice",
+      "questionText": "You need to create a group that automatically includes all users from the Marketing department. The department attribute is populated in Azure AD. Which type of group should you create?",
+      "options": ["A. Microsoft 365 group with assigned membership.", "B. Security group with dynamic user membership and a rule based on the department attribute.", "C. Distribution group in Exchange Online.", "D. Azure AD administrative unit."],
+      "correctAnswers": ["B"],
+      "explanation": "A security group with dynamic membership uses rules based on user attributes (such as department equals 'Marketing') to automatically add and remove members as attributes change. Option A is incorrect because assigned membership requires manual member management. Option C is incorrect because distribution groups are for email distribution, not dynamic attribute-based membership in Azure AD. Option D is incorrect because administrative units scope admin permissions, they are not membership groups."
+    },
+    {
+      "id": 24,
+      "topic": "Conditional Access - Session controls",
+      "type": "SingleChoice",
+      "questionText": "You need to limit the browser session lifetime for users accessing sensitive applications so that they must re-authenticate every 4 hours. Which Conditional Access session control should you configure?",
+      "options": ["A. Persistent browser session.", "B. Sign-in frequency set to 4 hours.", "C. Conditional Access App Control.", "D. Customize continuous access evaluation."],
+      "correctAnswers": ["B"],
+      "explanation": "Sign-in frequency is a Conditional Access session control that defines the time period before a user is asked to re-authenticate. Setting it to 4 hours forces re-authentication at that interval. Option A is incorrect because persistent browser session controls whether the session persists after closing the browser, not the re-authentication interval. Option C is incorrect because App Control provides real-time session monitoring and controls, not re-authentication frequency. Option D is incorrect because continuous access evaluation handles real-time token revocation, not scheduled re-authentication."
+    },
+    {
+      "id": 25,
+      "topic": "App Registrations - API permissions consent",
+      "type": "MultipleChoice",
+      "questionText": "A new application requests the following Microsoft Graph API permissions: User.Read (delegated), Mail.ReadWrite (delegated), and Directory.Read.All (application). Which TWO statements are correct? (Choose two.)",
+      "options": ["A. User.Read (delegated) can be consented to by the user themselves.", "B. Directory.Read.All (application) requires admin consent.", "C. All three permissions can be consented to by any user.", "D. Mail.ReadWrite (delegated) never requires admin consent.", "E. Application permissions always require admin consent."],
+      "correctAnswers": ["A", "E"],
+      "explanation": "User.Read is a low-privilege delegated permission that users can consent to themselves. Application permissions always require admin consent because they grant access without a user context, which is a higher-privilege operation. Option B is also true but Option E is more broadly correct as a general rule. Option C is incorrect because application permissions cannot be consented by users. Option D is incorrect because Mail.ReadWrite may require admin consent depending on tenant configuration."
+    },
+    {
+      "id": 26,
+      "topic": "Identity Governance - Terms of use",
+      "type": "SingleChoice",
+      "questionText": "Your legal department requires that all users accept an updated acceptable use policy before accessing company applications. The policy document is a PDF file. Which feature should you configure?",
+      "options": ["A. Microsoft Entra terms of use with a Conditional Access policy.", "B. Azure Information Protection label.", "C. Microsoft Purview DLP policy.", "D. Exchange Online mail flow rule."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra terms of use allows you to upload PDF documents as terms that users must accept. When combined with a Conditional Access policy, users are required to accept the terms before accessing targeted applications. Option B is incorrect because AIP labels classify and protect documents, not present terms for acceptance. Option C is incorrect because DLP prevents data loss, not user acceptance of policies. Option D is incorrect because mail flow rules manage email routing, not user policy acceptance."
+    },
+    {
+      "id": 27,
+      "topic": "MFA - Temporary Access Pass",
+      "type": "SingleChoice",
+      "questionText": "A new employee needs to register their passwordless authentication methods (FIDO2 security key and Microsoft Authenticator) but doesn't have any existing credentials yet. What should you issue to enable them to complete initial registration?",
+      "options": ["A. A permanent password.", "B. A Temporary Access Pass (TAP).", "C. An SMS verification code.", "D. A certificate from AD CS."],
+      "correctAnswers": ["B"],
+      "explanation": "A Temporary Access Pass is a time-limited passcode that can be used to register passwordless authentication methods. It's designed for scenarios where users need to bootstrap their credentials, such as new employee onboarding. Option A is incorrect because issuing a permanent password contradicts the goal of passwordless authentication. Option C is incorrect because SMS alone cannot be used to register other authentication methods. Option D is incorrect because AD CS certificates are for certificate-based authentication, not bootstrapping passwordless registration."
+    },
+    {
+      "id": 28,
+      "topic": "External Identities - Self-service sign-up",
+      "type": "SingleChoice",
+      "questionText": "You want to allow external users to sign up for access to your organization's web application using a self-service sign-up flow. The flow should collect the user's name, email, and company name. Which feature should you configure?",
+      "options": ["A. Microsoft Entra External ID self-service sign-up user flows with custom user attributes.", "B. Azure AD B2C user flows.", "C. Microsoft Forms survey.", "D. Manual user creation by the IT helpdesk."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra External ID self-service sign-up user flows allow external users to sign up for your application. Custom user attributes can collect additional information like company name during the sign-up process. Option B is incorrect because B2C is for consumer-facing (CIAM) scenarios, not organizational B2B self-service sign-up. Option C is incorrect because Forms is a survey tool that doesn't create identity objects. Option D is incorrect because manual creation doesn't meet the self-service requirement."
+    },
+    {
+      "id": 29,
+      "topic": "Conditional Access - Report-only mode",
+      "type": "SingleChoice",
+      "questionText": "Before enforcing a new Conditional Access policy that blocks legacy authentication, you want to evaluate its impact without affecting users. What should you do?",
+      "options": ["A. Enable the policy in 'On' mode and monitor for complaints.", "B. Enable the policy in 'Report-only' mode and review the Conditional Access insights workbook.", "C. Create the policy but leave it in 'Off' mode.", "D. Apply the policy to a single test user only."],
+      "correctAnswers": ["B"],
+      "explanation": "Report-only mode evaluates the policy against all sign-ins without enforcing it. The Conditional Access insights workbook shows what would have been blocked, allowing you to assess impact before enforcement. Option A is incorrect because enabling in 'On' mode would immediately block users. Option C is incorrect because 'Off' mode doesn't evaluate the policy against sign-ins. Option D is incorrect because testing with a single user doesn't show the full organizational impact."
+    },
+    {
+      "id": 30,
+      "topic": "Entra ID - Password protection",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to prevent users from using common passwords and organization-specific terms (like the company name) in their passwords. Which feature should you configure?",
+      "options": ["A. Microsoft Entra Password Protection with a custom banned password list.", "B. Azure AD Connect password writeback.", "C. Self-service password reset.", "D. Microsoft Entra smart lockout."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra Password Protection includes a global banned password list (common passwords) and allows custom banned password lists where you can add organization-specific terms. It evaluates passwords during changes and resets. Option B is incorrect because password writeback synchronizes password changes to on-premises AD but doesn't enforce banned password lists. Option C is incorrect because SSPR enables users to reset passwords but doesn't define password content restrictions. Option D is incorrect because smart lockout prevents brute-force attacks, not weak password selection."
+    },
+    {
+      "id": 31,
+      "topic": "PIM - Eligible vs Active assignments",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between an eligible assignment and an active assignment in Microsoft Entra PIM?",
+      "options": ["A. There is no difference; they are the same.", "B. Eligible assignments require the user to activate the role before using it, while active assignments grant immediate permanent access.", "C. Active assignments are only for on-premises roles.", "D. Eligible assignments can only be used with Azure resource roles."],
+      "correctAnswers": ["B"],
+      "explanation": "Eligible assignments mean the user has the potential to use the role but must perform an activation step (which can include MFA, justification, and approval). Active assignments grant the role immediately without activation. Eligible assignments are preferred for security because they provide just-in-time access. Option A is incorrect because they have distinct behaviors. Option C is incorrect because active assignments work for both cloud and Azure resource roles. Option D is incorrect because eligible assignments are available for both Azure AD roles and Azure resource roles."
+    },
+    {
+      "id": 32,
+      "topic": "Identity Governance - Identity lifecycle",
+      "type": "MultipleChoice",
+      "questionText": "You need to automate the offboarding process when an employee leaves the organization. Which TWO actions should be automated as part of the leaver workflow? (Choose two.)",
+      "options": ["A. Disable the user account in Microsoft Entra ID.", "B. Promote the user to Global Administrator.", "C. Remove the user from all group memberships and revoke access.", "D. Create a new account for the user's replacement.", "E. Increase the user's mailbox storage quota."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "When an employee leaves, the account should be disabled to prevent access, and group memberships should be removed to revoke access to resources. These are standard offboarding security practices. Option B is incorrect because promoting a departing employee is counterproductive. Option D is incorrect because creating a replacement account is a separate onboarding process. Option E is incorrect because increasing storage for a departing user is unnecessary."
+    },
+    {
+      "id": 33,
+      "topic": "Conditional Access - Token protection",
+      "type": "SingleChoice",
+      "questionText": "You are concerned about token theft attacks where an attacker steals a user's access token and replays it from a different device. Which Conditional Access feature helps mitigate this risk?",
+      "options": ["A. Conditional Access token protection (token binding).", "B. Conditional Access sign-in frequency.", "C. Terms of use.", "D. Named locations."],
+      "correctAnswers": ["A"],
+      "explanation": "Token protection (also called token binding) binds tokens to the device they were issued to. If a token is stolen and replayed from a different device, it will be rejected because it doesn't match the original device binding. Option B is incorrect because sign-in frequency controls re-authentication intervals but doesn't bind tokens to devices. Option C is incorrect because terms of use present legal documents. Option D is incorrect because named locations define trusted IP ranges but don't protect against token theft."
+    },
+    {
+      "id": 34,
+      "topic": "App Registrations - Certificate authentication",
+      "type": "SingleChoice",
+      "questionText": "A daemon application needs to authenticate to Microsoft Graph API without user interaction. The security team requires certificate-based authentication instead of client secrets. How should you configure this?",
+      "options": ["A. Upload a certificate to the app registration and use it for client credential authentication.", "B. Configure delegated permissions with user consent.", "C. Use interactive browser-based authentication.", "D. Store a client secret in the application settings."],
+      "correctAnswers": ["A"],
+      "explanation": "Certificate-based authentication for app registrations involves uploading the public key certificate to the app registration and using the private key to sign assertions for the client credentials flow. This is more secure than client secrets. Option B is incorrect because delegated permissions require user interaction. Option C is incorrect because interactive authentication contradicts the daemon (background) requirement. Option D is incorrect because the requirement specifically calls for certificate-based authentication instead of client secrets."
+    },
+    {
+      "id": 35,
+      "topic": "Entra ID - Custom security attributes",
+      "type": "SingleChoice",
+      "questionText": "Your compliance team needs to tag user accounts with a security clearance level that can be used in access decisions and is visible only to authorized administrators. Which feature should you use?",
+      "options": ["A. Microsoft Entra custom security attributes.", "B. Extension attributes synchronized from on-premises AD.", "C. Azure AD user profile fields.", "D. Microsoft 365 user properties."],
+      "correctAnswers": ["A"],
+      "explanation": "Custom security attributes in Microsoft Entra ID allow you to define business-specific attributes for users and service principals. They support role-based access control so only authorized administrators can read or write them, and they can be used in Conditional Access and other access decisions. Option B is incorrect because extension attributes are general-purpose and don't have the same RBAC controls as custom security attributes. Option C is incorrect because standard profile fields don't support custom business attributes with fine-grained access control. Option D is incorrect because Microsoft 365 properties are for collaboration features, not security classifications."
+    },
+    {
+      "id": 36,
+      "topic": "MFA - Number matching",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses Microsoft Authenticator for MFA. To prevent MFA fatigue attacks where attackers repeatedly trigger push notifications hoping the user accidentally approves, what feature should you ensure is enabled?",
+      "options": ["A. Number matching in Microsoft Authenticator push notifications.", "B. SMS as the default MFA method.", "C. Voice call as the default MFA method.", "D. Email-based OTP verification."],
+      "correctAnswers": ["A"],
+      "explanation": "Number matching requires the user to enter a number displayed on the sign-in screen into the Authenticator app, preventing blind approval of push notifications. This effectively mitigates MFA fatigue attacks. Option B is incorrect because SMS doesn't address push notification fatigue attacks. Option C is incorrect because voice calls don't address push notification fatigue. Option D is incorrect because email OTP doesn't prevent push notification-based attacks."
+    },
+    {
+      "id": 37,
+      "topic": "External Identities - B2B direct connect",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to collaborate with a partner organization in shared Microsoft Teams channels where external users appear as native team members without being added as guests in your directory. Which feature should you configure?",
+      "options": ["A. Microsoft Entra B2B collaboration.", "B. Microsoft Entra B2B direct connect.", "C. Azure AD B2C.", "D. Microsoft Entra External ID for customers."],
+      "correctAnswers": ["B"],
+      "explanation": "B2B direct connect enables collaboration through Teams shared channels where external users authenticate with their home tenant and don't need guest accounts in your directory. They appear as external members in the shared channel. Option A is incorrect because B2B collaboration creates guest accounts in your directory. Option C is incorrect because B2C is for consumer-facing identity scenarios. Option D is incorrect because External ID for customers is for building customer-facing applications."
+    },
+    {
+      "id": 38,
+      "topic": "Identity Governance - Privileged access groups",
+      "type": "SingleChoice",
+      "questionText": "You want to use PIM to manage membership in a security group that grants access to sensitive applications. When users need access, they should activate their group membership through PIM. What type of group should you create?",
+      "options": ["A. A standard security group with assigned membership.", "B. A role-assignable security group enabled for PIM.", "C. A dynamic security group.", "D. A Microsoft 365 group."],
+      "correctAnswers": ["B"],
+      "explanation": "Role-assignable groups can be managed through PIM, enabling just-in-time membership activation. Users are assigned as eligible members and must activate their membership through PIM when they need access to the resources the group controls. Option A is incorrect because standard security groups don't support PIM-managed membership. Option C is incorrect because dynamic groups are automatically managed based on attributes and don't support PIM activation. Option D is incorrect because while Microsoft 365 groups can be PIM-managed, the question specifies a security group for application access."
+    },
+    {
+      "id": 39,
+      "topic": "Conditional Access - Continuous access evaluation",
+      "type": "SingleChoice",
+      "questionText": "A user's account is disabled by an administrator while the user has an active session to Exchange Online. With default settings, how does Microsoft Entra handle this situation?",
+      "options": ["A. The user's session continues until the access token expires (typically 1 hour).", "B. Continuous access evaluation (CAE) causes near real-time revocation of the user's access.", "C. The user's session is never revoked.", "D. The user must manually sign out."],
+      "correctAnswers": ["B"],
+      "explanation": "Continuous access evaluation (CAE) enables near real-time enforcement of critical events like account disable, password change, and location change for supported applications (Exchange Online, SharePoint Online, Teams). When an account is disabled, CAE revokes access within minutes. Option A is incorrect because CAE shortens the token lifetime enforcement gap significantly for supported scenarios. Option C is incorrect because access is revoked. Option D is incorrect because revocation happens automatically through CAE."
+    },
+    {
+      "id": 40,
+      "topic": "App Registrations - Multi-tenant applications",
+      "type": "SingleChoice",
+      "questionText": "You are developing a SaaS application that needs to be accessible to users from any Microsoft Entra tenant. During app registration, what should you set the 'Supported account types' to?",
+      "options": ["A. Accounts in this organizational directory only (Single tenant).", "B. Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant).", "C. Personal Microsoft accounts only.", "D. Accounts in this organizational directory and personal Microsoft accounts."],
+      "correctAnswers": ["B"],
+      "explanation": "Setting supported account types to 'Accounts in any organizational directory' makes the application multi-tenant, allowing users from any Microsoft Entra tenant to authenticate and use the application. Option A is incorrect because single tenant restricts access to only your organization's users. Option C is incorrect because personal Microsoft accounts don't cover organizational users. Option D is incorrect because this option includes personal accounts, which may not be desired for a B2B SaaS application, and it's limited to the local directory for organizational accounts."
+    }
+  ]
+}

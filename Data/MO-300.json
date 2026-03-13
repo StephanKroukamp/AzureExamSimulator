@@ -1,0 +1,566 @@
+{
+  "examCode": "MO-300",
+  "examTitle": "Microsoft PowerPoint",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Slide Design - Themes",
+      "type": "SingleChoice",
+      "questionText": "What does applying a theme to a PowerPoint presentation change?",
+      "options": [
+        "A. Only the background color of slides.",
+        "B. The coordinated set of colors, fonts, and effects applied to slides.",
+        "C. Only the font used in slide titles.",
+        "D. The slide dimensions and orientation only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a PowerPoint theme is a collection of coordinated colors, fonts, and visual effects that are applied consistently across all slides in the presentation.\n\nA is incorrect because themes affect much more than just the background color.\n\nC is incorrect because themes change all fonts, not just title fonts.\n\nD is incorrect because slide dimensions are controlled by the Slide Size setting, not themes."
+    },
+    {
+      "id": 2,
+      "topic": "Slide Design - Layouts",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of slide layouts in PowerPoint?",
+      "options": [
+        "A. To define the animation sequence for each slide.",
+        "B. To provide predefined arrangements of placeholders for text, images, and other content.",
+        "C. To set the transition effect between slides.",
+        "D. To control the print settings for each slide."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because slide layouts are predefined templates that determine the placement and types of placeholders (title, content, picture, etc.) on a slide.\n\nA is incorrect because animations are configured separately for individual objects.\n\nC is incorrect because transitions are set independently from layouts.\n\nD is incorrect because print settings are managed in the Print dialog."
+    },
+    {
+      "id": 3,
+      "topic": "Transitions - Applying transitions",
+      "type": "SingleChoice",
+      "questionText": "Where do you apply transition effects between slides in PowerPoint?",
+      "options": [
+        "A. Home tab > Transitions group.",
+        "B. Transitions tab > select a transition effect.",
+        "C. Animations tab > Transition Effects.",
+        "D. Insert tab > Slide Transition."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Transitions tab contains all transition effects, timing options, and sound settings that control how one slide moves to the next.\n\nA is incorrect because the Home tab does not contain transition effects.\n\nC is incorrect because the Animations tab controls object animations, not slide transitions.\n\nD is incorrect because the Insert tab is for adding objects, not transitions."
+    },
+    {
+      "id": 4,
+      "topic": "Transitions - Timing",
+      "type": "SingleChoice",
+      "questionText": "How do you set a slide to automatically advance after 5 seconds without a mouse click?",
+      "options": [
+        "A. Animations tab > Duration: 5 seconds.",
+        "B. Transitions tab > uncheck 'On Mouse Click' and set 'After' to 00:05.00.",
+        "C. Slide Show tab > Set Up Show > Auto advance: 5 seconds.",
+        "D. Design tab > Timing > 5 seconds."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because on the Transitions tab, you can uncheck 'On Mouse Click' and set the 'After' timing to automatically advance the slide after a specified duration.\n\nA is incorrect because the Animations tab controls individual object animations, not slide advancement.\n\nC is incorrect because the Set Up Show dialog configures overall show settings, not per-slide timing.\n\nD is incorrect because the Design tab handles visual design, not timing."
+    },
+    {
+      "id": 5,
+      "topic": "Animations - Types of animations",
+      "type": "SingleChoice",
+      "questionText": "Which animation category in PowerPoint makes an object appear on the slide?",
+      "options": [
+        "A. Entrance",
+        "B. Emphasis",
+        "C. Exit",
+        "D. Motion Path"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Entrance animations control how an object appears on the slide, such as fading in, flying in, or appearing.\n\nB is incorrect because Emphasis animations draw attention to objects already on the slide (e.g., pulse, spin).\n\nC is incorrect because Exit animations make objects disappear from the slide.\n\nD is incorrect because Motion Path animations move objects along a defined path on the slide."
+    },
+    {
+      "id": 6,
+      "topic": "Animations - Animation Pane",
+      "type": "SingleChoice",
+      "questionText": "What is the Animation Pane used for in PowerPoint?",
+      "options": [
+        "A. To browse and download animations from the internet.",
+        "B. To view, reorder, and fine-tune the timing and sequence of all animations on a slide.",
+        "C. To create custom animation effects from scratch.",
+        "D. To apply the same animation to all slides."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Animation Pane provides a detailed view of all animations on the current slide, allowing you to reorder them, adjust start triggers, duration, and delay for precise control.\n\nA is incorrect because the Animation Pane does not connect to the internet.\n\nC is incorrect because while you can adjust animations, the pane does not create animations from scratch.\n\nD is incorrect because applying animations to all slides is not the purpose of the Animation Pane."
+    },
+    {
+      "id": 7,
+      "topic": "Slide Masters - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Slide Master in PowerPoint?",
+      "options": [
+        "A. To create a backup copy of the presentation.",
+        "B. To define the default formatting, layouts, and design elements that are applied to all slides in the presentation.",
+        "C. To lock slides from being edited by other users.",
+        "D. To export the presentation as a video."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Slide Master controls the overall design, including fonts, colors, placeholder positions, backgrounds, and other formatting that applies to all slides or specific layouts.\n\nA is incorrect because the Slide Master is not a backup feature.\n\nC is incorrect because slide protection is handled by the Protect Presentation feature.\n\nD is incorrect because video export is done through the Export menu."
+    },
+    {
+      "id": 8,
+      "topic": "Slide Masters - Editing the Slide Master",
+      "type": "SingleChoice",
+      "questionText": "How do you access the Slide Master view in PowerPoint?",
+      "options": [
+        "A. Home tab > Slide Master.",
+        "B. View tab > Slide Master.",
+        "C. Design tab > Edit Master.",
+        "D. Slide Show tab > Master View."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Slide Master view is accessed through the View tab, which opens a special editing mode where you can modify the master slide and layout templates.\n\nA is incorrect because the Home tab does not have a Slide Master option.\n\nC is incorrect because the Design tab does not have an Edit Master button.\n\nD is incorrect because the Slide Show tab manages show settings, not the Slide Master."
+    },
+    {
+      "id": 9,
+      "topic": "Presenter View - Features",
+      "type": "SingleChoice",
+      "questionText": "What does Presenter View in PowerPoint allow you to see that the audience cannot?",
+      "options": [
+        "A. The slide sorter view.",
+        "B. Speaker notes, the next slide preview, and a timer while the audience sees only the current slide.",
+        "C. The animation pane.",
+        "D. The design ideas panel."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Presenter View displays the current slide, speaker notes, a preview of the next slide, and an elapsed time counter on the presenter's screen, while the audience only sees the current slide on the projection.\n\nA is incorrect because the slide sorter is an editing view, not part of Presenter View.\n\nC is incorrect because the Animation Pane is an editing tool.\n\nD is incorrect because the Design Ideas panel is for slide design suggestions, not presenting."
+    },
+    {
+      "id": 10,
+      "topic": "Presenter View - Setup",
+      "type": "SingleChoice",
+      "questionText": "How do you enable Presenter View when presenting with a projector?",
+      "options": [
+        "A. It is enabled by default when a second display is connected and you start the slideshow.",
+        "B. You must manually enable it in File > Options every time.",
+        "C. It only works with specific projector brands.",
+        "D. You need to install a separate Presenter View plugin."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because PowerPoint automatically enables Presenter View when it detects a second display (projector or monitor) connected to the computer. You can also check the 'Use Presenter View' option on the Slide Show tab.\n\nB is incorrect because it does not require configuration in File > Options each time.\n\nC is incorrect because Presenter View works with any second display, not specific brands.\n\nD is incorrect because Presenter View is a built-in feature, not a plugin."
+    },
+    {
+      "id": 11,
+      "topic": "Exporting - Save as PDF",
+      "type": "SingleChoice",
+      "questionText": "Which option preserves the visual layout of a PowerPoint presentation while making it non-editable?",
+      "options": [
+        "A. Save as .pptx",
+        "B. Save as .pdf",
+        "C. Save as .potx",
+        "D. Save as .ppsx"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because saving as PDF creates a fixed-layout document that preserves the visual appearance of slides while making the content non-editable.\n\nA is incorrect because .pptx is the standard editable PowerPoint format.\n\nC is incorrect because .potx is a PowerPoint template that can be edited.\n\nD is incorrect because .ppsx is a PowerPoint Show file that opens directly in slideshow mode but can still be edited by opening in PowerPoint."
+    },
+    {
+      "id": 12,
+      "topic": "Exporting - Video export",
+      "type": "SingleChoice",
+      "questionText": "When exporting a PowerPoint presentation as a video, which elements are preserved?",
+      "options": [
+        "A. Only the slide content without animations.",
+        "B. Slide content, animations, transitions, timings, and narrations.",
+        "C. Only the text content in outline format.",
+        "D. Slide content and speaker notes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because exporting as a video captures the full presentation experience including slide content, animations, transitions, recorded timings, narrations, and laser pointer gestures.\n\nA is incorrect because animations are included in the video export.\n\nC is incorrect because the video preserves visual content, not just text outlines.\n\nD is incorrect because speaker notes are not shown in the video output; they are only visible in Presenter View."
+    },
+    {
+      "id": 13,
+      "topic": "Accessibility - Alt text",
+      "type": "SingleChoice",
+      "questionText": "Why should you add alternative text (alt text) to images in a PowerPoint presentation?",
+      "options": [
+        "A. To add captions visible below each image.",
+        "B. To provide descriptions that screen readers can announce to visually impaired users.",
+        "C. To add search tags for finding images in the presentation.",
+        "D. To reduce the file size of the presentation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because alternative text provides a text description of images that screen readers use to convey the content to visually impaired users, making the presentation accessible.\n\nA is incorrect because alt text is not visible as a caption on the slide.\n\nC is incorrect because alt text is primarily for accessibility, not search functionality.\n\nD is incorrect because alt text does not affect file size."
+    },
+    {
+      "id": 14,
+      "topic": "Accessibility - Reading order",
+      "type": "SingleChoice",
+      "questionText": "How do you check and adjust the reading order of objects on a slide for accessibility?",
+      "options": [
+        "A. View tab > Reading View.",
+        "B. Home tab > Arrange > Selection Pane, then reorder objects from bottom to top.",
+        "C. Slide Show tab > Reading Order.",
+        "D. Review tab > Check Accessibility > Reading Order."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Selection Pane (accessible via Home > Arrange or the Accessibility checker) shows all objects on a slide and allows you to reorder them. Screen readers read objects from bottom to top of the list, so adjusting the order ensures logical reading sequence.\n\nA is incorrect because Reading View is a display mode for viewing the presentation, not editing reading order.\n\nC is incorrect because the Slide Show tab does not have a Reading Order feature.\n\nD is incorrect because while the Accessibility Checker flags reading order issues, the actual adjustment is done in the Selection Pane."
+    },
+    {
+      "id": 15,
+      "topic": "Slide Design - SmartArt",
+      "type": "SingleChoice",
+      "questionText": "What is SmartArt in PowerPoint used for?",
+      "options": [
+        "A. To insert photographs from an online gallery.",
+        "B. To create professional-looking diagrams such as lists, processes, hierarchies, and relationships.",
+        "C. To apply artistic effects to images.",
+        "D. To record narration for slides."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SmartArt provides a collection of graphic layouts for creating visual representations of information such as organizational charts, process flows, cycle diagrams, and relationship diagrams.\n\nA is incorrect because inserting photographs is done through the Insert tab's Pictures option.\n\nC is incorrect because artistic effects are applied through Picture Format tools.\n\nD is incorrect because narration recording is done through the Slide Show tab."
+    },
+    {
+      "id": 16,
+      "topic": "Transitions - Morph transition",
+      "type": "SingleChoice",
+      "questionText": "What is unique about the Morph transition in PowerPoint?",
+      "options": [
+        "A. It adds sound effects to slide changes.",
+        "B. It automatically animates the movement, resizing, and color changes of objects between two slides.",
+        "C. It converts slides into a video format.",
+        "D. It removes all animations from the presentation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Morph transition detects objects that are common between two consecutive slides and automatically creates smooth animations for their position, size, rotation, and color changes.\n\nA is incorrect because sound effects can be added to any transition, and Morph's unique feature is object animation.\n\nC is incorrect because Morph is a transition effect, not a video conversion tool.\n\nD is incorrect because Morph adds animation effects, not removes them."
+    },
+    {
+      "id": 17,
+      "topic": "Animations - Trigger animations",
+      "type": "SingleChoice",
+      "questionText": "How can you set an animation to play only when a specific object on the slide is clicked?",
+      "options": [
+        "A. Set the animation start to 'On Click' in the Animation Pane.",
+        "B. Use Animations tab > Trigger > On Click of a specific object.",
+        "C. Link the animation to a hyperlink.",
+        "D. Set the animation to 'With Previous'."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Trigger feature on the Animations tab allows you to specify that an animation starts when a particular object (such as a button or image) is clicked, rather than advancing with a general click.\n\nA is incorrect because 'On Click' starts the animation on the next general click anywhere, not a click on a specific object.\n\nC is incorrect because hyperlinks navigate to other locations, not trigger animations.\n\nD is incorrect because 'With Previous' starts the animation simultaneously with the previous animation."
+    },
+    {
+      "id": 18,
+      "topic": "Slide Masters - Multiple masters",
+      "type": "SingleChoice",
+      "questionText": "Can a single PowerPoint presentation have more than one Slide Master?",
+      "options": [
+        "A. No, each presentation can only have one Slide Master.",
+        "B. Yes, you can have multiple Slide Masters, each with its own set of layouts.",
+        "C. Only if the presentation has more than 50 slides.",
+        "D. Only in PowerPoint 365, not in earlier versions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because PowerPoint supports multiple Slide Masters in a single presentation. Each Slide Master can have its own set of layouts, themes, and formatting, which is useful when combining content from different design templates.\n\nA is incorrect because multiple Slide Masters are supported.\n\nC is incorrect because the number of slides does not limit the number of Slide Masters.\n\nD is incorrect because multiple Slide Masters have been supported since PowerPoint 2007."
+    },
+    {
+      "id": 19,
+      "topic": "Presenter View - Annotations",
+      "type": "SingleChoice",
+      "questionText": "During a slideshow, how can you draw on slides to highlight information for the audience?",
+      "options": [
+        "A. Use the pen or highlighter tool available during the slideshow by right-clicking or using Ctrl+P.",
+        "B. Exit the slideshow, draw using shapes, then restart.",
+        "C. Use the Design tab's drawing tools.",
+        "D. This feature is not available in PowerPoint."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because during a slideshow, you can activate the pen tool (Ctrl+P) or highlighter to draw annotations directly on slides. Right-clicking also provides pointer options including pen and highlighter.\n\nB is incorrect because you do not need to exit the slideshow to annotate.\n\nC is incorrect because the Design tab's tools are for editing mode, not slideshow mode.\n\nD is incorrect because this feature is available in PowerPoint."
+    },
+    {
+      "id": 20,
+      "topic": "Exporting - Handouts",
+      "type": "SingleChoice",
+      "questionText": "How do you create handouts that show multiple slides per page with lines for audience notes?",
+      "options": [
+        "A. File > Print > select a handout layout such as '3 Slides' which includes note lines.",
+        "B. View tab > Handout Master to customize, then File > Print > Handouts.",
+        "C. Both A and B are valid approaches.",
+        "D. Export tab > Create Handouts > Lines Only."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because you can print handouts directly with the '3 Slides' layout (which includes note lines), or customize the handout layout in the Handout Master view before printing.\n\nA is partially correct as it is one valid approach.\n\nB is partially correct as it is another valid approach.\n\nD is incorrect because there is no 'Lines Only' export option."
+    },
+    {
+      "id": 21,
+      "topic": "Slide Design - Slide size",
+      "type": "SingleChoice",
+      "questionText": "You need to create a presentation for a widescreen display. What slide size should you select?",
+      "options": [
+        "A. Standard (4:3)",
+        "B. Widescreen (16:9)",
+        "C. Letter (8.5\" x 11\")",
+        "D. A4 (210mm x 297mm)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Widescreen (16:9) is the standard aspect ratio for modern displays, projectors, and monitors, making it the appropriate choice for widescreen presentations.\n\nA is incorrect because Standard (4:3) is an older aspect ratio that may leave black bars on widescreen displays.\n\nC is incorrect because Letter size is a paper format for printing, not screen presentations.\n\nD is incorrect because A4 is a paper format used in many countries, not optimized for screen display."
+    },
+    {
+      "id": 22,
+      "topic": "Transitions - Apply to all slides",
+      "type": "SingleChoice",
+      "questionText": "After selecting a transition effect for one slide, how do you apply the same transition to all slides?",
+      "options": [
+        "A. Copy the slide and paste it over all other slides.",
+        "B. Click 'Apply To All' on the Transitions tab.",
+        "C. Select all slides in the slide panel and double-click the transition.",
+        "D. Go to Slide Show tab > Apply Transition to All."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the 'Apply To All' button on the Transitions tab applies the currently selected transition effect and settings to all slides in the presentation.\n\nA is incorrect because copying slides duplicates content, not just transitions.\n\nC is incorrect because double-clicking a transition does not apply it to selected slides.\n\nD is incorrect because the Slide Show tab does not have transition application options."
+    },
+    {
+      "id": 23,
+      "topic": "Animations - Motion paths",
+      "type": "SingleChoice",
+      "questionText": "What does a Motion Path animation do in PowerPoint?",
+      "options": [
+        "A. It changes the color of an object over time.",
+        "B. It moves an object along a predefined or custom path on the slide.",
+        "C. It rotates the slide itself during the transition.",
+        "D. It resizes the object to fill the entire slide."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Motion Path animations move objects along a defined trajectory, which can be a straight line, curve, or custom drawn path.\n\nA is incorrect because color changes are done with Emphasis animations or custom effects.\n\nC is incorrect because slide rotation would be a transition effect, not a Motion Path.\n\nD is incorrect because Motion Paths control movement, not resizing."
+    },
+    {
+      "id": 24,
+      "topic": "Slide Masters - Placeholders",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following elements can be added to a Slide Master to appear on all slides? (Choose two.)",
+      "options": [
+        "A. Company logo image.",
+        "B. Date and slide number placeholders.",
+        "C. Speaker notes.",
+        "D. Audience polling questions."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. You can add images (like a company logo), date placeholders, slide number placeholders, and other design elements to the Slide Master, and they will appear on all slides using that master.\n\nC is incorrect because speaker notes are per-slide content added in the Notes pane, not on the Slide Master.\n\nD is incorrect because audience polling is an interactive feature, not a Slide Master element."
+    },
+    {
+      "id": 25,
+      "topic": "Accessibility - Accessibility Checker",
+      "type": "SingleChoice",
+      "questionText": "What does the Accessibility Checker in PowerPoint identify?",
+      "options": [
+        "A. Spelling and grammar errors.",
+        "B. Issues that may make the presentation difficult for people with disabilities to use, such as missing alt text and poor reading order.",
+        "C. Copyright violations in images.",
+        "D. Slides that exceed the recommended word count."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Accessibility Checker scans the presentation for issues that affect accessibility, including missing alternative text for images, insufficient color contrast, missing slide titles, and incorrect reading order.\n\nA is incorrect because spelling and grammar are checked by the proofing tools, not the Accessibility Checker.\n\nC is incorrect because copyright detection is not a feature of the Accessibility Checker.\n\nD is incorrect because word count recommendations are not part of accessibility checking."
+    },
+    {
+      "id": 26,
+      "topic": "Slide Design - Reuse slides",
+      "type": "SingleChoice",
+      "questionText": "How do you insert slides from another PowerPoint presentation into your current one?",
+      "options": [
+        "A. Copy the file and rename it.",
+        "B. Home tab > New Slide dropdown > Reuse Slides, then browse to the source presentation.",
+        "C. File tab > Import Slides.",
+        "D. Insert tab > Slides from File."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Reuse Slides feature in the New Slide dropdown allows you to browse to another presentation and selectively insert slides while optionally keeping the source formatting.\n\nA is incorrect because copying the file duplicates the entire presentation.\n\nC is incorrect because there is no Import Slides option under the File tab.\n\nD is incorrect because the Insert tab does not have a Slides from File option."
+    },
+    {
+      "id": 27,
+      "topic": "Transitions - Sound effects",
+      "type": "SingleChoice",
+      "questionText": "How do you add a sound effect to a slide transition?",
+      "options": [
+        "A. Insert tab > Audio > Link to Transition.",
+        "B. Transitions tab > Sound dropdown > select a sound.",
+        "C. Animations tab > Effect Options > Sound.",
+        "D. Slide Show tab > Transition Sounds."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Sound dropdown on the Transitions tab allows you to add a sound effect that plays during the transition between slides.\n\nA is incorrect because the Insert tab's Audio feature adds standalone audio objects, not transition sounds.\n\nC is incorrect because the Animations tab controls object animation sounds, not transition sounds.\n\nD is incorrect because the Slide Show tab does not have a Transition Sounds option."
+    },
+    {
+      "id": 28,
+      "topic": "Animations - Animation timing",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are valid start options for animations in PowerPoint? (Choose two.)",
+      "options": [
+        "A. On Click",
+        "B. With Previous",
+        "C. On Hover",
+        "D. On Scroll"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. PowerPoint animations can start On Click (when the presenter advances), With Previous (simultaneously with the previous animation), or After Previous (after the previous animation finishes).\n\nC is incorrect because On Hover is not a standard animation start option in PowerPoint (though it can be simulated with triggers).\n\nD is incorrect because On Scroll is not available as PowerPoint presentations do not use scroll-based navigation."
+    },
+    {
+      "id": 29,
+      "topic": "Slide Masters - Footer placeholders",
+      "type": "SingleChoice",
+      "questionText": "How do you add a footer that appears on all slides with the date and slide number?",
+      "options": [
+        "A. Type the footer text directly at the bottom of each slide.",
+        "B. Insert tab > Header & Footer, configure date, slide number, and footer text, then click Apply to All.",
+        "C. View tab > Slide Master > type in the footer area.",
+        "D. Both B and C are valid approaches."
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "D is correct because you can use the Header & Footer dialog from the Insert tab to configure and apply footers to all slides, or you can edit the footer placeholders directly in the Slide Master view for more control over design.\n\nA is incorrect because manually typing on each slide is inefficient and not linked to the footer system.\n\nB is partially correct as one valid approach.\n\nC is partially correct as another valid approach."
+    },
+    {
+      "id": 30,
+      "topic": "Presenter View - Zoom into slides",
+      "type": "SingleChoice",
+      "questionText": "During a presentation, you want to zoom into a specific area of a slide to show detail. How can you do this?",
+      "options": [
+        "A. Use Ctrl+Mouse wheel to zoom in during the slideshow.",
+        "B. Use the zoom slider at the bottom of the PowerPoint window.",
+        "C. This feature is not available during a slideshow.",
+        "D. Click the magnifying glass icon in the slideshow toolbar at the bottom-left of the screen."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because during a slideshow in PowerPoint, you can use Ctrl+Mouse wheel (or Ctrl+Plus) to zoom into a specific area of the slide, and then click and drag to pan around.\n\nB is incorrect because the zoom slider is only available in editing mode, not during the slideshow.\n\nC is incorrect because the zoom feature is available during slideshows.\n\nD is incorrect because while there is a toolbar at the bottom, the primary zoom method is Ctrl+Mouse wheel."
+    },
+    {
+      "id": 31,
+      "topic": "Exporting - PowerPoint Show format",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between saving a file as .pptx versus .ppsx?",
+      "options": [
+        "A. .ppsx files are smaller in size.",
+        "B. .ppsx files open directly in slideshow mode, while .pptx files open in editing mode.",
+        "C. .ppsx files cannot contain animations.",
+        "D. .pptx files are read-only, while .ppsx files are editable."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because .ppsx (PowerPoint Show) files open directly in slideshow mode when double-clicked, while .pptx files open in the normal editing view.\n\nA is incorrect because the file format does not significantly affect file size.\n\nC is incorrect because .ppsx files retain all animations and transitions.\n\nD is incorrect because it is the reverse; .pptx files are the standard editable format."
+    },
+    {
+      "id": 32,
+      "topic": "Accessibility - Slide titles",
+      "type": "SingleChoice",
+      "questionText": "Why is it important for every slide to have a unique title for accessibility?",
+      "options": [
+        "A. It makes the slides look more professional.",
+        "B. Screen readers use slide titles to help users navigate between slides.",
+        "C. PowerPoint requires titles to save the file.",
+        "D. Titles are needed for the slideshow to run."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because screen readers announce slide titles to help visually impaired users understand and navigate through the presentation. Without titles, users cannot efficiently identify slide content.\n\nA is incorrect because while titles improve appearance, the primary reason for this requirement is accessibility.\n\nC is incorrect because PowerPoint does not require slide titles to save.\n\nD is incorrect because the slideshow runs regardless of whether slides have titles."
+    },
+    {
+      "id": 33,
+      "topic": "Slide Design - Section organization",
+      "type": "SingleChoice",
+      "questionText": "How do you organize slides into sections in PowerPoint?",
+      "options": [
+        "A. Create separate files for each section.",
+        "B. Right-click between slides in the slide panel and select Add Section.",
+        "C. Use the Outline view to create sections.",
+        "D. Group slides using the Group Objects feature."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking between slides in the slide thumbnail panel and selecting Add Section creates a named section that groups slides together for easier organization and navigation.\n\nA is incorrect because sections are within a single presentation, not separate files.\n\nC is incorrect because Outline view shows text content, not sections.\n\nD is incorrect because Group Objects groups shapes on a slide, not slides themselves."
+    },
+    {
+      "id": 34,
+      "topic": "Animations - Entrance and exit combinations",
+      "type": "SingleChoice",
+      "questionText": "How can you make an object fade in, stay visible for 3 seconds, and then fade out on the same slide?",
+      "options": [
+        "A. Apply a Fade In entrance animation and a Fade Out exit animation with appropriate delays.",
+        "B. Apply only a Fade transition to the slide.",
+        "C. Use a Motion Path animation.",
+        "D. This requires two separate slides."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because you can apply multiple animations to the same object. A Fade entrance animation makes it appear, then a Fade exit animation with a delay of 3 seconds (set to start 'After Previous') makes it disappear.\n\nB is incorrect because slide transitions affect the entire slide change, not individual objects.\n\nC is incorrect because Motion Path moves objects but does not control visibility.\n\nD is incorrect because multiple animations on the same slide can achieve this effect."
+    },
+    {
+      "id": 35,
+      "topic": "Slide Masters - Customizing layouts",
+      "type": "SingleChoice",
+      "questionText": "You need to create a custom slide layout with a specific arrangement of placeholders for your organization. Where should you do this?",
+      "options": [
+        "A. Design tab > Slide Layouts.",
+        "B. View tab > Slide Master, then insert a new layout and add placeholders.",
+        "C. Home tab > New Slide > Custom Layout.",
+        "D. File tab > New > Custom Layout Template."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because custom slide layouts are created in the Slide Master view. You can insert a new layout, add and position placeholders (title, content, picture, etc.), and it becomes available in the New Slide dropdown.\n\nA is incorrect because the Design tab does not have a Slide Layouts editor.\n\nC is incorrect because the New Slide menu shows existing layouts but does not create custom ones.\n\nD is incorrect because File > New is for creating new presentations, not custom layouts."
+    },
+    {
+      "id": 36,
+      "topic": "Exporting - Export to Word",
+      "type": "SingleChoice",
+      "questionText": "How do you send a PowerPoint presentation to Microsoft Word as handouts?",
+      "options": [
+        "A. Copy all slides and paste them into Word.",
+        "B. File tab > Export > Create Handouts > select a page layout in Word.",
+        "C. Save the file as .docx directly.",
+        "D. Use the Mailings tab to mail merge into Word."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because File > Export > Create Handouts opens a dialog that sends the slides to a Word document with various layout options such as slides with notes, slides only, or outline.\n\nA is incorrect because manually copying is inefficient and loses formatting options.\n\nC is incorrect because saving as .docx directly is not supported.\n\nD is incorrect because the Mailings tab is for Word mail merge, not PowerPoint export."
+    },
+    {
+      "id": 37,
+      "topic": "Accessibility - Closed captions",
+      "type": "SingleChoice",
+      "questionText": "How can you add live captions during a PowerPoint presentation to assist hearing-impaired audience members?",
+      "options": [
+        "A. Insert pre-written subtitles on each slide.",
+        "B. Use the Slide Show tab > Always Use Subtitles, which provides real-time captioning powered by speech recognition.",
+        "C. Share a transcript document with the audience.",
+        "D. This feature is not available in PowerPoint."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because PowerPoint has a built-in subtitle/caption feature that uses speech recognition to display real-time captions during a presentation, accessible from the Slide Show tab.\n\nA is incorrect because pre-written subtitles are static and do not adapt to live speech.\n\nC is incorrect because sharing a transcript does not provide real-time captioning during the presentation.\n\nD is incorrect because this feature is available in PowerPoint 365."
+    },
+    {
+      "id": 38,
+      "topic": "Slide Design - Design Ideas",
+      "type": "SingleChoice",
+      "questionText": "What is the Design Ideas feature in PowerPoint?",
+      "options": [
+        "A. A tool that automatically creates an entire presentation from a topic.",
+        "B. An AI-powered feature that suggests professional layout and design options for the current slide based on its content.",
+        "C. A gallery of stock photos for slide backgrounds.",
+        "D. A template library for downloading new themes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Design Ideas (Designer) analyzes the content on the current slide and uses AI to suggest professional layout options, image placements, and design treatments.\n\nA is incorrect because Design Ideas works on individual slides, not entire presentations.\n\nC is incorrect because Design Ideas provides layout suggestions, not just stock photos.\n\nD is incorrect because Design Ideas generates suggestions dynamically, not downloads templates."
+    },
+    {
+      "id": 39,
+      "topic": "Slide Design - Slide Zoom",
+      "type": "SingleChoice",
+      "questionText": "What is the Slide Zoom feature in PowerPoint?",
+      "options": [
+        "A. A feature that magnifies slide content for better visibility.",
+        "B. An interactive navigation feature that creates a visual link to another slide, allowing non-linear presentation flow.",
+        "C. A transition effect that zooms between slides.",
+        "D. A tool for resizing all slides in the presentation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Slide Zoom (Insert > Zoom) creates interactive thumbnails that link to specific slides, sections, or summary slides, enabling non-linear navigation during the presentation.\n\nA is incorrect because Slide Zoom is about navigation, not magnification.\n\nC is incorrect because while it has a zoom animation, its primary purpose is interactive navigation.\n\nD is incorrect because slide resizing is done through Slide Size settings."
+    },
+    {
+      "id": 40,
+      "topic": "Exporting - Record slideshow",
+      "type": "SingleChoice",
+      "questionText": "What does the Record Slide Show feature capture?",
+      "options": [
+        "A. Only the webcam video of the presenter.",
+        "B. Slide timings, narration audio, webcam video, laser pointer gestures, and ink annotations.",
+        "C. Only the slide content without any audio.",
+        "D. A screen recording of the entire desktop."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Record Slide Show captures narration audio, webcam video (as a picture-in-picture overlay), slide timings, laser pointer movements, and ink annotations, creating a complete recorded presentation.\n\nA is incorrect because it captures much more than just webcam video.\n\nC is incorrect because audio narration is a key component of the recording.\n\nD is incorrect because it records only the slideshow, not the entire desktop."
+    }
+  ]
+}

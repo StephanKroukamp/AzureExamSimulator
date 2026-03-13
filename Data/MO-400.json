@@ -1,0 +1,566 @@
+{
+  "examCode": "MO-400",
+  "examTitle": "Microsoft Outlook",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Email Management - Folder organization",
+      "type": "SingleChoice",
+      "questionText": "What is the best way to organize emails by project in Outlook?",
+      "options": [
+        "A. Use color categories only.",
+        "B. Create subfolders under the Inbox and move or use rules to sort emails into them.",
+        "C. Keep all emails in the Inbox and use the search function.",
+        "D. Forward all project emails to a separate email account."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because creating subfolders provides a structured hierarchy for organizing emails by project, and rules can automatically sort incoming messages into the appropriate folders.\n\nA is incorrect because color categories provide visual tagging but do not physically separate emails into organized locations.\n\nC is incorrect because keeping everything in the Inbox becomes unmanageable as volume increases.\n\nD is incorrect because forwarding to separate accounts is impractical and creates management overhead."
+    },
+    {
+      "id": 2,
+      "topic": "Email Management - Quick Steps",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Quick Steps in Outlook?",
+      "options": [
+        "A. To quickly compose new emails with predefined templates.",
+        "B. To perform multiple actions on an email with a single click, such as move, categorize, and mark as read.",
+        "C. To speed up the Outlook application performance.",
+        "D. To quickly switch between email accounts."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Quick Steps allow you to combine multiple actions (such as moving to a folder, categorizing, flagging, and forwarding) into a single one-click operation for efficient email processing.\n\nA is incorrect because email templates are managed separately from Quick Steps.\n\nC is incorrect because Quick Steps do not affect application performance.\n\nD is incorrect because switching accounts is done through the account settings, not Quick Steps."
+    },
+    {
+      "id": 3,
+      "topic": "Rules - Creating rules",
+      "type": "SingleChoice",
+      "questionText": "How do you create a rule to automatically move emails from a specific sender to a designated folder?",
+      "options": [
+        "A. Right-click an email from the sender and select Rules > Create Rule, or go to Home tab > Rules > Manage Rules.",
+        "B. Drag the email to the desired folder and Outlook will remember the action.",
+        "C. Add the sender to your contacts and assign a folder.",
+        "D. Use the Search function to filter emails by sender."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because you can create rules by right-clicking an email and selecting Rules > Create Rule for a quick setup, or use the full Rules Wizard from Home > Rules > Manage Rules & Alerts for more complex conditions and actions.\n\nB is incorrect because dragging an email does not create an automatic rule.\n\nC is incorrect because contact management does not include folder assignment rules.\n\nD is incorrect because searching filters existing emails but does not create automatic actions for future emails."
+    },
+    {
+      "id": 4,
+      "topic": "Rules - Rule conditions",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following can be used as conditions in Outlook rules? (Choose two.)",
+      "options": [
+        "A. The sender's email address.",
+        "B. Specific words in the subject line.",
+        "C. The font color of the email body.",
+        "D. The number of attachments."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Outlook rules can use conditions such as the sender's address, words in the subject or body, message importance, and many other criteria.\n\nC is incorrect because font color in the email body is not a supported rule condition.\n\nD is incorrect because the number of attachments is not a standard rule condition, though the presence of attachments is."
+    },
+    {
+      "id": 5,
+      "topic": "Calendar - Creating appointments",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between an appointment and a meeting in Outlook?",
+      "options": [
+        "A. Appointments are longer than meetings.",
+        "B. An appointment is a time block on your calendar for yourself, while a meeting involves inviting other people.",
+        "C. Meetings can only be created by managers.",
+        "D. There is no difference; they are the same."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an appointment is a personal calendar entry that does not involve other people, while a meeting is a calendar event to which you invite attendees, who can accept or decline.\n\nA is incorrect because the duration does not determine whether something is an appointment or meeting.\n\nC is incorrect because anyone can create meetings in Outlook.\n\nD is incorrect because they are distinct features with different functionality."
+    },
+    {
+      "id": 6,
+      "topic": "Calendar - Recurring events",
+      "type": "SingleChoice",
+      "questionText": "How do you create a recurring meeting that occurs every Tuesday at 10 AM?",
+      "options": [
+        "A. Create the meeting once and copy it to every Tuesday manually.",
+        "B. Create the meeting, click the Recurrence button, and set the pattern to Weekly on Tuesday.",
+        "C. Create 52 separate meetings, one for each Tuesday of the year.",
+        "D. Use a calendar template that pre-fills weekly meetings."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Recurrence button in the meeting or appointment window opens a dialog where you can set the recurrence pattern (daily, weekly, monthly, yearly) with specific parameters like day of the week.\n\nA is incorrect because manually copying is inefficient and does not create linked recurring events.\n\nC is incorrect because creating individual meetings is impractical and does not create a recurring series.\n\nD is incorrect because Outlook does not use pre-filled calendar templates for recurring meetings."
+    },
+    {
+      "id": 7,
+      "topic": "Contacts - Managing contacts",
+      "type": "SingleChoice",
+      "questionText": "What is a Contact Group (Distribution List) in Outlook used for?",
+      "options": [
+        "A. To organize contacts by company name.",
+        "B. To send an email to multiple recipients at once by addressing it to the group name.",
+        "C. To share your contact list with other Outlook users.",
+        "D. To block a group of contacts from sending you emails."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a Contact Group (formerly called Distribution List) is a collection of email addresses grouped under a single name, allowing you to send messages to all members by addressing the group.\n\nA is incorrect because contact groups are for email distribution, not organizational categorization.\n\nC is incorrect because sharing contacts is done through different sharing mechanisms.\n\nD is incorrect because blocking is done through junk email settings, not contact groups."
+    },
+    {
+      "id": 8,
+      "topic": "Tasks - Creating tasks",
+      "type": "SingleChoice",
+      "questionText": "How do you create a task from an email in Outlook?",
+      "options": [
+        "A. Forward the email to a task management application.",
+        "B. Drag the email to the Tasks icon in the Navigation Pane, or flag the email for follow-up.",
+        "C. Print the email and add it to a physical to-do list.",
+        "D. Copy the email subject and paste it into a new task manually."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because dragging an email to the Tasks icon creates a new task with the email content, and flagging an email for follow-up adds it to the To-Do Bar with a reminder.\n\nA is incorrect because while possible, this does not use Outlook's built-in task creation.\n\nC is incorrect because printing is not an efficient way to create tasks.\n\nD is incorrect because manual copying is unnecessary when drag-and-drop or flagging is available."
+    },
+    {
+      "id": 9,
+      "topic": "Search Folders - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is a Search Folder in Outlook?",
+      "options": [
+        "A. A folder that stores your recent search queries.",
+        "B. A virtual folder that displays emails matching specific criteria from across all folders, without moving the original emails.",
+        "C. A folder that contains only emails with attachments.",
+        "D. A temporary folder that is deleted when Outlook closes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Search Folders are virtual folders that aggregate emails matching defined criteria (such as unread messages, flagged messages, or emails from specific people) from across all mail folders without physically moving the emails.\n\nA is incorrect because Search Folders are not search history; they are dynamic collections of matching emails.\n\nC is incorrect because while 'Mail with Attachments' is one predefined Search Folder type, Search Folders can be configured for any criteria.\n\nD is incorrect because Search Folders persist across sessions until you delete them."
+    },
+    {
+      "id": 10,
+      "topic": "Search Folders - Creating custom",
+      "type": "SingleChoice",
+      "questionText": "How do you create a custom Search Folder in Outlook?",
+      "options": [
+        "A. Right-click Search Folders in the folder list and select New Search Folder.",
+        "B. Go to View tab > Search Folder > New.",
+        "C. Use the Instant Search bar and save the query.",
+        "D. Go to File > New > Search Folder."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because right-clicking the Search Folders node in the folder pane and selecting New Search Folder opens a dialog where you can choose from predefined criteria or create a custom Search Folder.\n\nB is incorrect because the View tab does not have a Search Folder creation option.\n\nC is incorrect because instant search queries are not saved as Search Folders through the search bar.\n\nD is incorrect because while Ctrl+Shift+P can open New Search Folder, the File > New menu does not have this option."
+    },
+    {
+      "id": 11,
+      "topic": "Sharing - Calendar sharing",
+      "type": "SingleChoice",
+      "questionText": "How do you share your Outlook calendar with a colleague in the same organization?",
+      "options": [
+        "A. Export the calendar as a CSV file and email it.",
+        "B. Right-click the calendar in the calendar view and select Share Calendar, or use Home tab > Share Calendar.",
+        "C. Print the calendar and give them a copy.",
+        "D. Take a screenshot of the calendar and send it."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook provides a Share Calendar feature that sends an invitation allowing the recipient to view your calendar with the permission level you specify (free/busy, limited details, or full details).\n\nA is incorrect because exporting as CSV loses the interactive sharing capabilities.\n\nC is incorrect because printing creates a static document that does not update.\n\nD is incorrect because a screenshot is a static image, not a live shared calendar."
+    },
+    {
+      "id": 12,
+      "topic": "Delegation - Delegate access",
+      "type": "SingleChoice",
+      "questionText": "What does granting delegate access in Outlook allow another person to do?",
+      "options": [
+        "A. Access your computer remotely.",
+        "B. Send emails, manage calendar items, and respond to meeting requests on your behalf.",
+        "C. Change your Outlook account password.",
+        "D. Install add-ins in your Outlook profile."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because delegate access allows another person to read, create, and respond to emails and meeting requests on your behalf, manage your calendar, and perform other mailbox tasks based on the permissions you grant.\n\nA is incorrect because delegate access is for Outlook mailbox management, not remote computer access.\n\nC is incorrect because delegates cannot change account passwords.\n\nD is incorrect because add-in installation is not part of delegate permissions."
+    },
+    {
+      "id": 13,
+      "topic": "Archiving - AutoArchive",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of AutoArchive in Outlook?",
+      "options": [
+        "A. To automatically delete all emails older than 30 days.",
+        "B. To automatically move or delete old items based on age settings, keeping the mailbox size manageable.",
+        "C. To create a backup of the entire mailbox to a USB drive.",
+        "D. To compress email attachments to save space."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because AutoArchive periodically moves old items from the mailbox to an archive file (.pst) or deletes them based on configurable age thresholds for each folder, helping manage mailbox size.\n\nA is incorrect because AutoArchive does not delete all old emails by default; it moves them to an archive or deletes them based on per-folder settings.\n\nC is incorrect because AutoArchive creates a .pst file on the local machine, not a USB backup.\n\nD is incorrect because AutoArchive does not compress attachments."
+    },
+    {
+      "id": 14,
+      "topic": "Email Management - Categories",
+      "type": "SingleChoice",
+      "questionText": "How do you assign a color category to an email in Outlook?",
+      "options": [
+        "A. Change the font color of the email subject.",
+        "B. Right-click the email and select Categorize, then choose a category color.",
+        "C. Move the email to a color-coded folder.",
+        "D. Add a colored flag to the email."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking an email and selecting Categorize displays the category color options, which can also be renamed for custom labels. Categories can also be assigned from the Home tab.\n\nA is incorrect because font color is not related to Outlook categories.\n\nC is incorrect because folder organization is separate from color categories.\n\nD is incorrect because flags are for follow-up reminders, not category classification."
+    },
+    {
+      "id": 15,
+      "topic": "Email Management - Conversation view",
+      "type": "SingleChoice",
+      "questionText": "What does Conversation View in Outlook do?",
+      "options": [
+        "A. It groups all emails with the same subject line into a single expandable thread.",
+        "B. It displays emails as a live chat-style conversation.",
+        "C. It filters out emails that are not replies.",
+        "D. It converts emails into text messages."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Conversation View groups related emails (those with the same subject line thread) together, allowing you to expand and collapse the conversation to see all messages in the thread.\n\nB is incorrect because Outlook's email view is not a live chat interface.\n\nC is incorrect because Conversation View includes original emails, not just replies.\n\nD is incorrect because Outlook does not convert emails to text messages."
+    },
+    {
+      "id": 16,
+      "topic": "Rules - Server-side vs client-side",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between server-side and client-side rules in Outlook?",
+      "options": [
+        "A. Server-side rules only work with Gmail accounts.",
+        "B. Server-side rules run on the Exchange server even when Outlook is not open, while client-side rules only run when Outlook is running.",
+        "C. Client-side rules are more reliable than server-side rules.",
+        "D. There is no difference; all rules run on the server."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because server-side rules are processed by the Exchange server and work regardless of whether Outlook is open, while client-side rules (those requiring local actions like playing a sound or moving to a local folder) only execute when Outlook is running.\n\nA is incorrect because server-side rules apply to Exchange/Microsoft 365 accounts, not Gmail.\n\nC is incorrect because server-side rules are actually more reliable since they run continuously.\n\nD is incorrect because there is a meaningful distinction between server and client rules."
+    },
+    {
+      "id": 17,
+      "topic": "Calendar - Scheduling assistant",
+      "type": "SingleChoice",
+      "questionText": "What does the Scheduling Assistant in Outlook help you do?",
+      "options": [
+        "A. Automatically accept all meeting invitations.",
+        "B. View the free/busy times of attendees to find a mutually available time for a meeting.",
+        "C. Schedule automatic email sending at specific times.",
+        "D. Create a daily agenda printout."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Scheduling Assistant displays the availability of all invited attendees in a visual timeline, making it easy to find a time when everyone is free.\n\nA is incorrect because the Scheduling Assistant helps plan meetings, not automatically accept them.\n\nC is incorrect because delayed email delivery is a separate feature.\n\nD is incorrect because printing agendas is done through the Print function, not the Scheduling Assistant."
+    },
+    {
+      "id": 18,
+      "topic": "Contacts - Address Book",
+      "type": "SingleChoice",
+      "questionText": "What is the Global Address List (GAL) in Outlook?",
+      "options": [
+        "A. A personal address book stored on your computer.",
+        "B. A directory of all email addresses and contact information in your organization, maintained on the Exchange server.",
+        "C. A list of your recently emailed contacts.",
+        "D. An online directory of all Outlook users worldwide."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Global Address List is an organization-wide directory maintained on the Exchange server that contains contact information for all users, groups, and resources in the organization.\n\nA is incorrect because the GAL is server-based, not stored locally.\n\nC is incorrect because recently emailed contacts are tracked separately in the Suggested Contacts or Auto-Complete list.\n\nD is incorrect because the GAL is organization-specific, not a worldwide directory."
+    },
+    {
+      "id": 19,
+      "topic": "Tasks - Task assignment",
+      "type": "SingleChoice",
+      "questionText": "How do you assign a task to another person in Outlook?",
+      "options": [
+        "A. Create a task and email them about it separately.",
+        "B. Create a task, click Assign Task, enter the recipient's email, and send the task request.",
+        "C. Share your entire task list with them.",
+        "D. Add their name to the task subject line."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Assign Task button in a task window allows you to enter a recipient, who will receive a task request. They can accept or decline, and you can track their progress.\n\nA is incorrect because sending a separate email does not create a tracked task assignment.\n\nC is incorrect because sharing the entire list is not the same as assigning a specific task.\n\nD is incorrect because adding a name to the subject does not create a formal task assignment."
+    },
+    {
+      "id": 20,
+      "topic": "Search Folders - Predefined types",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are predefined Search Folder types in Outlook? (Choose two.)",
+      "options": [
+        "A. Unread Mail",
+        "B. Mail flagged for Follow Up",
+        "C. Sent Items by Date",
+        "D. Draft Emails with Attachments"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Outlook provides predefined Search Folders including Unread Mail, Mail Flagged for Follow Up, and Mail with Attachments, among others.\n\nC is incorrect because 'Sent Items by Date' is not a predefined Search Folder type.\n\nD is incorrect because 'Draft Emails with Attachments' is not a predefined Search Folder type."
+    },
+    {
+      "id": 21,
+      "topic": "Sharing - Shared mailboxes",
+      "type": "SingleChoice",
+      "questionText": "What is a shared mailbox in Outlook?",
+      "options": [
+        "A. A personal mailbox that multiple users share the same password for.",
+        "B. A mailbox that multiple authorized users can access to read, send, and manage email from a common address.",
+        "C. A mailbox that automatically forwards all received emails to multiple users.",
+        "D. A temporary mailbox created for a specific project."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a shared mailbox is a centralized mailbox that multiple users can access (with their own credentials) to read and respond to emails sent to a common address, such as support@company.com.\n\nA is incorrect because shared mailboxes use individual user credentials, not a shared password.\n\nC is incorrect because forwarding is different from a shared mailbox; shared mailboxes retain messages centrally.\n\nD is incorrect because shared mailboxes are permanent resources, not temporary."
+    },
+    {
+      "id": 22,
+      "topic": "Delegation - Sending on behalf",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between 'Send on Behalf' and 'Send As' permissions in Outlook?",
+      "options": [
+        "A. There is no difference.",
+        "B. 'Send on Behalf' shows the delegate's name alongside the mailbox owner's name, while 'Send As' makes the email appear as if it came directly from the mailbox owner.",
+        "C. 'Send As' requires the delegate to know the owner's password.",
+        "D. 'Send on Behalf' only works for calendar items."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'Send on Behalf' shows the message as sent by the delegate on behalf of the mailbox owner (showing both names), while 'Send As' makes the message appear to come directly from the mailbox owner with no indication of the delegate.\n\nA is incorrect because they produce different sender information.\n\nC is incorrect because both permissions are granted through Exchange admin tools, not password sharing.\n\nD is incorrect because 'Send on Behalf' works for emails and other items."
+    },
+    {
+      "id": 23,
+      "topic": "Archiving - Manual archive",
+      "type": "SingleChoice",
+      "questionText": "How do you manually archive items in Outlook?",
+      "options": [
+        "A. Select items and press the Delete key.",
+        "B. Go to File > Info > Cleanup Tools > Archive, select folders and date criteria, then click OK.",
+        "C. Move items to the Deleted Items folder.",
+        "D. Export items to a CSV file."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Archive option under File > Info > Cleanup Tools allows you to select specific folders and a date threshold, archiving items older than the specified date to a .pst archive file.\n\nA is incorrect because deleting items sends them to the Deleted Items folder, not the archive.\n\nC is incorrect because Deleted Items is for trash, not archiving.\n\nD is incorrect because CSV export is for data transfer, not Outlook archiving."
+    },
+    {
+      "id": 24,
+      "topic": "Email Management - Signatures",
+      "type": "SingleChoice",
+      "questionText": "Where do you create and manage email signatures in Outlook?",
+      "options": [
+        "A. Home tab > Signatures.",
+        "B. File tab > Options > Mail > Signatures.",
+        "C. View tab > Signature Manager.",
+        "D. Insert tab > Signature."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because email signatures are created and managed through File > Options > Mail > Signatures, where you can create multiple signatures and set defaults for new messages and replies/forwards.\n\nA is incorrect because the Home tab does not have a direct Signatures button (though you can access it from a new message's Signature dropdown).\n\nC is incorrect because the View tab does not have a Signature Manager.\n\nD is incorrect because the Insert tab is in the message compose window, not the main Outlook window."
+    },
+    {
+      "id": 25,
+      "topic": "Email Management - Focused Inbox",
+      "type": "SingleChoice",
+      "questionText": "What does the Focused Inbox feature in Outlook do?",
+      "options": [
+        "A. It deletes unimportant emails automatically.",
+        "B. It separates the Inbox into two tabs: Focused (important emails) and Other (less important emails), based on machine learning.",
+        "C. It highlights emails from your manager.",
+        "D. It collapses all email threads into single lines."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Focused Inbox uses machine learning to analyze email patterns and separate the Inbox into Focused (messages you are most likely to engage with) and Other (less important messages).\n\nA is incorrect because Focused Inbox does not delete emails; it categorizes them.\n\nC is incorrect because while manager emails may appear in Focused, the feature is broader than just highlighting specific senders.\n\nD is incorrect because collapsing threads is a function of Conversation View, not Focused Inbox."
+    },
+    {
+      "id": 26,
+      "topic": "Rules - Exception conditions",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of exceptions in Outlook rules?",
+      "options": [
+        "A. To make the rule run faster.",
+        "B. To define conditions under which the rule should NOT be applied, even if the main conditions are met.",
+        "C. To apply the rule to all email accounts.",
+        "D. To log rule execution errors."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because exceptions in rules define situations where the rule should be skipped. For example, a rule that moves emails to a folder might have an exception for emails marked as high importance.\n\nA is incorrect because exceptions do not affect rule processing speed.\n\nC is incorrect because rule scope is not controlled by exceptions.\n\nD is incorrect because exceptions define bypass conditions, not error logging."
+    },
+    {
+      "id": 27,
+      "topic": "Calendar - Time zones",
+      "type": "SingleChoice",
+      "questionText": "You frequently schedule meetings with colleagues in different time zones. Which Outlook feature helps manage this?",
+      "options": [
+        "A. Manually calculate time differences.",
+        "B. Add a second time zone to the calendar view in Calendar Options.",
+        "C. Create separate calendars for each time zone.",
+        "D. Use a third-party time zone converter."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook allows you to display a second (and third) time zone alongside your primary time zone in the calendar view, making it easy to see meeting times in multiple zones simultaneously.\n\nA is incorrect because manual calculation is error-prone and unnecessary.\n\nC is incorrect because separate calendars are not needed; time zone display handles this.\n\nD is incorrect because Outlook has built-in time zone support."
+    },
+    {
+      "id": 28,
+      "topic": "Contacts - Contact import",
+      "type": "SingleChoice",
+      "questionText": "How do you import contacts from a CSV file into Outlook?",
+      "options": [
+        "A. Open the CSV file in Excel and copy-paste into Outlook Contacts.",
+        "B. Go to File > Open & Export > Import/Export > Import from another program or file > CSV.",
+        "C. Drag the CSV file onto the Outlook icon.",
+        "D. Email the CSV file to yourself and Outlook will import it automatically."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Import/Export wizard in Outlook (File > Open & Export > Import/Export) provides a step-by-step process for importing contacts from a CSV file, including field mapping.\n\nA is incorrect because copy-paste does not properly map contact fields.\n\nC is incorrect because dragging a CSV file does not trigger the import process.\n\nD is incorrect because Outlook does not automatically import CSV attachments."
+    },
+    {
+      "id": 29,
+      "topic": "Tasks - Task status tracking",
+      "type": "SingleChoice",
+      "questionText": "Which task statuses are available when updating a task in Outlook?",
+      "options": [
+        "A. Open, Closed, Archived.",
+        "B. Not Started, In Progress, Completed, Waiting on Someone Else, Deferred.",
+        "C. To Do, Doing, Done.",
+        "D. New, Active, Resolved, Closed."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook tasks support the following statuses: Not Started, In Progress, Completed, Waiting on Someone Else, and Deferred.\n\nA is incorrect because those are not the standard Outlook task statuses.\n\nC is incorrect because those are simplified Kanban statuses, not Outlook's task statuses.\n\nD is incorrect because those resemble work item states in other tools, not Outlook tasks."
+    },
+    {
+      "id": 30,
+      "topic": "Email Management - Recall a message",
+      "type": "SingleChoice",
+      "questionText": "Under what conditions can you recall a sent email in Outlook?",
+      "options": [
+        "A. You can recall any email at any time.",
+        "B. Both you and the recipient must use Microsoft Exchange or Microsoft 365 in the same organization, and the recipient must not have read the email yet.",
+        "C. You can only recall emails sent within the last 5 minutes.",
+        "D. Recall works with any email provider."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because message recall only works within the same Exchange or Microsoft 365 organization, and it is most successful when the recipient has not yet opened the email. It does not work with external email providers.\n\nA is incorrect because recall has significant limitations on when and where it works.\n\nC is incorrect because there is no strict 5-minute limit, but success depends on whether the email has been read.\n\nD is incorrect because recall does not work with Gmail, Yahoo, or other external providers."
+    },
+    {
+      "id": 31,
+      "topic": "Sharing - Permission levels",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are calendar sharing permission levels in Outlook? (Choose two.)",
+      "options": [
+        "A. Can view when I'm busy (Free/Busy time).",
+        "B. Can view titles and locations.",
+        "C. Can modify my system settings.",
+        "D. Can delete my email account."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Outlook calendar sharing offers permission levels including Free/Busy time (Can view when I'm busy), limited details (titles and locations), full details, and editing permissions.\n\nC is incorrect because calendar sharing does not grant system settings access.\n\nD is incorrect because calendar sharing does not allow account deletion."
+    },
+    {
+      "id": 32,
+      "topic": "Delegation - Setting up delegates",
+      "type": "SingleChoice",
+      "questionText": "Where do you configure delegate access in Outlook?",
+      "options": [
+        "A. Home tab > Delegate Settings.",
+        "B. File tab > Account Settings > Delegate Access.",
+        "C. View tab > Delegation Pane.",
+        "D. Calendar tab > Manage Delegates."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because delegate access is configured through File > Account Settings > Delegate Access, where you can add delegates and set their permission levels for Calendar, Inbox, Tasks, and other folders.\n\nA is incorrect because the Home tab does not have Delegate Settings.\n\nC is incorrect because the View tab does not have a Delegation Pane.\n\nD is incorrect because there is no separate Calendar tab with delegate management."
+    },
+    {
+      "id": 33,
+      "topic": "Archiving - Online Archive",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between a local archive (.pst) and an Online Archive in Microsoft 365?",
+      "options": [
+        "A. There is no difference.",
+        "B. A local archive is stored on the user's computer as a .pst file, while an Online Archive is a cloud-based mailbox that can be accessed from any device.",
+        "C. Online Archives are faster than local archives.",
+        "D. Local archives support larger file sizes than Online Archives."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a local archive (.pst) is stored on the user's computer and is only accessible from that machine, while an Online Archive (In-Place Archive) is a cloud-based mailbox hosted in Microsoft 365 that can be accessed from Outlook on any device.\n\nA is incorrect because they have significant differences in storage location and accessibility.\n\nC is incorrect because speed depends on the connection and storage medium, not the archive type.\n\nD is incorrect because Online Archives can have very large quotas (often 50GB or more)."
+    },
+    {
+      "id": 34,
+      "topic": "Email Management - Delayed delivery",
+      "type": "SingleChoice",
+      "questionText": "How do you schedule an email to be sent at a specific future date and time in Outlook?",
+      "options": [
+        "A. Save the email as a draft and set a calendar reminder to send it.",
+        "B. In the message compose window, go to Options tab > Delay Delivery, and set the 'Do not deliver before' date and time.",
+        "C. Use a rule to delay all outgoing emails.",
+        "D. Right-click the Send button and select Schedule Send."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Delay Delivery option in the Options tab of the message compose window allows you to specify a 'Do not deliver before' date and time. The email stays in the Outbox until the specified time.\n\nA is incorrect because saving a draft requires manual action to send.\n\nC is incorrect because rules for delaying all outgoing emails is a different feature for a different purpose.\n\nD is incorrect because there is no Schedule Send option on right-clicking the Send button in classic Outlook (though newer versions may have a similar feature)."
+    },
+    {
+      "id": 35,
+      "topic": "Email Management - Out of Office",
+      "type": "SingleChoice",
+      "questionText": "How do you set up an automatic Out of Office reply in Outlook?",
+      "options": [
+        "A. Create a rule that replies to all incoming emails.",
+        "B. Go to File tab > Automatic Replies (Out of Office) and configure the message and date range.",
+        "C. Set your status to 'Away' in the calendar.",
+        "D. Change your email signature to include an out of office message."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because File > Automatic Replies provides a dedicated interface to set up Out of Office messages, including separate messages for internal and external senders, with an optional date range.\n\nA is incorrect because a reply rule would send a response to every single email, including newsletters and automated messages.\n\nC is incorrect because calendar status does not trigger automatic email replies.\n\nD is incorrect because changing the signature only affects emails you send, not automatic replies to incoming messages."
+    },
+    {
+      "id": 36,
+      "topic": "Rules - Stop processing more rules",
+      "type": "SingleChoice",
+      "questionText": "What does the 'Stop processing more rules' action do in an Outlook rule?",
+      "options": [
+        "A. It permanently disables all rules in the mailbox.",
+        "B. It prevents subsequent rules from being applied to an email that has already matched the current rule.",
+        "C. It pauses rule processing for 24 hours.",
+        "D. It deletes the current rule after execution."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'Stop processing more rules' prevents any rules below the current one from being evaluated for the same email, ensuring that only the first matching rule's actions are applied.\n\nA is incorrect because it only affects the processing chain for the current message, not all rules permanently.\n\nC is incorrect because it does not pause rules on a time basis.\n\nD is incorrect because the rule remains active for future messages."
+    },
+    {
+      "id": 37,
+      "topic": "Calendar - Calendar overlay",
+      "type": "SingleChoice",
+      "questionText": "How can you view multiple calendars at the same time in Outlook?",
+      "options": [
+        "A. Open multiple Outlook windows, each showing a different calendar.",
+        "B. Check multiple calendars in the calendar navigation pane; they display side by side or overlaid.",
+        "C. Print each calendar and compare them manually.",
+        "D. Export calendars to Excel and compare them there."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because checking multiple calendars in the calendar navigation pane displays them side by side, and you can click the overlay arrow to merge them into a single view with color-coded events.\n\nA is incorrect because multiple windows are not necessary; calendars can be viewed together.\n\nC is incorrect because printing is not an interactive comparison method.\n\nD is incorrect because exporting to Excel loses the calendar functionality."
+    },
+    {
+      "id": 38,
+      "topic": "Email Management - Junk email filtering",
+      "type": "SingleChoice",
+      "questionText": "How do you add a sender to the Safe Senders list to prevent their emails from being marked as junk?",
+      "options": [
+        "A. Reply to their email.",
+        "B. Right-click the email, select Junk > Never Block Sender, or add them in Home tab > Junk > Junk Email Options > Safe Senders.",
+        "C. Create a contact entry for the sender.",
+        "D. Flag the email for follow-up."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking an email and selecting Junk > Never Block Sender adds the sender to the Safe Senders list. You can also manage the list directly from Home > Junk > Junk Email Options > Safe Senders tab.\n\nA is incorrect because replying does not affect junk filtering settings.\n\nC is incorrect because creating a contact does not automatically add someone to the Safe Senders list (though it can be configured to do so).\n\nD is incorrect because flagging does not affect junk mail classification."
+    },
+    {
+      "id": 39,
+      "topic": "Contacts - Contact linking",
+      "type": "SingleChoice",
+      "questionText": "What is the People Pane in Outlook used for?",
+      "options": [
+        "A. To manage your contact list.",
+        "B. To display recent emails, meetings, and attachments associated with a contact when viewing an email from them.",
+        "C. To add contacts to a meeting invitation.",
+        "D. To create organizational charts."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the People Pane (located at the bottom of the reading pane) shows contextual information about the sender or selected contact, including recent emails, meetings, and attachments exchanged with them.\n\nA is incorrect because contact management is done in the Contacts/People view.\n\nC is incorrect because adding attendees is done in the meeting scheduling interface.\n\nD is incorrect because organizational charts are not a feature of the People Pane."
+    },
+    {
+      "id": 40,
+      "topic": "Email Management - Conversation cleanup",
+      "type": "SingleChoice",
+      "questionText": "What does the Clean Up Conversation feature in Outlook do?",
+      "options": [
+        "A. It deletes all emails in a conversation thread.",
+        "B. It removes redundant messages in a conversation thread that are fully quoted in later replies, moving them to Deleted Items.",
+        "C. It removes all attachments from the conversation.",
+        "D. It marks all messages in the conversation as read."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Clean Up Conversation analyzes the thread and removes messages whose content is entirely included in a later reply, reducing redundancy while preserving the complete conversation in the most recent messages.\n\nA is incorrect because it only removes redundant messages, not all messages.\n\nC is incorrect because it does not affect attachments.\n\nD is incorrect because it does not change read status."
+    }
+  ]
+}

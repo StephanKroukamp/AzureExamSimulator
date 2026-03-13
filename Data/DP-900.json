@@ -1,0 +1,366 @@
+{
+  "examCode": "DP-900",
+  "examTitle": "Microsoft Azure Data Fundamentals",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Core Data Concepts - Types of data",
+      "type": "SingleChoice",
+      "questionText": "Which type of data is represented by tables with rows and columns, where each row represents an entity and each column represents an attribute?",
+      "options": ["A. Semi-structured data.", "B. Unstructured data.", "C. Structured data.", "D. Streaming data."],
+      "correctAnswers": ["C"],
+      "explanation": "Structured data is organized in a tabular format with rows and columns, following a fixed schema. Relational databases store structured data where each row is an entity and each column is an attribute.\n\nA is incorrect because semi-structured data has some organizational properties (like JSON or XML) but does not conform to a rigid tabular schema.\n\nB is incorrect because unstructured data lacks a predefined schema, such as images, videos, or free-form text.\n\nD is incorrect because streaming data refers to data that is continuously generated, not a data structure type."
+    },
+    {
+      "id": 2,
+      "topic": "Core Data Concepts - Data processing",
+      "type": "SingleChoice",
+      "questionText": "Which type of data processing handles data in real-time as it is generated or received?",
+      "options": ["A. Batch processing.", "B. Stream processing.", "C. ETL processing.", "D. Manual processing."],
+      "correctAnswers": ["B"],
+      "explanation": "Stream processing handles data in real-time or near real-time as it is generated. It is used for scenarios requiring immediate insights, such as fraud detection or IoT sensor monitoring.\n\nA is incorrect because batch processing collects and processes large volumes of data at scheduled intervals, not in real-time.\n\nC is incorrect because ETL (Extract, Transform, Load) is a data integration pattern that can be either batch or stream, not specifically real-time.\n\nD is incorrect because manual processing is not a recognized data processing paradigm."
+    },
+    {
+      "id": 3,
+      "topic": "Core Data Concepts - Transactional vs analytical workloads",
+      "type": "SingleChoice",
+      "questionText": "Which type of workload is optimized for recording and retrieving individual transactions such as orders and payments?",
+      "options": ["A. Analytical workload.", "B. Transactional workload (OLTP).", "C. Data warehousing workload.", "D. Machine learning workload."],
+      "correctAnswers": ["B"],
+      "explanation": "Transactional workloads (OLTP - Online Transaction Processing) are optimized for recording and retrieving individual transactions. They prioritize data integrity, low latency, and high concurrency for operations like inserting, updating, and querying individual records.\n\nA is incorrect because analytical workloads focus on aggregating and analyzing large volumes of historical data.\n\nC is incorrect because data warehousing workloads are designed for analytical queries across large datasets, not individual transactions.\n\nD is incorrect because machine learning workloads focus on training and deploying models, not transaction recording."
+    },
+    {
+      "id": 4,
+      "topic": "Core Data Concepts - ACID properties",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are ACID properties of database transactions? (Choose two.)",
+      "options": ["A. Atomicity.", "B. Availability.", "C. Consistency.", "D. Connectivity."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Atomicity ensures that all operations in a transaction either complete successfully or none of them do (all or nothing).\n\nC is correct because Consistency ensures that a transaction brings the database from one valid state to another, maintaining all defined rules and constraints.\n\nB is incorrect because Availability is not an ACID property; it is a concept related to system architecture (e.g., CAP theorem).\n\nD is incorrect because Connectivity is not an ACID property. The four ACID properties are Atomicity, Consistency, Isolation, and Durability."
+    },
+    {
+      "id": 5,
+      "topic": "Core Data Concepts - Data roles",
+      "type": "SingleChoice",
+      "questionText": "Which data professional is primarily responsible for designing and implementing data storage solutions, data pipelines, and data integration processes?",
+      "options": ["A. Data Analyst.", "B. Database Administrator.", "C. Data Engineer.", "D. Data Scientist."],
+      "correctAnswers": ["C"],
+      "explanation": "A Data Engineer is responsible for designing and implementing data storage solutions, building data pipelines, and managing data integration processes to make data available for analysis.\n\nA is incorrect because a Data Analyst focuses on exploring and visualizing data to identify trends and create reports.\n\nB is incorrect because a Database Administrator manages and maintains database systems, ensuring availability, performance, and security.\n\nD is incorrect because a Data Scientist uses statistical and machine learning techniques to analyze data and build predictive models."
+    },
+    {
+      "id": 6,
+      "topic": "Relational Data - Relational database concepts",
+      "type": "SingleChoice",
+      "questionText": "In a relational database, what is a primary key?",
+      "options": ["A. A column that contains encrypted values.", "B. A column or combination of columns that uniquely identifies each row in a table.", "C. A column that references a row in another table.", "D. A column that stores calculated values."],
+      "correctAnswers": ["B"],
+      "explanation": "A primary key is a column or combination of columns that uniquely identifies each row in a table. No two rows can have the same primary key value, and the value cannot be null.\n\nA is incorrect because encryption is unrelated to the concept of a primary key.\n\nC is incorrect because a column that references a row in another table is a foreign key, not a primary key.\n\nD is incorrect because calculated/computed columns are not related to primary keys."
+    },
+    {
+      "id": 7,
+      "topic": "Relational Data - SQL fundamentals",
+      "type": "SingleChoice",
+      "questionText": "Which SQL statement is used to retrieve data from a database table?",
+      "options": ["A. INSERT.", "B. UPDATE.", "C. SELECT.", "D. DELETE."],
+      "correctAnswers": ["C"],
+      "explanation": "The SELECT statement is used to retrieve (query) data from one or more tables in a database. It is part of the Data Manipulation Language (DML).\n\nA is incorrect because INSERT is used to add new rows to a table.\n\nB is incorrect because UPDATE is used to modify existing rows in a table.\n\nD is incorrect because DELETE is used to remove rows from a table."
+    },
+    {
+      "id": 8,
+      "topic": "Relational Data - DDL vs DML",
+      "type": "SingleChoice",
+      "questionText": "Which SQL command is a Data Definition Language (DDL) statement?",
+      "options": ["A. SELECT.", "B. INSERT.", "C. CREATE TABLE.", "D. UPDATE."],
+      "correctAnswers": ["C"],
+      "explanation": "CREATE TABLE is a DDL statement because it defines the structure (schema) of a database object. DDL commands include CREATE, ALTER, DROP, and TRUNCATE.\n\nA is incorrect because SELECT is a DML (Data Manipulation Language) statement used to query data.\n\nB is incorrect because INSERT is a DML statement used to add data.\n\nD is incorrect because UPDATE is a DML statement used to modify data."
+    },
+    {
+      "id": 9,
+      "topic": "Relational Data - Normalization",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of database normalization?",
+      "options": ["A. To increase query performance by duplicating data.", "B. To minimize data redundancy and improve data integrity.", "C. To encrypt sensitive data columns.", "D. To compress database files."],
+      "correctAnswers": ["B"],
+      "explanation": "Normalization organizes data in a relational database to minimize redundancy and dependency. It divides large tables into smaller ones and defines relationships between them to improve data integrity.\n\nA is incorrect because normalization reduces data duplication rather than increasing it. Denormalization might duplicate data for performance.\n\nC is incorrect because encryption is a security measure, not related to normalization.\n\nD is incorrect because compression is a storage optimization, not related to normalization."
+    },
+    {
+      "id": 10,
+      "topic": "Relational Data - Azure SQL Database",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a fully managed relational database engine based on the latest stable version of Microsoft SQL Server?",
+      "options": ["A. Azure Cosmos DB.", "B. Azure SQL Database.", "C. Azure Database for MySQL.", "D. Azure Table Storage."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure SQL Database is a fully managed PaaS relational database engine based on the latest stable version of Microsoft SQL Server. It handles patching, backups, and high availability automatically.\n\nA is incorrect because Azure Cosmos DB is a multi-model NoSQL database, not a SQL Server-based relational database.\n\nC is incorrect because Azure Database for MySQL is based on the MySQL engine, not SQL Server.\n\nD is incorrect because Azure Table Storage is a NoSQL key-value store, not a relational database."
+    },
+    {
+      "id": 11,
+      "topic": "Relational Data - Azure SQL deployment options",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO are deployment options for SQL Server on Azure? (Choose two.)",
+      "options": ["A. Azure SQL Database.", "B. Azure SQL Managed Instance.", "C. Azure Cosmos DB SQL API.", "D. Azure Data Lake Storage."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Azure SQL Database is a fully managed PaaS deployment option for SQL Server.\n\nB is correct because Azure SQL Managed Instance provides near-100% compatibility with the on-premises SQL Server engine with managed PaaS benefits.\n\nC is incorrect because Azure Cosmos DB SQL API is a NoSQL database service that uses SQL-like syntax but is not a SQL Server deployment.\n\nD is incorrect because Azure Data Lake Storage is a storage service for big data analytics, not a SQL Server deployment."
+    },
+    {
+      "id": 12,
+      "topic": "Relational Data - Azure Database for PostgreSQL/MySQL",
+      "type": "SingleChoice",
+      "questionText": "Your development team uses PostgreSQL for their application database. Which Azure service should you use to host this database as a managed service?",
+      "options": ["A. Azure SQL Database.", "B. Azure Cosmos DB.", "C. Azure Database for PostgreSQL.", "D. Azure Database for MariaDB."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Database for PostgreSQL is a fully managed relational database service based on the community edition of PostgreSQL. It provides built-in high availability, automated backups, and scaling.\n\nA is incorrect because Azure SQL Database is based on SQL Server, not PostgreSQL.\n\nB is incorrect because Azure Cosmos DB is a NoSQL database service.\n\nD is incorrect because Azure Database for MariaDB is based on MariaDB, not PostgreSQL."
+    },
+    {
+      "id": 13,
+      "topic": "Relational Data - Joins",
+      "type": "SingleChoice",
+      "questionText": "Which SQL JOIN type returns only the rows that have matching values in both tables?",
+      "options": ["A. LEFT JOIN.", "B. RIGHT JOIN.", "C. INNER JOIN.", "D. FULL OUTER JOIN."],
+      "correctAnswers": ["C"],
+      "explanation": "INNER JOIN returns only the rows where there is a match in both tables based on the join condition. Rows without a match in either table are excluded.\n\nA is incorrect because LEFT JOIN returns all rows from the left table and matched rows from the right table, with NULLs for non-matching right rows.\n\nB is incorrect because RIGHT JOIN returns all rows from the right table and matched rows from the left table.\n\nD is incorrect because FULL OUTER JOIN returns all rows from both tables, with NULLs for non-matching rows."
+    },
+    {
+      "id": 14,
+      "topic": "Non-Relational Data - NoSQL concepts",
+      "type": "SingleChoice",
+      "questionText": "Which type of NoSQL database stores data as JSON-like documents, where each document can have a different structure?",
+      "options": ["A. Key-value store.", "B. Document database.", "C. Column-family database.", "D. Graph database."],
+      "correctAnswers": ["B"],
+      "explanation": "A document database stores data as JSON-like documents (or similar formats). Each document can have a different structure, making it flexible for storing semi-structured data.\n\nA is incorrect because a key-value store pairs a unique key with a value but does not enforce a document structure.\n\nC is incorrect because a column-family database organizes data into column families, where rows can have different columns.\n\nD is incorrect because a graph database stores data as nodes and edges to represent relationships."
+    },
+    {
+      "id": 15,
+      "topic": "Non-Relational Data - Azure Cosmos DB",
+      "type": "SingleChoice",
+      "questionText": "Which Azure Cosmos DB consistency level provides the strongest consistency guarantee, ensuring reads always return the most recent committed write?",
+      "options": ["A. Eventual.", "B. Session.", "C. Strong.", "D. Consistent prefix."],
+      "correctAnswers": ["C"],
+      "explanation": "Strong consistency guarantees that reads always return the most recent committed version of an item. It provides linearizability, which is the strongest consistency level.\n\nA is incorrect because Eventual consistency is the weakest level, where reads may not reflect the most recent writes.\n\nB is incorrect because Session consistency guarantees consistency within a single client session but not across sessions.\n\nD is incorrect because Consistent prefix guarantees reads never see out-of-order writes but may not return the most recent write."
+    },
+    {
+      "id": 16,
+      "topic": "Non-Relational Data - Azure Cosmos DB APIs",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO APIs are supported by Azure Cosmos DB? (Choose two.)",
+      "options": ["A. API for MongoDB.", "B. API for Oracle.", "C. API for Apache Gremlin.", "D. API for MySQL."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Azure Cosmos DB supports the API for MongoDB, allowing you to use MongoDB client libraries and tools.\n\nC is correct because Azure Cosmos DB supports the API for Apache Gremlin for graph database queries.\n\nB is incorrect because Azure Cosmos DB does not offer an API for Oracle.\n\nD is incorrect because Azure Cosmos DB does not offer an API for MySQL. Azure Database for MySQL is a separate service."
+    },
+    {
+      "id": 17,
+      "topic": "Non-Relational Data - Azure Blob Storage",
+      "type": "SingleChoice",
+      "questionText": "Which Azure Blob Storage type is optimized for storing large amounts of unstructured text or binary data?",
+      "options": ["A. Block blobs.", "B. Append blobs.", "C. Page blobs.", "D. Table storage."],
+      "correctAnswers": ["A"],
+      "explanation": "Block blobs are optimized for storing large amounts of unstructured data such as text or binary files. They are the most common blob type, supporting files up to approximately 190.7 TiB.\n\nB is incorrect because append blobs are optimized for append operations like logging, where data is only added to the end.\n\nC is incorrect because page blobs are optimized for random read/write operations and are primarily used as the backing storage for Azure VM disks.\n\nD is incorrect because table storage is a NoSQL key-value store, not a blob type."
+    },
+    {
+      "id": 18,
+      "topic": "Non-Relational Data - Azure Table Storage",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a NoSQL key-value store for rapid development using massive semi-structured datasets?",
+      "options": ["A. Azure Blob Storage.", "B. Azure Queue Storage.", "C. Azure Table Storage.", "D. Azure File Storage."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Table Storage is a NoSQL key-value store that enables rapid development using large volumes of semi-structured data. Each entity (row) is identified by a partition key and row key combination.\n\nA is incorrect because Blob Storage is for unstructured binary or text data, not key-value pairs.\n\nB is incorrect because Queue Storage is for storing messages in a queue for asynchronous processing.\n\nD is incorrect because File Storage provides managed file shares using the SMB protocol."
+    },
+    {
+      "id": 19,
+      "topic": "Analytics - Data warehousing concepts",
+      "type": "SingleChoice",
+      "questionText": "What is a data warehouse?",
+      "options": ["A. A transactional database optimized for frequent insert and update operations.", "B. A centralized repository of integrated data from one or more sources, optimized for analytical queries.", "C. A file storage system for unstructured data.", "D. A message queue for real-time data processing."],
+      "correctAnswers": ["B"],
+      "explanation": "A data warehouse is a centralized repository that stores integrated data from multiple sources, optimized for analytical queries and reporting. It typically uses a star or snowflake schema.\n\nA is incorrect because transactional databases (OLTP) are optimized for frequent transactions, not analytics.\n\nC is incorrect because file storage systems store files, not integrated analytical data.\n\nD is incorrect because a message queue is for real-time message processing, not analytical storage."
+    },
+    {
+      "id": 20,
+      "topic": "Analytics - Azure Synapse Analytics",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides an integrated analytics platform that combines data warehousing, big data analytics, and data integration?",
+      "options": ["A. Azure Databricks.", "B. Azure Synapse Analytics.", "C. Azure HDInsight.", "D. Azure Data Factory."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Synapse Analytics is an integrated analytics service that combines enterprise data warehousing with big data analytics. It provides serverless and dedicated SQL pools, Spark pools, and data integration pipelines in a single workspace.\n\nA is incorrect because Azure Databricks is an Apache Spark-based analytics platform, not an integrated data warehouse.\n\nC is incorrect because Azure HDInsight is a managed open-source analytics service for Hadoop, Spark, and others, not an integrated warehouse.\n\nD is incorrect because Azure Data Factory is a data integration service for building ETL/ELT pipelines, not a warehouse."
+    },
+    {
+      "id": 21,
+      "topic": "Analytics - Star schema",
+      "type": "SingleChoice",
+      "questionText": "In a star schema, what does a fact table contain?",
+      "options": ["A. Descriptive attributes about business entities.", "B. Quantitative measurements and foreign keys to dimension tables.", "C. Only primary keys of all dimension tables.", "D. Raw transactional log data."],
+      "correctAnswers": ["B"],
+      "explanation": "A fact table in a star schema contains quantitative data (measures/metrics) such as sales amounts, quantities, and costs, along with foreign keys that reference the surrounding dimension tables.\n\nA is incorrect because descriptive attributes about business entities are stored in dimension tables, not fact tables.\n\nC is incorrect because while fact tables contain foreign keys, they also contain measures and metrics.\n\nD is incorrect because raw transactional log data is typically in source systems, not in a fact table of a star schema."
+    },
+    {
+      "id": 22,
+      "topic": "Analytics - Dimension tables",
+      "type": "SingleChoice",
+      "questionText": "In a data warehouse star schema, which type of table contains descriptive attributes such as product name, category, and color?",
+      "options": ["A. Fact table.", "B. Dimension table.", "C. Bridge table.", "D. Staging table."],
+      "correctAnswers": ["B"],
+      "explanation": "Dimension tables contain descriptive attributes (product name, category, color, date, customer info) that provide context for the measures stored in fact tables. They answer the 'who, what, where, when' questions.\n\nA is incorrect because fact tables store quantitative measures, not descriptive attributes.\n\nC is incorrect because bridge tables are used to resolve many-to-many relationships, not to store descriptive attributes.\n\nD is incorrect because staging tables are temporary tables used during the ETL process."
+    },
+    {
+      "id": 23,
+      "topic": "Analytics - ETL and ELT",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between ETL and ELT?",
+      "options": ["A. ETL transforms data before loading it into the target; ELT loads data first and transforms it in the target system.", "B. ETL processes streaming data; ELT processes batch data.", "C. ETL is for relational databases; ELT is for NoSQL databases.", "D. ETL is a cloud pattern; ELT is an on-premises pattern."],
+      "correctAnswers": ["A"],
+      "explanation": "In ETL (Extract, Transform, Load), data is transformed in an intermediate processing engine before being loaded into the target. In ELT (Extract, Load, Transform), data is loaded into the target system first and then transformed using the target system's processing power.\n\nB is incorrect because both ETL and ELT can process batch and streaming data.\n\nC is incorrect because both patterns can be used with relational and NoSQL databases.\n\nD is incorrect because both patterns can be used in cloud and on-premises environments."
+    },
+    {
+      "id": 24,
+      "topic": "Analytics - Azure Data Factory",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating data movement and transformation?",
+      "options": ["A. Azure Synapse Analytics.", "B. Azure Databricks.", "C. Azure Data Factory.", "D. Azure Stream Analytics."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Data Factory is a cloud-based data integration service for creating ETL and ELT workflows (pipelines) that orchestrate data movement and transformation at scale across different data stores.\n\nA is incorrect because Azure Synapse Analytics is an integrated analytics platform, though it does include pipeline capabilities.\n\nB is incorrect because Azure Databricks is a Spark-based analytics platform for big data processing.\n\nD is incorrect because Azure Stream Analytics is for real-time stream processing, not general data integration."
+    },
+    {
+      "id": 25,
+      "topic": "Analytics - Azure Data Lake",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a highly scalable data lake solution built on Azure Blob Storage with hierarchical namespace support?",
+      "options": ["A. Azure Cosmos DB.", "B. Azure Data Lake Storage Gen2.", "C. Azure SQL Database.", "D. Azure Files."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Data Lake Storage Gen2 combines the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. It features a hierarchical namespace for efficient data access and is designed for big data analytics workloads.\n\nA is incorrect because Azure Cosmos DB is a multi-model NoSQL database, not a data lake.\n\nC is incorrect because Azure SQL Database is a relational database, not a data lake.\n\nD is incorrect because Azure Files provides managed file shares, not a data lake solution."
+    },
+    {
+      "id": 26,
+      "topic": "Analytics - Power BI",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft tool is used to create interactive data visualizations and business intelligence reports from various data sources?",
+      "options": ["A. Azure Data Factory.", "B. Power BI.", "C. Azure Monitor.", "D. SQL Server Management Studio."],
+      "correctAnswers": ["B"],
+      "explanation": "Power BI is a business intelligence tool that connects to various data sources to create interactive visualizations, reports, and dashboards. It includes Power BI Desktop, Power BI Service, and Power BI Mobile.\n\nA is incorrect because Azure Data Factory is for data integration and ETL pipelines, not visualization.\n\nC is incorrect because Azure Monitor is for monitoring Azure resources, not business intelligence.\n\nD is incorrect because SSMS is a database management tool, not a data visualization tool."
+    },
+    {
+      "id": 27,
+      "topic": "Analytics - Real-time analytics",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service should you use to analyze real-time streaming data from IoT devices?",
+      "options": ["A. Azure Data Factory.", "B. Azure Synapse Analytics.", "C. Azure Stream Analytics.", "D. Azure SQL Database."],
+      "correctAnswers": ["C"],
+      "explanation": "Azure Stream Analytics is a real-time analytics service designed to process and analyze streaming data from sources like IoT devices, social media, and applications. It uses a SQL-like query language.\n\nA is incorrect because Azure Data Factory is for batch data integration, not real-time stream processing.\n\nB is incorrect because while Azure Synapse can process streaming data, Azure Stream Analytics is purpose-built for this scenario.\n\nD is incorrect because Azure SQL Database is a relational database for transactional workloads, not real-time stream processing."
+    },
+    {
+      "id": 28,
+      "topic": "Analytics - Azure Databricks",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a collaborative Apache Spark-based analytics platform for big data processing and machine learning?",
+      "options": ["A. Azure HDInsight.", "B. Azure Databricks.", "C. Azure Machine Learning.", "D. Azure Cognitive Services."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Databricks is a collaborative Apache Spark-based analytics platform optimized for Azure. It provides an interactive workspace for data engineering, data science, and machine learning workloads.\n\nA is incorrect because Azure HDInsight is a broader managed open-source analytics service, not specifically Spark-focused or collaborative.\n\nC is incorrect because Azure Machine Learning is focused on building and deploying ML models, not general big data analytics.\n\nD is incorrect because Azure Cognitive Services provides pre-built AI APIs, not a big data analytics platform."
+    },
+    {
+      "id": 29,
+      "topic": "Non-Relational Data - Graph databases",
+      "type": "SingleChoice",
+      "questionText": "Which type of database is best suited for analyzing relationships between entities, such as social network connections?",
+      "options": ["A. Relational database.", "B. Document database.", "C. Graph database.", "D. Key-value database."],
+      "correctAnswers": ["C"],
+      "explanation": "Graph databases are designed to store and navigate relationships between entities. They use nodes (entities) and edges (relationships) to represent data, making them ideal for social networks, recommendation engines, and fraud detection.\n\nA is incorrect because relational databases can model relationships with joins but are not optimized for traversing complex, deep relationships.\n\nB is incorrect because document databases store self-contained documents and are not optimized for relationship traversal.\n\nD is incorrect because key-value databases store simple key-value pairs and have no concept of relationships."
+    },
+    {
+      "id": 30,
+      "topic": "Core Data Concepts - Data formats",
+      "type": "SingleChoice",
+      "questionText": "Which file format stores data in a columnar format and is commonly used in big data analytics for efficient querying?",
+      "options": ["A. CSV.", "B. JSON.", "C. Parquet.", "D. XML."],
+      "correctAnswers": ["C"],
+      "explanation": "Parquet is a columnar storage file format optimized for analytics workloads. It provides efficient data compression and encoding, making it ideal for reading specific columns without scanning entire rows.\n\nA is incorrect because CSV stores data in a row-based text format without columnar optimization.\n\nB is incorrect because JSON is a semi-structured format for representing hierarchical data, not optimized for columnar analytics.\n\nD is incorrect because XML is a markup language for semi-structured data, not a columnar format."
+    },
+    {
+      "id": 31,
+      "topic": "Analytics - Data visualization",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are components of the Power BI ecosystem? (Choose two.)",
+      "options": ["A. Power BI Desktop.", "B. Power BI Service (cloud).", "C. Power BI SQL Server.", "D. Power BI Data Factory."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Power BI Desktop is a Windows application for creating reports and data models.\n\nB is correct because Power BI Service is the cloud-based platform for publishing, sharing, and collaborating on Power BI reports and dashboards.\n\nC is incorrect because there is no product called Power BI SQL Server.\n\nD is incorrect because there is no product called Power BI Data Factory. Azure Data Factory is a separate data integration service."
+    },
+    {
+      "id": 32,
+      "topic": "Relational Data - Views and stored procedures",
+      "type": "SingleChoice",
+      "questionText": "What is a database view?",
+      "options": ["A. A physical table that stores a copy of data.", "B. A virtual table based on the result of a SQL query.", "C. A stored procedure that returns data.", "D. An index that speeds up queries."],
+      "correctAnswers": ["B"],
+      "explanation": "A database view is a virtual table that is based on the result set of a SQL query. It does not store data physically but provides a way to simplify complex queries, restrict access, or present data in a specific format.\n\nA is incorrect because a view does not store data physically; it dynamically retrieves data based on its underlying query.\n\nC is incorrect because a stored procedure is a precompiled set of SQL statements, not a virtual table.\n\nD is incorrect because an index is a performance optimization structure, not a virtual table."
+    },
+    {
+      "id": 33,
+      "topic": "Relational Data - Indexes",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of creating an index on a database table?",
+      "options": ["A. To encrypt the data in the table.", "B. To improve the speed of data retrieval operations.", "C. To enforce referential integrity between tables.", "D. To automatically back up the table data."],
+      "correctAnswers": ["B"],
+      "explanation": "An index improves the speed of data retrieval operations on a table by creating a sorted data structure that allows the database engine to find rows more quickly without scanning the entire table.\n\nA is incorrect because encryption is handled by separate security features, not indexes.\n\nC is incorrect because referential integrity is enforced by foreign key constraints, not indexes.\n\nD is incorrect because backups are managed by backup services, not indexes."
+    },
+    {
+      "id": 34,
+      "topic": "Analytics - Batch vs stream processing",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO scenarios are best suited for batch processing? (Choose two.)",
+      "options": ["A. Generating a monthly sales report from a data warehouse.", "B. Monitoring real-time stock market prices.", "C. Processing overnight log files from web servers.", "D. Alerting on suspicious login attempts as they occur."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because generating monthly reports involves processing accumulated historical data at a scheduled time, which is a batch processing scenario.\n\nC is correct because processing overnight log files is a scheduled batch operation that processes accumulated data.\n\nB is incorrect because real-time stock price monitoring requires stream processing for immediate data handling.\n\nD is incorrect because alerting on suspicious logins as they occur requires real-time stream processing."
+    },
+    {
+      "id": 35,
+      "topic": "Non-Relational Data - Partitioning",
+      "type": "SingleChoice",
+      "questionText": "In Azure Cosmos DB, what is the purpose of a partition key?",
+      "options": ["A. To encrypt data at rest.", "B. To logically divide data for efficient distribution and scalability.", "C. To define the primary key of a document.", "D. To specify the consistency level."],
+      "correctAnswers": ["B"],
+      "explanation": "A partition key in Azure Cosmos DB logically divides data across physical partitions. Choosing a good partition key ensures even data distribution and efficient query performance as the database scales.\n\nA is incorrect because encryption is handled separately by Azure storage encryption.\n\nC is incorrect because the partition key is part of the item's identity but is not the same as a primary key in relational databases.\n\nD is incorrect because consistency levels are configured at the account or request level, not through partition keys."
+    },
+    {
+      "id": 36,
+      "topic": "Analytics - Data ingestion",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service is designed for ingesting large volumes of streaming data and can buffer data for downstream processing?",
+      "options": ["A. Azure Event Hubs.", "B. Azure SQL Database.", "C. Azure Cosmos DB.", "D. Azure Blob Storage."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Event Hubs is a big data streaming platform and event ingestion service capable of receiving and processing millions of events per second. It acts as a buffer between event producers and consumers.\n\nB is incorrect because Azure SQL Database is a relational database, not a streaming ingestion service.\n\nC is incorrect because Azure Cosmos DB is a multi-model database, not specifically designed for stream ingestion.\n\nD is incorrect because while Blob Storage can store data, it is not designed for real-time stream ingestion."
+    },
+    {
+      "id": 37,
+      "topic": "Core Data Concepts - Semi-structured data",
+      "type": "SingleChoice",
+      "questionText": "Which of the following is an example of semi-structured data?",
+      "options": ["A. A relational database table with fixed columns.", "B. A JSON document with varying fields per record.", "C. A JPEG image file.", "D. A video stream from a security camera."],
+      "correctAnswers": ["B"],
+      "explanation": "A JSON document is semi-structured data because it has some organizational properties (tags, key-value pairs, hierarchy) but does not require a rigid, predefined schema. Different records can have different fields.\n\nA is incorrect because a relational table with fixed columns is structured data with a rigid schema.\n\nC is incorrect because a JPEG image is unstructured data with no inherent schema.\n\nD is incorrect because a video stream is unstructured data."
+    },
+    {
+      "id": 38,
+      "topic": "Relational Data - Foreign keys",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a foreign key in a relational database?",
+      "options": ["A. To uniquely identify each row in the table.", "B. To establish a relationship between two tables by referencing the primary key of another table.", "C. To encrypt a column's data.", "D. To automatically generate unique values for a column."],
+      "correctAnswers": ["B"],
+      "explanation": "A foreign key is a column in one table that references the primary key of another table, establishing a relationship between the two tables and enforcing referential integrity.\n\nA is incorrect because uniquely identifying rows is the purpose of a primary key.\n\nC is incorrect because encryption is handled by separate security features.\n\nD is incorrect because auto-generating values is done by identity or sequence features, not foreign keys."
+    },
+    {
+      "id": 39,
+      "topic": "Analytics - Azure HDInsight",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides managed open-source analytics clusters supporting Apache Hadoop, Spark, Hive, and Kafka?",
+      "options": ["A. Azure Synapse Analytics.", "B. Azure HDInsight.", "C. Azure Data Factory.", "D. Azure Databricks."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure HDInsight is a fully managed cloud service that provides managed clusters of open-source analytics frameworks including Apache Hadoop, Spark, Hive, Kafka, HBase, and others.\n\nA is incorrect because Azure Synapse Analytics is an integrated analytics platform that includes SQL and Spark pools but is not specifically for managing open-source Hadoop clusters.\n\nC is incorrect because Azure Data Factory is a data integration service, not an analytics cluster service.\n\nD is incorrect because Azure Databricks is specifically a Spark-based platform and does not support the full range of Hadoop ecosystem tools."
+    },
+    {
+      "id": 40,
+      "topic": "Core Data Concepts - Data governance",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are aspects of data governance? (Choose two.)",
+      "options": ["A. Ensuring data quality and accuracy.", "B. Increasing the speed of database queries.", "C. Defining data ownership and stewardship.", "D. Reducing the cost of cloud storage."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because ensuring data quality and accuracy is a core aspect of data governance, which involves managing the availability, usability, integrity, and security of data.\n\nC is correct because defining data ownership and stewardship ensures accountability for data assets and is a fundamental component of data governance.\n\nB is incorrect because query performance optimization is a database administration task, not a governance concern.\n\nD is incorrect because reducing storage costs is a cost management concern, not specifically a data governance aspect."
+    }
+  ]
+}

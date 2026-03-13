@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-230",
+  "examTitle": "Dynamics 365 Customer Service Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Cases - Case creation and management",
+      "type": "SingleChoice",
+      "questionText": "A customer service representative needs to create a case from an incoming email. What is the most efficient method?",
+      "options": ["A. Manually create a case and copy details from the email.", "B. Configure automatic record creation rules to create cases from incoming emails.", "C. Use a Power Automate flow to parse emails and create cases.", "D. Export emails to Excel and import them as cases."],
+      "correctAnswers": ["B"],
+      "explanation": "Automatic record creation rules in Dynamics 365 Customer Service can automatically create cases from incoming emails, including mapping email fields to case fields. Manual creation (A) is inefficient. Power Automate (C) could work but automatic record creation rules are the purpose-built feature. Excel import (D) is impractical for real-time case creation."
+    },
+    {
+      "id": 2,
+      "topic": "Queues - Queue configuration",
+      "type": "SingleChoice",
+      "questionText": "You need to route cases to different teams based on the case category. What should you configure?",
+      "options": ["A. Create queues for each team and use routing rules to direct cases based on category.", "B. Manually assign cases to the correct team.", "C. Create separate case entities for each category.", "D. Use security roles to restrict case visibility by category."],
+      "correctAnswers": ["A"],
+      "explanation": "Creating queues for each team and configuring routing rules based on case category automates the distribution of cases to the appropriate teams. Manual assignment (B) does not scale. Separate entities (C) break the standard data model. Security roles (D) control access, not routing."
+    },
+    {
+      "id": 3,
+      "topic": "Entitlements - Entitlement management",
+      "type": "SingleChoice",
+      "questionText": "A customer has a support contract that allows 50 support cases per year. How should you configure this in Dynamics 365?",
+      "options": ["A. Track case count manually using a spreadsheet.", "B. Create an entitlement with a total term of 50 cases and associate it with the customer.", "C. Create a custom field on the account to track remaining cases.", "D. Use a plugin to count cases and block creation after 50."],
+      "correctAnswers": ["B"],
+      "explanation": "Entitlements allow you to define support terms including the number of cases allowed, the time period, and the customer. The system automatically tracks usage. Manual tracking (A) is error-prone. Custom fields (C) require manual updates. Plugins (D) add unnecessary complexity when entitlements exist."
+    },
+    {
+      "id": 4,
+      "topic": "SLAs - Service level agreements",
+      "type": "SingleChoice",
+      "questionText": "You need to configure an SLA that requires high-priority cases to have a first response within 1 hour and resolution within 4 hours. What should you set up?",
+      "options": ["A. Two separate SLAs, one for response and one for resolution.", "B. One SLA with two SLA items: one for first response and one for resolution, both filtered by priority.", "C. A business rule that alerts agents after 1 hour.", "D. A Power Automate flow that escalates after 1 hour."],
+      "correctAnswers": ["B"],
+      "explanation": "A single SLA can contain multiple SLA items, each with its own KPI (first response or resolution), applicable conditions (high priority), and time targets. Separate SLAs (A) are not necessary. Business rules (C) cannot track time-based SLAs. Power Automate (D) does not integrate with the SLA framework."
+    },
+    {
+      "id": 5,
+      "topic": "Knowledge Articles - Knowledge management",
+      "type": "SingleChoice",
+      "questionText": "A support agent finds a solution to a common problem and wants to create a knowledge article for future reference. What is the correct lifecycle for a knowledge article?",
+      "options": ["A. Create in Published status directly.", "B. Create as Draft, then submit for review, then publish.", "C. Create as a case note, then convert to an article.", "D. Create in Active status and share immediately."],
+      "correctAnswers": ["B"],
+      "explanation": "Knowledge articles follow a lifecycle: Draft (creation and editing), Review (approval process), then Published (available for use). Articles cannot be created directly in Published status (A). Case notes (C) are not converted to articles through a standard process. There is no Active status for articles (D)."
+    },
+    {
+      "id": 6,
+      "topic": "Omnichannel - Channel configuration",
+      "type": "MultipleChoice",
+      "questionText": "Which two communication channels are supported by Omnichannel for Customer Service? (Choose two.)",
+      "options": ["A. Live chat.", "B. SMS.", "C. Postal mail.", "D. Fax."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Omnichannel for Customer Service supports digital channels including live chat (A) and SMS (B), along with social channels, Microsoft Teams, and others. Postal mail (C) and fax (D) are not supported as Omnichannel channels."
+    },
+    {
+      "id": 7,
+      "topic": "Customer Service Hub - App configuration",
+      "type": "SingleChoice",
+      "questionText": "A company is deploying the Customer Service Hub app. What type of app is it?",
+      "options": ["A. A canvas app built in Power Apps.", "B. A model-driven app built on the Unified Interface.", "C. A standalone web application.", "D. A desktop application installed on each agent's computer."],
+      "correctAnswers": ["B"],
+      "explanation": "The Customer Service Hub is a model-driven app built on the Unified Interface framework, providing a responsive and accessible experience. It is not a canvas app (A), a standalone web application (C), or a desktop application (D)."
+    },
+    {
+      "id": 8,
+      "topic": "Cases - Case resolution",
+      "type": "SingleChoice",
+      "questionText": "When an agent resolves a case, what information must be provided?",
+      "options": ["A. Only the resolution description.", "B. Resolution type, total time, and description.", "C. Customer satisfaction rating.", "D. The manager's approval."],
+      "correctAnswers": ["B"],
+      "explanation": "Case resolution requires a resolution type (such as problem solved or information provided), total time spent, and a description of the resolution. A description alone (A) is insufficient. Customer satisfaction (C) is collected separately. Manager approval (D) is not required by default."
+    },
+    {
+      "id": 9,
+      "topic": "Queues - Private vs public queues",
+      "type": "SingleChoice",
+      "questionText": "A team leader wants a queue that only their team members can access and pick items from. What type of queue should you create?",
+      "options": ["A. A public queue with team ownership.", "B. A private queue owned by the team.", "C. A public queue with security role restrictions.", "D. A personal queue for each team member."],
+      "correctAnswers": ["B"],
+      "explanation": "A private queue restricts access to its members, ensuring only designated team members can view and pick items. Public queues (A, C) are visible to all users. Personal queues (D) are individual, not team-based."
+    },
+    {
+      "id": 10,
+      "topic": "Entitlements - Entitlement channels",
+      "type": "SingleChoice",
+      "questionText": "A support contract specifies that a customer gets 20 phone cases and 30 email cases per year. How should you configure this?",
+      "options": ["A. Create one entitlement with a total of 50 cases.", "B. Create one entitlement with two entitlement channels: phone (20) and email (30).", "C. Create two separate entitlements, one for each channel.", "D. Use a custom field to track channel-specific counts."],
+      "correctAnswers": ["B"],
+      "explanation": "Entitlements support multiple entitlement channels, allowing you to specify different case allocations per channel (phone, email, web, etc.) within a single entitlement. A combined total (A) does not enforce per-channel limits. Separate entitlements (C) are unnecessary. Custom fields (D) duplicate built-in functionality."
+    },
+    {
+      "id": 11,
+      "topic": "SLAs - Warning and failure actions",
+      "type": "SingleChoice",
+      "questionText": "You want to send a notification to the case owner when an SLA first response deadline is approaching in 30 minutes. What should you configure?",
+      "options": ["A. A Power Automate flow that checks SLA timers.", "B. A warning action on the SLA item with a 30-minute warning time.", "C. A business rule that checks the case creation time.", "D. A scheduled workflow that runs every 30 minutes."],
+      "correctAnswers": ["B"],
+      "explanation": "SLA items support warning actions that trigger a specified time before the failure deadline, allowing notifications or escalations. Power Automate (A) is not the standard approach for SLA warnings. Business rules (C) cannot evaluate time-based conditions in real-time. Scheduled workflows (D) do not provide precise SLA-based timing."
+    },
+    {
+      "id": 12,
+      "topic": "Knowledge Articles - Article search",
+      "type": "SingleChoice",
+      "questionText": "An agent is working on a case and wants to find relevant knowledge articles. How can they search from within the case form?",
+      "options": ["A. Navigate to the knowledge article list and use Advanced Find.", "B. Use the Knowledge Search control embedded in the case form.", "C. Open a new browser tab and search the knowledge base separately.", "D. Use the global search bar only."],
+      "correctAnswers": ["B"],
+      "explanation": "The Knowledge Search control can be embedded directly in the case form, allowing agents to search for articles without leaving the case. Advanced Find (A) is more cumbersome. Separate browser tabs (C) break the workflow. Global search (D) searches across all entities, not specifically knowledge articles."
+    },
+    {
+      "id": 13,
+      "topic": "Omnichannel - Agent experience",
+      "type": "SingleChoice",
+      "questionText": "When an agent receives a chat request through Omnichannel, where does the conversation appear?",
+      "options": ["A. In a separate pop-up window.", "B. In the Omnichannel agent dashboard within the Customer Service workspace.", "C. In Microsoft Teams.", "D. In a browser-based chat application."],
+      "correctAnswers": ["B"],
+      "explanation": "Omnichannel conversations appear within the agent dashboard in the Customer Service workspace, providing a unified experience. They do not appear in separate pop-ups (A), Microsoft Teams (C), or a separate browser app (D) by default."
+    },
+    {
+      "id": 14,
+      "topic": "Customer Service Hub - Interactive dashboards",
+      "type": "SingleChoice",
+      "questionText": "A service manager wants a dashboard that shows cases filtered by priority and status with the ability to drill down. What type of dashboard should you create?",
+      "options": ["A. A Power BI dashboard.", "B. An interactive dashboard with visual filters and streams.", "C. A system chart.", "D. A personal view with grouped columns."],
+      "correctAnswers": ["B"],
+      "explanation": "Interactive dashboards in Customer Service Hub provide visual filters, streams, and tiles that allow managers to filter and drill down into case data interactively. Power BI (A) is more powerful but adds complexity. System charts (C) show single visualizations without interactive filtering. Personal views (D) are lists, not dashboards."
+    },
+    {
+      "id": 15,
+      "topic": "Cases - Parent and child cases",
+      "type": "SingleChoice",
+      "questionText": "A widespread issue affects 50 customers and each has logged a case. You want to link all these cases to a master case tracking the root issue. What should you use?",
+      "options": ["A. Merge all 50 cases into one.", "B. Create a parent case and associate the 50 cases as child cases.", "C. Add all 50 cases to the same queue.", "D. Create a connection between all cases."],
+      "correctAnswers": ["B"],
+      "explanation": "Parent-child case relationships allow you to create a parent case for the root issue and associate individual customer cases as children. This maintains individual case tracking while linking to the common issue. Merging (A) loses individual case details. Queue assignment (C) does not establish relationships. Connections (D) do not provide the hierarchical parent-child structure."
+    },
+    {
+      "id": 16,
+      "topic": "SLAs - Enhanced SLAs",
+      "type": "SingleChoice",
+      "questionText": "What is the key benefit of using Enhanced SLAs over Standard SLAs in Dynamics 365 Customer Service?",
+      "options": ["A. Enhanced SLAs support more than two KPI types.", "B. Enhanced SLAs support pause and resume based on case status, and multiple success criteria.", "C. Enhanced SLAs are only available on-premises.", "D. Enhanced SLAs do not require a premium license."],
+      "correctAnswers": ["B"],
+      "explanation": "Enhanced SLAs provide advanced features including pause and resume functionality when a case status changes (e.g., waiting for customer), multiple success criteria, and more flexible configuration. They do not differ in KPI type count (A). They are available online (C). Licensing requirements are separate from the SLA type (D)."
+    },
+    {
+      "id": 17,
+      "topic": "Knowledge Articles - Article templates",
+      "type": "SingleChoice",
+      "questionText": "To ensure consistency across knowledge articles, you want to provide agents with a standardized format for troubleshooting articles. What should you create?",
+      "options": ["A. A Word document template shared via email.", "B. A knowledge article template in Dynamics 365.", "C. A custom form for the knowledge article entity.", "D. A business rule that validates article content."],
+      "correctAnswers": ["B"],
+      "explanation": "Knowledge article templates provide standardized formats with predefined sections and structure that agents can use when creating new articles. Word templates (A) are external to the system. Custom forms (C) change the form layout, not article content structure. Business rules (D) validate fields, not content format."
+    },
+    {
+      "id": 18,
+      "topic": "Omnichannel - Routing",
+      "type": "MultipleChoice",
+      "questionText": "Which two routing methods are available in Omnichannel for Customer Service? (Choose two.)",
+      "options": ["A. Push-based routing where conversations are assigned to agents.", "B. Pick-based routing where agents select conversations from a queue.", "C. Geographic routing based on GPS location.", "D. Random routing with no criteria."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Omnichannel supports push-based routing (A) where the system assigns conversations to agents based on capacity and skills, and pick-based routing (B) where agents manually pick conversations from queues. Geographic routing (C) and random routing (D) are not standard routing methods in Omnichannel."
+    },
+    {
+      "id": 19,
+      "topic": "Customer Service Hub - Sitemap customization",
+      "type": "SingleChoice",
+      "questionText": "You need to add a new entity to the Customer Service Hub navigation. Where should you make this change?",
+      "options": ["A. Edit the sitemap of the Customer Service Hub app in the app designer.", "B. Modify the web.config file.", "C. Create a new model-driven app.", "D. Add the entity to the default solution only."],
+      "correctAnswers": ["A"],
+      "explanation": "The sitemap of the Customer Service Hub app can be customized using the app designer to add, remove, or reorganize navigation items. There is no web.config file (B) for model-driven apps. Creating a new app (C) is unnecessary. Adding to the solution (D) does not automatically update the app navigation."
+    },
+    {
+      "id": 20,
+      "topic": "Cases - Case merge",
+      "type": "SingleChoice",
+      "questionText": "A customer submits the same issue through both email and phone, creating two cases. What should the agent do?",
+      "options": ["A. Delete one of the duplicate cases.", "B. Merge the two cases into one.", "C. Close one case and keep the other.", "D. Link them as parent-child cases."],
+      "correctAnswers": ["B"],
+      "explanation": "Case merge combines duplicate cases into a single case, preserving activities and notes from both. Deleting (A) loses information. Closing one (C) does not consolidate the information. Parent-child (D) is for related but distinct issues, not duplicates."
+    },
+    {
+      "id": 21,
+      "topic": "Entitlements - Default entitlements",
+      "type": "SingleChoice",
+      "questionText": "You want every new case created for a specific customer to automatically use their entitlement. How should you configure this?",
+      "options": ["A. Set the entitlement as the default entitlement on the customer's account.", "B. Create a workflow to look up the entitlement on each case creation.", "C. Train agents to manually select the entitlement on each case.", "D. Create a business rule to populate the entitlement field."],
+      "correctAnswers": ["A"],
+      "explanation": "Setting a default entitlement on the customer's account automatically associates new cases with that entitlement. Workflows (B) add unnecessary complexity. Manual selection (C) is error-prone. Business rules (D) cannot perform the lookup required to find the correct entitlement."
+    },
+    {
+      "id": 22,
+      "topic": "SLAs - Calendar and business hours",
+      "type": "SingleChoice",
+      "questionText": "Your SLA should only count time during business hours (9 AM to 5 PM, Monday through Friday). What must you configure?",
+      "options": ["A. A customer service schedule (business hours calendar) and associate it with the SLA.", "B. A Power Automate flow to pause the SLA timer outside business hours.", "C. A custom field to track business hours manually.", "D. A plugin to recalculate SLA times."],
+      "correctAnswers": ["A"],
+      "explanation": "Customer service schedules define business hours and holidays. When associated with an SLA, the timer only counts during the defined business hours. Power Automate (B) cannot control SLA timers. Custom fields (C) and plugins (D) add unnecessary complexity when business hours calendars exist."
+    },
+    {
+      "id": 23,
+      "topic": "Knowledge Articles - Article versioning",
+      "type": "SingleChoice",
+      "questionText": "An existing published knowledge article needs to be updated with new information. What is the correct approach?",
+      "options": ["A. Edit the published article directly.", "B. Create a new version of the article, edit it, and publish the new version.", "C. Delete the article and create a new one.", "D. Add the updates as a note on the article."],
+      "correctAnswers": ["B"],
+      "explanation": "Knowledge articles support versioning. You create a new version, make edits, and publish it, which supersedes the previous version while maintaining history. Published articles cannot be edited directly (A). Deleting (C) loses the article history and any case associations. Notes (D) are not the formal update mechanism."
+    },
+    {
+      "id": 24,
+      "topic": "Omnichannel - Sentiment analysis",
+      "type": "SingleChoice",
+      "questionText": "During a live chat, you want supervisors to be alerted when customer sentiment becomes negative. What feature enables this?",
+      "options": ["A. A custom sentiment analysis plugin.", "B. Real-time sentiment analysis in Omnichannel for Customer Service.", "C. Post-conversation surveys.", "D. A Power BI real-time dashboard."],
+      "correctAnswers": ["B"],
+      "explanation": "Omnichannel for Customer Service includes built-in real-time sentiment analysis that monitors conversation tone and can alert supervisors when sentiment turns negative. Custom plugins (A) are unnecessary. Post-conversation surveys (C) are after the fact. Power BI (D) does not provide real-time in-conversation sentiment."
+    },
+    {
+      "id": 25,
+      "topic": "Cases - Case routing rules",
+      "type": "SingleChoice",
+      "questionText": "You need cases from VIP customers to be routed to a dedicated support queue. How should you configure this?",
+      "options": ["A. Create a routing rule that evaluates the customer's account tier and routes to the VIP queue.", "B. Have agents manually check the customer tier and transfer cases.", "C. Create a separate case entity for VIP customers.", "D. Use security roles to ensure VIP cases are only visible to the VIP team."],
+      "correctAnswers": ["A"],
+      "explanation": "Routing rules can evaluate conditions such as the customer's account tier and automatically route cases to the appropriate queue. Manual checking (B) is unreliable. Separate entities (C) break the data model. Security roles (D) control access but do not route cases."
+    },
+    {
+      "id": 26,
+      "topic": "Customer Service Hub - Case management views",
+      "type": "SingleChoice",
+      "questionText": "An agent wants to see all their active cases sorted by SLA deadline with the most urgent first. How should you help them?",
+      "options": ["A. Create a personal view filtered to the agent's cases and sorted by SLA deadline ascending.", "B. Tell the agent to use Advanced Find each time.", "C. Create a system view for all users.", "D. Export cases to Excel and sort there."],
+      "correctAnswers": ["A"],
+      "explanation": "A personal view filtered to the agent's active cases and sorted by SLA deadline ascending provides an always-available, focused view. Advanced Find (B) requires manual setup each time. A system view (C) would apply to all users. Excel (D) requires repeated export effort."
+    },
+    {
+      "id": 27,
+      "topic": "Queues - Unified routing",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of unified routing in Dynamics 365 Customer Service?",
+      "options": ["A. It replaces the need for queues entirely.", "B. It uses AI to intelligently route work items to the best-suited agent based on skills, capacity, and presence.", "C. It only works with Omnichannel conversations, not cases.", "D. It requires no configuration."],
+      "correctAnswers": ["B"],
+      "explanation": "Unified routing uses AI and rules to intelligently assign work items to agents based on their skills, available capacity, and presence status. It still uses queues (A) as part of routing. It works with both cases and conversations (C). It requires configuration of skills, capacity profiles, and routing rules (D)."
+    },
+    {
+      "id": 28,
+      "topic": "Entitlements - Entitlement templates",
+      "type": "SingleChoice",
+      "questionText": "Your company offers three standard support tiers (Bronze, Silver, Gold) to customers. You want to quickly create entitlements based on these tiers. What should you use?",
+      "options": ["A. Clone entitlements from existing customers.", "B. Create entitlement templates for each tier.", "C. Use a spreadsheet to track entitlement details.", "D. Create a custom entity for support tiers."],
+      "correctAnswers": ["B"],
+      "explanation": "Entitlement templates allow you to define standard support terms for each tier and quickly create entitlements for customers based on the selected template. Cloning (A) requires an existing entitlement. Spreadsheets (C) are external. Custom entities (D) duplicate built-in functionality."
+    },
+    {
+      "id": 29,
+      "topic": "SLAs - SLA KPIs",
+      "type": "MultipleChoice",
+      "questionText": "Which two KPI types are available by default for SLA items in Dynamics 365 Customer Service? (Choose two.)",
+      "options": ["A. First Response By.", "B. Resolve By.", "C. Customer Satisfaction Score.", "D. Agent Handle Time."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The default SLA KPI types are First Response By (A) and Resolve By (B), which track the time to initial response and case resolution respectively. Customer Satisfaction Score (C) and Agent Handle Time (D) are not default SLA KPI types, though custom KPIs can be created."
+    },
+    {
+      "id": 30,
+      "topic": "Knowledge Articles - Categories and ratings",
+      "type": "SingleChoice",
+      "questionText": "You want agents and customers to rate knowledge articles to help surface the most helpful content. What feature should you enable?",
+      "options": ["A. Knowledge article ratings.", "B. Customer Voice surveys.", "C. A custom rating field.", "D. Social listening for article feedback."],
+      "correctAnswers": ["A"],
+      "explanation": "Knowledge article ratings is a built-in feature that allows users to rate articles, and the ratings help surface the most useful content in search results. Customer Voice (B) is for broader surveys. Custom fields (C) lack the integration with search relevance. Social listening (D) is for monitoring external social media."
+    },
+    {
+      "id": 31,
+      "topic": "Omnichannel - Skills-based routing",
+      "type": "SingleChoice",
+      "questionText": "You need to route technical support chats to agents who have specific product certifications. What should you configure?",
+      "options": ["A. Create separate queues for each product.", "B. Configure skills-based routing with skills assigned to agents and matching rules on conversations.", "C. Let agents self-select conversations.", "D. Create a business rule to check agent skills."],
+      "correctAnswers": ["B"],
+      "explanation": "Skills-based routing allows you to define skills, assign them to agents, and create rules that match conversation requirements to agent skills. This ensures the most qualified agent handles each conversation. Separate queues (A) do not consider agent skills. Self-selection (C) does not guarantee skill match. Business rules (D) cannot control Omnichannel routing."
+    },
+    {
+      "id": 32,
+      "topic": "Cases - Case subjects",
+      "type": "SingleChoice",
+      "questionText": "You want to categorize cases using a hierarchical structure such as Product > Feature > Issue Type. What should you configure?",
+      "options": ["A. A custom option set with all combinations.", "B. The subject tree in Dynamics 365.", "C. Three separate custom fields.", "D. A lookup to a custom category entity."],
+      "correctAnswers": ["B"],
+      "explanation": "The subject tree provides a built-in hierarchical categorization structure for cases. It supports parent-child relationships like Product > Feature > Issue Type. A flat option set (A) cannot represent hierarchy. Three fields (C) are disconnected. A custom entity (D) duplicates existing functionality."
+    },
+    {
+      "id": 33,
+      "topic": "Customer Service Hub - Agent scripts",
+      "type": "SingleChoice",
+      "questionText": "You want to provide agents with step-by-step guidance during customer interactions, including what to say and what actions to take. What feature should you use?",
+      "options": ["A. Knowledge articles.", "B. Agent scripts in Customer Service workspace.", "C. Business process flows.", "D. Quick replies."],
+      "correctAnswers": ["B"],
+      "explanation": "Agent scripts provide step-by-step guidance for agents during interactions, including text prompts, macros, and actions. Knowledge articles (A) provide information but not guided interaction flows. Business process flows (C) guide record management, not conversation interactions. Quick replies (D) provide canned responses but not structured guidance."
+    },
+    {
+      "id": 34,
+      "topic": "Queues - Queue items",
+      "type": "SingleChoice",
+      "questionText": "An agent picks a case from a queue to work on it. What happens to the queue item?",
+      "options": ["A. The queue item is deleted.", "B. The queue item is marked as 'Worked On' and the agent becomes the worked by user.", "C. The case is moved to a personal queue and the original queue item remains unchanged.", "D. The queue item status changes to Resolved."],
+      "correctAnswers": ["B"],
+      "explanation": "When an agent picks a queue item, it is marked as 'Worked On' and the agent is set as the 'Worked By' user. The item remains in the queue but indicates it is being actively handled. It is not deleted (A). While it may also move to the agent's queue (C), the original queue item is updated. It does not change to Resolved (D) until the case is resolved."
+    },
+    {
+      "id": 35,
+      "topic": "SLAs - SLA on hold",
+      "type": "SingleChoice",
+      "questionText": "A case SLA timer should pause when the case status is set to 'Waiting for Customer'. How do you configure this?",
+      "options": ["A. Create a custom plugin to pause the timer.", "B. Configure the SLA to pause when the case status changes to 'On Hold' and map 'Waiting for Customer' as an on-hold status.", "C. Manually recalculate SLA times when the customer responds.", "D. Use a separate SLA for on-hold cases."],
+      "correctAnswers": ["B"],
+      "explanation": "Enhanced SLAs support pause and resume functionality. By mapping 'Waiting for Customer' to the on-hold status category, the SLA timer automatically pauses and resumes when the status changes. Custom plugins (A) are unnecessary. Manual recalculation (C) is error-prone. Separate SLAs (D) do not address the pause requirement."
+    },
+    {
+      "id": 36,
+      "topic": "Knowledge Articles - Search providers",
+      "type": "MultipleChoice",
+      "questionText": "Which two search providers can be configured for knowledge article search in Dynamics 365 Customer Service? (Choose two.)",
+      "options": ["A. Dataverse search.", "B. External search providers integrated through the knowledge search control.", "C. Google search direct integration.", "D. Bing search direct integration."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Knowledge search supports Dataverse search (A) for searching internal articles and can be configured with external search providers (B) to search additional knowledge bases. Google (C) and Bing (D) are not directly integrated as knowledge search providers."
+    },
+    {
+      "id": 37,
+      "topic": "Omnichannel - Conversation capacity",
+      "type": "SingleChoice",
+      "questionText": "You need to limit agents to handling a maximum of 3 simultaneous chat conversations. What should you configure?",
+      "options": ["A. A business rule on the agent entity.", "B. Capacity profiles in Omnichannel settings.", "C. A maximum sessions setting in the Customer Service workspace.", "D. Security role restrictions."],
+      "correctAnswers": ["B"],
+      "explanation": "Capacity profiles in Omnichannel allow you to define the maximum number of simultaneous conversations an agent can handle per channel. Business rules (A) cannot control Omnichannel capacity. Session settings (C) control the app experience, not routing capacity. Security roles (D) control access, not capacity."
+    },
+    {
+      "id": 38,
+      "topic": "Cases - Similar cases suggestion",
+      "type": "SingleChoice",
+      "questionText": "You want the system to suggest similar cases when an agent is working on a case, helping them find solutions faster. What feature should you enable?",
+      "options": ["A. AI suggestions for similar cases in Customer Service Insights.", "B. A manual search for cases with similar titles.", "C. A custom lookup field to related cases.", "D. A Power BI dashboard showing similar cases."],
+      "correctAnswers": ["A"],
+      "explanation": "AI suggestions for similar cases uses machine learning to automatically identify and suggest cases with similar characteristics, helping agents find solutions faster. Manual search (B) is time-consuming. Custom lookups (C) require manual linking. Power BI (D) does not provide contextual suggestions within the case form."
+    },
+    {
+      "id": 39,
+      "topic": "Customer Service Hub - Multisession experience",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of the multisession capability in the Customer Service workspace?",
+      "options": ["A. Agents can open multiple browser windows.", "B. Agents can work on multiple cases and conversations simultaneously in separate tabs within the same app.", "C. Agents can share their screen with customers.", "D. Managers can monitor multiple agents simultaneously."],
+      "correctAnswers": ["B"],
+      "explanation": "The multisession capability allows agents to work on multiple cases and conversations simultaneously in separate tabs within the Customer Service workspace, improving productivity. Multiple browser windows (A) is a browser feature, not an app capability. Screen sharing (C) is a communication feature. Manager monitoring (D) is a separate supervisor feature."
+    },
+    {
+      "id": 40,
+      "topic": "Omnichannel - Post-conversation survey",
+      "type": "SingleChoice",
+      "questionText": "After a chat conversation ends, you want to automatically send a customer satisfaction survey. What should you configure?",
+      "options": ["A. A Power Automate flow triggered on conversation end.", "B. A post-conversation survey using Customer Voice integrated with Omnichannel.", "C. An email survey sent after case resolution.", "D. A custom form embedded in the chat widget."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer Voice integrates with Omnichannel to automatically present a post-conversation survey at the end of a chat session. Power Automate (A) could work but is not the native integration. Email surveys (C) are for case resolution, not chat completion. Custom forms (D) are not the standard approach."
+    }
+  ]
+}

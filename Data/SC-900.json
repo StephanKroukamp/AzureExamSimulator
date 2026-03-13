@@ -1,0 +1,366 @@
+{
+  "examCode": "SC-900",
+  "examTitle": "Microsoft Security, Compliance, and Identity Fundamentals",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Security Concepts - Zero Trust model",
+      "type": "SingleChoice",
+      "questionText": "Which security principle assumes that every request should be verified as though it originates from an untrusted network, regardless of where the request comes from?",
+      "options": ["A. Defense in depth.", "B. Least privilege.", "C. Zero Trust.", "D. Network segmentation."],
+      "correctAnswers": ["C"],
+      "explanation": "Zero Trust is a security model that assumes breach and verifies each request as though it originates from an uncontrolled network. Its principles are: verify explicitly, use least privilege access, and assume breach.\n\nA is incorrect because defense in depth is a layered security approach using multiple security controls, not specifically the assumption of untrusted requests.\n\nB is incorrect because least privilege means granting only the minimum permissions needed, which is a principle within Zero Trust but not the model itself.\n\nD is incorrect because network segmentation divides a network into zones but does not encompass the full Zero Trust verification model."
+    },
+    {
+      "id": 2,
+      "topic": "Security Concepts - Shared responsibility model",
+      "type": "SingleChoice",
+      "questionText": "In the shared responsibility model, which responsibility always remains with the customer regardless of the cloud deployment type?",
+      "options": ["A. Physical datacenter security.", "B. Operating system patching.", "C. Information and data protection.", "D. Network infrastructure management."],
+      "correctAnswers": ["C"],
+      "explanation": "Information and data protection always remains the customer's responsibility in all cloud service models (IaaS, PaaS, SaaS). The customer must classify, label, and protect their data.\n\nA is incorrect because physical datacenter security is always the cloud provider's responsibility.\n\nB is incorrect because OS patching responsibility varies: customer in IaaS, provider in PaaS and SaaS.\n\nD is incorrect because network infrastructure management shifts to the provider in PaaS and SaaS models."
+    },
+    {
+      "id": 3,
+      "topic": "Security Concepts - Defense in depth",
+      "type": "SingleChoice",
+      "questionText": "Which security strategy uses multiple layers of protection so that if one layer fails, another is already in place?",
+      "options": ["A. Single sign-on.", "B. Defense in depth.", "C. Federated identity.", "D. Passwordless authentication."],
+      "correctAnswers": ["B"],
+      "explanation": "Defense in depth uses multiple layers of security (physical, identity, perimeter, network, compute, application, data) so that if one layer is breached, subsequent layers provide additional protection.\n\nA is incorrect because single sign-on is an authentication convenience mechanism, not a layered defense strategy.\n\nC is incorrect because federated identity enables authentication across organizational boundaries, not layered security.\n\nD is incorrect because passwordless authentication is a method of verifying identity, not a layered defense approach."
+    },
+    {
+      "id": 4,
+      "topic": "Security Concepts - Encryption",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are types of encryption used to protect data? (Choose two.)",
+      "options": ["A. Encryption at rest.", "B. Encryption at deletion.", "C. Encryption in transit.", "D. Encryption at creation."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because encryption at rest protects data stored on disk, preventing unauthorized access to stored data.\n\nC is correct because encryption in transit protects data as it moves between locations (e.g., over HTTPS/TLS), preventing interception.\n\nB is incorrect because 'encryption at deletion' is not a standard encryption type.\n\nD is incorrect because 'encryption at creation' is not a standard encryption type."
+    },
+    {
+      "id": 5,
+      "topic": "Identity Concepts - Authentication methods",
+      "type": "SingleChoice",
+      "questionText": "Which authentication method uses biometrics or a security key instead of a password to verify a user's identity?",
+      "options": ["A. Multi-factor authentication.", "B. Single sign-on.", "C. Passwordless authentication.", "D. Certificate-based authentication."],
+      "correctAnswers": ["C"],
+      "explanation": "Passwordless authentication eliminates the need for passwords by using alternatives such as biometrics (fingerprint, face recognition), security keys (FIDO2), or the Microsoft Authenticator app.\n\nA is incorrect because MFA requires multiple verification factors but typically still includes a password as one factor.\n\nB is incorrect because SSO allows accessing multiple applications with one set of credentials but does not specifically eliminate passwords.\n\nD is incorrect because certificate-based authentication uses digital certificates, which is a specific method but not the general term for password-free authentication."
+    },
+    {
+      "id": 6,
+      "topic": "Identity Concepts - Federation",
+      "type": "SingleChoice",
+      "questionText": "What is identity federation?",
+      "options": ["A. The process of encrypting user credentials.", "B. A system that allows users to use the same credentials to access resources across different organizations.", "C. A method of storing all user accounts in a single directory.", "D. A backup system for user identity data."],
+      "correctAnswers": ["B"],
+      "explanation": "Identity federation establishes a trust relationship between organizations so that users can authenticate with their home identity provider and access resources in a partner organization without creating a new account.\n\nA is incorrect because credential encryption is a security measure, not federation.\n\nC is incorrect because consolidating accounts into a single directory is directory synchronization, not federation.\n\nD is incorrect because backing up identity data is a data protection activity, not federation."
+    },
+    {
+      "id": 7,
+      "topic": "Microsoft Entra ID - Core features",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature allows users to sign in once and access multiple applications without re-entering credentials?",
+      "options": ["A. Multi-factor authentication.", "B. Conditional Access.", "C. Single sign-on (SSO).", "D. Privileged Identity Management."],
+      "correctAnswers": ["C"],
+      "explanation": "Single sign-on (SSO) allows users to authenticate once and then access multiple applications and services without having to sign in again for each one.\n\nA is incorrect because MFA adds additional verification steps but does not provide single sign-on capability.\n\nB is incorrect because Conditional Access enforces access policies based on conditions but does not provide SSO.\n\nD is incorrect because Privileged Identity Management controls and monitors privileged access but is not an SSO feature."
+    },
+    {
+      "id": 8,
+      "topic": "Microsoft Entra ID - External identities",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature allows external users (such as partners and vendors) to access your organization's applications using their own credentials?",
+      "options": ["A. Microsoft Entra ID B2B.", "B. Microsoft Entra ID B2C.", "C. Microsoft Entra Domain Services.", "D. Microsoft Entra Connect."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra ID B2B (Business-to-Business) allows you to invite external users (partners, vendors, contractors) to access your organization's applications using their own identity provider credentials.\n\nB is incorrect because B2C (Business-to-Consumer) is for consumer-facing applications where customers create accounts using social or local identities.\n\nC is incorrect because Entra Domain Services provides managed domain services (like domain join and group policy), not external user access.\n\nD is incorrect because Entra Connect synchronizes on-premises Active Directory with Entra ID, not for external identity management."
+    },
+    {
+      "id": 9,
+      "topic": "Microsoft Entra ID - Conditional Access",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO signals can be used in Microsoft Entra Conditional Access policies? (Choose two.)",
+      "options": ["A. User location (IP address).", "B. Database query performance.", "C. Device compliance state.", "D. Azure storage account size."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Conditional Access can use the user's location (based on IP address or named location) to make access decisions.\n\nC is correct because device compliance state (whether a device meets organization security requirements) is a signal used in Conditional Access policies.\n\nB is incorrect because database query performance is not a Conditional Access signal.\n\nD is incorrect because storage account size is not a Conditional Access signal."
+    },
+    {
+      "id": 10,
+      "topic": "Microsoft Entra ID - Role-based access control",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID role grants the highest level of administrative access to all Entra ID resources?",
+      "options": ["A. User Administrator.", "B. Security Administrator.", "C. Global Administrator.", "D. Application Administrator."],
+      "correctAnswers": ["C"],
+      "explanation": "The Global Administrator role has full access to all administrative features in Microsoft Entra ID and any Microsoft service that uses Entra ID for identity. It is the highest-level administrative role.\n\nA is incorrect because User Administrator can manage users and groups but has limited access compared to Global Administrator.\n\nB is incorrect because Security Administrator manages security features but does not have full administrative access.\n\nD is incorrect because Application Administrator manages application registrations and enterprise applications but has limited scope."
+    },
+    {
+      "id": 11,
+      "topic": "Microsoft Entra ID - Privileged Identity Management",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature provides just-in-time privileged access and requires approval to activate elevated roles?",
+      "options": ["A. Conditional Access.", "B. Privileged Identity Management (PIM).", "C. Identity Protection.", "D. Access Reviews."],
+      "correctAnswers": ["B"],
+      "explanation": "Privileged Identity Management (PIM) provides time-based and approval-based role activation to reduce the risk of excessive or unnecessary access. Users must request and get approval to activate privileged roles.\n\nA is incorrect because Conditional Access enforces policies based on signals but does not manage role activation.\n\nC is incorrect because Identity Protection detects and responds to identity-based risks but does not manage privileged role activation.\n\nD is incorrect because Access Reviews periodically verify that users still need access but do not provide just-in-time activation."
+    },
+    {
+      "id": 12,
+      "topic": "Microsoft Entra ID - Identity Protection",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature automatically detects and remediates identity-based risks such as leaked credentials and sign-ins from anonymous IP addresses?",
+      "options": ["A. Conditional Access.", "B. Microsoft Entra Identity Protection.", "C. Azure Key Vault.", "D. Microsoft Defender for Identity."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra Identity Protection uses machine learning to detect identity-based risks such as leaked credentials, sign-ins from anonymous IPs, and impossible travel. It can automatically remediate risks or require action.\n\nA is incorrect because Conditional Access enforces access policies but does not detect identity risks.\n\nC is incorrect because Azure Key Vault stores secrets and keys, not identity risk detection.\n\nD is incorrect because Microsoft Defender for Identity monitors on-premises Active Directory for advanced threats, not cloud identity risks."
+    },
+    {
+      "id": 13,
+      "topic": "Microsoft Entra ID - Self-service password reset",
+      "type": "SingleChoice",
+      "questionText": "Which feature allows users to change or reset their own password without administrator involvement?",
+      "options": ["A. Multi-factor authentication.", "B. Self-service password reset (SSPR).", "C. Privileged Identity Management.", "D. Conditional Access."],
+      "correctAnswers": ["B"],
+      "explanation": "Self-service password reset (SSPR) allows users to reset or change their password without needing an administrator. Users verify their identity through authentication methods like phone, email, or security questions.\n\nA is incorrect because MFA adds verification factors during sign-in but does not handle password resets.\n\nC is incorrect because PIM manages privileged role activation, not password resets.\n\nD is incorrect because Conditional Access enforces access policies, not password management."
+    },
+    {
+      "id": 14,
+      "topic": "Network Security - Azure Firewall",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides centralized network security policy enforcement with fully stateful firewall capabilities and built-in high availability?",
+      "options": ["A. Network Security Groups.", "B. Azure Firewall.", "C. Azure DDoS Protection.", "D. Azure Web Application Firewall."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Firewall is a managed, cloud-based network security service providing stateful firewall capabilities. It offers centralized policy enforcement, built-in high availability, and unrestricted cloud scalability.\n\nA is incorrect because NSGs provide basic traffic filtering at the subnet or NIC level without stateful inspection.\n\nC is incorrect because DDoS Protection defends against distributed denial-of-service attacks, not general traffic filtering.\n\nD is incorrect because Web Application Firewall (WAF) specifically protects web applications from common exploits like SQL injection, not general network traffic."
+    },
+    {
+      "id": 15,
+      "topic": "Network Security - DDoS Protection",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service specifically protects Azure resources from distributed denial-of-service (DDoS) attacks?",
+      "options": ["A. Azure Firewall.", "B. Azure DDoS Protection.", "C. Microsoft Sentinel.", "D. Azure Bastion."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure DDoS Protection provides protection against DDoS attacks for Azure resources. It monitors traffic and automatically mitigates attacks when detected.\n\nA is incorrect because Azure Firewall filters network traffic but is not specifically designed for DDoS protection.\n\nC is incorrect because Microsoft Sentinel is a SIEM/SOAR solution for security analytics, not DDoS protection.\n\nD is incorrect because Azure Bastion provides secure RDP/SSH access to VMs, not DDoS protection."
+    },
+    {
+      "id": 16,
+      "topic": "Network Security - Azure Bastion",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides secure RDP and SSH connectivity to Azure virtual machines directly through the Azure portal without exposing public IP addresses?",
+      "options": ["A. Azure VPN Gateway.", "B. Azure Bastion.", "C. Azure ExpressRoute.", "D. Azure Load Balancer."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Bastion provides secure, seamless RDP and SSH access to virtual machines directly from the Azure portal over TLS, without requiring public IP addresses on the VMs.\n\nA is incorrect because VPN Gateway provides encrypted tunnels between on-premises networks and Azure, not direct portal-based VM access.\n\nC is incorrect because ExpressRoute provides a private connection between on-premises and Azure, not RDP/SSH access through the portal.\n\nD is incorrect because Load Balancer distributes traffic across VMs, not provides management access."
+    },
+    {
+      "id": 17,
+      "topic": "Microsoft Security Solutions - Microsoft Defender for Cloud",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does Microsoft Defender for Cloud provide? (Choose two.)",
+      "options": ["A. Cloud Security Posture Management (CSPM).", "B. Email filtering and spam protection.", "C. Cloud Workload Protection (CWP).", "D. Domain name registration."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Defender for Cloud provides CSPM, which continuously assesses resources, identifies misconfigurations, and provides security recommendations.\n\nC is correct because Defender for Cloud provides Cloud Workload Protection (CWP) with threat detection and protection for Azure services like VMs, storage, and databases.\n\nB is incorrect because email filtering is provided by Microsoft Defender for Office 365, not Defender for Cloud.\n\nD is incorrect because domain name registration is not a security function of Defender for Cloud."
+    },
+    {
+      "id": 18,
+      "topic": "Microsoft Security Solutions - Secure Score",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Defender for Cloud, what does the Secure Score represent?",
+      "options": ["A. The total cost of security services.", "B. A measurement of your organization's security posture with recommendations for improvement.", "C. The number of security incidents detected.", "D. The number of users with MFA enabled."],
+      "correctAnswers": ["B"],
+      "explanation": "Secure Score is a percentage that represents your organization's security posture. It aggregates findings from security recommendations and provides a prioritized list of actions to improve your score and strengthen defenses.\n\nA is incorrect because Secure Score measures security posture, not costs.\n\nC is incorrect because it measures posture through recommendations, not incident counts.\n\nD is incorrect because while MFA status may contribute to the score, it represents the overall security posture, not just MFA."
+    },
+    {
+      "id": 19,
+      "topic": "Microsoft Security Solutions - Microsoft Sentinel",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service is a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution?",
+      "options": ["A. Microsoft Defender for Cloud.", "B. Microsoft Sentinel.", "C. Microsoft Purview.", "D. Microsoft Intune."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Sentinel is a cloud-native SIEM and SOAR solution that provides intelligent security analytics and threat intelligence across the enterprise. It collects data, detects threats, investigates incidents, and responds automatically.\n\nA is incorrect because Defender for Cloud is a CSPM and CWP solution, not a SIEM/SOAR.\n\nC is incorrect because Microsoft Purview is a data governance and compliance solution.\n\nD is incorrect because Microsoft Intune is an endpoint management service."
+    },
+    {
+      "id": 20,
+      "topic": "Microsoft Security Solutions - Sentinel data connectors",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Sentinel, what are data connectors used for?",
+      "options": ["A. To encrypt data stored in Sentinel.", "B. To ingest data from various sources into the Sentinel workspace for analysis.", "C. To create backup copies of security data.", "D. To establish VPN connections to on-premises networks."],
+      "correctAnswers": ["B"],
+      "explanation": "Data connectors in Microsoft Sentinel are used to ingest data from various sources (Azure services, Microsoft 365, third-party solutions, on-premises infrastructure) into the Sentinel workspace for analysis and threat detection.\n\nA is incorrect because data connectors facilitate data ingestion, not encryption.\n\nC is incorrect because data connectors bring data in for analysis, not for backup purposes.\n\nD is incorrect because VPN connections are network services, not Sentinel data connectors."
+    },
+    {
+      "id": 21,
+      "topic": "Microsoft Security Solutions - Microsoft Defender for Endpoint",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft security product provides endpoint detection and response (EDR) capabilities for detecting, investigating, and responding to advanced threats on devices?",
+      "options": ["A. Microsoft Defender for Cloud.", "B. Microsoft Defender for Endpoint.", "C. Microsoft Defender for Identity.", "D. Microsoft Sentinel."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Endpoint is an enterprise endpoint security platform that provides EDR capabilities, helping organizations detect, investigate, and respond to advanced threats on Windows, macOS, Linux, Android, and iOS devices.\n\nA is incorrect because Defender for Cloud focuses on cloud workload and posture security, not endpoint protection.\n\nC is incorrect because Defender for Identity focuses on on-premises Active Directory identity threats.\n\nD is incorrect because Sentinel is a SIEM/SOAR solution that aggregates security data but is not an endpoint protection product."
+    },
+    {
+      "id": 22,
+      "topic": "Microsoft Security Solutions - Microsoft Defender for Office 365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Defender product protects against threats in email messages, links, and collaboration tools like Teams and SharePoint?",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Defender for Identity.", "C. Microsoft Defender for Office 365.", "D. Microsoft Defender for Cloud Apps."],
+      "correctAnswers": ["C"],
+      "explanation": "Microsoft Defender for Office 365 protects organizations against malicious threats from email messages, links (URLs), and collaboration tools. It includes Safe Attachments, Safe Links, and anti-phishing protection.\n\nA is incorrect because Defender for Endpoint protects devices/endpoints, not email and collaboration tools.\n\nB is incorrect because Defender for Identity protects on-premises Active Directory identities.\n\nD is incorrect because Defender for Cloud Apps is a CASB (Cloud Access Security Broker) for monitoring and controlling cloud app usage."
+    },
+    {
+      "id": 23,
+      "topic": "Microsoft Security Solutions - Microsoft Defender for Identity",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft security product monitors on-premises Active Directory signals to identify and detect advanced threats, compromised identities, and malicious insider actions?",
+      "options": ["A. Microsoft Entra Identity Protection.", "B. Microsoft Defender for Identity.", "C. Microsoft Defender for Endpoint.", "D. Microsoft Sentinel."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Identity monitors on-premises Active Directory signals to detect advanced threats, compromised identities, and malicious insider actions directed at your organization.\n\nA is incorrect because Entra Identity Protection focuses on cloud identity risks in Microsoft Entra ID, not on-premises AD.\n\nC is incorrect because Defender for Endpoint focuses on device-level threats.\n\nD is incorrect because Sentinel is a SIEM/SOAR that collects data from multiple sources but is not specifically an on-premises AD monitoring tool."
+    },
+    {
+      "id": 24,
+      "topic": "Microsoft Security Solutions - Microsoft Defender for Cloud Apps",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service acts as a Cloud Access Security Broker (CASB) to provide visibility, control over data travel, and analytics for cloud applications?",
+      "options": ["A. Microsoft Defender for Cloud.", "B. Microsoft Defender for Cloud Apps.", "C. Microsoft Purview.", "D. Azure Key Vault."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Cloud Apps is a CASB that provides rich visibility, control over data travel, and sophisticated analytics to detect and combat cyberthreats across all Microsoft and third-party cloud services.\n\nA is incorrect because Defender for Cloud focuses on cloud infrastructure security, not SaaS application visibility.\n\nC is incorrect because Microsoft Purview focuses on data governance, compliance, and information protection.\n\nD is incorrect because Azure Key Vault manages cryptographic keys and secrets."
+    },
+    {
+      "id": 25,
+      "topic": "Compliance - Microsoft Purview overview",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft solution provides a unified data governance service that helps manage and govern on-premises, multi-cloud, and SaaS data?",
+      "options": ["A. Microsoft Sentinel.", "B. Microsoft Purview.", "C. Microsoft Defender for Cloud.", "D. Microsoft Intune."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Purview provides a unified data governance solution that helps manage and govern data across on-premises, multi-cloud, and SaaS environments. It includes data catalog, data classification, and compliance management features.\n\nA is incorrect because Sentinel is a SIEM/SOAR for security operations.\n\nC is incorrect because Defender for Cloud is for cloud security posture and workload protection.\n\nD is incorrect because Intune is an endpoint management service."
+    },
+    {
+      "id": 26,
+      "topic": "Compliance - Data classification and sensitivity labels",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview feature allows you to classify and protect documents and emails by applying labels that can encrypt content and add visual markings?",
+      "options": ["A. Data Loss Prevention.", "B. Sensitivity labels.", "C. Retention policies.", "D. eDiscovery."],
+      "correctAnswers": ["B"],
+      "explanation": "Sensitivity labels in Microsoft Purview allow organizations to classify and protect content by applying labels that can encrypt documents, add watermarks and headers, and control access to sensitive information.\n\nA is incorrect because Data Loss Prevention monitors and prevents sharing of sensitive information but does not apply classification labels.\n\nC is incorrect because retention policies manage how long content is kept or deleted, not classification.\n\nD is incorrect because eDiscovery is used for legal searches and holds on content, not classification."
+    },
+    {
+      "id": 27,
+      "topic": "Compliance - Data Loss Prevention",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview feature helps prevent users from accidentally or intentionally sharing sensitive information outside the organization?",
+      "options": ["A. Sensitivity labels.", "B. Data Loss Prevention (DLP).", "C. Information barriers.", "D. Insider Risk Management."],
+      "correctAnswers": ["B"],
+      "explanation": "Data Loss Prevention (DLP) policies in Microsoft Purview monitor and protect sensitive information by preventing unauthorized sharing. DLP can detect sensitive data in emails, documents, and messages and block or warn users.\n\nA is incorrect because sensitivity labels classify and protect content but do not actively prevent sharing.\n\nC is incorrect because information barriers restrict communication between specific groups but do not detect sensitive data.\n\nD is incorrect because Insider Risk Management identifies risky user activities but does not directly block data sharing."
+    },
+    {
+      "id": 28,
+      "topic": "Compliance - Retention policies",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO actions can Microsoft Purview retention policies perform? (Choose two.)",
+      "options": ["A. Retain content for a specified period.", "B. Encrypt content with a customer-managed key.", "C. Delete content after a specified period.", "D. Classify content with sensitivity labels."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because retention policies can retain content for a specified period, ensuring it is preserved for compliance or legal requirements.\n\nC is correct because retention policies can automatically delete content after a specified retention period expires.\n\nB is incorrect because encryption is managed by sensitivity labels or Azure information protection, not retention policies.\n\nD is incorrect because classification with sensitivity labels is a separate feature from retention policies."
+    },
+    {
+      "id": 29,
+      "topic": "Compliance - Insider Risk Management",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview solution helps detect, investigate, and act on risky activities by users within your organization?",
+      "options": ["A. Data Loss Prevention.", "B. Insider Risk Management.", "C. eDiscovery.", "D. Communication Compliance."],
+      "correctAnswers": ["B"],
+      "explanation": "Insider Risk Management in Microsoft Purview uses signals from across Microsoft 365 to identify, triage, and act on potentially risky and harmful activities by insiders, such as data theft or security policy violations.\n\nA is incorrect because DLP prevents data sharing but does not holistically analyze user behavior for risky patterns.\n\nC is incorrect because eDiscovery identifies and delivers electronic information for legal cases.\n\nD is incorrect because Communication Compliance monitors communications for policy violations but does not cover the full spectrum of insider risks."
+    },
+    {
+      "id": 30,
+      "topic": "Compliance - eDiscovery",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview capability is used to identify, collect, and preserve electronic information for legal investigations and litigation?",
+      "options": ["A. Data Loss Prevention.", "B. Retention policies.", "C. eDiscovery.", "D. Audit."],
+      "correctAnswers": ["C"],
+      "explanation": "eDiscovery (Electronic Discovery) in Microsoft Purview enables organizations to search, identify, hold, and export electronic content (emails, documents, messages) for legal cases, investigations, and regulatory requests.\n\nA is incorrect because DLP prevents data leakage, not legal discovery.\n\nB is incorrect because retention policies manage content lifecycle, not legal discovery.\n\nD is incorrect because Audit tracks user and admin activities but is not specifically for legal content discovery."
+    },
+    {
+      "id": 31,
+      "topic": "Compliance - Compliance Manager",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview tool provides a compliance score and actionable recommendations to help organizations meet regulatory requirements?",
+      "options": ["A. Secure Score.", "B. Compliance Manager.", "C. Microsoft Sentinel.", "D. Azure Policy."],
+      "correctAnswers": ["B"],
+      "explanation": "Compliance Manager in Microsoft Purview provides a risk-based compliance score and offers step-by-step improvement actions to help organizations meet regulatory compliance requirements such as GDPR, HIPAA, and ISO 27001.\n\nA is incorrect because Secure Score measures security posture in Defender for Cloud, not regulatory compliance.\n\nC is incorrect because Sentinel is a SIEM/SOAR solution, not a compliance management tool.\n\nD is incorrect because Azure Policy enforces resource configuration rules, not regulatory compliance tracking."
+    },
+    {
+      "id": 32,
+      "topic": "Compliance - Audit logs",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview feature provides a searchable log of user and administrator activities across Microsoft 365 services?",
+      "options": ["A. Compliance Manager.", "B. Audit.", "C. eDiscovery.", "D. Data Loss Prevention."],
+      "correctAnswers": ["B"],
+      "explanation": "The Audit feature in Microsoft Purview provides a unified audit log that records user and administrator activities across Microsoft 365 services. Organizations can search and export these logs for investigation and compliance.\n\nA is incorrect because Compliance Manager provides compliance scoring and recommendations, not activity logging.\n\nC is incorrect because eDiscovery searches for content in mailboxes and sites, not activity logs.\n\nD is incorrect because DLP monitors sensitive data sharing, not all user and admin activities."
+    },
+    {
+      "id": 33,
+      "topic": "Security Concepts - Common threats",
+      "type": "SingleChoice",
+      "questionText": "Which type of attack tricks users into revealing sensitive information by impersonating a trusted entity through fraudulent emails or websites?",
+      "options": ["A. Brute force attack.", "B. Phishing attack.", "C. Denial-of-service attack.", "D. Man-in-the-middle attack."],
+      "correctAnswers": ["B"],
+      "explanation": "A phishing attack uses fraudulent emails, websites, or messages that impersonate trusted entities to trick users into revealing sensitive information like passwords, credit card numbers, or personal data.\n\nA is incorrect because a brute force attack systematically tries all possible passwords to gain access.\n\nC is incorrect because a denial-of-service attack overwhelms systems with traffic to make them unavailable.\n\nD is incorrect because a man-in-the-middle attack intercepts communication between two parties without their knowledge."
+    },
+    {
+      "id": 34,
+      "topic": "Microsoft Entra ID - Access Reviews",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature allows organizations to periodically verify that users still need their access to groups, applications, or roles?",
+      "options": ["A. Conditional Access.", "B. Access Reviews.", "C. Privileged Identity Management.", "D. Identity Protection."],
+      "correctAnswers": ["B"],
+      "explanation": "Access Reviews in Microsoft Entra ID allow organizations to efficiently manage group memberships, access to enterprise applications, and role assignments by periodically reviewing and recertifying user access.\n\nA is incorrect because Conditional Access enforces policies based on conditions at sign-in time, not periodic reviews.\n\nC is incorrect because PIM provides just-in-time privileged access, not periodic access reviews.\n\nD is incorrect because Identity Protection detects identity risks, not reviews existing access."
+    },
+    {
+      "id": 35,
+      "topic": "Microsoft Security Solutions - Microsoft 365 Defender",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO products are part of the Microsoft Defender XDR (Extended Detection and Response) suite? (Choose two.)",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Defender for Office 365.", "C. Azure Firewall.", "D. Azure Monitor."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Microsoft Defender for Endpoint is part of the Defender XDR suite, providing endpoint protection and EDR.\n\nB is correct because Microsoft Defender for Office 365 is part of the Defender XDR suite, protecting email and collaboration tools.\n\nC is incorrect because Azure Firewall is a network security service, not part of the Defender XDR suite.\n\nD is incorrect because Azure Monitor is a monitoring service, not a Defender XDR component."
+    },
+    {
+      "id": 36,
+      "topic": "Network Security - Network Security Groups",
+      "type": "SingleChoice",
+      "questionText": "At which TWO levels can Network Security Groups (NSGs) be applied?",
+      "options": ["A. Subscription level and resource group level.", "B. Subnet level and network interface level.", "C. Management group level and subscription level.", "D. Region level and availability zone level."],
+      "correctAnswers": ["B"],
+      "explanation": "NSGs can be associated at the subnet level (applying rules to all resources in the subnet) and at the network interface level (applying rules to a specific VM's network interface).\n\nA is incorrect because NSGs are not applied at subscription or resource group levels.\n\nC is incorrect because NSGs are not applied at management group or subscription levels.\n\nD is incorrect because NSGs are not applied at region or availability zone levels."
+    },
+    {
+      "id": 37,
+      "topic": "Security Concepts - Least privilege principle",
+      "type": "SingleChoice",
+      "questionText": "Which Zero Trust principle states that users should be given only the minimum level of access needed to perform their job functions?",
+      "options": ["A. Verify explicitly.", "B. Assume breach.", "C. Use least privilege access.", "D. Defense in depth."],
+      "correctAnswers": ["C"],
+      "explanation": "The 'use least privilege access' principle of Zero Trust states that user access should be limited to only the permissions necessary to complete their tasks, using just-in-time and just-enough-access (JIT/JEA) policies.\n\nA is incorrect because 'verify explicitly' means always authenticate and authorize based on all available data points.\n\nB is incorrect because 'assume breach' means minimizing blast radius and segmenting access.\n\nD is incorrect because defense in depth is a separate layered security concept, not a Zero Trust principle."
+    },
+    {
+      "id": 38,
+      "topic": "Compliance - Information barriers",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview feature prevents specific groups of users from communicating with each other to avoid conflicts of interest?",
+      "options": ["A. Data Loss Prevention.", "B. Information barriers.", "C. Sensitivity labels.", "D. Retention policies."],
+      "correctAnswers": ["B"],
+      "explanation": "Information barriers are policies in Microsoft Purview that prevent specific groups of users from communicating or finding each other in Teams, SharePoint, and OneDrive. This is used to prevent conflicts of interest.\n\nA is incorrect because DLP prevents sharing of sensitive data, not communication between user groups.\n\nC is incorrect because sensitivity labels classify and protect content, not restrict user communication.\n\nD is incorrect because retention policies manage content lifecycle, not user communication restrictions."
+    },
+    {
+      "id": 39,
+      "topic": "Microsoft Entra ID - Managed identities",
+      "type": "SingleChoice",
+      "questionText": "Which feature eliminates the need for developers to manage credentials by providing an automatically managed identity for Azure resources to authenticate to other services?",
+      "options": ["A. Service principal.", "B. Managed identity.", "C. Conditional Access.", "D. Self-service password reset."],
+      "correctAnswers": ["B"],
+      "explanation": "Managed identities provide an automatically managed identity in Microsoft Entra ID for Azure resources. Applications can use managed identities to obtain tokens without managing credentials in code.\n\nA is incorrect because a service principal is a security identity used by applications but requires manual credential management.\n\nC is incorrect because Conditional Access enforces access policies, not identity management for applications.\n\nD is incorrect because SSPR is for user password management, not application authentication."
+    },
+    {
+      "id": 40,
+      "topic": "Security Concepts - Azure Key Vault",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO types of objects can Azure Key Vault manage? (Choose two.)",
+      "options": ["A. Cryptographic keys.", "B. Virtual machine images.", "C. Secrets (passwords, connection strings).", "D. Network Security Group rules."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Azure Key Vault can create and manage cryptographic keys used for encryption and decryption.\n\nC is correct because Azure Key Vault can securely store and manage secrets such as passwords, connection strings, API keys, and certificates.\n\nB is incorrect because VM images are stored in Azure Compute Gallery or storage accounts, not Key Vault.\n\nD is incorrect because NSG rules are managed within Network Security Groups, not Key Vault."
+    }
+  ]
+}

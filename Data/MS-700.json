@@ -1,0 +1,569 @@
+{
+  "examCode": "MS-700",
+  "examTitle": "Managing Microsoft Teams",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Teams Governance - Team Creation",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict Microsoft Teams creation so that only members of the IT department can create new teams. What should you configure?",
+      "options": [
+        "A. A Teams policy in the Teams admin center.",
+        "B. A Microsoft Entra ID group creation policy using PowerShell that restricts Microsoft 365 group creation to a security group.",
+        "C. An app permission policy in Teams.",
+        "D. A sensitivity label that restricts team creation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Since Teams are backed by Microsoft 365 groups, restricting Microsoft 365 group creation through a Microsoft Entra ID policy (configured via PowerShell) effectively restricts who can create new teams. You specify a security group whose members are allowed to create groups.\n\nWhy the others are wrong:\n- A. There is no Teams-specific policy in the Teams admin center to restrict team creation; this must be done at the Microsoft 365 group level.\n- C. App permission policies control which apps users can use in Teams, not team creation.\n- D. Sensitivity labels can enforce settings on teams but cannot restrict who can create teams."
+    },
+    {
+      "id": 2,
+      "topic": "Teams Governance - Naming Policy",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that all Microsoft Teams names follow the format 'Dept-TeamName'. For example, teams in the Finance department should be named 'Finance-BudgetPlanning'. What should you configure?",
+      "options": [
+        "A. A Teams template with a fixed name prefix.",
+        "B. A Microsoft 365 group naming policy in the Microsoft Entra admin center.",
+        "C. A Power Automate flow that renames teams after creation.",
+        "D. A SharePoint site naming convention policy."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Entra ID provides a group naming policy that can add prefixes and suffixes to Microsoft 365 group names. Since Teams are backed by Microsoft 365 groups, this naming policy is automatically applied to new team names. You can use attribute-based prefixes like the Department attribute.\n\nWhy the others are wrong:\n- A. Teams templates define the structure and apps in a team but do not enforce naming conventions with dynamic department prefixes.\n- C. A Power Automate flow would be a workaround, not the built-in solution, and introduces delay between creation and renaming.\n- D. SharePoint site naming policies do not exist as a built-in feature that enforces team naming."
+    },
+    {
+      "id": 3,
+      "topic": "Teams Policies - Messaging",
+      "type": "SingleChoice",
+      "questionText": "Users report that they cannot use GIFs in Microsoft Teams chats. You need to enable GIF usage for the entire organization. Where should you configure this?",
+      "options": [
+        "A. Teams admin center > Messaging policies > Global policy > Giphy settings.",
+        "B. Teams admin center > Teams settings > Email integration.",
+        "C. Microsoft 365 admin center > Org settings > Services.",
+        "D. Teams admin center > Meeting policies > Content sharing."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Giphy setting is located in Teams messaging policies. The global (Org-wide default) messaging policy or a custom messaging policy controls whether users can use GIFs, stickers, and memes in conversations.\n\nWhy the others are wrong:\n- B. Email integration settings control email channel integration, not messaging features.\n- C. Org settings in the Microsoft 365 admin center control broader service settings but not Teams-specific GIF usage.\n- D. Meeting policies control meeting behaviors like screen sharing and recording, not chat messaging features."
+    },
+    {
+      "id": 4,
+      "topic": "Teams Calling - Call Queues",
+      "type": "SingleChoice",
+      "questionText": "You need to create a call queue in Microsoft Teams that distributes incoming calls to a group of support agents. Calls should ring all agents simultaneously. Which routing method should you select?",
+      "options": [
+        "A. Attendant routing.",
+        "B. Serial routing.",
+        "C. Round robin.",
+        "D. Longest idle."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Attendant routing rings all agents in the call queue simultaneously. The first agent to answer takes the call. This ensures the fastest possible response time.\n\nWhy the others are wrong:\n- B. Serial routing rings agents one at a time in a fixed order, which does not ring all agents simultaneously.\n- C. Round robin distributes calls evenly among agents one at a time based on who received the last call.\n- D. Longest idle routes the call to the agent who has been idle the longest, also one at a time."
+    },
+    {
+      "id": 5,
+      "topic": "Teams Meetings - Meeting Settings",
+      "type": "SingleChoice",
+      "questionText": "External users are unable to join Teams meetings organized by your users using the lobby. Anonymous users should be able to join meetings but must wait in the lobby for admittance. What should you configure?",
+      "options": [
+        "A. Set 'Anonymous users can join a meeting' to On in org-wide meeting settings, and set 'Who can bypass the lobby' to 'People in my org' in the meeting policy.",
+        "B. Set 'Anonymous users can join a meeting' to Off and enable guest access.",
+        "C. Set 'Who can bypass the lobby' to 'Everyone' in the meeting policy.",
+        "D. Disable 'Allow external participants to give or request control'."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. First, you must enable 'Anonymous users can join a meeting' in the org-wide meeting settings to allow external anonymous access. Then, setting the lobby policy to 'People in my org' ensures anonymous users wait in the lobby until admitted.\n\nWhy the others are wrong:\n- B. Turning off anonymous access would prevent external users from joining at all.\n- C. Setting lobby bypass to 'Everyone' would let anonymous users skip the lobby, which contradicts the requirement.\n- D. This setting controls screen sharing control, not lobby or anonymous access."
+    },
+    {
+      "id": 6,
+      "topic": "Teams Apps - App Management",
+      "type": "SingleChoice",
+      "questionText": "A department needs to use a custom line-of-business app in Microsoft Teams. The app has been packaged as a Teams app. Where should you upload the app to make it available to the organization?",
+      "options": [
+        "A. Microsoft Teams admin center > Manage apps > Upload custom app.",
+        "B. Microsoft AppSource.",
+        "C. SharePoint App Catalog.",
+        "D. Azure App Service."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Custom LOB apps for Teams should be uploaded through the Teams admin center under Manage apps. This makes the app available in the organization's app store for Teams users, subject to app permission policies.\n\nWhy the others are wrong:\n- B. AppSource is for publicly published third-party and Microsoft apps, not private custom LOB apps.\n- C. SharePoint App Catalog is for SharePoint Framework solutions and SharePoint add-ins, not Teams apps.\n- D. Azure App Service hosts web applications; it is not the correct place to upload a Teams app package."
+    },
+    {
+      "id": 7,
+      "topic": "Teams Compliance - Retention",
+      "type": "SingleChoice",
+      "questionText": "You need to retain all Teams channel messages for 3 years and then automatically delete them. Teams chat messages should be retained for 1 year. How many retention policies do you need?",
+      "options": [
+        "A. One retention policy covering both Teams channel messages and chats.",
+        "B. Two retention policies - one for Teams channel messages and one for Teams chats.",
+        "C. Three retention policies - one per year of retention.",
+        "D. One retention label published to Teams."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Since the retention periods differ (3 years for channel messages vs. 1 year for chats), you need two separate retention policies. Teams channel messages and Teams chat messages are separate locations in retention policies with independent settings.\n\nWhy the others are wrong:\n- A. A single policy cannot have different retention periods for channel messages and chat messages.\n- C. Retention policies do not need to be created per year; each policy handles the complete lifecycle.\n- D. Retention labels cannot be applied to Teams messages; retention policies are the only mechanism for Teams message retention."
+    },
+    {
+      "id": 8,
+      "topic": "Teams Networking - Quality of Service",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that Teams audio traffic is prioritized over other network traffic in your organization. What should you configure on the network infrastructure?",
+      "options": [
+        "A. DSCP markings for Teams media traffic using QoS policies.",
+        "B. Content Delivery Network (CDN) for Teams.",
+        "C. Split tunneling for VPN traffic.",
+        "D. Bandwidth throttling for non-Teams applications."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Differentiated Services Code Point (DSCP) markings allow network devices to identify and prioritize Teams media traffic. You configure QoS policies on client endpoints to mark audio packets with the appropriate DSCP value (EF/46 for audio), and configure network devices to honor these markings.\n\nWhy the others are wrong:\n- B. CDN optimizes static content delivery and does not prioritize real-time audio traffic.\n- C. Split tunneling sends Teams traffic directly to the internet, bypassing VPN, but does not prioritize audio over other traffic on the local network.\n- D. Bandwidth throttling is a negative approach that degrades other traffic rather than positively prioritizing Teams audio."
+    },
+    {
+      "id": 9,
+      "topic": "Teams Governance - Guest Access",
+      "type": "MultipleChoice",
+      "questionText": "You need to allow external guests to participate in Teams channels and meetings but prevent them from creating or deleting channels. Which two settings should you configure? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Enable guest access in the Teams admin center.",
+        "B. Set 'Guest permissions' to not allow guests to create channels.",
+        "C. Set 'Guest permissions' to not allow guests to delete channels.",
+        "D. Disable external access for all domains.",
+        "E. Create an Information Barrier policy for guests."
+      ],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Correct: B and C. In the Teams admin center under Guest access settings, you can separately control whether guests can create channels and whether guests can delete channels. Setting both to off prevents guests from creating or deleting channels while still allowing participation.\n\nWhy the others are wrong:\n- A. Guest access must already be enabled (assumed as a prerequisite) for guests to participate, but enabling it alone does not restrict channel management.\n- D. External access (federation) is different from guest access; disabling it would prevent federated chat, not guest participation in teams.\n- E. Information Barriers restrict communication between internal segments, not guest channel management permissions."
+    },
+    {
+      "id": 10,
+      "topic": "Teams Policies - Live Events",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to broadcast a company-wide event to 15,000 employees using Microsoft Teams. Regular meetings have a capacity limit. What feature should you use?",
+      "options": [
+        "A. Teams webinar with registration.",
+        "B. Teams town hall (formerly Live Events).",
+        "C. Teams meeting with large gallery view.",
+        "D. Teams channel meeting."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams town hall (formerly Live Events) supports up to 10,000-20,000 attendees in a broadcast format, making it suitable for company-wide events. Town halls provide a one-to-many broadcast experience with managed Q&A.\n\nWhy the others are wrong:\n- A. Webinars support up to 1,000 interactive attendees (or 10,000 in view-only mode), and are designed for smaller events with registration.\n- C. Regular Teams meetings support up to 1,000 participants (or 10,000 in view-only), and large gallery is a display feature, not a capacity feature.\n- D. Channel meetings have the same capacity limits as regular meetings and do not support 15,000 attendees."
+    },
+    {
+      "id": 11,
+      "topic": "Teams Calling - Auto Attendants",
+      "type": "SingleChoice",
+      "questionText": "You are configuring a Microsoft Teams auto attendant for your company's main phone number. During business hours, callers should hear a greeting and be presented with a menu to reach different departments. After hours, callers should hear a different message and be directed to voicemail. What must you configure?",
+      "options": [
+        "A. Two separate auto attendants - one for business hours and one for after hours.",
+        "B. A single auto attendant with both business hours and after-hours call flows configured.",
+        "C. An auto attendant for business hours and a call queue for after hours.",
+        "D. A call queue with business hours routing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A single auto attendant supports both business hours and after-hours call flows. You configure the business hours schedule, the greeting and menu for business hours, and a separate greeting and routing for after hours, all within the same auto attendant.\n\nWhy the others are wrong:\n- A. Two separate auto attendants would require two phone numbers; a single auto attendant handles both time-based flows.\n- C. Call queues distribute calls to agents and do not provide IVR menu options or after-hours voicemail routing.\n- D. Call queues do not have built-in business hours/after-hours call flow configuration like auto attendants."
+    },
+    {
+      "id": 12,
+      "topic": "Teams Governance - Sensitivity Labels",
+      "type": "SingleChoice",
+      "questionText": "You need to apply a sensitivity label to Teams that enforces private team membership and prevents guest access. Where do you configure the label?",
+      "options": [
+        "A. Microsoft Purview compliance portal > Information protection > Labels.",
+        "B. Teams admin center > Team policies.",
+        "C. Microsoft 365 admin center > Settings > Org settings.",
+        "D. SharePoint admin center > Site settings."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Sensitivity labels with settings for groups and sites are configured in the Microsoft Purview compliance portal under Information protection. These labels can enforce privacy settings (private/public) and control guest access for Teams.\n\nWhy the others are wrong:\n- B. There is no 'Team policies' section in the Teams admin center for sensitivity label configuration.\n- C. Org settings in the Microsoft 365 admin center do not provide sensitivity label creation.\n- D. SharePoint admin center manages site-level settings but is not where sensitivity labels are created or configured."
+    },
+    {
+      "id": 13,
+      "topic": "Teams Networking - Network Assessment",
+      "type": "SingleChoice",
+      "questionText": "Before deploying Microsoft Teams, you need to assess your network readiness for real-time media. Which Microsoft tool should you use to evaluate network performance for Teams?",
+      "options": [
+        "A. Microsoft Remote Connectivity Analyzer.",
+        "B. Microsoft Teams Network Assessment Tool.",
+        "C. Microsoft Message Analyzer.",
+        "D. Microsoft Endpoint Manager analytics."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft Teams Network Assessment Tool tests connectivity to Teams media relay servers and evaluates network metrics including latency, jitter, and packet loss to determine if the network meets Teams real-time media requirements.\n\nWhy the others are wrong:\n- A. Remote Connectivity Analyzer tests Exchange, Skype for Business, and basic connectivity, but is not specifically designed for Teams media quality assessment.\n- C. Microsoft Message Analyzer was a network protocol analyzer that has been deprecated.\n- D. Endpoint Manager analytics provides device and application performance insights, not network performance for real-time media."
+    },
+    {
+      "id": 14,
+      "topic": "Teams Compliance - eDiscovery",
+      "type": "SingleChoice",
+      "questionText": "The legal department needs to place a hold on all Teams conversations for a specific user who is subject to a legal investigation. Where should you create the hold?",
+      "options": [
+        "A. Teams admin center > User management.",
+        "B. Microsoft Purview compliance portal > eDiscovery > Create a case and add a hold.",
+        "C. Exchange admin center > Mailbox properties > Litigation hold.",
+        "D. Microsoft Entra admin center > User properties."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. eDiscovery cases in the Microsoft Purview compliance portal support creating holds that cover Teams chat messages, channel messages, and other Microsoft 365 content for specific users. This is the recommended approach for legal holds on Teams content.\n\nWhy the others are wrong:\n- A. The Teams admin center does not provide legal hold functionality.\n- C. Exchange litigation hold preserves mailbox content but may not capture all Teams-specific data. The eDiscovery approach in Purview is the recommended method.\n- D. The Entra admin center manages identity and does not provide content hold capabilities."
+    },
+    {
+      "id": 15,
+      "topic": "Teams Policies - App Setup",
+      "type": "SingleChoice",
+      "questionText": "You want to ensure that the Shifts app is automatically installed and pinned in the Teams client for all frontline workers. What should you configure?",
+      "options": [
+        "A. An app permission policy that allows the Shifts app.",
+        "B. An app setup policy that installs and pins the Shifts app, assigned to the frontline worker group.",
+        "C. A Teams template with the Shifts app included.",
+        "D. A custom app catalog entry for the Shifts app."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. App setup policies control which apps are automatically installed and pinned in the Teams client for users. You can create a policy that includes the Shifts app and assign it to the frontline worker security group.\n\nWhy the others are wrong:\n- A. App permission policies control whether an app is allowed or blocked but do not install or pin the app automatically.\n- C. Teams templates define the structure of new teams but do not control which apps appear in individual users' Teams clients.\n- D. The Shifts app is a first-party Microsoft app and does not need a custom app catalog entry."
+    },
+    {
+      "id": 16,
+      "topic": "Teams Calling - Emergency Calling",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that when a user makes an emergency call (e.g., 911) from Microsoft Teams, the correct location information is sent to emergency services. What should you configure?",
+      "options": [
+        "A. A location policy (Emergency Calling Policy) with emergency addresses and network site mappings.",
+        "B. A calling policy that enables E911.",
+        "C. A dial plan with emergency number normalization.",
+        "D. An auto attendant with emergency call routing."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Emergency calling policies define how emergency calls are handled, and you must configure emergency addresses associated with network sites (using network topology settings) so that the correct location is provided to emergency services when a Teams user dials an emergency number.\n\nWhy the others are wrong:\n- B. Calling policies control general calling features but do not specifically configure emergency location information.\n- C. Dial plans normalize dialed numbers but do not provide location information to emergency services.\n- D. Auto attendants handle incoming calls with IVR menus and are not related to outbound emergency calling."
+    },
+    {
+      "id": 17,
+      "topic": "Teams Meetings - Recording and Transcription",
+      "type": "SingleChoice",
+      "questionText": "Users want to automatically transcribe all Teams meetings and have transcripts saved with the meeting recording. Which meeting policy setting should be enabled?",
+      "options": [
+        "A. Allow cloud recording.",
+        "B. Allow transcription.",
+        "C. Mode for IP audio.",
+        "D. Allow meeting chat."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Allow transcription' setting in the Teams meeting policy enables live transcription during meetings. When recording is also enabled, the transcript is saved alongside the recording. Both settings should be enabled for the desired functionality.\n\nWhy the others are wrong:\n- A. Allow cloud recording enables recording but does not enable transcription on its own.\n- C. Mode for IP audio controls whether audio is allowed in meetings, not transcription.\n- D. Allow meeting chat controls the chat functionality during meetings, not transcription."
+    },
+    {
+      "id": 18,
+      "topic": "Teams Governance - Information Barriers",
+      "type": "SingleChoice",
+      "questionText": "Your financial services organization requires that the Investment Banking team and the Equity Research team cannot communicate with each other in Teams. What should you configure?",
+      "options": [
+        "A. Conditional Access policies blocking cross-team access.",
+        "B. Information Barrier policies that define blocked communication segments.",
+        "C. External access restrictions between the two teams.",
+        "D. Teams messaging policies that restrict message recipients."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Information Barriers in Microsoft Purview allow you to define segments (groups of users) and policies that block or allow communication between segments. This is specifically designed for compliance scenarios in regulated industries like financial services.\n\nWhy the others are wrong:\n- A. Conditional Access controls authentication and access to services, not inter-team communication restrictions.\n- C. External access manages communication with external organizations, not between internal teams.\n- D. Teams messaging policies control messaging features (GIFs, reactions, etc.) but cannot restrict which users can message each other."
+    },
+    {
+      "id": 19,
+      "topic": "Teams Networking - Bandwidth Planning",
+      "type": "SingleChoice",
+      "questionText": "You are planning bandwidth requirements for Microsoft Teams deployment. Which type of Teams traffic typically requires the most bandwidth?",
+      "options": [
+        "A. Peer-to-peer audio calls.",
+        "B. Peer-to-peer video calls.",
+        "C. Screen sharing in meetings.",
+        "D. Teams chat messages."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Peer-to-peer video calls typically require the most bandwidth among the options listed. HD video calls can consume up to 1.5 Mbps per participant (up to 4 Mbps for 1080p), while audio typically uses around 50-130 Kbps.\n\nWhy the others are wrong:\n- A. Audio calls use relatively low bandwidth (approximately 50-130 Kbps depending on codec).\n- C. Screen sharing uses variable bandwidth depending on screen activity but typically less than full video in most scenarios.\n- D. Chat messages use minimal bandwidth as they are text-based with small attachments."
+    },
+    {
+      "id": 20,
+      "topic": "Teams Policies - Update Policy",
+      "type": "SingleChoice",
+      "questionText": "You want a group of pilot users to receive new Teams features before the rest of the organization to test them. What should you configure?",
+      "options": [
+        "A. A Teams update policy set to the 'Public Preview' channel for the pilot group.",
+        "B. A device configuration profile in Intune for Teams updates.",
+        "C. Windows Update for Business policies targeting Teams.",
+        "D. A Microsoft 365 targeted release setting for the pilot users."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Teams update policies allow you to configure which update channel users receive. Setting the pilot group to the 'Public Preview' (or 'Preview') channel gives them early access to new Teams features before general availability.\n\nWhy the others are wrong:\n- B. Intune device configuration profiles do not control the Teams client update channel.\n- C. Windows Update for Business manages Windows OS and Microsoft 365 Apps updates, not the Teams client update channel.\n- D. Microsoft 365 targeted release controls admin center features and service updates, not the Teams client feature rollout."
+    },
+    {
+      "id": 21,
+      "topic": "Teams Calling - Dial Plans",
+      "type": "SingleChoice",
+      "questionText": "Users in your US office dial local numbers using 7 digits (without the area code). You need Teams Phone System to correctly route these calls by prepending the area code. What should you configure?",
+      "options": [
+        "A. A voice routing policy.",
+        "B. A tenant dial plan with a normalization rule that prepends the area code.",
+        "C. A calling policy with call forwarding enabled.",
+        "D. An auto attendant with number translation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dial plans contain normalization rules that translate dialed numbers into E.164 format. A normalization rule can match 7-digit dialed numbers and prepend the country code and area code to create the full number for routing.\n\nWhy the others are wrong:\n- A. Voice routing policies determine which PSTN gateway routes a call but do not translate dialed numbers.\n- C. Calling policies control general calling features but do not normalize dialed numbers.\n- D. Auto attendants handle incoming calls and menu navigation, not outbound number normalization."
+    },
+    {
+      "id": 22,
+      "topic": "Teams Governance - Archive and Delete",
+      "type": "SingleChoice",
+      "questionText": "A project team has completed their work and no longer needs to actively collaborate, but the team content must be preserved for reference. What is the recommended action?",
+      "options": [
+        "A. Delete the team and rely on retention policies.",
+        "B. Archive the team.",
+        "C. Convert the team to a private channel.",
+        "D. Remove all members except the owner."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Archiving a team makes it read-only while preserving all content including messages, files, and wiki. Users can still view and search the content but cannot post new messages or modify files.\n\nWhy the others are wrong:\n- A. Deleting the team would remove the content (unless retention policies are in place) and is not recommended when content needs to be actively accessible for reference.\n- C. You cannot convert a team into a private channel; these are different concepts.\n- D. Removing members would prevent them from accessing the content for reference, which defeats the purpose."
+    },
+    {
+      "id": 23,
+      "topic": "Teams Meetings - Breakout Rooms",
+      "type": "SingleChoice",
+      "questionText": "During a Teams training session, the organizer wants to divide 50 participants into 5 groups for discussion, then bring them all back together. Which Teams feature should they use?",
+      "options": [
+        "A. Multiple channel meetings.",
+        "B. Breakout rooms.",
+        "C. Together mode.",
+        "D. Meeting whiteboards."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Breakout rooms allow the meeting organizer to divide participants into smaller groups within the same meeting. The organizer can create rooms, assign participants, and then close rooms to bring everyone back to the main meeting.\n\nWhy the others are wrong:\n- A. Multiple channel meetings would require scheduling separate meetings in different channels, with no ability to pull participants back together.\n- C. Together mode changes the visual layout to make participants appear in a shared virtual environment, but does not divide them into discussion groups.\n- D. Whiteboards provide a collaborative drawing canvas but do not divide participants into separate groups."
+    },
+    {
+      "id": 24,
+      "topic": "Teams Apps - Connectors",
+      "type": "SingleChoice",
+      "questionText": "A development team wants to receive automated notifications in their Teams channel whenever a new pull request is created in their GitHub repository. What should they configure?",
+      "options": [
+        "A. A Power Automate flow that posts to Teams.",
+        "B. A Teams incoming webhook in the channel connected to GitHub.",
+        "C. The GitHub app or connector for Microsoft Teams.",
+        "D. A custom bot that polls the GitHub API."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The GitHub app (or connector) for Microsoft Teams provides built-in integration to send notifications about repository events like pull requests directly to Teams channels. This is the simplest and most supported approach.\n\nWhy the others are wrong:\n- A. A Power Automate flow would work but is more complex to set up than using the built-in GitHub integration.\n- B. An incoming webhook can receive payloads but requires additional configuration on the GitHub side to send webhooks and format messages correctly.\n- D. A custom bot would require significant development effort and is unnecessary when a built-in integration exists."
+    },
+    {
+      "id": 25,
+      "topic": "Teams Compliance - Data Loss Prevention",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from sharing credit card numbers in Teams chat messages. When a match is detected, the message should be blocked and the user should see a policy tip. What should you configure?",
+      "options": [
+        "A. A Teams messaging policy with content restrictions.",
+        "B. A DLP policy in Microsoft Purview targeting Teams chat and channel messages.",
+        "C. A sensitivity label for Teams conversations.",
+        "D. A communication compliance policy."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Data Loss Prevention policies in Microsoft Purview can target Teams chat and channel message locations. You configure a rule to detect credit card number sensitive information types and set the action to block the content with a policy tip notification.\n\nWhy the others are wrong:\n- A. Teams messaging policies control messaging features (editing, deleting, GIFs) but do not provide content inspection or DLP capabilities.\n- C. Sensitivity labels classify and protect documents and containers, not individual chat message content.\n- D. Communication compliance monitors for regulatory and code-of-conduct violations but is not designed to block messages containing specific sensitive information types."
+    },
+    {
+      "id": 26,
+      "topic": "Teams Networking - Proxy and Firewall",
+      "type": "SingleChoice",
+      "questionText": "Your network team reports that Teams audio quality is poor. Investigation reveals that Teams media traffic is being routed through a web proxy. What is the recommended action?",
+      "options": [
+        "A. Increase the proxy server bandwidth.",
+        "B. Bypass the proxy for Teams media traffic and allow direct internet connectivity.",
+        "C. Enable QoS on the proxy server.",
+        "D. Configure the proxy to use SSL inspection for Teams traffic."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft recommends bypassing proxy servers for Teams real-time media traffic. Proxies add latency, reduce throughput, and can cause packet loss for UDP-based media streams. Teams media should have direct internet connectivity to Microsoft 365 endpoints.\n\nWhy the others are wrong:\n- A. Increasing proxy bandwidth may help slightly but does not address the fundamental issue of added latency from proxy processing.\n- C. QoS on the proxy does not eliminate the latency the proxy introduces for real-time media.\n- D. SSL inspection adds even more latency and processing overhead, worsening the problem."
+    },
+    {
+      "id": 27,
+      "topic": "Teams Governance - Teams Templates",
+      "type": "SingleChoice",
+      "questionText": "You need to standardize the creation of project teams so that every new project team includes specific channels (Design, Development, Testing) and pre-installed apps (Planner, OneNote). What should you create?",
+      "options": [
+        "A. A Teams template with predefined channels and apps.",
+        "B. A PowerShell script that creates teams with specific settings.",
+        "C. A team policy that enforces channel creation.",
+        "D. A Microsoft 365 group policy with channel definitions."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Teams templates allow you to define a standard team structure including predefined channels, pre-installed apps, and tabs. When users create a new team using the template, all the predefined elements are automatically created.\n\nWhy the others are wrong:\n- B. A PowerShell script would work but is not the built-in, user-friendly approach and requires administrative execution.\n- C. There is no team policy that enforces channel creation in existing or new teams.\n- D. Microsoft 365 group policies do not support defining Teams channels or apps."
+    },
+    {
+      "id": 28,
+      "topic": "Teams Policies - Meeting Policy",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure Teams so that meeting recordings are automatically saved to OneDrive for non-channel meetings and to SharePoint for channel meetings. Which two statements are true about Teams meeting recording storage? Each correct answer presents a complete fact.",
+      "options": [
+        "A. Non-channel meeting recordings are stored in the organizer's OneDrive.",
+        "B. Channel meeting recordings are stored in the channel's SharePoint document library.",
+        "C. All recordings are stored in Microsoft Stream (Classic) by default.",
+        "D. Recordings are stored in Azure Blob Storage.",
+        "E. Recordings are stored in the Teams conversation permanently."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Teams meeting recordings are stored in OneDrive for Business for non-channel meetings (in the recording organizer's OneDrive) and in the SharePoint document library of the channel for channel meetings. This is the current default behavior.\n\nWhy the others are wrong:\n- C. Microsoft Stream (Classic) is no longer the default storage location for new Teams meeting recordings; storage has migrated to OneDrive/SharePoint.\n- D. Azure Blob Storage is not used for Teams meeting recording storage.\n- E. Recordings appear as links in the Teams conversation but the files themselves are stored in OneDrive or SharePoint."
+    },
+    {
+      "id": 29,
+      "topic": "Teams Calling - Voice Routing",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses Direct Routing with an on-premises SBC. You need to route all international calls through a specific SBC while local calls use a different SBC. What should you configure?",
+      "options": [
+        "A. Two voice routes with different number patterns and priority, assigned to a voice routing policy.",
+        "B. Two separate dial plans for local and international calling.",
+        "C. Two auto attendants with different PSTN routing.",
+        "D. A single voice route with load balancing across both SBCs."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Voice routes define number patterns and associate them with PSTN gateways (SBCs). You create one route matching international number patterns (e.g., +[2-9]\\d+) pointing to the international SBC, and another matching local patterns pointing to the local SBC. These routes are included in a voice routing policy assigned to users.\n\nWhy the others are wrong:\n- B. Dial plans normalize dialed numbers but do not route calls to specific SBCs.\n- C. Auto attendants handle incoming calls and IVR menus, not outbound call routing.\n- D. A single voice route cannot conditionally route to different SBCs based on the number pattern."
+    },
+    {
+      "id": 30,
+      "topic": "Teams Meetings - Webinars",
+      "type": "SingleChoice",
+      "questionText": "Your marketing team needs to host a public event with registration for 500 attendees. They need registration data including name and email. Which Teams feature should they use?",
+      "options": [
+        "A. A standard Teams meeting with a registration form.",
+        "B. A Teams webinar with registration enabled.",
+        "C. A Teams town hall.",
+        "D. A Teams channel meeting with external access."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams webinars include built-in registration functionality where organizers can collect attendee information (name, email, and custom fields). Webinars support up to 1,000 interactive attendees and are designed for this type of structured event.\n\nWhy the others are wrong:\n- A. Standard Teams meetings do not have built-in registration capabilities.\n- C. Teams town halls are for large broadcast events and have limited interactive registration features compared to webinars for this scale.\n- D. Channel meetings do not support external registration and are meant for internal team collaboration."
+    },
+    {
+      "id": 31,
+      "topic": "Teams Apps - Power Platform Integration",
+      "type": "SingleChoice",
+      "questionText": "You want users to be able to create and use Power Apps directly within Microsoft Teams without leaving the Teams client. What should you ensure?",
+      "options": [
+        "A. The Power Apps app is allowed in the Teams app permission policy.",
+        "B. Users have Power Apps premium licenses.",
+        "C. Power Platform admin center integration is enabled.",
+        "D. Azure AD app registration for Power Apps is configured."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Power Apps app must be allowed in the Teams app permission policy for users to access it within Teams. Power Apps for Teams (using Dataverse for Teams) is included with select Microsoft 365 licenses, so the main requirement is ensuring the app is not blocked.\n\nWhy the others are wrong:\n- B. Premium licenses are only needed for premium connectors and features; basic Power Apps in Teams works with standard Microsoft 365 licenses.\n- C. Power Platform admin center integration is not a specific setting that needs to be enabled for Teams access.\n- D. Azure AD app registration is not required for the built-in Power Apps integration with Teams."
+    },
+    {
+      "id": 32,
+      "topic": "Teams Compliance - Legal Hold",
+      "type": "SingleChoice",
+      "questionText": "A user who is on legal hold in Microsoft 365 deletes a message in a Teams chat. What happens to the deleted message?",
+      "options": [
+        "A. The message is permanently deleted and cannot be recovered.",
+        "B. The message is removed from the chat but preserved in the SubstrateHolds folder for compliance.",
+        "C. The message remains visible in the chat with a 'deleted' indicator.",
+        "D. The message is moved to the user's Deleted Items folder in Outlook."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When a user on legal hold deletes a Teams message, the message is removed from the Teams chat view but a copy is preserved in a hidden SubstrateHolds folder in the user's mailbox. This ensures compliance content is retained even when users delete messages.\n\nWhy the others are wrong:\n- A. Legal hold prevents permanent deletion; the content is always preserved.\n- C. The message disappears from the chat view for all users; it is not shown with a deleted indicator.\n- D. Teams messages are not moved to Outlook's Deleted Items folder; they go to the hidden SubstrateHolds folder."
+    },
+    {
+      "id": 33,
+      "topic": "Teams Governance - Lifecycle Management",
+      "type": "SingleChoice",
+      "questionText": "You want to receive a report of all inactive teams that have had no activity in the past 90 days. Which admin tool provides this information?",
+      "options": [
+        "A. Teams admin center > Analytics & reports > Teams usage report.",
+        "B. Microsoft 365 admin center > Reports > Usage > Microsoft 365 groups activity.",
+        "C. Microsoft Entra admin center > Groups > Activity.",
+        "D. SharePoint admin center > Site usage reports."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft 365 groups activity report in the Microsoft 365 admin center shows activity metrics for Microsoft 365 groups (which back Teams), including last activity date. You can identify groups with no activity in the specified period.\n\nWhy the others are wrong:\n- A. Teams usage reports show active users and usage metrics but do not provide a straightforward list of inactive teams with their last activity date.\n- C. The Entra admin center shows group properties but does not provide activity reports.\n- D. SharePoint usage reports show site-level usage but do not directly correlate to Teams activity across all workloads."
+    },
+    {
+      "id": 34,
+      "topic": "Teams Networking - Call Quality Dashboard",
+      "type": "SingleChoice",
+      "questionText": "Users are reporting poor audio quality in Teams calls. You need to identify the root cause by analyzing call quality metrics. Which tool should you use?",
+      "options": [
+        "A. Teams admin center > Call Quality Dashboard (CQD).",
+        "B. Microsoft 365 admin center > Service health.",
+        "C. Azure Monitor > Application Insights.",
+        "D. Microsoft Endpoint Manager > Device diagnostics."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Call Quality Dashboard (CQD) in the Teams admin center provides detailed analytics on call and meeting quality including packet loss, jitter, latency, and round-trip time. It allows you to drill down into specific calls and identify network or device issues.\n\nWhy the others are wrong:\n- B. Service health shows Microsoft 365 service incidents and advisories, not individual call quality metrics.\n- C. Application Insights monitors custom application performance, not Teams call quality.\n- D. Device diagnostics in Endpoint Manager collect device-level diagnostic data, not real-time call quality analytics."
+    },
+    {
+      "id": 35,
+      "topic": "Teams Policies - Calling Policy",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent a group of users from making outbound PSTN calls while still allowing them to receive incoming PSTN calls and make Teams-to-Teams calls. What should you configure?",
+      "options": [
+        "A. Remove the Teams Phone license from the users.",
+        "B. Create a calling policy with 'Make private calls' disabled.",
+        "C. Create a voice routing policy with no PSTN usage records assigned.",
+        "D. Block the users' phone numbers in the SBC configuration."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. A voice routing policy with no PSTN usage records means the users have no outbound PSTN routes available, preventing them from making outbound PSTN calls. They can still receive incoming PSTN calls (routed to them by the SBC) and make internal Teams-to-Teams calls.\n\nWhy the others are wrong:\n- A. Removing the Phone license would prevent both inbound and outbound PSTN calls, not just outbound.\n- B. Disabling 'Make private calls' prevents all peer-to-peer calls including Teams-to-Teams calls, which is more restrictive than required.\n- D. Blocking numbers on the SBC would affect inbound routing as well and is not the standard Teams administrative approach."
+    },
+    {
+      "id": 36,
+      "topic": "Teams Meetings - Meeting Options",
+      "type": "SingleChoice",
+      "questionText": "An executive wants to ensure that their Teams meetings are end-to-end encrypted (E2EE) for sensitive one-on-one discussions. What must be configured?",
+      "options": [
+        "A. An enhanced encryption policy enabled by the admin, and the user turns on E2EE for specific calls.",
+        "B. A sensitivity label applied to the meeting.",
+        "C. A DLP policy for Teams meetings.",
+        "D. A Conditional Access policy requiring encryption."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. End-to-end encryption for Teams calls requires the admin to enable the E2EE policy for eligible users, and then the user must manually enable E2EE for individual one-on-one calls from their Teams settings. E2EE is currently limited to one-on-one calls.\n\nWhy the others are wrong:\n- B. Sensitivity labels can enforce meeting settings but do not enable end-to-end encryption for Teams calls.\n- C. DLP policies detect sensitive content but do not provide encryption for calls.\n- D. Conditional Access policies control access requirements but do not enable E2EE for Teams calls."
+    },
+    {
+      "id": 37,
+      "topic": "Teams Apps - Tabs and Connectors",
+      "type": "SingleChoice",
+      "questionText": "A team wants to add a SharePoint page as a tab in their Teams channel so team members can view project documentation without leaving Teams. How should they add it?",
+      "options": [
+        "A. Add a SharePoint tab to the channel and specify the SharePoint page URL.",
+        "B. Upload the SharePoint page as a file to the channel.",
+        "C. Create a Power Automate flow to sync SharePoint content to Teams.",
+        "D. Use the Website tab and paste the SharePoint URL."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The SharePoint tab in Teams allows you to embed a SharePoint page, list, or document library directly in a Teams channel tab. This provides a native, seamless experience for viewing SharePoint content within Teams.\n\nWhy the others are wrong:\n- B. Uploading would create a copy of the content, not a live view of the SharePoint page.\n- C. A Power Automate flow for syncing is unnecessary when the SharePoint tab provides direct integration.\n- D. While the Website tab could display a SharePoint URL, the dedicated SharePoint tab provides a better integrated experience with proper authentication and formatting."
+    },
+    {
+      "id": 38,
+      "topic": "Teams Governance - Private Channels",
+      "type": "MultipleChoice",
+      "questionText": "You need to understand the implications of creating a private channel in a Teams team. Which two statements are correct about private channels? Each correct answer presents a complete fact.",
+      "options": [
+        "A. Private channels have their own separate SharePoint site collection.",
+        "B. Private channels share the same SharePoint site as the parent team.",
+        "C. Private channel members must be members of the parent team.",
+        "D. Private channels can have up to 250 members independently of the parent team.",
+        "E. Apps, bots, and connectors from the parent team automatically work in private channels."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. Private channels create a separate SharePoint site collection for their files, independent of the parent team's SharePoint site. Additionally, private channel members must be members of the parent team; you cannot add external users who are not already team members.\n\nWhy the others are wrong:\n- B. Private channels do NOT share the parent team's SharePoint site; they have their own site collection.\n- D. Private channels can have up to 250 members, but those members must already be members of the parent team.\n- E. Apps, bots, and connectors from the parent team do NOT automatically work in private channels; they may need to be individually configured."
+    },
+    {
+      "id": 39,
+      "topic": "Teams Calling - Resource Accounts",
+      "type": "SingleChoice",
+      "questionText": "You are setting up a new auto attendant in Microsoft Teams. Before creating the auto attendant, what must you create first?",
+      "options": [
+        "A. A Teams user account with a phone system license.",
+        "B. A resource account with a Microsoft Teams Phone Resource Account license.",
+        "C. A shared mailbox in Exchange Online.",
+        "D. A Microsoft 365 group for the auto attendant."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Auto attendants and call queues require a resource account (a special type of account in Microsoft Entra ID) assigned a Microsoft Teams Phone Resource Account license. The resource account is associated with the auto attendant and can have a phone number assigned.\n\nWhy the others are wrong:\n- A. Regular Teams user accounts are for individual users, not for auto attendants.\n- C. A shared mailbox is not required for auto attendant functionality.\n- D. A Microsoft 365 group is not needed for creating an auto attendant."
+    },
+    {
+      "id": 40,
+      "topic": "Teams Compliance - Communication Compliance",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to monitor Teams communications for inappropriate content such as harassment and threats. Flagged content should be reviewed by the HR department. What should you configure?",
+      "options": [
+        "A. A DLP policy for Teams messages.",
+        "B. A communication compliance policy with the 'Detect inappropriate text' classifier.",
+        "C. An insider risk management policy.",
+        "D. An eDiscovery hold on all Teams messages."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Communication compliance in Microsoft Purview includes built-in trainable classifiers for detecting inappropriate text including harassment, threats, and profanity. You can create a policy that monitors Teams messages and assigns HR as reviewers.\n\nWhy the others are wrong:\n- A. DLP policies detect sensitive information types (like credit card numbers) but do not classify messages for inappropriate content.\n- C. Insider risk management detects risky user behaviors (like data exfiltration) but does not monitor message content for inappropriate language.\n- D. eDiscovery holds preserve content for legal purposes but do not monitor or flag inappropriate content."
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "examCode": "AZ-500",
+  "examTitle": "Azure Security Engineer Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Identity and Access - Configuring Microsoft Entra ID",
+      "type": "SingleChoice",
+      "questionText": "You need to require multi-factor authentication for all users when they access Azure portal. You want to use Conditional Access. What should you configure as the cloud app target in the Conditional Access policy?",
+      "options": ["A. Microsoft Azure Management.", "B. Microsoft 365.", "C. All cloud apps.", "D. Azure Active Directory."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Azure Management is the cloud app that covers access to the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager. Targeting this app in a Conditional Access policy ensures MFA is required for Azure portal access. Option B is incorrect because Microsoft 365 covers Office 365 services, not the Azure portal. Option C is incorrect because targeting all cloud apps would be overly broad and affect access to all registered applications. Option D is incorrect because Azure Active Directory is not listed as a targetable cloud app for Conditional Access in this context."
+    },
+    {
+      "id": 2,
+      "topic": "Identity and Access - Implementing Privileged Identity Management",
+      "type": "SingleChoice",
+      "questionText": "Your company requires that Global Administrator role assignments be time-limited and require approval. Users should only activate the role when needed. Which feature should you configure?",
+      "options": ["A. Microsoft Entra ID Access Reviews.", "B. Microsoft Entra Privileged Identity Management (PIM) with eligible assignments.", "C. Conditional Access with session controls.", "D. Microsoft Entra ID Identity Protection risk policies."],
+      "correctAnswers": ["B"],
+      "explanation": "PIM eligible assignments allow users to activate the Global Administrator role only when needed, with time limits and approval workflows. This implements just-in-time access for privileged roles. Option A is incorrect because Access Reviews periodically review who has access to resources but do not provide time-limited, on-demand role activation. Option C is incorrect because Conditional Access session controls manage session duration but do not handle role activation workflows. Option D is incorrect because Identity Protection risk policies respond to risky sign-ins and users but do not manage privileged role assignments."
+    },
+    {
+      "id": 3,
+      "topic": "Platform Protection - Configuring network security",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure virtual network with a web application subnet and a database subnet. You need to ensure that only the web application subnet can communicate with the database subnet on port 1433. Which resource should you configure?",
+      "options": ["A. Azure Firewall with an application rule.", "B. A network security group on the database subnet with an inbound rule.", "C. Azure Front Door with routing rules.", "D. A route table with BGP route propagation disabled."],
+      "correctAnswers": ["B"],
+      "explanation": "A network security group (NSG) on the database subnet with an inbound allow rule for TCP port 1433 from the web application subnet's address range, combined with a deny rule for all other inbound traffic, ensures only the web tier can access the database. Option A is incorrect because Azure Firewall application rules work with FQDNs and HTTP/HTTPS protocols, not direct port-based filtering between subnets. Option C is incorrect because Front Door is a global load balancing service, not a network security tool for inter-subnet communication. Option D is incorrect because route tables control traffic routing paths, not access control."
+    },
+    {
+      "id": 4,
+      "topic": "Security Operations - Implementing Microsoft Sentinel",
+      "type": "MultipleChoice",
+      "questionText": "You are setting up Microsoft Sentinel for your organization. Which TWO components must you configure to collect security events from Azure VMs? (Choose two.)",
+      "options": ["A. A Log Analytics workspace.", "B. A data connector for Azure Activity.", "C. The Azure Monitor Agent on the VMs.", "D. An Azure Firewall.", "E. An Azure Key Vault."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Microsoft Sentinel requires a Log Analytics workspace as its data store, and the Azure Monitor Agent must be installed on VMs to collect security events and forward them to the workspace. Option B is incorrect because the Azure Activity data connector collects subscription-level activity logs, not VM security events. Option D is incorrect because Azure Firewall is a network security service, not required for event collection. Option E is incorrect because Key Vault stores secrets and is not involved in security event collection."
+    },
+    {
+      "id": 5,
+      "topic": "Data and Application Security - Configuring Key Vault",
+      "type": "SingleChoice",
+      "questionText": "You store application secrets in Azure Key Vault. You need to ensure that secrets can only be accessed from a specific virtual network subnet. What should you configure?",
+      "options": ["A. Key Vault access policies with user restrictions.", "B. Key Vault firewall and virtual network rules.", "C. A managed identity on the Key Vault.", "D. Soft delete and purge protection."],
+      "correctAnswers": ["B"],
+      "explanation": "Key Vault firewall and virtual network rules allow you to restrict network access to the Key Vault from specific subnets using service endpoints or private endpoints. This ensures only resources in the specified subnet can reach the Key Vault. Option A is incorrect because access policies control who can perform operations on secrets, not from where they can connect. Option C is incorrect because managed identities are used by applications to authenticate to Key Vault, not to restrict network access. Option D is incorrect because soft delete and purge protection prevent accidental deletion of secrets, not network access control."
+    },
+    {
+      "id": 6,
+      "topic": "Identity and Access - Configuring RBAC",
+      "type": "SingleChoice",
+      "questionText": "A developer needs to be able to deploy resources to a specific resource group but should not be able to manage access for other users. Which built-in role should you assign at the resource group scope?",
+      "options": ["A. Owner.", "B. Contributor.", "C. Reader.", "D. User Access Administrator."],
+      "correctAnswers": ["B"],
+      "explanation": "The Contributor role allows full management of resources (create, update, delete) but does not grant the ability to assign roles or manage access for other users. This perfectly fits the requirement. Option A is incorrect because Owner includes the ability to manage access for others via role assignments. Option C is incorrect because Reader only allows viewing resources, not deploying them. Option D is incorrect because User Access Administrator can manage role assignments but cannot deploy resources."
+    },
+    {
+      "id": 7,
+      "topic": "Platform Protection - Implementing Azure DDoS Protection",
+      "type": "SingleChoice",
+      "questionText": "You need to protect your Azure-hosted public-facing applications from DDoS attacks and receive real-time attack metrics and diagnostic logs. You also need cost protection that provides service credits during an attack. What should you enable?",
+      "options": ["A. DDoS Infrastructure Protection.", "B. DDoS Network Protection.", "C. Azure Firewall Premium.", "D. Web Application Firewall on Front Door."],
+      "correctAnswers": ["B"],
+      "explanation": "DDoS Network Protection provides advanced DDoS mitigation, real-time attack metrics, diagnostic logs, and cost protection (service credits for resources that scale during an attack). Option A is incorrect because DDoS Infrastructure Protection is the free, default tier that does not include diagnostics, metrics, or cost protection. Option C is incorrect because Azure Firewall Premium provides IDPS and TLS inspection but is not designed for volumetric DDoS protection. Option D is incorrect because WAF protects against application-layer attacks but not volumetric DDoS attacks, and does not provide cost protection."
+    },
+    {
+      "id": 8,
+      "topic": "Security Operations - Configuring Microsoft Defender for Cloud",
+      "type": "SingleChoice",
+      "questionText": "You need to assess the security posture of your Azure subscriptions and receive actionable recommendations to improve security. Which feature of Microsoft Defender for Cloud provides this?",
+      "options": ["A. Secure Score.", "B. Just-in-time VM access.", "C. Adaptive application controls.", "D. File integrity monitoring."],
+      "correctAnswers": ["A"],
+      "explanation": "Secure Score in Microsoft Defender for Cloud provides a numerical representation of your security posture and actionable recommendations to improve it. Each recommendation includes a score impact so you can prioritize improvements. Option B is incorrect because JIT VM access is a specific security feature that reduces exposure of management ports, not an assessment tool. Option C is incorrect because adaptive application controls create allowlists for known-safe applications, not a security posture assessment. Option D is incorrect because file integrity monitoring tracks changes to critical files, not overall security posture."
+    },
+    {
+      "id": 9,
+      "topic": "Identity and Access - Implementing Conditional Access",
+      "type": "MultipleChoice",
+      "questionText": "You are creating a Conditional Access policy that requires compliant devices for accessing company data. Which TWO conditions can you use as signals in the policy? (Choose two.)",
+      "options": ["A. User risk level.", "B. Device platform (iOS, Android, Windows).", "C. Azure subscription type.", "D. Virtual machine size.", "E. Resource group name."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Conditional Access policies can use user risk level (from Identity Protection) and device platform as signals to make access decisions. User risk can trigger additional authentication requirements, and device platform can be used to target specific operating systems. Option C is incorrect because Azure subscription type is not a Conditional Access signal. Option D is incorrect because VM size is a compute configuration, not an access signal. Option E is incorrect because resource group name is an Azure resource management concept, not a Conditional Access signal."
+    },
+    {
+      "id": 10,
+      "topic": "Data and Application Security - Implementing storage security",
+      "type": "SingleChoice",
+      "questionText": "You need to encrypt data in Azure Blob Storage using customer-managed keys stored in Azure Key Vault. The encryption must be applied at the storage account level. What should you configure?",
+      "options": ["A. Azure Storage Service Encryption with Microsoft-managed keys.", "B. Azure Storage Service Encryption with customer-managed keys in Key Vault.", "C. Client-side encryption in the application.", "D. Azure Disk Encryption on the storage account."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Storage Service Encryption with customer-managed keys (CMK) in Azure Key Vault allows you to control the encryption keys used to encrypt data at the storage account level. The keys are stored and managed in your Key Vault. Option A is incorrect because Microsoft-managed keys are the default and do not give you control over the keys. Option C is incorrect because client-side encryption is handled by the application before data reaches storage and is not configured at the storage account level. Option D is incorrect because Azure Disk Encryption applies to VM disks, not storage accounts."
+    },
+    {
+      "id": 11,
+      "topic": "Identity and Access - Managing application registrations",
+      "type": "SingleChoice",
+      "questionText": "A web application needs to authenticate to Azure Key Vault to retrieve secrets without storing credentials in code. What is the recommended approach?",
+      "options": ["A. Store the Key Vault access key in the application's configuration file.", "B. Use a system-assigned managed identity for the application.", "C. Create a service principal with a client secret and store it in environment variables.", "D. Use a shared access signature (SAS) token for Key Vault."],
+      "correctAnswers": ["B"],
+      "explanation": "A system-assigned managed identity eliminates the need to store any credentials. Azure manages the identity lifecycle, and the application can authenticate to Key Vault using the managed identity token without any secrets in code or configuration. Option A is incorrect because Key Vault does not use access keys, and storing credentials in config files is a security risk. Option C is incorrect because while a service principal with a client secret works, it still requires storing a secret, which the question aims to avoid. Option D is incorrect because Key Vault does not use SAS tokens for authentication."
+    },
+    {
+      "id": 12,
+      "topic": "Platform Protection - Implementing just-in-time access",
+      "type": "SingleChoice",
+      "questionText": "You need to reduce the attack surface of Azure VMs by closing management ports (RDP/SSH) by default and only opening them when administrators need access. What should you configure?",
+      "options": ["A. Azure Bastion.", "B. Just-in-time (JIT) VM access in Microsoft Defender for Cloud.", "C. A network security group with deny rules.", "D. Azure Firewall with scheduled rules."],
+      "correctAnswers": ["B"],
+      "explanation": "JIT VM access in Microsoft Defender for Cloud locks down management ports by default using NSG rules and only opens them for a limited time when an administrator requests access. This reduces the attack surface while maintaining administrative access. Option A is incorrect because while Azure Bastion provides secure access without public IPs, it does not dynamically open and close management ports based on demand. Option C is incorrect because static deny rules would permanently block access without a mechanism to temporarily allow it. Option D is incorrect because Azure Firewall scheduled rules do not provide the on-demand, time-limited access control that JIT provides."
+    },
+    {
+      "id": 13,
+      "topic": "Security Operations - Configuring security alerts",
+      "type": "SingleChoice",
+      "questionText": "You want to automatically respond to a specific Microsoft Defender for Cloud security alert by isolating the affected VM's network interface. What should you use?",
+      "options": ["A. An Azure Policy remediation task.", "B. A Logic App triggered by the security alert.", "C. An Azure Automation runbook scheduled daily.", "D. A manual process documented in a runbook."],
+      "correctAnswers": ["B"],
+      "explanation": "A Logic App can be triggered by Microsoft Defender for Cloud security alerts through workflow automation. The Logic App can then automatically take remediation actions such as isolating the affected VM's network interface by modifying NSG rules. Option A is incorrect because Azure Policy remediation tasks enforce compliance configurations, not real-time incident response. Option C is incorrect because a daily scheduled runbook does not provide the immediate automated response needed for security alerts. Option D is incorrect because the requirement is for automatic response, not manual intervention."
+    },
+    {
+      "id": 14,
+      "topic": "Data and Application Security - Implementing SQL security",
+      "type": "SingleChoice",
+      "questionText": "You need to discover and classify sensitive data such as credit card numbers and social security numbers in your Azure SQL Database. Which feature should you use?",
+      "options": ["A. Transparent Data Encryption (TDE).", "B. Dynamic data masking.", "C. Microsoft Purview Data Catalog.", "D. SQL Data Discovery and Classification."],
+      "correctAnswers": ["D"],
+      "explanation": "SQL Data Discovery and Classification is a built-in feature of Azure SQL Database that discovers, classifies, labels, and reports on sensitive data in your database. It can identify columns containing credit card numbers, SSNs, and other sensitive data types. Option A is incorrect because TDE encrypts data at rest but does not discover or classify sensitive data. Option B is incorrect because dynamic data masking masks data in query results but does not perform discovery or classification. Option C is incorrect because while Microsoft Purview can catalog data assets, SQL Data Discovery and Classification is the specific built-in feature for this task in Azure SQL Database."
+    },
+    {
+      "id": 15,
+      "topic": "Identity and Access - Implementing identity governance",
+      "type": "SingleChoice",
+      "questionText": "External contractors need temporary access to a project resource group. You need to ensure their access is automatically removed after 90 days. What should you configure?",
+      "options": ["A. A Conditional Access policy with a session timeout.", "B. An access package in Microsoft Entra Entitlement Management with an expiration policy.", "C. A custom RBAC role with a time-based condition.", "D. A scheduled Azure Automation runbook to remove role assignments."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra Entitlement Management access packages allow you to bundle resources and set expiration policies. You can configure the access package to automatically expire after 90 days, removing the contractors' access without manual intervention. Option A is incorrect because Conditional Access session timeouts control sign-in session duration, not the duration of role assignments. Option C is incorrect because custom RBAC roles do not have built-in time-based conditions for automatic removal. Option D is incorrect because while it could work, it is a custom solution that is harder to manage than the built-in Entitlement Management feature."
+    },
+    {
+      "id": 16,
+      "topic": "Platform Protection - Configuring Azure Firewall",
+      "type": "SingleChoice",
+      "questionText": "You need to inspect TLS-encrypted outbound traffic from your virtual network for data exfiltration attempts. Which Azure Firewall feature should you enable?",
+      "options": ["A. Threat intelligence-based filtering.", "B. TLS inspection (Azure Firewall Premium).", "C. FQDN filtering in network rules.", "D. DNS proxy."],
+      "correctAnswers": ["B"],
+      "explanation": "TLS inspection in Azure Firewall Premium decrypts outbound TLS traffic, inspects it for threats and data exfiltration, and then re-encrypts it before sending it to the destination. This is the only way to inspect encrypted traffic content. Option A is incorrect because threat intelligence filtering blocks known malicious IPs/domains but cannot inspect encrypted traffic content. Option C is incorrect because FQDN filtering allows or blocks traffic based on domain names but cannot inspect the encrypted payload. Option D is incorrect because DNS proxy resolves DNS queries through the firewall but does not inspect encrypted traffic."
+    },
+    {
+      "id": 17,
+      "topic": "Security Operations - Implementing Azure Monitor security",
+      "type": "SingleChoice",
+      "questionText": "You need to collect and analyze Windows security events from Azure VMs and create alerts when suspicious logon patterns are detected. What should you configure?",
+      "options": ["A. Azure Activity Log with alert rules.", "B. A Log Analytics workspace with the Azure Monitor Agent and KQL alert rules.", "C. Azure Event Hubs with a Stream Analytics job.", "D. Application Insights with availability tests."],
+      "correctAnswers": ["B"],
+      "explanation": "A Log Analytics workspace collects Windows security events via the Azure Monitor Agent (AMA). You can then write KQL (Kusto Query Language) queries to detect suspicious logon patterns and create alert rules that trigger when matches are found. Option A is incorrect because Azure Activity Log tracks subscription-level operations, not VM-level security events. Option C is incorrect because Event Hubs and Stream Analytics are for real-time event streaming, not security log analysis. Option D is incorrect because Application Insights monitors application performance, not Windows security events."
+    },
+    {
+      "id": 18,
+      "topic": "Data and Application Security - Implementing database security",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that sensitive columns in an Azure SQL Database are encrypted and can only be decrypted by the application, not by database administrators. Which feature should you implement?",
+      "options": ["A. Transparent Data Encryption (TDE).", "B. Always Encrypted.", "C. Dynamic data masking.", "D. Row-level security."],
+      "correctAnswers": ["B"],
+      "explanation": "Always Encrypted ensures that sensitive data is encrypted inside the client application and never revealed as plaintext to the database engine. Encryption keys are managed by the application, so database administrators cannot decrypt the data. Option A is incorrect because TDE encrypts the entire database at rest but data is decrypted when read by the database engine, so DBAs can see plaintext. Option C is incorrect because dynamic data masking only masks data in query results and can be bypassed by users with UNMASK permission. Option D is incorrect because row-level security controls which rows users can access, not column-level encryption."
+    },
+    {
+      "id": 19,
+      "topic": "Identity and Access - Configuring external identities",
+      "type": "SingleChoice",
+      "questionText": "A partner organization needs to collaborate with your team using your Azure resources. You want them to use their own identity provider for authentication. What should you configure?",
+      "options": ["A. Create new Microsoft Entra ID accounts for each partner user.", "B. Configure Microsoft Entra B2B collaboration and invite partner users as guests.", "C. Share your tenant credentials with the partner organization.", "D. Deploy Active Directory Federation Services (AD FS) on-premises."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra B2B collaboration allows you to invite external users as guests in your tenant. They authenticate using their own organization's identity provider, and you control what resources they can access in your tenant. Option A is incorrect because creating separate accounts forces partner users to manage additional credentials and is not scalable. Option C is incorrect because sharing credentials is a major security risk. Option D is incorrect because AD FS is an on-premises solution for federation and is not needed when Microsoft Entra B2B handles external collaboration natively."
+    },
+    {
+      "id": 20,
+      "topic": "Platform Protection - Implementing endpoint security",
+      "type": "SingleChoice",
+      "questionText": "You need to enable vulnerability assessment scanning for all Azure VMs to identify missing security patches and misconfigurations. Which Microsoft Defender for Cloud feature should you enable?",
+      "options": ["A. Defender for Servers Plan 2.", "B. Defender for Storage.", "C. Defender for Key Vault.", "D. Defender for DNS."],
+      "correctAnswers": ["A"],
+      "explanation": "Defender for Servers Plan 2 includes integrated vulnerability assessment (powered by Qualys or Microsoft Defender Vulnerability Management) that scans VMs for missing patches, software vulnerabilities, and misconfigurations. Option B is incorrect because Defender for Storage protects storage accounts from threats, not VMs. Option C is incorrect because Defender for Key Vault monitors Key Vault access, not VM vulnerabilities. Option D is incorrect because Defender for DNS analyzes DNS queries from Azure resources for suspicious patterns, not VM patches."
+    },
+    {
+      "id": 21,
+      "topic": "Data and Application Security - Implementing network security for PaaS",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict an Azure SQL Database so it can only be accessed from a specific subnet in your VNet. Traffic should travel over the Azure backbone. What should you configure?",
+      "options": ["A. A private endpoint for the SQL Database.", "B. The SQL Database firewall to allow the subnet's public IP range.", "C. An NSG on the SQL Database.", "D. IP whitelisting for the VNet's NAT gateway IP."],
+      "correctAnswers": ["A"],
+      "explanation": "A private endpoint assigns a private IP address from your VNet to the Azure SQL Database, ensuring traffic travels entirely over the Azure backbone and restricting access to resources in your VNet. Option B is incorrect because allowing public IP ranges still routes traffic over the internet. Option C is incorrect because you cannot attach NSGs directly to Azure SQL Database. Option D is incorrect because IP whitelisting with NAT gateway IPs still uses the public endpoint."
+    },
+    {
+      "id": 22,
+      "topic": "Identity and Access - Implementing password protection",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from choosing passwords that contain your company name or common variations. Which feature should you configure?",
+      "options": ["A. Microsoft Entra Password Protection with a custom banned password list.", "B. A Conditional Access policy requiring strong passwords.", "C. Microsoft Entra Identity Protection.", "D. Self-service password reset (SSPR) with complexity requirements."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra Password Protection allows you to define a custom banned password list that prevents users from choosing passwords containing specific words like your company name and variations. It works with both cloud and on-premises password changes. Option B is incorrect because Conditional Access does not have password strength policies. Option C is incorrect because Identity Protection detects risky sign-ins and compromised accounts but does not control password content. Option D is incorrect because SSPR complexity requirements enforce character types (uppercase, numbers, symbols) but do not block specific words."
+    },
+    {
+      "id": 23,
+      "topic": "Security Operations - Implementing threat detection",
+      "type": "SingleChoice",
+      "questionText": "You notice unusual resource creation activity in your Azure subscription. You need to investigate who created resources and when. Which log should you query?",
+      "options": ["A. Microsoft Entra sign-in logs.", "B. Azure Activity Log.", "C. Azure SQL audit logs.", "D. NSG flow logs."],
+      "correctAnswers": ["B"],
+      "explanation": "The Azure Activity Log records all control plane operations performed on resources in your subscription, including who created, modified, or deleted resources and when. You can query it to investigate resource creation activity. Option A is incorrect because sign-in logs track authentication events, not resource management operations. Option C is incorrect because SQL audit logs track database-level operations, not subscription-level resource creation. Option D is incorrect because NSG flow logs record network traffic flows, not resource management activities."
+    },
+    {
+      "id": 24,
+      "topic": "Data and Application Security - Implementing container security",
+      "type": "SingleChoice",
+      "questionText": "You use Azure Container Registry to store Docker images. You need to automatically scan images for vulnerabilities when they are pushed to the registry. What should you enable?",
+      "options": ["A. Microsoft Defender for Containers.", "B. Azure Policy for Kubernetes.", "C. Azure Container Instances confidential computing.", "D. Content trust in Azure Container Registry."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Containers includes vulnerability assessment for container images pushed to Azure Container Registry. It automatically scans images for known vulnerabilities and provides remediation recommendations. Option B is incorrect because Azure Policy for Kubernetes enforces governance on Kubernetes clusters, not image scanning. Option C is incorrect because confidential computing protects data in use, not image vulnerabilities. Option D is incorrect because content trust ensures image integrity through signing but does not scan for vulnerabilities."
+    },
+    {
+      "id": 25,
+      "topic": "Identity and Access - Implementing authentication methods",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure passwordless authentication for your organization. Which TWO methods are supported for passwordless sign-in with Microsoft Entra ID? (Choose two.)",
+      "options": ["A. FIDO2 security keys.", "B. SMS-based one-time passwords.", "C. Microsoft Authenticator app phone sign-in.", "D. Email-based magic links.", "E. Security questions."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "FIDO2 security keys and Microsoft Authenticator app phone sign-in are both supported passwordless authentication methods in Microsoft Entra ID. FIDO2 keys use public-key cryptography, while the Authenticator app allows users to approve sign-ins with biometrics or PIN. Option B is incorrect because SMS OTP is a second factor, not a passwordless method. Option D is incorrect because email-based magic links are not a supported passwordless method in Microsoft Entra ID. Option E is incorrect because security questions are a self-service password reset method, not a passwordless authentication method."
+    },
+    {
+      "id": 26,
+      "topic": "Platform Protection - Implementing Azure Policy for security",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure all new storage accounts in your subscription are created with HTTPS-only traffic enabled. Existing non-compliant storage accounts should be flagged but not automatically modified. Which Azure Policy effect should you use?",
+      "options": ["A. Deny.", "B. Audit.", "C. DeployIfNotExists.", "D. Modify."],
+      "correctAnswers": ["B"],
+      "explanation": "The Audit effect flags existing non-compliant resources in the compliance report without modifying them, and new resources that do not meet the policy are allowed but flagged as non-compliant. Option A is incorrect because Deny would prevent the creation of non-compliant storage accounts, which goes beyond the flagging requirement. Option C is incorrect because DeployIfNotExists would deploy additional resources to remediate non-compliance, which is not needed here. Option D is incorrect because Modify would automatically change the non-compliant resources, which the question says should not happen."
+    },
+    {
+      "id": 27,
+      "topic": "Security Operations - Configuring diagnostic settings",
+      "type": "SingleChoice",
+      "questionText": "You need to archive Azure Activity Logs for compliance purposes for a period of 7 years. The solution must be cost-effective. Where should you send the logs?",
+      "options": ["A. A Log Analytics workspace with 7-year retention.", "B. An Azure Storage account with immutable blob storage.", "C. Azure Event Hubs for long-term streaming.", "D. An Azure SQL Database."],
+      "correctAnswers": ["B"],
+      "explanation": "Archiving logs to an Azure Storage account with immutable blob storage is the most cost-effective solution for long-term retention. Immutable storage ensures logs cannot be modified or deleted, meeting compliance requirements. Option A is incorrect because Log Analytics workspace retention beyond 730 days uses archive tier which is more expensive than blob storage for long-term archival. Option C is incorrect because Event Hubs is designed for real-time event streaming, not long-term storage. Option D is incorrect because Azure SQL Database is not designed for log archival and would be significantly more expensive."
+    },
+    {
+      "id": 28,
+      "topic": "Data and Application Security - Implementing secrets management",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Key Vault that stores secrets used by production applications. You need to prevent accidental or malicious deletion of secrets. Which TWO features should you enable on the Key Vault?",
+      "options": ["A. Soft delete and purge protection.", "B. RBAC authorization only.", "C. Network access restrictions.", "D. Key rotation policies."],
+      "correctAnswers": ["A"],
+      "explanation": "Soft delete ensures deleted secrets are retained for a configurable retention period (7-90 days), and purge protection prevents anyone from permanently purging secrets during the retention period. Together, they protect against both accidental and malicious deletion. Option B is incorrect because RBAC authorization controls who can access secrets but does not prevent deletion by authorized users. Option C is incorrect because network restrictions control where secrets can be accessed from, not whether they can be deleted. Option D is incorrect because key rotation automates key updates but does not protect against deletion."
+    },
+    {
+      "id": 29,
+      "topic": "Identity and Access - Implementing service principals",
+      "type": "SingleChoice",
+      "questionText": "A CI/CD pipeline needs to deploy resources to Azure. You need to authenticate the pipeline with minimum required permissions. The credentials should automatically rotate. What should you use?",
+      "options": ["A. A service principal with a client secret set to expire in 1 year.", "B. A service principal with a certificate.", "C. A user-assigned managed identity.", "D. A federated identity credential with workload identity federation."],
+      "correctAnswers": ["D"],
+      "explanation": "Workload identity federation with federated identity credentials allows external services (like GitHub Actions or Azure DevOps) to authenticate to Azure without storing secrets or certificates. The trust relationship is established between the identity provider and Microsoft Entra ID, eliminating credential management entirely. Option A is incorrect because client secrets must be manually rotated and can be compromised. Option B is incorrect because certificates also require manual rotation, though they are more secure than secrets. Option C is incorrect because managed identities can only be used by Azure resources, not external CI/CD systems."
+    },
+    {
+      "id": 30,
+      "topic": "Platform Protection - Implementing network segmentation",
+      "type": "SingleChoice",
+      "questionText": "You need to implement microsegmentation for your Azure virtual network to control traffic between individual workloads within the same subnet. What should you use?",
+      "options": ["A. Application security groups (ASGs) with NSG rules.", "B. Azure Firewall with subnet-level rules.", "C. Service endpoints on the subnet.", "D. Network virtual appliance (NVA) in the subnet."],
+      "correctAnswers": ["A"],
+      "explanation": "Application security groups (ASGs) allow you to group VMs by workload and create NSG rules that reference ASGs. This enables microsegmentation within a subnet without relying on IP addresses. You can control traffic between specific groups of VMs within the same subnet. Option B is incorrect because Azure Firewall typically operates between subnets or VNets, not within a single subnet. Option C is incorrect because service endpoints secure access to PaaS services, not inter-workload traffic. Option D is incorrect because an NVA within a subnet adds complexity and does not easily enable the granular microsegmentation that ASGs provide."
+    },
+    {
+      "id": 31,
+      "topic": "Security Operations - Implementing SIEM integration",
+      "type": "SingleChoice",
+      "questionText": "You need to create an automated investigation and response workflow in Microsoft Sentinel that triggers when a specific alert is generated. What should you create?",
+      "options": ["A. An analytics rule.", "B. A playbook (Logic App).", "C. A workbook.", "D. A hunting query."],
+      "correctAnswers": ["B"],
+      "explanation": "A playbook in Microsoft Sentinel is a Logic App that can be triggered automatically when a specific alert or incident is generated. It automates investigation and response actions like blocking an IP, disabling a user account, or sending notifications. Option A is incorrect because analytics rules generate alerts and incidents from log data but do not define automated response actions. Option C is incorrect because workbooks are for data visualization and reporting, not automation. Option D is incorrect because hunting queries are used for proactive threat hunting by analysts, not automated response."
+    },
+    {
+      "id": 32,
+      "topic": "Data and Application Security - Implementing API security",
+      "type": "SingleChoice",
+      "questionText": "You expose APIs through Azure API Management. You need to protect the APIs from abuse by limiting the number of calls a client can make within a time window. What policy should you configure?",
+      "options": ["A. IP filtering policy.", "B. Rate limit (throttling) policy.", "C. JWT validation policy.", "D. CORS policy."],
+      "correctAnswers": ["B"],
+      "explanation": "The rate limit (throttling) policy in Azure API Management limits the number of API calls a client can make within a specified time window, protecting APIs from abuse and ensuring fair usage. Option A is incorrect because IP filtering restricts access by IP address but does not limit call frequency. Option C is incorrect because JWT validation verifies authentication tokens but does not limit call frequency. Option D is incorrect because CORS policy manages cross-origin requests from browsers, not API call rate limiting."
+    },
+    {
+      "id": 33,
+      "topic": "Identity and Access - Implementing identity protection",
+      "type": "SingleChoice",
+      "questionText": "You notice that Microsoft Entra Identity Protection has flagged several user accounts with high-risk sign-ins due to sign-in attempts from anonymous IP addresses. You need to automatically remediate these risks. What should you configure?",
+      "options": ["A. A sign-in risk policy that requires MFA for high-risk sign-ins.", "B. A user risk policy that blocks all sign-ins.", "C. A Conditional Access policy that requires a compliant device.", "D. Manual account lockout for flagged users."],
+      "correctAnswers": ["A"],
+      "explanation": "A sign-in risk policy that requires MFA for high-risk sign-ins automatically remediates the risk by forcing additional authentication when a risky sign-in is detected. If MFA succeeds, the risk is considered remediated. Option B is incorrect because blocking all sign-ins is too aggressive and would prevent legitimate access. Option C is incorrect because requiring a compliant device addresses device security but does not directly remediate sign-in risk. Option D is incorrect because manual lockout is not an automated remediation."
+    },
+    {
+      "id": 34,
+      "topic": "Platform Protection - Implementing disk encryption",
+      "type": "SingleChoice",
+      "questionText": "You need to encrypt the OS and data disks of Azure VMs using keys managed in your Azure Key Vault. The encryption must protect data at rest. Which feature should you use?",
+      "options": ["A. Azure Disk Encryption (ADE).", "B. Server-side encryption with platform-managed keys.", "C. BitLocker without Azure integration.", "D. Azure Storage Service Encryption."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Disk Encryption (ADE) uses BitLocker (Windows) or DM-Crypt (Linux) to encrypt OS and data disks, with encryption keys stored in Azure Key Vault. This provides full volume encryption with customer-controlled keys. Option B is incorrect because platform-managed keys are managed by Microsoft, not stored in your Key Vault. Option C is incorrect because BitLocker without Azure integration does not integrate with Key Vault for key management. Option D is incorrect because Storage Service Encryption applies to storage accounts, not VM disks directly."
+    },
+    {
+      "id": 35,
+      "topic": "Security Operations - Implementing security monitoring",
+      "type": "SingleChoice",
+      "questionText": "You need to detect when someone modifies a network security group rule in your Azure subscription. What should you configure?",
+      "options": ["A. An Azure Activity Log alert for NSG write operations.", "B. NSG flow logs.", "C. Azure Network Watcher packet capture.", "D. Microsoft Defender for Cloud adaptive network hardening."],
+      "correctAnswers": ["A"],
+      "explanation": "An Azure Activity Log alert can be configured to trigger when NSG write operations (create, update, delete rules) occur. The Activity Log records all control plane operations, including NSG rule modifications. Option B is incorrect because NSG flow logs record network traffic flows through NSGs, not configuration changes to NSG rules. Option C is incorrect because packet capture captures network packets for analysis, not management plane changes. Option D is incorrect because adaptive network hardening recommends NSG rule changes but does not alert on actual modifications made by users."
+    },
+    {
+      "id": 36,
+      "topic": "Data and Application Security - Implementing secure app configuration",
+      "type": "SingleChoice",
+      "questionText": "Your web application running in Azure App Service needs to access secrets from Azure Key Vault. You want to reference Key Vault secrets directly in the App Service configuration without modifying application code. What should you use?",
+      "options": ["A. Key Vault references in App Service application settings.", "B. A custom middleware to fetch secrets at startup.", "C. Environment variables set via deployment scripts.", "D. Azure App Configuration with Key Vault integration."],
+      "correctAnswers": ["A"],
+      "explanation": "Key Vault references in App Service allow you to reference Key Vault secrets directly in application settings using the @Microsoft.KeyVault() syntax. The App Service runtime resolves these references automatically, and the application sees them as regular environment variables. Option B is incorrect because custom middleware requires code changes. Option C is incorrect because setting secrets via deployment scripts exposes them in the deployment pipeline. Option D is incorrect because while App Configuration can integrate with Key Vault, the question asks about direct App Service configuration without code changes."
+    },
+    {
+      "id": 37,
+      "topic": "Identity and Access - Implementing access reviews",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that users who have been assigned the Contributor role on a critical resource group still require that access. The review should occur quarterly, and if reviewers do not respond, access should be removed. What should you configure?",
+      "options": ["A. A PIM access review for the Contributor role with auto-apply and deny on no response.", "B. An Azure Policy that removes Contributor assignments quarterly.", "C. A scheduled PowerShell script to remove all Contributor assignments.", "D. A Conditional Access policy that expires Contributor access."],
+      "correctAnswers": ["A"],
+      "explanation": "PIM access reviews allow you to schedule recurring reviews of role assignments. You can configure auto-apply to automatically implement the review results and set the action for non-responsive reviewers to 'remove access.' This ensures quarterly review with automatic cleanup. Option B is incorrect because Azure Policy does not manage role assignment reviews. Option C is incorrect because a script would remove all assignments without a review process. Option D is incorrect because Conditional Access does not manage role assignment duration or reviews."
+    },
+    {
+      "id": 38,
+      "topic": "Platform Protection - Implementing network monitoring",
+      "type": "MultipleChoice",
+      "questionText": "You need to capture and analyze network traffic patterns for compliance auditing on your Azure virtual network. Which TWO features should you use? (Choose two.)",
+      "options": ["A. NSG flow logs.", "B. Azure Network Watcher traffic analytics.", "C. Azure Monitor metrics for VMs.", "D. Microsoft Entra sign-in logs.", "E. Azure Service Health alerts."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "NSG flow logs capture information about IP traffic flowing through NSGs, and Traffic Analytics (a Network Watcher feature) processes NSG flow logs to provide insights into traffic patterns, top talkers, security threats, and more. Together, they provide comprehensive network traffic auditing. Option C is incorrect because VM metrics show CPU, memory, and disk usage, not detailed network traffic patterns. Option D is incorrect because sign-in logs track authentication events, not network traffic. Option E is incorrect because Service Health alerts notify about Azure service issues, not network traffic."
+    },
+    {
+      "id": 39,
+      "topic": "Data and Application Security - Implementing backup security",
+      "type": "SingleChoice",
+      "questionText": "You need to protect Azure Backup data from being deleted by a compromised administrator account. Even if an attacker gains Backup Contributor access, they should not be able to delete backup data immediately. What should you enable?",
+      "options": ["A. Soft delete for Azure Backup.", "B. Multi-user authorization for Azure Backup.", "C. Immutable vault.", "D. Azure Backup encryption with customer-managed keys."],
+      "correctAnswers": ["C"],
+      "explanation": "An immutable vault in Azure Backup prevents any user from deleting backup data before the retention period expires. Even users with Backup Contributor or Owner roles cannot delete protected items or reduce retention, protecting against malicious insiders. Option A is incorrect because soft delete retains deleted data for 14 additional days but can be disabled by an administrator with sufficient permissions. Option B is incorrect because multi-user authorization requires additional approval for critical operations but adds an authorization step rather than outright prevention. Option D is incorrect because encryption protects data confidentiality, not against deletion."
+    },
+    {
+      "id": 40,
+      "topic": "Security Operations - Implementing compliance monitoring",
+      "type": "SingleChoice",
+      "questionText": "You need to continuously assess your Azure environment against regulatory compliance standards such as ISO 27001 and PCI DSS. You want built-in dashboards showing compliance status. Which feature should you use?",
+      "options": ["A. Microsoft Defender for Cloud regulatory compliance dashboard.", "B. Azure Advisor security recommendations.", "C. Azure Policy compliance view.", "D. Microsoft Purview compliance portal."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Cloud provides a regulatory compliance dashboard that continuously assesses your Azure environment against regulatory standards like ISO 27001, PCI DSS, NIST, and others. It shows compliance status with actionable recommendations for each control. Option B is incorrect because Azure Advisor provides general recommendations for cost, performance, reliability, and security but does not map to specific regulatory frameworks. Option C is incorrect because Azure Policy compliance shows policy compliance but is not specifically organized by regulatory standards. Option D is incorrect because Microsoft Purview compliance portal focuses on data governance and compliance for Microsoft 365, not Azure infrastructure."
+    }
+  ]
+}

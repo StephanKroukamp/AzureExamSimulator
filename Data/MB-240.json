@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-240",
+  "examTitle": "Dynamics 365 Field Service Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Work Orders - Work order creation",
+      "type": "SingleChoice",
+      "questionText": "A customer calls to report a broken HVAC unit. What is the first step in the Field Service process?",
+      "options": ["A. Dispatch a technician immediately.", "B. Create a work order with the appropriate work order type and incident type.", "C. Create an invoice for the repair.", "D. Schedule a return visit."],
+      "correctAnswers": ["B"],
+      "explanation": "The first step is to create a work order that captures the service request details, including the work order type and incident type that define what work needs to be done. Dispatching (A) comes after the work order is created and scheduled. Invoicing (C) happens after completion. A return visit (D) is not the first step."
+    },
+    {
+      "id": 2,
+      "topic": "Scheduling - Schedule board",
+      "type": "SingleChoice",
+      "questionText": "A dispatcher needs to assign a work order to a technician who has the required skills and is closest to the customer location. What tool should they use?",
+      "options": ["A. The schedule board with map view.", "B. A filtered list of technicians.", "C. The Outlook calendar.", "D. A manual spreadsheet of technician locations."],
+      "correctAnswers": ["A"],
+      "explanation": "The schedule board with map view shows technician locations on a map along with their availability and skills, allowing dispatchers to make informed assignment decisions. Filtered lists (B) do not show geographic proximity. Outlook (C) does not integrate with Field Service scheduling. Spreadsheets (D) are not real-time."
+    },
+    {
+      "id": 3,
+      "topic": "Agreements - Service agreements",
+      "type": "SingleChoice",
+      "questionText": "A customer has a maintenance agreement that requires quarterly preventive maintenance visits. How should you configure this?",
+      "options": ["A. Create four separate work orders manually each year.", "B. Create an agreement with agreement booking setups that auto-generate work orders on a recurring schedule.", "C. Set reminders in Outlook for each quarter.", "D. Create a single work order and reschedule it after each visit."],
+      "correctAnswers": ["B"],
+      "explanation": "Agreements with booking setups allow you to define recurring service schedules that automatically generate work orders at the specified intervals. Manual creation (A) is error-prone. Outlook reminders (C) do not create work orders. Rescheduling a single work order (D) loses historical tracking."
+    },
+    {
+      "id": 4,
+      "topic": "Inventory - Inventory management",
+      "type": "SingleChoice",
+      "questionText": "A technician needs to use a replacement part from their truck stock during a work order. How should this be tracked?",
+      "options": ["A. The technician notes the part usage in the work order description.", "B. A product is added to the work order products list and the inventory is adjusted from the technician's warehouse.", "C. The office staff adjusts inventory manually after the visit.", "D. The part usage is tracked in a separate inventory system."],
+      "correctAnswers": ["B"],
+      "explanation": "Adding a product to the work order products list with the technician's warehouse as the source automatically tracks usage and adjusts inventory. Notes (A) are not structured data. Manual adjustments (C) are delayed and error-prone. Separate systems (D) create data silos."
+    },
+    {
+      "id": 5,
+      "topic": "IoT - Connected Field Service",
+      "type": "SingleChoice",
+      "questionText": "A sensor on a customer's equipment detects abnormal temperature readings. What can Connected Field Service do automatically?",
+      "options": ["A. Repair the equipment remotely.", "B. Generate an IoT alert and automatically create a work order for inspection.", "C. Send a replacement part to the customer.", "D. Disconnect the equipment from the network."],
+      "correctAnswers": ["B"],
+      "explanation": "Connected Field Service can receive IoT alerts from sensors and automatically generate work orders for inspection or repair based on predefined rules. It cannot repair equipment remotely (A), send parts automatically (C), or disconnect equipment (D)."
+    },
+    {
+      "id": 6,
+      "topic": "Resource Management - Resource scheduling",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of resources can be scheduled in Dynamics 365 Field Service? (Choose two.)",
+      "options": ["A. Users (technicians).", "B. Equipment and tools.", "C. Meeting rooms.", "D. Email addresses."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Field Service supports scheduling of users/technicians (A) and equipment/tools (B) as bookable resources. Meeting rooms (C) and email addresses (D) are not Field Service schedulable resource types."
+    },
+    {
+      "id": 7,
+      "topic": "Work Orders - Incident types",
+      "type": "SingleChoice",
+      "questionText": "You want to standardize the tasks, products, and services required for a specific type of repair. What should you configure?",
+      "options": ["A. A work order template.", "B. An incident type with associated service tasks, products, and services.", "C. A business process flow for work orders.", "D. A checklist document attached to the work order."],
+      "correctAnswers": ["B"],
+      "explanation": "Incident types define the nature of the work and automatically populate work orders with the required service tasks, products, and services when selected. Work order templates (A) are not the same as incident types. Business process flows (C) guide the process but do not define required items. Checklists (D) are not structured data."
+    },
+    {
+      "id": 8,
+      "topic": "Scheduling - Resource Scheduling Optimization",
+      "type": "SingleChoice",
+      "questionText": "A company wants to automatically optimize the scheduling of 50 technicians across 200 daily work orders to minimize travel time. What feature should they use?",
+      "options": ["A. Manual scheduling by dispatchers.", "B. Resource Scheduling Optimization (RSO).", "C. The schedule assistant.", "D. A Power Automate flow."],
+      "correctAnswers": ["B"],
+      "explanation": "Resource Scheduling Optimization (RSO) uses AI to automatically optimize schedules for multiple resources and work orders, considering constraints like skills, territories, and travel time. Manual scheduling (A) cannot optimize at this scale. The schedule assistant (C) helps with individual bookings, not bulk optimization. Power Automate (D) does not have scheduling optimization capabilities."
+    },
+    {
+      "id": 9,
+      "topic": "Agreements - Agreement invoices",
+      "type": "SingleChoice",
+      "questionText": "A service agreement includes monthly billing for maintenance services. How should the invoicing be configured?",
+      "options": ["A. Create invoices manually each month.", "B. Configure agreement invoice setups to auto-generate invoices on a monthly schedule.", "C. Bill the entire year upfront.", "D. Use a third-party billing system."],
+      "correctAnswers": ["B"],
+      "explanation": "Agreement invoice setups allow you to define recurring invoice generation schedules, automating monthly billing for maintenance agreements. Manual invoicing (A) is inefficient. Annual upfront billing (C) may not match the agreement terms. Third-party systems (D) create unnecessary integration complexity."
+    },
+    {
+      "id": 10,
+      "topic": "Inventory - Purchase orders",
+      "type": "SingleChoice",
+      "questionText": "A warehouse manager needs to replenish stock of frequently used parts. What should they create in Field Service?",
+      "options": ["A. A work order for inventory replenishment.", "B. A purchase order to order parts from a vendor.", "C. An inventory adjustment.", "D. A return merchandise authorization."],
+      "correctAnswers": ["B"],
+      "explanation": "Purchase orders in Field Service allow you to order parts from vendors, track the order through receipt, and update warehouse inventory upon delivery. Work orders (A) are for service, not procurement. Inventory adjustments (C) correct counts but do not order parts. RMAs (D) handle returns, not purchases."
+    },
+    {
+      "id": 11,
+      "topic": "IoT - IoT alerts",
+      "type": "SingleChoice",
+      "questionText": "An IoT device generates hundreds of alerts per day. You want to reduce noise and only create work orders for critical issues. What should you configure?",
+      "options": ["A. Disable IoT integration and handle manually.", "B. Configure IoT alert rules with severity thresholds to filter which alerts create work orders.", "C. Create a work order for every alert and close non-critical ones.", "D. Use a separate IoT monitoring tool."],
+      "correctAnswers": ["B"],
+      "explanation": "IoT alert rules allow you to define severity thresholds and conditions that determine which alerts trigger work order creation, filtering out non-critical noise. Disabling IoT (A) loses monitoring benefits. Creating and closing work orders (C) is wasteful. Separate tools (D) create integration gaps."
+    },
+    {
+      "id": 12,
+      "topic": "Resource Management - Skills and characteristics",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that only technicians certified in electrical work are assigned to electrical repair work orders. What should you configure?",
+      "options": ["A. A business rule on the work order.", "B. Characteristics (skills) for electrical certification and assign them to qualified technicians and require them on work orders.", "C. A separate queue for electrical work orders.", "D. A custom field on the technician record."],
+      "correctAnswers": ["B"],
+      "explanation": "Characteristics define skills and certifications that can be assigned to resources and required on work orders. The scheduling engine then matches requirements to available qualified resources. Business rules (A) cannot control scheduling. Queues (C) manage work distribution, not skill matching. Custom fields (D) are not integrated with the scheduling engine."
+    },
+    {
+      "id": 13,
+      "topic": "Work Orders - Work order lifecycle",
+      "type": "SingleChoice",
+      "questionText": "What is the correct status progression for a typical work order in Field Service?",
+      "options": ["A. Open > Scheduled > In Progress > Completed > Posted.", "B. Draft > Active > Closed.", "C. New > Assigned > Resolved.", "D. Created > Dispatched > Done."],
+      "correctAnswers": ["A"],
+      "explanation": "The standard work order lifecycle follows: Open (created but not scheduled) > Scheduled (assigned to a resource) > In Progress (technician is working) > Completed (work done) > Posted (reviewed and finalized for billing). The other sequences (B, C, D) do not match the Field Service work order status flow."
+    },
+    {
+      "id": 14,
+      "topic": "Scheduling - Schedule assistant",
+      "type": "SingleChoice",
+      "questionText": "A dispatcher needs to find the next available technician with plumbing skills within a 50-mile radius of the customer. What tool should they use?",
+      "options": ["A. The schedule assistant with filters for skill and radius.", "B. A manual search through all technician calendars.", "C. The global search in Dynamics 365.", "D. A Power BI report on technician availability."],
+      "correctAnswers": ["A"],
+      "explanation": "The schedule assistant allows dispatchers to search for available resources filtered by skills, location radius, and other criteria. It presents a list of qualified, available resources. Manual calendar searches (B) are time-consuming. Global search (C) does not consider availability. Power BI (D) is for analytics, not real-time scheduling."
+    },
+    {
+      "id": 15,
+      "topic": "Agreements - Agreement booking dates",
+      "type": "SingleChoice",
+      "questionText": "An agreement specifies that maintenance should occur on the 15th of every month. If the 15th falls on a weekend, what happens?",
+      "options": ["A. The work order is not generated.", "B. The system generates the work order based on the booking recurrence pattern, regardless of weekends.", "C. The work order is automatically moved to the next business day.", "D. The agreement must be manually adjusted."],
+      "correctAnswers": ["B"],
+      "explanation": "Agreement booking setups generate work orders based on the configured recurrence pattern. The work order is generated on the scheduled date regardless of whether it falls on a weekend; scheduling the actual booking can be adjusted separately. Work orders are not skipped (A). Automatic rescheduling (C) is not the default behavior. Manual adjustment (D) is not required."
+    },
+    {
+      "id": 16,
+      "topic": "Inventory - Inventory transfers",
+      "type": "SingleChoice",
+      "questionText": "A technician needs a part that is available in a different warehouse. How should the part be moved?",
+      "options": ["A. The technician drives to the other warehouse and takes the part.", "B. Create an inventory transfer to move the product between warehouses.", "C. Adjust the inventory in both warehouses manually.", "D. Create a new purchase order for the part."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory transfers formally track the movement of products between warehouses, maintaining accurate inventory counts at both locations. Physical retrieval (A) does not update the system. Manual adjustments (C) are error-prone. Purchase orders (D) are for buying from vendors, not internal transfers."
+    },
+    {
+      "id": 17,
+      "topic": "IoT - Remote commands",
+      "type": "SingleChoice",
+      "questionText": "A technician troubleshooting a connected device wants to send a reset command to the device remotely. What feature of Connected Field Service supports this?",
+      "options": ["A. IoT device commands sent through the IoT integration.", "B. Email the device manufacturer to perform the reset.", "C. Create a work order for physical reset.", "D. Use a third-party remote access tool."],
+      "correctAnswers": ["A"],
+      "explanation": "Connected Field Service supports sending IoT device commands, such as reset or reboot, directly from Dynamics 365 through the IoT platform integration. Contacting the manufacturer (B) is not a system feature. A physical work order (C) would require an on-site visit. Third-party tools (D) are not integrated with Field Service."
+    },
+    {
+      "id": 18,
+      "topic": "Resource Management - Resource territories",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict technicians to only being scheduled for work orders within their assigned geographic territory. What should you configure?",
+      "options": ["A. Resource territories assigned to both technicians and work orders.", "B. A business rule that prevents booking outside the territory.", "C. A security role that restricts access to work orders.", "D. Separate Dynamics 365 organizations for each territory."],
+      "correctAnswers": ["A"],
+      "explanation": "Resource territories define geographic areas and can be assigned to both resources and work orders. The scheduling engine uses territory matching to ensure resources are scheduled within their territories. Business rules (B) do not control scheduling. Security roles (C) control access, not scheduling. Separate organizations (D) create unnecessary complexity."
+    },
+    {
+      "id": 19,
+      "topic": "Work Orders - Service tasks",
+      "type": "MultipleChoice",
+      "questionText": "Which two statements about service tasks on work orders are correct? (Choose two.)",
+      "options": ["A. Service tasks define step-by-step instructions for technicians.", "B. Service tasks can have estimated durations that affect scheduling.", "C. Service tasks automatically order parts from vendors.", "D. Service tasks replace the need for incident types."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Service tasks provide step-by-step instructions (A) and can include estimated durations that the scheduling engine uses for appointment planning (B). They do not order parts (C); that is handled through products on work orders. Service tasks are part of incident types, not a replacement for them (D)."
+    },
+    {
+      "id": 20,
+      "topic": "Scheduling - Booking statuses",
+      "type": "SingleChoice",
+      "questionText": "A technician arrives at the customer site and starts working. What booking status should they set?",
+      "options": ["A. Scheduled.", "B. Traveling.", "C. In Progress.", "D. Completed."],
+      "correctAnswers": ["C"],
+      "explanation": "When a technician begins working on-site, they should set the booking status to 'In Progress'. Scheduled (A) is the status before travel begins. Traveling (B) is used during transit. Completed (D) is set when work is finished."
+    },
+    {
+      "id": 21,
+      "topic": "Agreements - Agreement sub-statuses",
+      "type": "SingleChoice",
+      "questionText": "An agreement with a customer has expired. What is the expected system status of the agreement?",
+      "options": ["A. Active.", "B. Expired.", "C. Canceled.", "D. Draft."],
+      "correctAnswers": ["B"],
+      "explanation": "When an agreement's end date passes, its system status changes to Expired. Active (A) is for agreements within their valid date range. Canceled (C) is for agreements that were terminated early. Draft (D) is for agreements not yet activated."
+    },
+    {
+      "id": 22,
+      "topic": "Inventory - Return merchandise authorization",
+      "type": "SingleChoice",
+      "questionText": "A customer needs to return a defective part that was installed during a service visit. What should you create?",
+      "options": ["A. A new work order for the return.", "B. A Return Merchandise Authorization (RMA) to process the return.", "C. An inventory adjustment to increase stock.", "D. A credit note in the invoicing system."],
+      "correctAnswers": ["B"],
+      "explanation": "An RMA tracks the return process from customer return through receipt and disposition of the returned product. A work order (A) is for service, not returns. Inventory adjustments (C) do not track the return process. Credit notes (D) handle financial adjustments but not the physical return."
+    },
+    {
+      "id": 23,
+      "topic": "IoT - Device registration",
+      "type": "SingleChoice",
+      "questionText": "To enable Connected Field Service for a customer's equipment, what must be done first?",
+      "options": ["A. Create a work order for IoT setup.", "B. Register the IoT device and associate it with the customer asset in Dynamics 365.", "C. Install Dynamics 365 on the IoT device.", "D. Create an agreement for IoT monitoring."],
+      "correctAnswers": ["B"],
+      "explanation": "The IoT device must be registered in the IoT platform and associated with the customer asset record in Dynamics 365 to enable Connected Field Service monitoring and automation. A work order (A) may be needed for physical installation but is not the registration step. Dynamics 365 is not installed on devices (C). An agreement (D) is for commercial terms, not technical setup."
+    },
+    {
+      "id": 24,
+      "topic": "Resource Management - Working hours",
+      "type": "SingleChoice",
+      "questionText": "You need to define that a technician works Monday through Friday, 8 AM to 5 PM, and is unavailable on public holidays. What should you configure?",
+      "options": ["A. A work hours template applied to the bookable resource.", "B. A personal Outlook calendar.", "C. A custom field for working hours.", "D. A business rule that checks the day of the week."],
+      "correctAnswers": ["A"],
+      "explanation": "Work hours templates define standard working hours and can be applied to bookable resources. The scheduling engine respects these hours when finding available resources. Outlook calendars (B) may sync but are not the primary configuration. Custom fields (C) are not integrated with scheduling. Business rules (D) cannot control scheduling availability."
+    },
+    {
+      "id": 25,
+      "topic": "Work Orders - Work order types",
+      "type": "SingleChoice",
+      "questionText": "A company performs both reactive repairs and preventive maintenance. They want different pricing and tax codes for each. What should they configure?",
+      "options": ["A. A single work order type for all work.", "B. Separate work order types for reactive repairs and preventive maintenance.", "C. A custom field to indicate the work type.", "D. Separate business units for each type."],
+      "correctAnswers": ["B"],
+      "explanation": "Work order types allow you to categorize work orders and associate them with different price lists, tax codes, and other settings. A single type (A) cannot differentiate pricing. Custom fields (C) are not integrated with pricing logic. Separate business units (D) add unnecessary organizational complexity."
+    },
+    {
+      "id": 26,
+      "topic": "Scheduling - Time groups",
+      "type": "SingleChoice",
+      "questionText": "A company offers customers morning or afternoon appointment windows. How should you configure this in Field Service?",
+      "options": ["A. Create two work order types for morning and afternoon.", "B. Configure time group details (fulfillment preferences) for morning and afternoon windows.", "C. Use free text notes to indicate preferred time.", "D. Create separate schedule boards for each window."],
+      "correctAnswers": ["B"],
+      "explanation": "Time group details (fulfillment preferences) allow you to define appointment windows such as morning or afternoon that customers can be offered. This integrates with the scheduling engine. Work order types (A) are not for time preferences. Free text (C) is not structured. Separate boards (D) fragment the scheduling view."
+    },
+    {
+      "id": 27,
+      "topic": "Agreements - Agreement booking incidents",
+      "type": "SingleChoice",
+      "questionText": "An agreement specifies that each quarterly visit should include both an inspection and a filter replacement. How should you configure this?",
+      "options": ["A. Create two separate agreement booking setups.", "B. Add multiple agreement booking incidents (incident types) to the agreement booking setup.", "C. Add the tasks manually to each generated work order.", "D. Create two agreements for the same customer."],
+      "correctAnswers": ["B"],
+      "explanation": "Agreement booking incidents allow you to attach multiple incident types to a single booking setup, so each generated work order includes all specified incident types with their associated tasks and products. Separate booking setups (A) would generate separate work orders. Manual task addition (C) is error-prone. Two agreements (D) add unnecessary complexity."
+    },
+    {
+      "id": 28,
+      "topic": "Inventory - Warehouse management",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of warehouses are commonly used in Field Service? (Choose two.)",
+      "options": ["A. A main warehouse for bulk inventory storage.", "B. A truck warehouse representing a technician's vehicle stock.", "C. A virtual warehouse for cloud-based storage.", "D. A customer warehouse at the service location."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Field Service commonly uses main warehouses (A) for centralized inventory and truck warehouses (B) representing technician vehicle stock. Virtual warehouses (C) and customer warehouses (D) are not standard Field Service warehouse types."
+    },
+    {
+      "id": 29,
+      "topic": "IoT - IoT device data history",
+      "type": "SingleChoice",
+      "questionText": "A manager wants to see the history of temperature readings from an IoT sensor over the past 30 days. Where can they find this data?",
+      "options": ["A. In the IoT device history within Dynamics 365.", "B. In the customer's service history.", "C. In the work order history.", "D. Only in the external IoT platform."],
+      "correctAnswers": ["A"],
+      "explanation": "Connected Field Service maintains IoT device data history within Dynamics 365, including sensor readings and alerts. Service history (B) tracks service interactions, not sensor data. Work order history (C) tracks work performed. While data originates from the IoT platform (D), it is surfaced in Dynamics 365."
+    },
+    {
+      "id": 30,
+      "topic": "Resource Management - Resource pools",
+      "type": "SingleChoice",
+      "questionText": "A company has a team of 5 electricians and wants to schedule any available electrician for a work order without specifying which one. What should they configure?",
+      "options": ["A. A resource pool containing the 5 electricians.", "B. A queue for electrical work orders.", "C. A generic resource named 'Electrician'.", "D. Five separate bookings for each electrician."],
+      "correctAnswers": ["A"],
+      "explanation": "A resource pool groups multiple resources together, allowing the scheduling system to book the pool and later assign a specific member. This is ideal when any member of a group can fulfill the requirement. Queues (B) manage work distribution, not resource scheduling. A generic resource (C) does not represent the actual team. Five bookings (D) would overbook the work."
+    },
+    {
+      "id": 31,
+      "topic": "Work Orders - Customer assets",
+      "type": "SingleChoice",
+      "questionText": "A technician needs to view the service history of a specific piece of equipment at a customer's site. What entity should they look up?",
+      "options": ["A. The account record.", "B. The customer asset record.", "C. The product record.", "D. The contact record."],
+      "correctAnswers": ["B"],
+      "explanation": "Customer assets represent specific pieces of equipment at customer locations and maintain a service history of all work orders performed on them. Account records (A) show customer-level history. Product records (C) are catalog items. Contact records (D) represent people."
+    },
+    {
+      "id": 32,
+      "topic": "Scheduling - Preferred resources",
+      "type": "SingleChoice",
+      "questionText": "A customer has requested that the same technician who serviced them last time be sent again. How can you accommodate this?",
+      "options": ["A. Manually search for the technician and book them.", "B. Set a preferred resource on the work order or account.", "C. Create a dedicated agreement for this customer and technician.", "D. Call the technician directly."],
+      "correctAnswers": ["B"],
+      "explanation": "Field Service supports preferred resource settings on work orders and accounts. The schedule assistant then prioritizes these resources when finding available technicians. Manual search (A) is less efficient. A dedicated agreement (C) is for recurring service, not resource preference. Calling (D) bypasses the scheduling system."
+    },
+    {
+      "id": 33,
+      "topic": "Inventory - Inventory adjustments",
+      "type": "SingleChoice",
+      "questionText": "During a physical inventory count, you find that the actual count of a part differs from the system count. How should you correct this?",
+      "options": ["A. Delete and re-create the product record.", "B. Create an inventory adjustment to reconcile the system count with the physical count.", "C. Modify the product's on-hand quantity directly.", "D. Create a purchase order for the difference."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory adjustments allow you to increase or decrease inventory counts to match physical counts, maintaining an audit trail. Deleting products (A) is destructive. Directly modifying quantities (C) is not a standard operation. Purchase orders (D) are for ordering from vendors."
+    },
+    {
+      "id": 34,
+      "topic": "Work Orders - Travel charges",
+      "type": "SingleChoice",
+      "questionText": "A company charges customers for travel time to the service location. How should travel charges be captured?",
+      "options": ["A. Add travel time as a note on the work order.", "B. Configure work order service line items to include travel as a billable service.", "C. Track travel in a separate system.", "D. Include travel in the product cost."],
+      "correctAnswers": ["B"],
+      "explanation": "Travel charges can be captured as service line items on work orders, making them billable and visible in invoicing. Notes (A) are not billable. Separate systems (C) create data silos. Including travel in product cost (D) obscures the pricing structure."
+    },
+    {
+      "id": 35,
+      "topic": "Scheduling - Geofencing",
+      "type": "SingleChoice",
+      "questionText": "You want technicians to automatically receive notifications when they arrive near a customer's location. What Field Service feature supports this?",
+      "options": ["A. GPS tracking only.", "B. Geofencing with automatic booking status updates.", "C. Push notifications from a custom app.", "D. SMS reminders based on scheduled time."],
+      "correctAnswers": ["B"],
+      "explanation": "Geofencing in Field Service creates a virtual perimeter around service locations and can automatically update booking statuses or send notifications when technicians enter or exit the area. GPS tracking (A) shows location but does not trigger actions. Custom apps (C) require development. SMS reminders (D) are time-based, not location-based."
+    },
+    {
+      "id": 36,
+      "topic": "Resource Management - Crews",
+      "type": "MultipleChoice",
+      "questionText": "Which two statements about crews in Dynamics 365 Field Service are correct? (Choose two.)",
+      "options": ["A. A crew is a group of resources that travel and work together.", "B. Crew members share a single schedule and are booked as a unit.", "C. Crews can only include human resources, not equipment.", "D. Crews are the same as resource pools."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Crews represent groups of resources that travel and work together (A) and are scheduled as a single unit (B). Crews can include both human resources and equipment (C is incorrect). Crews differ from pools in that crew members are always scheduled together (D is incorrect)."
+    },
+    {
+      "id": 37,
+      "topic": "Work Orders - Inspections",
+      "type": "SingleChoice",
+      "questionText": "A technician needs to complete a standardized checklist during a maintenance visit that includes questions, measurements, and photo uploads. What feature should you use?",
+      "options": ["A. A paper checklist that is later entered into the system.", "B. Inspections in Field Service.", "C. A custom Power App for data collection.", "D. Service task notes."],
+      "correctAnswers": ["B"],
+      "explanation": "Inspections provide a digital form builder for creating standardized checklists that technicians complete on their mobile device, including support for questions, measurements, and attachments. Paper checklists (A) require double entry. Custom Power Apps (C) require development. Service task notes (D) are unstructured."
+    },
+    {
+      "id": 38,
+      "topic": "Scheduling - Optimization goals",
+      "type": "SingleChoice",
+      "questionText": "When configuring Resource Scheduling Optimization, which optimization goal minimizes the total distance traveled by technicians?",
+      "options": ["A. Maximize utilization.", "B. Minimize travel time.", "C. Maximize the number of bookings.", "D. Balance workload across resources."],
+      "correctAnswers": ["B"],
+      "explanation": "The minimize travel time optimization goal reduces the total travel distance and time for all technicians, improving efficiency. Maximize utilization (A) focuses on keeping resources busy. Maximize bookings (C) prioritizes volume. Workload balance (D) distributes work evenly."
+    },
+    {
+      "id": 39,
+      "topic": "IoT - Proactive maintenance",
+      "type": "SingleChoice",
+      "questionText": "A company wants to shift from reactive repairs to proactive maintenance using IoT data. What Connected Field Service capability supports this?",
+      "options": ["A. Creating work orders only when customers call.", "B. Using IoT device data and alerts to predict failures and generate preventive work orders before breakdowns occur.", "C. Scheduling monthly inspections regardless of device health.", "D. Monitoring equipment manually during site visits."],
+      "correctAnswers": ["B"],
+      "explanation": "Connected Field Service enables proactive maintenance by using IoT device data and alerts to predict failures and automatically generate preventive work orders. Reactive-only approaches (A) miss opportunities for prevention. Fixed schedules (C) do not account for actual device condition. Manual monitoring (D) is not proactive."
+    },
+    {
+      "id": 40,
+      "topic": "Work Orders - Mobile experience",
+      "type": "SingleChoice",
+      "questionText": "A technician in the field needs to view their schedule, update work order statuses, and capture customer signatures. What tool should they use?",
+      "options": ["A. A web browser on their laptop.", "B. The Dynamics 365 Field Service mobile app.", "C. Email updates to the dispatcher.", "D. A paper-based field service form."],
+      "correctAnswers": ["B"],
+      "explanation": "The Dynamics 365 Field Service mobile app provides technicians with a native mobile experience for viewing schedules, updating statuses, capturing signatures, and accessing work order details offline or online. A laptop browser (A) is less portable. Email (C) is not real-time. Paper forms (D) require manual data entry."
+    }
+  ]
+}

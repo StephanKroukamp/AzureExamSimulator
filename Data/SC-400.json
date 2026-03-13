@@ -1,0 +1,366 @@
+{
+  "examCode": "SC-400",
+  "examTitle": "Microsoft Information Protection Administrator Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Sensitivity Labels - Label creation",
+      "type": "SingleChoice",
+      "questionText": "You need to create a sensitivity label that encrypts documents and restricts access to members of the Finance team. When applied, the label should prevent external users from opening the document. Which sensitivity label setting should you configure?",
+      "options": ["A. Content marking with headers and footers only.", "B. Encryption with specific users or groups (Finance team) set as authorized users.", "C. Auto-labeling for documents containing financial data.", "D. Label scope set to Groups & sites only."],
+      "correctAnswers": ["B"],
+      "explanation": "Configuring encryption with specific authorized users (the Finance team group) ensures only members of that group can decrypt and open the document. External users who are not in the authorized list cannot access the content. Option A is incorrect because content marking adds visual marks but doesn't restrict access. Option C is incorrect because auto-labeling detects and applies labels but doesn't configure the encryption settings. Option D is incorrect because Groups & sites scope applies the label to containers, not document-level encryption."
+    },
+    {
+      "id": 2,
+      "topic": "DLP Policies - Exchange Online DLP",
+      "type": "SingleChoice",
+      "questionText": "You need to create a DLP policy that prevents users from sending emails containing credit card numbers to external recipients. Internal emails should not be affected. Which DLP policy configuration should you use?",
+      "options": ["A. Create a DLP policy with a rule that detects credit card numbers and applies it to Exchange Online with the condition 'Content is shared with people outside my organization'.", "B. Create a transport rule in Exchange Online to block all external emails.", "C. Configure a sensitivity label to encrypt all emails automatically.", "D. Block all email attachments using Exchange Online mail flow rules."],
+      "correctAnswers": ["A"],
+      "explanation": "A DLP policy targeting Exchange Online can detect credit card numbers using built-in sensitive information types and the condition 'Content is shared with people outside my organization' ensures only external emails are blocked. Internal emails with credit card numbers are not affected. Option B is incorrect because blocking all external emails is too broad. Option C is incorrect because encrypting all emails doesn't prevent sending sensitive data externally. Option D is incorrect because blocking all attachments is disproportionate and doesn't address the specific requirement."
+    },
+    {
+      "id": 3,
+      "topic": "Microsoft Purview - Compliance portal overview",
+      "type": "SingleChoice",
+      "questionText": "Which role should be assigned to a user who needs to create and manage DLP policies, sensitivity labels, and retention policies in the Microsoft Purview compliance portal?",
+      "options": ["A. Global Reader.", "B. Compliance Administrator.", "C. Security Reader.", "D. Helpdesk Administrator."],
+      "correctAnswers": ["B"],
+      "explanation": "The Compliance Administrator role grants permissions to manage DLP policies, sensitivity labels, retention policies, and other compliance features in the Microsoft Purview compliance portal. Option A is incorrect because Global Reader provides read-only access. Option C is incorrect because Security Reader provides read-only access to security features. Option D is incorrect because Helpdesk Administrator manages password resets and service requests, not compliance policies."
+    },
+    {
+      "id": 4,
+      "topic": "Retention Policies - Microsoft 365 retention",
+      "type": "SingleChoice",
+      "questionText": "Your legal department requires that all emails in Exchange Online be retained for 7 years and then automatically deleted. Which retention policy configuration should you use?",
+      "options": ["A. Create a retention policy with 'Retain items for 7 years' and 'At end of the retention period, delete items automatically' applied to Exchange email.", "B. Create a retention label that retains for 7 years and publish it to all users.", "C. Configure Exchange Online archive mailboxes with a 7-year limit.", "D. Create an eDiscovery hold for 7 years."],
+      "correctAnswers": ["A"],
+      "explanation": "A retention policy applied to Exchange email with a 7-year retention period and automatic deletion at the end ensures all emails are retained for the required period and cleaned up afterward. This is applied organization-wide without user action. Option B is incorrect because retention labels require user or automatic application and don't guarantee organization-wide coverage as easily as a retention policy. Option C is incorrect because archive mailboxes move old items but don't enforce retention periods or automatic deletion. Option D is incorrect because eDiscovery holds preserve content for legal cases, not routine retention management."
+    },
+    {
+      "id": 5,
+      "topic": "eDiscovery - Content search",
+      "type": "SingleChoice",
+      "questionText": "Your legal team needs to search for all emails and documents across the organization that contain the phrase 'Project Titan' and were created between January 1, 2025, and March 31, 2025. Which tool should you use?",
+      "options": ["A. Microsoft Purview eDiscovery (Standard) content search.", "B. Microsoft Purview audit log search.", "C. Azure Log Analytics.", "D. Exchange Online message trace."],
+      "correctAnswers": ["A"],
+      "explanation": "eDiscovery content search allows you to search across Exchange Online, SharePoint Online, OneDrive, and Teams for content matching specific keywords, date ranges, and other criteria. Option B is incorrect because audit log search tracks user and admin activities, not email/document content. Option C is incorrect because Log Analytics stores Azure resource logs, not Microsoft 365 content. Option D is incorrect because message trace shows email delivery information but doesn't search email content."
+    },
+    {
+      "id": 6,
+      "topic": "Sensitivity Labels - Auto-labeling",
+      "type": "SingleChoice",
+      "questionText": "You want to automatically apply a 'Confidential' sensitivity label to all documents stored in SharePoint Online that contain Social Security numbers. The labeling should happen without user interaction. Which feature should you configure?",
+      "options": ["A. Client-side auto-labeling in Office apps.", "B. Service-side auto-labeling policies in Microsoft Purview.", "C. Default sensitivity label for SharePoint document libraries.", "D. Mandatory labeling in Office apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Service-side auto-labeling policies in Microsoft Purview scan content in SharePoint, OneDrive, and Exchange at rest and automatically apply sensitivity labels based on content inspection (like detecting SSNs) without requiring user interaction or Office apps to be open. Option A is incorrect because client-side auto-labeling requires the document to be open in an Office app. Option C is incorrect because a default label applies the same label to all documents regardless of content. Option D is incorrect because mandatory labeling requires users to choose a label but doesn't auto-apply based on content."
+    },
+    {
+      "id": 7,
+      "topic": "DLP Policies - Endpoint DLP",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from copying files containing sensitive data from their corporate Windows devices to USB drives. Which Microsoft Purview feature should you configure?",
+      "options": ["A. Microsoft Purview Endpoint DLP with a policy blocking copy to USB removable media.", "B. Microsoft Purview DLP for Exchange Online.", "C. Microsoft Defender for Endpoint device control.", "D. Azure Information Protection scanner."],
+      "correctAnswers": ["A"],
+      "explanation": "Endpoint DLP extends Microsoft Purview DLP policies to Windows and macOS devices, monitoring and restricting activities like copying sensitive files to USB drives, printing, and uploading to cloud services. Option B is incorrect because Exchange Online DLP protects email, not endpoint file operations. Option C is incorrect because while Defender for Endpoint device control can block USB access entirely, it doesn't provide content-based DLP that only blocks sensitive data. Option D is incorrect because AIP scanner classifies on-premises files but doesn't control endpoint file operations."
+    },
+    {
+      "id": 8,
+      "topic": "Information Barriers - Policy configuration",
+      "type": "SingleChoice",
+      "questionText": "Your organization is a financial services company that needs to prevent the Investment Banking segment from communicating with the Equity Research segment in Microsoft Teams and SharePoint. Which solution should you implement?",
+      "options": ["A. Microsoft Purview Information Barriers with segment definitions and barrier policies.", "B. Conditional Access policies blocking specific applications.", "C. Exchange Online address book policies.", "D. Microsoft Teams external access restrictions."],
+      "correctAnswers": ["A"],
+      "explanation": "Information Barriers define organizational segments (e.g., Investment Banking, Equity Research) and create policies that block or allow communication between them in Teams, SharePoint, and OneDrive. This is specifically designed for regulatory compliance in financial services. Option B is incorrect because Conditional Access controls application access, not inter-segment communication. Option C is incorrect because address book policies only hide users in the Exchange address book but don't block communication. Option D is incorrect because Teams external access manages communication with external organizations, not internal segments."
+    },
+    {
+      "id": 9,
+      "topic": "Insider Risk Management - Policy setup",
+      "type": "SingleChoice",
+      "questionText": "You need to detect potential data theft by departing employees. The solution should identify users who copy large volumes of files to USB drives or upload them to cloud storage in the weeks before their departure date. Which Microsoft Purview feature should you configure?",
+      "options": ["A. Microsoft Purview Insider Risk Management with the 'Data theft by departing users' policy template.", "B. Microsoft Purview DLP policy for endpoints.", "C. Microsoft Purview Audit (Standard).", "D. Microsoft Defender for Cloud Apps anomaly detection."],
+      "correctAnswers": ["A"],
+      "explanation": "Insider Risk Management's 'Data theft by departing users' template specifically correlates HR departure signals (from an HR connector) with data exfiltration activities like large file copies to USB or cloud uploads, providing risk scores and alerts. Option B is incorrect because endpoint DLP can block activities but doesn't correlate them with departure signals or provide risk scoring. Option C is incorrect because standard audit logging records activities but doesn't provide intelligent risk detection. Option D is incorrect because Defender for Cloud Apps focuses on cloud app security, not insider risk with HR departure correlation."
+    },
+    {
+      "id": 10,
+      "topic": "Sensitivity Labels - Label priority",
+      "type": "SingleChoice",
+      "questionText": "Your organization has the following sensitivity labels in order of priority: Public (lowest), Internal, Confidential, Highly Confidential (highest). A user applies the 'Confidential' label to a document. Can the user change the label to 'Internal'?",
+      "options": ["A. Yes, users can always change labels freely.", "B. No, unless the label policy allows downgrade with justification.", "C. No, labels can never be changed after application.", "D. Yes, but only if the user is a Global Administrator."],
+      "correctAnswers": ["B"],
+      "explanation": "By default, users cannot downgrade a sensitivity label (change from higher to lower priority). However, label policies can be configured to allow downgrade with justification, where the user must provide a reason for the change. This creates an audit trail. Option A is incorrect because label changes from higher to lower priority are controlled by policy. Option C is incorrect because labels can be changed, but downgrades may require justification. Option D is incorrect because the ability to downgrade is controlled by label policy, not by administrative role."
+    },
+    {
+      "id": 11,
+      "topic": "DLP Policies - Teams DLP",
+      "type": "SingleChoice",
+      "questionText": "You need to create a DLP policy that detects when credit card numbers are shared in Microsoft Teams chat messages and channels. When detected, the message should be blocked and the user should see a policy tip explaining why. Which configuration is correct?",
+      "options": ["A. Create a DLP policy for Teams chat and channel messages that detects credit card numbers with an action to block the message and show a policy tip.", "B. Create an Exchange Online DLP policy and enable it for Teams.", "C. Configure a Teams messaging policy to block all external communication.", "D. Create a sensitivity label that detects credit card numbers."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview DLP supports Teams chat and channel messages as a location. You can create a rule that detects credit card numbers (built-in sensitive information type), blocks the message from being sent, and displays a policy tip to the user. Option B is incorrect because Exchange DLP policies don't extend to Teams messages. Option C is incorrect because blocking all external communication doesn't address sensitive data in internal messages. Option D is incorrect because sensitivity labels protect documents, not real-time message content scanning."
+    },
+    {
+      "id": 12,
+      "topic": "Retention Policies - Retention labels vs policies",
+      "type": "SingleChoice",
+      "questionText": "What is the key difference between a retention policy and a retention label in Microsoft Purview?",
+      "options": ["A. There is no difference; they are interchangeable.", "B. A retention policy applies broadly to locations (e.g., all Exchange mailboxes), while a retention label is applied to individual items (e.g., specific documents or emails) and can support disposition review.", "C. Retention labels can only be used with SharePoint.", "D. Retention policies can only retain content, not delete it."],
+      "correctAnswers": ["B"],
+      "explanation": "Retention policies apply retention settings broadly to entire workloads or locations. Retention labels are applied to individual items and offer additional capabilities like disposition review, records declaration, and event-based retention. Option A is incorrect because they serve different purposes and have different capabilities. Option C is incorrect because retention labels work across SharePoint, OneDrive, Exchange, and Teams. Option D is incorrect because retention policies can both retain and delete content."
+    },
+    {
+      "id": 13,
+      "topic": "eDiscovery - Legal hold",
+      "type": "SingleChoice",
+      "questionText": "Your organization receives a legal notice requiring preservation of all emails and documents from three specific employees. Content must be preserved even if users try to delete it. Which feature should you use?",
+      "options": ["A. Microsoft Purview eDiscovery (Standard) case with hold on the specified users.", "B. Retention policy for all Exchange mailboxes.", "C. Azure Backup for Microsoft 365.", "D. Exchange Online litigation hold on all mailboxes."],
+      "correctAnswers": ["A"],
+      "explanation": "An eDiscovery case with a hold on specific users preserves all their content (emails, documents in OneDrive and SharePoint) in-place, even if users delete items. This is targeted to the specific custodians named in the legal notice. Option B is incorrect because a retention policy for all mailboxes is too broad and not specific to the three employees. Option C is incorrect because Azure Backup is not the recommended approach for legal preservation in Microsoft 365. Option D is incorrect because litigation hold on all mailboxes is disproportionate when only three users need preservation."
+    },
+    {
+      "id": 14,
+      "topic": "Sensitivity Labels - Container labels",
+      "type": "SingleChoice",
+      "questionText": "You need to apply a sensitivity label to a Microsoft Teams team so that only internal users can be added as members and guest access is blocked. Which label capability should you configure?",
+      "options": ["A. Content encryption for files in the team.", "B. Groups and sites settings with guest access controls in the sensitivity label.", "C. Content marking with watermarks.", "D. Auto-labeling for files in the team."],
+      "correctAnswers": ["B"],
+      "explanation": "When a sensitivity label is scoped to Groups & sites, you can configure settings that control guest access, privacy (public/private), and external sharing for Teams, Microsoft 365 Groups, and SharePoint sites. Setting guest access to blocked prevents external users from being added. Option A is incorrect because encryption protects file content but doesn't control team membership. Option C is incorrect because watermarks add visual markings but don't control access. Option D is incorrect because auto-labeling applies labels to files, not team-level access controls."
+    },
+    {
+      "id": 15,
+      "topic": "DLP Policies - Sensitive information types",
+      "type": "MultipleChoice",
+      "questionText": "You need to create a custom sensitive information type (SIT) to detect your organization's internal project codes, which follow the pattern 'PRJ-' followed by exactly 6 digits. Which TWO elements should you configure in the custom SIT? (Choose two.)",
+      "options": ["A. A regular expression pattern: PRJ-\\d{6}", "B. A keyword dictionary containing all possible project codes.", "C. Corroborative evidence such as keywords like 'project' or 'confidential' within proximity.", "D. A fingerprint based on a blank document template.", "E. An exact data match table of all employee names."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A regular expression pattern matches the project code format (PRJ- followed by 6 digits). Corroborative evidence (supporting keywords in proximity) improves accuracy by reducing false positives, ensuring the pattern is found in a context that suggests it's actually a project code. Option B is incorrect because maintaining all possible codes in a keyword dictionary is impractical for dynamic project codes. Option D is incorrect because document fingerprinting matches entire document structures, not specific code patterns. Option E is incorrect because exact data match for employee names is unrelated to project code detection."
+    },
+    {
+      "id": 16,
+      "topic": "Insider Risk Management - Indicators",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Purview Insider Risk Management, which type of activity indicator would help detect a user who is potentially exfiltrating sensitive data via email?",
+      "options": ["A. Email with attachments sent to external recipients outside normal patterns.", "B. Number of meetings attended per week.", "C. Browser bookmarks saved by the user.", "D. Number of password resets requested."],
+      "correctAnswers": ["A"],
+      "explanation": "Insider Risk Management uses behavioral indicators including abnormal email patterns such as sending emails with attachments to external recipients outside the user's normal communication patterns. This can indicate data exfiltration. Option B is incorrect because meeting attendance is not a data exfiltration indicator. Option C is incorrect because browser bookmarks are not monitored as risk indicators. Option D is incorrect because password resets may indicate account issues but not data exfiltration."
+    },
+    {
+      "id": 17,
+      "topic": "Retention Policies - Adaptive scopes",
+      "type": "SingleChoice",
+      "questionText": "You need to apply a retention policy to all mailboxes of users in the Legal department. As new employees join or leave the Legal department, the policy should automatically include or exclude their mailboxes. Which feature should you use?",
+      "options": ["A. Static scope targeting specific mailboxes.", "B. Adaptive scope based on user attributes (department = Legal).", "C. Manual updates to the policy each time an employee changes departments.", "D. A DLP policy targeting the Legal department."],
+      "correctAnswers": ["B"],
+      "explanation": "Adaptive scopes dynamically determine which users, sites, or groups are included in a retention policy based on attributes like department. As users join or leave the Legal department, the scope automatically updates. Option A is incorrect because static scopes require manual updates when membership changes. Option C is incorrect because manual updates are error-prone and unsustainable. Option D is incorrect because DLP policies prevent data loss, not manage retention."
+    },
+    {
+      "id": 18,
+      "topic": "Sensitivity Labels - Rights management",
+      "type": "SingleChoice",
+      "questionText": "You create a sensitivity label called 'Highly Confidential - View Only' that should allow recipients to view the document but prevent them from copying, printing, or forwarding the content. Which encryption setting should you configure?",
+      "options": ["A. Assign the 'Viewer' usage rights to authorized users.", "B. Assign the 'Co-Author' usage rights to authorized users.", "C. Do not configure encryption, use content marking only.", "D. Allow users to assign permissions when they apply the label."],
+      "correctAnswers": ["A"],
+      "explanation": "The 'Viewer' usage rights in sensitivity label encryption allow users to view the content but prevent copying, printing, editing, and forwarding. This matches the 'View Only' requirement. Option B is incorrect because 'Co-Author' grants full editing permissions. Option C is incorrect because content marking alone doesn't restrict document usage. Option D is incorrect because user-assigned permissions don't guarantee the View Only restriction."
+    },
+    {
+      "id": 19,
+      "topic": "DLP Policies - Policy tips and overrides",
+      "type": "SingleChoice",
+      "questionText": "You configure a DLP policy that blocks emails containing financial data from being sent externally. However, the CFO needs the ability to override the policy when sending legitimate financial reports to auditors. How should you configure the policy?",
+      "options": ["A. Exclude the CFO from the DLP policy entirely.", "B. Configure the DLP rule to allow user overrides with business justification.", "C. Disable the DLP policy when the CFO needs to send reports.", "D. Create an Exchange transport rule to bypass DLP for the CFO."],
+      "correctAnswers": ["B"],
+      "explanation": "DLP policies support user overrides with business justification. When the policy is triggered, the user can provide a justification and override the block. This creates an audit trail while allowing legitimate business exceptions. Option A is incorrect because excluding the CFO entirely removes all DLP protection for their communications. Option C is incorrect because disabling the policy affects all users. Option D is incorrect because transport rules to bypass DLP would remove protection without justification tracking."
+    },
+    {
+      "id": 20,
+      "topic": "eDiscovery - Premium features",
+      "type": "SingleChoice",
+      "questionText": "Your legal team needs to collect, review, and analyze a large volume of documents for a complex litigation case. They need features like predictive coding, review sets, and custodian management. Which eDiscovery solution should you use?",
+      "options": ["A. Microsoft Purview eDiscovery (Standard).", "B. Microsoft Purview eDiscovery (Premium).", "C. Content Search only.", "D. Exchange Online in-place eDiscovery."],
+      "correctAnswers": ["B"],
+      "explanation": "eDiscovery (Premium) provides advanced features including custodian management, review sets with advanced analytics, predictive coding (machine learning-assisted review), conversation threading, and near-duplicate detection. These are essential for complex litigation. Option A is incorrect because Standard eDiscovery provides basic search and hold but lacks review sets and predictive coding. Option C is incorrect because Content Search only searches and exports, without review or analytics capabilities. Option D is incorrect because in-place eDiscovery is a legacy feature with limited capabilities."
+    },
+    {
+      "id": 21,
+      "topic": "Information Barriers - Segment definition",
+      "type": "SingleChoice",
+      "questionText": "When configuring Microsoft Purview Information Barriers, you need to define segments based on user attributes. Which attribute is commonly used to define segments?",
+      "options": ["A. User's password expiration date.", "B. User's department attribute in Azure AD.", "C. User's last sign-in date.", "D. User's mailbox storage quota."],
+      "correctAnswers": ["B"],
+      "explanation": "Information Barrier segments are defined using Azure AD user attributes, with the department attribute being one of the most commonly used for segment definition. Other supported attributes include memberOf (group membership), company, and custom extension attributes. Option A is incorrect because password expiration is not a segmentation attribute. Option C is incorrect because sign-in date is not used for segment definition. Option D is incorrect because mailbox storage is not a segmentation attribute."
+    },
+    {
+      "id": 22,
+      "topic": "Sensitivity Labels - Default labels",
+      "type": "SingleChoice",
+      "questionText": "You want to ensure that all new Word documents, Excel spreadsheets, and PowerPoint presentations created by users in your organization automatically have the 'Internal' sensitivity label applied. Users should be able to change the label if needed. Which label policy setting should you configure?",
+      "options": ["A. Configure a default label for documents in the label policy.", "B. Configure mandatory labeling in the label policy.", "C. Configure auto-labeling for all file types.", "D. Configure the label with encryption enabled by default."],
+      "correctAnswers": ["A"],
+      "explanation": "Setting a default label in the label policy automatically applies the specified label to all new documents created in Office apps. Users can change the label if they need to apply a different one. Option B is incorrect because mandatory labeling requires users to choose a label but doesn't auto-apply one. Option C is incorrect because auto-labeling is content-based and requires sensitive content detection. Option D is incorrect because enabling encryption restricts access, which is a separate consideration from default labeling."
+    },
+    {
+      "id": 23,
+      "topic": "DLP Policies - SharePoint and OneDrive",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from sharing documents containing personal health information (PHI) externally from SharePoint Online and OneDrive. The policy should block sharing but allow internal access. What should you configure?",
+      "options": ["A. A DLP policy for SharePoint and OneDrive locations detecting health-related sensitive information types, with a rule that blocks external sharing.", "B. A SharePoint sharing policy that blocks all external sharing.", "C. A sensitivity label that encrypts all health documents.", "D. An Exchange Online DLP policy for health data."],
+      "correctAnswers": ["A"],
+      "explanation": "A DLP policy targeting SharePoint and OneDrive can detect PHI using health-related sensitive information types (like health records or insurance numbers) and block external sharing while allowing internal access. Option B is incorrect because blocking all external sharing is too broad and affects all content, not just PHI. Option C is incorrect because encryption restricts access but doesn't specifically prevent external sharing of detected PHI. Option D is incorrect because Exchange DLP applies to email, not SharePoint/OneDrive sharing."
+    },
+    {
+      "id": 24,
+      "topic": "Insider Risk Management - Privacy settings",
+      "type": "SingleChoice",
+      "questionText": "Your HR department is concerned about privacy when using Insider Risk Management. They want to ensure that analyst names are anonymized until a case is escalated for formal investigation. Which setting should you configure?",
+      "options": ["A. Enable anonymization of user identities in Insider Risk Management settings.", "B. Restrict access to the Insider Risk Management portal.", "C. Disable all insider risk indicators.", "D. Use Azure AD Conditional Access to block analyst access."],
+      "correctAnswers": ["A"],
+      "explanation": "Insider Risk Management provides a built-in anonymization feature that replaces user names with pseudonyms (e.g., 'Anon-1234') in alerts and cases. Names are revealed only when an investigation is formally escalated. This balances security monitoring with employee privacy. Option B is incorrect because restricting portal access doesn't anonymize user identities in displayed alerts. Option C is incorrect because disabling indicators eliminates the detection capability entirely. Option D is incorrect because blocking analyst access prevents them from doing their job."
+    },
+    {
+      "id": 25,
+      "topic": "Retention Policies - Records management",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to declare certain financial documents as regulatory records that cannot be modified or deleted by anyone, including administrators, until the retention period expires. Which feature should you use?",
+      "options": ["A. Retention label with 'Mark items as a regulatory record' enabled.", "B. Standard retention policy.", "C. Sensitivity label with encryption.", "D. eDiscovery hold."],
+      "correctAnswers": ["A"],
+      "explanation": "A retention label configured to mark items as regulatory records prevents any modification or deletion of the labeled content, even by administrators or compliance officers, until the retention period expires. This provides the highest level of immutability. Option B is incorrect because standard retention policies don't provide record-level immutability. Option C is incorrect because sensitivity labels protect content access but don't prevent deletion or provide records management. Option D is incorrect because eDiscovery holds preserve content but can be removed by administrators."
+    },
+    {
+      "id": 26,
+      "topic": "Sensitivity Labels - Coauthoring support",
+      "type": "SingleChoice",
+      "questionText": "Users report that they cannot coauthor documents in real-time when sensitivity labels with encryption are applied. What is the likely cause?",
+      "options": ["A. Coauthoring with encrypted sensitivity labels requires that the feature is enabled in the Microsoft 365 admin center and users are using supported Office versions.", "B. Coauthoring never works with encrypted documents.", "C. The documents must be stored in on-premises file shares.", "D. Coauthoring only works with unencrypted documents in Exchange Online."],
+      "correctAnswers": ["A"],
+      "explanation": "Coauthoring for files protected with sensitivity labels that apply encryption must be explicitly enabled in the Microsoft 365 admin center. Additionally, users must be running supported versions of Office apps. Once enabled, multiple users can coauthor encrypted documents simultaneously. Option B is incorrect because coauthoring does work with encrypted documents when properly configured. Option C is incorrect because coauthoring works with cloud-stored documents in SharePoint/OneDrive. Option D is incorrect because coauthoring applies to documents in SharePoint and OneDrive, not Exchange."
+    },
+    {
+      "id": 27,
+      "topic": "DLP Policies - Incident reports",
+      "type": "SingleChoice",
+      "questionText": "You configure a DLP policy and want to be notified by email whenever a policy rule is triggered. You also want to see detailed reports about DLP matches including the content that triggered the policy. Which DLP feature should you configure?",
+      "options": ["A. Configure incident reports in the DLP rule to send notifications to the compliance team.", "B. Configure Exchange Online message tracking.", "C. Enable Azure Monitor for DLP.", "D. Create a Power BI dashboard manually."],
+      "correctAnswers": ["A"],
+      "explanation": "DLP incident reports can be configured within each DLP rule to send email notifications to specified recipients when the rule is triggered. Reports can include details about the matched content, the rule that was triggered, and the user involved. Option B is incorrect because message tracking shows email delivery status, not DLP matches. Option C is incorrect because Azure Monitor doesn't directly integrate with Microsoft Purview DLP for incident reporting. Option D is incorrect because manual dashboard creation is unnecessary when built-in incident reports are available."
+    },
+    {
+      "id": 28,
+      "topic": "eDiscovery - Search and export",
+      "type": "MultipleChoice",
+      "questionText": "You need to export the results of an eDiscovery content search. Which TWO export formats are available? (Choose two.)",
+      "options": ["A. PST file format for email messages.", "B. Original file format (native files) for documents.", "C. Azure SQL Database format.", "D. Power BI dataset format.", "E. Windows Event Log format."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "eDiscovery exports support PST format for Exchange mailbox content and native file format (original document types like DOCX, PDF, XLSX) for SharePoint and OneDrive content. Option C is incorrect because Azure SQL Database is not an export format. Option D is incorrect because Power BI datasets are not an export format. Option E is incorrect because Windows Event Log format is not applicable to eDiscovery exports."
+    },
+    {
+      "id": 29,
+      "topic": "Information Barriers - Teams communication",
+      "type": "SingleChoice",
+      "questionText": "After implementing Information Barriers, users in the Investment Banking segment report they can no longer search for or start Teams conversations with users in the Equity Research segment. Is this the expected behavior?",
+      "options": ["A. No, Information Barriers only affect email communication.", "B. Yes, Information Barriers block communication in Teams including search, chat, calling, and adding members to groups.", "C. No, Information Barriers only apply to SharePoint.", "D. Yes, but only if both users are in the same office location."],
+      "correctAnswers": ["B"],
+      "explanation": "Information Barriers in Teams block multiple communication methods between barriered segments, including searching for users, starting chats, calling, adding members to group chats, sharing screens, and adding members to teams. This comprehensive blocking ensures regulatory compliance. Option A is incorrect because Information Barriers apply across Teams, SharePoint, and OneDrive, not just email. Option C is incorrect because Information Barriers are not limited to SharePoint. Option D is incorrect because barriers apply regardless of physical location."
+    },
+    {
+      "id": 30,
+      "topic": "Insider Risk Management - Data connectors",
+      "type": "SingleChoice",
+      "questionText": "To enable the 'Data theft by departing users' policy template in Insider Risk Management, you need a signal indicating when employees are leaving the organization. What is required?",
+      "options": ["A. An HR connector that provides employee resignation and termination dates.", "B. Azure AD Premium P2 license only.", "C. Microsoft Defender for Endpoint deployment only.", "D. Exchange Online audit logging only."],
+      "correctAnswers": ["A"],
+      "explanation": "The 'Data theft by departing users' template requires an HR connector that imports employee departure information (resignation date, last working day, termination date) from the HR system. This signal triggers monitoring of departing users. Option B is incorrect because the license alone doesn't provide departure signals. Option C is incorrect because Defender for Endpoint provides endpoint signals but not HR departure data. Option D is incorrect because Exchange audit logging tracks email activities but doesn't provide HR departure information."
+    },
+    {
+      "id": 31,
+      "topic": "Sensitivity Labels - Email labeling",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a sensitivity label for emails that adds a 'CONFIDENTIAL' watermark to the email body and prevents forwarding of the email. Which combination of label settings should you configure?",
+      "options": ["A. Content marking with watermark and encryption with 'Do Not Forward' permissions.", "B. Content marking with header only.", "C. Encryption only without content marking.", "D. Auto-labeling without any protection settings."],
+      "correctAnswers": ["A"],
+      "explanation": "Combining content marking (watermark with 'CONFIDENTIAL') and encryption with 'Do Not Forward' permissions achieves both requirements. Do Not Forward prevents recipients from forwarding, printing, or copying the email content. Option B is incorrect because headers alone don't prevent forwarding. Option C is incorrect because encryption without content marking doesn't add the visual watermark. Option D is incorrect because auto-labeling without protection settings doesn't add watermarks or prevent forwarding."
+    },
+    {
+      "id": 32,
+      "topic": "DLP Policies - Exact data match",
+      "type": "SingleChoice",
+      "questionText": "Your organization has a database of 50,000 customer account numbers that must be protected. You need to create a DLP policy that detects these specific account numbers in documents and emails. Standard regular expressions would produce too many false positives. Which approach should you use?",
+      "options": ["A. Exact Data Match (EDM) based classification with a hash of the customer database.", "B. A regular expression pattern matching any number sequence.", "C. A keyword dictionary with all 50,000 account numbers.", "D. Built-in sensitive information types only."],
+      "correctAnswers": ["A"],
+      "explanation": "Exact Data Match (EDM) classification allows you to create a sensitive information type based on an exact set of values from your database. It uses hashed values for privacy and provides precise detection of your specific account numbers with minimal false positives. Option B is incorrect because generic regex patterns would match too many non-account numbers. Option C is incorrect because keyword dictionaries have size limits and don't support the precision needed. Option D is incorrect because built-in SITs detect general patterns, not organization-specific account numbers."
+    },
+    {
+      "id": 33,
+      "topic": "Retention Policies - Preservation lock",
+      "type": "SingleChoice",
+      "questionText": "Your compliance officer requires that a retention policy cannot be modified or deleted by anyone, including Global Administrators, once it's applied. Which feature should you enable?",
+      "options": ["A. Preservation lock on the retention policy.", "B. Azure Resource Lock on the compliance center.", "C. Multi-factor authentication for administrators.", "D. Azure AD Privileged Identity Management."],
+      "correctAnswers": ["A"],
+      "explanation": "Preservation lock makes a retention policy immutable. Once locked, the policy cannot be disabled, deleted, or made less restrictive, even by Global Administrators or Microsoft Support. This meets regulatory requirements for immutable retention. Option B is incorrect because Azure Resource Locks protect Azure resources, not Microsoft Purview retention policies. Option C is incorrect because MFA secures authentication but doesn't make policies immutable. Option D is incorrect because PIM manages role activation but doesn't lock retention policies."
+    },
+    {
+      "id": 34,
+      "topic": "eDiscovery - Review sets",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Purview eDiscovery (Premium), you have collected 100,000 documents into a review set. The legal team needs to quickly identify the most relevant documents. Which feature helps prioritize document review?",
+      "options": ["A. Predictive coding (machine learning) in the review set.", "B. Exporting all documents to a shared folder.", "C. Deleting irrelevant-looking documents manually.", "D. Using Azure Cognitive Services text analytics."],
+      "correctAnswers": ["A"],
+      "explanation": "Predictive coding in eDiscovery (Premium) uses machine learning to train a model based on reviewer decisions on a sample set, then applies the model to predict relevance for the remaining documents. This dramatically reduces review time for large document sets. Option B is incorrect because exporting doesn't help prioritize review. Option C is incorrect because manual deletion is inappropriate in legal discovery and could constitute spoliation. Option D is incorrect because Azure Cognitive Services is not integrated into the eDiscovery review workflow."
+    },
+    {
+      "id": 35,
+      "topic": "Sensitivity Labels - PDF protection",
+      "type": "SingleChoice",
+      "questionText": "Users need to apply sensitivity labels with encryption to PDF documents. Which client application supports native sensitivity label application to PDF files?",
+      "options": ["A. Adobe Acrobat with the Microsoft Purview Information Protection add-in.", "B. Microsoft Paint.", "C. Windows Notepad.", "D. Google Chrome browser."],
+      "correctAnswers": ["A"],
+      "explanation": "Adobe Acrobat (with the Microsoft Purview Information Protection add-in) supports native application of sensitivity labels with encryption to PDF files. The Microsoft Information Protection SDK also enables other PDF viewers to support labeled PDFs. Option B is incorrect because Paint is an image editor, not a PDF application. Option C is incorrect because Notepad is a text editor that doesn't support PDF labeling. Option D is incorrect because Chrome is a browser that doesn't natively apply sensitivity labels to PDFs."
+    },
+    {
+      "id": 36,
+      "topic": "DLP Policies - Power BI DLP",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses Power BI to create reports containing sensitive financial data. You need to detect when Power BI datasets contain credit card numbers and alert the data owner. Which DLP capability should you use?",
+      "options": ["A. Microsoft Purview DLP for Power BI.", "B. Exchange Online DLP policy.", "C. Windows Information Protection.", "D. Azure Firewall DLP inspection."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview DLP supports Power BI as a monitored location. DLP policies can scan Power BI datasets for sensitive information types like credit card numbers and generate alerts or policy tips for data owners. Option B is incorrect because Exchange DLP monitors email, not Power BI datasets. Option C is incorrect because Windows Information Protection is an endpoint feature, not a Power BI data classification tool. Option D is incorrect because Azure Firewall doesn't perform DLP inspection on Power BI data."
+    },
+    {
+      "id": 37,
+      "topic": "Insider Risk Management - Alert triage",
+      "type": "SingleChoice",
+      "questionText": "An Insider Risk Management alert is generated for a user who has been downloading an unusually large number of files from SharePoint. As an analyst, what should be your first step?",
+      "options": ["A. Immediately terminate the user's employment.", "B. Review the alert details and user activity timeline to determine if the behavior is expected or suspicious.", "C. Delete the alert to reduce noise.", "D. Forward the alert to the user's manager via email."],
+      "correctAnswers": ["B"],
+      "explanation": "The first step in triaging an insider risk alert is to review the alert details and the user's activity timeline to understand the context. The downloads may be legitimate (e.g., a project requiring bulk file access) or suspicious. Investigation should precede any action. Option A is incorrect because termination without investigation is premature and potentially harmful. Option C is incorrect because deleting alerts removes evidence and prevents proper investigation. Option D is incorrect because forwarding alert details may violate privacy policies and investigation protocols."
+    },
+    {
+      "id": 38,
+      "topic": "Retention Policies - Teams retention",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure retention for Microsoft Teams. Which TWO locations can you include in a Teams retention policy? (Choose two.)",
+      "options": ["A. Teams channel messages.", "B. Teams private chat messages.", "C. Teams meeting recordings stored in OneDrive.", "D. Teams app configurations.", "E. Teams background images."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Microsoft Purview retention policies for Teams support two specific locations: Teams channel messages (public and private channel messages) and Teams chat messages (1:1 and group chats). Each can have different retention settings. Option C is incorrect because meeting recordings stored in OneDrive are governed by OneDrive retention policies, not Teams retention. Option D is incorrect because app configurations are not content covered by retention policies. Option E is incorrect because background images are not content that requires retention."
+    },
+    {
+      "id": 39,
+      "topic": "Sensitivity Labels - Trainable classifiers",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to automatically label documents that contain legal contracts. The content is complex and cannot be reliably detected using keyword matching or regular expressions. Which approach should you use for auto-labeling?",
+      "options": ["A. Create a custom trainable classifier trained on examples of legal contracts and use it in an auto-labeling policy.", "B. Use a simple keyword list containing 'contract' and 'agreement'.", "C. Manually review and label all documents.", "D. Block all document creation until labels are applied."],
+      "correctAnswers": ["A"],
+      "explanation": "Trainable classifiers use machine learning trained on sample documents to identify specific document types (like legal contracts) based on content patterns rather than simple keywords. This is ideal for complex content that can't be reliably detected by rules. Option B is incorrect because simple keywords would produce many false positives (any document mentioning 'contract'). Option C is incorrect because manual review doesn't scale. Option D is incorrect because blocking document creation is impractical and doesn't solve the classification problem."
+    },
+    {
+      "id": 40,
+      "topic": "DLP Policies - Multi-workload DLP",
+      "type": "SingleChoice",
+      "questionText": "You need to create a single DLP policy that protects sensitive data across Exchange Online, SharePoint Online, OneDrive for Business, Teams, and Windows endpoints. Is this possible with Microsoft Purview DLP?",
+      "options": ["A. No, you need separate DLP policies for each workload.", "B. Yes, a single Microsoft Purview DLP policy can target multiple locations including Exchange, SharePoint, OneDrive, Teams, and Endpoint devices.", "C. No, endpoint DLP requires a completely separate product.", "D. Yes, but only if you use Azure Information Protection instead."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Purview DLP supports creating a single policy that covers multiple locations including Exchange Online, SharePoint Online, OneDrive for Business, Teams chat and channel messages, and Windows/macOS endpoint devices. This provides unified DLP management across workloads. Option A is incorrect because a single policy can span multiple locations. Option C is incorrect because endpoint DLP is integrated into Microsoft Purview DLP. Option D is incorrect because Azure Information Protection is not required; Microsoft Purview DLP natively supports multi-workload policies."
+    }
+  ]
+}

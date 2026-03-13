@@ -1,0 +1,366 @@
+{
+  "examCode": "AZ-305",
+  "examTitle": "Designing Microsoft Azure Infrastructure Solutions",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Design Identity and Governance - Designing authentication solutions",
+      "type": "SingleChoice",
+      "questionText": "A company is migrating to Azure and needs a single identity solution that supports both on-premises Active Directory and cloud applications. Users should authenticate once and access both environments. What should you recommend?",
+      "options": ["A. Deploy Microsoft Entra ID as a standalone identity provider with separate accounts.", "B. Implement Microsoft Entra Connect to synchronize on-premises AD with Microsoft Entra ID.", "C. Use Active Directory Federation Services only.", "D. Create duplicate accounts in Microsoft Entra ID for all users."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra Connect synchronizes on-premises AD identities to Microsoft Entra ID, providing a single identity for accessing both on-premises and cloud resources (hybrid identity). This enables SSO across both environments. Option A is incorrect because standalone Entra ID without synchronization creates separate identities. Option C is incorrect because AD FS alone does not synchronize identities; it provides federated authentication but is more complex. Option D is incorrect because duplicate accounts create management overhead and do not provide true SSO."
+    },
+    {
+      "id": 2,
+      "topic": "Design Data Storage - Designing a data storage solution for relational data",
+      "type": "SingleChoice",
+      "questionText": "A company needs a fully managed relational database service in Azure that supports automatic scaling, built-in high availability, and is compatible with their existing PostgreSQL applications. What should you recommend?",
+      "options": ["A. Azure SQL Database.", "B. Azure Database for PostgreSQL Flexible Server.", "C. Azure Cosmos DB with PostgreSQL API.", "D. PostgreSQL installed on Azure VMs."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Database for PostgreSQL Flexible Server is a fully managed PaaS service compatible with PostgreSQL, offering automatic scaling, built-in HA, and managed patching. It is the best fit for existing PostgreSQL workloads. Option A is incorrect because Azure SQL Database is based on SQL Server, not PostgreSQL. Option C is incorrect because Cosmos DB with the PostgreSQL API (Citus) is designed for distributed workloads, not a direct replacement for standard PostgreSQL. Option D is incorrect because PostgreSQL on VMs is IaaS and requires manual management of updates, HA, and scaling."
+    },
+    {
+      "id": 3,
+      "topic": "Design Compute Solutions - Selecting a compute solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to run containers in Azure without managing any underlying infrastructure. The workloads are event-driven and should scale to zero when idle. What should you recommend?",
+      "options": ["A. Azure Kubernetes Service (AKS).", "B. Azure Container Apps.", "C. Azure Container Instances.", "D. Azure App Service with container support."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Container Apps is a serverless container platform that supports event-driven scaling and can scale to zero, meaning you only pay when containers are running. It requires no infrastructure management. Option A is incorrect because AKS requires managing the cluster infrastructure (nodes, networking) and does not natively scale to zero without KEDA configuration. Option C is incorrect because Container Instances run containers on demand but do not provide built-in event-driven scaling. Option D is incorrect because App Service has a minimum instance requirement and does not scale to zero in all tiers."
+    },
+    {
+      "id": 4,
+      "topic": "Design Networking - Designing network connectivity",
+      "type": "SingleChoice",
+      "questionText": "A company with 30 branch offices needs to connect all branches to Azure and enable branch-to-branch communication through the Microsoft backbone. They want a managed solution with minimal operational overhead. What should you recommend?",
+      "options": ["A. Individual site-to-site VPN connections to a VPN gateway.", "B. Azure Virtual WAN with VPN hubs.", "C. ExpressRoute connections from each branch.", "D. Point-to-site VPN for each branch."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Virtual WAN provides a managed hub-and-spoke architecture that simplifies connecting multiple branches to Azure and enables automatic branch-to-branch routing through the Microsoft backbone. It is designed for large-scale branch connectivity. Option A is incorrect because managing 30 individual VPN connections to a single gateway is complex and does not provide automatic branch-to-branch routing. Option C is incorrect because ExpressRoute for each branch is extremely expensive and impractical. Option D is incorrect because P2S VPN is designed for individual clients, not branch offices."
+    },
+    {
+      "id": 5,
+      "topic": "Design Migration - Designing a migration strategy",
+      "type": "MultipleChoice",
+      "questionText": "A company is planning to migrate 200 on-premises VMs to Azure. They need to assess readiness, identify dependencies, and plan the migration in waves. Which TWO Azure services should they use? (Choose two.)",
+      "options": ["A. Azure Migrate for assessment and dependency analysis.", "B. Azure Site Recovery for test migration.", "C. Azure Advisor for migration recommendations.", "D. Azure Cost Management for pre-migration analysis.", "E. Azure DevOps for migration tracking."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Azure Migrate provides comprehensive assessment, dependency analysis, and migration tools. Azure Site Recovery (integrated with Azure Migrate) enables test migrations and actual migration with minimal downtime. Together, they cover the full migration lifecycle. Option C is incorrect because Azure Advisor provides optimization recommendations for existing Azure resources, not migration planning. Option D is incorrect because Cost Management tracks Azure spending, not on-premises assessment. Option E is incorrect because Azure DevOps is a development platform, not a migration tool."
+    },
+    {
+      "id": 6,
+      "topic": "Design Monitoring - Designing a monitoring solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs a centralized monitoring solution that collects logs and metrics from Azure resources, on-premises servers, and multi-cloud environments. They need to create custom dashboards and alerts. What should you recommend?",
+      "options": ["A. Azure Monitor with Log Analytics workspace.", "B. Application Insights only.", "C. Azure Service Health.", "D. Third-party monitoring solution."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Monitor with Log Analytics workspace provides a centralized platform for collecting, analyzing, and acting on telemetry from Azure, on-premises, and multi-cloud environments. It supports KQL queries, custom dashboards, and alerts. Option B is incorrect because Application Insights is specifically for application performance monitoring, not infrastructure and multi-cloud monitoring. Option C is incorrect because Service Health monitors Azure service availability, not customer workloads. Option D is incorrect because Azure Monitor natively supports multi-cloud and hybrid scenarios, making a third-party solution unnecessary."
+    },
+    {
+      "id": 7,
+      "topic": "Design Identity and Governance - Designing authorization solutions",
+      "type": "SingleChoice",
+      "questionText": "A company has multiple Azure subscriptions across different departments. They need to enforce consistent policies (naming conventions, allowed regions, required tags) across all subscriptions. What should you recommend?",
+      "options": ["A. Azure Policy assigned at the management group level.", "B. Azure Policy assigned to each subscription individually.", "C. Azure Blueprints for each subscription.", "D. Custom RBAC roles on each subscription."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy assigned at the management group level ensures consistent policy enforcement across all subscriptions under that management group. This provides centralized governance with inheritance. Option B is incorrect because assigning policies to each subscription individually is not scalable and prone to inconsistency. Option C is incorrect because while Blueprints can include policies, they are designed for repeatable environment setup, not ongoing governance of existing subscriptions. Option D is incorrect because RBAC controls who can do what, not what configurations are allowed."
+    },
+    {
+      "id": 8,
+      "topic": "Design Data Storage - Designing a non-relational data solution",
+      "type": "SingleChoice",
+      "questionText": "A global e-commerce company needs a database that provides single-digit millisecond latency, automatic global distribution, and supports multiple consistency models. What should you recommend?",
+      "options": ["A. Azure SQL Database with geo-replication.", "B. Azure Cosmos DB.", "C. Azure Cache for Redis.", "D. Azure Table Storage."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Cosmos DB is a globally distributed, multi-model database that guarantees single-digit millisecond latency at the 99th percentile, provides turnkey global distribution, and supports five consistency models. It is ideal for globally distributed, low-latency applications. Option A is incorrect because Azure SQL Database with geo-replication supports read replicas in other regions but does not offer the same multi-master write capabilities or consistency models. Option C is incorrect because Redis is an in-memory cache, not a primary database. Option D is incorrect because Table Storage does not provide global distribution or guaranteed latency SLAs."
+    },
+    {
+      "id": 9,
+      "topic": "Design Compute Solutions - Designing for high availability",
+      "type": "SingleChoice",
+      "questionText": "A company runs a critical web application that must survive a complete Azure region failure. The application uses Azure SQL Database and Azure App Service. What should you design?",
+      "options": ["A. Deploy the application in availability zones within a single region.", "B. Deploy the application in two regions with Azure Front Door, App Service in both regions, and SQL Database failover group.", "C. Deploy the application with a single App Service plan in a premium tier.", "D. Use Azure Traffic Manager with a single region deployment."],
+      "correctAnswers": ["B"],
+      "explanation": "A multi-region deployment with Azure Front Door for global load balancing, App Service in both regions, and SQL Database failover group provides resilience against a complete region failure. Front Door routes traffic to the healthy region if one fails. Option A is incorrect because availability zones protect against datacenter failures within a region, not entire region failures. Option C is incorrect because a premium App Service plan in a single region does not survive a region failure. Option D is incorrect because Traffic Manager with a single region has no failover target."
+    },
+    {
+      "id": 10,
+      "topic": "Design Networking - Designing network security",
+      "type": "SingleChoice",
+      "questionText": "A company needs to inspect all outbound internet traffic from Azure VNets for data loss prevention and threat detection. All VNets should route through a central inspection point. What should you design?",
+      "options": ["A. NSGs on each subnet with outbound deny rules.", "B. A hub-and-spoke topology with Azure Firewall Premium in the hub VNet.", "C. Azure Front Door with WAF.", "D. Network Watcher packet capture on all VMs."],
+      "correctAnswers": ["B"],
+      "explanation": "A hub-and-spoke topology with Azure Firewall Premium in the hub provides centralized outbound traffic inspection. Spoke VNets route outbound traffic through the firewall via UDRs, and Azure Firewall Premium provides TLS inspection and IDPS for threat detection. Option A is incorrect because NSGs only allow or deny traffic based on simple rules and cannot inspect traffic content. Option C is incorrect because Front Door with WAF protects inbound web traffic, not outbound internet traffic. Option D is incorrect because packet capture is for troubleshooting, not continuous traffic inspection."
+    },
+    {
+      "id": 11,
+      "topic": "Design Identity and Governance - Designing a governance solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to organize their Azure environment with separate billing, access control, and policy boundaries for each business unit, while maintaining centralized governance. What should you design?",
+      "options": ["A. Separate Azure subscriptions per business unit under a management group hierarchy.", "B. Separate resource groups per business unit in a single subscription.", "C. Separate Azure tenants for each business unit.", "D. Tags on resources for each business unit."],
+      "correctAnswers": ["A"],
+      "explanation": "Separate subscriptions per business unit under a management group hierarchy provides isolated billing, distinct access control boundaries, and subscription-level policy enforcement, while management groups enable centralized governance policies that inherit down. Option B is incorrect because resource groups in a single subscription share the same billing and subscription-level limits. Option C is incorrect because separate tenants create identity silos and complicate centralized management. Option D is incorrect because tags help with cost allocation and organization but do not provide access control or policy boundaries."
+    },
+    {
+      "id": 12,
+      "topic": "Design Data Storage - Designing a data storage solution for unstructured data",
+      "type": "SingleChoice",
+      "questionText": "A media company stores petabytes of video files. Files older than 30 days are rarely accessed, and files older than one year are almost never accessed but must be retained for 7 years. How should you design the storage?",
+      "options": ["A. Use Azure Blob Storage with lifecycle management policies to move data through Hot, Cool, and Archive tiers.", "B. Store all data in the Hot tier for fastest access.", "C. Use Azure Files Premium for all video storage.", "D. Store all data in Azure Data Lake Storage Gen2."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Blob Storage lifecycle management policies automatically transition blobs through access tiers based on age. Hot tier for recent files, Cool for files 30+ days old, and Archive for files 1+ year old. This optimizes costs while meeting the 7-year retention requirement. Option B is incorrect because storing all data in Hot tier is the most expensive option and unnecessary for rarely accessed data. Option C is incorrect because Azure Files Premium is designed for file shares with low-latency requirements, not cost-optimized archival. Option D is incorrect because Data Lake Storage Gen2 is optimized for analytics workloads, not cost-tiered archival storage."
+    },
+    {
+      "id": 13,
+      "topic": "Design Compute Solutions - Designing a serverless solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to process orders from a message queue. Processing times vary from 1 second to 15 minutes. The solution must scale automatically and only charge for actual compute time. What should you design?",
+      "options": ["A. Azure Functions with Consumption plan.", "B. Azure Functions with Premium plan.", "C. Azure App Service with auto-scaling.", "D. Azure Logic Apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Functions Premium plan provides automatic scaling, VNet integration, and supports execution times longer than the Consumption plan's default timeout. It charges based on the number of pre-warmed instances and execution, suitable for variable processing times up to 15 minutes. Option A is incorrect because the Consumption plan has a default timeout of 5 minutes (configurable up to 10 minutes), which may not be enough for 15-minute processing. Option C is incorrect because App Service charges for always-on instances regardless of whether they are processing, not just actual compute time. Option D is incorrect because Logic Apps are designed for workflow orchestration, not arbitrary code execution."
+    },
+    {
+      "id": 14,
+      "topic": "Design Networking - Designing private access to PaaS services",
+      "type": "SingleChoice",
+      "questionText": "A company requires that all access to Azure Storage accounts and SQL databases from their VNets must use private IP addresses. No traffic should traverse the public internet. What should you design?",
+      "options": ["A. Service endpoints for Azure Storage and Azure SQL.", "B. Private endpoints for Azure Storage and Azure SQL.", "C. VNet integration for both services.", "D. Azure Firewall with application rules."],
+      "correctAnswers": ["B"],
+      "explanation": "Private endpoints create network interfaces with private IP addresses in your VNet for PaaS services. All traffic to Storage and SQL flows over the private IP, completely avoiding the public internet. Option A is incorrect because service endpoints route traffic over the Azure backbone but the PaaS service is still accessed via its public endpoint. Option B provides true private IP connectivity. Option C is incorrect because VNet integration is a feature for App Service to access VNet resources, not for Storage/SQL. Option D is incorrect because Azure Firewall inspects traffic but does not change how PaaS services are accessed."
+    },
+    {
+      "id": 15,
+      "topic": "Design Migration - Designing a database migration strategy",
+      "type": "SingleChoice",
+      "questionText": "A company needs to migrate a large on-premises SQL Server database (5 TB) to Azure SQL Managed Instance with minimal downtime. The migration must support online migration with continuous sync. What should you recommend?",
+      "options": ["A. Azure Database Migration Service in online mode.", "B. BACPAC export and import.", "C. SQL Server backup and restore to Managed Instance.", "D. Transactional replication."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Database Migration Service (DMS) in online mode provides continuous data synchronization between the source SQL Server and the target Managed Instance, allowing you to cut over with minimal downtime. It handles large databases efficiently. Option B is incorrect because BACPAC export/import requires downtime proportional to the database size and is not practical for 5 TB. Option C is incorrect because backup and restore to Managed Instance requires downtime during the restore process. Option D is incorrect because while transactional replication works, DMS provides a managed, simpler experience specifically designed for this scenario."
+    },
+    {
+      "id": 16,
+      "topic": "Design Monitoring - Designing a logging solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to retain Azure Activity Logs for 5 years for compliance and enable real-time analysis of the last 90 days of logs. How should you design the solution?",
+      "options": ["A. Send Activity Logs to a Log Analytics workspace with 90-day interactive retention and archive the rest to a Storage account.", "B. Keep all logs in Log Analytics workspace for 5 years.", "C. Export all logs to Azure Event Hubs.", "D. Use Azure Activity Log's built-in 90-day retention only."],
+      "correctAnswers": ["A"],
+      "explanation": "Sending logs to Log Analytics with 90-day interactive retention enables real-time querying and analysis. Archiving older logs to a Storage account with immutable storage provides cost-effective 5-year retention. This dual approach balances cost and functionality. Option B is incorrect because retaining 5 years in Log Analytics is extremely expensive. Option C is incorrect because Event Hubs is for real-time streaming, not long-term storage. Option D is incorrect because the built-in 90-day retention does not meet the 5-year compliance requirement."
+    },
+    {
+      "id": 17,
+      "topic": "Design Identity and Governance - Designing for external access",
+      "type": "SingleChoice",
+      "questionText": "A company needs to provide external vendors temporary access to specific Azure resources. Access should automatically expire after 6 months, and vendors should use their own corporate identities. What should you design?",
+      "options": ["A. Microsoft Entra B2B with Entitlement Management access packages.", "B. Create Microsoft Entra ID accounts for each vendor.", "C. Share service principal credentials with vendors.", "D. Provide VPN access to the Azure environment."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra B2B allows vendors to use their own identities, and Entitlement Management access packages bundle the required resource access with automatic expiration (6 months). Vendors request access, approvals are handled, and access is automatically removed upon expiration. Option B is incorrect because creating accounts requires identity management overhead and does not support automatic expiration natively. Option C is incorrect because sharing credentials is a security risk and does not provide individual accountability. Option D is incorrect because VPN access provides network connectivity but not identity-based resource access control."
+    },
+    {
+      "id": 18,
+      "topic": "Design Data Storage - Designing a caching solution",
+      "type": "SingleChoice",
+      "questionText": "A web application experiences high database load due to repeated reads of the same data. You need to reduce database load and improve response times. The cached data must be consistent across multiple application instances. What should you design?",
+      "options": ["A. Azure Cache for Redis.", "B. In-memory caching on each application instance.", "C. Azure CDN for all content.", "D. Read replicas of the database."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Cache for Redis provides a centralized, distributed cache that all application instances share, ensuring data consistency across instances. It dramatically reduces database load for repeated read operations. Option B is incorrect because in-memory caching on each instance leads to inconsistent data between instances. Option C is incorrect because CDN is for static content delivery, not dynamic database query caching. Option D is incorrect because read replicas reduce load on the primary but still incur database query overhead and do not provide the same performance as in-memory caching."
+    },
+    {
+      "id": 19,
+      "topic": "Design Compute Solutions - Designing for scalability",
+      "type": "SingleChoice",
+      "questionText": "An e-commerce company expects traffic to increase 10x during holiday sales events. The application runs on VMs behind a load balancer. You need to ensure the application scales automatically. What should you design?",
+      "options": ["A. Virtual Machine Scale Sets with autoscale rules based on CPU utilization.", "B. Manually add VMs before each sales event.", "C. Deploy 10x the normal capacity at all times.", "D. Use a single large VM instead of multiple smaller VMs."],
+      "correctAnswers": ["A"],
+      "explanation": "Virtual Machine Scale Sets with autoscale rules automatically add or remove VM instances based on metrics like CPU utilization. This ensures the application scales to handle 10x traffic during events and scales back down afterward to save costs. Option B is incorrect because manual scaling is error-prone and does not react to unexpected traffic patterns. Option C is incorrect because maintaining 10x capacity permanently is extremely wasteful. Option D is incorrect because a single large VM has limited scalability and creates a single point of failure."
+    },
+    {
+      "id": 20,
+      "topic": "Design Networking - Designing for hybrid connectivity",
+      "type": "SingleChoice",
+      "questionText": "A company needs a private, high-bandwidth connection to Azure that bypasses the public internet. They require 99.95% SLA and up to 10 Gbps bandwidth. The connection must be established within 2 weeks. What should you recommend?",
+      "options": ["A. ExpressRoute through a connectivity provider.", "B. Site-to-site VPN with VpnGw5 SKU.", "C. ExpressRoute Direct with 100 Gbps ports.", "D. Azure Virtual WAN with VPN."],
+      "correctAnswers": ["A"],
+      "explanation": "ExpressRoute through a connectivity provider offers private, high-bandwidth connectivity (up to 10 Gbps) with a 99.95% SLA. Connectivity providers can typically provision circuits within 1-2 weeks. Option B is incorrect because VPN connections traverse the public internet, even though they are encrypted, which does not meet the private connection requirement. Option C is incorrect because ExpressRoute Direct provides 10/100 Gbps direct ports but typically takes longer to provision and is more expensive than needed. Option D is incorrect because Virtual WAN with VPN still uses internet-based VPN tunnels."
+    },
+    {
+      "id": 21,
+      "topic": "Design Identity and Governance - Designing for compliance",
+      "type": "MultipleChoice",
+      "questionText": "A healthcare company needs to ensure Azure resources comply with HIPAA regulations. They need automated compliance assessment and the ability to prevent non-compliant resource deployments. Which TWO features should you design into the solution? (Choose two.)",
+      "options": ["A. Microsoft Defender for Cloud regulatory compliance dashboard.", "B. Azure Policy with HIPAA initiative.", "C. Azure Advisor.", "D. Azure Service Health.", "E. Azure Cost Management."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Microsoft Defender for Cloud provides a regulatory compliance dashboard that maps to HIPAA controls and shows compliance status. Azure Policy with a HIPAA initiative enforces and prevents non-compliant deployments. Together, they provide both assessment and enforcement. Option C is incorrect because Advisor provides optimization recommendations, not HIPAA compliance assessment. Option D is incorrect because Service Health monitors Azure service availability. Option E is incorrect because Cost Management tracks spending, not regulatory compliance."
+    },
+    {
+      "id": 22,
+      "topic": "Design Data Storage - Designing for big data analytics",
+      "type": "SingleChoice",
+      "questionText": "A company needs to store terabytes of structured and semi-structured data for analytics workloads using Spark and SQL. They need a single storage layer that supports both batch and interactive queries. What should you design?",
+      "options": ["A. Azure Data Lake Storage Gen2 with Azure Synapse Analytics.", "B. Azure Blob Storage with Azure Data Factory.", "C. Azure SQL Database.", "D. Azure Cosmos DB with Synapse Link."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Data Lake Storage Gen2 provides a hierarchical file system optimized for analytics, and Azure Synapse Analytics offers integrated Spark and SQL capabilities for both batch and interactive queries over the data lake. Option B is incorrect because Blob Storage lacks the hierarchical namespace optimization for analytics, and Data Factory is an orchestration tool, not a query engine. Option C is incorrect because Azure SQL Database is a relational database not designed for terabyte-scale analytics. Option D is incorrect because Cosmos DB with Synapse Link is for operational analytics on Cosmos DB data, not general big data analytics."
+    },
+    {
+      "id": 23,
+      "topic": "Design Compute Solutions - Designing a container orchestration solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to run a microservices architecture with 50+ services. They need fine-grained control over networking, service discovery, and custom autoscaling. What should you recommend?",
+      "options": ["A. Azure Kubernetes Service (AKS).", "B. Azure Container Apps.", "C. Azure Container Instances.", "D. Azure App Service with containers."],
+      "correctAnswers": ["A"],
+      "explanation": "AKS provides full Kubernetes orchestration with fine-grained control over networking (CNI, network policies), service discovery (CoreDNS, Kubernetes services), and custom autoscaling (HPA, KEDA, cluster autoscaler). It is designed for complex microservices architectures. Option B is incorrect because Container Apps abstracts away Kubernetes details, limiting fine-grained control. Option C is incorrect because ACI runs individual containers without orchestration capabilities. Option D is incorrect because App Service with containers lacks the orchestration features needed for 50+ microservices."
+    },
+    {
+      "id": 24,
+      "topic": "Design Networking - Designing DNS architecture",
+      "type": "SingleChoice",
+      "questionText": "A company uses Azure Private Endpoints for multiple PaaS services. They need on-premises clients to resolve private endpoint DNS names to private IP addresses. What should you design?",
+      "options": ["A. Azure DNS Private Resolver with inbound endpoint and forwarding rules from on-premises DNS.", "B. Hosts file entries on all on-premises machines.", "C. Public DNS records pointing to private IPs.", "D. Azure Traffic Manager for DNS resolution."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DNS Private Resolver with an inbound endpoint allows on-premises DNS servers to forward queries for privatelink zones to Azure, which resolves them to private IP addresses. This provides seamless name resolution for private endpoints from on-premises. Option B is incorrect because manually maintaining hosts files is unscalable. Option C is incorrect because public DNS records with private IPs would not be routable from the internet and violate DNS best practices. Option D is incorrect because Traffic Manager provides global DNS-based routing, not private endpoint name resolution."
+    },
+    {
+      "id": 25,
+      "topic": "Design Migration - Designing application modernization",
+      "type": "SingleChoice",
+      "questionText": "A company has a legacy .NET Framework 4.8 web application running on IIS. They want to move it to Azure with minimal code changes. What should you recommend?",
+      "options": ["A. Azure App Service (Windows).", "B. Azure Functions.", "C. Azure Kubernetes Service with Windows containers.", "D. Rewrite the application in .NET 8."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure App Service (Windows) supports .NET Framework 4.8 applications natively, allowing migration with minimal or no code changes. It provides a fully managed platform with built-in scaling and deployment features. Option B is incorrect because Functions is for event-driven code, not full web applications. Option C is incorrect because AKS with Windows containers adds significant operational complexity for a simple web application migration. Option D is incorrect because rewriting the application requires significant development effort and does not meet the minimal code changes requirement."
+    },
+    {
+      "id": 26,
+      "topic": "Design Monitoring - Designing an alerting solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to be alerted when their Azure SQL Database DTU consumption exceeds 80% for more than 5 minutes. The alert should trigger an Azure Function to scale up the database. What should you design?",
+      "options": ["A. Azure Monitor metric alert with an action group that triggers an Azure Function.", "B. Azure Advisor recommendations with email notifications.", "C. Application Insights availability tests.", "D. Azure Service Health alerts."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Monitor metric alerts can monitor DTU consumption with a threshold of 80% and a 5-minute evaluation window. An action group can trigger an Azure Function to automatically scale up the database. This provides automated remediation. Option B is incorrect because Advisor provides periodic recommendations, not real-time metric-based alerting. Option C is incorrect because availability tests monitor application uptime, not database performance metrics. Option D is incorrect because Service Health alerts notify about Azure platform issues, not individual resource metrics."
+    },
+    {
+      "id": 27,
+      "topic": "Design Identity and Governance - Designing for cost optimization",
+      "type": "SingleChoice",
+      "questionText": "A company runs development environments that are only used during business hours (8 AM - 6 PM, weekdays). They want to minimize costs. What should you design?",
+      "options": ["A. Azure Automation runbooks to start VMs at 8 AM and stop them at 6 PM on weekdays.", "B. Spot VMs for all development workloads.", "C. Reserved Instances for development VMs.", "D. Burstable VM sizes running 24/7."],
+      "correctAnswers": ["A"],
+      "explanation": "Scheduling VMs to start and stop based on business hours eliminates compute costs for the 14 hours per day and weekends when the environments are not in use, saving approximately 70% on compute costs. Option B is incorrect because Spot VMs can be evicted at any time, which would disrupt development work during business hours. Option C is incorrect because Reserved Instances provide discounts for 24/7 usage but do not reduce costs for workloads that only run part-time. Option D is incorrect because running burstable VMs 24/7 still incurs costs during non-business hours."
+    },
+    {
+      "id": 28,
+      "topic": "Design Data Storage - Designing for business continuity",
+      "type": "SingleChoice",
+      "questionText": "A company needs their Azure SQL Database to survive a complete region failure with an RPO of less than 5 seconds and automatic failover. What should you design?",
+      "options": ["A. Azure SQL Database failover group with automatic failover and geo-replication.", "B. Azure SQL Database with locally redundant backups.", "C. Azure SQL Database with zone-redundant configuration.", "D. Manual database backup to a different region."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure SQL Database failover groups with automatic failover provide geo-replication with an RPO of less than 5 seconds and automatic failover when the primary region is unavailable. The failover group provides a single connection endpoint that redirects to the active server. Option B is incorrect because locally redundant backups protect against hardware failures within a region but not region failures. Option C is incorrect because zone-redundant configuration protects against datacenter failures within a region, not complete region failures. Option D is incorrect because manual backups have a much higher RPO and require manual intervention for failover."
+    },
+    {
+      "id": 29,
+      "topic": "Design Compute Solutions - Designing for reliability",
+      "type": "SingleChoice",
+      "questionText": "A company runs a stateless web application on Azure VMs. They need 99.99% availability SLA. What should you design?",
+      "options": ["A. Two VMs in an Availability Set.", "B. VMs across two Availability Zones with a Standard Load Balancer.", "C. A single VM with Premium SSD.", "D. Azure App Service in a Standard tier."],
+      "correctAnswers": ["B"],
+      "explanation": "Deploying VMs across two or more Availability Zones with a zone-redundant Standard Load Balancer provides a 99.99% SLA. Availability Zones are physically separate datacenters within a region, providing protection against datacenter-level failures. Option A is incorrect because an Availability Set provides a 99.95% SLA, not 99.99%. Option C is incorrect because a single VM with Premium SSD provides only a 99.9% SLA. Option D is incorrect because App Service Standard tier does not guarantee 99.99% availability."
+    },
+    {
+      "id": 30,
+      "topic": "Design Networking - Designing for secure application delivery",
+      "type": "SingleChoice",
+      "questionText": "A company needs to protect their public-facing web application against SQL injection, cross-site scripting (XSS), and other OWASP Top 10 vulnerabilities. The solution must also provide SSL offloading. What should you design?",
+      "options": ["A. Azure Application Gateway with Web Application Firewall (WAF).", "B. Azure Load Balancer with NSGs.", "C. Azure Front Door without WAF.", "D. Azure Firewall."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Application Gateway with WAF provides Layer 7 load balancing, SSL offloading, and protection against OWASP Top 10 vulnerabilities including SQL injection and XSS. WAF rules inspect HTTP/HTTPS traffic for malicious patterns. Option B is incorrect because Load Balancer operates at Layer 4 and NSGs cannot inspect HTTP content for SQL injection or XSS. Option C is incorrect because Front Door without WAF does not provide protection against OWASP vulnerabilities. Option D is incorrect because Azure Firewall provides network-level security but is not specifically designed for web application protection against OWASP vulnerabilities."
+    },
+    {
+      "id": 31,
+      "topic": "Design Migration - Designing a hybrid solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs to keep some workloads on-premises due to regulatory requirements while using Azure for other workloads. Both environments need to share data securely. What should you design for connectivity?",
+      "options": ["A. ExpressRoute with private peering for a dedicated, private connection.", "B. Site-to-site VPN only.", "C. Azure Bastion for cross-environment access.", "D. Public internet with HTTPS encryption."],
+      "correctAnswers": ["A"],
+      "explanation": "ExpressRoute with private peering provides a dedicated, private connection between on-premises and Azure that does not traverse the public internet. This meets the security requirements for sharing data between regulated on-premises and Azure workloads. Option B is incorrect because while S2S VPN provides encryption, traffic traverses the public internet, which may not meet regulatory requirements. Option C is incorrect because Azure Bastion provides secure VM access, not network connectivity between environments. Option D is incorrect because public internet connectivity does not provide the private, dedicated connection required by regulations."
+    },
+    {
+      "id": 32,
+      "topic": "Design Monitoring - Designing application performance monitoring",
+      "type": "SingleChoice",
+      "questionText": "A development team needs to monitor their web application's performance, track user behavior, detect anomalies, and diagnose failures in production. What should you recommend?",
+      "options": ["A. Application Insights.", "B. Azure Monitor Metrics only.", "C. Log Analytics with custom queries.", "D. Azure Network Watcher."],
+      "correctAnswers": ["A"],
+      "explanation": "Application Insights provides comprehensive application performance monitoring including request tracking, dependency tracking, exception logging, user analytics, smart anomaly detection, and failure diagnostics. It is purpose-built for application monitoring. Option B is incorrect because Azure Monitor Metrics provides infrastructure metrics but not application-level telemetry. Option C is incorrect because Log Analytics is a query platform but does not provide the automatic instrumentation and smart detection of Application Insights. Option D is incorrect because Network Watcher monitors network connectivity, not application performance."
+    },
+    {
+      "id": 33,
+      "topic": "Design Identity and Governance - Designing conditional access architecture",
+      "type": "MultipleChoice",
+      "questionText": "A company needs to ensure that access to Azure management is restricted to compliant corporate devices and requires MFA. External access should be completely blocked. Which TWO Conditional Access policy components should you design? (Choose two.)",
+      "options": ["A. A policy requiring MFA and compliant device for the Microsoft Azure Management cloud app.", "B. A policy blocking access from all external networks (named locations).", "C. A policy requiring password change every 30 days.", "D. A policy allowing access only from iOS devices.", "E. A policy disabling legacy authentication."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A Conditional Access policy targeting Microsoft Azure Management that requires both MFA and a compliant device ensures only authorized devices can access Azure management. A second policy blocking access from external locations prevents all access from outside the corporate network. Option C is incorrect because password change policies are not configured through Conditional Access. Option D is incorrect because restricting to iOS only does not meet the requirement for corporate-compliant devices across platforms. Option E is incorrect because while disabling legacy authentication is a security best practice, it is not specifically about restricting Azure management access."
+    },
+    {
+      "id": 34,
+      "topic": "Design Data Storage - Designing a messaging solution",
+      "type": "SingleChoice",
+      "questionText": "A company needs a message queuing solution for decoupling microservices. Messages must be processed in order, support transactions, and handle messages up to 256 KB. Dead-letter handling is required. What should you design?",
+      "options": ["A. Azure Service Bus queues.", "B. Azure Storage queues.", "C. Azure Event Hubs.", "D. Azure Event Grid."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Service Bus queues support FIFO ordering (with sessions), transactions, messages up to 256 KB (or 100 MB in Premium), and built-in dead-letter queues. These features make it ideal for enterprise messaging between microservices. Option B is incorrect because Storage queues do not guarantee FIFO ordering, do not support transactions, and lack built-in dead-letter handling. Option C is incorrect because Event Hubs is designed for high-throughput event streaming, not transactional message queuing. Option D is incorrect because Event Grid is for event-driven reactive programming, not message queuing with ordering and transactions."
+    },
+    {
+      "id": 35,
+      "topic": "Design Compute Solutions - Designing for batch processing",
+      "type": "SingleChoice",
+      "questionText": "A company needs to process thousands of video files daily using a custom encoding application. The processing is CPU-intensive and each job takes 30-60 minutes. They want to minimize costs. What should you design?",
+      "options": ["A. Azure Batch with low-priority (Spot) VMs.", "B. Azure Functions with Consumption plan.", "C. Azure App Service with WebJobs.", "D. AKS with permanent node pools."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Batch is designed for running large-scale parallel and batch compute jobs. Using low-priority (Spot) VMs significantly reduces costs (up to 80% savings). Batch manages VM provisioning, job scheduling, and scaling automatically. Option B is incorrect because Functions have execution time limits and are not designed for long-running CPU-intensive tasks. Option C is incorrect because App Service WebJobs run on the App Service plan and are not optimized for parallel batch processing. Option D is incorrect because permanent AKS node pools incur continuous costs even when not processing, unlike Batch which scales to zero."
+    },
+    {
+      "id": 36,
+      "topic": "Design Networking - Designing for DNS",
+      "type": "SingleChoice",
+      "questionText": "A company hosts multiple web applications on Azure and needs a single DNS solution that supports both public-facing domains and private internal domains within their VNets. What should you design?",
+      "options": ["A. Azure DNS public zones for public domains and Azure DNS private zones for internal domains.", "B. A custom DNS server on a VM for all DNS.", "C. Azure Traffic Manager for all DNS resolution.", "D. Third-party DNS hosting."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure DNS public zones host public-facing domain records accessible from the internet, while Azure DNS private zones provide name resolution within VNets without exposing records publicly. Together, they provide a comprehensive Azure-native DNS solution. Option B is incorrect because a custom DNS server adds management overhead when Azure DNS provides native support. Option C is incorrect because Traffic Manager provides DNS-based traffic routing but is not a general-purpose DNS hosting service. Option D is incorrect because third-party DNS adds external dependencies when Azure DNS can handle both scenarios natively."
+    },
+    {
+      "id": 37,
+      "topic": "Design Migration - Designing for data migration",
+      "type": "SingleChoice",
+      "questionText": "A company needs to migrate 100 TB of data from an on-premises NAS to Azure Blob Storage. The network connection is 1 Gbps, and the migration must complete within one week. What should you recommend?",
+      "options": ["A. Azure Data Box.", "B. AzCopy over the 1 Gbps connection.", "C. Azure File Sync.", "D. Azure Import/Export service with hard drives."],
+      "correctAnswers": ["A"],
+      "explanation": "At 1 Gbps, transferring 100 TB would take approximately 9-10 days, exceeding the one-week deadline. Azure Data Box is a physical device (up to 80 TB per device) shipped to your location, loaded with data, and returned to Microsoft for upload. Two Data Boxes can handle 100 TB within the timeframe. Option B is incorrect because network transfer at 1 Gbps would exceed one week for 100 TB. Option C is incorrect because Azure File Sync is for ongoing synchronization to Azure Files, not bulk migration to Blob Storage. Option D is incorrect because Azure Import/Export with customer-provided hard drives takes longer to prepare and process than Data Box."
+    },
+    {
+      "id": 38,
+      "topic": "Design Monitoring - Designing for cost monitoring",
+      "type": "SingleChoice",
+      "questionText": "A company needs to set spending limits for each department's Azure resources and receive alerts when spending approaches the budget. They also need to analyze cost trends. What should you design?",
+      "options": ["A. Azure Cost Management with budgets and alerts, plus cost analysis.", "B. Azure Advisor cost recommendations only.", "C. Azure Pricing Calculator for ongoing monitoring.", "D. Manual review of invoices monthly."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Cost Management provides budgets with configurable alert thresholds, cost analysis with filtering and grouping (by department tags, subscriptions), and forecasting. This gives comprehensive cost monitoring and governance. Option B is incorrect because Advisor provides point-in-time optimization recommendations, not ongoing budget monitoring and alerting. Option C is incorrect because the Pricing Calculator estimates costs for new deployments, it does not monitor actual spending. Option D is incorrect because manual invoice review is reactive and does not provide real-time alerts or trend analysis."
+    },
+    {
+      "id": 39,
+      "topic": "Design Data Storage - Designing for data redundancy",
+      "type": "SingleChoice",
+      "questionText": "A company stores critical data in Azure Storage. They need protection against a complete region failure with the ability to read data from the secondary region during an outage. What storage redundancy option should you design?",
+      "options": ["A. Locally Redundant Storage (LRS).", "B. Zone-Redundant Storage (ZRS).", "C. Read-Access Geo-Redundant Storage (RA-GRS).", "D. Geo-Redundant Storage (GRS)."],
+      "correctAnswers": ["C"],
+      "explanation": "Read-Access Geo-Redundant Storage (RA-GRS) replicates data to a secondary region and provides read access to the secondary region at all times. During a region outage, applications can continue reading from the secondary. Option A is incorrect because LRS only replicates within a single datacenter, providing no region failure protection. Option B is incorrect because ZRS replicates across zones within a single region, not across regions. Option D is incorrect because GRS replicates to a secondary region but does not provide read access until Microsoft initiates a failover."
+    },
+    {
+      "id": 40,
+      "topic": "Design Compute Solutions - Designing for IoT workloads",
+      "type": "SingleChoice",
+      "questionText": "A manufacturing company needs to ingest telemetry from 10,000 IoT devices, process events in real-time, and store raw data for historical analysis. What should you design?",
+      "options": ["A. Azure IoT Hub for device ingestion, Azure Stream Analytics for real-time processing, and Azure Data Lake Storage for historical data.", "B. Azure Event Grid for device communication and Azure SQL Database for storage.", "C. Azure Service Bus queues for each device.", "D. Direct API calls from devices to Azure Functions."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure IoT Hub is purpose-built for IoT device management and telemetry ingestion at scale. Stream Analytics provides real-time event processing with SQL-like queries. Data Lake Storage provides cost-effective storage for raw telemetry data. Option B is incorrect because Event Grid is not designed for continuous device telemetry ingestion, and SQL Database is not cost-effective for storing massive IoT data volumes. Option C is incorrect because managing 10,000 separate queues is impractical. Option D is incorrect because direct API calls from devices do not provide device management, throttling, or protocol translation that IoT Hub offers."
+    }
+  ]
+}

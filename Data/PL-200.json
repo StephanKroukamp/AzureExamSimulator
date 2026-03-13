@@ -1,0 +1,569 @@
+{
+  "examCode": "PL-200",
+  "examTitle": "Power Platform Functional Consultant Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Dataverse - Table Design",
+      "type": "SingleChoice",
+      "questionText": "A client needs to track customer complaints. Each complaint must be associated with one customer and can have multiple follow-up activities. You need to design the Dataverse schema. Which relationship configuration is correct?",
+      "options": [
+        "A. One-to-many from Customer to Complaint, and one-to-many from Complaint to Activity.",
+        "B. Many-to-many between Customer and Complaint, and one-to-one between Complaint and Activity.",
+        "C. One-to-one from Customer to Complaint, and many-to-many between Complaint and Activity.",
+        "D. Many-to-many between all three tables."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. One-to-many from Customer to Complaint means each customer can have multiple complaints but each complaint belongs to one customer. One-to-many from Complaint to Activity means each complaint can have multiple follow-up activities.\n\nWhy the others are wrong:\n- B. Many-to-many between Customer and Complaint would allow a complaint to belong to multiple customers, which contradicts the requirement.\n- C. One-to-one from Customer to Complaint would limit each customer to only one complaint.\n- D. Many-to-many between all tables would create incorrect cardinality for this business scenario."
+    },
+    {
+      "id": 2,
+      "topic": "Business Rules - Conditional Logic",
+      "type": "SingleChoice",
+      "questionText": "You need to make the 'Resolution Date' field required on a Case form only when the Status field is set to 'Resolved'. What is the most appropriate approach?",
+      "options": [
+        "A. Set the field as required at the table column level.",
+        "B. Create a business rule that sets the 'Resolution Date' field as required when Status equals 'Resolved'.",
+        "C. Create a Power Automate flow to validate the field.",
+        "D. Use JavaScript to enforce the requirement."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A business rule can conditionally set a field's requirement level based on another field's value. Setting 'Resolution Date' to 'Business Required' when Status equals 'Resolved' is a no-code solution that works in both model-driven apps and canvas apps connected to Dataverse.\n\nWhy the others are wrong:\n- A. Setting the field as required at the column level makes it always required, not conditional.\n- C. Power Automate flows run asynchronously and cannot provide real-time form validation.\n- D. JavaScript works but is a code-based solution that is harder to maintain than a business rule."
+    },
+    {
+      "id": 3,
+      "topic": "Security Roles - Access Levels",
+      "type": "SingleChoice",
+      "questionText": "A sales manager needs to view all sales records across the entire organization, but only edit records in their own business unit. Which combination of access levels should you configure for the Sales table?",
+      "options": [
+        "A. Read: Organization, Write: Business Unit.",
+        "B. Read: Business Unit, Write: User.",
+        "C. Read: Organization, Write: Organization.",
+        "D. Read: User, Write: User."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Organization-level Read allows viewing all records across all business units. Business Unit-level Write allows editing records within the manager's own business unit only. This combination meets both requirements.\n\nWhy the others are wrong:\n- B. Business Unit Read would not allow viewing records from other business units.\n- C. Organization Write would allow editing all records everywhere, exceeding the requirement.\n- D. User-level access for both would be too restrictive, limiting to only the manager's own records."
+    },
+    {
+      "id": 4,
+      "topic": "Power Apps - Solution Architecture",
+      "type": "SingleChoice",
+      "questionText": "Your client has a model-driven app for case management and wants to add a visual inspection feature where field technicians capture photos using their phone. What is the recommended approach?",
+      "options": [
+        "A. Replace the model-driven app with a canvas app.",
+        "B. Embed a canvas app within the model-driven app form that provides the camera and photo capture functionality.",
+        "C. Add an image column to the form and rely on file upload.",
+        "D. Build a separate standalone canvas app with no connection to the model-driven app."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Embedding a canvas app within a model-driven app form combines the strengths of both app types. The model-driven app provides structured case management while the embedded canvas app provides mobile-optimized camera functionality.\n\nWhy the others are wrong:\n- A. Replacing the model-driven app loses all the case management functionality and requires rebuilding it.\n- C. An image column with file upload does not provide direct camera integration for field technicians.\n- D. A separate standalone app creates data silos and requires users to switch between apps."
+    },
+    {
+      "id": 5,
+      "topic": "Power Automate - Business Process",
+      "type": "SingleChoice",
+      "questionText": "A purchase order above $10,000 requires approval from both the department manager and the finance director (in sequence). What should you configure in Power Automate?",
+      "options": [
+        "A. A single approval action with both approvers.",
+        "B. Two sequential approval actions: first the department manager, then (if approved) the finance director.",
+        "C. A parallel branch with both approvals running simultaneously.",
+        "D. An approval action sent only to the finance director."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sequential approval actions ensure the department manager approves first. Only if the manager approves does the flow proceed to the finance director's approval. This enforces the approval hierarchy.\n\nWhy the others are wrong:\n- A. A single approval with both approvers does not enforce sequence; both would receive the approval simultaneously.\n- C. Parallel branches would send both approvals at the same time, not in sequence.\n- D. Skipping the department manager violates the approval requirement."
+    },
+    {
+      "id": 6,
+      "topic": "AI Builder - Document Processing",
+      "type": "SingleChoice",
+      "questionText": "Your client receives hundreds of invoices daily in various formats and needs to automatically extract vendor name, invoice number, and total amount. Which AI Builder model should you use?",
+      "options": [
+        "A. Object detection model.",
+        "B. Prebuilt invoice processing model.",
+        "C. Text classification model.",
+        "D. Prediction model."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The AI Builder prebuilt invoice processing model is specifically designed to extract key fields from invoices (vendor, invoice number, totals, line items, dates) without requiring custom training. It handles various invoice formats out of the box.\n\nWhy the others are wrong:\n- A. Object detection identifies objects in images (like products on a shelf), not text fields in invoices.\n- C. Text classification categorizes text into predefined categories, not for extracting specific fields from documents.\n- D. Prediction models forecast outcomes based on historical data, not for document field extraction."
+    },
+    {
+      "id": 7,
+      "topic": "Dataverse - Business Process Flows",
+      "type": "MultipleChoice",
+      "questionText": "You are creating a business process flow for a hiring process with stages: Application Review, Interview, Background Check, and Offer. Which two statements are true about business process flows? Each correct answer presents a complete fact.",
+      "options": [
+        "A. Business process flows can span multiple Dataverse tables across stages.",
+        "B. Business process flows can only be used with a single table.",
+        "C. Each stage can contain data steps that require specific fields to be completed.",
+        "D. Business process flows replace the need for Power Automate flows entirely.",
+        "E. Business process flows run only in canvas apps."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. Business process flows can span multiple tables (e.g., Application table for review, Candidate table for interview) across stages. Each stage can contain data steps that guide users through required and recommended fields.\n\nWhy the others are wrong:\n- B. BPFs can span up to 5 different tables across their stages.\n- D. BPFs and Power Automate flows serve different purposes; BPFs guide users through stages while flows automate background processes.\n- E. BPFs are primarily used in model-driven apps, not canvas apps."
+    },
+    {
+      "id": 8,
+      "topic": "Security Roles - Field-Level Security",
+      "type": "SingleChoice",
+      "questionText": "The salary field on the Employee table should only be visible to HR managers. Other users should not see this field at all. What should you configure?",
+      "options": [
+        "A. A security role with no access to the Employee table for non-HR users.",
+        "B. A field-level security profile that grants Read access to the Salary field only for the HR Manager security role.",
+        "C. A business rule that hides the field based on the user's role.",
+        "D. Two separate forms: one with salary for HR and one without for other users."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Field-level security profiles control access to specific columns. By enabling field security on the Salary column and creating a profile that grants Read access only to HR Managers, other users will not see the field's value.\n\nWhy the others are wrong:\n- A. Removing table access would prevent non-HR users from seeing any employee records, which is too restrictive.\n- C. Business rules cannot evaluate the current user's security role to conditionally hide fields based on role membership.\n- D. While two forms could work, field-level security is the proper security mechanism. Forms can still be bypassed through APIs or views."
+    },
+    {
+      "id": 9,
+      "topic": "Power Apps - Canvas App Design",
+      "type": "SingleChoice",
+      "questionText": "A client needs a customer-facing app that matches their brand colors and has a custom layout. Internal staff should use a structured data management interface. What app types should you recommend?",
+      "options": [
+        "A. Two model-driven apps.",
+        "B. A canvas app for customers and a model-driven app for internal staff.",
+        "C. Two canvas apps.",
+        "D. A single Power Pages site for both audiences."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A canvas app provides the pixel-perfect control needed for a branded customer-facing experience. A model-driven app provides the structured data management interface with built-in navigation, views, forms, and business logic that internal staff need.\n\nWhy the others are wrong:\n- A. Model-driven apps have limited visual customization, making them unsuitable for a branded customer-facing experience.\n- C. While possible, a canvas app for internal data management would require rebuilding all the features that model-driven apps provide out of the box.\n- D. Power Pages is for external-facing portals but does not replace the need for an internal staff management app."
+    },
+    {
+      "id": 10,
+      "topic": "Power Automate - Cloud Flows",
+      "type": "SingleChoice",
+      "questionText": "You need to create a flow that runs every Monday at 9:00 AM to send a weekly summary email to the team. Which trigger should you use?",
+      "options": [
+        "A. When an HTTP request is received.",
+        "B. Recurrence trigger set to weekly on Monday at 9:00 AM.",
+        "C. Manually trigger a flow.",
+        "D. When a new email arrives."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Recurrence trigger allows you to schedule flows to run on a specific schedule. You can set it to weekly frequency, specify Monday as the day, and set 9:00 AM as the time.\n\nWhy the others are wrong:\n- A. An HTTP request trigger requires an external call to initiate the flow, not a schedule.\n- C. A manual trigger requires someone to run the flow, which is not automated.\n- D. An email arrival trigger is event-based, not schedule-based."
+    },
+    {
+      "id": 11,
+      "topic": "Dataverse - Alternate Keys",
+      "type": "SingleChoice",
+      "questionText": "Your organization imports data from an external system that uses a unique Employee ID (not the Dataverse GUID). You need to use this Employee ID to match and update existing records during import. What should you configure?",
+      "options": [
+        "A. Set the Employee ID column as the primary name column.",
+        "B. Create an alternate key on the Employee ID column.",
+        "C. Use a Power Automate flow to look up each record by Employee ID.",
+        "D. Change the primary key of the table to Employee ID."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An alternate key in Dataverse allows you to uniquely identify records using columns other than the primary key (GUID). During data import or upsert operations, the system uses the alternate key to match existing records for updates.\n\nWhy the others are wrong:\n- A. The primary name column is a display field, not a unique identifier for matching records.\n- C. While a flow could look up records, an alternate key is more efficient and works natively with import and upsert operations.\n- D. Dataverse does not allow changing the primary key from the auto-generated GUID."
+    },
+    {
+      "id": 12,
+      "topic": "Business Rules - Scope",
+      "type": "SingleChoice",
+      "questionText": "You create a business rule for the Account table that sets the Credit Limit based on the Account Rating. You want this rule to execute when data is changed through model-driven apps, canvas apps, and also when records are updated through Power Automate. What scope should you set?",
+      "options": [
+        "A. Entity (table) scope.",
+        "B. All Forms scope.",
+        "C. Specific form scope (e.g., Information form only).",
+        "D. Client-side only scope."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Setting the business rule scope to 'Entity' (table level) makes it execute server-side, which means it runs regardless of how the record is updated - through model-driven apps, canvas apps, Power Automate, or API calls.\n\nWhy the others are wrong:\n- B. 'All Forms' scope executes the rule only when a form is loaded or changed in a model-driven app, not when data is changed through Power Automate.\n- C. Specific form scope limits execution to a single form only.\n- D. Client-side scope only runs when a user interacts with a form, not during server-side operations."
+    },
+    {
+      "id": 13,
+      "topic": "Power Apps - Model-Driven App Design",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a model-driven app so that when a user opens a Case record, they see different form layouts depending on the case type (Billing, Technical, General). What should you configure?",
+      "options": [
+        "A. A single form with conditional sections controlled by business rules.",
+        "B. Multiple forms with form selector rules based on case type.",
+        "C. A canvas app with conditional screens.",
+        "D. Separate tables for each case type."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Using a single form with business rules to show/hide sections and tabs based on the case type is the most maintainable approach. Business rules can conditionally display relevant sections (Billing details, Technical details, etc.) based on the case type field value.\n\nWhy the others are wrong:\n- B. While multiple forms work, they duplicate common fields and are harder to maintain when changes apply to all case types.\n- C. A canvas app would require building the entire form experience from scratch.\n- D. Separate tables would fragment case data and complicate reporting."
+    },
+    {
+      "id": 14,
+      "topic": "Security Roles - Teams Integration",
+      "type": "SingleChoice",
+      "questionText": "Users need to access a Dataverse-based app through Microsoft Teams. They have Teams licenses but no standalone Power Apps licenses. What is the licensing requirement?",
+      "options": [
+        "A. Each user needs a Power Apps Premium license.",
+        "B. Users can access Dataverse for Teams apps with their Microsoft 365 license at no additional cost.",
+        "C. A single Power Apps per-app license covers all Teams users.",
+        "D. No license is needed since Teams includes unlimited Power Apps access."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dataverse for Teams (formerly Project Oakdale) is included with select Microsoft 365 licenses. Apps built within Teams using Dataverse for Teams can be used by Microsoft 365 licensed users without additional Power Apps licenses.\n\nWhy the others are wrong:\n- A. Power Apps Premium is only required for premium connectors, full Dataverse (not Dataverse for Teams), or apps outside of Teams.\n- C. Per-app licenses are for specific apps outside of the Teams context.\n- D. While M365 includes Dataverse for Teams, there are limitations (e.g., data capacity, table limits) compared to full Dataverse."
+    },
+    {
+      "id": 15,
+      "topic": "Power Automate - Business Process Automation",
+      "type": "SingleChoice",
+      "questionText": "When a new lead is created in Dataverse, you need to automatically create a follow-up task assigned to the lead owner, scheduled for 3 days from now. Which approach should you use?",
+      "options": [
+        "A. A business rule on the Lead table.",
+        "B. A Power Automate cloud flow triggered by 'When a row is added' in the Leads table.",
+        "C. A manual Power Automate button flow.",
+        "D. A calculated column on the Lead table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Power Automate cloud flow triggered by 'When a row is added' in Dataverse automatically fires when a new lead record is created. The flow can then create a new Task row with the appropriate owner and due date (addDays function for 3 days from now).\n\nWhy the others are wrong:\n- A. Business rules can set field values on the current record but cannot create new records in other tables.\n- C. A manual button flow requires user action and is not automatic.\n- D. A calculated column computes a value on the same record but cannot create new records."
+    },
+    {
+      "id": 16,
+      "topic": "AI Builder - Prediction",
+      "type": "SingleChoice",
+      "questionText": "Your sales team wants to predict which leads are most likely to convert to customers based on historical data. Which AI Builder capability should you use?",
+      "options": [
+        "A. Document processing.",
+        "B. Prediction model trained on historical lead data.",
+        "C. Sentiment analysis.",
+        "D. Object detection."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. AI Builder's prediction model can be trained on historical lead data (lead attributes and conversion outcomes) to predict the likelihood of future leads converting. The model uses machine learning to identify patterns in the historical data.\n\nWhy the others are wrong:\n- A. Document processing extracts data from documents, not predict lead conversion.\n- C. Sentiment analysis determines the emotional tone of text, not lead conversion probability.\n- D. Object detection identifies objects in images, which is unrelated to lead conversion prediction."
+    },
+    {
+      "id": 17,
+      "topic": "Dataverse - Views and Filtering",
+      "type": "SingleChoice",
+      "questionText": "A service manager wants a view that shows cases sorted by priority (Critical first), then by created date (newest first) within each priority. How should you configure the view?",
+      "options": [
+        "A. Sort by Created Date descending, then by Priority ascending.",
+        "B. Sort by Priority ascending (Critical = highest), then by Created Date descending.",
+        "C. Filter by Priority equals Critical.",
+        "D. Group by Priority and sort by Created Date."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. First sorting by Priority ascending (assuming Critical has the lowest sort order value) groups critical cases at the top. Then sorting by Created Date descending within each priority group shows the newest cases first within each priority level.\n\nWhy the others are wrong:\n- A. Sorting by Created Date first would not group by priority; cases would be ordered by date regardless of priority.\n- C. Filtering by Critical only would hide all non-critical cases.\n- D. Dataverse views do not support visual grouping like Excel pivot tables; they use sorting to achieve ordered results."
+    },
+    {
+      "id": 18,
+      "topic": "Power Apps - Testing and Deployment",
+      "type": "SingleChoice",
+      "questionText": "You have developed a Power Apps solution in a development environment and need to deploy it to production. What is the recommended approach?",
+      "options": [
+        "A. Recreate the app manually in the production environment.",
+        "B. Export the solution as managed from development and import it into production.",
+        "C. Share the app from the development environment with production users.",
+        "D. Copy the development environment to production."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Exporting the solution as a managed solution from the development environment and importing it into production is the ALM best practice. Managed solutions prevent direct modification in production and can be cleanly uninstalled.\n\nWhy the others are wrong:\n- A. Manual recreation is time-consuming, error-prone, and does not follow ALM practices.\n- C. Sharing from development gives production users access to the development environment, mixing environments.\n- D. Copying the entire environment would overwrite any existing production data and configurations."
+    },
+    {
+      "id": 19,
+      "topic": "Security Roles - Business Units",
+      "type": "SingleChoice",
+      "questionText": "Your organization has three regional offices (North, South, West) that should only see their own data. The corporate office needs to see all data. How should you design the Dataverse security model?",
+      "options": [
+        "A. Create one business unit for each region and the root business unit for corporate. Assign appropriate security roles with Business Unit access for regions and Organization access for corporate.",
+        "B. Create separate Dataverse environments for each region.",
+        "C. Use record-level sharing to share records between regions.",
+        "D. Create separate tables for each region's data."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Business units in Dataverse provide natural data segmentation. Regional users with Business Unit-level access see only their unit's data. Corporate users with Organization-level access see data across all business units.\n\nWhy the others are wrong:\n- B. Separate environments would create data silos and prevent corporate from having a unified view.\n- C. Record-level sharing does not scale well and would require manual sharing for every record.\n- D. Separate tables for each region would fragment the data model and complicate reporting."
+    },
+    {
+      "id": 20,
+      "topic": "Power Automate - Connectors and Data Operations",
+      "type": "SingleChoice",
+      "questionText": "You have a Power Automate flow that retrieves a list of orders from Dataverse. You need to calculate the total value of all orders. Which data operation should you use?",
+      "options": [
+        "A. A Select action to extract order values, then a Compose action with a sum expression.",
+        "B. A Filter Array action to remove zero-value orders.",
+        "C. A Create CSV table action.",
+        "D. An Apply to each loop that adds values manually."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Using a Select action to extract the order value from each record into an array, then using a Compose action with a sum() expression on that array, is the most efficient way to calculate a total without looping.\n\nWhy the others are wrong:\n- B. Filter Array removes items but does not calculate a sum.\n- C. A CSV table formats data but does not perform calculations.\n- D. An Apply to each loop works but is less efficient than using expressions and can be slow with many records."
+    },
+    {
+      "id": 21,
+      "topic": "Dataverse - Column Types",
+      "type": "SingleChoice",
+      "questionText": "You need to store a customer's annual revenue in Dataverse. The value can be up to $999,999,999.99 with two decimal places. Which column type should you use?",
+      "options": [
+        "A. Whole number column.",
+        "B. Currency column.",
+        "C. Decimal number column.",
+        "D. Text column with formatting."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Currency column is specifically designed for monetary values. It supports decimal places, automatic currency formatting, and can be associated with transaction currencies for multi-currency scenarios.\n\nWhy the others are wrong:\n- A. Whole number cannot store decimal places, which are required for cents.\n- C. Decimal number can store the value but lacks currency-specific features like currency symbol formatting and exchange rate support.\n- D. Text columns cannot be used in calculations and do not enforce numeric formatting."
+    },
+    {
+      "id": 22,
+      "topic": "Business Rules - Actions",
+      "type": "SingleChoice",
+      "questionText": "You need a business rule that locks the 'Discount Percentage' field when an order status is 'Approved', preventing users from modifying it. Which business rule action should you use?",
+      "options": [
+        "A. Set Field Value.",
+        "B. Show Error Message.",
+        "C. Lock/Unlock field.",
+        "D. Set Visibility."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The Lock/Unlock field action in a business rule makes a field read-only (locked) or editable (unlocked) based on conditions. Setting the Discount Percentage field to locked when Status equals 'Approved' prevents modifications.\n\nWhy the others are wrong:\n- A. Set Field Value changes the field's data but does not prevent user modifications.\n- B. Show Error Message displays a warning but does not prevent the user from changing the field.\n- D. Set Visibility hides the field entirely rather than making it read-only, which may not be desired if users need to see the value."
+    },
+    {
+      "id": 23,
+      "topic": "Power Apps - Power Pages",
+      "type": "SingleChoice",
+      "questionText": "Your client wants to create an external-facing portal where customers can submit and track support tickets. The portal should authenticate customers using their email. What should you use?",
+      "options": [
+        "A. A canvas app shared with external users.",
+        "B. A Power Pages site with Dataverse integration and local authentication.",
+        "C. A model-driven app with guest access.",
+        "D. A SharePoint site with anonymous access."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Pages (formerly Power Apps Portals) is designed for creating external-facing websites that integrate with Dataverse. It supports local authentication (email-based registration) and provides forms and lists for customers to create and view support tickets.\n\nWhy the others are wrong:\n- A. Canvas apps cannot be shared with external users who do not have Power Apps licenses.\n- C. Model-driven apps require Azure AD authentication and are designed for internal users.\n- D. SharePoint sites do not provide the Dataverse integration needed for support ticket management."
+    },
+    {
+      "id": 24,
+      "topic": "Power Automate - Approvals Advanced",
+      "type": "SingleChoice",
+      "questionText": "An expense report approval should be escalated to the VP if the original approver does not respond within 48 hours. How should you implement this in Power Automate?",
+      "options": [
+        "A. Create two parallel approval actions.",
+        "B. Use the 'Start and wait for an approval' action with a timeout, then add escalation logic if the approval times out.",
+        "C. Send a reminder email after 48 hours.",
+        "D. Create a separate flow for escalation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The approval action can be configured with a timeout. You add a parallel branch: one waiting for the approval response and one with a delay of 48 hours. The first branch to complete wins. If the delay completes first (timeout), the flow proceeds to the escalation logic (send to VP).\n\nWhy the others are wrong:\n- A. Parallel approvals send to both people simultaneously without waiting for the original approver first.\n- C. A reminder email does not route the approval to the VP for action.\n- D. A separate flow would need complex coordination with the original flow."
+    },
+    {
+      "id": 25,
+      "topic": "Dataverse - Data Import",
+      "type": "SingleChoice",
+      "questionText": "You need to import 50,000 customer records from a CSV file into Dataverse. Which tool is most appropriate for this one-time bulk import?",
+      "options": [
+        "A. Power Automate flow reading the CSV line by line.",
+        "B. The Dataverse data import wizard in the Power Apps maker portal.",
+        "C. Manually entering records through a model-driven app.",
+        "D. A canvas app with a file upload feature."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Dataverse data import wizard handles bulk imports efficiently. It supports CSV files, allows column mapping, handles duplicate detection, and can process large volumes of records in a batch operation.\n\nWhy the others are wrong:\n- A. A Power Automate flow reading line by line would be extremely slow for 50,000 records and likely hit throttling limits.\n- C. Manual entry of 50,000 records is completely impractical.\n- D. A canvas app is designed for user interaction, not bulk data import operations."
+    },
+    {
+      "id": 26,
+      "topic": "AI Builder - Text Recognition",
+      "type": "SingleChoice",
+      "questionText": "Your client needs to automatically extract text from business cards and create contact records in Dataverse. Which AI Builder model should you use?",
+      "options": [
+        "A. Custom document processing model.",
+        "B. Prebuilt business card reader model.",
+        "C. Text recognition (OCR) model.",
+        "D. Language detection model."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The AI Builder prebuilt business card reader model is specifically designed to extract structured information from business cards including name, company, phone, email, and address. It can be used directly in Power Automate or Power Apps.\n\nWhy the others are wrong:\n- A. A custom document processing model requires training and is overkill when a prebuilt model exists.\n- C. OCR extracts raw text but does not structure it into named fields (name, phone, etc.).\n- D. Language detection identifies the language of text but does not extract contact information."
+    },
+    {
+      "id": 27,
+      "topic": "Power Apps - App Sharing and Distribution",
+      "type": "SingleChoice",
+      "questionText": "You have created a canvas app for the HR department. Only HR team members should be able to use the app. How should you share it?",
+      "options": [
+        "A. Share the app with the entire organization.",
+        "B. Share the app with the HR security group and assign appropriate Dataverse security roles.",
+        "C. Publish the app to AppSource.",
+        "D. Email the app link to each HR team member."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sharing the app with a specific security group (HR) ensures only the intended users can access it. Additionally, assigning appropriate Dataverse security roles ensures users have the correct data access permissions.\n\nWhy the others are wrong:\n- A. Sharing with the entire organization gives everyone access, violating the HR-only requirement.\n- C. AppSource is for publicly distributing apps to other organizations, not for internal department-specific apps.\n- D. Emailing links does not control access; anyone with the link would still need sharing permissions, and this does not manage security roles."
+    },
+    {
+      "id": 28,
+      "topic": "Dataverse - Audit Trail",
+      "type": "SingleChoice",
+      "questionText": "The compliance department requires a complete audit trail of all changes to customer records, including who made changes and what the previous values were. What should you enable?",
+      "options": [
+        "A. Enable auditing on the Customer table and the specific columns that need tracking.",
+        "B. Create a Power Automate flow to log changes to a separate table.",
+        "C. Enable change tracking on the table.",
+        "D. Configure a business rule to record changes."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Dataverse auditing, when enabled on a table and its columns, automatically records all data changes including the old value, new value, who made the change, and when. The audit log is stored in Dataverse and accessible through the admin center.\n\nWhy the others are wrong:\n- B. While a flow could log changes, it adds complexity and may miss changes made through certain channels. Native auditing is the proper solution.\n- C. Change tracking enables data synchronization scenarios but does not maintain a historical audit trail of who changed what.\n- D. Business rules cannot capture and log the history of changes."
+    },
+    {
+      "id": 29,
+      "topic": "Security Roles - Column Security",
+      "type": "MultipleChoice",
+      "questionText": "You need to implement field-level security on the Social Security Number (SSN) column in the Employee table. Which two steps are required? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Enable the column for field security in the column properties.",
+        "B. Create a field security profile and add the column with appropriate permissions.",
+        "C. Create a security role with column-level permissions.",
+        "D. Set the column as 'System Required'.",
+        "E. Hide the column using a business rule."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. First, you must enable field security on the SSN column in its properties. Then, create a field security profile that specifies which users/teams have Read, Update, and Create permissions for that secured column.\n\nWhy the others are wrong:\n- C. Security roles control row-level (record-level) access, not column-level security. Field security profiles handle column-level access.\n- D. Setting the column as required affects whether it must have a value, not security access.\n- E. Business rules can hide columns on forms but do not provide true security; the data can still be accessed through views, reports, or APIs."
+    },
+    {
+      "id": 30,
+      "topic": "Power Automate - Error Notification",
+      "type": "SingleChoice",
+      "questionText": "You have a critical business flow that runs nightly. If the flow fails, the IT team should be notified immediately. What is the best approach?",
+      "options": [
+        "A. Check the flow run history manually every morning.",
+        "B. Configure 'Run after' settings on a notification action to run after the main scope fails, and also set up flow run failure notifications in Power Automate.",
+        "C. Create a separate monitoring flow that checks flow status.",
+        "D. Add error handling to every single action in the flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Using the 'Run after' configuration on a Send Email action (set to run after the Scope has failed) provides immediate notification when the flow fails. Additionally, Power Automate supports built-in flow run failure notifications.\n\nWhy the others are wrong:\n- A. Manual checking delays the response and is not proactive.\n- C. A separate monitoring flow adds complexity and has its own potential failure points.\n- D. Error handling on every action is excessive; using Scope with Run after is more efficient."
+    },
+    {
+      "id": 31,
+      "topic": "Dataverse - Relationships Advanced",
+      "type": "SingleChoice",
+      "questionText": "You need to model a scenario where a single Contact can be associated with multiple Accounts, and a single Account can have multiple Contacts. What type of relationship should you create?",
+      "options": [
+        "A. One-to-many from Account to Contact.",
+        "B. One-to-many from Contact to Account.",
+        "C. Many-to-many relationship between Account and Contact.",
+        "D. A self-referential relationship on the Contact table."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. A many-to-many relationship creates an intersection table that allows multiple contacts to be associated with multiple accounts, and vice versa. This correctly models the scenario where contacts work with multiple companies.\n\nWhy the others are wrong:\n- A. One-to-many from Account to Contact would limit each contact to only one account.\n- B. One-to-many from Contact to Account would limit each account to only one contact.\n- D. A self-referential relationship relates contacts to other contacts, not contacts to accounts."
+    },
+    {
+      "id": 32,
+      "topic": "Power Apps - Performance",
+      "type": "SingleChoice",
+      "questionText": "Users report that a model-driven app form takes a long time to load. The form has 10 tabs, 50 fields, 3 sub-grids, and 2 embedded canvas apps. What is the most likely cause of the slow performance?",
+      "options": [
+        "A. The table has too many records.",
+        "B. Too many components on the form (sub-grids and embedded canvas apps) that load data simultaneously.",
+        "C. The user's internet connection is slow.",
+        "D. The Dataverse environment is in the wrong region."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Forms with many data-loading components (sub-grids, embedded canvas apps, controls) trigger multiple simultaneous data requests when the form loads. Each sub-grid and canvas app loads its own data, significantly impacting form load time. Reducing visible components or using lazy-loading patterns improves performance.\n\nWhy the others are wrong:\n- A. The number of records in the table does not directly affect form load time for a single record.\n- C. Internet speed is a factor but the form complexity (3 sub-grids + 2 canvas apps + 50 fields) is more likely the primary cause.\n- D. Environment region affects latency slightly but is not the primary cause when the form has this many components."
+    },
+    {
+      "id": 33,
+      "topic": "Business Rules - Recommendations",
+      "type": "SingleChoice",
+      "questionText": "You need to display a recommendation message on a form suggesting users enter the customer's email when the Account Type is 'Prospect'. The message should not block form submission. What should you use?",
+      "options": [
+        "A. A business rule with a 'Set Business Required' action on the email field.",
+        "B. A business rule with a 'Show Error Message' action.",
+        "C. A business rule with a 'Set Field Value' action.",
+        "D. A notification bar message using a business rule recommendation action or a form notification."
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. Business rules support recommendation actions that display informational messages on the form without blocking submission. Form notifications can also display non-blocking suggestions to guide users.\n\nWhy the others are wrong:\n- A. Setting the field as Business Required would block form submission if empty, which contradicts the non-blocking requirement.\n- B. Show Error Message displays an error that may confuse users into thinking something is wrong; it is not a recommendation.\n- C. Set Field Value changes data but does not display a message to the user."
+    },
+    {
+      "id": 34,
+      "topic": "Power Automate - Integration",
+      "type": "SingleChoice",
+      "questionText": "You need to integrate Power Automate with an on-premises SQL Server database that is behind a corporate firewall. How should you establish the connection?",
+      "options": [
+        "A. Open a firewall port directly to the SQL Server.",
+        "B. Install an on-premises data gateway and configure the SQL Server connector to use it.",
+        "C. Move the database to Azure SQL.",
+        "D. Use an FTP connection to exchange data files."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The on-premises data gateway acts as a bridge between Power Platform cloud services and on-premises data sources. It creates an outbound connection to Azure Service Bus, so no inbound firewall rules are needed.\n\nWhy the others are wrong:\n- A. Opening firewall ports directly exposes the SQL Server to the internet, creating security risks.\n- C. Migrating to Azure SQL may not be feasible or desired by the organization.\n- D. FTP file exchange is not a real-time integration method and adds significant complexity."
+    },
+    {
+      "id": 35,
+      "topic": "Dataverse - Solutions",
+      "type": "SingleChoice",
+      "questionText": "You are working on customizations in a development environment. You want to ensure all your changes (tables, columns, forms, flows, apps) are grouped together for deployment. What should you use?",
+      "options": [
+        "A. Export each component individually.",
+        "B. Create a solution and add all components to it.",
+        "C. Take a backup of the environment.",
+        "D. Document the changes and recreate them in production."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Dataverse solution is a container that groups related components (tables, columns, forms, views, flows, apps, etc.) together. Solutions enable version control, dependency tracking, and managed deployment across environments.\n\nWhy the others are wrong:\n- A. Exporting components individually is fragile and does not handle dependencies.\n- C. An environment backup captures everything, not just specific changes, and is not a deployment mechanism.\n- D. Manual recreation is error-prone and does not follow ALM best practices."
+    },
+    {
+      "id": 36,
+      "topic": "AI Builder - Sentiment Analysis",
+      "type": "SingleChoice",
+      "questionText": "Your customer service team wants to automatically detect the sentiment of incoming support emails and flag negative ones for priority handling. Which AI Builder model should you use?",
+      "options": [
+        "A. Prebuilt sentiment analysis model.",
+        "B. Custom text classification model.",
+        "C. Entity extraction model.",
+        "D. Key phrase extraction model."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The AI Builder prebuilt sentiment analysis model analyzes text and returns a sentiment score (positive, negative, neutral, mixed). You can use it in a Power Automate flow to evaluate incoming email text and flag negative sentiment emails for priority handling.\n\nWhy the others are wrong:\n- B. A custom text classification model would require labeled training data and is overkill when a prebuilt sentiment model exists.\n- C. Entity extraction identifies named entities (people, places, organizations) in text, not sentiment.\n- D. Key phrase extraction identifies important phrases in text but does not determine emotional tone."
+    },
+    {
+      "id": 37,
+      "topic": "Power Apps - Environment Strategy",
+      "type": "MultipleChoice",
+      "questionText": "You are advising a client on their Power Platform environment strategy. Which two environments should you recommend as a minimum for ALM? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A development environment for building and testing customizations.",
+        "B. A sandbox environment for user acceptance testing.",
+        "C. A production environment for end users.",
+        "D. A personal developer environment for each developer.",
+        "E. A disaster recovery environment."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. At minimum, you need a development environment (for building and testing) and a production environment (for end users). Solutions are exported from development and imported into production. A sandbox/test environment is highly recommended but the minimum is dev and prod.\n\nWhy the others are wrong:\n- B. A sandbox is recommended but not the minimum requirement for ALM.\n- D. Personal developer environments are useful for larger teams but not a minimum requirement.\n- E. A disaster recovery environment is an infrastructure concern, not a minimum ALM requirement."
+    },
+    {
+      "id": 38,
+      "topic": "Power Automate - Dataverse Triggers",
+      "type": "SingleChoice",
+      "questionText": "You need a flow to trigger only when the Status column of an Order record changes from 'Pending' to 'Shipped'. Which trigger configuration should you use?",
+      "options": [
+        "A. 'When a row is added' trigger for the Orders table.",
+        "B. 'When a row is added, modified or deleted' trigger with filtering attributes set to the Status column, then a condition checking old and new values.",
+        "C. A recurrence trigger that polls the Orders table for changes.",
+        "D. 'When a row is modified' trigger without any filtering."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'When a row is added, modified or deleted' trigger with filtering attributes set to the Status column ensures the flow only runs when the Status column changes (not any column). A condition then checks the specific transition from 'Pending' to 'Shipped'.\n\nWhy the others are wrong:\n- A. 'When a row is added' only triggers for new records, not status changes on existing records.\n- C. Polling with a recurrence trigger is inefficient and has latency compared to event-driven triggers.\n- D. A trigger without filtering would fire on any column change, wasting flow runs when non-status changes occur."
+    },
+    {
+      "id": 39,
+      "topic": "Dataverse - Calculated Columns",
+      "type": "SingleChoice",
+      "questionText": "You need to create a column that automatically displays the number of days since an order was placed (the difference between today and the Order Date). Which column type should you use?",
+      "options": [
+        "A. A rollup column.",
+        "B. A calculated column using DateDiff(OrderDate, Now()).",
+        "C. A whole number column updated by a flow.",
+        "D. A formula column with Power Fx."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A calculated column can use the DiffInDays function (or equivalent date functions) to compute the difference between the Order Date and the current date. The calculation is performed server-side and updates when the record is retrieved.\n\nWhy the others are wrong:\n- A. Rollup columns aggregate data from related records, not calculate values on the current record.\n- C. While a flow could update a column, it adds unnecessary complexity and would need to run on a schedule.\n- D. Formula columns (Power Fx) in Dataverse are a newer feature with similar capability, but calculated columns are the established approach for date difference calculations."
+    },
+    {
+      "id": 40,
+      "topic": "Power Apps - Governance",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to prevent makers from using certain high-risk connectors (like custom connectors and HTTP) in Power Automate and Power Apps. What should you configure?",
+      "options": [
+        "A. Remove the connectors from the Power Platform admin center.",
+        "B. Create a Data Loss Prevention (DLP) policy that classifies the high-risk connectors as 'Blocked'.",
+        "C. Disable the Power Platform for all users.",
+        "D. Send an email policy to all makers asking them not to use those connectors."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DLP policies in the Power Platform admin center allow administrators to classify connectors into Business, Non-Business, or Blocked categories. Blocking high-risk connectors prevents makers from using them in any app or flow within the policy scope.\n\nWhy the others are wrong:\n- A. You cannot remove built-in connectors from the platform.\n- C. Disabling the entire platform is extreme and prevents legitimate use.\n- D. An email policy is not enforceable and relies on compliance without technical controls."
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-920",
+  "examTitle": "Microsoft Dynamics 365 Fundamentals (ERP)",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Dynamics 365 ERP Overview - Finance and Operations apps",
+      "type": "SingleChoice",
+      "questionText": "Which group of Dynamics 365 applications focuses on enterprise resource planning functions including finance, supply chain, and human resources?",
+      "options": ["A. Dynamics 365 Customer Engagement apps.", "B. Dynamics 365 Finance and Operations apps.", "C. Dynamics 365 Marketing.", "D. Power Platform apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Finance and Operations apps include Dynamics 365 Finance, Supply Chain Management, Commerce, and Human Resources. They focus on ERP functions like financial management, manufacturing, logistics, and workforce management.\n\nA is incorrect because Customer Engagement apps focus on CRM (Sales, Customer Service, Field Service, Marketing).\n\nC is incorrect because Marketing is a CRM function focused on campaigns and lead nurturing.\n\nD is incorrect because Power Platform apps are a separate low-code development platform."
+    },
+    {
+      "id": 2,
+      "topic": "Dynamics 365 Finance - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application is primarily used for financial management, including general ledger, accounts payable, accounts receivable, and budgeting?",
+      "options": ["A. Dynamics 365 Supply Chain Management.", "B. Dynamics 365 Finance.", "C. Dynamics 365 Commerce.", "D. Dynamics 365 Human Resources."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Finance is the primary application for financial management. It includes general ledger, accounts payable, accounts receivable, fixed assets, budgeting, cash management, and financial reporting.\n\nA is incorrect because Supply Chain Management focuses on inventory, procurement, manufacturing, and logistics.\n\nC is incorrect because Commerce focuses on retail operations and e-commerce.\n\nD is incorrect because Human Resources focuses on employee management and workforce planning."
+    },
+    {
+      "id": 3,
+      "topic": "Dynamics 365 Finance - General ledger",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Finance, what is the general ledger?",
+      "options": ["A. A list of all customer contacts.", "B. The central record of all financial transactions for an organization, organized by accounts.", "C. A marketing campaign report.", "D. An inventory tracking system."],
+      "correctAnswers": ["B"],
+      "explanation": "The general ledger in Dynamics 365 Finance is the central financial record-keeping system that tracks all financial transactions organized by chart of accounts. It is the foundation for financial reporting and analysis.\n\nA is incorrect because customer contacts are managed in CRM applications.\n\nC is incorrect because marketing reports are in Dynamics 365 Marketing.\n\nD is incorrect because inventory tracking is in Supply Chain Management."
+    },
+    {
+      "id": 4,
+      "topic": "Dynamics 365 Finance - Chart of accounts",
+      "type": "SingleChoice",
+      "questionText": "What is a chart of accounts in Dynamics 365 Finance?",
+      "options": ["A. A list of user accounts with login credentials.", "B. A structured list of all financial accounts used to categorize and record transactions.", "C. A customer contact directory.", "D. A product price list."],
+      "correctAnswers": ["B"],
+      "explanation": "A chart of accounts is a structured list of all financial accounts (such as assets, liabilities, equity, revenue, and expenses) used to classify and record financial transactions in the general ledger.\n\nA is incorrect because user accounts are identity/security records, not financial accounts.\n\nC is incorrect because contact directories are CRM data.\n\nD is incorrect because price lists are in the product catalog for sales."
+    },
+    {
+      "id": 5,
+      "topic": "Dynamics 365 Finance - Accounts payable",
+      "type": "SingleChoice",
+      "questionText": "Which module in Dynamics 365 Finance manages vendor invoices, payments, and the money owed to suppliers?",
+      "options": ["A. Accounts receivable.", "B. Accounts payable.", "C. Fixed assets.", "D. Cash and bank management."],
+      "correctAnswers": ["B"],
+      "explanation": "Accounts payable manages the processing of vendor invoices, vendor payments, and tracking of amounts owed to suppliers. It handles purchase invoices, payment proposals, and vendor settlements.\n\nA is incorrect because accounts receivable manages money owed by customers, not to suppliers.\n\nC is incorrect because fixed assets manages long-term organizational assets like equipment and buildings.\n\nD is incorrect because cash and bank management handles bank accounts and cash flow, not vendor invoicing."
+    },
+    {
+      "id": 6,
+      "topic": "Dynamics 365 Finance - Accounts receivable",
+      "type": "SingleChoice",
+      "questionText": "Which module in Dynamics 365 Finance tracks customer invoices and manages the collection of money owed by customers?",
+      "options": ["A. Accounts payable.", "B. Accounts receivable.", "C. Budgeting.", "D. General ledger."],
+      "correctAnswers": ["B"],
+      "explanation": "Accounts receivable tracks customer invoices, manages collections, and handles customer payments. It records what customers owe and manages the process of collecting those debts.\n\nA is incorrect because accounts payable manages what the organization owes to vendors.\n\nC is incorrect because budgeting handles financial planning and budget control.\n\nD is incorrect because the general ledger records all transactions but does not specifically manage customer collections."
+    },
+    {
+      "id": 7,
+      "topic": "Dynamics 365 Finance - Budgeting",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does the Budgeting module in Dynamics 365 Finance provide? (Choose two.)",
+      "options": ["A. Creating and managing organizational budgets.", "B. Tracking field service work orders.", "C. Budget control to prevent spending beyond approved limits.", "D. Managing marketing campaigns."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because the Budgeting module allows organizations to create, manage, and maintain budgets for financial planning.\n\nC is correct because budget control prevents transactions that would exceed approved budget limits, helping enforce fiscal discipline.\n\nB is incorrect because work orders are managed in Field Service, not Finance.\n\nD is incorrect because marketing campaigns are managed in Dynamics 365 Marketing."
+    },
+    {
+      "id": 8,
+      "topic": "Dynamics 365 Finance - Fixed assets",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Finance module manages the lifecycle of organizational assets such as buildings, vehicles, and equipment, including depreciation?",
+      "options": ["A. Accounts payable.", "B. Fixed assets.", "C. Cash management.", "D. Tax configuration."],
+      "correctAnswers": ["B"],
+      "explanation": "The Fixed assets module manages the lifecycle of capital assets from acquisition through depreciation to disposal. It tracks asset values, calculates depreciation, and maintains asset records.\n\nA is incorrect because accounts payable manages vendor payments, not asset lifecycle.\n\nC is incorrect because cash management handles bank accounts and cash flow.\n\nD is incorrect because tax configuration manages tax rules, not asset management."
+    },
+    {
+      "id": 9,
+      "topic": "Dynamics 365 Finance - Financial reporting",
+      "type": "SingleChoice",
+      "questionText": "Which type of financial report shows an organization's assets, liabilities, and equity at a specific point in time?",
+      "options": ["A. Income statement.", "B. Balance sheet.", "C. Cash flow statement.", "D. Trial balance."],
+      "correctAnswers": ["B"],
+      "explanation": "A balance sheet (statement of financial position) shows an organization's assets, liabilities, and equity at a specific date. It follows the equation: Assets = Liabilities + Equity.\n\nA is incorrect because an income statement shows revenue and expenses over a period, not at a point in time.\n\nC is incorrect because a cash flow statement shows cash inflows and outflows over a period.\n\nD is incorrect because a trial balance lists all accounts and their balances to verify debits equal credits."
+    },
+    {
+      "id": 10,
+      "topic": "Dynamics 365 Finance - Legal entities",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Finance, what is a legal entity?",
+      "options": ["A. A user role with administrative privileges.", "B. An organization that is registered with a legal authority and can enter into contracts and prepare financial statements.", "C. A type of bank account.", "D. A marketing segment."],
+      "correctAnswers": ["B"],
+      "explanation": "A legal entity in Dynamics 365 Finance represents an organization that is registered with a legal authority (such as a company or subsidiary). Each legal entity has its own chart of accounts, calendar, and currency for financial reporting.\n\nA is incorrect because user roles are security configurations, not legal entities.\n\nC is incorrect because bank accounts are financial instruments within a legal entity.\n\nD is incorrect because marketing segments are groupings of contacts for campaigns."
+    },
+    {
+      "id": 11,
+      "topic": "Dynamics 365 Supply Chain Management - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application manages procurement, inventory, manufacturing, warehousing, and logistics operations?",
+      "options": ["A. Dynamics 365 Finance.", "B. Dynamics 365 Supply Chain Management.", "C. Dynamics 365 Commerce.", "D. Dynamics 365 Sales."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Supply Chain Management covers the full supply chain including procurement, inventory management, manufacturing, warehouse management, transportation, and logistics.\n\nA is incorrect because Finance focuses on financial management and accounting.\n\nC is incorrect because Commerce focuses on retail and e-commerce operations.\n\nD is incorrect because Sales is a CRM application for managing the sales pipeline."
+    },
+    {
+      "id": 12,
+      "topic": "Dynamics 365 Supply Chain Management - Procurement",
+      "type": "SingleChoice",
+      "questionText": "Which process in Dynamics 365 Supply Chain Management handles the purchasing of goods and services from vendors?",
+      "options": ["A. Manufacturing.", "B. Procurement and sourcing.", "C. Warehouse management.", "D. Transportation management."],
+      "correctAnswers": ["B"],
+      "explanation": "Procurement and sourcing in Dynamics 365 Supply Chain Management handles the entire purchasing process, from identifying needs and selecting vendors to creating purchase orders, receiving goods, and processing vendor invoices.\n\nA is incorrect because manufacturing manages the production of goods.\n\nC is incorrect because warehouse management handles storage and movement of goods within warehouses.\n\nD is incorrect because transportation management handles shipping and freight logistics."
+    },
+    {
+      "id": 13,
+      "topic": "Dynamics 365 Supply Chain Management - Purchase orders",
+      "type": "SingleChoice",
+      "questionText": "What is a purchase order in Dynamics 365 Supply Chain Management?",
+      "options": ["A. A document sent to customers requesting payment.", "B. A document sent to vendors to order goods or services.", "C. An internal memo about company policy.", "D. A sales forecast report."],
+      "correctAnswers": ["B"],
+      "explanation": "A purchase order is a formal document sent to vendors that specifies the goods or services to be purchased, quantities, agreed prices, and delivery terms. It is a key document in the procurement process.\n\nA is incorrect because documents requesting customer payment are invoices, not purchase orders.\n\nC is incorrect because purchase orders are external procurement documents, not internal memos.\n\nD is incorrect because sales forecasts predict future sales, not procurement orders."
+    },
+    {
+      "id": 14,
+      "topic": "Dynamics 365 Supply Chain Management - Inventory management",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does inventory management in Dynamics 365 Supply Chain Management provide? (Choose two.)",
+      "options": ["A. Tracking inventory levels across warehouses.", "B. Processing employee payroll.", "C. Managing inventory counting and adjustments.", "D. Creating marketing email campaigns."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because inventory management tracks stock levels, on-hand quantities, and inventory movements across all warehouses and locations.\n\nC is correct because it supports inventory counting (cycle counts, physical inventory) and adjustments for discrepancies.\n\nB is incorrect because payroll is managed in Human Resources or Finance.\n\nD is incorrect because email campaigns are in Dynamics 365 Marketing."
+    },
+    {
+      "id": 15,
+      "topic": "Dynamics 365 Supply Chain Management - Warehouse management",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Supply Chain Management module manages the receiving, storage, picking, packing, and shipping of goods within a warehouse?",
+      "options": ["A. Procurement and sourcing.", "B. Warehouse management.", "C. Transportation management.", "D. Product information management."],
+      "correctAnswers": ["B"],
+      "explanation": "Warehouse management handles all warehouse operations including inbound receiving, putaway, storage, picking, packing, and outbound shipping. It supports wave processing, work creation, and mobile device operations.\n\nA is incorrect because procurement handles purchasing from vendors, not warehouse operations.\n\nC is incorrect because transportation management handles freight and shipping logistics outside the warehouse.\n\nD is incorrect because product information management defines product attributes and configurations."
+    },
+    {
+      "id": 16,
+      "topic": "Dynamics 365 Supply Chain Management - Manufacturing",
+      "type": "SingleChoice",
+      "questionText": "Which manufacturing approach in Dynamics 365 Supply Chain Management produces goods based on customer orders rather than maintaining stock?",
+      "options": ["A. Make to stock.", "B. Make to order.", "C. Lean manufacturing.", "D. Process manufacturing."],
+      "correctAnswers": ["B"],
+      "explanation": "Make to order produces goods only after receiving a customer order. Production is triggered by actual demand rather than forecasts, reducing excess inventory and allowing customization.\n\nA is incorrect because make to stock produces goods based on demand forecasts and maintains inventory for immediate fulfillment.\n\nC is incorrect because lean manufacturing is a methodology focused on eliminating waste, not specifically a demand-driven strategy.\n\nD is incorrect because process manufacturing deals with formulas and batch production (chemicals, food), not specifically order-driven production."
+    },
+    {
+      "id": 17,
+      "topic": "Dynamics 365 Supply Chain Management - Bill of materials",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Supply Chain Management, what is a bill of materials (BOM)?",
+      "options": ["A. A vendor invoice listing charges.", "B. A list of raw materials, components, and quantities needed to manufacture a finished product.", "C. A customer order form.", "D. An employee benefit statement."],
+      "correctAnswers": ["B"],
+      "explanation": "A bill of materials (BOM) is a hierarchical list of all raw materials, components, sub-assemblies, and their quantities required to manufacture a finished product. It defines the product structure.\n\nA is incorrect because vendor invoices list charges for purchased goods, not product composition.\n\nC is incorrect because customer order forms capture what customers want to buy.\n\nD is incorrect because benefit statements are HR documents."
+    },
+    {
+      "id": 18,
+      "topic": "Dynamics 365 Supply Chain Management - Production orders",
+      "type": "SingleChoice",
+      "questionText": "What is a production order in Dynamics 365 Supply Chain Management?",
+      "options": ["A. A request to purchase raw materials from a vendor.", "B. A document that initiates and tracks the manufacturing process for a finished product.", "C. A customer sales order.", "D. A marketing promotion."],
+      "correctAnswers": ["B"],
+      "explanation": "A production order initiates the manufacturing process for a specific product and quantity. It tracks the production lifecycle from scheduling through raw material consumption to finished goods reporting.\n\nA is incorrect because purchasing raw materials is done through purchase orders.\n\nC is incorrect because customer sales orders are created in the sales process.\n\nD is incorrect because marketing promotions are in the Marketing application."
+    },
+    {
+      "id": 19,
+      "topic": "Dynamics 365 Supply Chain Management - Transportation management",
+      "type": "SingleChoice",
+      "questionText": "Which module in Dynamics 365 Supply Chain Management manages the planning and execution of shipping and freight operations?",
+      "options": ["A. Inventory management.", "B. Transportation management.", "C. Warehouse management.", "D. Master planning."],
+      "correctAnswers": ["B"],
+      "explanation": "Transportation management handles the planning and execution of inbound and outbound shipments. It includes load planning, rate shopping, carrier selection, freight reconciliation, and delivery scheduling.\n\nA is incorrect because inventory management tracks stock levels, not shipping.\n\nC is incorrect because warehouse management handles operations within the warehouse.\n\nD is incorrect because master planning calculates material and capacity requirements, not shipping logistics."
+    },
+    {
+      "id": 20,
+      "topic": "Dynamics 365 Supply Chain Management - Master planning",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Supply Chain Management feature calculates material requirements and generates planned orders to meet demand?",
+      "options": ["A. Master planning (Planning Optimization).", "B. Product information management.", "C. Cost management.", "D. Quality management."],
+      "correctAnswers": ["A"],
+      "explanation": "Master planning (Planning Optimization) analyzes demand forecasts, sales orders, and inventory levels to calculate material and capacity requirements. It generates planned purchase orders, production orders, and transfer orders to meet demand.\n\nB is incorrect because product information management defines product attributes, not demand planning.\n\nC is incorrect because cost management tracks product costs and variances, not demand planning.\n\nD is incorrect because quality management handles inspections and quality control."
+    },
+    {
+      "id": 21,
+      "topic": "Dynamics 365 Commerce - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application provides a unified commerce solution for managing in-store, online, and call center retail operations?",
+      "options": ["A. Dynamics 365 Finance.", "B. Dynamics 365 Commerce.", "C. Dynamics 365 Supply Chain Management.", "D. Dynamics 365 Sales."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Commerce provides a unified omnichannel retail solution that manages in-store point of sale (POS), e-commerce, call center operations, and back-office retail management.\n\nA is incorrect because Finance handles financial management, not retail operations.\n\nC is incorrect because Supply Chain Management handles procurement and manufacturing, not retail.\n\nD is incorrect because Sales is a CRM application for B2B sales, not retail."
+    },
+    {
+      "id": 22,
+      "topic": "Dynamics 365 Commerce - Point of sale",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Commerce component provides the in-store checkout experience for retail transactions?",
+      "options": ["A. E-commerce website.", "B. Point of Sale (POS).", "C. Call center.", "D. Warehouse management."],
+      "correctAnswers": ["B"],
+      "explanation": "Point of Sale (POS) in Dynamics 365 Commerce provides the in-store checkout experience. It handles sales transactions, returns, discounts, loyalty programs, and payment processing at retail locations.\n\nA is incorrect because e-commerce handles online shopping, not in-store checkout.\n\nC is incorrect because call centers handle phone-based sales and customer service.\n\nD is incorrect because warehouse management handles stock storage and movement."
+    },
+    {
+      "id": 23,
+      "topic": "Dynamics 365 Commerce - E-commerce",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Commerce capability allows businesses to create and manage an online storefront for selling products to customers?",
+      "options": ["A. Store Commerce (POS).", "B. E-commerce.", "C. Call center.", "D. Clienteling."],
+      "correctAnswers": ["B"],
+      "explanation": "E-commerce in Dynamics 365 Commerce provides tools to build and manage online storefronts where customers can browse products, place orders, and make payments. It integrates with the back-office for inventory and fulfillment.\n\nA is incorrect because Store Commerce (POS) handles in-store transactions, not online sales.\n\nC is incorrect because call centers handle phone-based order entry.\n\nD is incorrect because clienteling helps store associates provide personalized service to customers."
+    },
+    {
+      "id": 24,
+      "topic": "Dynamics 365 Commerce - Omnichannel",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO omnichannel capabilities does Dynamics 365 Commerce support? (Choose two.)",
+      "options": ["A. Buy online, pick up in store (BOPIS).", "B. Manufacturing production scheduling.", "C. Unified product catalog across all channels.", "D. Employee performance reviews."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Dynamics 365 Commerce supports BOPIS (Buy Online, Pick Up In Store), allowing customers to purchase online and collect from a physical store.\n\nC is correct because it provides a unified product catalog shared across POS, e-commerce, and call center channels.\n\nB is incorrect because production scheduling is a Supply Chain Management function.\n\nD is incorrect because performance reviews are a Human Resources function."
+    },
+    {
+      "id": 25,
+      "topic": "Dynamics 365 Commerce - Pricing and discounts",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Commerce feature allows retailers to configure promotional discounts, mix-and-match offers, and threshold-based discounts?",
+      "options": ["A. General ledger.", "B. Pricing and discount engine.", "C. Fixed assets.", "D. Transportation management."],
+      "correctAnswers": ["B"],
+      "explanation": "The pricing and discount engine in Dynamics 365 Commerce allows retailers to define and manage various promotion types including percentage discounts, mix-and-match offers, quantity discounts, and threshold-based promotions.\n\nA is incorrect because the general ledger records financial transactions, not retail pricing.\n\nC is incorrect because fixed assets manages capital assets like equipment.\n\nD is incorrect because transportation management handles shipping logistics."
+    },
+    {
+      "id": 26,
+      "topic": "Dynamics 365 Commerce - Loyalty programs",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Commerce feature allows retailers to create and manage customer reward programs where customers earn points for purchases?",
+      "options": ["A. Budgeting.", "B. Loyalty programs.", "C. Accounts payable.", "D. Quality management."],
+      "correctAnswers": ["B"],
+      "explanation": "Loyalty programs in Dynamics 365 Commerce allow retailers to set up customer reward programs where customers earn points on purchases that can be redeemed for discounts or rewards, encouraging repeat business.\n\nA is incorrect because budgeting handles financial planning, not customer rewards.\n\nC is incorrect because accounts payable manages vendor payments.\n\nD is incorrect because quality management handles product inspections."
+    },
+    {
+      "id": 27,
+      "topic": "Dynamics 365 Human Resources - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 application helps organizations manage employee data, benefits, compensation, leave, and workforce planning?",
+      "options": ["A. Dynamics 365 Finance.", "B. Dynamics 365 Human Resources.", "C. Dynamics 365 Commerce.", "D. Dynamics 365 Customer Service."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Human Resources is designed for managing the employee lifecycle including personnel data, benefits administration, compensation, leave and absence, performance management, and workforce planning.\n\nA is incorrect because Finance handles financial accounting and reporting.\n\nC is incorrect because Commerce handles retail operations.\n\nD is incorrect because Customer Service manages customer support cases."
+    },
+    {
+      "id": 28,
+      "topic": "Dynamics 365 Human Resources - Employee management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Human Resources, which record type stores core information about a person employed by the organization?",
+      "options": ["A. Vendor record.", "B. Worker/Employee record.", "C. Customer record.", "D. Product record."],
+      "correctAnswers": ["B"],
+      "explanation": "The worker/employee record in Dynamics 365 Human Resources stores core information about each person employed by the organization, including personal details, employment history, positions, departments, and compensation.\n\nA is incorrect because vendor records store supplier information in procurement.\n\nC is incorrect because customer records store information about buyers.\n\nD is incorrect because product records define items for sale or manufacture."
+    },
+    {
+      "id": 29,
+      "topic": "Dynamics 365 Human Resources - Benefits management",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Human Resources module allows organizations to set up and manage employee benefit plans such as health insurance, retirement plans, and life insurance?",
+      "options": ["A. Compensation management.", "B. Benefits management.", "C. Leave and absence.", "D. Recruitment."],
+      "correctAnswers": ["B"],
+      "explanation": "Benefits management in Dynamics 365 Human Resources allows HR teams to define, enroll, and manage employee benefit plans including health insurance, dental, vision, retirement plans, and life insurance.\n\nA is incorrect because compensation management handles salary, bonuses, and pay structures.\n\nC is incorrect because leave and absence manages time-off requests and balances.\n\nD is incorrect because recruitment handles the hiring process."
+    },
+    {
+      "id": 30,
+      "topic": "Dynamics 365 Human Resources - Leave and absence",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO capabilities does the Leave and Absence module in Dynamics 365 Human Resources provide? (Choose two.)",
+      "options": ["A. Employees can submit leave requests through self-service.", "B. The system can track and accrue leave balances automatically.", "C. It processes vendor invoices.", "D. It manages warehouse inventory."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because employees can submit leave requests through the Employee Self-Service portal, and managers can approve or reject them.\n\nB is correct because the system can automatically track and accrue leave balances based on configured plans and policies.\n\nC is incorrect because vendor invoices are processed in accounts payable within Finance.\n\nD is incorrect because warehouse inventory is managed in Supply Chain Management."
+    },
+    {
+      "id": 31,
+      "topic": "Dynamics 365 Human Resources - Compensation",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Human Resources feature manages employee pay structures including base pay, bonuses, and variable compensation plans?",
+      "options": ["A. Benefits management.", "B. Compensation management.", "C. Performance management.", "D. Training management."],
+      "correctAnswers": ["B"],
+      "explanation": "Compensation management handles all aspects of employee pay including base pay plans, variable compensation (bonuses, incentives), pay grades, bands, and compensation events like merit increases.\n\nA is incorrect because benefits management handles insurance and benefit plans, not pay structures.\n\nC is incorrect because performance management tracks employee goals and reviews.\n\nD is incorrect because training management handles learning and development."
+    },
+    {
+      "id": 32,
+      "topic": "Dynamics 365 Human Resources - Personnel management",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Human Resources, what is the difference between a position and a job?",
+      "options": ["A. A job is a specific instance that a person occupies; a position is a general description.", "B. A position is a specific instance within an organization that can be filled by one person; a job is a general description of roles and responsibilities.", "C. They are the same thing.", "D. A position is for contractors; a job is for employees."],
+      "correctAnswers": ["B"],
+      "explanation": "A position is a specific instance within the organizational structure that can be occupied by one person (e.g., 'Finance Manager - London'). A job is a general description of duties and responsibilities (e.g., 'Finance Manager') that can be associated with multiple positions.\n\nA is incorrect because it reverses the definitions.\n\nC is incorrect because they are distinct concepts in HR management.\n\nD is incorrect because both positions and jobs apply to all worker types."
+    },
+    {
+      "id": 33,
+      "topic": "Dynamics 365 Finance - Expense management",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Finance feature allows employees to submit expense reports for business travel and other reimbursable costs?",
+      "options": ["A. Accounts payable.", "B. Expense management.", "C. Fixed assets.", "D. Cash management."],
+      "correctAnswers": ["B"],
+      "explanation": "Expense management in Dynamics 365 Finance allows employees to create and submit expense reports for business travel, meals, and other reimbursable costs. It includes approval workflows, policy enforcement, and integration with credit card transactions.\n\nA is incorrect because accounts payable manages vendor invoices, not employee expenses.\n\nC is incorrect because fixed assets manages capital equipment, not travel expenses.\n\nD is incorrect because cash management handles bank accounts, not expense reporting."
+    },
+    {
+      "id": 34,
+      "topic": "Dynamics 365 Supply Chain Management - Quality management",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Supply Chain Management module allows organizations to perform quality inspections and manage non-conformance reports?",
+      "options": ["A. Procurement and sourcing.", "B. Quality management.", "C. Transportation management.", "D. Master planning."],
+      "correctAnswers": ["B"],
+      "explanation": "Quality management in Dynamics 365 Supply Chain Management enables organizations to set up quality testing, perform inspections during receiving or production, manage non-conformance reports, and track corrective actions.\n\nA is incorrect because procurement handles vendor purchasing, not quality inspections.\n\nC is incorrect because transportation handles shipping logistics.\n\nD is incorrect because master planning calculates material requirements."
+    },
+    {
+      "id": 35,
+      "topic": "Dynamics 365 Finance - Multi-currency and multi-company",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO multi-entity capabilities does Dynamics 365 Finance support? (Choose two.)",
+      "options": ["A. Multiple legal entities (companies) within a single deployment.", "B. Transactions in multiple currencies with automatic exchange rate conversion.", "C. Multiple social media accounts.", "D. Multiple marketing campaigns simultaneously."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Dynamics 365 Finance supports multiple legal entities (companies/subsidiaries) within a single deployment, enabling consolidated financial reporting.\n\nB is correct because it supports transactions in multiple currencies with automatic exchange rate calculations and currency revaluation.\n\nC is incorrect because social media management is not a Finance capability.\n\nD is incorrect because marketing campaigns are managed in Dynamics 365 Marketing, not Finance."
+    },
+    {
+      "id": 36,
+      "topic": "Dynamics 365 Supply Chain Management - Product information",
+      "type": "SingleChoice",
+      "questionText": "Which area of Dynamics 365 Supply Chain Management defines product attributes, dimensions, categories, and configurations?",
+      "options": ["A. Warehouse management.", "B. Product information management.", "C. Transportation management.", "D. Procurement and sourcing."],
+      "correctAnswers": ["B"],
+      "explanation": "Product information management defines the master data for products including product attributes, dimensions (size, color, style, configuration), categories, and product variants used across the supply chain.\n\nA is incorrect because warehouse management handles physical storage operations.\n\nC is incorrect because transportation management handles shipping logistics.\n\nD is incorrect because procurement handles purchasing from vendors."
+    },
+    {
+      "id": 37,
+      "topic": "Dynamics 365 ERP Overview - Lifecycle Services",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service provides a collaborative workspace for managing the implementation and lifecycle of Dynamics 365 Finance and Operations projects?",
+      "options": ["A. Azure DevOps.", "B. Microsoft Dynamics Lifecycle Services (LCS).", "C. Power Platform admin center.", "D. Microsoft 365 admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Dynamics Lifecycle Services (LCS) is a collaborative portal for managing the implementation, deployment, and ongoing operations of Dynamics 365 Finance and Operations. It provides tools for project management, environment management, and issue tracking.\n\nA is incorrect because Azure DevOps is a general development platform, not specific to D365 implementation lifecycle.\n\nC is incorrect because the Power Platform admin center manages Power Platform environments.\n\nD is incorrect because the M365 admin center manages Microsoft 365 services."
+    },
+    {
+      "id": 38,
+      "topic": "Dynamics 365 Commerce - Channels",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Commerce, what are channels?",
+      "options": ["A. Television advertising slots.", "B. The different touchpoints through which a retailer sells to customers, such as online stores, physical stores, and call centers.", "C. Communication pathways in Microsoft Teams.", "D. Data pipelines in Azure Data Factory."],
+      "correctAnswers": ["B"],
+      "explanation": "Channels in Dynamics 365 Commerce represent the different touchpoints through which a retailer interacts with and sells to customers. The three main channel types are online stores, brick-and-mortar (physical) stores, and call centers.\n\nA is incorrect because advertising slots are not Commerce channels.\n\nC is incorrect because Teams communication channels are a different concept.\n\nD is incorrect because data pipelines are in Azure Data Factory, not Commerce."
+    },
+    {
+      "id": 39,
+      "topic": "Dynamics 365 Human Resources - Employee self-service",
+      "type": "SingleChoice",
+      "questionText": "Which Dynamics 365 Human Resources feature allows employees to view their personal information, submit leave requests, and manage their benefits without involving HR staff?",
+      "options": ["A. Manager self-service.", "B. Employee self-service.", "C. HR administrator portal.", "D. Recruitment portal."],
+      "correctAnswers": ["B"],
+      "explanation": "Employee self-service in Dynamics 365 Human Resources provides employees with a portal to view and update personal information, submit leave requests, enroll in benefits, view pay statements, and manage their own HR-related tasks.\n\nA is incorrect because manager self-service is for managers to approve requests and view team information.\n\nC is incorrect because the HR administrator portal is for HR professionals to manage organizational settings.\n\nD is incorrect because the recruitment portal is for job applicants and hiring."
+    },
+    {
+      "id": 40,
+      "topic": "Dynamics 365 ERP Overview - Integration and reporting",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO tools commonly integrate with Dynamics 365 Finance and Operations for reporting and analytics? (Choose two.)",
+      "options": ["A. Power BI.", "B. Microsoft Paint.", "C. Microsoft Excel.", "D. Windows Media Player."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Power BI integrates deeply with Dynamics 365 Finance and Operations to provide interactive dashboards, visualizations, and advanced analytics on ERP data.\n\nC is correct because Microsoft Excel integrates with Dynamics 365 through the Excel add-in, allowing users to view, edit, and publish data directly from Excel.\n\nB is incorrect because Microsoft Paint is an image editor with no ERP integration.\n\nD is incorrect because Windows Media Player is a media application with no ERP integration."
+    }
+  ]
+}

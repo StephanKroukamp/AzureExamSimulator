@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-220",
+  "examTitle": "Dynamics 365 Marketing Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Customer Journeys - Journey design",
+      "type": "SingleChoice",
+      "questionText": "You are designing a customer journey that should send a follow-up email only to contacts who opened the initial email. Which tile should you use after the email tile?",
+      "options": ["A. Scheduler tile.", "B. Trigger tile with a condition on email opened.", "C. Segment tile.", "D. Activity tile."],
+      "correctAnswers": ["B"],
+      "explanation": "A trigger tile evaluates conditions such as whether a contact opened the previous email, allowing the journey to branch based on engagement. A scheduler tile (A) adds wait times but does not evaluate conditions. A segment tile (C) is used at the start to define the audience. An activity tile (D) creates CRM activities, not email conditions."
+    },
+    {
+      "id": 2,
+      "topic": "Segments - Dynamic segments",
+      "type": "SingleChoice",
+      "questionText": "You need to create a segment that automatically includes all contacts from companies with more than 100 employees in the technology industry. What type of segment should you create?",
+      "options": ["A. Static segment.", "B. Dynamic segment using a query on account fields.", "C. Compound segment.", "D. Suppression segment."],
+      "correctAnswers": ["B"],
+      "explanation": "A dynamic segment with a query on related account fields (number of employees > 100 and industry = technology) automatically updates its membership as data changes. A static segment (A) requires manual membership management. A compound segment (C) combines existing segments but does not query fields directly. A suppression segment (D) excludes contacts rather than including them."
+    },
+    {
+      "id": 3,
+      "topic": "Email Marketing - Email templates",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager wants to personalize emails with the recipient's first name and company name. How should you configure this in the email designer?",
+      "options": ["A. Type the contact's name directly in the email.", "B. Use dynamic content tokens such as {{contact.firstname}} and {{contact.company}}.", "C. Create separate emails for each contact.", "D. Use a Power Automate flow to replace placeholders."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamic content tokens (assist edit) allow you to insert personalized fields like {{contact.firstname}} and {{contact.company}} that resolve to each recipient's data at send time. Typing names (A) does not scale. Separate emails (C) is impractical. Power Automate (D) is not how marketing email personalization works."
+    },
+    {
+      "id": 4,
+      "topic": "Event Management - Event registration",
+      "type": "SingleChoice",
+      "questionText": "You are setting up an event in Dynamics 365 Marketing that has a maximum capacity of 200 attendees. What happens when the 201st person tries to register?",
+      "options": ["A. The registration is automatically approved and capacity is exceeded.", "B. The contact is added to a waitlist if waitlist functionality is enabled.", "C. The registration form becomes unavailable.", "D. An error message is displayed and no record is created."],
+      "correctAnswers": ["B"],
+      "explanation": "When event capacity is reached and waitlist functionality is enabled, additional registrations are placed on the waitlist. If waitlist is not enabled, the form shows a message that the event is full. Automatic approval beyond capacity (A) does not occur. The form does not disappear (C). While a message may be shown, a waitlist record can still be created (D is partially incorrect)."
+    },
+    {
+      "id": 5,
+      "topic": "Lead Scoring - Scoring models",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a lead scoring model that increases a lead's score when they visit the pricing page on your website. What type of scoring condition should you create?",
+      "options": ["A. A demographic condition based on contact fields.", "B. A behavioral condition based on website visited interaction.", "C. A firmographic condition based on account fields.", "D. A scoring grade based on manual assessment."],
+      "correctAnswers": ["B"],
+      "explanation": "A behavioral condition based on website visited interactions tracks when a contact visits specific pages, such as the pricing page, and adds points to their lead score. Demographic conditions (A) evaluate contact attributes, not behaviors. Firmographic conditions (C) evaluate company attributes. Manual scoring grades (D) do not track web interactions."
+    },
+    {
+      "id": 6,
+      "topic": "Marketing Forms - Form configuration",
+      "type": "SingleChoice",
+      "questionText": "A company wants to capture information from potential customers on their website using a Dynamics 365 Marketing form. Which type of form should they embed?",
+      "options": ["A. A marketing form embedded using a JavaScript snippet.", "B. A model-driven app form.", "C. A Power Apps portal form.", "D. A Microsoft Forms form."],
+      "correctAnswers": ["A"],
+      "explanation": "Dynamics 365 Marketing forms are designed to be embedded on external websites using a JavaScript snippet. They capture submissions and create or update contact records. Model-driven forms (B) are for internal CRM use. Portal forms (C) are for Power Apps portals, not marketing websites. Microsoft Forms (D) does not integrate natively with marketing contact management."
+    },
+    {
+      "id": 7,
+      "topic": "Customer Journeys - Journey triggers",
+      "type": "MultipleChoice",
+      "questionText": "Which two events can trigger a real-time customer journey in Dynamics 365 Marketing? (Choose two.)",
+      "options": ["A. A contact fills out a marketing form.", "B. A contact record is created in CRM.", "C. A SQL query returns results.", "D. A scheduled batch process runs."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Real-time customer journeys can be triggered by events such as a form submission (A) or a CRM record creation (B). SQL queries (C) cannot trigger journeys. Scheduled batch processes (D) are characteristic of outbound marketing segments, not real-time journey triggers."
+    },
+    {
+      "id": 8,
+      "topic": "Segments - Compound segments",
+      "type": "SingleChoice",
+      "questionText": "You have two existing segments: 'Newsletter Subscribers' and 'Event Attendees'. You want to create a new segment that includes contacts who are in both segments. What should you create?",
+      "options": ["A. A compound segment using the intersect operator.", "B. A compound segment using the union operator.", "C. A new dynamic segment with combined queries.", "D. A static segment with manually selected contacts."],
+      "correctAnswers": ["A"],
+      "explanation": "A compound segment using the intersect operator includes only contacts who appear in both source segments. The union operator (B) would include contacts from either segment. A new dynamic segment (C) would duplicate logic. A static segment (D) would require manual maintenance."
+    },
+    {
+      "id": 9,
+      "topic": "Email Marketing - A/B testing",
+      "type": "SingleChoice",
+      "questionText": "You want to test two different subject lines for an email campaign to determine which generates higher open rates. What feature should you use?",
+      "options": ["A. Create two separate customer journeys with different emails.", "B. Use the A/B testing feature in the email entity.", "C. Send the email with one subject line and manually change it halfway through.", "D. Use conditional content based on contact attributes."],
+      "correctAnswers": ["B"],
+      "explanation": "The A/B testing feature allows you to test two versions of an email (such as different subject lines) by sending each to a portion of the audience and then sending the winning version to the rest. Separate journeys (A) make comparison difficult. Manual changes (C) introduce bias. Conditional content (D) personalizes based on attributes, not testing."
+    },
+    {
+      "id": 10,
+      "topic": "Lead Scoring - Sales-ready threshold",
+      "type": "SingleChoice",
+      "questionText": "A marketing team wants leads to be automatically routed to sales when their score reaches 100 points. What should you configure?",
+      "options": ["A. A workflow that runs on lead score change.", "B. Set the sales-ready threshold to 100 in the scoring model and configure a follow-up action.", "C. Create a dashboard that shows leads above 100.", "D. Have marketing manually review scores daily."],
+      "correctAnswers": ["B"],
+      "explanation": "The lead scoring model includes a sales-ready threshold setting. When a lead reaches this score, it can trigger follow-up actions such as creating a sales activity or routing the lead. Workflows (A) require custom configuration. Dashboards (C) and manual review (D) do not automate the routing process."
+    },
+    {
+      "id": 11,
+      "topic": "Event Management - Session management",
+      "type": "SingleChoice",
+      "questionText": "You are configuring a multi-session conference event. Attendees should be able to register for individual sessions. How should you set this up?",
+      "options": ["A. Create separate events for each session.", "B. Create one event with multiple sessions and enable session-level registration.", "C. Use a marketing form with session selection checkboxes.", "D. Create custom entities to manage sessions."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing event management supports multi-session events where attendees can register at the session level. Creating separate events (A) loses the umbrella event structure. Marketing forms (C) do not manage session capacity. Custom entities (D) duplicate built-in functionality."
+    },
+    {
+      "id": 12,
+      "topic": "Marketing Forms - Prefilling",
+      "type": "SingleChoice",
+      "questionText": "You want returning contacts to see their previously submitted data when they visit a marketing form again. What should you enable?",
+      "options": ["A. Form prefilling.", "B. Browser cookie tracking.", "C. Contact matching strategy only.", "D. Progressive profiling."],
+      "correctAnswers": ["A"],
+      "explanation": "Form prefilling uses cookies and contact matching to populate form fields with previously submitted data for returning contacts. Browser cookie tracking (B) alone does not populate fields. Contact matching (C) identifies the contact but does not prefill. Progressive profiling (D) shows new fields, not previously submitted data."
+    },
+    {
+      "id": 13,
+      "topic": "Customer Journeys - Wait conditions",
+      "type": "SingleChoice",
+      "questionText": "In a customer journey, you want to wait 3 days after sending an email before checking if the contact opened it. Which tile configuration should you use?",
+      "options": ["A. Add a trigger tile immediately after the email with a 3-day expiration.", "B. Add a scheduler tile with a 3-day delay, then a trigger tile.", "C. Add a condition tile with a date-based rule.", "D. Configure the email tile with a 3-day send delay."],
+      "correctAnswers": ["A"],
+      "explanation": "A trigger tile with a 3-day expiration period after the email tile will wait up to 3 days for the contact to open the email before moving them along the appropriate branch. A scheduler tile (B) adds delay but the trigger handles timing on its own. A condition tile (C) does not have built-in wait capabilities. Email send delay (D) delays sending, not evaluation."
+    },
+    {
+      "id": 14,
+      "topic": "Segments - Suppression segments",
+      "type": "SingleChoice",
+      "questionText": "A company wants to ensure that contacts who have opted out of marketing communications are never included in any customer journey. What should you configure?",
+      "options": ["A. Remove opted-out contacts from all segments manually.", "B. Use a suppression segment in customer journeys.", "C. Delete opted-out contact records.", "D. Create a business rule to prevent opted-out contacts from being added."],
+      "correctAnswers": ["B"],
+      "explanation": "Suppression segments allow you to exclude specific contacts (such as those who opted out) from customer journeys regardless of their segment membership. Manual removal (A) is error-prone and high-maintenance. Deleting records (C) loses historical data. Business rules (D) cannot control journey participation."
+    },
+    {
+      "id": 15,
+      "topic": "Email Marketing - Content settings",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that all marketing emails include the company's physical mailing address and an unsubscribe link. Where should you configure this?",
+      "options": ["A. Add the address and link manually to each email.", "B. Configure content settings records and reference them in customer journeys.", "C. Use a global email template.", "D. Create a business rule on the email entity."],
+      "correctAnswers": ["B"],
+      "explanation": "Content settings records store standard information like physical addresses, social media links, and subscription center URLs that are referenced in customer journeys and automatically included in emails. Manual addition (A) is error-prone. Global templates (C) help but content settings provide centralized management. Business rules (D) cannot insert content into emails."
+    },
+    {
+      "id": 16,
+      "topic": "Lead Scoring - Multiple scoring models",
+      "type": "SingleChoice",
+      "questionText": "A company has two product lines and wants to score leads differently for each. What should you do?",
+      "options": ["A. Create a single scoring model with conditions for each product line.", "B. Create two separate lead scoring models, one for each product line.", "C. Use a custom field to manually assign scores per product line.", "D. Create two separate lead entities."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing supports multiple lead scoring models, each with its own criteria and scores. Creating two models allows independent scoring for each product line. A single model (A) would be overly complex. Manual scoring (C) does not automate. Separate entities (D) would break the standard data model."
+    },
+    {
+      "id": 17,
+      "topic": "Event Management - Webinars",
+      "type": "SingleChoice",
+      "questionText": "You need to host a webinar using Dynamics 365 Marketing. Which integration is natively supported for webinar streaming?",
+      "options": ["A. Zoom.", "B. Microsoft Teams.", "C. GoToWebinar.", "D. WebEx."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing natively integrates with Microsoft Teams for webinar and online event streaming. While integrations with other providers like Zoom (A), GoToWebinar (C), and WebEx (D) may be possible through connectors or custom development, Teams is the natively supported platform."
+    },
+    {
+      "id": 18,
+      "topic": "Marketing Forms - Progressive profiling",
+      "type": "SingleChoice",
+      "questionText": "You want to collect additional information from contacts over multiple form submissions instead of asking for everything at once. What feature should you enable?",
+      "options": ["A. Form prefilling.", "B. Progressive profiling.", "C. Multi-step forms.", "D. Conditional field visibility."],
+      "correctAnswers": ["B"],
+      "explanation": "Progressive profiling presents new fields to contacts on subsequent form submissions, gradually building their profile without overwhelming them on the first visit. Form prefilling (A) shows previously entered data. Multi-step forms (C) are not a native feature. Conditional visibility (D) shows fields based on other field values within the same submission."
+    },
+    {
+      "id": 19,
+      "topic": "Customer Journeys - Segment-based journeys",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of segments can be used as the audience for an outbound customer journey? (Choose two.)",
+      "options": ["A. Dynamic segments.", "B. Static segments.", "C. Marketing lists.", "D. Advanced Find results."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Customer journeys in outbound marketing can use both dynamic segments (A) and static segments (B) as their audience source. Marketing lists (C) are a Dynamics 365 Sales feature not directly used in marketing journeys. Advanced Find results (D) cannot be used as journey audiences."
+    },
+    {
+      "id": 20,
+      "topic": "Email Marketing - Compliance",
+      "type": "SingleChoice",
+      "questionText": "To comply with GDPR requirements, what must be included in every marketing email sent through Dynamics 365 Marketing?",
+      "options": ["A. A link to the company's privacy policy only.", "B. A subscription center link that allows contacts to manage their consent.", "C. A reply-to email address.", "D. The sender's personal phone number."],
+      "correctAnswers": ["B"],
+      "explanation": "GDPR compliance requires that contacts can manage their communication preferences. A subscription center link allows contacts to update their consent and opt out. A privacy policy link (A) is good practice but not sufficient on its own. A reply-to address (C) and phone number (D) are not GDPR-specific requirements."
+    },
+    {
+      "id": 21,
+      "topic": "Segments - Behavioral segments",
+      "type": "SingleChoice",
+      "questionText": "You need to create a segment of contacts who clicked a specific link in a marketing email sent last month. What type of segment condition should you use?",
+      "options": ["A. A demographic condition on the contact entity.", "B. A behavioral condition based on email click interactions.", "C. A firmographic condition on the account entity.", "D. A static list with manually identified contacts."],
+      "correctAnswers": ["B"],
+      "explanation": "Behavioral conditions allow you to segment contacts based on their interactions, such as clicking a specific link in a specific email. Demographic conditions (A) evaluate contact field values, not interactions. Firmographic conditions (C) evaluate company data. Static lists (D) require manual maintenance."
+    },
+    {
+      "id": 22,
+      "topic": "Lead Scoring - Behavioral scoring",
+      "type": "SingleChoice",
+      "questionText": "A lead scoring model should give 10 points for each email opened and 25 points for each form submitted. What types of conditions should you add?",
+      "options": ["A. Two demographic conditions.", "B. Two behavioral conditions: one for email opened and one for form submitted interactions.", "C. One behavioral condition with two sub-conditions.", "D. A single condition with weighted scoring."],
+      "correctAnswers": ["B"],
+      "explanation": "Each interaction type (email opened, form submitted) should be configured as a separate behavioral condition with its own point value. Demographic conditions (A) are for contact attributes, not behaviors. A single condition with sub-conditions (C) does not accurately represent separate interaction types. Weighted scoring (D) is not how lead scoring conditions work."
+    },
+    {
+      "id": 23,
+      "topic": "Event Management - Event check-in",
+      "type": "SingleChoice",
+      "questionText": "You need to track attendee check-ins at a physical event. What Dynamics 365 Marketing feature supports this?",
+      "options": ["A. A custom Power App for scanning.", "B. The event check-in feature using the event management app.", "C. Manual data entry after the event.", "D. A marketing form at the event entrance."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing includes an event check-in feature within the event management capabilities that supports tracking attendee arrivals. While a custom Power App (A) could work, the built-in feature is purpose-designed. Manual entry (C) is inefficient. Marketing forms (D) are for data collection, not check-in tracking."
+    },
+    {
+      "id": 24,
+      "topic": "Marketing Forms - Form matching",
+      "type": "SingleChoice",
+      "questionText": "When a contact submits a marketing form, how does Dynamics 365 Marketing determine if the submission matches an existing contact?",
+      "options": ["A. It always creates a new contact record.", "B. It uses the contact matching strategy configured in the form settings.", "C. It matches only on email address by default with no configuration needed.", "D. It requires a unique identifier field on the form."],
+      "correctAnswers": ["B"],
+      "explanation": "The contact matching strategy, configurable in form settings, determines how form submissions are matched to existing contacts. Matching can use email, first name + email, or other combinations. It does not always create new records (A). While email matching is common (C), the strategy must be configured. A unique identifier (D) is not required."
+    },
+    {
+      "id": 25,
+      "topic": "Customer Journeys - Multi-channel journeys",
+      "type": "SingleChoice",
+      "questionText": "In a real-time marketing journey, you want to send a text message to contacts who did not open your email within 2 days. What tiles do you need?",
+      "options": ["A. Email tile, wait tile, condition tile, SMS tile.", "B. Email tile, trigger tile, SMS tile.", "C. Email tile, condition tile, SMS tile, phone call tile.", "D. Email tile, branch tile, SMS tile."],
+      "correctAnswers": ["A"],
+      "explanation": "The journey needs an email tile to send the initial email, a wait tile to pause for 2 days, a condition tile to check if the email was opened, and an SMS tile on the 'no' branch to send the text message. A trigger tile (B) works differently in real-time journeys. Adding a phone call tile (C) is unnecessary. The terminology 'branch tile' (D) is not standard."
+    },
+    {
+      "id": 26,
+      "topic": "Email Marketing - Email insights",
+      "type": "SingleChoice",
+      "questionText": "After sending a marketing email, which metric indicates the percentage of delivered emails that were opened by recipients?",
+      "options": ["A. Click-through rate.", "B. Open rate.", "C. Delivery rate.", "D. Bounce rate."],
+      "correctAnswers": ["B"],
+      "explanation": "The open rate measures the percentage of delivered emails that were opened by recipients. Click-through rate (A) measures clicks on links within the email. Delivery rate (C) measures successful deliveries. Bounce rate (D) measures failed deliveries."
+    },
+    {
+      "id": 27,
+      "topic": "Segments - Exclusion logic",
+      "type": "SingleChoice",
+      "questionText": "You need to create a segment of all contacts in the 'Technology' industry EXCEPT those who are already customers. How should you build this segment?",
+      "options": ["A. Create a dynamic segment for technology contacts and use the 'except' operator to exclude customers.", "B. Create two segments and manually remove overlapping contacts.", "C. Use a single query with an AND NOT condition.", "D. Create a compound segment using the union operator."],
+      "correctAnswers": ["A"],
+      "explanation": "Dynamic segments support the 'except' operator, which allows you to include contacts matching one criterion while excluding those matching another. Manual removal (B) is not dynamic. While an AND NOT condition (C) could work, the except operator is the standard approach for segment exclusion. Union (D) combines segments rather than excluding."
+    },
+    {
+      "id": 28,
+      "topic": "Lead Scoring - Score decay",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager notices that leads retain high scores even months after their last engagement. What feature should you configure to address this?",
+      "options": ["A. Score expiration on behavioral conditions.", "B. Manual score reset workflows.", "C. Reducing the maximum score allowed.", "D. Deleting old interaction records."],
+      "correctAnswers": ["A"],
+      "explanation": "Score expiration on behavioral conditions allows points to expire after a defined period, ensuring that lead scores reflect recent engagement. Manual workflows (B) are not scalable. Reducing maximum scores (C) does not address decay over time. Deleting interaction records (D) loses historical data."
+    },
+    {
+      "id": 29,
+      "topic": "Event Management - Event portal",
+      "type": "SingleChoice",
+      "questionText": "You want to provide a public-facing website where people can view upcoming events and register. What should you use?",
+      "options": ["A. A custom-built website with API integration.", "B. The Dynamics 365 Marketing event portal.", "C. A SharePoint site with event lists.", "D. A Power BI dashboard shared externally."],
+      "correctAnswers": ["B"],
+      "explanation": "The Dynamics 365 Marketing event portal provides a ready-to-use, customizable website for event listings and registration. A custom website (A) requires unnecessary development. SharePoint (C) is not designed for public event registration. Power BI (D) is for analytics, not event registration."
+    },
+    {
+      "id": 30,
+      "topic": "Marketing Forms - Landing pages",
+      "type": "SingleChoice",
+      "questionText": "You need to create a landing page for a new product campaign that includes a marketing form. Where do you build this?",
+      "options": ["A. In the marketing pages section of Dynamics 365 Marketing.", "B. In Power Apps portals.", "C. In SharePoint Online.", "D. In Microsoft Sway."],
+      "correctAnswers": ["A"],
+      "explanation": "Marketing pages in Dynamics 365 Marketing allow you to create landing pages with embedded forms, tracking, and integration with customer journeys. Power Apps portals (B) are for different purposes. SharePoint (C) and Sway (D) do not provide marketing-specific features like form submission tracking and journey integration."
+    },
+    {
+      "id": 31,
+      "topic": "Customer Journeys - Journey analytics",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager wants to see how many contacts dropped off at each stage of a customer journey. Where can they find this information?",
+      "options": ["A. In Power BI only.", "B. In the customer journey insights tab.", "C. In the email insights only.", "D. In the system audit log."],
+      "correctAnswers": ["B"],
+      "explanation": "The customer journey insights tab provides detailed analytics showing how contacts move through each tile, including drop-off rates at each stage. Power BI (A) can provide additional analytics but is not the primary source. Email insights (C) show only email-level metrics. The audit log (D) tracks record changes, not journey progression."
+    },
+    {
+      "id": 32,
+      "topic": "Email Marketing - Subscription lists",
+      "type": "MultipleChoice",
+      "questionText": "Which two statements about subscription lists in Dynamics 365 Marketing are correct? (Choose two.)",
+      "options": ["A. Subscription lists allow contacts to opt in or out of specific topics.", "B. A contact can belong to multiple subscription lists simultaneously.", "C. Subscription lists replace the need for segments.", "D. Subscription lists can only be managed by administrators."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Subscription lists allow contacts to manage their preferences for specific communication topics (A) and contacts can belong to multiple lists (B). Subscription lists do not replace segments (C) as they serve different purposes. Contacts can manage their own subscriptions through the subscription center (D is incorrect)."
+    },
+    {
+      "id": 33,
+      "topic": "Segments - Segment membership",
+      "type": "SingleChoice",
+      "questionText": "How often are dynamic segments evaluated and updated in Dynamics 365 Marketing?",
+      "options": ["A. Only when manually refreshed.", "B. In real-time for every data change.", "C. At regular intervals as configured, typically every few minutes.", "D. Once per day at midnight."],
+      "correctAnswers": ["C"],
+      "explanation": "Dynamic segments are evaluated at regular intervals, typically every few minutes, to update their membership based on current data. They are not manually refreshed only (A), not truly real-time for every change (B), and not limited to daily updates (D)."
+    },
+    {
+      "id": 34,
+      "topic": "Lead Scoring - Grading",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between lead scoring and lead grading in Dynamics 365 Marketing?",
+      "options": ["A. They are the same feature with different names.", "B. Scoring measures engagement behavior; grading evaluates demographic and firmographic fit.", "C. Grading is only available in the premium license.", "D. Scoring is manual; grading is automated."],
+      "correctAnswers": ["B"],
+      "explanation": "Lead scoring measures behavioral engagement (email opens, form submissions, website visits) while lead grading evaluates how well a lead matches the ideal customer profile based on demographic and firmographic attributes. They are complementary features (A). Both are available in standard marketing (C). Both can be automated (D)."
+    },
+    {
+      "id": 35,
+      "topic": "Event Management - Recurring events",
+      "type": "SingleChoice",
+      "questionText": "A company hosts a monthly webinar series. What is the best approach to manage this in Dynamics 365 Marketing?",
+      "options": ["A. Create a single event and reuse it each month.", "B. Create a recurring event that generates individual event instances.", "C. Create 12 separate unrelated events.", "D. Use a customer journey to manage the recurrence."],
+      "correctAnswers": ["B"],
+      "explanation": "Recurring events allow you to define a pattern (monthly) and automatically generate individual event instances, maintaining a connection between them. Reusing a single event (A) would overwrite registration data. Separate events (C) lose the series relationship. Customer journeys (D) manage communications, not event scheduling."
+    },
+    {
+      "id": 36,
+      "topic": "Marketing Forms - Double opt-in",
+      "type": "SingleChoice",
+      "questionText": "To comply with regulations in certain countries, you need to implement double opt-in for marketing communications. What does this involve?",
+      "options": ["A. Requiring contacts to submit the form twice.", "B. Sending a confirmation email after form submission that the contact must confirm.", "C. Having an administrator approve each subscription.", "D. Adding two consent checkboxes to the form."],
+      "correctAnswers": ["B"],
+      "explanation": "Double opt-in involves sending a confirmation email after a contact subscribes, requiring them to click a confirmation link to validate their consent. Submitting twice (A) is not double opt-in. Administrator approval (C) is impractical. Two checkboxes (D) do not constitute double opt-in."
+    },
+    {
+      "id": 37,
+      "topic": "Customer Journeys - Outbound vs real-time",
+      "type": "SingleChoice",
+      "questionText": "What is a key difference between outbound marketing journeys and real-time marketing journeys?",
+      "options": ["A. Outbound journeys support email; real-time does not.", "B. Real-time journeys can be triggered by individual contact actions in the moment; outbound journeys process segments in batches.", "C. Outbound journeys are newer and recommended over real-time.", "D. Real-time journeys do not support segments."],
+      "correctAnswers": ["B"],
+      "explanation": "Real-time journeys respond to individual trigger events as they happen, while outbound journeys process segment-based audiences in batches. Both support email (A). Outbound marketing is the older approach; real-time is recommended (C is reversed). Real-time journeys do support segments (D)."
+    },
+    {
+      "id": 38,
+      "topic": "Email Marketing - Deliverability",
+      "type": "MultipleChoice",
+      "questionText": "Which two actions can improve email deliverability in Dynamics 365 Marketing? (Choose two.)",
+      "options": ["A. Authenticate your sending domain with SPF and DKIM.", "B. Send to as many contacts as possible to increase volume.", "C. Regularly clean your contact list to remove invalid email addresses.", "D. Use all capital letters in subject lines for visibility."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Domain authentication with SPF and DKIM (A) proves your emails are legitimate, improving deliverability. Cleaning contact lists (C) reduces bounce rates, which positively affects sender reputation. High-volume sending without targeting (B) can harm reputation. All-caps subject lines (D) trigger spam filters."
+    },
+    {
+      "id": 39,
+      "topic": "Segments - Interaction-based segments",
+      "type": "SingleChoice",
+      "questionText": "You want to create a segment of contacts who registered for events in the past year but did not attend. What approach should you use?",
+      "options": ["A. Create a dynamic segment using event registration and check-in interactions.", "B. Manually review event attendance records.", "C. Create a static segment from an exported list.", "D. Use a Power Automate flow to build the segment."],
+      "correctAnswers": ["A"],
+      "explanation": "A dynamic segment can query event registration interactions (registered) combined with the absence of check-in interactions (did not attend) to automatically build and maintain this audience. Manual review (B) is not scalable. Static segments (C) need manual updates. Power Automate (D) cannot directly manage segment membership."
+    },
+    {
+      "id": 40,
+      "topic": "Lead Scoring - Model activation",
+      "type": "SingleChoice",
+      "questionText": "After creating a lead scoring model with conditions and scores, what must you do before it starts scoring leads?",
+      "options": ["A. Export it to a solution.", "B. Go live with the scoring model.", "C. Assign it to a user.", "D. Connect it to a customer journey."],
+      "correctAnswers": ["B"],
+      "explanation": "A lead scoring model must be set to 'Live' status (go live) before it begins evaluating and scoring leads. Exporting to a solution (A) is for deployment, not activation. Assigning to a user (B) is not required. Connecting to a journey (D) is not necessary for the model to function."
+    }
+  ]
+}

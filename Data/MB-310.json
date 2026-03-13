@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-310",
+  "examTitle": "Dynamics 365 Finance Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "General Ledger - Chart of accounts",
+      "type": "SingleChoice",
+      "questionText": "A company is setting up Dynamics 365 Finance and needs to define their financial account structure. What must they configure first?",
+      "options": ["A. Bank accounts.", "B. The chart of accounts with main accounts and financial dimensions.", "C. Vendor payment journals.", "D. Fixed asset groups."],
+      "correctAnswers": ["B"],
+      "explanation": "The chart of accounts with main accounts and financial dimensions forms the foundation of the general ledger and must be configured before other financial components. Bank accounts (A), payment journals (C), and fixed asset groups (D) all depend on the chart of accounts being established first."
+    },
+    {
+      "id": 2,
+      "topic": "Accounts Payable - Vendor invoices",
+      "type": "SingleChoice",
+      "questionText": "A vendor invoice is received and needs to be matched against a purchase order before payment. What process should be followed?",
+      "options": ["A. Pay the invoice immediately without matching.", "B. Perform two-way or three-way matching to validate the invoice against the PO and optionally the product receipt.", "C. Create a new purchase order for the invoice.", "D. Return the invoice to the vendor."],
+      "correctAnswers": ["B"],
+      "explanation": "Invoice matching (two-way matches invoice to PO; three-way also matches to product receipt) validates that quantities, prices, and amounts are correct before payment is authorized. Paying without matching (A) risks overpayment. Creating a new PO (C) is incorrect. Returning the invoice (D) is only appropriate if it is truly invalid."
+    },
+    {
+      "id": 3,
+      "topic": "Accounts Receivable - Customer invoicing",
+      "type": "SingleChoice",
+      "questionText": "A company needs to generate customer invoices based on sales orders. What is the correct process?",
+      "options": ["A. Create a free text invoice.", "B. Post the sales order packing slip, then generate the sales order invoice.", "C. Create a project invoice.", "D. Send a manual bill via email."],
+      "correctAnswers": ["B"],
+      "explanation": "For sales order-based invoicing, the process involves confirming the order, posting a packing slip (delivery), and then generating the sales order invoice. Free text invoices (A) are for ad-hoc billing not tied to sales orders. Project invoices (C) are for project-based billing. Manual bills (D) bypass the system."
+    },
+    {
+      "id": 4,
+      "topic": "Budgeting - Budget creation",
+      "type": "SingleChoice",
+      "questionText": "A finance department needs to create annual budgets for each department. What module should they use?",
+      "options": ["A. General Ledger.", "B. Budgeting module with budget register entries.", "C. Accounts Payable.", "D. Fixed Assets."],
+      "correctAnswers": ["B"],
+      "explanation": "The Budgeting module provides budget register entries, budget models, and budget planning capabilities for creating and managing departmental budgets. General Ledger (A) records actuals, not budgets. AP (C) manages vendor payments. Fixed Assets (D) manages assets, not budgets."
+    },
+    {
+      "id": 5,
+      "topic": "Fixed Assets - Asset acquisition",
+      "type": "SingleChoice",
+      "questionText": "A company purchases a new delivery vehicle for $50,000. How should this be recorded in Dynamics 365 Finance?",
+      "options": ["A. Record it as an expense in the general ledger.", "B. Create a fixed asset record and post an acquisition transaction.", "C. Add it to the inventory module.", "D. Record it as a prepaid expense."],
+      "correctAnswers": ["B"],
+      "explanation": "Capital assets like vehicles should be recorded as fixed assets with an acquisition transaction that debits the asset account and credits cash or AP. Recording as expense (A) misstates financial statements. Inventory (C) is for items for sale. Prepaid expense (D) is for advance payments on recurring expenses."
+    },
+    {
+      "id": 6,
+      "topic": "Cash Management - Bank reconciliation",
+      "type": "SingleChoice",
+      "questionText": "The monthly bank statement needs to be reconciled with the bank transactions in Dynamics 365 Finance. What feature should you use?",
+      "options": ["A. Manual comparison of printed reports.", "B. Advanced bank reconciliation with imported bank statements.", "C. A Power BI report comparing bank and ledger balances.", "D. A third-party reconciliation tool."],
+      "correctAnswers": ["B"],
+      "explanation": "Advanced bank reconciliation allows you to import bank statements electronically and automatically match them with bank transactions in the system. Manual comparison (A) is time-consuming. Power BI (C) shows data but does not perform reconciliation. Third-party tools (D) add unnecessary complexity."
+    },
+    {
+      "id": 7,
+      "topic": "Cost Accounting - Cost elements",
+      "type": "SingleChoice",
+      "questionText": "A company wants to analyze costs by department, project, and product line using a separate reporting framework. What should they configure?",
+      "options": ["A. Additional financial dimensions only.", "B. Cost accounting with cost elements, cost objects, and allocation rules.", "C. A separate general ledger.", "D. Custom reports in Excel."],
+      "correctAnswers": ["B"],
+      "explanation": "Cost accounting provides a separate analytical framework with cost elements (what), cost objects (where), and allocation rules for detailed cost analysis without affecting the general ledger. Additional dimensions (A) alone do not provide the allocation framework. A separate GL (C) is unnecessary. Excel reports (D) are static."
+    },
+    {
+      "id": 8,
+      "topic": "General Ledger - Financial dimensions",
+      "type": "MultipleChoice",
+      "questionText": "Which two statements about financial dimensions in Dynamics 365 Finance are correct? (Choose two.)",
+      "options": ["A. Financial dimensions allow multi-dimensional analysis of transactions.", "B. Financial dimensions can be backed by existing entities like departments or cost centers.", "C. Financial dimensions replace the need for main accounts.", "D. Only one financial dimension can be used per transaction."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Financial dimensions enable multi-dimensional analysis (A) and can be backed by existing entity data like departments, cost centers, or projects (B). They complement main accounts, not replace them (C). Multiple dimensions can be used per transaction (D is incorrect)."
+    },
+    {
+      "id": 9,
+      "topic": "Accounts Payable - Vendor payments",
+      "type": "SingleChoice",
+      "questionText": "You need to process a batch of vendor payments using electronic funds transfer (EFT). What should you configure?",
+      "options": ["A. Print checks manually.", "B. Configure a method of payment for EFT and use the vendor payment journal to generate the payment file.", "C. Transfer funds through the bank's website manually.", "D. Create individual payment records for each vendor."],
+      "correctAnswers": ["B"],
+      "explanation": "Configuring an EFT method of payment and using the vendor payment journal automates the generation of electronic payment files for bank processing. Manual checks (A) are not electronic. Bank website transfers (C) bypass the system. Individual records (D) are inefficient for batch processing."
+    },
+    {
+      "id": 10,
+      "topic": "Accounts Receivable - Collections",
+      "type": "SingleChoice",
+      "questionText": "A company needs to follow up on overdue customer invoices systematically. What feature should they use?",
+      "options": ["A. Manual phone calls based on memory.", "B. The Collections module with aging snapshots and collection letters.", "C. A spreadsheet of overdue invoices.", "D. Disable the customer's account."],
+      "correctAnswers": ["B"],
+      "explanation": "The Collections module provides aging snapshots, collection letters, and a collections workspace for systematically managing overdue receivables. Manual calls (A) are unstructured. Spreadsheets (C) are static. Disabling accounts (D) is too aggressive without a proper follow-up process."
+    },
+    {
+      "id": 11,
+      "topic": "Budgeting - Budget control",
+      "type": "SingleChoice",
+      "questionText": "A company wants to prevent departments from spending more than their approved budget. What should you enable?",
+      "options": ["A. Budget register entries only.", "B. Budget control with budget checking on transactions.", "C. A manual approval process for each expense.", "D. Monthly budget review meetings."],
+      "correctAnswers": ["B"],
+      "explanation": "Budget control performs real-time budget checking on transactions (purchase orders, invoices, etc.) and can warn or prevent transactions that exceed the budget. Register entries (A) record budgets but do not enforce them. Manual approvals (C) are not budget-specific. Review meetings (D) are after-the-fact."
+    },
+    {
+      "id": 12,
+      "topic": "Fixed Assets - Depreciation",
+      "type": "SingleChoice",
+      "questionText": "A vehicle with a cost of $50,000 and a useful life of 5 years should be depreciated using the straight-line method. What is the annual depreciation?",
+      "options": ["A. $5,000.", "B. $10,000.", "C. $25,000.", "D. $50,000."],
+      "correctAnswers": ["B"],
+      "explanation": "Straight-line depreciation divides the cost evenly over the useful life: $50,000 / 5 years = $10,000 per year. $5,000 (A) would be over 10 years. $25,000 (C) would be over 2 years. $50,000 (D) would be full expensing in year one."
+    },
+    {
+      "id": 13,
+      "topic": "Cash Management - Cash flow forecasting",
+      "type": "SingleChoice",
+      "questionText": "A CFO wants to predict the company's cash position for the next 90 days. What feature should you configure?",
+      "options": ["A. A manual Excel cash flow projection.", "B. Cash flow forecasting in Dynamics 365 Finance.", "C. A Power BI dashboard only.", "D. Daily bank balance checks."],
+      "correctAnswers": ["B"],
+      "explanation": "Cash flow forecasting aggregates expected inflows (AR, budgets) and outflows (AP, payroll) to project future cash positions. Manual Excel (A) requires constant updating. Power BI (C) can visualize but needs data from the forecast feature. Daily checks (D) show current position, not future projections."
+    },
+    {
+      "id": 14,
+      "topic": "General Ledger - Journal types",
+      "type": "SingleChoice",
+      "questionText": "You need to record a month-end accrual entry. Which journal type should you use?",
+      "options": ["A. Vendor payment journal.", "B. General journal.", "C. Customer payment journal.", "D. Asset acquisition journal."],
+      "correctAnswers": ["B"],
+      "explanation": "General journals are used for manual adjusting entries including accruals, reclassifications, and other period-end entries. Vendor payment journals (A) process vendor payments. Customer payment journals (C) process customer payments. Asset acquisition journals (D) record asset purchases."
+    },
+    {
+      "id": 15,
+      "topic": "Accounts Payable - Invoice approval workflow",
+      "type": "SingleChoice",
+      "questionText": "An AP manager needs invoices over $10,000 to be approved by the finance director before payment. What should you configure?",
+      "options": ["A. A manual email request for approval.", "B. A vendor invoice approval workflow with an amount condition.", "C. A business rule on the invoice form.", "D. A Power Automate flow."],
+      "correctAnswers": ["B"],
+      "explanation": "F&O workflows support vendor invoice approval with conditions based on amount, routing invoices over $10,000 to the finance director. Manual emails (A) are not automated. Business rules (C) cannot trigger approval workflows. Power Automate (D) is external to the F&O workflow engine."
+    },
+    {
+      "id": 16,
+      "topic": "Accounts Receivable - Credit management",
+      "type": "SingleChoice",
+      "questionText": "You need to set a maximum credit limit for a customer to prevent orders from exceeding $100,000 in outstanding receivables. Where do you configure this?",
+      "options": ["A. On the customer's account in the Credit and Collections section.", "B. In the general ledger parameters.", "C. On the sales order form.", "D. In the inventory module."],
+      "correctAnswers": ["A"],
+      "explanation": "Credit limits are configured on the customer account record in the Credit and Collections section. When enabled, the system checks the credit limit during order processing. GL parameters (B) are for ledger settings. Sales order forms (C) display credit info but configuration is on the customer. Inventory (D) is unrelated to credit."
+    },
+    {
+      "id": 17,
+      "topic": "Budgeting - Budget planning",
+      "type": "MultipleChoice",
+      "questionText": "Which two features are available in the Budget Planning module? (Choose two.)",
+      "options": ["A. Budget planning workflows for approval.", "B. Budget plan templates for Excel-based planning.", "C. Automatic bank reconciliation.", "D. Fixed asset acquisition."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Budget Planning supports workflows for routing plans through approval (A) and Excel-based templates for data entry and review (B). Bank reconciliation (C) and asset acquisition (D) are separate modules."
+    },
+    {
+      "id": 18,
+      "topic": "Fixed Assets - Depreciation books",
+      "type": "SingleChoice",
+      "questionText": "A company needs to maintain different depreciation methods for financial reporting (straight-line) and tax reporting (accelerated). How should you configure this?",
+      "options": ["A. Create two separate fixed asset records.", "B. Configure two depreciation books: one for financial reporting and one for tax reporting.", "C. Manually calculate tax depreciation in a spreadsheet.", "D. Use the same depreciation method for both purposes."],
+      "correctAnswers": ["B"],
+      "explanation": "Depreciation books allow you to maintain multiple depreciation methods for the same asset. One book posts to the general ledger (financial) while another tracks tax depreciation. Separate assets (A) duplicates data. Spreadsheets (C) are error-prone. Using the same method (D) does not meet the requirement."
+    },
+    {
+      "id": 19,
+      "topic": "Cash Management - Bank account setup",
+      "type": "SingleChoice",
+      "questionText": "You need to set up a company's primary operating bank account. Which information is required?",
+      "options": ["A. Only the bank name.", "B. Bank account number, routing number, currency, and associated main account in the chart of accounts.", "C. Only the bank's physical address.", "D. The bank's stock ticker symbol."],
+      "correctAnswers": ["B"],
+      "explanation": "Setting up a bank account requires the account number, routing number, currency, and a link to the corresponding main account in the chart of accounts for posting transactions. Only the name (A) or address (C) is insufficient. Stock ticker (D) is irrelevant."
+    },
+    {
+      "id": 20,
+      "topic": "Cost Accounting - Allocation rules",
+      "type": "SingleChoice",
+      "questionText": "You need to allocate shared overhead costs (such as rent) to multiple departments based on headcount. What should you configure?",
+      "options": ["A. Manual journal entries for each department.", "B. Cost allocation rules with an allocation base of headcount.", "C. A fixed percentage split hardcoded in the chart of accounts.", "D. Separate rent contracts for each department."],
+      "correctAnswers": ["B"],
+      "explanation": "Cost allocation rules in Cost Accounting allow you to define allocation bases (such as headcount) to distribute shared costs to cost objects (departments) dynamically. Manual entries (A) require recalculation each period. Hardcoded splits (C) do not adapt to headcount changes. Separate contracts (D) are a business decision, not a system allocation."
+    },
+    {
+      "id": 21,
+      "topic": "General Ledger - Year-end close",
+      "type": "SingleChoice",
+      "questionText": "At the end of the fiscal year, what process transfers income statement balances to retained earnings?",
+      "options": ["A. Manual journal entry.", "B. Year-end close process in the General Ledger module.", "C. Closing the bank accounts.", "D. Creating a new legal entity."],
+      "correctAnswers": ["B"],
+      "explanation": "The year-end close process automatically transfers income and expense account balances to retained earnings and creates opening balances for the new fiscal year. Manual entries (A) are error-prone. Closing bank accounts (C) is unrelated. A new legal entity (D) is not part of year-end closing."
+    },
+    {
+      "id": 22,
+      "topic": "Accounts Payable - Vendor holds",
+      "type": "SingleChoice",
+      "questionText": "A vendor is under investigation for compliance issues. You need to temporarily prevent all payments to this vendor. What should you do?",
+      "options": ["A. Delete the vendor record.", "B. Place the vendor on hold for payment.", "C. Remove all pending invoices.", "D. Change the vendor's bank account to an invalid number."],
+      "correctAnswers": ["B"],
+      "explanation": "Placing a vendor on hold for payment prevents payment processing while maintaining the vendor record and pending transactions. Deleting the vendor (A) loses history. Removing invoices (C) loses liability records. Invalid bank numbers (D) would cause payment errors, not prevent attempts."
+    },
+    {
+      "id": 23,
+      "topic": "Accounts Receivable - Payment terms",
+      "type": "SingleChoice",
+      "questionText": "A customer should receive a 2% discount if they pay within 10 days, otherwise the full amount is due in 30 days. How do you configure this?",
+      "options": ["A. Create a payment term with Net 30 and a cash discount of 2%/10 days.", "B. Manually calculate discounts on each invoice.", "C. Reduce the invoice amount by 2% at creation.", "D. Create two separate invoices."],
+      "correctAnswers": ["A"],
+      "explanation": "Payment terms with cash discount settings (2%/10 Net 30) automatically calculate the discount if payment is received within the discount period. Manual calculations (B) are error-prone. Reducing the invoice (C) gives the discount regardless of payment timing. Two invoices (D) are unnecessary."
+    },
+    {
+      "id": 24,
+      "topic": "Budgeting - Budget transfers",
+      "type": "SingleChoice",
+      "questionText": "A department needs to move budget funds from travel to training. What should you create?",
+      "options": ["A. A new budget register entry with a transfer type.", "B. Delete the travel budget and create a new training budget.", "C. Ignore the budget and spend on training.", "D. Create a journal entry in the general ledger."],
+      "correctAnswers": ["A"],
+      "explanation": "A budget transfer register entry moves budget amounts from one account/dimension to another while maintaining the audit trail. Deleting and recreating (B) loses the transfer history. Ignoring budgets (C) violates budget control. GL journal entries (D) affect actuals, not budgets."
+    },
+    {
+      "id": 25,
+      "topic": "Fixed Assets - Disposal",
+      "type": "SingleChoice",
+      "questionText": "A company sells a fully depreciated vehicle for $5,000. How should this be recorded?",
+      "options": ["A. Record $5,000 as miscellaneous income.", "B. Post a fixed asset disposal transaction that removes the asset and records the gain on sale.", "C. Delete the fixed asset record.", "D. Reduce the depreciation by $5,000."],
+      "correctAnswers": ["B"],
+      "explanation": "A disposal transaction removes the asset's net book value (zero for fully depreciated), records the sale proceeds, and recognizes the gain on disposal. Recording as income (A) does not remove the asset. Deleting (C) loses history. Reducing depreciation (D) is incorrect accounting."
+    },
+    {
+      "id": 26,
+      "topic": "General Ledger - Intercompany accounting",
+      "type": "SingleChoice",
+      "questionText": "Company A pays an invoice on behalf of Company B. How should this be recorded?",
+      "options": ["A. Record the expense in Company A only.", "B. Use intercompany accounting to post a due-to/due-from entry between Company A and Company B.", "C. Ignore the intercompany aspect.", "D. Create a new vendor for Company B."],
+      "correctAnswers": ["B"],
+      "explanation": "Intercompany accounting creates due-to and due-from entries between legal entities, correctly reflecting the obligation between companies. Recording only in Company A (A) misstates both companies' financials. Ignoring it (C) creates imbalances. A new vendor (D) does not properly represent the intercompany relationship."
+    },
+    {
+      "id": 27,
+      "topic": "Cash Management - Positive pay",
+      "type": "SingleChoice",
+      "questionText": "A company wants to prevent check fraud by providing the bank with a list of valid checks. What feature should they use?",
+      "options": ["A. Check reversal.", "B. Positive pay file generation.", "C. Post-dated checks.", "D. Bank reconciliation."],
+      "correctAnswers": ["B"],
+      "explanation": "Positive pay generates a file of issued checks that is sent to the bank. The bank only honors checks matching the file, preventing fraudulent checks. Check reversal (A) voids existing checks. Post-dated checks (C) manage future-dated checks. Bank reconciliation (D) matches transactions after the fact."
+    },
+    {
+      "id": 28,
+      "topic": "Cost Accounting - Statistical dimensions",
+      "type": "SingleChoice",
+      "questionText": "You need to track non-financial data such as headcount and square footage for cost allocation purposes. What should you configure?",
+      "options": ["A. Financial dimensions.", "B. Statistical dimension members in Cost Accounting.", "C. Custom fields on the legal entity.", "D. Power BI measures."],
+      "correctAnswers": ["B"],
+      "explanation": "Statistical dimension members in Cost Accounting track non-monetary values like headcount and square footage that serve as allocation bases. Financial dimensions (A) are for financial analysis. Custom fields (C) are not integrated with cost allocation. Power BI (D) is for reporting."
+    },
+    {
+      "id": 29,
+      "topic": "Accounts Payable - Prepayments",
+      "type": "SingleChoice",
+      "questionText": "A vendor requires a 50% advance payment before delivering goods. How should this be processed?",
+      "options": ["A. Record the full invoice amount and pay 50%.", "B. Create a vendor prepayment and apply it against the vendor invoice upon receipt of goods.", "C. Pay from petty cash.", "D. Negotiate different payment terms."],
+      "correctAnswers": ["B"],
+      "explanation": "Vendor prepayments allow you to make advance payments that are tracked as prepayments and then applied against the final vendor invoice when goods are received. Partial payment on full invoice (A) does not properly track the advance. Petty cash (C) is for small expenses. Negotiation (D) changes the business arrangement."
+    },
+    {
+      "id": 30,
+      "topic": "Accounts Receivable - Customer payment settlement",
+      "type": "SingleChoice",
+      "questionText": "A customer sends a single payment that covers three outstanding invoices. How should you process this?",
+      "options": ["A. Apply the payment to only one invoice.", "B. Use the payment journal to settle the payment against multiple invoices.", "C. Create three separate payment records.", "D. Record the payment as a credit balance."],
+      "correctAnswers": ["B"],
+      "explanation": "The customer payment journal allows you to settle a single payment against multiple invoices, properly closing each invoice. Applying to one invoice (A) leaves others open. Three records (C) misrepresent the single payment. A credit balance (D) does not close the invoices."
+    },
+    {
+      "id": 31,
+      "topic": "General Ledger - Allocation rules",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically allocate shared service costs to three business units based on fixed percentages at month-end. What should you configure?",
+      "options": ["A. Manual journal entries each month.", "B. Ledger allocation rules with fixed percentage basis.", "C. Three separate shared service accounts.", "D. A Power Automate flow."],
+      "correctAnswers": ["B"],
+      "explanation": "Ledger allocation rules automate the distribution of amounts from source accounts to destination accounts based on defined bases like fixed percentages. Manual entries (A) are repeated effort. Separate accounts (C) do not automate allocation. Power Automate (D) is external to GL processing."
+    },
+    {
+      "id": 32,
+      "topic": "Fixed Assets - Asset groups",
+      "type": "MultipleChoice",
+      "questionText": "Which two settings can be configured on a fixed asset group? (Choose two.)",
+      "options": ["A. Default depreciation method and service life.", "B. Default posting profiles for acquisition and depreciation.", "C. Default vendor payment terms.", "D. Default customer credit limits."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Fixed asset groups define default depreciation settings (A) and posting profiles (B) that are applied to assets within the group. Vendor payment terms (C) and customer credit limits (D) are unrelated to fixed assets."
+    },
+    {
+      "id": 33,
+      "topic": "Budgeting - Budget control rules",
+      "type": "SingleChoice",
+      "questionText": "You want budget control to warn users when a purchase order will exceed 80% of the budget but still allow the transaction. What should you configure?",
+      "options": ["A. Set budget control to only check at 100%.", "B. Configure a warning threshold at 80% with the action set to warn rather than block.", "C. Disable budget control.", "D. Set the budget to 120% of the actual amount needed."],
+      "correctAnswers": ["B"],
+      "explanation": "Budget control supports warning thresholds that alert users when spending approaches a defined percentage of the budget without preventing the transaction. Checking only at 100% (A) misses the early warning. Disabling control (C) removes all enforcement. Inflating budgets (D) is not a proper control measure."
+    },
+    {
+      "id": 34,
+      "topic": "Cash Management - Foreign currency revaluation",
+      "type": "SingleChoice",
+      "questionText": "At month-end, you need to adjust bank account balances denominated in foreign currencies to reflect current exchange rates. What process should you run?",
+      "options": ["A. Manual journal entry for each bank account.", "B. Foreign currency revaluation for bank accounts.", "C. Delete and re-enter the bank transactions.", "D. Change the system base currency."],
+      "correctAnswers": ["B"],
+      "explanation": "Foreign currency revaluation recalculates bank balances using current exchange rates and posts unrealized gain/loss entries. Manual entries (A) are error-prone. Deleting transactions (C) destroys history. Changing the base currency (D) is a major system change, not a period-end process."
+    },
+    {
+      "id": 35,
+      "topic": "General Ledger - Financial reporting",
+      "type": "SingleChoice",
+      "questionText": "A CFO needs a consolidated income statement that combines data from multiple legal entities. What tool should you use?",
+      "options": ["A. Export data to Excel and merge manually.", "B. Financial reporting (Management Reporter) with row and column definitions.", "C. A system view in the general ledger.", "D. A Power Automate flow."],
+      "correctAnswers": ["B"],
+      "explanation": "Financial reporting (formerly Management Reporter) supports multi-entity consolidated financial statements with flexible row and column definitions. Excel merging (A) is manual. System views (C) do not support consolidated statements. Power Automate (D) is not a reporting tool."
+    },
+    {
+      "id": 36,
+      "topic": "Accounts Payable - 1099 reporting",
+      "type": "SingleChoice",
+      "questionText": "In the United States, certain vendor payments must be reported on 1099 forms. How is this tracked in Dynamics 365 Finance?",
+      "options": ["A. Manual tracking in a spreadsheet.", "B. Configure 1099 boxes on vendor records and track amounts through the AP module.", "C. Use a third-party tax service only.", "D. Report all vendor payments regardless of type."],
+      "correctAnswers": ["B"],
+      "explanation": "Vendor records can be configured with 1099 box assignments, and the AP module tracks reportable amounts throughout the year for 1099 generation. Manual tracking (A) is error-prone. Third-party services (C) may complement but the tracking is in D365. Reporting all payments (D) is incorrect as only specific payment types require 1099 reporting."
+    },
+    {
+      "id": 37,
+      "topic": "Accounts Receivable - Interest charges",
+      "type": "SingleChoice",
+      "questionText": "A company wants to charge interest on overdue invoices. What should you configure?",
+      "options": ["A. Manually calculate and invoice interest.", "B. Configure interest codes and associate them with customer posting profiles.", "C. Add a surcharge to all invoices.", "D. Increase product prices for late-paying customers."],
+      "correctAnswers": ["B"],
+      "explanation": "Interest codes define the interest rate and calculation method. When associated with customer posting profiles, the system can automatically generate interest notes for overdue balances. Manual calculation (A) is time-consuming. Surcharges (C) and price increases (D) are not proper interest mechanisms."
+    },
+    {
+      "id": 38,
+      "topic": "General Ledger - Consolidations",
+      "type": "SingleChoice",
+      "questionText": "A multinational company needs to consolidate financial results from subsidiaries using different currencies. What must be configured?",
+      "options": ["A. All subsidiaries must use the same currency.", "B. Exchange rate types and consolidation elimination rules for intercompany balances.", "C. A single legal entity for all subsidiaries.", "D. Separate Dynamics 365 instances for each subsidiary."],
+      "correctAnswers": ["B"],
+      "explanation": "Consolidation requires exchange rate types for currency translation and elimination rules to remove intercompany balances. Requiring the same currency (A) is unrealistic. A single legal entity (C) would not represent separate subsidiaries. Separate instances (D) make consolidation more difficult."
+    },
+    {
+      "id": 39,
+      "topic": "Fixed Assets - Reclassification",
+      "type": "SingleChoice",
+      "questionText": "A piece of equipment originally classified as office equipment needs to be reclassified to manufacturing equipment. How should you handle this?",
+      "options": ["A. Delete the asset and create a new one.", "B. Use the fixed asset reclassification process to move it to the new group.", "C. Change the asset description only.", "D. Create a journal entry to adjust the cost center."],
+      "correctAnswers": ["B"],
+      "explanation": "The reclassification process transfers an asset from one group to another, updating all associated settings while maintaining the asset history. Deleting and recreating (A) loses history. Changing the description (C) does not update the group. A journal entry (D) adjusts postings but does not reclassify the asset."
+    },
+    {
+      "id": 40,
+      "topic": "Cost Accounting - Cost behavior",
+      "type": "SingleChoice",
+      "questionText": "You need to classify costs as fixed, variable, or semi-variable for management reporting. What Cost Accounting feature supports this?",
+      "options": ["A. Main account categories.", "B. Cost behavior classification on cost elements.", "C. Financial dimensions.", "D. Budget register entries."],
+      "correctAnswers": ["B"],
+      "explanation": "Cost Accounting allows cost elements to be classified by behavior (fixed, variable, semi-variable), enabling management reports that separate cost types. Main account categories (A) classify accounts but not cost behavior. Financial dimensions (C) add analysis dimensions. Budget entries (D) record planned amounts."
+    }
+  ]
+}

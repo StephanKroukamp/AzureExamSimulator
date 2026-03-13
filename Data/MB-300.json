@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-300",
+  "examTitle": "Dynamics 365 Finance and Operations Core",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "LCS - Lifecycle Services overview",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of Lifecycle Services (LCS) in Dynamics 365 Finance and Operations?",
+      "options": ["A. To develop custom code for Dynamics 365.", "B. To manage the lifecycle of implementations including deployment, monitoring, and updates.", "C. To create marketing campaigns.", "D. To manage customer service cases."],
+      "correctAnswers": ["B"],
+      "explanation": "LCS is a collaborative portal that manages the implementation lifecycle including environment deployment, configuration, monitoring, diagnostics, and updates. It is not a development environment (A), marketing tool (C), or case management system (D)."
+    },
+    {
+      "id": 2,
+      "topic": "Data Management - Data entities",
+      "type": "SingleChoice",
+      "questionText": "You need to import customer master data from a CSV file into Dynamics 365 Finance. What framework should you use?",
+      "options": ["A. The Data Management framework with data entities.", "B. Direct SQL database inserts.", "C. Manual data entry for each record.", "D. Power BI data import."],
+      "correctAnswers": ["A"],
+      "explanation": "The Data Management framework uses data entities to import and export data in various formats including CSV. It handles validation, transformation, and error handling. Direct SQL (B) bypasses business logic and is unsupported. Manual entry (C) does not scale. Power BI (D) is for analytics, not data import."
+    },
+    {
+      "id": 3,
+      "topic": "Workflow - Workflow configuration",
+      "type": "SingleChoice",
+      "questionText": "A company requires manager approval for all purchase requisitions over $5,000. What should you configure?",
+      "options": ["A. A business rule on the purchase requisition form.", "B. A workflow with a conditional approval step based on the amount.", "C. A Power Automate flow.", "D. Manual email notifications to managers."],
+      "correctAnswers": ["B"],
+      "explanation": "Workflows in Finance and Operations support conditional approval steps that evaluate field values (such as amount > $5,000) to determine if approval is required. Business rules (A) cannot trigger approval processes. Power Automate (C) is external to the F&O workflow engine. Manual emails (D) are not automated."
+    },
+    {
+      "id": 4,
+      "topic": "Organizations - Legal entities",
+      "type": "SingleChoice",
+      "questionText": "A multinational company has subsidiaries in three countries, each requiring separate financial reporting. How should this be structured?",
+      "options": ["A. Create three separate Dynamics 365 environments.", "B. Create three legal entities within a single environment.", "C. Use a single legal entity with department codes.", "D. Create three user groups."],
+      "correctAnswers": ["B"],
+      "explanation": "Legal entities represent separate legal organizations within Dynamics 365 and support independent financial reporting while sharing a common environment. Separate environments (A) prevent cross-company reporting. A single legal entity (C) cannot produce separate financial statements per country. User groups (D) control access, not organizational structure."
+    },
+    {
+      "id": 5,
+      "topic": "Number Sequences - Configuration",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that purchase order numbers are automatically generated with a specific format (PO-YYYY-#####). What should you configure?",
+      "options": ["A. A number sequence with the specified format segments.", "B. A custom field for manual entry.", "C. A workflow to generate numbers.", "D. A Power Automate flow to assign numbers."],
+      "correctAnswers": ["A"],
+      "explanation": "Number sequences in F&O support format segments including constants (PO), date segments (YYYY), and alphanumeric segments (#####) to auto-generate unique identifiers. Manual entry (B) is error-prone. Workflows (C) and Power Automate (D) are not designed for number generation."
+    },
+    {
+      "id": 6,
+      "topic": "Security - Security architecture",
+      "type": "MultipleChoice",
+      "questionText": "Which two components are part of the role-based security model in Dynamics 365 Finance and Operations? (Choose two.)",
+      "options": ["A. Security roles.", "B. Duties and privileges.", "C. IP address restrictions.", "D. Biometric authentication."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The security model consists of security roles (A) assigned to users, which contain duties and privileges (B) that grant access to specific operations. IP restrictions (C) and biometric auth (D) are infrastructure-level security, not part of the F&O role-based model."
+    },
+    {
+      "id": 7,
+      "topic": "Batch Processing - Batch jobs",
+      "type": "SingleChoice",
+      "questionText": "A report needs to be generated every night at midnight. How should you configure this?",
+      "options": ["A. Ask a user to run the report manually each night.", "B. Create a batch job with a recurrence pattern set to run daily at midnight.", "C. Schedule it in Windows Task Scheduler.", "D. Use a Power Automate scheduled flow."],
+      "correctAnswers": ["B"],
+      "explanation": "Batch jobs in F&O support scheduling with recurrence patterns, allowing reports and processes to run automatically at specified times. Manual execution (A) is unreliable. Windows Task Scheduler (C) does not interact with F&O. Power Automate (D) is external to the F&O batch framework."
+    },
+    {
+      "id": 8,
+      "topic": "LCS - Environment management",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy a sandbox environment for user acceptance testing. Where do you perform this action?",
+      "options": ["A. In the Dynamics 365 admin center.", "B. In Lifecycle Services (LCS).", "C. In the Azure portal.", "D. In Power Platform admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "Environment deployment and management for Dynamics 365 Finance and Operations is performed through LCS. The D365 admin center (A) manages other Dynamics apps. The Azure portal (C) manages Azure resources. Power Platform admin center (D) manages Dataverse environments."
+    },
+    {
+      "id": 9,
+      "topic": "Data Management - Data import/export",
+      "type": "SingleChoice",
+      "questionText": "You need to export vendor master data with specific fields for integration with a third-party system. What should you create?",
+      "options": ["A. A data project with the vendor data entity and selected fields.", "B. A SQL query against the database.", "C. A manual Excel report.", "D. A Power BI dataset."],
+      "correctAnswers": ["A"],
+      "explanation": "Data projects in the Data Management framework allow you to select data entities, choose specific fields, and export data in various formats. SQL queries (B) bypass the application layer. Manual reports (C) are not automated. Power BI (D) is for analytics."
+    },
+    {
+      "id": 10,
+      "topic": "Workflow - Workflow types",
+      "type": "SingleChoice",
+      "questionText": "Which of the following is a standard workflow type in Dynamics 365 Finance and Operations?",
+      "options": ["A. Email approval workflow.", "B. Purchase requisition approval workflow.", "C. Social media posting workflow.", "D. Document scanning workflow."],
+      "correctAnswers": ["B"],
+      "explanation": "Purchase requisition approval is a standard built-in workflow type in F&O that routes requisitions for approval based on configured rules. Email approval (A), social media (C), and document scanning (D) are not standard F&O workflow types."
+    },
+    {
+      "id": 11,
+      "topic": "Organizations - Operating units",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between a legal entity and an operating unit in Dynamics 365 Finance and Operations?",
+      "options": ["A. There is no difference.", "B. Legal entities are for legal/financial reporting; operating units are for operational management and reporting without separate legal standing.", "C. Operating units can generate separate tax returns.", "D. Legal entities are smaller than operating units."],
+      "correctAnswers": ["B"],
+      "explanation": "Legal entities represent legally distinct organizations with separate financial statements and tax obligations. Operating units (departments, cost centers, etc.) are used for operational management and internal reporting without separate legal standing. They are different (A). Operating units cannot generate tax returns (C). Size is not the differentiator (D)."
+    },
+    {
+      "id": 12,
+      "topic": "Number Sequences - Scope",
+      "type": "SingleChoice",
+      "questionText": "You need purchase order numbers to be unique per legal entity rather than globally unique. What number sequence scope should you configure?",
+      "options": ["A. Shared scope.", "B. Legal entity scope.", "C. Operating unit scope.", "D. Global scope."],
+      "correctAnswers": ["B"],
+      "explanation": "Legal entity scope ensures numbers are unique within each legal entity, allowing different entities to have their own numbering series. Shared scope (A) creates globally unique numbers. Operating unit scope (C) is per operating unit. Global scope (D) is the same as shared."
+    },
+    {
+      "id": 13,
+      "topic": "Security - Segregation of duties",
+      "type": "SingleChoice",
+      "questionText": "An auditor requires that the person who creates a purchase order cannot also approve it. What should you configure?",
+      "options": ["A. Remove approval duties from all users.", "B. Configure segregation of duties rules to conflict between creation and approval duties.", "C. Create a policy document for users to follow.", "D. Use separate environments for creation and approval."],
+      "correctAnswers": ["B"],
+      "explanation": "Segregation of duties rules identify conflicting duties (create and approve purchase orders) and prevent them from being assigned to the same user. Removing duties (A) prevents anyone from approving. Policy documents (C) rely on user compliance. Separate environments (D) are impractical."
+    },
+    {
+      "id": 14,
+      "topic": "Batch Processing - Batch groups",
+      "type": "SingleChoice",
+      "questionText": "You want to ensure that resource-intensive batch jobs do not affect the performance of other batch processes. What should you configure?",
+      "options": ["A. Run all batch jobs sequentially.", "B. Configure batch groups and assign resource-intensive jobs to a dedicated batch group on specific servers.", "C. Increase the server hardware.", "D. Run batch jobs only on weekends."],
+      "correctAnswers": ["B"],
+      "explanation": "Batch groups allow you to isolate batch jobs to specific AOS instances, ensuring resource-intensive processes do not compete with other operations. Sequential execution (A) slows all processing. Hardware upgrades (C) may not be sufficient. Weekend-only processing (D) creates delays."
+    },
+    {
+      "id": 15,
+      "topic": "LCS - Business process modeler",
+      "type": "SingleChoice",
+      "questionText": "A consultant needs to document the business processes for a Dynamics 365 Finance implementation. What LCS tool should they use?",
+      "options": ["A. Issue search.", "B. Business process modeler (BPM).", "C. System diagnostics.", "D. Subscription estimator."],
+      "correctAnswers": ["B"],
+      "explanation": "The Business process modeler in LCS allows consultants to document, analyze, and customize business processes using standard process libraries. Issue search (A) finds known issues. System diagnostics (C) monitors environment health. Subscription estimator (D) estimates licensing needs."
+    },
+    {
+      "id": 16,
+      "topic": "Data Management - Composite entities",
+      "type": "SingleChoice",
+      "questionText": "You need to import data that spans a header entity and multiple line entities (such as a sales order with lines). What type of entity should you use?",
+      "options": ["A. A standard data entity for each table separately.", "B. A composite data entity that includes both header and line entities.", "C. A direct table import.", "D. A custom XML file."],
+      "correctAnswers": ["B"],
+      "explanation": "Composite data entities handle header-line relationships, allowing you to import related data together while maintaining referential integrity. Separate entities (A) do not maintain the relationship during import. Direct table imports (C) bypass business logic. Custom XML (D) requires additional configuration."
+    },
+    {
+      "id": 17,
+      "topic": "Workflow - Workflow elements",
+      "type": "MultipleChoice",
+      "questionText": "Which two elements can be included in a Finance and Operations workflow? (Choose two.)",
+      "options": ["A. Approval steps.", "B. Automated tasks.", "C. Social media posts.", "D. Hardware provisioning."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "F&O workflows support approval steps (A) for routing documents for approval and automated tasks (B) that execute actions without user intervention. Social media posts (C) and hardware provisioning (D) are not workflow elements."
+    },
+    {
+      "id": 18,
+      "topic": "Organizations - Organization hierarchies",
+      "type": "SingleChoice",
+      "questionText": "A company needs a hierarchy for budgeting purposes that differs from their legal entity structure. What should they create?",
+      "options": ["A. A new set of legal entities.", "B. An organization hierarchy with a purpose of Budget planning.", "C. A custom table for budget organizations.", "D. Separate budget reports for each entity."],
+      "correctAnswers": ["B"],
+      "explanation": "Organization hierarchies can be created for specific purposes (Budget planning, Reporting, etc.) and can include different organizational structures than the legal entity hierarchy. New legal entities (A) change the legal structure. Custom tables (C) are unnecessary. Separate reports (D) do not address the hierarchy need."
+    },
+    {
+      "id": 19,
+      "topic": "Number Sequences - Continuous vs non-continuous",
+      "type": "SingleChoice",
+      "questionText": "An auditor requires that invoice numbers have no gaps in the sequence. What number sequence setting should you enable?",
+      "options": ["A. Non-continuous allocation.", "B. Continuous allocation.", "C. Manual numbering.", "D. Random number generation."],
+      "correctAnswers": ["B"],
+      "explanation": "Continuous allocation ensures no gaps in the number sequence, which is required for certain legal documents like invoices. Non-continuous (A) allows gaps for performance reasons. Manual numbering (C) and random generation (D) do not guarantee sequential, gap-free numbering."
+    },
+    {
+      "id": 20,
+      "topic": "Security - Security roles assignment",
+      "type": "SingleChoice",
+      "questionText": "A new accounts payable clerk needs access to enter vendor invoices. What should you do?",
+      "options": ["A. Give them system administrator access.", "B. Assign the Accounts Payable Clerk security role to the user.", "C. Share your login credentials with them.", "D. Create a custom table permission."],
+      "correctAnswers": ["B"],
+      "explanation": "Assigning the appropriate security role (Accounts Payable Clerk) provides the necessary access following the principle of least privilege. System admin access (A) is excessive. Sharing credentials (C) violates security policy. Custom table permissions (D) are not how F&O security works."
+    },
+    {
+      "id": 21,
+      "topic": "Batch Processing - Batch job monitoring",
+      "type": "SingleChoice",
+      "questionText": "A batch job failed overnight and you need to investigate the error. Where should you look?",
+      "options": ["A. The Windows Event Viewer.", "B. The batch job history and execution log in Dynamics 365.", "C. The database transaction log.", "D. The server's email outbox."],
+      "correctAnswers": ["B"],
+      "explanation": "Batch job history in Dynamics 365 shows execution status, timing, and error details for each batch job run. Windows Event Viewer (A) does not contain F&O batch details for cloud deployments. Database logs (C) are too low-level. Email outbox (D) is unrelated."
+    },
+    {
+      "id": 22,
+      "topic": "LCS - Asset library",
+      "type": "SingleChoice",
+      "questionText": "You need to store a data package that will be used to configure a new environment. Where in LCS should you upload it?",
+      "options": ["A. The code repository.", "B. The Asset library.", "C. The business process modeler.", "D. The subscription estimator."],
+      "correctAnswers": ["B"],
+      "explanation": "The Asset library in LCS stores various assets including data packages, software deployable packages, and other implementation artifacts. The code repository (A) stores source code. BPM (C) documents processes. The subscription estimator (D) calculates licensing."
+    },
+    {
+      "id": 23,
+      "topic": "Data Management - Data entity framework",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of using data entities instead of direct table access for data integration?",
+      "options": ["A. Data entities are faster than direct table access.", "B. Data entities enforce business logic, validation, and provide a stable contract for integration.", "C. Data entities do not require any configuration.", "D. Data entities bypass security checks."],
+      "correctAnswers": ["B"],
+      "explanation": "Data entities provide a layer of abstraction that enforces business logic, validation rules, and default values while providing a stable integration contract even when underlying tables change. They are not necessarily faster (A). They require configuration (C). They respect security (D)."
+    },
+    {
+      "id": 24,
+      "topic": "Workflow - Workflow delegation",
+      "type": "SingleChoice",
+      "questionText": "A manager is going on vacation and needs another person to handle their approval workflows. What should they configure?",
+      "options": ["A. Share their login credentials.", "B. Configure workflow delegation to a designated substitute.", "C. Cancel all pending approvals.", "D. Ask IT to redirect their emails."],
+      "correctAnswers": ["B"],
+      "explanation": "Workflow delegation allows users to designate a substitute who can approve work items on their behalf during their absence. Sharing credentials (A) violates security policies. Canceling approvals (C) disrupts business processes. Email redirection (D) does not grant approval authority."
+    },
+    {
+      "id": 25,
+      "topic": "Organizations - Date-effective records",
+      "type": "SingleChoice",
+      "questionText": "An operating unit hierarchy needs to change on January 1st of next year while keeping the current hierarchy active until then. How do you handle this?",
+      "options": ["A. Wait until January 1st to make the change.", "B. Use date-effective hierarchy versions to schedule the change in advance.", "C. Create a completely new hierarchy.", "D. Override the current hierarchy immediately."],
+      "correctAnswers": ["B"],
+      "explanation": "Organization hierarchies support date-effective versions, allowing you to prepare future changes that automatically take effect on a specified date. Waiting (A) risks last-minute errors. A new hierarchy (C) loses the history. Immediate override (D) changes the current state prematurely."
+    },
+    {
+      "id": 26,
+      "topic": "Number Sequences - Performance considerations",
+      "type": "SingleChoice",
+      "questionText": "You are experiencing performance issues with number sequence generation during high-volume transaction processing. What should you consider?",
+      "options": ["A. Switch to manual numbering.", "B. Use pre-allocation with a larger cache size for the number sequence.", "C. Reduce the number of transactions.", "D. Upgrade the database server."],
+      "correctAnswers": ["B"],
+      "explanation": "Pre-allocation with a larger cache size allows the system to reserve blocks of numbers in advance, reducing database contention during high-volume processing. Manual numbering (A) is impractical. Reducing transactions (C) is a business constraint. Database upgrades (D) may help but pre-allocation specifically addresses number sequence performance."
+    },
+    {
+      "id": 27,
+      "topic": "Security - Extensible data security",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict users to only see data for their specific legal entity. What security feature should you use?",
+      "options": ["A. Create separate environments for each legal entity.", "B. Configure extensible data security policies based on legal entity.", "C. Use network firewalls.", "D. Remove cross-company query permissions from the database."],
+      "correctAnswers": ["B"],
+      "explanation": "Extensible data security policies filter data based on criteria like legal entity, ensuring users only see data they are authorized to view. Separate environments (A) prevent cross-entity processes. Firewalls (C) control network access, not data visibility. Database permissions (D) are managed through the security model, not directly."
+    },
+    {
+      "id": 28,
+      "topic": "Batch Processing - Batch alerts",
+      "type": "SingleChoice",
+      "questionText": "You want to be notified when a critical batch job completes or fails. What should you configure?",
+      "options": ["A. Check the batch job status manually every hour.", "B. Set up batch job alerts to send notifications on completion or failure.", "C. Configure Windows alerts on the server.", "D. Use a third-party monitoring tool."],
+      "correctAnswers": ["B"],
+      "explanation": "Batch job alerts in F&O can send email notifications when batch jobs complete successfully, fail, or are canceled. Manual checking (A) is inefficient. Windows alerts (C) are not applicable to cloud deployments. Third-party tools (D) add unnecessary complexity."
+    },
+    {
+      "id": 29,
+      "topic": "LCS - Deployment options",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of environments can be deployed through LCS? (Choose two.)",
+      "options": ["A. Production environment.", "B. Sandbox (UAT) environment.", "C. On-premises mobile device environment.", "D. Local development desktop environment."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "LCS supports deploying production environments (A) and sandbox/UAT environments (B) for Dynamics 365 Finance and Operations. Mobile environments (C) are not deployed through LCS. Development environments (D) can be provisioned through LCS but are typically cloud-hosted VMs, not local desktops."
+    },
+    {
+      "id": 30,
+      "topic": "Data Management - Recurring integrations",
+      "type": "SingleChoice",
+      "questionText": "A third-party system needs to send data to Dynamics 365 Finance automatically on a daily basis. What Data Management feature should you use?",
+      "options": ["A. One-time manual import.", "B. Recurring data integration jobs with a scheduled recurrence.", "C. Copy-paste from the third-party system.", "D. Rebuild the third-party system in Dynamics 365."],
+      "correctAnswers": ["B"],
+      "explanation": "Recurring data integration jobs support scheduled, automated data exchange between external systems and Dynamics 365 through the Data Management framework. One-time imports (A) are not recurring. Copy-paste (C) does not scale. Rebuilding systems (D) is impractical."
+    },
+    {
+      "id": 31,
+      "topic": "Workflow - Conditional decisions",
+      "type": "SingleChoice",
+      "questionText": "A workflow needs to route to different approvers based on the expense report amount. What workflow element should you use?",
+      "options": ["A. A parallel branch.", "B. A conditional decision.", "C. An automated task.", "D. A manual task."],
+      "correctAnswers": ["B"],
+      "explanation": "A conditional decision evaluates a condition (expense amount) and branches the workflow to different paths based on the result. Parallel branches (A) run simultaneously, not conditionally. Automated tasks (C) execute actions. Manual tasks (D) assign work to users without conditional routing."
+    },
+    {
+      "id": 32,
+      "topic": "Organizations - Shared parameters",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a parameter that applies to all legal entities in the system. Where should you set this?",
+      "options": ["A. In each legal entity's parameters separately.", "B. In the shared parameters or cross-company settings.", "C. In the Azure portal.", "D. In Power Platform admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "Shared parameters apply across all legal entities, providing a single point of configuration for system-wide settings. Configuring each entity separately (A) is redundant. Azure portal (C) and Power Platform admin center (D) manage infrastructure, not application parameters."
+    },
+    {
+      "id": 33,
+      "topic": "Security - Electronic signatures",
+      "type": "SingleChoice",
+      "questionText": "A regulatory requirement mandates that certain document approvals include an electronic signature. What should you enable?",
+      "options": ["A. A digital certificate for the server.", "B. Electronic signatures in Dynamics 365 Finance and Operations.", "C. A third-party e-signature application.", "D. A printed signature field on forms."],
+      "correctAnswers": ["B"],
+      "explanation": "F&O includes built-in electronic signature functionality that can be configured on specific processes to require users to authenticate and sign documents. Server certificates (A) are for server authentication. Third-party applications (C) add complexity. Printed signatures (D) are not electronic."
+    },
+    {
+      "id": 34,
+      "topic": "LCS - Updates and servicing",
+      "type": "SingleChoice",
+      "questionText": "Microsoft releases a new platform update for Dynamics 365 Finance. How is this update applied to your production environment?",
+      "options": ["A. Automatic deployment by Microsoft without notification.", "B. Scheduled through LCS by applying the update package to sandbox first, then production.", "C. Manual installation by downloading and running an installer.", "D. By creating a new environment with the update."],
+      "correctAnswers": ["B"],
+      "explanation": "Updates are applied through LCS by first deploying to a sandbox environment for testing, then scheduling deployment to production. Microsoft does not deploy without notification (A). Manual installation (C) is not the process for cloud environments. Creating new environments (D) is not the update mechanism."
+    },
+    {
+      "id": 35,
+      "topic": "Data Management - Error handling",
+      "type": "SingleChoice",
+      "questionText": "During a data import, several records fail validation. How do you handle the errors?",
+      "options": ["A. Abandon the entire import and start over.", "B. Review the execution log, correct the failed records, and re-import only the failed records.", "C. Ignore the errors and proceed.", "D. Delete all existing data and re-import everything."],
+      "correctAnswers": ["B"],
+      "explanation": "The Data Management framework provides detailed execution logs showing which records failed and why. You can correct the errors and re-import only the failed records. Abandoning (A) wastes effort on successful records. Ignoring errors (C) leaves incomplete data. Deleting everything (D) is destructive."
+    },
+    {
+      "id": 36,
+      "topic": "Workflow - Line-item workflows",
+      "type": "SingleChoice",
+      "questionText": "You need to create a workflow where each line item on a purchase order can be approved by a different person based on the item category. What type of workflow should you use?",
+      "options": ["A. A header-level workflow only.", "B. A line-item workflow that routes each line for individual approval.", "C. Separate workflows for each item category.", "D. A manual routing process."],
+      "correctAnswers": ["B"],
+      "explanation": "Line-item workflows allow each line on a document to be routed independently for approval, enabling different approvers per item category. Header-level workflows (A) approve the entire document as a unit. Separate workflows (C) would be unmanageable. Manual routing (D) is not automated."
+    },
+    {
+      "id": 37,
+      "topic": "Batch Processing - Batch job dependencies",
+      "type": "SingleChoice",
+      "questionText": "You have two batch jobs where Job B should only start after Job A completes successfully. How should you configure this?",
+      "options": ["A. Schedule them 2 hours apart and hope Job A finishes.", "B. Configure batch task dependencies so Job B depends on Job A.", "C. Run them in the same batch group.", "D. Manually trigger Job B after Job A finishes."],
+      "correctAnswers": ["B"],
+      "explanation": "Batch task dependencies allow you to define execution order and conditions, ensuring Job B starts only after Job A completes successfully. Time-based scheduling (A) is unreliable. Batch groups (C) manage server assignment, not task order. Manual triggering (D) is not automated."
+    },
+    {
+      "id": 38,
+      "topic": "Organizations - Cross-company data sharing",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of data can be shared across legal entities using cross-company data sharing policies? (Choose two.)",
+      "options": ["A. Vendor master data.", "B. Payment terms.", "C. Posted journal entries.", "D. Bank account balances."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Cross-company data sharing allows master data like vendors (A) and reference data like payment terms (B) to be shared across legal entities. Posted journal entries (C) and bank balances (D) are transactional data specific to a legal entity and cannot be shared."
+    },
+    {
+      "id": 39,
+      "topic": "Security - Task recorder",
+      "type": "SingleChoice",
+      "questionText": "You need to create documentation for a business process by recording the steps a user performs. What tool should you use?",
+      "options": ["A. Screen recording software.", "B. Task recorder in Dynamics 365 Finance and Operations.", "C. A Word document with screenshots.", "D. A Power Point presentation."],
+      "correctAnswers": ["B"],
+      "explanation": "Task recorder captures user actions in F&O and generates documentation, process guides, and Regression Suite Automation Tool (RSAT) test files. Screen recording (A) creates videos without structured documentation. Word documents (C) and PowerPoint (D) require manual creation."
+    },
+    {
+      "id": 40,
+      "topic": "LCS - Cloud-hosted environments",
+      "type": "SingleChoice",
+      "questionText": "A developer needs a personal development environment for customization work. What type of environment should be provisioned through LCS?",
+      "options": ["A. A production environment.", "B. A cloud-hosted development environment.", "C. A sandbox Tier-2 environment.", "D. A local IIS deployment."],
+      "correctAnswers": ["B"],
+      "explanation": "Cloud-hosted development environments are provisioned through LCS for individual developer use, providing a full development toolset. Production environments (A) are not for development. Tier-2 sandboxes (C) are for testing, not development. Local IIS deployments (D) are not the standard approach for cloud-based F&O."
+    }
+  ]
+}

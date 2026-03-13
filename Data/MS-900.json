@@ -1,0 +1,366 @@
+{
+  "examCode": "MS-900",
+  "examTitle": "Microsoft 365 Fundamentals",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Cloud Concepts - Microsoft 365 overview",
+      "type": "SingleChoice",
+      "questionText": "What is Microsoft 365?",
+      "options": ["A. A cloud-based operating system.", "B. A cloud-based productivity suite that includes Office apps, cloud services, and security features.", "C. A server management tool.", "D. A programming language."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft 365 is a cloud-based productivity platform that includes Office applications (Word, Excel, PowerPoint), cloud services (Exchange Online, SharePoint, Teams), device management, and advanced security features.\n\nA is incorrect because Microsoft 365 is not an operating system; Windows is the Microsoft operating system.\n\nC is incorrect because server management is handled by tools like Windows Admin Center or Azure.\n\nD is incorrect because Microsoft 365 is a productivity platform, not a programming language."
+    },
+    {
+      "id": 2,
+      "topic": "Cloud Concepts - Benefits of Microsoft 365",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO are benefits of using Microsoft 365 cloud services? (Choose two.)",
+      "options": ["A. Always up-to-date applications with automatic updates.", "B. Requires on-premises server infrastructure for email.", "C. Accessible from any device with an internet connection.", "D. All data is stored only on local machines."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Microsoft 365 provides automatic updates, ensuring users always have the latest features and security patches.\n\nC is correct because Microsoft 365 cloud services are accessible from any device with an internet connection, enabling remote work and mobility.\n\nB is incorrect because Microsoft 365 eliminates the need for on-premises email servers by providing Exchange Online.\n\nD is incorrect because Microsoft 365 stores data in the cloud, accessible from multiple devices."
+    },
+    {
+      "id": 3,
+      "topic": "Microsoft 365 Apps - Office applications",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 application is primarily used for creating spreadsheets, performing calculations, and analyzing data?",
+      "options": ["A. Microsoft Word.", "B. Microsoft Excel.", "C. Microsoft PowerPoint.", "D. Microsoft Outlook."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Excel is the spreadsheet application used for creating worksheets, performing calculations, analyzing data, and creating charts and graphs.\n\nA is incorrect because Word is a word processing application for creating documents.\n\nC is incorrect because PowerPoint is a presentation application.\n\nD is incorrect because Outlook is an email and calendar application."
+    },
+    {
+      "id": 4,
+      "topic": "Microsoft Teams - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service provides a unified platform for chat, meetings, calling, and collaboration?",
+      "options": ["A. SharePoint Online.", "B. Microsoft Teams.", "C. Exchange Online.", "D. OneDrive for Business."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Teams is a unified communication and collaboration platform that combines chat, video/audio meetings, calling, file sharing, and app integration in one workspace.\n\nA is incorrect because SharePoint Online is primarily for document management and intranet sites.\n\nC is incorrect because Exchange Online is primarily for email and calendaring.\n\nD is incorrect because OneDrive for Business is primarily for personal cloud file storage."
+    },
+    {
+      "id": 5,
+      "topic": "Microsoft Teams - Channels and teams",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Teams, what is a channel?",
+      "options": ["A. A private one-on-one chat between two users.", "B. A dedicated section within a team for organizing conversations and files around a specific topic.", "C. A video conferencing bridge.", "D. A type of Microsoft 365 license."],
+      "correctAnswers": ["B"],
+      "explanation": "A channel in Microsoft Teams is a dedicated section within a team where conversations, files, and apps are organized around a specific topic, project, or department.\n\nA is incorrect because private chats are separate from channels; channels are within teams.\n\nC is incorrect because video conferencing is a feature within Teams, not what defines a channel.\n\nD is incorrect because channels are organizational features, not licenses."
+    },
+    {
+      "id": 6,
+      "topic": "SharePoint Online - Overview",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service provides intranet sites, document libraries, and content management capabilities for organizations?",
+      "options": ["A. Microsoft Teams.", "B. SharePoint Online.", "C. Exchange Online.", "D. Microsoft Planner."],
+      "correctAnswers": ["B"],
+      "explanation": "SharePoint Online is a web-based collaboration platform that provides intranet sites, document libraries, lists, and content management capabilities. It enables teams to share and manage content across the organization.\n\nA is incorrect because Teams is a communication platform; it uses SharePoint for file storage behind the scenes.\n\nC is incorrect because Exchange Online provides email and calendar services.\n\nD is incorrect because Planner is a task management tool."
+    },
+    {
+      "id": 7,
+      "topic": "SharePoint Online - Document libraries",
+      "type": "SingleChoice",
+      "questionText": "What is a document library in SharePoint Online?",
+      "options": ["A. A virtual bookshelf of eBooks.", "B. A location on a SharePoint site where you can upload, create, update, and collaborate on files.", "C. A backup service for local files.", "D. A database for storing structured data."],
+      "correctAnswers": ["B"],
+      "explanation": "A SharePoint document library is a secure location on a site where you can upload, create, update, and collaborate on files. It supports versioning, metadata, co-authoring, and access controls.\n\nA is incorrect because document libraries store organizational files, not eBooks.\n\nC is incorrect because document libraries are a collaboration tool, not a backup service.\n\nD is incorrect because SharePoint lists (not document libraries) can store structured data, and databases are separate services."
+    },
+    {
+      "id": 8,
+      "topic": "Exchange Online - Email",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service provides cloud-hosted email, calendar, contacts, and tasks?",
+      "options": ["A. SharePoint Online.", "B. Exchange Online.", "C. Microsoft Teams.", "D. OneDrive for Business."],
+      "correctAnswers": ["B"],
+      "explanation": "Exchange Online is the cloud-hosted email service in Microsoft 365 that provides email, calendar, contacts, and tasks. It includes features like shared mailboxes, distribution groups, and resource scheduling.\n\nA is incorrect because SharePoint Online is for site-based collaboration and document management.\n\nC is incorrect because Teams is for chat and meetings, though it integrates with Exchange for calendar.\n\nD is incorrect because OneDrive is for personal file storage."
+    },
+    {
+      "id": 9,
+      "topic": "OneDrive for Business - File storage",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service provides each user with a personal cloud storage space for storing and sharing files?",
+      "options": ["A. SharePoint Online.", "B. Exchange Online.", "C. OneDrive for Business.", "D. Microsoft Stream."],
+      "correctAnswers": ["C"],
+      "explanation": "OneDrive for Business provides each user with personal cloud storage for storing, syncing, and sharing files. Files can be accessed from any device and shared with colleagues.\n\nA is incorrect because SharePoint Online provides team-based storage on sites, not personal storage per user.\n\nB is incorrect because Exchange Online is for email and calendar, not file storage.\n\nD is incorrect because Microsoft Stream is for video management, not general file storage."
+    },
+    {
+      "id": 10,
+      "topic": "Microsoft 365 Apps - Collaboration features",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO features enable real-time collaboration in Microsoft 365? (Choose two.)",
+      "options": ["A. Co-authoring in Word, Excel, and PowerPoint.", "B. Defragmenting hard drives.", "C. Real-time chat and meetings in Microsoft Teams.", "D. Formatting disk partitions."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because co-authoring allows multiple users to simultaneously edit the same document in real-time in Word, Excel, and PowerPoint.\n\nC is correct because Microsoft Teams provides real-time chat, audio/video meetings, and screen sharing for immediate collaboration.\n\nB is incorrect because defragmenting drives is a disk maintenance task, not a collaboration feature.\n\nD is incorrect because disk partitioning is a system administration task, not collaboration."
+    },
+    {
+      "id": 11,
+      "topic": "Microsoft Viva - Employee experience",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 platform is designed to improve employee experience by providing tools for learning, communication, insights, and engagement?",
+      "options": ["A. Microsoft Planner.", "B. Microsoft Viva.", "C. Microsoft Forms.", "D. Microsoft Sway."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Viva is an employee experience platform that integrates with Microsoft Teams and Microsoft 365 to provide tools for learning (Viva Learning), communication (Viva Connections), productivity insights (Viva Insights), and engagement.\n\nA is incorrect because Planner is a task management tool, not an employee experience platform.\n\nC is incorrect because Forms is for creating surveys and quizzes.\n\nD is incorrect because Sway is for creating interactive presentations and newsletters."
+    },
+    {
+      "id": 12,
+      "topic": "Microsoft 365 Security - Identity protection",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 feature protects against identity-based attacks by requiring users to provide additional verification beyond a password?",
+      "options": ["A. Data Loss Prevention.", "B. Multi-factor authentication (MFA).", "C. Information Rights Management.", "D. Retention policies."],
+      "correctAnswers": ["B"],
+      "explanation": "Multi-factor authentication (MFA) requires users to verify their identity using two or more methods (password plus phone, biometric, or authenticator app), protecting against identity attacks even if passwords are compromised.\n\nA is incorrect because DLP prevents data leakage, not identity attacks.\n\nC is incorrect because IRM protects documents from unauthorized use, not user authentication.\n\nD is incorrect because retention policies manage data lifecycle, not identity protection."
+    },
+    {
+      "id": 13,
+      "topic": "Microsoft 365 Security - Microsoft Defender for Office 365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 security feature protects email and collaboration tools against phishing, malware, and other advanced threats?",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Defender for Office 365.", "C. Microsoft Intune.", "D. Azure Active Directory."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Office 365 provides protection for email (Exchange Online), Teams, SharePoint, and OneDrive against phishing, malware, business email compromise, and other threats using Safe Links, Safe Attachments, and anti-phishing policies.\n\nA is incorrect because Defender for Endpoint protects devices/endpoints, not email and collaboration tools.\n\nC is incorrect because Intune manages devices and apps, not email security.\n\nD is incorrect because Azure AD (Entra ID) manages identities, not email threat protection."
+    },
+    {
+      "id": 14,
+      "topic": "Microsoft 365 Security - Safe Attachments and Safe Links",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO features are part of Microsoft Defender for Office 365? (Choose two.)",
+      "options": ["A. Safe Attachments.", "B. Azure Firewall.", "C. Safe Links.", "D. Azure DDoS Protection."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Safe Attachments scans email attachments in a sandbox environment to detect malicious content before delivery.\n\nC is correct because Safe Links checks URLs in emails and documents at the time of click to protect against malicious links.\n\nB is incorrect because Azure Firewall is a network security service, not part of Defender for Office 365.\n\nD is incorrect because Azure DDoS Protection is an infrastructure service, not an Office 365 feature."
+    },
+    {
+      "id": 15,
+      "topic": "Device Management - Microsoft Intune",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service provides cloud-based device management and mobile application management?",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Intune.", "C. Azure Information Protection.", "D. Microsoft Purview."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Intune is a cloud-based endpoint management service that manages mobile devices, desktop computers, and mobile applications. It enables organizations to control how devices are used and enforce security policies.\n\nA is incorrect because Defender for Endpoint provides threat detection on devices, not device management.\n\nC is incorrect because Azure Information Protection classifies and protects documents and emails.\n\nD is incorrect because Purview is for data governance and compliance."
+    },
+    {
+      "id": 16,
+      "topic": "Device Management - Conditional Access with devices",
+      "type": "SingleChoice",
+      "questionText": "You want to ensure that only devices compliant with your organization's security policies can access Microsoft 365 services. Which feature should you use?",
+      "options": ["A. Data Loss Prevention.", "B. Conditional Access with device compliance.", "C. Retention policies.", "D. eDiscovery."],
+      "correctAnswers": ["B"],
+      "explanation": "Conditional Access policies can require device compliance as a condition for accessing Microsoft 365 services. When combined with Intune device compliance policies, only devices meeting security requirements (encryption, password, OS version) can access resources.\n\nA is incorrect because DLP prevents data sharing, not device access.\n\nC is incorrect because retention policies manage data lifecycle, not device access.\n\nD is incorrect because eDiscovery is for legal content discovery, not device access control."
+    },
+    {
+      "id": 17,
+      "topic": "Device Management - Windows Autopilot",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service simplifies the setup and pre-configuration of new Windows devices, allowing them to be shipped directly to users and configured automatically?",
+      "options": ["A. Windows Update.", "B. Windows Autopilot.", "C. Microsoft Intune.", "D. System Center Configuration Manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Windows Autopilot simplifies the deployment of new Windows devices by allowing IT to pre-configure devices in the cloud. Devices can be shipped directly to users and automatically configured with the organization's settings on first boot.\n\nA is incorrect because Windows Update delivers OS and software updates, not initial device provisioning.\n\nC is incorrect because while Intune works with Autopilot for device management, Autopilot specifically handles the zero-touch deployment experience.\n\nD is incorrect because SCCM is an on-premises management tool, not a cloud-first zero-touch deployment solution."
+    },
+    {
+      "id": 18,
+      "topic": "Compliance - Microsoft Purview in M365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 compliance feature helps organizations discover, classify, and protect sensitive information across emails, documents, and sites?",
+      "options": ["A. Microsoft Purview Information Protection.", "B. Microsoft Teams.", "C. OneDrive for Business.", "D. Microsoft Planner."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Purview Information Protection (formerly Microsoft Information Protection) provides capabilities to discover, classify, label, and protect sensitive information across Microsoft 365 services including emails, documents, and sites.\n\nB is incorrect because Teams is a collaboration platform, not a data classification service.\n\nC is incorrect because OneDrive is file storage, not a data classification tool.\n\nD is incorrect because Planner is a task management tool."
+    },
+    {
+      "id": 19,
+      "topic": "Compliance - Data Loss Prevention in M365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 feature can detect and prevent users from sharing sensitive information such as credit card numbers or social security numbers in emails and documents?",
+      "options": ["A. Retention labels.", "B. Data Loss Prevention (DLP).", "C. Sensitivity labels.", "D. Communication Compliance."],
+      "correctAnswers": ["B"],
+      "explanation": "Data Loss Prevention (DLP) policies in Microsoft 365 detect sensitive information (like credit card numbers, SSNs) in emails, documents, and chats, and can block or warn users before sharing.\n\nA is incorrect because retention labels manage how long content is kept, not preventing data sharing.\n\nC is incorrect because sensitivity labels classify and encrypt content but do not actively detect and block sensitive data sharing.\n\nD is incorrect because Communication Compliance monitors messages for policy violations but is broader than DLP."
+    },
+    {
+      "id": 20,
+      "topic": "Compliance - Retention policies in M365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 compliance feature ensures that organizational data is retained for a specified period and then automatically deleted?",
+      "options": ["A. Data Loss Prevention.", "B. Sensitivity labels.", "C. Retention policies.", "D. Conditional Access."],
+      "correctAnswers": ["C"],
+      "explanation": "Retention policies in Microsoft 365 define how long content should be retained and when it should be deleted. They can be applied to Exchange, SharePoint, OneDrive, Teams, and other services.\n\nA is incorrect because DLP prevents data leakage, not data lifecycle management.\n\nB is incorrect because sensitivity labels classify and protect content, not manage retention.\n\nD is incorrect because Conditional Access manages access policies, not data retention."
+    },
+    {
+      "id": 21,
+      "topic": "Licensing - Microsoft 365 plans",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 plan is designed for enterprise organizations and includes advanced security, compliance, and analytics features?",
+      "options": ["A. Microsoft 365 Business Basic.", "B. Microsoft 365 Business Standard.", "C. Microsoft 365 E5.", "D. Microsoft 365 F1."],
+      "correctAnswers": ["C"],
+      "explanation": "Microsoft 365 E5 is the top-tier enterprise plan that includes all Microsoft 365 features plus advanced security (Defender), compliance (Purview advanced), analytics (Power BI Pro), and audio conferencing.\n\nA is incorrect because Business Basic is a lower-tier plan for small businesses with web-only Office apps.\n\nB is incorrect because Business Standard includes desktop Office apps but lacks advanced enterprise security and compliance.\n\nD is incorrect because F1 is a frontline worker plan with limited features."
+    },
+    {
+      "id": 22,
+      "topic": "Licensing - Per-user licensing",
+      "type": "SingleChoice",
+      "questionText": "How are Microsoft 365 licenses typically assigned?",
+      "options": ["A. Per device.", "B. Per user.", "C. Per department.", "D. Per office location."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft 365 licenses are typically assigned on a per-user basis. Each user receives a license that allows them to install and use Microsoft 365 apps and services on multiple devices.\n\nA is incorrect because Microsoft 365 licensing is user-based; users can install on multiple devices with one license.\n\nC is incorrect because licenses are assigned to individual users, not departments.\n\nD is incorrect because licenses are not assigned by office location."
+    },
+    {
+      "id": 23,
+      "topic": "Microsoft 365 Apps - Microsoft Loop",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 application provides a collaborative workspace where teams can think, plan, and create together using portable components that stay in sync?",
+      "options": ["A. Microsoft Planner.", "B. Microsoft Loop.", "C. Microsoft Whiteboard.", "D. Microsoft Lists."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Loop is a co-creation experience with portable components that move freely across Microsoft 365 apps and stay synced. It provides workspaces and pages for collaborative planning and creation.\n\nA is incorrect because Planner is specifically for task and project management.\n\nC is incorrect because Whiteboard is a digital canvas for visual collaboration.\n\nD is incorrect because Lists is for tracking information and organizing work with customizable lists."
+    },
+    {
+      "id": 24,
+      "topic": "Microsoft 365 Security - Information barriers",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 compliance feature prevents specific groups of users from communicating with each other in Teams?",
+      "options": ["A. Data Loss Prevention.", "B. Information barriers.", "C. Retention policies.", "D. Sensitivity labels."],
+      "correctAnswers": ["B"],
+      "explanation": "Information barriers are compliance policies that prevent specific groups of users from communicating with each other in Microsoft Teams, SharePoint, and OneDrive. They are commonly used in financial services to prevent conflicts of interest.\n\nA is incorrect because DLP prevents sharing sensitive data, not blocking communication between groups.\n\nC is incorrect because retention policies manage data lifecycle, not communication restrictions.\n\nD is incorrect because sensitivity labels protect content, not restrict user communication."
+    },
+    {
+      "id": 25,
+      "topic": "Microsoft Teams - Meetings and calling",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO features does Microsoft Teams provide for communication? (Choose two.)",
+      "options": ["A. Audio and video conferencing.", "B. Website hosting.", "C. Persistent chat messaging.", "D. Database management."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Microsoft Teams provides audio and video conferencing for meetings, webinars, and calls.\n\nC is correct because Teams provides persistent chat messaging where conversations are saved and searchable.\n\nB is incorrect because website hosting is provided by SharePoint or Power Pages, not Teams directly.\n\nD is incorrect because database management is not a Teams feature."
+    },
+    {
+      "id": 26,
+      "topic": "SharePoint Online - Site types",
+      "type": "SingleChoice",
+      "questionText": "Which type of SharePoint Online site is designed for team collaboration and is automatically created when a Microsoft 365 group or Teams team is created?",
+      "options": ["A. Communication site.", "B. Team site.", "C. Hub site.", "D. Personal site."],
+      "correctAnswers": ["B"],
+      "explanation": "A team site is a SharePoint site designed for team collaboration, providing document libraries, lists, and pages. A team site is automatically created when a Microsoft 365 group or Teams team is provisioned.\n\nA is incorrect because communication sites are designed for broadcasting information to a broad audience, not team collaboration.\n\nC is incorrect because hub sites organize related sites together for consistent navigation and branding.\n\nD is incorrect because personal sites are associated with OneDrive for individual file storage."
+    },
+    {
+      "id": 27,
+      "topic": "Microsoft 365 Security - Threat protection",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 feature provides automated investigation and response to security threats across email, collaboration, identity, and endpoints?",
+      "options": ["A. Microsoft Defender XDR.", "B. Azure Firewall.", "C. Windows Defender SmartScreen.", "D. BitLocker."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender XDR (Extended Detection and Response) provides a unified pre- and post-breach security suite that coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications.\n\nB is incorrect because Azure Firewall is a network security service for Azure resources.\n\nC is incorrect because SmartScreen protects against phishing and malware websites in the browser.\n\nD is incorrect because BitLocker is a disk encryption feature, not a threat investigation tool."
+    },
+    {
+      "id": 28,
+      "topic": "Productivity - Microsoft Planner",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 tool provides visual task management with boards, buckets, and cards for organizing team work?",
+      "options": ["A. Microsoft To Do.", "B. Microsoft Planner.", "C. Microsoft Project.", "D. Microsoft Bookings."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Planner provides visual task management using a board view with buckets (categories) and cards (tasks). It integrates with Teams and is designed for team-based task management.\n\nA is incorrect because Microsoft To Do is a personal task management app, not team-oriented.\n\nC is incorrect because Microsoft Project is a comprehensive project management tool for complex projects, not simple visual boards.\n\nD is incorrect because Bookings is for scheduling appointments with customers."
+    },
+    {
+      "id": 29,
+      "topic": "Compliance - Insider risk management in M365",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 compliance feature uses signals across Microsoft 365 to detect potentially risky activities by insiders such as data theft or security violations?",
+      "options": ["A. Data Loss Prevention.", "B. Insider Risk Management.", "C. eDiscovery.", "D. Audit."],
+      "correctAnswers": ["B"],
+      "explanation": "Insider Risk Management in Microsoft Purview analyzes signals from across Microsoft 365 (file activities, communications, user behavior) to detect, triage, and investigate potentially risky insider activities.\n\nA is incorrect because DLP focuses on preventing sensitive data from being shared, not analyzing user behavior patterns.\n\nC is incorrect because eDiscovery is for legal content discovery and holds.\n\nD is incorrect because Audit provides activity logs but does not analyze them for insider risk patterns."
+    },
+    {
+      "id": 30,
+      "topic": "Microsoft 365 Apps - Microsoft Forms",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 application allows you to create surveys, quizzes, and polls to collect responses?",
+      "options": ["A. Microsoft Sway.", "B. Microsoft Forms.", "C. Microsoft Stream.", "D. Microsoft Bookings."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Forms is a tool for creating surveys, quizzes, and polls. It collects responses in real-time and provides built-in analytics to analyze results.\n\nA is incorrect because Sway is for creating interactive presentations and newsletters.\n\nC is incorrect because Stream is for video management and sharing.\n\nD is incorrect because Bookings is for scheduling appointments."
+    },
+    {
+      "id": 31,
+      "topic": "Cloud Concepts - Deployment options",
+      "type": "SingleChoice",
+      "questionText": "Which deployment option for Microsoft 365 keeps all services in Microsoft's cloud with no on-premises infrastructure required?",
+      "options": ["A. On-premises deployment.", "B. Hybrid deployment.", "C. Cloud-only deployment.", "D. Offline deployment."],
+      "correctAnswers": ["C"],
+      "explanation": "A cloud-only deployment uses Microsoft 365 services entirely in the cloud, with no on-premises infrastructure for email, file storage, or identity management.\n\nA is incorrect because on-premises deployment keeps everything on local servers.\n\nB is incorrect because hybrid deployment uses both on-premises and cloud infrastructure.\n\nD is incorrect because Microsoft 365 requires internet connectivity and does not support offline-only deployment."
+    },
+    {
+      "id": 32,
+      "topic": "Microsoft 365 Security - Encryption",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO encryption methods does Microsoft 365 use to protect data? (Choose two.)",
+      "options": ["A. BitLocker for data at rest on Microsoft datacenter disks.", "B. TLS for data in transit.", "C. WPA2 for wireless network access.", "D. USB encryption for removable drives."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Microsoft uses BitLocker to encrypt data at rest on datacenter disks, protecting stored data.\n\nB is correct because Microsoft 365 uses Transport Layer Security (TLS) to encrypt data in transit between clients and servers.\n\nC is incorrect because WPA2 is a wireless network security protocol, not a Microsoft 365 encryption method.\n\nD is incorrect because USB drive encryption is handled by BitLocker on individual devices, not a Microsoft 365 cloud feature."
+    },
+    {
+      "id": 33,
+      "topic": "Microsoft Teams - Apps and integrations",
+      "type": "SingleChoice",
+      "questionText": "Which feature allows you to add third-party applications and custom apps directly within Microsoft Teams?",
+      "options": ["A. Teams channels.", "B. Teams apps and tabs.", "C. Teams meetings.", "D. Teams calendar."],
+      "correctAnswers": ["B"],
+      "explanation": "Teams apps and tabs allow organizations to integrate third-party applications, custom apps, and Microsoft services directly within the Teams interface. Tabs can be added to channels for quick access to frequently used content.\n\nA is incorrect because channels organize conversations but do not themselves add third-party apps.\n\nC is incorrect because meetings are for communication, not app integration.\n\nD is incorrect because the calendar shows scheduled events, not app integrations."
+    },
+    {
+      "id": 34,
+      "topic": "Microsoft 365 Admin - Admin center",
+      "type": "SingleChoice",
+      "questionText": "Which portal allows administrators to manage users, licenses, and services across Microsoft 365?",
+      "options": ["A. Azure Portal.", "B. Microsoft 365 admin center.", "C. Power Platform admin center.", "D. Exchange admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "The Microsoft 365 admin center is the primary portal for managing users, licenses, groups, service settings, and organizational configurations across all Microsoft 365 services.\n\nA is incorrect because the Azure Portal manages Azure cloud infrastructure resources.\n\nC is incorrect because the Power Platform admin center manages Power Platform environments and policies.\n\nD is incorrect because the Exchange admin center specifically manages Exchange Online settings, not all of M365."
+    },
+    {
+      "id": 35,
+      "topic": "Productivity - Microsoft Copilot",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 feature uses AI to assist users with drafting documents, summarizing emails, creating presentations, and analyzing data across Microsoft 365 apps?",
+      "options": ["A. Microsoft Editor.", "B. Microsoft Copilot.", "C. Microsoft Search.", "D. Microsoft Dictation."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Copilot uses large language models combined with your Microsoft 365 data to assist with drafting, summarizing, creating presentations, analyzing data in Excel, and more across Word, Excel, PowerPoint, Outlook, and Teams.\n\nA is incorrect because Microsoft Editor provides grammar and spelling suggestions, not AI-generated content.\n\nC is incorrect because Microsoft Search helps find content across M365 but does not generate or draft content.\n\nD is incorrect because Dictation converts speech to text but does not generate content with AI."
+    },
+    {
+      "id": 36,
+      "topic": "Microsoft 365 Security - Endpoint security",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service provides endpoint detection and response (EDR) capabilities to detect and investigate advanced threats on Windows, macOS, and mobile devices?",
+      "options": ["A. Microsoft Intune.", "B. Microsoft Defender for Endpoint.", "C. Azure AD Identity Protection.", "D. Microsoft Purview."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Endpoint provides EDR capabilities including behavioral sensors, cloud security analytics, and threat intelligence to detect, investigate, and respond to advanced threats on endpoints.\n\nA is incorrect because Intune manages device configurations and compliance, not threat detection.\n\nC is incorrect because Identity Protection focuses on identity-based risks, not endpoint threats.\n\nD is incorrect because Purview focuses on data governance and compliance."
+    },
+    {
+      "id": 37,
+      "topic": "Licensing - Business vs Enterprise plans",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO statements correctly describe Microsoft 365 licensing? (Choose two.)",
+      "options": ["A. Business plans support up to 300 users.", "B. Enterprise plans have no user limit.", "C. Business plans include all enterprise compliance features.", "D. All plans include Power BI Pro."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A is correct because Microsoft 365 Business plans (Basic, Standard, Premium) are designed for small and medium businesses with up to 300 users.\n\nB is correct because Enterprise plans (E1, E3, E5) have no user limit and are designed for larger organizations.\n\nC is incorrect because Business plans do not include all enterprise compliance features; advanced features like eDiscovery Premium are in E5.\n\nD is incorrect because Power BI Pro is included only in E5 and as an add-on for other plans."
+    },
+    {
+      "id": 38,
+      "topic": "Microsoft 365 Admin - Service health",
+      "type": "SingleChoice",
+      "questionText": "Where can a Microsoft 365 administrator check the current health status of Microsoft 365 services?",
+      "options": ["A. Azure Service Health.", "B. Microsoft 365 admin center Service Health dashboard.", "C. Microsoft Teams settings.", "D. OneDrive admin center."],
+      "correctAnswers": ["B"],
+      "explanation": "The Service Health dashboard in the Microsoft 365 admin center shows the current status of Microsoft 365 services, including any active incidents, advisories, and planned maintenance.\n\nA is incorrect because Azure Service Health monitors Azure services, not Microsoft 365 services.\n\nC is incorrect because Teams settings configure Teams features, not service health monitoring.\n\nD is incorrect because the OneDrive admin center manages OneDrive settings, not overall M365 health."
+    },
+    {
+      "id": 39,
+      "topic": "Productivity - Microsoft Stream",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 service allows organizations to upload, manage, and share video content securely?",
+      "options": ["A. Microsoft Sway.", "B. Microsoft Stream.", "C. Microsoft Forms.", "D. Microsoft Whiteboard."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Stream is a video service within Microsoft 365 that allows organizations to securely upload, manage, and share video content. It integrates with Teams, SharePoint, and other M365 services.\n\nA is incorrect because Sway is for creating interactive presentations and reports.\n\nC is incorrect because Forms is for creating surveys and quizzes.\n\nD is incorrect because Whiteboard is a digital canvas for visual collaboration."
+    },
+    {
+      "id": 40,
+      "topic": "Cloud Concepts - Support options",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 support option provides phone and web-based technical support for administrators 24 hours a day, 7 days a week?",
+      "options": ["A. Community forums only.", "B. Microsoft 365 support included with subscriptions.", "C. Self-help documentation only.", "D. Third-party support only."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft 365 subscriptions include 24/7 phone and web-based technical support for administrators. The level of support and response time varies by plan and severity.\n\nA is incorrect because community forums are available but are not the only support option.\n\nC is incorrect because documentation is available but Microsoft also provides direct technical support.\n\nD is incorrect because Microsoft provides first-party support; third-party support is optional."
+    }
+  ]
+}

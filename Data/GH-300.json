@@ -1,0 +1,566 @@
+{
+  "examCode": "GH-300",
+  "examTitle": "GitHub Advanced Security",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Code Scanning - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub code scanning primarily used for?",
+      "options": [
+        "A. To monitor repository access logs.",
+        "B. To automatically analyze code for security vulnerabilities and coding errors.",
+        "C. To track changes in file permissions across branches.",
+        "D. To manage dependency version pinning."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because code scanning automatically analyzes the code in a repository to find security vulnerabilities and coding errors using static analysis tools like CodeQL.\n\nA is incorrect because access log monitoring is handled by the audit log, not code scanning.\n\nC is incorrect because file permission changes are not the focus of code scanning.\n\nD is incorrect because dependency management is handled by Dependabot, not code scanning."
+    },
+    {
+      "id": 2,
+      "topic": "CodeQL - Basics",
+      "type": "SingleChoice",
+      "questionText": "What is CodeQL?",
+      "options": [
+        "A. A proprietary programming language used to build GitHub Actions.",
+        "B. A semantic code analysis engine that treats code as data and allows you to write queries to find vulnerabilities.",
+        "C. A linting tool for JavaScript and TypeScript only.",
+        "D. A database management system for storing code metrics."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because CodeQL is a semantic code analysis engine developed by GitHub that creates a database representation of code, allowing security researchers and developers to write queries that identify patterns associated with vulnerabilities.\n\nA is incorrect because CodeQL is an analysis engine, not a language for building Actions.\n\nC is incorrect because CodeQL supports many languages including C/C++, C#, Go, Java, JavaScript, Python, Ruby, and Swift.\n\nD is incorrect because while CodeQL creates a database from code, it is not a database management system."
+    },
+    {
+      "id": 3,
+      "topic": "CodeQL - Query suites",
+      "type": "SingleChoice",
+      "questionText": "Which CodeQL query suite is recommended for most repositories as a balanced starting point?",
+      "options": [
+        "A. security-extended",
+        "B. security-and-quality",
+        "C. default",
+        "D. comprehensive"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because the 'default' query suite is the recommended starting point for most repositories. It includes high-precision security queries with low false positive rates.\n\nA is incorrect because 'security-extended' includes additional security queries that may produce more false positives and is used when broader coverage is desired.\n\nB is incorrect because 'security-and-quality' includes both security and code quality queries, which may be too verbose for many teams.\n\nD is incorrect because 'comprehensive' is not a standard CodeQL query suite name."
+    },
+    {
+      "id": 4,
+      "topic": "Secret Scanning - Overview",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of GitHub secret scanning?",
+      "options": [
+        "A. To encrypt all files in a repository.",
+        "B. To detect tokens, keys, and other credentials that have been accidentally committed to a repository.",
+        "C. To manage SSH keys for repository access.",
+        "D. To generate new API keys for GitHub integrations."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because secret scanning automatically scans repositories for known patterns of tokens, API keys, passwords, and other credentials that may have been accidentally committed.\n\nA is incorrect because secret scanning does not encrypt files.\n\nC is incorrect because SSH key management is done in user or organization settings.\n\nD is incorrect because secret scanning detects existing secrets, not generates new ones."
+    },
+    {
+      "id": 5,
+      "topic": "Secret Scanning - Push protection",
+      "type": "SingleChoice",
+      "questionText": "What does push protection do in the context of secret scanning?",
+      "options": [
+        "A. It prevents force pushes to protected branches.",
+        "B. It blocks pushes that contain detected secrets before they are committed to the repository.",
+        "C. It encrypts all pushed content using AES-256.",
+        "D. It requires two-factor authentication for every push."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because push protection proactively blocks pushes to a repository when they contain known secret patterns, preventing the secret from ever being committed to the repository history.\n\nA is incorrect because preventing force pushes is a branch protection rule feature, not push protection for secrets.\n\nC is incorrect because push protection does not encrypt content.\n\nD is incorrect because push protection is about detecting secrets, not enforcing authentication methods."
+    },
+    {
+      "id": 6,
+      "topic": "Secret Scanning - Custom patterns",
+      "type": "SingleChoice",
+      "questionText": "How can you extend secret scanning to detect organization-specific secret formats?",
+      "options": [
+        "A. By modifying the .gitignore file.",
+        "B. By defining custom secret scanning patterns using regular expressions at the repository or organization level.",
+        "C. By creating a CODEOWNERS file with secret patterns.",
+        "D. By installing a third-party GitHub App from the Marketplace."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub allows you to define custom patterns using regular expressions at the repository, organization, or enterprise level, enabling detection of proprietary secret formats that are not covered by the default partner patterns.\n\nA is incorrect because .gitignore prevents files from being tracked, not secrets from being detected.\n\nC is incorrect because CODEOWNERS defines code reviewers, not secret patterns.\n\nD is incorrect because custom patterns are a native feature of GitHub Advanced Security, not requiring a third-party app."
+    },
+    {
+      "id": 7,
+      "topic": "Dependabot - Security updates",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between Dependabot security updates and Dependabot version updates?",
+      "options": [
+        "A. There is no difference; they are the same feature.",
+        "B. Security updates fix known vulnerabilities, while version updates keep dependencies up-to-date with the latest versions regardless of vulnerabilities.",
+        "C. Security updates apply to runtime dependencies only, while version updates apply to dev dependencies only.",
+        "D. Version updates are automatic, while security updates must be manually triggered."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Dependabot security updates specifically target dependencies with known security advisories, while Dependabot version updates proactively keep all dependencies on the latest versions regardless of whether a vulnerability exists.\n\nA is incorrect because they are distinct features with different triggers and purposes.\n\nC is incorrect because both features can apply to all types of dependencies.\n\nD is incorrect because both security updates and version updates can be automated."
+    },
+    {
+      "id": 8,
+      "topic": "Dependabot - Configuration",
+      "type": "SingleChoice",
+      "questionText": "Which file is used to configure Dependabot version updates?",
+      "options": [
+        "A. .github/workflows/dependabot.yml",
+        "B. .github/dependabot.yml",
+        "C. dependabot.config.json",
+        "D. package.json"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Dependabot is configured using a dependabot.yml file located in the .github directory of the repository.\n\nA is incorrect because Dependabot configuration is not stored in the workflows directory; that directory is for GitHub Actions workflows.\n\nC is incorrect because dependabot.config.json is not a recognized configuration file.\n\nD is incorrect because package.json defines Node.js dependencies, not Dependabot configuration."
+    },
+    {
+      "id": 9,
+      "topic": "GHAS Features - Licensing",
+      "type": "SingleChoice",
+      "questionText": "On which types of repositories is GitHub Advanced Security (GHAS) available for free?",
+      "options": [
+        "A. All repositories regardless of visibility.",
+        "B. Only repositories owned by GitHub Enterprise organizations.",
+        "C. Public repositories on GitHub.com.",
+        "D. Only repositories with fewer than 100 contributors."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because GitHub Advanced Security features, including code scanning with CodeQL and secret scanning, are available for free on all public repositories on GitHub.com.\n\nA is incorrect because GHAS features on private repositories require a GitHub Advanced Security license.\n\nB is incorrect because while Enterprise organizations can purchase GHAS for private repositories, it is also free for public repositories.\n\nD is incorrect because the availability is based on repository visibility, not contributor count."
+    },
+    {
+      "id": 10,
+      "topic": "Code Scanning - SARIF",
+      "type": "SingleChoice",
+      "questionText": "What is the SARIF format used for in the context of GitHub code scanning?",
+      "options": [
+        "A. It is a format for storing Git commit history.",
+        "B. It is a standardized format for representing static analysis results that can be uploaded to GitHub.",
+        "C. It is a configuration format for GitHub Actions workflows.",
+        "D. It is a format for defining repository branch protection rules."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SARIF (Static Analysis Results Interchange Format) is an OASIS standard for representing the output of static analysis tools. GitHub code scanning accepts SARIF files, allowing results from any compatible tool to be displayed in the GitHub interface.\n\nA is incorrect because Git commit history is stored in Git objects, not SARIF.\n\nC is incorrect because GitHub Actions workflows use YAML, not SARIF.\n\nD is incorrect because branch protection rules are configured through the GitHub API or UI, not SARIF."
+    },
+    {
+      "id": 11,
+      "topic": "Code Scanning - Third-party tools",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are valid ways to integrate third-party static analysis tools with GitHub code scanning? (Choose two.)",
+      "options": [
+        "A. Upload SARIF results using the code scanning API or a GitHub Action.",
+        "B. Use the tool's native integration if it supports GitHub code scanning natively.",
+        "C. Copy the tool's output into a pull request comment.",
+        "D. Store the tool's results in the repository's wiki."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Third-party tools can integrate with code scanning by uploading SARIF results via the API or a dedicated action, and some tools have native integrations that handle the upload automatically.\n\nC is incorrect because manually copying results into a comment does not integrate with the code scanning feature.\n\nD is incorrect because storing results in the wiki does not integrate with code scanning alerts."
+    },
+    {
+      "id": 12,
+      "topic": "Security Policies - SECURITY.md",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a SECURITY.md file in a GitHub repository?",
+      "options": [
+        "A. To configure automated security scanning settings.",
+        "B. To define the project's security policy, including how to report vulnerabilities.",
+        "C. To list all known vulnerabilities in the project.",
+        "D. To store encryption keys for the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the SECURITY.md file defines the project's security policy, including instructions on how to responsibly disclose vulnerabilities, supported versions, and contact information for security issues.\n\nA is incorrect because security scanning is configured through other mechanisms like code scanning workflows and Dependabot configuration.\n\nC is incorrect because known vulnerabilities are tracked through security advisories, not the SECURITY.md file.\n\nD is incorrect because SECURITY.md is a policy document, not a place to store encryption keys."
+    },
+    {
+      "id": 13,
+      "topic": "SBOM - Software Bill of Materials",
+      "type": "SingleChoice",
+      "questionText": "What is a Software Bill of Materials (SBOM) in the context of GitHub?",
+      "options": [
+        "A. A list of all GitHub Actions used in a repository's workflows.",
+        "B. A comprehensive inventory of all software components, libraries, and dependencies used in a project.",
+        "C. A report of all commits made to a repository.",
+        "D. A list of all contributors and their roles."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because an SBOM provides a detailed inventory of all software components, libraries, and dependencies that make up a project, enabling supply chain transparency and vulnerability management.\n\nA is incorrect because an SBOM covers all dependencies, not just GitHub Actions.\n\nC is incorrect because a commit history is not an SBOM.\n\nD is incorrect because an SBOM is about software components, not contributors."
+    },
+    {
+      "id": 14,
+      "topic": "SBOM - Export format",
+      "type": "SingleChoice",
+      "questionText": "In which standard format can GitHub export an SBOM from the dependency graph?",
+      "options": [
+        "A. CSV",
+        "B. SPDX",
+        "C. SARIF",
+        "D. XML"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub can export SBOMs in SPDX (Software Package Data Exchange) format, which is an open standard for communicating software bill of materials information.\n\nA is incorrect because CSV is a generic data format, not a standard SBOM format used by GitHub.\n\nC is incorrect because SARIF is for static analysis results, not SBOMs.\n\nD is incorrect because while SPDX can use various serializations, GitHub specifically exports in the SPDX JSON format, not generic XML."
+    },
+    {
+      "id": 15,
+      "topic": "CodeQL - Database creation",
+      "type": "SingleChoice",
+      "questionText": "What is the first step CodeQL performs when analyzing a repository?",
+      "options": [
+        "A. It sends the source code to GitHub's servers for analysis.",
+        "B. It creates a CodeQL database by extracting a relational representation of the source code.",
+        "C. It compiles the code into a binary format.",
+        "D. It runs all unit tests in the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because CodeQL first creates a database by extracting a relational representation of the source code, capturing the structure and semantics. Queries are then run against this database to find vulnerabilities.\n\nA is incorrect because CodeQL analysis can run locally or in CI; it does not require sending code externally for the database creation step.\n\nC is incorrect because while CodeQL may intercept the build process for compiled languages, it creates a query database, not a binary.\n\nD is incorrect because CodeQL performs static analysis, not test execution."
+    },
+    {
+      "id": 16,
+      "topic": "CodeQL - Supported languages",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following programming languages are supported by CodeQL for code scanning? (Choose three.)",
+      "options": [
+        "A. Python",
+        "B. Java",
+        "C. Perl",
+        "D. JavaScript"
+      ],
+      "correctAnswers": ["A", "B", "D"],
+      "explanation": "A, B, and D are correct. CodeQL supports Python, Java, and JavaScript among its supported languages, which also include C/C++, C#, Go, Ruby, Swift, and Kotlin.\n\nC is incorrect because Perl is not a supported language for CodeQL analysis."
+    },
+    {
+      "id": 17,
+      "topic": "Secret Scanning - Partner program",
+      "type": "SingleChoice",
+      "questionText": "What is the GitHub secret scanning partner program?",
+      "options": [
+        "A. A program where partners provide hardware for running secret scanning.",
+        "B. A collaboration between GitHub and service providers to automatically detect and revoke leaked credentials for their services.",
+        "C. A certification program for security professionals.",
+        "D. A program for sharing security advisories between organizations."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the secret scanning partner program is a collaboration between GitHub and token-issuing service providers. When a partner's token pattern is detected in a public repository, the partner is automatically notified so they can revoke the compromised credential.\n\nA is incorrect because the partner program is about token detection and revocation, not hardware.\n\nC is incorrect because it is not a certification program.\n\nD is incorrect because sharing advisories is handled through GitHub's security advisory database."
+    },
+    {
+      "id": 18,
+      "topic": "Dependabot - Alerts",
+      "type": "SingleChoice",
+      "questionText": "Where does GitHub display Dependabot security alerts for a repository?",
+      "options": [
+        "A. In the repository's README.md file.",
+        "B. In the Security tab under the Dependabot alerts section.",
+        "C. In the Actions tab alongside workflow runs.",
+        "D. In the Issues tab as automatically created issues."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Dependabot alerts are displayed in the Security tab of the repository, under the Dependabot alerts section, where maintainers can review, dismiss, or act on them.\n\nA is incorrect because alerts are not added to the README.\n\nC is incorrect because the Actions tab shows workflow runs, not Dependabot alerts.\n\nD is incorrect because Dependabot alerts appear in the Security tab, not as issues, though Dependabot can create pull requests."
+    },
+    {
+      "id": 19,
+      "topic": "Code Scanning - Alert management",
+      "type": "SingleChoice",
+      "questionText": "How can you dismiss a code scanning alert that you determine to be a false positive?",
+      "options": [
+        "A. Delete the file containing the flagged code.",
+        "B. Dismiss the alert in the Security tab with a reason such as 'false positive' or 'used in tests'.",
+        "C. Remove the code scanning workflow from the repository.",
+        "D. Create a .codescanning-ignore file in the repository root."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because code scanning alerts can be dismissed directly in the GitHub UI with a dismissal reason such as 'false positive', 'won't fix', or 'used in tests'.\n\nA is incorrect because deleting the file is not a practical approach to managing false positives.\n\nC is incorrect because removing the workflow would disable all code scanning, not just dismiss one alert.\n\nD is incorrect because .codescanning-ignore is not a recognized configuration file."
+    },
+    {
+      "id": 20,
+      "topic": "GHAS Features - Security overview",
+      "type": "SingleChoice",
+      "questionText": "What does the security overview dashboard at the organization level provide?",
+      "options": [
+        "A. A list of all organization members and their two-factor authentication status.",
+        "B. An aggregated view of security alerts across all repositories in the organization, including code scanning, secret scanning, and Dependabot alerts.",
+        "C. A report of all GitHub Actions workflow failures.",
+        "D. A summary of all pull requests pending review."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the security overview dashboard provides an organization-wide aggregated view of security enablement and alerts across all repositories, covering code scanning, secret scanning, and Dependabot.\n\nA is incorrect because 2FA status is managed in the organization's people settings, not the security overview.\n\nC is incorrect because workflow failures are visible in the Actions tab of each repository.\n\nD is incorrect because pending pull requests are not part of the security overview."
+    },
+    {
+      "id": 21,
+      "topic": "Dependabot - Grouped updates",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of configuring Dependabot grouped version updates?",
+      "options": [
+        "A. It ensures that only one dependency is updated per week.",
+        "B. It combines multiple dependency updates into a single pull request, reducing pull request noise.",
+        "C. It prevents Dependabot from creating any pull requests.",
+        "D. It automatically merges all Dependabot pull requests without review."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because grouped version updates allow you to combine multiple related dependency updates into a single pull request, reducing the number of pull requests and making dependency management more efficient.\n\nA is incorrect because grouped updates do not limit the frequency to one per week.\n\nC is incorrect because grouped updates still create pull requests; they just combine multiple updates.\n\nD is incorrect because auto-merging requires separate configuration and is not the purpose of grouping."
+    },
+    {
+      "id": 22,
+      "topic": "Code Scanning - Autofix",
+      "type": "SingleChoice",
+      "questionText": "What does code scanning autofix provide?",
+      "options": [
+        "A. Automatic deployment of code fixes to production.",
+        "B. AI-generated fix suggestions for code scanning alerts that can be applied directly from the pull request.",
+        "C. Automatic deletion of vulnerable code.",
+        "D. A report listing all possible fixes for every alert."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because code scanning autofix uses AI to generate suggested code fixes for code scanning alerts found in pull requests, which developers can review and apply directly.\n\nA is incorrect because autofix suggests code changes, not deployments.\n\nC is incorrect because autofix does not delete code; it suggests modifications.\n\nD is incorrect because autofix provides actionable fix suggestions in pull requests, not just a report."
+    },
+    {
+      "id": 23,
+      "topic": "Secret Scanning - Validity checks",
+      "type": "SingleChoice",
+      "questionText": "What are secret scanning validity checks?",
+      "options": [
+        "A. Checks that verify the JSON syntax of configuration files.",
+        "B. Checks that determine whether a detected secret is still active and can be used to authenticate.",
+        "C. Checks that validate the format of Git commit messages.",
+        "D. Checks that verify branch protection rules are properly configured."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because validity checks attempt to verify whether a detected secret is still active by checking with the issuing service provider, helping teams prioritize which leaked secrets need immediate attention.\n\nA is incorrect because validity checks are about secret liveness, not JSON syntax.\n\nC is incorrect because commit message format is unrelated to secret scanning.\n\nD is incorrect because branch protection configuration is not part of secret scanning."
+    },
+    {
+      "id": 24,
+      "topic": "Security Policies - Advisories",
+      "type": "SingleChoice",
+      "questionText": "What is a GitHub repository security advisory?",
+      "options": [
+        "A. An alert generated by Dependabot about an outdated package.",
+        "B. A private space where maintainers can discuss, fix, and publish information about security vulnerabilities in their project.",
+        "C. A public issue labeled with the 'security' label.",
+        "D. A notification sent to all repository watchers about a new release."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because repository security advisories provide a private space for maintainers to discuss vulnerabilities, collaborate on fixes in a temporary private fork, and then publish the advisory to inform users.\n\nA is incorrect because Dependabot alerts are a separate feature from security advisories.\n\nC is incorrect because advisories are not regular issues; they are a distinct feature with private collaboration capabilities.\n\nD is incorrect because release notifications are separate from security advisories."
+    },
+    {
+      "id": 25,
+      "topic": "GHAS Features - Enablement",
+      "type": "MultipleChoice",
+      "questionText": "At which levels can GitHub Advanced Security be enabled? (Choose two.)",
+      "options": [
+        "A. Individual repository level.",
+        "B. Individual file level.",
+        "C. Organization level for all repositories.",
+        "D. Individual branch level."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. GHAS can be enabled at the individual repository level or at the organization level to cover all repositories within the organization.\n\nB is incorrect because GHAS is enabled at the repository level, not per file.\n\nD is incorrect because GHAS is enabled at the repository level, not per branch."
+    },
+    {
+      "id": 26,
+      "topic": "CodeQL - Custom queries",
+      "type": "SingleChoice",
+      "questionText": "How can you run custom CodeQL queries in addition to the default query suites?",
+      "options": [
+        "A. By adding them to the .gitignore file.",
+        "B. By specifying custom query paths or packs in the code scanning workflow configuration.",
+        "C. By emailing them to GitHub Support.",
+        "D. By storing them in the repository's wiki."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because custom CodeQL queries can be added to the code scanning workflow by specifying query file paths or CodeQL query packs in the workflow YAML configuration.\n\nA is incorrect because .gitignore is for excluding files from version control, not running queries.\n\nC is incorrect because GitHub Support does not manage custom query execution.\n\nD is incorrect because the wiki is for documentation, not CodeQL query storage."
+    },
+    {
+      "id": 27,
+      "topic": "Dependabot - Ecosystems",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following package ecosystems does Dependabot support for version updates? (Choose three.)",
+      "options": [
+        "A. npm (Node.js)",
+        "B. pip (Python)",
+        "C. NuGet (.NET)",
+        "D. COBOL package manager"
+      ],
+      "correctAnswers": ["A", "B", "C"],
+      "explanation": "A, B, and C are correct. Dependabot supports npm, pip, NuGet, and many other ecosystems including Maven, Gradle, RubyGems, Cargo, Go modules, Docker, and GitHub Actions.\n\nD is incorrect because Dependabot does not support a COBOL package manager."
+    },
+    {
+      "id": 28,
+      "topic": "Code Scanning - Pull request checks",
+      "type": "SingleChoice",
+      "questionText": "How does code scanning integrate with pull requests?",
+      "options": [
+        "A. It automatically closes pull requests that contain any alert.",
+        "B. It displays code scanning results as annotations on the pull request's changed files and as a required status check.",
+        "C. It rewrites the pull request description to include alert details.",
+        "D. It sends an email to the pull request author with the results."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because code scanning results appear as annotations directly on the changed files in a pull request, and code scanning can be configured as a required status check that must pass before merging.\n\nA is incorrect because code scanning does not automatically close pull requests.\n\nC is incorrect because code scanning does not modify pull request descriptions.\n\nD is incorrect because results are shown in the GitHub interface, not sent via email."
+    },
+    {
+      "id": 29,
+      "topic": "Secret Scanning - Bypass requests",
+      "type": "SingleChoice",
+      "questionText": "When push protection blocks a push containing a secret, what options does the developer have?",
+      "options": [
+        "A. The developer can only delete the secret and push again.",
+        "B. The developer can provide a reason to bypass the protection, remove the secret, or mark it as a false positive.",
+        "C. The developer must contact GitHub Support to unblock the push.",
+        "D. The push is permanently blocked and cannot proceed."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because when push protection blocks a push, the developer can choose to remove the secret from the commit, bypass the protection by providing a business justification, or indicate it is a false positive or used in tests.\n\nA is incorrect because there are multiple options beyond just deleting the secret.\n\nC is incorrect because GitHub Support involvement is not required.\n\nD is incorrect because the developer has options to proceed, including bypassing with a reason."
+    },
+    {
+      "id": 30,
+      "topic": "GHAS Features - Dependency graph",
+      "type": "SingleChoice",
+      "questionText": "What information does the GitHub dependency graph provide?",
+      "options": [
+        "A. A visual map of all Git branches and their relationships.",
+        "B. A view of the repository's dependencies and the repositories that depend on it (dependents).",
+        "C. A chart showing code coverage over time.",
+        "D. A diagram of the repository's file structure."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the dependency graph shows the packages and applications that a repository depends on, as well as the repositories and packages that depend on it.\n\nA is incorrect because branch visualization is not the dependency graph's purpose.\n\nC is incorrect because code coverage is tracked by CI/CD tools, not the dependency graph.\n\nD is incorrect because the file structure is shown in the repository's code browser, not the dependency graph."
+    },
+    {
+      "id": 31,
+      "topic": "CodeQL - Analysis workflow",
+      "type": "SingleChoice",
+      "questionText": "Which GitHub event typically triggers the CodeQL analysis workflow?",
+      "options": [
+        "A. When a new team member is added to the organization.",
+        "B. On push to the default branch and on pull requests targeting the default branch.",
+        "C. When a repository star count changes.",
+        "D. When a GitHub Pages site is deployed."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the default CodeQL analysis workflow is typically configured to trigger on pushes to the default branch, on pull requests targeting the default branch, and on a weekly schedule.\n\nA is incorrect because team membership changes do not trigger CodeQL analysis.\n\nC is incorrect because star count changes are not workflow triggers for CodeQL.\n\nD is incorrect because GitHub Pages deployments do not trigger CodeQL analysis by default."
+    },
+    {
+      "id": 32,
+      "topic": "Security Policies - Dependency review",
+      "type": "SingleChoice",
+      "questionText": "What does the dependency review action do in a pull request?",
+      "options": [
+        "A. It automatically approves pull requests that update dependencies.",
+        "B. It checks for newly introduced dependencies with known vulnerabilities and can fail the check if risky dependencies are added.",
+        "C. It removes all dependencies from the project.",
+        "D. It generates a dependency tree visualization as a comment."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the dependency review action scans pull requests for dependency changes and identifies any newly introduced dependencies with known vulnerabilities, optionally blocking the merge if vulnerabilities exceed a configured severity threshold.\n\nA is incorrect because it does not auto-approve pull requests.\n\nC is incorrect because it does not remove dependencies.\n\nD is incorrect because it provides a security assessment, not a visual dependency tree."
+    },
+    {
+      "id": 33,
+      "topic": "Dependabot - Auto-merge",
+      "type": "SingleChoice",
+      "questionText": "How can you configure Dependabot pull requests to be automatically merged?",
+      "options": [
+        "A. By adding 'auto-merge: true' to the dependabot.yml file.",
+        "B. By enabling auto-merge on the repository and using a GitHub Actions workflow to approve and merge Dependabot pull requests that meet specific criteria.",
+        "C. Dependabot pull requests are always automatically merged by default.",
+        "D. By contacting GitHub Support to enable auto-merge for Dependabot."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because auto-merging Dependabot pull requests requires enabling the auto-merge feature on the repository and typically involves a GitHub Actions workflow that approves and enables auto-merge on Dependabot PRs that meet specified criteria (such as only minor or patch updates).\n\nA is incorrect because there is no 'auto-merge' setting in the dependabot.yml file.\n\nC is incorrect because Dependabot pull requests are not auto-merged by default.\n\nD is incorrect because this is a self-service configuration, not requiring GitHub Support."
+    },
+    {
+      "id": 34,
+      "topic": "SBOM - Dependency submission API",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Dependency Submission API?",
+      "options": [
+        "A. To submit new packages to the npm registry.",
+        "B. To submit dependency information to GitHub's dependency graph for dependencies resolved at build time that are not captured by manifest file analysis.",
+        "C. To report security vulnerabilities to the GitHub Advisory Database.",
+        "D. To upload SARIF files for code scanning."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Dependency Submission API allows tools and CI/CD pipelines to submit dependency data to GitHub's dependency graph, capturing dependencies that are resolved at build time and may not be visible from manifest files alone.\n\nA is incorrect because the API is for submitting dependency information to GitHub, not publishing packages.\n\nC is incorrect because vulnerability reporting uses a different process.\n\nD is incorrect because SARIF uploads are handled by the code scanning API, not the Dependency Submission API."
+    },
+    {
+      "id": 35,
+      "topic": "Code Scanning - Default setup",
+      "type": "SingleChoice",
+      "questionText": "What is the advantage of using the default setup for code scanning instead of creating a custom workflow?",
+      "options": [
+        "A. It supports more programming languages.",
+        "B. It provides a quick, zero-configuration way to enable code scanning that GitHub automatically manages and updates.",
+        "C. It runs faster than custom workflows.",
+        "D. It provides more detailed analysis results."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the default setup for code scanning allows repository administrators to enable code scanning with a single click, and GitHub automatically manages the configuration, language detection, and query updates.\n\nA is incorrect because both default and advanced setups support the same CodeQL languages.\n\nC is incorrect because the execution speed depends on the repository and languages, not the setup type.\n\nD is incorrect because the level of detail depends on the query suite used, which can be the same in both setups."
+    },
+    {
+      "id": 36,
+      "topic": "Secret Scanning - Alert types",
+      "type": "MultipleChoice",
+      "questionText": "Which types of secrets can GitHub secret scanning detect? (Choose two.)",
+      "options": [
+        "A. Cloud service provider API keys (e.g., AWS, Azure, GCP).",
+        "B. Passwords stored in a password manager.",
+        "C. Personal access tokens for services like GitHub, Slack, and Stripe.",
+        "D. Encrypted secrets stored in a hardware security module."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. GitHub secret scanning can detect patterns for cloud provider API keys, personal access tokens, and tokens from many service providers through both default and partner patterns.\n\nB is incorrect because secret scanning analyzes repository content, not external password managers.\n\nD is incorrect because secrets in hardware security modules are not committed to repositories and thus cannot be scanned."
+    },
+    {
+      "id": 37,
+      "topic": "GHAS Features - Security campaigns",
+      "type": "SingleChoice",
+      "questionText": "What is a security campaign in GitHub Advanced Security?",
+      "options": [
+        "A. A marketing campaign by GitHub to promote Advanced Security features.",
+        "B. A coordinated effort to remediate a group of code scanning alerts across an organization by assigning them to developers with deadlines.",
+        "C. An automated weekly report of all security alerts.",
+        "D. A training program for developers on secure coding practices."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because security campaigns allow organization security teams to create targeted remediation efforts by grouping code scanning alerts and tracking their resolution across repositories with assigned owners and due dates.\n\nA is incorrect because security campaigns are a feature, not a marketing initiative.\n\nC is incorrect because campaigns are about active remediation, not passive reporting.\n\nD is incorrect because campaigns focus on alert remediation, not developer training."
+    },
+    {
+      "id": 38,
+      "topic": "Dependabot - Compatibility scores",
+      "type": "SingleChoice",
+      "questionText": "What does the compatibility score on a Dependabot pull request indicate?",
+      "options": [
+        "A. How well the new dependency version is compatible with the current operating system.",
+        "B. The percentage of CI test suite passes when other projects updated to the same dependency version.",
+        "C. The overall code quality rating of the dependency.",
+        "D. How many downloads the new version has on the package registry."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the compatibility score reflects the likelihood that a dependency update will not break existing functionality, based on CI pass rates observed when other repositories updated to the same version.\n\nA is incorrect because the score is about CI test compatibility, not operating system compatibility.\n\nC is incorrect because it does not rate code quality.\n\nD is incorrect because download count is not what the compatibility score measures."
+    },
+    {
+      "id": 39,
+      "topic": "CodeQL - CodeQL packs",
+      "type": "SingleChoice",
+      "questionText": "What are CodeQL packs used for?",
+      "options": [
+        "A. To package and distribute CodeQL queries, libraries, and models for easy sharing and reuse.",
+        "B. To compress repository data for faster cloning.",
+        "C. To bundle GitHub Actions into a single deployable unit.",
+        "D. To create encrypted backups of repository data."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because CodeQL packs are the primary way to package and distribute CodeQL queries and libraries. They can be published to the GitHub Container Registry and referenced in code scanning configurations.\n\nB is incorrect because CodeQL packs are about queries and analysis, not data compression.\n\nC is incorrect because GitHub Actions are not bundled as CodeQL packs.\n\nD is incorrect because CodeQL packs are not a backup mechanism."
+    },
+    {
+      "id": 40,
+      "topic": "Security Policies - GitHub Advisory Database",
+      "type": "SingleChoice",
+      "questionText": "What is the GitHub Advisory Database?",
+      "options": [
+        "A. A database of all GitHub users and their repositories.",
+        "B. A curated collection of known security vulnerabilities in open-source software, mapped to packages in the GitHub dependency graph.",
+        "C. A database of code scanning rules.",
+        "D. A list of all GitHub Actions available in the Marketplace."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the GitHub Advisory Database is a curated collection of security advisories for known vulnerabilities in open-source software. Advisories are mapped to packages tracked by the GitHub dependency graph and are used by Dependabot to generate alerts.\n\nA is incorrect because it is a security vulnerability database, not a user directory.\n\nC is incorrect because code scanning rules are part of CodeQL query suites, not the Advisory Database.\n\nD is incorrect because GitHub Actions are listed in the Marketplace, not the Advisory Database."
+    }
+  ]
+}

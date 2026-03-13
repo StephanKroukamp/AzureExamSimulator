@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-700",
+  "examTitle": "Dynamics 365 Finance and Operations Apps Solution Architect",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Solution Design - Architecture overview",
+      "type": "SingleChoice",
+      "questionText": "A client has complex requirements spanning finance, supply chain, and manufacturing. As a solution architect, what is the first step in designing the solution?",
+      "options": ["A. Start configuring the system immediately.", "B. Conduct a thorough requirements analysis and create a solution blueprint mapping requirements to D365 capabilities.", "C. Purchase all available licenses.", "D. Build custom code for every requirement."],
+      "correctAnswers": ["B"],
+      "explanation": "A solution architect must first analyze requirements and map them to standard D365 capabilities before any configuration or customization. Immediate configuration (A) risks misalignment. Purchasing all licenses (C) is wasteful. Custom code for everything (D) ignores standard functionality."
+    },
+    {
+      "id": 2,
+      "topic": "LCS - Implementation methodology",
+      "type": "SingleChoice",
+      "questionText": "What implementation methodology does Microsoft recommend for Dynamics 365 Finance and Operations projects managed through LCS?",
+      "options": ["A. Waterfall methodology.", "B. Success by Design with phases including Initiate, Implement, and Prepare.", "C. Agile Scrum only.", "D. No formal methodology is recommended."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft recommends Success by Design, which includes structured phases (Initiate, Implement, Prepare) with specific milestones and reviews managed through LCS. Pure Waterfall (A) or pure Agile (C) alone are not the recommended approach. A methodology is strongly recommended (D)."
+    },
+    {
+      "id": 3,
+      "topic": "Data Migration - Strategy",
+      "type": "SingleChoice",
+      "questionText": "A company is migrating from a legacy ERP system. What is the recommended approach for data migration?",
+      "options": ["A. Migrate all historical data regardless of relevance.", "B. Define a data migration strategy identifying critical data, data cleansing requirements, and migration sequences.", "C. Enter all data manually.", "D. Start with an empty system and no historical data."],
+      "correctAnswers": ["B"],
+      "explanation": "A proper data migration strategy identifies which data is critical, establishes cleansing and transformation rules, and defines the sequence of entity migrations. Migrating everything (A) brings in unnecessary data. Manual entry (C) does not scale. No historical data (D) may lose critical business context."
+    },
+    {
+      "id": 4,
+      "topic": "Integration Patterns - Integration approaches",
+      "type": "MultipleChoice",
+      "questionText": "Which two integration patterns are commonly used for Dynamics 365 Finance and Operations? (Choose two.)",
+      "options": ["A. OData REST APIs for real-time data access.", "B. Data Management Framework for batch data integration.", "C. Direct SQL database connections.", "D. Screen scraping of the user interface."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "OData REST APIs (A) provide real-time data access for integrations, and the Data Management Framework (B) handles batch-oriented data import/export. Direct SQL connections (C) are unsupported and bypass business logic. Screen scraping (D) is fragile and not recommended."
+    },
+    {
+      "id": 5,
+      "topic": "Testing Strategy - Test planning",
+      "type": "SingleChoice",
+      "questionText": "As a solution architect, you need to define the testing strategy for the implementation. What approach should you recommend?",
+      "options": ["A. Test only after go-live.", "B. A layered testing strategy including unit testing, integration testing, UAT, and performance testing.", "C. Let users test in production.", "D. Skip testing to save time."],
+      "correctAnswers": ["B"],
+      "explanation": "A comprehensive testing strategy with multiple layers ensures quality at each stage: unit tests verify individual components, integration tests verify data flow, UAT validates business processes, and performance tests ensure system capacity. Post-go-live testing (A), production testing (C), and skipping tests (D) all introduce significant risk."
+    },
+    {
+      "id": 6,
+      "topic": "Solution Design - Customization vs configuration",
+      "type": "SingleChoice",
+      "questionText": "A business requirement can be met with a minor process adjustment to use standard functionality, or through custom development. What should a solution architect recommend?",
+      "options": ["A. Always build custom solutions for exact requirement match.", "B. Recommend process adjustment to use standard functionality, as it reduces maintenance and upgrade risk.", "C. Reject the requirement.", "D. Implement both approaches for comparison."],
+      "correctAnswers": ["B"],
+      "explanation": "Solution architects should favor standard functionality over customization when possible, as it reduces total cost of ownership, simplifies upgrades, and leverages tested features. Always customizing (A) increases risk. Rejecting requirements (C) does not solve business needs. Both approaches (D) waste resources."
+    },
+    {
+      "id": 7,
+      "topic": "LCS - Environment planning",
+      "type": "SingleChoice",
+      "questionText": "For a Dynamics 365 Finance implementation, what is the minimum recommended set of environments?",
+      "options": ["A. Production only.", "B. Development, Sandbox (UAT), and Production.", "C. Development and Production only.", "D. One environment for all purposes."],
+      "correctAnswers": ["B"],
+      "explanation": "The minimum recommended set includes Development (for building and testing code), Sandbox/UAT (for user testing and staging), and Production (for live operations). Production only (A) provides no testing capability. Dev and Prod without UAT (C) skips user testing. A single environment (D) mixes all activities."
+    },
+    {
+      "id": 8,
+      "topic": "Data Migration - Entity dependencies",
+      "type": "SingleChoice",
+      "questionText": "When planning data migration, why is the sequence of entity migration important?",
+      "options": ["A. It does not matter; all entities can be migrated simultaneously.", "B. Entities have dependencies; for example, customers must be migrated before sales orders that reference them.", "C. To reduce the number of data files.", "D. To minimize the number of users involved."],
+      "correctAnswers": ["B"],
+      "explanation": "Entity dependencies require specific migration sequences. Master data (customers, vendors, products) must be migrated before transactional data (orders, invoices) that references them. Simultaneous migration (A) would fail on missing references. File reduction (C) and user minimization (D) are not the reason for sequencing."
+    },
+    {
+      "id": 9,
+      "topic": "Integration Patterns - Middleware",
+      "type": "SingleChoice",
+      "questionText": "A company has 15 systems that need to exchange data with Dynamics 365. What integration architecture should you recommend?",
+      "options": ["A. Point-to-point integrations between each system and D365.", "B. An integration middleware or enterprise service bus (ESB) to centralize and manage integrations.", "C. Manual data re-entry between systems.", "D. A shared database for all systems."],
+      "correctAnswers": ["B"],
+      "explanation": "Middleware or ESB centralizes integration logic, reducing the complexity of managing 15 separate connections and providing monitoring, transformation, and error handling. Point-to-point (A) creates n-squared complexity. Manual entry (C) does not scale. Shared databases (D) create tight coupling."
+    },
+    {
+      "id": 10,
+      "topic": "Testing Strategy - Regression testing",
+      "type": "SingleChoice",
+      "questionText": "After applying a system update, you need to verify that existing functionality still works correctly. What type of testing addresses this?",
+      "options": ["A. Unit testing.", "B. Regression testing using the Regression Suite Automation Tool (RSAT).", "C. Performance testing.", "D. Security testing."],
+      "correctAnswers": ["B"],
+      "explanation": "Regression testing verifies that existing functionality is not broken by updates. RSAT automates this process using task recordings. Unit testing (A) tests individual components. Performance testing (C) tests system capacity. Security testing (D) tests access controls."
+    },
+    {
+      "id": 11,
+      "topic": "Solution Design - Fit-gap analysis",
+      "type": "SingleChoice",
+      "questionText": "During a fit-gap analysis, you identify a requirement that cannot be met by standard functionality. How should you categorize and address this?",
+      "options": ["A. Ignore the requirement.", "B. Document it as a gap and evaluate options: configuration workaround, ISV solution, or custom development.", "C. Tell the client the requirement is impossible.", "D. Immediately start custom development."],
+      "correctAnswers": ["B"],
+      "explanation": "Gaps should be documented and evaluated through multiple options before choosing the best approach. This includes exploring configuration workarounds, ISV solutions from the marketplace, or custom development as a last resort. Ignoring (A) and dismissing (C) do not address the need. Immediate development (D) may miss simpler solutions."
+    },
+    {
+      "id": 12,
+      "topic": "LCS - Solution packages",
+      "type": "SingleChoice",
+      "questionText": "You need to move customizations from the development environment to the sandbox for testing. What should you use?",
+      "options": ["A. Copy files manually between servers.", "B. Create a deployable package and deploy it through LCS.", "C. Reconfigure the sandbox manually.", "D. Connect both environments to the same source code."],
+      "correctAnswers": ["B"],
+      "explanation": "Deployable packages contain compiled customizations and can be deployed through LCS to any environment, ensuring consistent deployment. Manual file copying (A) is error-prone. Manual reconfiguration (C) is unreliable. Shared source code (D) is not how deployment works."
+    },
+    {
+      "id": 13,
+      "topic": "Data Migration - Data validation",
+      "type": "SingleChoice",
+      "questionText": "After migrating data, how should you validate that the migration was successful?",
+      "options": ["A. Assume it worked if no errors occurred during import.", "B. Perform reconciliation by comparing record counts, key totals, and spot-checking data in the new system against the source.", "C. Ask end users if the data looks correct.", "D. Wait until go-live to identify issues."],
+      "correctAnswers": ["B"],
+      "explanation": "Systematic validation includes record count comparisons, financial total reconciliation, and detailed spot checks against source data. No-error assumption (A) misses silent data issues. User feedback alone (C) is incomplete. Waiting for go-live (D) risks discovering issues too late."
+    },
+    {
+      "id": 14,
+      "topic": "Integration Patterns - Dual-write",
+      "type": "SingleChoice",
+      "questionText": "A company needs near-real-time data synchronization between Dynamics 365 Finance and Dataverse for a Power Apps solution. What integration approach should you recommend?",
+      "options": ["A. Batch export/import on a schedule.", "B. Dual-write for near-real-time bidirectional synchronization.", "C. Manual data entry in both systems.", "D. A custom API built from scratch."],
+      "correctAnswers": ["B"],
+      "explanation": "Dual-write provides near-real-time, bidirectional synchronization between Finance and Operations apps and Dataverse, ideal for keeping both platforms in sync. Batch processing (A) introduces latency. Manual entry (C) creates inconsistencies. Custom APIs (D) duplicate existing functionality."
+    },
+    {
+      "id": 15,
+      "topic": "Testing Strategy - Performance testing",
+      "type": "SingleChoice",
+      "questionText": "Before go-live, you need to ensure the system can handle 500 concurrent users during peak periods. What type of testing should you conduct?",
+      "options": ["A. Unit testing.", "B. Performance and load testing simulating 500 concurrent users.", "C. User acceptance testing.", "D. Security penetration testing."],
+      "correctAnswers": ["B"],
+      "explanation": "Performance and load testing simulates the expected user load to verify system response times and stability under peak conditions. Unit testing (A) tests code components. UAT (C) validates business processes. Security testing (D) tests vulnerability to attacks."
+    },
+    {
+      "id": 16,
+      "topic": "Solution Design - Multi-entity architecture",
+      "type": "MultipleChoice",
+      "questionText": "A multinational company has subsidiaries in 5 countries with different currencies, languages, and tax requirements. Which two design decisions are critical? (Choose two.)",
+      "options": ["A. Legal entity structure to represent each subsidiary.", "B. Chart of accounts design that accommodates all subsidiaries.", "C. Using a single language for all subsidiaries.", "D. Deploying separate D365 instances for each country."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Designing the legal entity structure (A) and chart of accounts (B) are foundational decisions that affect all downstream configurations. A single language (C) does not meet the multi-language requirement. Separate instances (D) prevent consolidation and shared processes."
+    },
+    {
+      "id": 17,
+      "topic": "LCS - Go-live readiness",
+      "type": "SingleChoice",
+      "questionText": "Before requesting production environment deployment, what must be completed in LCS?",
+      "options": ["A. Nothing specific is required.", "B. The Subscription estimator and Go-live assessment in the LCS methodology.", "C. Only user training.", "D. Code review by Microsoft."],
+      "correctAnswers": ["B"],
+      "explanation": "LCS requires completion of the Subscription estimator (to size the production environment) and Go-live assessment before production deployment. These validate readiness. No requirements (A) is incorrect. Training alone (C) is insufficient. Microsoft code review (D) is not a standard requirement."
+    },
+    {
+      "id": 18,
+      "topic": "Data Migration - Cutover planning",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a cutover plan in a data migration?",
+      "options": ["A. To document the project scope.", "B. To define the detailed sequence of activities, timing, and responsibilities during the transition from legacy to new system.", "C. To plan the marketing launch.", "D. To schedule user training."],
+      "correctAnswers": ["B"],
+      "explanation": "A cutover plan details every activity during the go-live transition window, including data migration steps, validation checkpoints, go/no-go decisions, and rollback procedures. Project scope (A), marketing (C), and training (D) are separate planning activities."
+    },
+    {
+      "id": 19,
+      "topic": "Integration Patterns - Event-based integration",
+      "type": "SingleChoice",
+      "questionText": "A warehouse management system needs to be notified immediately when a sales order is confirmed in D365. What integration pattern is most appropriate?",
+      "options": ["A. Daily batch export of confirmed orders.", "B. Event-based integration using business events that trigger on order confirmation.", "C. Manual notification via email.", "D. The WMS periodically polling D365 for new orders."],
+      "correctAnswers": ["B"],
+      "explanation": "Business events provide real-time, event-driven notifications when business processes occur, such as order confirmation. Batch exports (A) introduce delays. Manual notifications (C) are unreliable. Polling (D) wastes resources and introduces latency."
+    },
+    {
+      "id": 20,
+      "topic": "Testing Strategy - RSAT",
+      "type": "SingleChoice",
+      "questionText": "You want to automate regression testing for critical business processes in Dynamics 365 Finance. What tool should you use?",
+      "options": ["A. Manual test scripts executed by testers.", "B. Regression Suite Automation Tool (RSAT) with task recordings.", "C. A third-party web testing tool.", "D. Unit test framework only."],
+      "correctAnswers": ["B"],
+      "explanation": "RSAT uses task recordings to create automated test scripts that can be run against any environment, ideal for regression testing. Manual scripts (A) are time-consuming. Third-party tools (C) may not understand D365 UI. Unit test framework (D) tests code, not business processes."
+    },
+    {
+      "id": 21,
+      "topic": "Solution Design - ISV solutions",
+      "type": "SingleChoice",
+      "questionText": "A client needs specialized tax calculation capabilities not available in standard D365. What should you explore first?",
+      "options": ["A. Build a completely custom tax engine.", "B. Search for ISV solutions on Microsoft AppSource that address the tax requirements.", "C. Tell the client to use a manual process.", "D. Implement a different ERP system."],
+      "correctAnswers": ["B"],
+      "explanation": "ISV solutions on AppSource are purpose-built extensions that can address specialized needs without custom development. Custom building (A) is expensive and risky. Manual processes (C) are inefficient. Switching ERP (D) is an extreme measure for a specific requirement."
+    },
+    {
+      "id": 22,
+      "topic": "LCS - Issue search",
+      "type": "SingleChoice",
+      "questionText": "During implementation, you encounter an unexpected behavior that might be a known issue. Where should you search first?",
+      "options": ["A. Google the error message.", "B. Use Issue Search in LCS to find known issues and hotfixes.", "C. Restart the server.", "D. Reinstall Dynamics 365."],
+      "correctAnswers": ["B"],
+      "explanation": "Issue Search in LCS provides access to known issues, hotfixes, and workarounds from Microsoft, specifically for D365 F&O. Generic web searches (A) may not find D365-specific information. Restarting (C) and reinstalling (D) do not address specific bugs."
+    },
+    {
+      "id": 23,
+      "topic": "Data Migration - Data cleansing",
+      "type": "SingleChoice",
+      "questionText": "Legacy data contains duplicate customer records and inconsistent address formats. When should data cleansing be performed?",
+      "options": ["A. After migration to the new system.", "B. Before migration as part of the data preparation phase.", "C. Data cleansing is not necessary.", "D. Only if users complain about data quality."],
+      "correctAnswers": ["B"],
+      "explanation": "Data should be cleansed before migration to avoid importing poor-quality data into the new system. Post-migration cleansing (A) is more complex. Skipping cleansing (C) perpetuates data quality issues. Reactive cleansing (D) delays the inevitable."
+    },
+    {
+      "id": 24,
+      "topic": "Integration Patterns - Virtual entities",
+      "type": "SingleChoice",
+      "questionText": "You need to display Finance and Operations data in a Model-driven Power App without data replication. What feature should you use?",
+      "options": ["A. Manual data export and import.", "B. Virtual entities in Dataverse that connect to Finance and Operations data.", "C. Dual-write for all tables.", "D. Screen sharing between applications."],
+      "correctAnswers": ["B"],
+      "explanation": "Virtual entities provide read access to Finance and Operations data within Dataverse without replicating data, ideal for display scenarios. Data export/import (A) creates copies. Dual-write (C) is heavier than needed for read-only scenarios. Screen sharing (D) is not an integration approach."
+    },
+    {
+      "id": 25,
+      "topic": "Testing Strategy - Test scenarios",
+      "type": "SingleChoice",
+      "questionText": "When creating test scenarios for UAT, what should be the basis for the test cases?",
+      "options": ["A. Technical specifications.", "B. End-to-end business processes as defined in the solution design.", "C. Random data entry patterns.", "D. Only happy-path scenarios."],
+      "correctAnswers": ["B"],
+      "explanation": "UAT test cases should be based on real business processes to validate that the system supports actual business operations. Technical specs (A) are for developer testing. Random patterns (C) do not validate business logic. Happy-path only (D) misses exception handling and edge cases."
+    },
+    {
+      "id": 26,
+      "topic": "Solution Design - Extension model",
+      "type": "SingleChoice",
+      "questionText": "When customizing Dynamics 365 Finance and Operations, what development approach does Microsoft mandate?",
+      "options": ["A. Overlayering of standard code.", "B. Extension-based development that does not modify standard objects.", "C. Direct modification of the database schema.", "D. Client-side JavaScript customizations only."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft mandates extension-based development where customizations extend rather than modify standard objects, ensuring upgradeability. Overlayering (A) is no longer supported in current versions. Database modifications (C) are unsupported. Client-side JS (D) is not the primary development approach."
+    },
+    {
+      "id": 27,
+      "topic": "LCS - Monitoring and diagnostics",
+      "type": "SingleChoice",
+      "questionText": "The production environment is experiencing slow performance. What LCS tool should you use to diagnose the issue?",
+      "options": ["A. Business process modeler.", "B. Environment monitoring and diagnostics in LCS.", "C. The subscription estimator.", "D. The asset library."],
+      "correctAnswers": ["B"],
+      "explanation": "Environment monitoring in LCS provides performance metrics, SQL insights, and diagnostic tools to identify performance bottlenecks. BPM (A) documents processes. Subscription estimator (C) sizes environments. Asset library (D) stores deployment packages."
+    },
+    {
+      "id": 28,
+      "topic": "Data Migration - Open balances",
+      "type": "MultipleChoice",
+      "questionText": "When migrating to a new system, which two types of data typically need to be migrated as open balances? (Choose two.)",
+      "options": ["A. Open accounts receivable invoices.", "B. Open accounts payable invoices.", "C. All historical journal entries from the past 10 years.", "D. Employee vacation photos."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Open AR invoices (A) and open AP invoices (B) represent outstanding obligations that must be tracked in the new system. Historical journal entries (C) are typically summarized as beginning balances rather than migrated individually. Vacation photos (D) are not financial data."
+    },
+    {
+      "id": 29,
+      "topic": "Integration Patterns - Error handling",
+      "type": "SingleChoice",
+      "questionText": "When designing an integration between D365 and an external system, what is a critical design consideration?",
+      "options": ["A. Assume integrations will always succeed.", "B. Design comprehensive error handling, logging, retry logic, and alerting for failed integrations.", "C. Only test with small data volumes.", "D. Use synchronous calls for all integrations regardless of volume."],
+      "correctAnswers": ["B"],
+      "explanation": "Robust error handling is critical for production integrations, including retry logic for transient failures, logging for troubleshooting, and alerting for operations teams. Assuming success (A) leads to data loss. Small-volume testing (C) misses scale issues. Synchronous-only (D) creates bottlenecks."
+    },
+    {
+      "id": 30,
+      "topic": "Solution Design - Security architecture",
+      "type": "SingleChoice",
+      "questionText": "A client has 500 users across multiple departments and legal entities. What approach should you take for security design?",
+      "options": ["A. Give all users system administrator access.", "B. Design role-based security with custom roles based on job functions, applying segregation of duties.", "C. Create one role per user.", "D. Use only the default security roles without customization."],
+      "correctAnswers": ["B"],
+      "explanation": "Role-based security design maps security roles to job functions with appropriate segregation of duties, following the principle of least privilege. System admin for all (A) is a security risk. Per-user roles (C) are unmanageable. Default roles without customization (D) may not match the organization's structure."
+    },
+    {
+      "id": 31,
+      "topic": "Testing Strategy - Go-live mock cutover",
+      "type": "SingleChoice",
+      "questionText": "Why should you perform a mock cutover before the actual go-live?",
+      "options": ["A. It is not necessary if you have good documentation.", "B. To validate the cutover plan, identify timing issues, and ensure all steps work correctly in a practice run.", "C. To train end users.", "D. To generate test data."],
+      "correctAnswers": ["B"],
+      "explanation": "A mock cutover validates the entire go-live process including data migration timing, system configuration steps, and validation checkpoints, identifying issues before the real cutover. Documentation alone (A) does not reveal timing or sequencing problems. Training (C) and test data (D) are separate activities."
+    },
+    {
+      "id": 32,
+      "topic": "LCS - Code management",
+      "type": "SingleChoice",
+      "questionText": "For managing source code and build processes for D365 Finance customizations, what does Microsoft recommend?",
+      "options": ["A. Store code on individual developer machines.", "B. Use Azure DevOps for source control, build pipelines, and release management.", "C. Email code files between developers.", "D. Use a shared network drive."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure DevOps provides source control (version management), build automation (compilation and packaging), and release management (deployment pipelines) integrated with LCS. Individual machines (A) risk code loss. Email (C) has no version control. Network drives (D) lack CI/CD capabilities."
+    },
+    {
+      "id": 33,
+      "topic": "Data Migration - Configuration data",
+      "type": "SingleChoice",
+      "questionText": "System configuration data (parameters, number sequences, posting profiles) needs to be migrated between environments. What approach should you use?",
+      "options": ["A. Manually reconfigure each environment.", "B. Use data packages with configuration entities exported from one environment and imported to another.", "C. Take a database backup and restore.", "D. Screenshot the configuration and re-enter it."],
+      "correctAnswers": ["B"],
+      "explanation": "Data packages with configuration entities allow systematic export and import of configuration data between environments, ensuring consistency. Manual reconfiguration (A) is error-prone. Database restores (C) replace all data, not just configuration. Screenshots (D) require manual re-entry."
+    },
+    {
+      "id": 34,
+      "topic": "Integration Patterns - Power Platform integration",
+      "type": "SingleChoice",
+      "questionText": "A company wants to build a customer-facing portal that reads order data from D365 Finance. What integration approach should you recommend?",
+      "options": ["A. Give customers direct access to D365.", "B. Use Power Apps portals with virtual entities or Dataverse integration to expose order data securely.", "C. Email order status updates manually.", "D. Print and mail order confirmations."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Apps portals with Dataverse integration provide a secure, customer-facing experience that can display D365 data without granting direct system access. Direct D365 access (A) is a security risk. Manual emails (C) and printed mail (D) do not provide self-service capabilities."
+    },
+    {
+      "id": 35,
+      "topic": "Solution Design - Reporting strategy",
+      "type": "MultipleChoice",
+      "questionText": "Which two reporting tools should a solution architect consider for a D365 Finance implementation? (Choose two.)",
+      "options": ["A. Financial reporting (Management Reporter) for financial statements.", "B. Power BI for interactive dashboards and analytics.", "C. Microsoft Paint for report design.", "D. A manual ledger book."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Financial reporting (A) provides formatted financial statements (income statement, balance sheet) and Power BI (B) provides interactive dashboards and analytical capabilities. Paint (C) and manual ledgers (D) are not reporting tools."
+    },
+    {
+      "id": 36,
+      "topic": "Testing Strategy - Data migration testing",
+      "type": "SingleChoice",
+      "questionText": "How many times should data migration be tested before go-live?",
+      "options": ["A. Once is sufficient.", "B. Multiple iterations to refine the process, with a final mock migration that mirrors the actual cutover.", "C. Testing is not needed if the migration scripts work in development.", "D. Test only after go-live."],
+      "correctAnswers": ["B"],
+      "explanation": "Multiple migration iterations allow refinement of scripts, validation of data quality, and timing verification. The final mock should mirror the actual cutover. One iteration (A) may miss issues. Skipping testing (C) risks go-live failures. Post-go-live testing (D) is too late."
+    },
+    {
+      "id": 37,
+      "topic": "LCS - Support and troubleshooting",
+      "type": "SingleChoice",
+      "questionText": "A critical production issue occurs and you need Microsoft support. How should you create a support request?",
+      "options": ["A. Send an email to Microsoft.", "B. Create a support request through LCS with environment details, repro steps, and severity level.", "C. Post on a community forum.", "D. Call a Microsoft store."],
+      "correctAnswers": ["B"],
+      "explanation": "LCS provides a structured support request process that includes environment context, reproduction steps, and severity classification for efficient issue resolution. Email (A) is not the supported channel. Community forums (C) are for peer help. Microsoft stores (D) handle consumer products."
+    },
+    {
+      "id": 38,
+      "topic": "Solution Design - Change management",
+      "type": "SingleChoice",
+      "questionText": "As a solution architect, why is organizational change management important during an ERP implementation?",
+      "options": ["A. It is only important for IT departments.", "B. It ensures user adoption by addressing people, process, and technology changes needed for the new system.", "C. It is only about training.", "D. It is not the architect's concern."],
+      "correctAnswers": ["B"],
+      "explanation": "Change management addresses the human side of the implementation, ensuring users understand, accept, and adopt the new system and processes. It involves communication, training, and stakeholder engagement. It affects all departments (A). It goes beyond training (C). It is a critical concern for architects (D)."
+    },
+    {
+      "id": 39,
+      "topic": "Integration Patterns - Async vs sync",
+      "type": "SingleChoice",
+      "questionText": "A high-volume integration processes 10,000 transactions per hour. Should this be synchronous or asynchronous?",
+      "options": ["A. Synchronous, to ensure immediate processing.", "B. Asynchronous batch processing to handle volume without blocking the source system.", "C. Neither; process manually.", "D. Synchronous with infinite timeout."],
+      "correctAnswers": ["B"],
+      "explanation": "High-volume integrations should use asynchronous batch processing to handle large volumes efficiently without blocking the source system or overwhelming the target. Synchronous processing (A, D) creates bottlenecks at high volumes. Manual processing (C) is not feasible."
+    },
+    {
+      "id": 40,
+      "topic": "Solution Design - Scalability planning",
+      "type": "SingleChoice",
+      "questionText": "A fast-growing company expects to double its transaction volume within 2 years. What should the solution architect plan for?",
+      "options": ["A. Design only for current volume and redesign later.", "B. Design the solution architecture to accommodate growth, including performance baselines and scaling strategies.", "C. Over-provision all resources immediately.", "D. Growth planning is not necessary for cloud solutions."],
+      "correctAnswers": ["B"],
+      "explanation": "Architects should design for anticipated growth by establishing performance baselines, identifying potential bottlenecks, and planning scaling strategies. Designing for current volume only (A) leads to future redesign. Over-provisioning (C) is wasteful. Cloud solutions still need scaling consideration (D)."
+    }
+  ]
+}

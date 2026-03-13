@@ -1,0 +1,566 @@
+{
+  "examCode": "DP-420",
+  "examTitle": "Designing and Implementing Cloud-Native Applications Using Microsoft Azure Cosmos DB",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Partition Keys - Selection strategy",
+      "type": "SingleChoice",
+      "questionText": "You are designing a Cosmos DB container to store e-commerce order data. Orders are queried most frequently by customer ID, and each customer has between 10 and 10,000 orders. Which partition key should you choose?",
+      "options": [
+        "A. /orderId",
+        "B. /customerId",
+        "C. /orderDate",
+        "D. /id"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. /customerId aligns with the most frequent query pattern and distributes data well across partitions. Each customer has enough orders to create meaningful logical partitions but not so many that a single partition would become a hot spot (staying under the 20 GB logical partition limit).\n\nWhy the others are wrong:\n- A. /orderId would create one item per partition, which is overly granular and prevents efficient queries that filter by customer.\n- C. /orderDate could create hot partitions on busy days and doesn't align with the primary query pattern.\n- D. /id (the document ID) creates single-item partitions, which is the most granular possible and doesn't support efficient multi-item queries."
+    },
+    {
+      "id": 2,
+      "topic": "Consistency Levels - Strong vs Eventual",
+      "type": "SingleChoice",
+      "questionText": "Your application requires that after a write operation completes, all subsequent reads from any region must return the latest written value. Which Cosmos DB consistency level should you configure?",
+      "options": [
+        "A. Eventual consistency",
+        "B. Session consistency",
+        "C. Strong consistency",
+        "D. Consistent prefix"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Strong consistency guarantees that reads always return the most recent committed write. All replicas across all regions must acknowledge the write before it's confirmed, ensuring linearizable reads globally.\n\nWhy the others are wrong:\n- A. Eventual consistency provides the weakest guarantee; reads might return stale data.\n- B. Session consistency guarantees read-your-own-writes within a session but doesn't guarantee other sessions see the latest write immediately.\n- D. Consistent prefix guarantees order of reads but allows lag; reads might not see the most recent write."
+    },
+    {
+      "id": 3,
+      "topic": "Indexing - Index policy configuration",
+      "type": "SingleChoice",
+      "questionText": "You have a Cosmos DB container where most queries filter on the /city and /category properties. You want to minimize RU consumption for both writes and reads. What indexing strategy should you use?",
+      "options": [
+        "A. Keep the default policy that indexes all properties",
+        "B. Configure an include-only indexing policy for /city and /category paths",
+        "C. Disable indexing entirely",
+        "D. Create a composite index on all properties"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An include-only indexing policy that indexes only /city and /category reduces write RU costs (fewer paths to index) while maintaining efficient reads for queries filtering on those properties.\n\nWhy the others are wrong:\n- A. Indexing all properties increases write RU costs for every insert/update, even for paths that are never queried.\n- C. Disabling indexing eliminates write overhead but causes queries to perform full scans, drastically increasing read RU costs.\n- D. A composite index on all properties would consume excessive storage and write RUs without proportional query benefits."
+    },
+    {
+      "id": 4,
+      "topic": "Stored Procedures - Transaction scope",
+      "type": "SingleChoice",
+      "questionText": "You need to perform a multi-document transaction in Cosmos DB that atomically updates three documents. What is a requirement for this transaction?",
+      "options": [
+        "A. All three documents must be in the same logical partition",
+        "B. All three documents must be in different containers",
+        "C. The transaction can span multiple partitions within the same container",
+        "D. The transaction requires a separate transaction coordinator service"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Stored procedures (and transactional batch operations) in Cosmos DB are scoped to a single logical partition key value. All documents involved in the transaction must share the same partition key for ACID guarantees.\n\nWhy the others are wrong:\n- B. Transactions cannot span multiple containers.\n- C. Transactions in Cosmos DB cannot span multiple logical partitions within a container.\n- D. Cosmos DB provides built-in transaction support within a partition; no external coordinator is needed."
+    },
+    {
+      "id": 5,
+      "topic": "Change Feed - Processing patterns",
+      "type": "SingleChoice",
+      "questionText": "You need to process all changes to a Cosmos DB container in real-time to maintain a materialized view in a separate container. Which feature should you use?",
+      "options": [
+        "A. Cosmos DB triggers (pre-triggers)",
+        "B. Change feed with an Azure Function",
+        "C. Time-to-live (TTL) expiration",
+        "D. Conflict resolution policies"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The change feed provides an ordered stream of changes (inserts and updates) from a Cosmos DB container. An Azure Function with a Cosmos DB trigger can process these changes in real-time to update a materialized view in another container.\n\nWhy the others are wrong:\n- A. Pre-triggers execute before a write operation on the same document and cannot write to other containers.\n- C. TTL expiration automatically deletes documents after a set time and is unrelated to change processing.\n- D. Conflict resolution policies handle multi-region write conflicts but don't process changes for materialized views."
+    },
+    {
+      "id": 6,
+      "topic": "Global Distribution - Multi-region writes",
+      "type": "SingleChoice",
+      "questionText": "You have a globally distributed Cosmos DB account with regions in East US, West Europe, and Southeast Asia. You need all regions to accept write operations for low-latency writes. What should you enable?",
+      "options": [
+        "A. Active geo-replication",
+        "B. Multi-region writes (multi-master)",
+        "C. Automatic failover only",
+        "D. Strong consistency across all regions"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Multi-region writes (multi-master) allows all configured regions to accept both read and write operations, providing low-latency writes from any region. Cosmos DB handles conflict resolution automatically.\n\nWhy the others are wrong:\n- A. Active geo-replication is a concept from Azure SQL; Cosmos DB uses multi-region distribution natively.\n- C. Automatic failover only provides a single write region with failover capability; it doesn't enable concurrent writes from multiple regions.\n- D. Strong consistency limits writes to a single region and is not compatible with multi-region writes."
+    },
+    {
+      "id": 7,
+      "topic": "Partition Keys - Hierarchical partition keys",
+      "type": "SingleChoice",
+      "questionText": "You have a multi-tenant application where each tenant has multiple departments, and each department has many documents. You want to avoid the 20 GB logical partition limit for large tenants. Which feature should you use?",
+      "options": [
+        "A. Synthetic partition key combining tenant and department",
+        "B. Hierarchical partition keys with /tenantId and /departmentId",
+        "C. A random partition key suffix",
+        "D. Separate containers per tenant"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Hierarchical partition keys allow you to define a multi-level partition key (e.g., /tenantId, /departmentId). This distributes data more granularly while still supporting efficient queries at the tenant level, effectively exceeding the 20 GB logical partition limit for a single tenant.\n\nWhy the others are wrong:\n- A. A synthetic key combining both fields into a single string still has the 20 GB limit per logical partition value.\n- C. A random suffix improves distribution but breaks query efficiency when filtering by tenant or department.\n- D. Separate containers per tenant create management overhead and don't leverage Cosmos DB's partitioning capabilities."
+    },
+    {
+      "id": 8,
+      "topic": "Consistency Levels - Session consistency",
+      "type": "SingleChoice",
+      "questionText": "A web application uses Cosmos DB and needs to guarantee that a user always sees their own writes during their session. Other users may see slightly stale data. Which consistency level is most appropriate?",
+      "options": [
+        "A. Strong",
+        "B. Bounded staleness",
+        "C. Session",
+        "D. Eventual"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Session consistency guarantees monotonic reads, monotonic writes, and read-your-own-writes within a session token scope. This is the most popular consistency level as it provides intuitive consistency for the writing user while offering good performance.\n\nWhy the others are wrong:\n- A. Strong consistency is unnecessarily restrictive and increases latency; it guarantees consistency for all users, not just the writing user.\n- B. Bounded staleness guarantees a maximum lag but is more expensive than session and doesn't specifically target the read-your-own-writes scenario.\n- D. Eventual consistency might return stale data even to the user who just wrote, violating the requirement."
+    },
+    {
+      "id": 9,
+      "topic": "Indexing - Composite indexes",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB queries frequently use ORDER BY on two properties: /lastName ascending and /firstName ascending. Queries are consuming excessive RUs. What should you create?",
+      "options": [
+        "A. A range index on each property separately",
+        "B. A composite index on /lastName ASC, /firstName ASC",
+        "C. A spatial index on both properties",
+        "D. A full-text search index"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A composite index on /lastName ASC and /firstName ASC is required for multi-property ORDER BY queries in Cosmos DB. Without a composite index, the query engine must perform an expensive in-memory sort, consuming many more RUs.\n\nWhy the others are wrong:\n- A. Separate range indexes on each property don't support multi-property ORDER BY operations.\n- C. Spatial indexes are for geospatial data types (Point, Polygon), not for string sorting.\n- D. Full-text search indexes are for text search scenarios, not for ORDER BY optimization."
+    },
+    {
+      "id": 10,
+      "topic": "Stored Procedures - Error handling",
+      "type": "SingleChoice",
+      "questionText": "Your stored procedure in Cosmos DB needs to process 10,000 documents but might exceed the execution timeout. What pattern should you implement?",
+      "options": [
+        "A. Increase the timeout to unlimited",
+        "B. Implement a continuation pattern that processes batches and returns a continuation token",
+        "C. Split the work across multiple containers",
+        "D. Use a pre-trigger instead"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The continuation pattern processes a batch of documents per execution, checks remaining execution time via the response object, and returns a continuation token when approaching the timeout. The client re-invokes the stored procedure with the token to continue from where it left off.\n\nWhy the others are wrong:\n- A. Cosmos DB has a fixed server-side execution timeout for stored procedures that cannot be increased to unlimited.\n- C. Splitting across containers doesn't solve the timeout issue and adds complexity.\n- D. Pre-triggers are executed before a single document operation and cannot process 10,000 documents."
+    },
+    {
+      "id": 11,
+      "topic": "Change Feed - Change feed processor",
+      "type": "MultipleChoice",
+      "questionText": "You are implementing a change feed processor to process changes from a Cosmos DB container. Which TWO components are required? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A monitored container (the source of changes)",
+        "B. A lease container (to track processing state)",
+        "C. A stored procedure in the source container",
+        "D. An Azure API Management gateway"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The change feed processor requires a monitored container (the source from which changes are read) and a lease container (which stores checkpoint/lease information to track which changes have been processed and enable multiple consumers).\n\nWhy the others are wrong:\n- C. Stored procedures are not required for change feed processing; the change feed processor reads changes externally.\n- D. API Management is an API gateway service and has no role in change feed processing."
+    },
+    {
+      "id": 12,
+      "topic": "Global Distribution - Conflict resolution",
+      "type": "SingleChoice",
+      "questionText": "You have a Cosmos DB account with multi-region writes enabled. Two users in different regions update the same document simultaneously. How does Cosmos DB resolve this conflict by default?",
+      "options": [
+        "A. The first write wins",
+        "B. Last Writer Wins (LWW) based on the _ts timestamp property",
+        "C. Both writes are rejected",
+        "D. A merge operation combines both changes"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The default conflict resolution policy in Cosmos DB is Last Writer Wins (LWW), which uses the _ts (timestamp) property to determine which write was most recent. The write with the higher timestamp value wins.\n\nWhy the others are wrong:\n- A. There is no 'first write wins' policy in Cosmos DB.\n- C. Cosmos DB doesn't reject concurrent writes; it resolves conflicts using the configured policy.\n- D. Automatic merge operations are not performed by default; you would need a custom conflict resolution procedure for merge logic."
+    },
+    {
+      "id": 13,
+      "topic": "Partition Keys - Avoiding hot partitions",
+      "type": "SingleChoice",
+      "questionText": "Your IoT application writes telemetry data to Cosmos DB with a partition key of /deviceId. One device generates 90% of all traffic, creating a hot partition. How should you address this?",
+      "options": [
+        "A. Remove the partition key to distribute data randomly",
+        "B. Use a synthetic partition key that combines deviceId with a random suffix",
+        "C. Increase the provisioned RU/s",
+        "D. Use Strong consistency to slow down writes"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A synthetic partition key combining deviceId with a random suffix (e.g., /deviceId-random(1-10)) distributes the hot device's data across multiple logical partitions, spreading the write load evenly.\n\nWhy the others are wrong:\n- A. You cannot remove the partition key from a container; every container must have one.\n- C. Increasing RU/s doesn't fix the hot partition problem. A single logical partition has a throughput limit of 10,000 RU/s regardless of total provisioned throughput.\n- D. Reducing write speed doesn't solve the fundamental distribution problem and degrades application performance."
+    },
+    {
+      "id": 14,
+      "topic": "Consistency Levels - Bounded staleness",
+      "type": "SingleChoice",
+      "questionText": "Your application requires that reads are never more than 5 seconds behind writes across all regions. Which consistency level and configuration should you use?",
+      "options": [
+        "A. Eventual consistency",
+        "B. Bounded staleness with maxStalenessSeconds set to 5",
+        "C. Session consistency with 5-second timeout",
+        "D. Strong consistency"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Bounded staleness allows you to configure the maximum lag (in time or operations) that reads can fall behind writes. Setting maxStalenessSeconds to 5 ensures reads are never more than 5 seconds behind writes.\n\nWhy the others are wrong:\n- A. Eventual consistency provides no guarantee on how stale reads might be.\n- C. Session consistency doesn't have a staleness timeout parameter; it guarantees read-your-own-writes within a session.\n- D. Strong consistency guarantees zero staleness but has higher latency and is only available in single-write-region accounts."
+    },
+    {
+      "id": 15,
+      "topic": "Indexing - Excluding paths",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB container stores documents with a large 'binaryPayload' property that is never used in queries. Including it in the index increases write RU costs significantly. What should you do?",
+      "options": [
+        "A. Exclude /binaryPayload/* from the indexing policy",
+        "B. Move the property to a separate container",
+        "C. Compress the property before storing",
+        "D. Use a TTL to auto-delete old documents"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Excluding /binaryPayload/* from the indexing policy prevents the large property from being indexed, significantly reducing write RU costs. The property is still stored in the document but not included in the index.\n\nWhy the others are wrong:\n- B. Moving to a separate container adds complexity and requires cross-container queries.\n- C. Compression reduces storage but doesn't address indexing overhead for the stored value.\n- D. TTL controls document lifetime, not indexing behavior."
+    },
+    {
+      "id": 16,
+      "topic": "Stored Procedures - Use cases",
+      "type": "SingleChoice",
+      "questionText": "Which scenario is best suited for a Cosmos DB stored procedure?",
+      "options": [
+        "A. Running a cross-partition aggregate query",
+        "B. Performing an atomic batch operation on documents within the same partition key",
+        "C. Scheduling periodic data cleanup across all partitions",
+        "D. Implementing authentication logic for API clients"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Stored procedures execute within a single partition key scope and provide ACID transactions. They are ideal for atomic batch operations where multiple documents within the same partition must be updated together.\n\nWhy the others are wrong:\n- A. Stored procedures cannot run cross-partition queries; they are scoped to a single partition key.\n- C. Stored procedures run within a single partition and cannot schedule periodic tasks across all partitions.\n- D. Authentication logic belongs in the application tier or API gateway, not in database stored procedures."
+    },
+    {
+      "id": 17,
+      "topic": "Change Feed - Use cases",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO scenarios are appropriate uses for the Cosmos DB change feed? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Triggering downstream processing when documents are inserted or updated",
+        "B. Maintaining a denormalized materialized view in a separate container",
+        "C. Receiving notifications when documents are deleted (with default change feed mode)",
+        "D. Performing cross-partition joins in real-time"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The change feed captures inserts and updates, making it ideal for triggering downstream processing (e.g., sending notifications, updating search indexes). It's also commonly used to maintain denormalized views by replicating changes to other containers with different partition keys.\n\nWhy the others are wrong:\n- C. The default change feed mode does not capture delete operations (only the all versions and deletes mode supports this, which is a newer feature).\n- D. The change feed processes individual document changes; it doesn't perform cross-partition joins."
+    },
+    {
+      "id": 18,
+      "topic": "Global Distribution - Read regions",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB account is configured with a single write region in East US and read regions in West Europe and Southeast Asia. Users in Southeast Asia report high read latency. What is the most likely cause?",
+      "options": [
+        "A. The application is not configured to use the nearest read region",
+        "B. The consistency level is set to Eventual",
+        "C. The partition key is poorly designed",
+        "D. The change feed is consuming too many RUs"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The application's Cosmos DB SDK must be configured with PreferredLocations (or ApplicationRegion) set to include Southeast Asia so that reads are routed to the nearest replica. Without this configuration, reads may be routed to a distant region.\n\nWhy the others are wrong:\n- B. Eventual consistency is actually the lowest latency option; it wouldn't cause high latency.\n- C. Partition key design affects RU consumption and data distribution, not regional routing latency.\n- D. Change feed processing is independent and doesn't affect read query routing."
+    },
+    {
+      "id": 19,
+      "topic": "Partition Keys - Cross-partition queries",
+      "type": "SingleChoice",
+      "questionText": "A query against your Cosmos DB container does not include the partition key in the WHERE clause. What is the performance impact?",
+      "options": [
+        "A. The query is rejected with an error",
+        "B. The query becomes a fan-out (cross-partition) query that hits all physical partitions, consuming more RUs",
+        "C. The query automatically uses the most recent partition",
+        "D. The query runs faster because it can access all data simultaneously"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Without the partition key in the filter, Cosmos DB must send the query to all physical partitions (fan-out). The RU charge is the sum of RUs consumed across all partitions, making it significantly more expensive than a single-partition query.\n\nWhy the others are wrong:\n- A. Cross-partition queries are allowed by default (with EnableCrossPartitionQuery=true in older SDKs); they're not rejected.\n- C. Cosmos DB doesn't automatically select a single partition; it queries all partitions.\n- D. While parallelism helps, the total RU cost is much higher, making cross-partition queries less efficient overall."
+    },
+    {
+      "id": 20,
+      "topic": "Consistency Levels - Performance implications",
+      "type": "SingleChoice",
+      "questionText": "Switching from Strong consistency to Eventual consistency in a multi-region Cosmos DB deployment primarily affects which operational characteristic?",
+      "options": [
+        "A. Write RU cost increases",
+        "B. Read latency decreases and read availability increases",
+        "C. Storage costs increase",
+        "D. The maximum document size decreases"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Moving from Strong to Eventual consistency reduces read latency because reads don't need to wait for cross-region acknowledgment. Availability also improves because reads can be served from any available replica without quorum requirements.\n\nWhy the others are wrong:\n- A. Write RU cost is not directly affected by consistency level changes for read operations.\n- C. Storage costs are based on data size, not consistency level.\n- D. Maximum document size (2 MB) is fixed and unrelated to consistency levels."
+    },
+    {
+      "id": 21,
+      "topic": "Indexing - Spatial indexes",
+      "type": "SingleChoice",
+      "questionText": "Your application stores location data in Cosmos DB and needs to find all stores within a 10-kilometer radius of a user's location. Which index type must be configured?",
+      "options": [
+        "A. Range index",
+        "B. Spatial index on the location property",
+        "C. Composite index",
+        "D. Hash index"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Spatial indexes enable geospatial queries such as ST_DISTANCE, ST_WITHIN, and ST_INTERSECTS. To find stores within a radius, you need a spatial index on the location property containing GeoJSON Point data.\n\nWhy the others are wrong:\n- A. Range indexes support equality and range comparisons on scalar values, not geospatial distance calculations.\n- C. Composite indexes optimize multi-property ORDER BY and filter combinations, not geospatial queries.\n- D. Hash indexes are not a supported index type in Cosmos DB's SQL API."
+    },
+    {
+      "id": 22,
+      "topic": "Stored Procedures - Pre-triggers and post-triggers",
+      "type": "SingleChoice",
+      "questionText": "You want to automatically set a 'createdAt' timestamp on every new document inserted into a Cosmos DB container. Which approach should you use?",
+      "options": [
+        "A. A pre-trigger that sets the timestamp before the document is persisted",
+        "B. A post-trigger that modifies the document after insertion",
+        "C. A change feed processor that updates the document after creation",
+        "D. An Azure Policy that enforces the property"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A pre-trigger executes before the create operation is committed. It can modify the document (add or update properties like 'createdAt') before it is persisted to the database, ensuring the timestamp is always set atomically with the insert.\n\nWhy the others are wrong:\n- B. A post-trigger runs after the operation but cannot modify the document that was just inserted (it would need a separate update operation).\n- C. A change feed processor would require a separate read and update operation, adding latency and RU cost.\n- D. Azure Policy operates at the resource management level, not at the document data level."
+    },
+    {
+      "id": 23,
+      "topic": "Change Feed - Latest version vs all versions",
+      "type": "SingleChoice",
+      "questionText": "You need to detect when documents are deleted from a Cosmos DB container using the change feed. Which change feed mode supports this?",
+      "options": [
+        "A. Latest version mode (default)",
+        "B. All versions and deletes mode",
+        "C. Change feed is not available for delete detection",
+        "D. Incremental mode"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'all versions and deletes' mode of the change feed captures all changes including intermediate updates and delete operations. This mode provides a delete notification in the change feed when a document is removed.\n\nWhy the others are wrong:\n- A. Latest version mode (the default) only captures the latest version of inserts and updates; it does not capture deletes.\n- C. While the default mode doesn't capture deletes, the all versions and deletes mode does support this.\n- D. There is no 'Incremental mode' in Cosmos DB change feed."
+    },
+    {
+      "id": 24,
+      "topic": "Global Distribution - Automatic failover",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB account has automatic failover enabled with East US as the write region and West US as the first failover region. If East US becomes unavailable, what happens?",
+      "options": [
+        "A. All operations are rejected until East US recovers",
+        "B. Cosmos DB automatically promotes West US to be the new write region",
+        "C. You must manually initiate a failover from the Azure portal",
+        "D. The account switches to read-only mode"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. With automatic failover enabled, Cosmos DB automatically detects the regional outage and promotes the highest-priority failover region (West US) to be the new write region, with no manual intervention required.\n\nWhy the others are wrong:\n- A. Automatic failover prevents total unavailability by promoting a secondary region.\n- C. Manual failover initiation is only needed if automatic failover is disabled.\n- D. The account continues to accept both reads and writes after the automatic failover completes."
+    },
+    {
+      "id": 25,
+      "topic": "Partition Keys - Synthetic partition keys",
+      "type": "SingleChoice",
+      "questionText": "You are designing a Cosmos DB container for a chat application. Messages are queried by both conversationId and userId. No single property satisfies both query patterns equally. What should you use as the partition key?",
+      "options": [
+        "A. /conversationId only",
+        "B. /userId only",
+        "C. A synthetic key combining conversationId and userId",
+        "D. The built-in /id property"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. A synthetic partition key that combines conversationId and userId (e.g., '{conversationId}-{userId}') provides good distribution and allows efficient queries when both values are known. For queries by only one property, you can accept cross-partition queries or use a second container as a materialized view.\n\nWhy the others are wrong:\n- A. Using only conversationId makes userId-based queries cross-partition.\n- B. Using only userId makes conversationId-based queries cross-partition.\n- D. Using /id creates single-item partitions, which is inefficient for any multi-document query."
+    },
+    {
+      "id": 26,
+      "topic": "Consistency Levels - Consistent prefix",
+      "type": "SingleChoice",
+      "questionText": "Your application writes a sequence of values 1, 2, 3, 4, 5 to a document. With consistent prefix consistency, which read result is possible?",
+      "options": [
+        "A. 1, 2, 5 (skipping values)",
+        "B. 1, 2, 3 (partial but in order)",
+        "C. 3, 1, 2 (out of order)",
+        "D. 5, 4, 3, 2, 1 (reverse order)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Consistent prefix guarantees that reads never see out-of-order writes. You might see a prefix of the write sequence (1, 2, 3) but never values out of order or with gaps.\n\nWhy the others are wrong:\n- A. Seeing 1, 2, 5 (with 3 and 4 skipped) would be a gap, which violates consistent prefix.\n- C. Seeing 3, 1, 2 (out of order) violates the ordering guarantee of consistent prefix.\n- D. Seeing values in reverse order violates the consistent prefix ordering guarantee."
+    },
+    {
+      "id": 27,
+      "topic": "Indexing - Throughput optimization",
+      "type": "MultipleChoice",
+      "questionText": "You want to reduce the RU cost of write operations to a Cosmos DB container. Which TWO indexing changes can help? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Exclude properties that are never queried from the indexing policy",
+        "B. Change the indexing mode from Consistent to Lazy (if available)",
+        "C. Add more composite indexes for all possible query combinations",
+        "D. Use a narrower index path instead of the wildcard /*"
+      ],
+      "correctAnswers": ["A", "D"],
+      "explanation": "Correct: A and D. Excluding unqueried properties from the index reduces the number of index entries maintained during writes, lowering RU costs. Using narrower index paths (e.g., /name/? instead of /*) instead of wildcard indexing also reduces the index footprint.\n\nWhy the others are wrong:\n- B. Lazy indexing mode has been deprecated in Cosmos DB; Consistent is the only supported mode.\n- C. Adding more composite indexes increases write RU costs because more index structures must be maintained on each write."
+    },
+    {
+      "id": 28,
+      "topic": "Stored Procedures - JavaScript SDK",
+      "type": "SingleChoice",
+      "questionText": "In which programming language must Cosmos DB stored procedures, triggers, and UDFs be written when using the SQL (Core) API?",
+      "options": [
+        "A. C#",
+        "B. Python",
+        "C. JavaScript",
+        "D. T-SQL"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Cosmos DB stored procedures, triggers, and user-defined functions for the SQL API must be written in JavaScript. They execute in a sandboxed JavaScript runtime on the server side.\n\nWhy the others are wrong:\n- A. C# is used for Cosmos DB client SDK operations but not for server-side stored procedures.\n- B. Python is available as a client SDK but not for server-side execution.\n- D. T-SQL is used in Azure SQL; Cosmos DB SQL API uses a SQL-like query language but stored procedures are JavaScript."
+    },
+    {
+      "id": 29,
+      "topic": "Change Feed - Azure Functions integration",
+      "type": "SingleChoice",
+      "questionText": "You want to process Cosmos DB change feed events using Azure Functions with minimal code. Which Azure Functions trigger should you use?",
+      "options": [
+        "A. HTTP trigger with a Cosmos DB input binding",
+        "B. Cosmos DB trigger",
+        "C. Timer trigger with manual change feed reading",
+        "D. Event Grid trigger"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Cosmos DB trigger for Azure Functions automatically sets up a change feed processor. It invokes the function for each batch of changes with minimal configuration, requiring only the connection string and monitored collection information.\n\nWhy the others are wrong:\n- A. An HTTP trigger with input binding retrieves documents on demand but doesn't respond to changes automatically.\n- C. A timer trigger with manual reading adds unnecessary complexity when the Cosmos DB trigger handles everything.\n- D. Event Grid trigger responds to Event Grid events, which is a different mechanism than the Cosmos DB change feed."
+    },
+    {
+      "id": 30,
+      "topic": "Global Distribution - Read preference",
+      "type": "SingleChoice",
+      "questionText": "You want your application to read from the closest Cosmos DB region to minimize latency. How should you configure the SDK?",
+      "options": [
+        "A. Set the connection mode to Gateway",
+        "B. Configure ApplicationRegion or PreferredLocations in the CosmosClient",
+        "C. Use a higher consistency level",
+        "D. Enable diagnostic logging"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Setting ApplicationRegion (to the region where the application runs) or PreferredLocations (ordered list of preferred regions) in the CosmosClient configuration tells the SDK to route reads to the nearest available region.\n\nWhy the others are wrong:\n- A. Gateway vs Direct connection mode affects how the client connects to Cosmos DB endpoints, not regional routing.\n- C. Higher consistency levels don't affect regional routing; they affect data freshness guarantees.\n- D. Diagnostic logging provides telemetry information, not regional routing configuration."
+    },
+    {
+      "id": 31,
+      "topic": "Partition Keys - Partition key design patterns",
+      "type": "SingleChoice",
+      "questionText": "You have an application that needs to query all orders for a specific customer AND also query all orders placed on a specific date. A single container with one partition key cannot efficiently serve both patterns. What design should you use?",
+      "options": [
+        "A. Use a single container with /customerId as the partition key and accept cross-partition queries for date queries",
+        "B. Use the change feed to maintain two containers: one partitioned by /customerId and another by /orderDate",
+        "C. Use a single container with /orderDate as the partition key",
+        "D. Disable partitioning entirely"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The change feed pattern maintains two materialized views: one container partitioned by /customerId for customer queries and another partitioned by /orderDate for date queries. The change feed keeps them in sync automatically.\n\nWhy the others are wrong:\n- A. Accepting cross-partition queries for one pattern works for small datasets but becomes expensive at scale.\n- C. Partitioning only by /orderDate makes customer queries cross-partition instead.\n- D. You cannot disable partitioning in Cosmos DB; every container must have a partition key."
+    },
+    {
+      "id": 32,
+      "topic": "Consistency Levels - Tradeoffs",
+      "type": "SingleChoice",
+      "questionText": "Which Cosmos DB consistency level provides the best read throughput and lowest latency but offers the weakest data consistency guarantee?",
+      "options": [
+        "A. Strong",
+        "B. Bounded staleness",
+        "C. Session",
+        "D. Eventual"
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. Eventual consistency provides the highest read throughput and lowest latency because reads can be served from any replica without waiting for synchronization. However, it offers the weakest guarantee: reads might return stale or out-of-order data.\n\nWhy the others are wrong:\n- A. Strong consistency has the highest latency and lowest throughput because it requires cross-region quorum.\n- B. Bounded staleness has better performance than Strong but still maintains staleness bounds that reduce throughput.\n- C. Session consistency balances consistency and performance but still maintains session guarantees that add some overhead."
+    },
+    {
+      "id": 33,
+      "topic": "Indexing - Vector indexes",
+      "type": "SingleChoice",
+      "questionText": "You need to store and query vector embeddings for a similarity search application using Cosmos DB. Which indexing feature supports vector search operations?",
+      "options": [
+        "A. Range index on the embedding property",
+        "B. Vector indexing policy with a vector search index",
+        "C. Full-text search index",
+        "D. Composite index on embedding dimensions"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Cosmos DB supports vector indexing policies that enable efficient vector similarity search (e.g., cosine similarity, dot product) on vector embedding properties stored in documents.\n\nWhy the others are wrong:\n- A. Range indexes are for scalar comparisons, not multi-dimensional vector similarity calculations.\n- C. Full-text search is for text matching, not vector similarity search.\n- D. Composite indexes optimize multi-property queries, not high-dimensional vector search operations."
+    },
+    {
+      "id": 34,
+      "topic": "Global Distribution - Service level agreements",
+      "type": "SingleChoice",
+      "questionText": "What is the latency SLA that Cosmos DB guarantees for reads and writes at the 99th percentile?",
+      "options": [
+        "A. Less than 100 milliseconds for reads, less than 100 milliseconds for writes",
+        "B. Less than 10 milliseconds for reads, less than 10 milliseconds for writes",
+        "C. Less than 1 second for reads, less than 1 second for writes",
+        "D. Less than 50 milliseconds for reads, less than 200 milliseconds for writes"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Cosmos DB guarantees less than 10 milliseconds latency for both point reads and writes at the 99th percentile for a 1 KB document within the same region. This is backed by a financially backed SLA.\n\nWhy the others are wrong:\n- A. 100 milliseconds is too high; Cosmos DB's SLA is 10x better at less than 10 ms.\n- C. 1 second is far above the actual SLA guarantee.\n- D. The SLA is symmetric at less than 10 ms for both reads and writes, not different values."
+    },
+    {
+      "id": 35,
+      "topic": "Partition Keys - Throughput provisioning",
+      "type": "MultipleChoice",
+      "questionText": "You need to provision throughput for a Cosmos DB container. Which TWO throughput provisioning models are available? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Manual provisioned throughput (fixed RU/s)",
+        "B. Autoscale throughput (scales between a minimum and maximum RU/s)",
+        "C. Pay-per-query throughput (charged per individual query)",
+        "D. Reserved capacity throughput (1-year commitment with no scaling)"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Cosmos DB offers manual provisioned throughput where you set a fixed RU/s value, and autoscale throughput that automatically scales between 10% of the maximum and the maximum RU/s based on workload demand.\n\nWhy the others are wrong:\n- C. There is no pure pay-per-query model in the standard provisioned throughput; serverless mode is the closest but is a separate account type.\n- D. Reserved capacity provides a discount on provisioned throughput but is a billing model, not a separate provisioning mode."
+    },
+    {
+      "id": 36,
+      "topic": "Stored Procedures - Bounded execution",
+      "type": "SingleChoice",
+      "questionText": "You are writing a stored procedure that creates 100 documents. After creating 50 documents, the procedure exceeds the RU budget for the request. What happens?",
+      "options": [
+        "A. All 100 documents are created and the RU overage is billed",
+        "B. The stored procedure is terminated, and all 50 created documents are rolled back (none persist)",
+        "C. The first 50 documents persist and the remaining 50 are skipped",
+        "D. The procedure pauses and resumes automatically later"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Stored procedures in Cosmos DB are transactional within a partition. If the procedure is terminated (due to RU budget or timeout), the entire transaction is rolled back, and none of the 50 documents persist.\n\nWhy the others are wrong:\n- A. Cosmos DB does not allow RU overage; the procedure is terminated when limits are exceeded.\n- C. Partial commits are not possible because stored procedures are atomic transactions.\n- D. Stored procedures do not automatically pause and resume; you must implement continuation logic."
+    },
+    {
+      "id": 37,
+      "topic": "Change Feed - Serverless processing",
+      "type": "SingleChoice",
+      "questionText": "You need a cost-effective way to process Cosmos DB change feed events that occur infrequently (a few times per hour). Which Azure compute service is most cost-effective?",
+      "options": [
+        "A. Azure Functions consumption plan with Cosmos DB trigger",
+        "B. An always-running Azure VM polling for changes",
+        "C. An AKS cluster with a dedicated change feed processor pod",
+        "D. Azure Batch with scheduled jobs"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Functions on a consumption plan charges only for actual execution time. Combined with the Cosmos DB trigger, it automatically responds to changes and scales to zero when idle, making it extremely cost-effective for infrequent events.\n\nWhy the others are wrong:\n- B. An always-running VM incurs continuous charges regardless of how infrequently changes occur.\n- C. AKS clusters run continuously and are expensive for low-frequency event processing.\n- D. Azure Batch is designed for large-scale parallel compute jobs, not real-time event processing."
+    },
+    {
+      "id": 38,
+      "topic": "Global Distribution - Multi-region reads",
+      "type": "SingleChoice",
+      "questionText": "You have a Cosmos DB account with regions in East US (write) and West Europe (read). A network partition isolates West Europe from East US. What happens to read operations in West Europe with Session consistency?",
+      "options": [
+        "A. All reads in West Europe fail immediately",
+        "B. Reads continue to be served from the West Europe replica, potentially with stale data",
+        "C. West Europe automatically becomes the write region",
+        "D. The account switches to Strong consistency"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. With Session consistency, reads in West Europe continue to be served from the local replica even during a network partition. The data may be stale (not reflecting recent writes to East US), but availability is maintained.\n\nWhy the others are wrong:\n- A. Cosmos DB's multi-region design ensures reads remain available from local replicas during partitions.\n- C. Automatic promotion to write region only occurs if automatic failover is enabled and the write region is detected as unavailable.\n- D. The consistency level doesn't change automatically during network events."
+    },
+    {
+      "id": 39,
+      "topic": "Indexing - TTL and indexing interaction",
+      "type": "SingleChoice",
+      "questionText": "You configure a TTL (Time-to-Live) of 3600 seconds on a Cosmos DB container. What happens to the index entries when a document expires?",
+      "options": [
+        "A. Index entries remain permanently even after the document expires",
+        "B. Index entries are automatically removed when the TTL-expired document is deleted",
+        "C. You must manually rebuild the index after documents expire",
+        "D. TTL and indexing cannot be used on the same container"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When a document expires due to TTL, Cosmos DB automatically deletes the document and its associated index entries. This is a background process that consumes RUs and maintains index consistency.\n\nWhy the others are wrong:\n- A. Index entries do not persist after document deletion; they are cleaned up automatically.\n- C. Manual index rebuilds are not required; the process is fully automatic.\n- D. TTL and indexing work together seamlessly on the same container."
+    },
+    {
+      "id": 40,
+      "topic": "Global Distribution - Cosmos DB APIs",
+      "type": "SingleChoice",
+      "questionText": "You need to migrate a MongoDB application to Azure Cosmos DB with minimal code changes to the data access layer. Which Cosmos DB API should you select?",
+      "options": [
+        "A. SQL (Core) API",
+        "B. API for MongoDB",
+        "C. API for Apache Cassandra",
+        "D. API for Apache Gremlin"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Cosmos DB API for MongoDB is wire-protocol compatible with MongoDB. Applications using MongoDB drivers and query syntax can connect to Cosmos DB with minimal code changes, typically only requiring a connection string update.\n\nWhy the others are wrong:\n- A. SQL API uses a different query language and data access patterns than MongoDB, requiring significant code changes.\n- C. Cassandra API is compatible with Apache Cassandra workloads, not MongoDB.\n- D. Gremlin API is for graph database workloads, not MongoDB-compatible applications."
+    }
+  ]
+}

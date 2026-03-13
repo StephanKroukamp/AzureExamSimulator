@@ -1,0 +1,566 @@
+{
+  "examCode": "DP-100",
+  "examTitle": "Azure Data Scientist Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Azure Machine Learning Workspace - Resource provisioning",
+      "type": "SingleChoice",
+      "questionText": "You are creating a new Azure Machine Learning workspace. Which of the following Azure resources is automatically provisioned when the workspace is created?",
+      "options": [
+        "A. Azure Databricks cluster",
+        "B. Azure Storage account",
+        "C. Azure Synapse Analytics workspace",
+        "D. Azure Cognitive Services resource"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When you create an Azure Machine Learning workspace, an Azure Storage account is automatically provisioned along with Azure Key Vault, Azure Container Registry (optional), and Application Insights. The storage account is used to store datasets, model artifacts, logs, and other workspace data.\n\nWhy the others are wrong:\n- A. Azure Databricks is a separate service that can integrate with Azure ML but is not automatically provisioned.\n- C. Azure Synapse Analytics is an independent analytics service and is not created with an ML workspace.\n- D. Azure Cognitive Services is a separate AI service and is not part of the workspace provisioning."
+    },
+    {
+      "id": 2,
+      "topic": "AutoML - Classification task",
+      "type": "SingleChoice",
+      "questionText": "You need to use Azure Machine Learning AutoML to build a classification model that predicts customer churn. The dataset is highly imbalanced with only 3% positive cases. Which primary metric should you select to best evaluate model performance?",
+      "options": [
+        "A. Accuracy",
+        "B. AUC weighted",
+        "C. Precision score weighted",
+        "D. Norm macro recall"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. AUC weighted (Area Under the ROC Curve, weighted) is the recommended primary metric for imbalanced classification problems. It measures the model's ability to distinguish between classes regardless of the classification threshold and is robust to class imbalance.\n\nWhy the others are wrong:\n- A. Accuracy is misleading for imbalanced datasets. A model predicting all negatives would achieve 97% accuracy but miss all churn cases.\n- C. Precision score weighted focuses on the proportion of positive predictions that are correct but doesn't capture the model's ability to find all positive cases.\n- D. Norm macro recall treats all classes equally regardless of size, which can be useful but AUC weighted provides a more comprehensive evaluation across all thresholds."
+    },
+    {
+      "id": 3,
+      "topic": "ML Pipelines - Pipeline steps",
+      "type": "SingleChoice",
+      "questionText": "You are building an Azure Machine Learning pipeline that includes data preparation, model training, and model evaluation steps. You want to ensure that the data preparation step is only re-executed when the input data or script changes. What should you configure?",
+      "options": [
+        "A. Set allow_reuse=True on the pipeline step",
+        "B. Set allow_reuse=False on the pipeline step",
+        "C. Configure a schedule trigger for the pipeline",
+        "D. Use a ParallelRunStep instead of a PythonScriptStep"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Setting allow_reuse=True on the pipeline step enables output reuse. Azure ML will check if the step's inputs, parameters, and script have changed since the last run. If nothing has changed, it reuses the previous output, saving time and compute resources.\n\nWhy the others are wrong:\n- B. Setting allow_reuse=False forces the step to re-execute every time, which is the opposite of what's needed.\n- C. A schedule trigger controls when the pipeline runs, not whether individual steps are re-executed.\n- D. ParallelRunStep is designed for batch inference on large datasets and has nothing to do with controlling step reuse."
+    },
+    {
+      "id": 4,
+      "topic": "Model Training - Compute targets",
+      "type": "SingleChoice",
+      "questionText": "You need to train a deep learning model that requires GPU acceleration. The training job runs for approximately 6 hours. You want to minimize costs. Which compute target should you use?",
+      "options": [
+        "A. Compute instance with a GPU VM size",
+        "B. Compute cluster with a GPU VM size and minimum nodes set to 0",
+        "C. Azure Kubernetes Service cluster",
+        "D. Compute cluster with a CPU VM size and maximum nodes set to 10"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A compute cluster with a GPU VM size and minimum nodes set to 0 is the most cost-effective option. The cluster automatically scales up when a job is submitted and scales back down to 0 nodes when idle, so you only pay for the compute time used during training.\n\nWhy the others are wrong:\n- A. A compute instance runs continuously (unless manually stopped) and is typically used for development and experimentation, making it more expensive for long training jobs.\n- C. AKS clusters are designed for model deployment and inference, not for training workloads.\n- D. A CPU VM size cannot provide GPU acceleration required for deep learning training."
+    },
+    {
+      "id": 5,
+      "topic": "Model Deployment - Real-time endpoints",
+      "type": "SingleChoice",
+      "questionText": "You have trained a model and want to deploy it as a real-time web service for low-latency predictions. Which deployment target should you use in Azure Machine Learning?",
+      "options": [
+        "A. Batch endpoint",
+        "B. Managed online endpoint",
+        "C. Azure Data Factory pipeline",
+        "D. Azure Functions consumption plan"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed online endpoints in Azure ML are designed specifically for real-time inference with low latency. They provide built-in load balancing, scaling, security, and monitoring capabilities tailored for serving ML models.\n\nWhy the others are wrong:\n- A. Batch endpoints are designed for processing large volumes of data asynchronously, not for low-latency real-time predictions.\n- C. Azure Data Factory is an ETL/data integration service, not designed for serving ML model predictions.\n- D. Azure Functions consumption plan could host a model but lacks the ML-specific features like traffic splitting, model versioning, and built-in monitoring that managed online endpoints provide."
+    },
+    {
+      "id": 6,
+      "topic": "MLflow - Experiment tracking",
+      "type": "SingleChoice",
+      "questionText": "You are using MLflow integrated with Azure Machine Learning to track experiments. Which MLflow function should you use to log a single numeric metric during a training run?",
+      "options": [
+        "A. mlflow.log_artifact()",
+        "B. mlflow.log_metric()",
+        "C. mlflow.log_param()",
+        "D. mlflow.log_model()"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. mlflow.log_metric() is used to log a single numeric value (such as accuracy, loss, or F1 score) associated with a specific key name during a training run.\n\nWhy the others are wrong:\n- A. mlflow.log_artifact() is used to log files (such as images, data files, or model files) as artifacts, not numeric metrics.\n- C. mlflow.log_param() is used to log input parameters (like learning rate, batch size) for a run, not output metrics.\n- D. mlflow.log_model() is used to log an ML model in MLflow format, not individual numeric metrics."
+    },
+    {
+      "id": 7,
+      "topic": "Responsible AI - Fairness",
+      "type": "MultipleChoice",
+      "questionText": "You need to assess fairness of a classification model across different demographic groups before deployment. Which TWO actions should you take in Azure Machine Learning? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Use the Fairlearn library to compute fairness metrics",
+        "B. Use AutoML featurization to remove sensitive features",
+        "C. Generate a Responsible AI dashboard with the fairness component",
+        "D. Deploy the model to a batch endpoint for evaluation"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. The Fairlearn library provides metrics like demographic parity and equalized odds to measure model fairness across sensitive groups. The Responsible AI dashboard in Azure ML includes a fairness component that visualizes these metrics, enabling you to identify and understand disparities.\n\nWhy the others are wrong:\n- B. Simply removing sensitive features does not guarantee fairness. Proxy features correlated with sensitive attributes can still cause bias, and removing features may reduce model accuracy.\n- D. Deploying to a batch endpoint is an inference mechanism and does not provide fairness evaluation capabilities."
+    },
+    {
+      "id": 8,
+      "topic": "Data Preparation - Datasets",
+      "type": "SingleChoice",
+      "questionText": "You have a large CSV file stored in Azure Blob Storage and need to register it as a dataset in Azure Machine Learning. You want to avoid loading the entire file into memory when accessing subsets of data. Which dataset type should you use?",
+      "options": [
+        "A. FileDataset",
+        "B. TabularDataset",
+        "C. DataReference",
+        "D. OutputFileDatasetConfig"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. TabularDataset represents data in tabular format and supports lazy evaluation, meaning it doesn't load data into memory until it's actually consumed. It supports operations like take(), skip(), and filtering, allowing you to work with subsets without loading the entire file.\n\nWhy the others are wrong:\n- A. FileDataset provides paths to files but doesn't offer tabular operations or lazy evaluation of row-level data subsets.\n- C. DataReference is a legacy concept for pointing to data stores and doesn't provide dataset registration or subset operations.\n- D. OutputFileDatasetConfig is used to define output locations for pipeline steps, not for registering input datasets."
+    },
+    {
+      "id": 9,
+      "topic": "AutoML - Featurization",
+      "type": "SingleChoice",
+      "questionText": "When running an AutoML experiment in Azure Machine Learning, the automatic featurization performs several preprocessing steps. Which of the following is NOT a default featurization step?",
+      "options": [
+        "A. Imputing missing values",
+        "B. Generating date/time features from datetime columns",
+        "C. Performing principal component analysis (PCA)",
+        "D. One-hot encoding categorical features with high cardinality guard rails"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. PCA (Principal Component Analysis) is not a default featurization step in AutoML. PCA is a dimensionality reduction technique that must be explicitly configured if needed.\n\nWhy the others are wrong:\n- A. AutoML automatically handles missing values through imputation as part of default featurization.\n- B. AutoML automatically extracts features from datetime columns such as year, month, day, day of week, etc.\n- D. AutoML applies one-hot encoding to categorical features and includes guard rails for high-cardinality columns."
+    },
+    {
+      "id": 10,
+      "topic": "Model Training - Hyperparameter tuning",
+      "type": "SingleChoice",
+      "questionText": "You want to use Azure Machine Learning to perform hyperparameter tuning for a training script. You need to define a search space where the learning rate is sampled from a continuous range between 0.001 and 0.1 on a logarithmic scale. Which function should you use?",
+      "options": [
+        "A. choice(0.001, 0.01, 0.1)",
+        "B. uniform(0.001, 0.1)",
+        "C. loguniform(math.log(0.001), math.log(0.1))",
+        "D. normal(0.05, 0.02)"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. loguniform samples values from a log-uniform distribution, which is ideal for hyperparameters like learning rate where you want to search across orders of magnitude. The parameters are the natural logarithms of the minimum and maximum values.\n\nWhy the others are wrong:\n- A. choice() selects from discrete values, not a continuous range.\n- B. uniform() samples uniformly between min and max, which would over-sample larger values. For learning rate, logarithmic sampling is preferred to give equal probability to each order of magnitude.\n- D. normal() samples from a Gaussian distribution centered at 0.05, which could produce values outside the desired range and doesn't focus exploration on lower values."
+    },
+    {
+      "id": 11,
+      "topic": "ML Pipelines - Data transfer",
+      "type": "SingleChoice",
+      "questionText": "You are designing an Azure Machine Learning pipeline with multiple steps. You need to pass data from the output of one step to the input of the next step. What should you use?",
+      "options": [
+        "A. Environment variables",
+        "B. Pipeline parameters",
+        "C. OutputDatasetConfig and InputDatasetConfig",
+        "D. Azure Queue Storage messages"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. OutputDatasetConfig (or PipelineData) is used to define the output of a pipeline step, which can then be consumed as input by a subsequent step using InputDatasetConfig. This is the standard mechanism for passing intermediate data between pipeline steps.\n\nWhy the others are wrong:\n- A. Environment variables are set at the compute level and cannot reliably pass output data between pipeline steps.\n- B. Pipeline parameters are used to provide input values when submitting a pipeline run, not for passing intermediate data between steps.\n- D. Azure Queue Storage is a messaging service and is not the standard mechanism for data transfer between ML pipeline steps."
+    },
+    {
+      "id": 12,
+      "topic": "Model Deployment - Blue-green deployment",
+      "type": "SingleChoice",
+      "questionText": "You have a model deployed to a managed online endpoint. You want to deploy an updated model version and gradually shift traffic from the old model to the new one. What feature should you use?",
+      "options": [
+        "A. A/B testing with pipeline experiments",
+        "B. Traffic splitting across multiple deployments under the same endpoint",
+        "C. Deploying to a separate endpoint and using Azure Traffic Manager",
+        "D. Scheduled retraining with AutoML"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed online endpoints support multiple deployments under a single endpoint, and you can configure traffic splitting percentages. This allows you to gradually shift traffic from the old deployment to the new one (e.g., 90/10, then 50/50, then 0/100).\n\nWhy the others are wrong:\n- A. A/B testing with pipeline experiments is used for comparing training experiments, not for gradually shifting inference traffic.\n- C. Using a separate endpoint with Azure Traffic Manager is unnecessarily complex when managed online endpoints natively support traffic splitting.\n- D. Scheduled retraining automates model updates but doesn't provide gradual traffic shifting for deployment."
+    },
+    {
+      "id": 13,
+      "topic": "Responsible AI - Interpretability",
+      "type": "SingleChoice",
+      "questionText": "You need to explain the predictions of a black-box model to business stakeholders. Which technique in the Azure Machine Learning Responsible AI dashboard provides model-agnostic feature importance explanations?",
+      "options": [
+        "A. Causal analysis",
+        "B. Error analysis",
+        "C. SHAP (SHapley Additive exPlanations)",
+        "D. Counterfactual analysis"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. SHAP values provide model-agnostic feature importance explanations by computing the contribution of each feature to individual predictions. The Responsible AI dashboard uses SHAP to generate both global and local explanations.\n\nWhy the others are wrong:\n- A. Causal analysis identifies causal relationships between features and outcomes but doesn't directly explain individual model predictions.\n- B. Error analysis helps identify cohorts where the model performs poorly but doesn't explain feature contributions to predictions.\n- D. Counterfactual analysis shows what minimal changes to input features would change the prediction, but doesn't provide feature importance rankings."
+    },
+    {
+      "id": 14,
+      "topic": "Azure ML Workspace - Environments",
+      "type": "SingleChoice",
+      "questionText": "You are submitting a training job to Azure Machine Learning and need to ensure the job runs with specific Python packages. What should you define to specify the runtime dependencies?",
+      "options": [
+        "A. A compute target configuration",
+        "B. An Azure ML Environment",
+        "C. A workspace connection",
+        "D. A data store mount"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An Azure ML Environment defines the Python packages, environment variables, and Docker settings needed to run training and scoring scripts. It ensures reproducibility by encapsulating all software dependencies.\n\nWhy the others are wrong:\n- A. A compute target configuration defines the hardware (VM size, cluster settings) but not the software dependencies.\n- C. A workspace connection links external services to the workspace but doesn't define runtime packages.\n- D. A data store mount provides access to data but doesn't specify Python packages or software dependencies."
+    },
+    {
+      "id": 15,
+      "topic": "AutoML - Time series forecasting",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring an AutoML time series forecasting experiment. Which TWO settings are required to correctly set up the forecasting task? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Specify the time column name",
+        "B. Set the forecast horizon",
+        "C. Enable deep learning models only",
+        "D. Set the primary metric to accuracy"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. For time series forecasting in AutoML, you must specify the time column name (to identify the temporal ordering of data) and the forecast horizon (the number of periods into the future to predict). These are fundamental configuration requirements.\n\nWhy the others are wrong:\n- C. Deep learning is optional and not required. AutoML explores multiple algorithms including traditional and deep learning models by default.\n- D. Accuracy is a classification metric, not applicable to forecasting tasks. Forecasting uses metrics like normalized RMSE or MAPE."
+    },
+    {
+      "id": 16,
+      "topic": "Model Training - Distributed training",
+      "type": "SingleChoice",
+      "questionText": "You need to train a large deep learning model using distributed training across multiple GPU nodes in Azure Machine Learning. Which distribution configuration should you use for a PyTorch-based training script?",
+      "options": [
+        "A. MpiConfiguration",
+        "B. TensorflowConfiguration",
+        "C. PyTorchConfiguration with process_count_per_node",
+        "D. ParallelRunConfig"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. PyTorchConfiguration is the appropriate distribution configuration for PyTorch-based distributed training. Setting process_count_per_node allows you to specify how many processes (typically matching GPU count) to launch per node.\n\nWhy the others are wrong:\n- A. MpiConfiguration is used for MPI-based distributed training frameworks like Horovod, not native PyTorch distributed training.\n- B. TensorflowConfiguration is specific to TensorFlow distributed training, not PyTorch.\n- D. ParallelRunConfig is used for batch inference parallelization, not for distributed model training."
+    },
+    {
+      "id": 17,
+      "topic": "MLflow - Model registry",
+      "type": "SingleChoice",
+      "questionText": "You want to register a trained model in the Azure Machine Learning model registry using MLflow. After logging the model during a run, which approach should you use to register it?",
+      "options": [
+        "A. Use mlflow.register_model() with the run URI",
+        "B. Use mlflow.log_param() with the model path",
+        "C. Copy the model file manually to a blob container",
+        "D. Use mlflow.set_tag() to mark the model as registered"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. mlflow.register_model() takes a model URI (such as 'runs:/<run_id>/model') and a model name, and registers the model in the Azure ML model registry. This is the standard MLflow approach for model registration.\n\nWhy the others are wrong:\n- B. mlflow.log_param() logs parameters (key-value pairs), not models. It cannot register a model.\n- C. Manually copying files to blob storage doesn't register the model in the Azure ML model registry with proper versioning and metadata.\n- D. mlflow.set_tag() adds metadata tags to a run but does not register a model in the registry."
+    },
+    {
+      "id": 18,
+      "topic": "Data Preparation - Data drift",
+      "type": "SingleChoice",
+      "questionText": "You have deployed a model to production and want to monitor for data drift that might degrade model performance. What should you configure in Azure Machine Learning?",
+      "options": [
+        "A. A dataset monitor comparing a baseline dataset to incoming serving data",
+        "B. An AutoML retraining experiment scheduled daily",
+        "C. Application Insights alerts for HTTP errors",
+        "D. A compute cluster with auto-scaling enabled"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A dataset monitor in Azure ML compares the statistical properties of a baseline (training) dataset against new incoming data on a scheduled basis. It detects drift in feature distributions and can alert you when significant changes are detected.\n\nWhy the others are wrong:\n- B. Retraining daily is wasteful and doesn't help detect drift; it just tries to compensate without understanding the root cause.\n- C. HTTP error monitoring tracks service health, not data quality or statistical changes in input data.\n- D. Auto-scaling adjusts compute resources based on load, not data distribution changes."
+    },
+    {
+      "id": 19,
+      "topic": "Model Deployment - Batch endpoints",
+      "type": "SingleChoice",
+      "questionText": "You need to score millions of records overnight using a trained model. Latency is not a concern but cost efficiency is important. Which deployment approach should you use?",
+      "options": [
+        "A. Managed online endpoint with auto-scaling",
+        "B. Batch endpoint with a compute cluster",
+        "C. Real-time endpoint on AKS",
+        "D. Azure Functions with HTTP trigger"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Batch endpoints are designed for high-throughput, asynchronous scoring of large datasets. They use compute clusters that can scale up for processing and scale down to zero when done, making them cost-efficient for batch workloads.\n\nWhy the others are wrong:\n- A. Online endpoints are optimized for low-latency real-time inference. Running millions of records through an online endpoint is inefficient and more expensive.\n- C. AKS-based real-time endpoints are designed for always-on serving with low latency, making them unnecessarily expensive for batch scoring.\n- D. Azure Functions have execution time limits and are not optimized for processing millions of records in bulk."
+    },
+    {
+      "id": 20,
+      "topic": "Responsible AI - Error analysis",
+      "type": "SingleChoice",
+      "questionText": "You have trained a classification model and want to identify specific subgroups in the data where the model makes the most errors. Which component of the Responsible AI dashboard should you use?",
+      "options": [
+        "A. Data explorer",
+        "B. Error analysis",
+        "C. Model overview",
+        "D. Feature importance"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Error Analysis component of the Responsible AI dashboard uses a binary tree visualization and heat map to identify cohorts (subgroups) of data where the model has the highest error rates, helping you understand where the model fails.\n\nWhy the others are wrong:\n- A. Data explorer helps you explore the dataset characteristics but doesn't specifically analyze model error patterns across subgroups.\n- C. Model overview shows aggregate performance metrics but doesn't drill down into specific error-prone subgroups.\n- D. Feature importance shows which features drive predictions but doesn't identify specific data cohorts with high error rates."
+    },
+    {
+      "id": 21,
+      "topic": "Azure ML Workspace - Compute instances",
+      "type": "SingleChoice",
+      "questionText": "A data scientist needs a development environment in Azure Machine Learning for interactive notebook work. The environment should start quickly and have pre-installed ML frameworks. Which compute option is most appropriate?",
+      "options": [
+        "A. Compute cluster",
+        "B. Compute instance",
+        "C. Attached Databricks cluster",
+        "D. Serverless compute"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A compute instance is a managed cloud-based workstation designed for interactive development. It comes pre-configured with popular ML frameworks, Jupyter, and VS Code integration, making it ideal for notebook-based exploration.\n\nWhy the others are wrong:\n- A. Compute clusters are designed for running training jobs and batch processes, not for interactive development work.\n- C. An attached Databricks cluster requires a separate Databricks workspace and is more complex to set up for simple notebook work.\n- D. Serverless compute is used for running jobs without managing infrastructure, but doesn't provide a persistent interactive development environment."
+    },
+    {
+      "id": 22,
+      "topic": "AutoML - Model selection",
+      "type": "SingleChoice",
+      "questionText": "After running an AutoML experiment, you want to understand why a specific algorithm was selected as the best model. Where can you find the details about all models evaluated and their performance metrics?",
+      "options": [
+        "A. The workspace activity log",
+        "B. The AutoML run's child runs in Azure ML Studio",
+        "C. The Azure Monitor metrics blade",
+        "D. The compute instance terminal logs"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Each AutoML experiment creates child runs for every model evaluated. In Azure ML Studio, you can view all child runs, their metrics, and the algorithms used. The best model is highlighted, and you can compare performance across all evaluated models.\n\nWhy the others are wrong:\n- A. The workspace activity log tracks administrative operations, not individual model training results.\n- C. Azure Monitor metrics show compute and operational metrics, not ML model performance metrics.\n- D. Compute instance terminal logs would only show output if you ran AutoML from a notebook, and wouldn't provide the structured comparison view."
+    },
+    {
+      "id": 23,
+      "topic": "ML Pipelines - Scheduling",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure Machine Learning pipeline that retrains a model. You need to run this pipeline automatically every Monday at 8 AM UTC. What should you configure?",
+      "options": [
+        "A. A RecurrenceSchedule with frequency set to Week and day_of_week set to Monday",
+        "B. An Azure Logic App that calls the ML REST API",
+        "C. A cron job on the compute instance",
+        "D. An event-driven trigger on the datastore"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure ML supports RecurrenceSchedule (or ScheduleRecurrence) for pipelines, allowing you to set a recurring schedule with specific frequency (Week), day of week (Monday), and time (8:00 UTC). This is the native way to schedule pipeline runs.\n\nWhy the others are wrong:\n- B. Azure Logic Apps could trigger the pipeline but adds unnecessary complexity when Azure ML has built-in scheduling.\n- C. A cron job on a compute instance would require the instance to be running 24/7, which is wasteful and unreliable if the instance is stopped.\n- D. An event-driven trigger fires based on data changes, not on a fixed schedule."
+    },
+    {
+      "id": 24,
+      "topic": "Model Training - Feature engineering",
+      "type": "MultipleChoice",
+      "questionText": "You are preparing features for model training in Azure Machine Learning. Which TWO approaches can you use to create and manage reusable features across multiple experiments?",
+      "options": [
+        "A. Azure ML Feature Store",
+        "B. Inline feature transformations in the training script only",
+        "C. Registered datasets with transformation pipelines",
+        "D. Hardcoded feature values in environment variables"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct: A and C. Azure ML Feature Store (managed feature store) allows you to define, compute, and share features across experiments and teams. Registered datasets combined with transformation pipelines also enable reusable, versioned feature sets.\n\nWhy the others are wrong:\n- B. Inline transformations in training scripts are not reusable across experiments; each script would need to duplicate the logic.\n- D. Hardcoding feature values in environment variables is not a scalable or maintainable approach for feature management."
+    },
+    {
+      "id": 25,
+      "topic": "Model Deployment - Inference schema",
+      "type": "SingleChoice",
+      "questionText": "You are deploying a model to a managed online endpoint. Your scoring script's init() function loads the model, and the run() function processes requests. What must the run() function accept and return?",
+      "options": [
+        "A. Accept a pandas DataFrame and return a NumPy array",
+        "B. Accept raw request data (typically JSON string) and return a JSON-serializable response",
+        "C. Accept an Azure ML Dataset object and return a registered model",
+        "D. Accept a file path and return a CSV file"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The run() function in a scoring script receives raw request data (typically a JSON string from the HTTP request body) and must return a JSON-serializable response. You parse the input JSON, perform inference, and return results that can be serialized to JSON.\n\nWhy the others are wrong:\n- A. The function receives raw HTTP data, not pandas DataFrames directly. You may convert to DataFrame inside the function, but the interface is raw data.\n- C. Azure ML Dataset objects are for training data access, not for real-time inference request handling.\n- D. The endpoint communication is via HTTP with JSON payloads, not file paths and CSV files."
+    },
+    {
+      "id": 26,
+      "topic": "MLflow - Logging artifacts",
+      "type": "SingleChoice",
+      "questionText": "During a training run, you generate a confusion matrix plot and want to log it as an artifact in MLflow. Which approach should you use?",
+      "options": [
+        "A. mlflow.log_metric('confusion_matrix', plot_object)",
+        "B. mlflow.log_artifact(local_path_to_image_file)",
+        "C. mlflow.log_param('confusion_matrix', plot_data)",
+        "D. mlflow.set_experiment(confusion_matrix_data)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. mlflow.log_artifact() logs a local file (such as a saved plot image) as an artifact associated with the current run. You first save the plot to a local file, then log it.\n\nWhy the others are wrong:\n- A. mlflow.log_metric() only accepts numeric values, not plot objects or image data.\n- C. mlflow.log_param() is for logging input parameters as strings, not for binary artifacts like images.\n- D. mlflow.set_experiment() sets the active experiment name and has nothing to do with logging artifacts."
+    },
+    {
+      "id": 27,
+      "topic": "Responsible AI - Differential privacy",
+      "type": "SingleChoice",
+      "questionText": "You are training a model on sensitive healthcare data. The organization requires that the model cannot memorize or reveal individual patient records. Which technique should you apply?",
+      "options": [
+        "A. L2 regularization",
+        "B. Differential privacy during training",
+        "C. Data augmentation with synthetic records",
+        "D. Increasing the model complexity"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Differential privacy adds calibrated noise during the training process to provide mathematical guarantees that the model's outputs do not reveal information about any individual record in the training data. Libraries like SmartNoise and Opacus support this.\n\nWhy the others are wrong:\n- A. L2 regularization reduces overfitting but doesn't provide formal privacy guarantees about individual records.\n- C. Data augmentation adds variety to training data but doesn't prevent the model from memorizing real patient records.\n- D. Increasing model complexity would make memorization more likely, not less."
+    },
+    {
+      "id": 28,
+      "topic": "Data Preparation - Labeling",
+      "type": "SingleChoice",
+      "questionText": "You need to label a large image dataset for object detection. You want to use Azure Machine Learning's built-in capabilities to distribute labeling work among multiple annotators. What should you use?",
+      "options": [
+        "A. Azure ML Data Labeling project",
+        "B. Azure Cognitive Services Custom Vision",
+        "C. Azure ML AutoML image classification",
+        "D. Azure ML Designer drag-and-drop components"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure ML Data Labeling projects provide a built-in interface for managing labeling tasks across multiple annotators. It supports image classification, object detection, and text classification with features like ML-assisted labeling to speed up the process.\n\nWhy the others are wrong:\n- B. Custom Vision has its own labeling interface but is a separate service, not part of Azure ML's workspace-integrated labeling workflow.\n- C. AutoML image classification requires already-labeled data; it doesn't provide a labeling interface.\n- D. The Designer is for building ML pipelines visually, not for data labeling tasks."
+    },
+    {
+      "id": 29,
+      "topic": "Model Training - Transfer learning",
+      "type": "SingleChoice",
+      "questionText": "You have a small dataset of 500 medical images and need to build an image classification model. Which approach is most likely to produce the best results?",
+      "options": [
+        "A. Train a deep CNN from scratch on the 500 images",
+        "B. Use transfer learning with a pretrained model and fine-tune on the 500 images",
+        "C. Use a simple logistic regression on raw pixel values",
+        "D. Apply k-means clustering on the image features"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Transfer learning uses a model pretrained on a large dataset (like ImageNet) as a starting point. Fine-tuning the last layers on your small dataset leverages learned visual features, which significantly improves performance when data is limited.\n\nWhy the others are wrong:\n- A. Training a deep CNN from scratch with only 500 images would likely result in severe overfitting due to insufficient data.\n- C. Logistic regression on raw pixels ignores spatial relationships and hierarchical features that CNNs capture, resulting in poor performance.\n- D. K-means clustering is an unsupervised method and cannot directly perform classification."
+    },
+    {
+      "id": 30,
+      "topic": "ML Pipelines - Component-based pipelines",
+      "type": "SingleChoice",
+      "questionText": "You are building Azure ML pipelines using the v2 SDK. You want to create reusable, shareable pipeline building blocks. What should you create?",
+      "options": [
+        "A. Azure ML Components",
+        "B. Azure ML Endpoints",
+        "C. Azure ML Datastores",
+        "D. Azure ML Linked Services"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure ML Components are self-contained pieces of code that perform one step in an ML pipeline. They have defined inputs, outputs, and environments, making them reusable and shareable across pipelines and workspaces.\n\nWhy the others are wrong:\n- B. Endpoints are for serving deployed models, not for building reusable pipeline steps.\n- C. Datastores are connections to data storage services, not reusable pipeline building blocks.\n- D. Linked Services connect to external resources but are not the building blocks for pipeline steps."
+    },
+    {
+      "id": 31,
+      "topic": "Model Deployment - Monitoring",
+      "type": "SingleChoice",
+      "questionText": "After deploying a model to a managed online endpoint, you want to monitor the endpoint for request latency and failure rates. Which Azure service is automatically integrated for this purpose?",
+      "options": [
+        "A. Azure Monitor with Application Insights",
+        "B. Azure Security Center",
+        "C. Azure Cost Management",
+        "D. Azure Advisor"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Machine Learning managed online endpoints automatically integrate with Azure Monitor and Application Insights. This provides metrics on request latency, throughput, failure rates, and allows you to set up alerts and dashboards.\n\nWhy the others are wrong:\n- B. Azure Security Center focuses on security posture and threat detection, not endpoint performance monitoring.\n- C. Azure Cost Management tracks spending, not operational metrics like latency and failure rates.\n- D. Azure Advisor provides best practice recommendations, not real-time endpoint monitoring."
+    },
+    {
+      "id": 32,
+      "topic": "AutoML - Blocked algorithms",
+      "type": "SingleChoice",
+      "questionText": "You are running an AutoML classification experiment but want to exclude certain algorithms that are too complex for your production environment. How can you achieve this?",
+      "options": [
+        "A. Set the blocked_models parameter in the AutoML configuration",
+        "B. Remove the algorithms from the Azure ML SDK installation",
+        "C. Reduce the experiment timeout to avoid complex models",
+        "D. Set max_concurrent_iterations to 1"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The blocked_models (or blocked_training_algorithms) parameter in AutoML configuration allows you to specify a list of algorithms that AutoML should not try. This gives you control over which models are considered.\n\nWhy the others are wrong:\n- B. You cannot and should not modify the SDK installation to exclude algorithms; this would break other functionality.\n- C. Reducing timeout limits the search time but doesn't guarantee complex models won't be tried first.\n- D. Setting max_concurrent_iterations to 1 controls parallelism, not which algorithms are used."
+    },
+    {
+      "id": 33,
+      "topic": "Responsible AI - Model transparency",
+      "type": "MultipleChoice",
+      "questionText": "Your organization requires model transparency documentation before deploying any ML model to production. Which TWO artifacts should you create? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A model card describing the model's intended use, limitations, and evaluation metrics",
+        "B. A Responsible AI dashboard with explanations and fairness metrics",
+        "C. A cost analysis report for the compute resources used",
+        "D. A network security assessment of the endpoint"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. A model card documents the model's purpose, intended use cases, limitations, training data characteristics, and evaluation results. The Responsible AI dashboard provides interactive visualizations of model explanations, fairness assessments, and error analysis, ensuring comprehensive transparency.\n\nWhy the others are wrong:\n- C. Cost analysis relates to financial planning, not model transparency or trustworthiness.\n- D. Network security assessment is an infrastructure concern, not related to model behavior transparency."
+    },
+    {
+      "id": 34,
+      "topic": "Data Preparation - Data transformations",
+      "type": "SingleChoice",
+      "questionText": "You are using the Azure Machine Learning Designer to build a data preprocessing pipeline. You need to normalize numeric features to a range between 0 and 1. Which module should you use?",
+      "options": [
+        "A. Clean Missing Data",
+        "B. Normalize Data with Min-Max method",
+        "C. Join Data",
+        "D. Select Columns in Dataset"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Normalize Data module with the Min-Max method scales numeric features to a specified range (default 0 to 1). This is the standard approach for feature normalization in the Designer.\n\nWhy the others are wrong:\n- A. Clean Missing Data handles missing values (imputation or removal) but doesn't normalize feature ranges.\n- C. Join Data combines two datasets based on common columns but doesn't perform normalization.\n- D. Select Columns in Dataset filters which columns to include but doesn't transform their values."
+    },
+    {
+      "id": 35,
+      "topic": "Model Training - Early stopping",
+      "type": "SingleChoice",
+      "questionText": "You are running a hyperparameter sweep job in Azure Machine Learning and want to terminate poorly performing runs early to save compute resources. Which early termination policy should you use if you want to terminate runs that are not within 10% of the best performing run at each evaluation interval?",
+      "options": [
+        "A. BanditPolicy with slack_factor=0.1",
+        "B. MedianStoppingPolicy",
+        "C. TruncationSelectionPolicy with truncation_percentage=10",
+        "D. No early termination policy"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. BanditPolicy with slack_factor=0.1 terminates runs whose primary metric is not within 10% (0.1 slack) of the best performing run at the specified evaluation interval. This aggressively prunes poor performers.\n\nWhy the others are wrong:\n- B. MedianStoppingPolicy terminates runs whose performance is worse than the median of all runs, which is a different criterion than being within 10% of the best.\n- C. TruncationSelectionPolicy cancels a percentage of the lowest-performing runs at each interval, regardless of their absolute performance relative to the best.\n- D. No early termination wastes compute by letting all runs complete, including poor performers."
+    },
+    {
+      "id": 36,
+      "topic": "MLflow - Model flavors",
+      "type": "SingleChoice",
+      "questionText": "You trained a model using scikit-learn and want to log it using MLflow in a format that preserves the scikit-learn model type for easy loading. Which MLflow function should you use?",
+      "options": [
+        "A. mlflow.pyfunc.log_model()",
+        "B. mlflow.sklearn.log_model()",
+        "C. mlflow.log_artifact()",
+        "D. mlflow.tensorflow.log_model()"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. mlflow.sklearn.log_model() logs a scikit-learn model in the sklearn flavor, preserving the model type. This allows you to later load it using mlflow.sklearn.load_model() and use it directly as a scikit-learn model.\n\nWhy the others are wrong:\n- A. mlflow.pyfunc.log_model() logs a model in the generic Python function flavor, which works but loses the scikit-learn-specific type information.\n- C. mlflow.log_artifact() logs a generic file, not a structured ML model with flavor metadata.\n- D. mlflow.tensorflow.log_model() is for TensorFlow models, not scikit-learn models."
+    },
+    {
+      "id": 37,
+      "topic": "Azure ML Workspace - Security",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict Azure Machine Learning workspace access so that it can only be accessed from your corporate virtual network. Which configuration should you apply?",
+      "options": [
+        "A. Configure a private endpoint for the workspace",
+        "B. Enable managed identity for the workspace",
+        "C. Add an Azure Policy assignment",
+        "D. Configure CORS settings on the workspace"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Configuring a private endpoint for the Azure ML workspace ensures that all traffic to the workspace goes through the virtual network using private IP addresses, effectively blocking public internet access.\n\nWhy the others are wrong:\n- B. Managed identity provides authentication for the workspace to access other resources but doesn't restrict network access to the workspace itself.\n- C. Azure Policy can enforce organizational rules but doesn't directly configure network isolation for a specific workspace.\n- D. CORS settings control cross-origin web requests, not network-level access restrictions."
+    },
+    {
+      "id": 38,
+      "topic": "Model Training - Experiment comparison",
+      "type": "SingleChoice",
+      "questionText": "You have run multiple experiments with different hyperparameters and want to visually compare their performance metrics side by side. What feature in Azure ML Studio should you use?",
+      "options": [
+        "A. The Jobs comparison view with selected runs",
+        "B. The Endpoints monitoring dashboard",
+        "C. The Compute metrics blade",
+        "D. The Data Assets preview panel"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure ML Studio allows you to select multiple runs (jobs) and compare their logged metrics side by side in charts and tables. This helps identify the best hyperparameter configuration.\n\nWhy the others are wrong:\n- B. The Endpoints monitoring dashboard shows deployed model serving metrics, not training experiment comparisons.\n- C. The Compute metrics blade shows resource utilization of compute targets, not ML experiment results.\n- D. The Data Assets preview panel shows dataset information, not experiment performance comparisons."
+    },
+    {
+      "id": 39,
+      "topic": "Model Deployment - Authentication",
+      "type": "MultipleChoice",
+      "questionText": "You are deploying a model to a managed online endpoint and need to secure it. Which TWO authentication methods are supported for managed online endpoints? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Key-based authentication",
+        "B. Azure AD token-based authentication (AAD)",
+        "C. Basic username/password authentication",
+        "D. Client certificate authentication"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Managed online endpoints support key-based authentication (using primary/secondary keys) and Azure AD (Entra ID) token-based authentication. Key-based is simpler, while AAD token-based provides more granular access control through RBAC.\n\nWhy the others are wrong:\n- C. Basic username/password authentication is not supported for managed online endpoints.\n- D. Client certificate authentication is not a supported authentication method for managed online endpoints."
+    },
+    {
+      "id": 40,
+      "topic": "Responsible AI - Counterfactual analysis",
+      "type": "SingleChoice",
+      "questionText": "A stakeholder asks: 'What would need to change about this loan applicant for the model to approve their application?' Which Responsible AI dashboard component answers this question?",
+      "options": [
+        "A. Error analysis tree map",
+        "B. Counterfactual what-if",
+        "C. Aggregate feature importance",
+        "D. Causal inference"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Counterfactual what-if analysis generates examples showing the minimal feature changes needed to change a model's prediction. For a denied loan application, it would show what changes (e.g., higher income, lower debt) would flip the decision to approval.\n\nWhy the others are wrong:\n- A. Error analysis tree map identifies data cohorts with high error rates but doesn't suggest changes to flip individual predictions.\n- C. Aggregate feature importance shows which features are most influential overall but doesn't prescribe specific changes for individual cases.\n- D. Causal inference identifies causal relationships between features and outcomes but doesn't generate specific counterfactual examples for individual predictions."
+    }
+  ]
+}

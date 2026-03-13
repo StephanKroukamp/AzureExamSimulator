@@ -1,0 +1,566 @@
+{
+  "examCode": "DP-500",
+  "examTitle": "Azure Enterprise Data Analyst Associate",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Power BI Governance - Workspace management",
+      "type": "SingleChoice",
+      "questionText": "You need to enforce governance across your organization's Power BI environment. You want to control who can create workspaces, publish content, and share reports externally. Where should you configure these tenant-level settings?",
+      "options": [
+        "A. Power BI Desktop options",
+        "B. Power BI Admin portal tenant settings",
+        "C. Azure Active Directory app registrations",
+        "D. Individual workspace settings"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Power BI Admin portal's tenant settings provide centralized governance controls, including who can create workspaces, publish to web, share externally, export data, and use specific features. These settings apply organization-wide.\n\nWhy the others are wrong:\n- A. Power BI Desktop options control local development settings, not organization-wide governance.\n- C. Azure AD app registrations manage application identities, not Power BI governance policies.\n- D. Individual workspace settings control access within a single workspace, not tenant-wide policies."
+    },
+    {
+      "id": 2,
+      "topic": "Large Datasets - Incremental refresh",
+      "type": "SingleChoice",
+      "questionText": "You have a Power BI dataset that imports 500 million rows from a SQL database. Full refresh takes 6 hours and the data changes daily. You need to reduce refresh times. What should you configure?",
+      "options": [
+        "A. DirectQuery mode for all tables",
+        "B. Incremental refresh with a rolling window that only refreshes recent partitions",
+        "C. Scheduled refresh every 15 minutes",
+        "D. Export the data to Excel first, then import"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Incremental refresh automatically partitions the table by date and only refreshes partitions within a defined recent period (e.g., last 7 days). Historical partitions are not refreshed, dramatically reducing refresh time and resource consumption.\n\nWhy the others are wrong:\n- A. DirectQuery eliminates import but introduces query latency and places load on the source system for every user interaction.\n- C. Refreshing every 15 minutes with a full refresh would take longer than the interval itself (6 hours) and overload resources.\n- D. Exporting to Excel is impractical for 500 million rows and adds unnecessary manual steps."
+    },
+    {
+      "id": 3,
+      "topic": "Composite Models - Mixed mode datasets",
+      "type": "SingleChoice",
+      "questionText": "You need a Power BI model where large fact tables use DirectQuery against Azure Synapse Analytics, while small dimension tables are imported for faster lookup performance. Which modeling approach should you use?",
+      "options": [
+        "A. Import mode for all tables",
+        "B. DirectQuery mode for all tables",
+        "C. Composite model with DirectQuery for fact tables and Import for dimension tables",
+        "D. Live connection to Synapse Analysis Services"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Composite models allow mixing Import and DirectQuery storage modes within the same model. Large fact tables remain in DirectQuery (avoiding massive data imports) while small dimension tables are imported for fast in-memory lookups.\n\nWhy the others are wrong:\n- A. Importing all tables including large fact tables would require excessive memory and long refresh times.\n- B. DirectQuery for all tables means even small dimension lookups go to the source, increasing latency.\n- D. A live connection limits you to the model defined in Synapse and doesn't allow mixed storage modes."
+    },
+    {
+      "id": 4,
+      "topic": "Deployment Pipelines - Environment management",
+      "type": "SingleChoice",
+      "questionText": "Your organization uses Power BI deployment pipelines to promote content from Development to Test to Production. You need to change the data source connection string when promoting from Development to Production. What should you use?",
+      "options": [
+        "A. Manually edit the data source in each environment",
+        "B. Deployment pipeline rules to parameterize data source connections per stage",
+        "C. Create separate .pbix files for each environment",
+        "D. Use Power BI REST API to delete and recreate the dataset"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Deployment pipeline rules allow you to configure parameter overrides for each stage (Dev, Test, Prod). You can define rules that automatically change data source connections, parameter values, and other settings when content is promoted.\n\nWhy the others are wrong:\n- A. Manual editing is error-prone and doesn't scale for frequent deployments.\n- C. Maintaining separate .pbix files defeats the purpose of deployment pipelines and creates version drift.\n- D. Deleting and recreating datasets causes downtime and requires reconfiguring all dependent reports."
+    },
+    {
+      "id": 5,
+      "topic": "DAX Optimization - Measure performance",
+      "type": "SingleChoice",
+      "questionText": "A DAX measure in your Power BI report is slow. You need to analyze which parts of the measure consume the most time. Which tool should you use?",
+      "options": [
+        "A. Power BI Performance Analyzer",
+        "B. DAX Studio with Server Timings",
+        "C. SQL Server Profiler",
+        "D. Azure Monitor"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DAX Studio with Server Timings enabled provides detailed breakdowns of DAX query execution, showing formula engine (FE) time, storage engine (SE) time, and individual SE query details. This is the most granular tool for DAX optimization.\n\nWhy the others are wrong:\n- A. Performance Analyzer in Power BI Desktop shows visual-level timing but doesn't break down individual DAX formula engine vs storage engine execution.\n- C. SQL Server Profiler is for SQL Server workloads, not Power BI DAX analysis.\n- D. Azure Monitor tracks Azure resource metrics, not DAX measure execution details."
+    },
+    {
+      "id": 6,
+      "topic": "Power BI Governance - Row-level security",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict users so that each regional manager only sees data for their assigned region in Power BI reports. Which feature should you implement?",
+      "options": [
+        "A. Object-level security (OLS)",
+        "B. Row-level security (RLS) with DAX filter expressions",
+        "C. Workspace role assignments",
+        "D. Report-level filters"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Row-level security (RLS) uses DAX filter expressions on tables to restrict which rows each user can see. You define roles with filters (e.g., [Region] = USERPRINCIPALNAME()) and assign users to roles in the Power BI service.\n\nWhy the others are wrong:\n- A. Object-level security (OLS) hides entire tables or columns, not specific rows based on user identity.\n- C. Workspace roles control who can edit, view, or manage the workspace, not data-level filtering.\n- D. Report-level filters can be changed by users and don't provide security enforcement."
+    },
+    {
+      "id": 7,
+      "topic": "Large Datasets - XMLA endpoints",
+      "type": "SingleChoice",
+      "questionText": "You need to use third-party tools like SQL Server Management Studio (SSMS) and Tabular Editor to manage Power BI Premium datasets. Which feature must be enabled?",
+      "options": [
+        "A. Power BI Embedded capacity",
+        "B. XMLA read/write endpoint on the Premium capacity",
+        "C. Azure Analysis Services connection",
+        "D. Power BI REST API only"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. XMLA endpoints on Power BI Premium capacities allow third-party tools that support the XMLA protocol (SSMS, Tabular Editor, ALM Toolkit) to connect to and manage Power BI datasets, enabling advanced modeling, scripting, and administration.\n\nWhy the others are wrong:\n- A. Power BI Embedded is for embedding analytics in custom applications, not for SSMS/Tabular Editor connectivity.\n- C. Azure Analysis Services is a separate service; the XMLA endpoint is built into Power BI Premium.\n- D. The REST API provides programmatic management but doesn't allow SSMS or Tabular Editor connectivity for interactive modeling."
+    },
+    {
+      "id": 8,
+      "topic": "Composite Models - Aggregation tables",
+      "type": "SingleChoice",
+      "questionText": "You have a DirectQuery model connected to a large fact table with billions of rows. Dashboard visuals showing aggregated totals are slow. You want to improve performance without switching entirely to Import mode. What should you implement?",
+      "options": [
+        "A. Add more visuals to the dashboard",
+        "B. Create import-mode aggregation tables that cache summarized data",
+        "C. Remove all slicers and filters",
+        "D. Increase the query timeout setting"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Aggregation tables store pre-aggregated data in Import mode. Power BI's aggregation feature automatically routes queries to the smaller aggregated table when possible (aggregation hit) and falls back to DirectQuery for detailed queries (aggregation miss).\n\nWhy the others are wrong:\n- A. Adding more visuals would generate more queries and worsen performance.\n- C. Removing slicers reduces interactivity and doesn't address the underlying query performance issue.\n- D. Increasing timeout allows slow queries to complete but doesn't improve actual performance."
+    },
+    {
+      "id": 9,
+      "topic": "Deployment Pipelines - Access control",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring Power BI deployment pipelines for your team. Which TWO permissions are required for a user to deploy content from the Development stage to the Test stage? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Member or Admin role in the source workspace (Development)",
+        "B. Member or Admin role in the target workspace (Test)",
+        "C. Viewer role in both workspaces",
+        "D. Global administrator role in Azure AD"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. To deploy content through a pipeline, the user needs at least Member (or Admin) role in both the source workspace (to read content) and the target workspace (to write/update content).\n\nWhy the others are wrong:\n- C. Viewer role provides read-only access and cannot deploy content.\n- D. Azure AD Global administrator is an identity platform role and doesn't grant Power BI workspace deployment permissions."
+    },
+    {
+      "id": 10,
+      "topic": "DAX Optimization - CALCULATE function",
+      "type": "SingleChoice",
+      "questionText": "You have a DAX measure that calculates total sales for the previous year. The measure uses CALCULATE with a date filter but performs slowly on large datasets. Which approach optimizes this pattern?",
+      "options": [
+        "A. Use CALCULATETABLE instead of CALCULATE",
+        "B. Use SAMEPERIODLASTYEAR or DATEADD with a proper date table relationship",
+        "C. Replace CALCULATE with SUMX iterating over all rows",
+        "D. Remove the date filter from the measure"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Time intelligence functions like SAMEPERIODLASTYEAR and DATEADD are optimized for date-based calculations when used with a proper date table that has a relationship to the fact table. They leverage the storage engine efficiently.\n\nWhy the others are wrong:\n- A. CALCULATETABLE returns a table, not a scalar value, and doesn't inherently improve time intelligence performance.\n- C. SUMX iterates row by row, which is typically slower than columnar aggregation with CALCULATE.\n- D. Removing the date filter would return all-time totals instead of the previous year."
+    },
+    {
+      "id": 11,
+      "topic": "Power BI Governance - Sensitivity labels",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that confidential Power BI reports be labeled and protected so that exported data retains its classification. Which feature should you enable?",
+      "options": [
+        "A. Microsoft Information Protection sensitivity labels in Power BI",
+        "B. Power BI watermarks",
+        "C. Report page tooltips",
+        "D. Dashboard comment restrictions"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Microsoft Information Protection (MIP) sensitivity labels can be applied to Power BI content (datasets, reports, dashboards). When data is exported to Excel or PDF, the sensitivity label and associated protection (encryption, restrictions) travel with the exported file.\n\nWhy the others are wrong:\n- B. Power BI doesn't have a built-in watermark feature for reports.\n- C. Report page tooltips provide contextual information, not data classification or protection.\n- D. Dashboard comment restrictions control who can comment, not data sensitivity labeling."
+    },
+    {
+      "id": 12,
+      "topic": "Large Datasets - Query reduction",
+      "type": "SingleChoice",
+      "questionText": "Your Power BI report sends too many queries to the DirectQuery source because each slicer interaction triggers immediate queries. You want to batch slicer selections. What should you enable?",
+      "options": [
+        "A. Query caching at the dataset level",
+        "B. Apply button on slicers (query reduction options)",
+        "C. Import mode for the slicer table",
+        "D. Automatic page refresh"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Apply button on slicers (configured in query reduction options) allows users to make multiple slicer selections before sending a single batched query. This reduces the number of queries sent to the DirectQuery source.\n\nWhy the others are wrong:\n- A. Query caching helps with repeated identical queries but doesn't reduce the number of queries triggered by slicer interactions.\n- C. Importing the slicer table helps with slicer rendering but doesn't reduce fact table queries.\n- D. Automatic page refresh increases query frequency, which is the opposite of the goal."
+    },
+    {
+      "id": 13,
+      "topic": "Composite Models - DirectQuery for Power BI datasets",
+      "type": "SingleChoice",
+      "questionText": "Your organization has a certified Power BI dataset that multiple teams use. A team wants to add their own local calculations and combine it with a local Excel file. Which feature enables this without duplicating the certified dataset?",
+      "options": [
+        "A. Export the certified dataset to a .pbix file and modify it",
+        "B. Create a composite model using DirectQuery to the Power BI dataset",
+        "C. Copy the dataset to a personal workspace",
+        "D. Request the dataset owner to add the calculations"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DirectQuery for Power BI datasets allows you to create a composite model that references the certified dataset via DirectQuery. You can then add local Import tables (like the Excel file) and create your own measures without modifying the original certified dataset.\n\nWhy the others are wrong:\n- A. Exporting and modifying creates a disconnected copy that won't receive updates from the original certified dataset.\n- C. Copying to a personal workspace creates a separate unmanaged copy.\n- D. Requesting changes to the shared dataset may not be appropriate for team-specific needs and affects all consumers."
+    },
+    {
+      "id": 14,
+      "topic": "Deployment Pipelines - Content comparison",
+      "type": "SingleChoice",
+      "questionText": "Before deploying content from Test to Production in a Power BI deployment pipeline, you want to see what has changed. How can you view the differences?",
+      "options": [
+        "A. Compare the .pbix files in a text editor",
+        "B. Use the deployment pipeline comparison view to see changed, new, and different items",
+        "C. Manually check each report page",
+        "D. Use Azure DevOps diff tools"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The deployment pipeline comparison view in Power BI service shows which items are new, changed, or different between stages. It provides a clear overview of what will be affected by the deployment.\n\nWhy the others are wrong:\n- A. .pbix files are binary and cannot be meaningfully compared in a text editor.\n- C. Manual checking is impractical and error-prone for large workspaces.\n- D. Azure DevOps diff tools work with source code, not directly with Power BI deployment pipelines."
+    },
+    {
+      "id": 15,
+      "topic": "DAX Optimization - Variables",
+      "type": "SingleChoice",
+      "questionText": "You have a complex DAX measure that references the same sub-expression multiple times, causing poor performance. What DAX feature should you use to evaluate the sub-expression only once?",
+      "options": [
+        "A. Define a calculated column instead",
+        "B. Use VAR to store the sub-expression result and reference it with RETURN",
+        "C. Create a separate measure for each sub-expression",
+        "D. Use EVALUATE in the measure"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DAX variables (VAR) evaluate an expression once and store the result. Referencing the variable multiple times in the RETURN clause reuses the cached result without re-evaluating the expression, improving performance and readability.\n\nWhy the others are wrong:\n- A. Calculated columns are evaluated at refresh time and stored in the model; they don't address measure-time computation efficiency.\n- C. Separate measures don't prevent re-evaluation when referenced from the same context.\n- D. EVALUATE is a DAX query command used in DAX Studio, not within measure definitions."
+    },
+    {
+      "id": 16,
+      "topic": "Power BI Governance - Data lineage",
+      "type": "SingleChoice",
+      "questionText": "You need to understand the end-to-end flow of data from source systems through datasets to reports and dashboards in your Power BI tenant. Which feature provides this visibility?",
+      "options": [
+        "A. Power BI lineage view in workspace settings",
+        "B. Azure Data Factory lineage",
+        "C. Power BI usage metrics",
+        "D. Microsoft Purview data catalog"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Power BI lineage view (available in workspace settings) shows the relationships between data sources, datasets, dataflows, reports, and dashboards within a workspace, providing a visual map of data flow.\n\nWhy the others are wrong:\n- B. Azure Data Factory lineage tracks ADF pipeline data flows, not Power BI artifact relationships.\n- C. Usage metrics show who is viewing reports and how often, not data flow relationships.\n- D. Microsoft Purview provides broader data governance but the Power BI lineage view is the native tool for Power BI artifact relationships."
+    },
+    {
+      "id": 17,
+      "topic": "Large Datasets - Partitioned refresh",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring incremental refresh for a Power BI dataset. Which TWO parameters must you create as Power Query parameters? Each correct answer presents part of the solution.",
+      "options": [
+        "A. RangeStart (DateTime type)",
+        "B. RangeEnd (DateTime type)",
+        "C. PageSize (Integer type)",
+        "D. ConnectionString (Text type)"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Incremental refresh requires exactly two Power Query parameters named RangeStart and RangeEnd, both of DateTime type. Power BI uses these to filter data and create date-based partitions for incremental processing.\n\nWhy the others are wrong:\n- C. PageSize is not a required parameter for incremental refresh.\n- D. ConnectionString is not needed as a parameter; data source connections are defined in the dataset settings."
+    },
+    {
+      "id": 18,
+      "topic": "Composite Models - Storage mode optimization",
+      "type": "SingleChoice",
+      "questionText": "In a composite model, you set a dimension table to Dual storage mode. What does Dual mode mean?",
+      "options": [
+        "A. The table is stored both on-premises and in the cloud",
+        "B. The table acts as either Import or DirectQuery depending on the context of the query",
+        "C. The table is refreshed twice per day",
+        "D. The table has two copies in different workspaces"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dual storage mode means the table can behave as either Import or DirectQuery depending on the query context. When joined with Import tables, it acts as Import (fast). When joined with DirectQuery tables, it acts as DirectQuery (avoiding unnecessary data movement).\n\nWhy the others are wrong:\n- A. Dual mode has nothing to do with on-premises vs cloud storage locations.\n- C. Refresh frequency is configured separately and is unrelated to Dual mode.\n- D. Dual mode doesn't create copies in different workspaces."
+    },
+    {
+      "id": 19,
+      "topic": "DAX Optimization - SUMX vs SUM",
+      "type": "SingleChoice",
+      "questionText": "You need to calculate the total revenue from a fact table. The revenue for each row is Price * Quantity, and these are stored as separate columns. Which DAX approach is most efficient?",
+      "options": [
+        "A. Create a calculated column for Revenue = Price * Quantity, then use SUM(Revenue)",
+        "B. Use SUMX(FactTable, FactTable[Price] * FactTable[Quantity])",
+        "C. Both A and B produce the same result, but A uses more storage and B computes at query time",
+        "D. Use CALCULATE(SUM(Price) * SUM(Quantity))"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Both approaches produce the same result, but the calculated column (A) pre-computes and stores the result in the model (using more memory), while SUMX (B) computes the row-by-row multiplication at query time. The choice depends on whether you prioritize storage efficiency or query speed.\n\nWhy the others are wrong:\n- A. This is a valid approach but incomplete; it doesn't acknowledge the tradeoff.\n- B. This is also valid but incomplete.\n- D. SUM(Price) * SUM(Quantity) calculates incorrectly; it sums all prices and multiplies by the sum of all quantities, which is mathematically wrong."
+    },
+    {
+      "id": 20,
+      "topic": "Power BI Governance - Endorsement",
+      "type": "SingleChoice",
+      "questionText": "You want to mark a Power BI dataset as the trusted, official source for a specific business domain so that other users can easily identify it. Which governance feature should you use?",
+      "options": [
+        "A. Promote the dataset",
+        "B. Certify the dataset",
+        "C. Pin the dataset to a dashboard",
+        "D. Share the dataset with the entire organization"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Certifying a dataset marks it as the authoritative, trusted source. Certified datasets show a badge in the Power BI service and appear prominently in dataset discovery. Only users designated by the admin can certify content.\n\nWhy the others are wrong:\n- A. Promoting a dataset indicates it's ready for use but is a lower level of endorsement than certification. Any dataset owner can promote.\n- C. Pinning to a dashboard creates a visual tile, not a governance endorsement.\n- D. Sharing grants access but doesn't provide a trust signal or governance endorsement."
+    },
+    {
+      "id": 21,
+      "topic": "Large Datasets - Premium capacity management",
+      "type": "SingleChoice",
+      "questionText": "Your Power BI Premium capacity is experiencing slowdowns during dataset refresh periods. The CPU is at 100% utilization. What should you do first to address this?",
+      "options": [
+        "A. Scale up to a larger Premium capacity SKU",
+        "B. Analyze the capacity metrics app to identify which workloads are consuming the most resources and stagger refresh schedules",
+        "C. Delete all datasets and start over",
+        "D. Switch all datasets to DirectQuery mode"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Premium capacity metrics app provides detailed insights into CPU, memory, and query consumption by workload. Analyzing this data helps identify resource-heavy refreshes that can be staggered or optimized before resorting to costly capacity upgrades.\n\nWhy the others are wrong:\n- A. Scaling up is expensive and should be a last resort after optimization efforts.\n- C. Deleting all datasets is destructive and unnecessary.\n- D. Switching everything to DirectQuery may degrade query performance and doesn't address the root cause."
+    },
+    {
+      "id": 22,
+      "topic": "Composite Models - Calculation groups",
+      "type": "SingleChoice",
+      "questionText": "You have dozens of measures that need Year-over-Year, Quarter-over-Quarter, and Month-over-Month time intelligence variants. Instead of creating separate measures for each combination, what should you use?",
+      "options": [
+        "A. Calculation groups with calculation items for each time intelligence pattern",
+        "B. Duplicate each measure with different DAX formulas",
+        "C. Report-level filters for time periods",
+        "D. Bookmarks to switch between time views"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Calculation groups define reusable time intelligence patterns (YoY, QoQ, MoM) as calculation items. These patterns are automatically applied to any measure in the model, dramatically reducing the number of individual measures needed.\n\nWhy the others are wrong:\n- B. Duplicating measures creates maintenance burden and model bloat.\n- C. Report-level filters change the data context but don't apply time intelligence calculations.\n- D. Bookmarks save visual states but don't perform time intelligence calculations."
+    },
+    {
+      "id": 23,
+      "topic": "Deployment Pipelines - Dataflow integration",
+      "type": "SingleChoice",
+      "questionText": "You use Power BI dataflows to transform data before loading it into datasets. Can dataflows be included in deployment pipelines?",
+      "options": [
+        "A. No, only datasets and reports can be deployed through pipelines",
+        "B. Yes, dataflows can be deployed through deployment pipelines alongside datasets and reports",
+        "C. Only if the dataflow uses Azure Data Lake Storage Gen2",
+        "D. Only if the dataflow is in a Premium workspace"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power BI deployment pipelines support deploying dataflows alongside datasets, reports, and dashboards. This enables end-to-end content lifecycle management through Dev, Test, and Production stages.\n\nWhy the others are wrong:\n- A. Deployment pipelines do support dataflows, not just datasets and reports.\n- C. Dataflow deployment through pipelines doesn't depend on the storage backend.\n- D. Deployment pipelines require Premium/PPU capacity, but this applies to all content types, not just dataflows."
+    },
+    {
+      "id": 24,
+      "topic": "DAX Optimization - Filter context",
+      "type": "SingleChoice",
+      "questionText": "A DAX measure using CALCULATE with REMOVEFILTERS on a large table is consuming excessive memory. What is the most likely cause?",
+      "options": [
+        "A. REMOVEFILTERS is expanding the filter context to include all rows in the table",
+        "B. The measure has a syntax error",
+        "C. The table doesn't have a primary key",
+        "D. The measure is referencing a hidden column"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. REMOVEFILTERS (or ALL) on a large table removes all filter context, causing the formula engine to evaluate the measure across all rows in the table. On very large tables, this materializes a large intermediate result set, consuming significant memory.\n\nWhy the others are wrong:\n- B. If there were a syntax error, the measure wouldn't execute at all.\n- C. Primary keys affect model relationships, not DAX filter context memory consumption.\n- D. Hidden columns are still accessible to DAX; their visibility doesn't affect memory usage."
+    },
+    {
+      "id": 25,
+      "topic": "Power BI Governance - Audit logs",
+      "type": "SingleChoice",
+      "questionText": "Your compliance team needs to track who viewed which Power BI reports over the last 90 days. Where can you find this information?",
+      "options": [
+        "A. Power BI activity log (available through Microsoft 365 audit logs or PowerShell)",
+        "B. Power BI Desktop recent files list",
+        "C. Azure SQL Database query logs",
+        "D. Windows Event Viewer"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Power BI activity log captures user activities including report views, data exports, sharing actions, and more. These logs are available through the Microsoft 365 unified audit log, Power BI Admin API, or PowerShell cmdlets, with 90-day retention.\n\nWhy the others are wrong:\n- B. The Desktop recent files list is local to each user's machine and only shows files they opened locally.\n- C. Azure SQL Database logs track database queries, not Power BI report viewing activities.\n- D. Windows Event Viewer captures OS-level events, not Power BI service activities."
+    },
+    {
+      "id": 26,
+      "topic": "Large Datasets - Enhanced dataset metadata",
+      "type": "SingleChoice",
+      "questionText": "You want to enable large dataset format support in Power BI Premium to allow datasets larger than 10 GB. What must you configure?",
+      "options": [
+        "A. Enable Large dataset storage format in the dataset settings",
+        "B. Compress the dataset manually before publishing",
+        "C. Split the dataset into multiple smaller datasets",
+        "D. Use Power BI Embedded instead of Premium"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Enabling the Large dataset storage format in dataset settings allows the dataset to grow beyond the default 10 GB limit (up to the capacity's maximum). This uses an optimized storage format for large tabular models.\n\nWhy the others are wrong:\n- B. Manual compression is not a supported approach for managing Power BI dataset sizes.\n- C. Splitting datasets adds complexity and may break cross-table relationships.\n- D. Power BI Embedded uses the same capacity infrastructure and doesn't inherently support larger datasets."
+    },
+    {
+      "id": 27,
+      "topic": "Composite Models - Relationship limitations",
+      "type": "SingleChoice",
+      "questionText": "In a composite model, you create a relationship between an Import table and a DirectQuery table. What type of relationship is this called?",
+      "options": [
+        "A. A regular relationship",
+        "B. A limited relationship (cross source group)",
+        "C. A bi-directional relationship",
+        "D. A virtual relationship"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Relationships between tables in different storage modes (Import and DirectQuery) or different source groups are called limited relationships. They have some behavioral limitations, such as the inability to use certain DAX functions and potentially slower performance.\n\nWhy the others are wrong:\n- A. Regular relationships exist between tables in the same storage mode and source group.\n- C. Bi-directional refers to the cross-filter direction, not the relationship type between storage modes.\n- D. 'Virtual relationship' is not a Power BI relationship type."
+    },
+    {
+      "id": 28,
+      "topic": "DAX Optimization - EARLIER function alternatives",
+      "type": "SingleChoice",
+      "questionText": "A calculated column uses EARLIER to reference the current row in a nested context, but the expression is hard to read and maintain. What is the recommended modern alternative?",
+      "options": [
+        "A. Use LOOKUPVALUE instead",
+        "B. Use VAR to capture the current row value before the nested iteration",
+        "C. Use SWITCH instead of nested IF",
+        "D. Convert to a measure using CALCULATE"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Using VAR to capture the current row value before entering a nested iteration context is the modern, readable replacement for EARLIER. Variables preserve the row context at the point of definition, making the code clearer.\n\nWhy the others are wrong:\n- A. LOOKUPVALUE searches for matching rows but doesn't replace the general row-context navigation that EARLIER provides.\n- C. SWITCH replaces nested IF for readability but doesn't address row context issues.\n- D. Converting to a measure changes the calculation semantics entirely and may not produce the same result."
+    },
+    {
+      "id": 29,
+      "topic": "Deployment Pipelines - Auto-binding",
+      "type": "SingleChoice",
+      "questionText": "You deploy a report from the Development workspace to the Test workspace using a deployment pipeline. The report in Development is connected to a dataset in the Development workspace. After deployment, which dataset does the report in Test connect to?",
+      "options": [
+        "A. The dataset in the Development workspace",
+        "B. The corresponding dataset in the Test workspace (auto-binding)",
+        "C. No dataset; the connection is broken",
+        "D. A new duplicate dataset is created automatically"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Deployment pipelines support auto-binding, which automatically rebinds the deployed report to the corresponding dataset in the target workspace. If the dataset was also deployed to Test, the report connects to the Test version.\n\nWhy the others are wrong:\n- A. The report doesn't maintain its connection to the Development dataset after deployment.\n- C. The connection is not broken; auto-binding handles the rebinding.\n- D. A duplicate dataset is not created automatically by the deployment process."
+    },
+    {
+      "id": 30,
+      "topic": "Power BI Governance - External sharing",
+      "type": "MultipleChoice",
+      "questionText": "You need to share a Power BI report with external business partners who have Azure AD accounts. Which TWO settings must be configured? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Enable 'Allow Azure AD B2B guest users to access Power BI' in tenant settings",
+        "B. Invite the external users as Azure AD B2B guests",
+        "C. Create Power BI accounts for external users with local credentials",
+        "D. Install Power BI Desktop on the external users' machines"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The tenant setting 'Allow Azure AD B2B guest users to access Power BI' must be enabled, and the external users must be invited as Azure AD B2B guests. Once invited, they can access shared content through the Power BI service.\n\nWhy the others are wrong:\n- C. You cannot create local Power BI accounts; authentication goes through Azure AD.\n- D. Power BI Desktop is for development, not for viewing shared reports. External users access reports through the web browser."
+    },
+    {
+      "id": 31,
+      "topic": "Large Datasets - Hybrid tables",
+      "type": "SingleChoice",
+      "questionText": "You have a fact table with incremental refresh configured. You need the most recent partition (today's data) to use DirectQuery for near-real-time reporting while historical partitions remain in Import mode. What feature enables this?",
+      "options": [
+        "A. Hybrid tables (DirectQuery for the real-time partition)",
+        "B. Automatic page refresh",
+        "C. Push datasets",
+        "D. Streaming datasets"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Hybrid tables combine Import and DirectQuery partitions within a single table. With incremental refresh, historical partitions use Import mode while the latest partition uses DirectQuery, enabling near-real-time data without refreshing the entire table.\n\nWhy the others are wrong:\n- B. Automatic page refresh refreshes visuals periodically but doesn't change the storage mode of partitions.\n- C. Push datasets receive data pushed via API but don't support the hybrid partition model.\n- D. Streaming datasets display real-time data but don't support Import mode for historical data."
+    },
+    {
+      "id": 32,
+      "topic": "DAX Optimization - Iterator functions",
+      "type": "SingleChoice",
+      "questionText": "You need to calculate the weighted average price where each product's price is weighted by its quantity sold. Which DAX pattern should you use?",
+      "options": [
+        "A. AVERAGE(Products[Price])",
+        "B. DIVIDE(SUMX(Sales, Sales[Price] * Sales[Quantity]), SUM(Sales[Quantity]))",
+        "C. SUM(Sales[Price]) / SUM(Sales[Quantity])",
+        "D. AVERAGEX(Sales, Sales[Price])"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The weighted average requires summing (Price * Quantity) for each row using SUMX, then dividing by the total quantity using SUM. DIVIDE handles potential division by zero gracefully.\n\nWhy the others are wrong:\n- A. AVERAGE calculates a simple (unweighted) mean of prices, ignoring quantity.\n- C. SUM(Price) / SUM(Quantity) sums all prices regardless of quantity, which is mathematically incorrect for a weighted average.\n- D. AVERAGEX(Sales, Sales[Price]) calculates the average price per transaction row, not weighted by quantity."
+    },
+    {
+      "id": 33,
+      "topic": "Power BI Governance - Workspace roles",
+      "type": "SingleChoice",
+      "questionText": "A user needs to publish reports to a Power BI workspace and manage workspace membership but should not be able to delete the workspace itself. Which workspace role should you assign?",
+      "options": [
+        "A. Viewer",
+        "B. Contributor",
+        "C. Member",
+        "D. Admin"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The Member role can publish and update content, manage workspace membership (add/remove Contributors and Viewers), and configure some workspace settings. However, Members cannot delete the workspace; only Admins can.\n\nWhy the others are wrong:\n- A. Viewer can only view content, not publish or manage membership.\n- B. Contributor can publish and update content but cannot manage workspace membership.\n- D. Admin has full control including workspace deletion, which exceeds the requirement."
+    },
+    {
+      "id": 34,
+      "topic": "Large Datasets - Query diagnostics",
+      "type": "SingleChoice",
+      "questionText": "You need to analyze the M (Power Query) queries generated during data refresh to identify performance bottlenecks in data loading. Which Power BI Desktop tool should you use?",
+      "options": [
+        "A. Query Diagnostics in Power Query Editor",
+        "B. Performance Analyzer in Report view",
+        "C. DAX Studio",
+        "D. Model view relationship diagram"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Query Diagnostics in the Power Query Editor captures detailed information about M query execution, including data source queries, evaluation durations, and data movement operations. This helps identify bottlenecks in the ETL process.\n\nWhy the others are wrong:\n- B. Performance Analyzer measures visual rendering and DAX query time, not Power Query data loading.\n- C. DAX Studio analyzes DAX query performance, not Power Query M expressions.\n- D. The model view diagram shows relationships, not query execution performance."
+    },
+    {
+      "id": 35,
+      "topic": "Composite Models - Chaining datasets",
+      "type": "SingleChoice",
+      "questionText": "Your organization has a central Finance dataset in Power BI. The Marketing team wants to combine this with their own Marketing dataset without duplicating data. Which approach should they use?",
+      "options": [
+        "A. Import both datasets into a new .pbix file",
+        "B. Create a composite model that connects to both the Finance and Marketing datasets via DirectQuery",
+        "C. Export both datasets to Excel and combine them",
+        "D. Ask the Finance team to add Marketing data to their dataset"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DirectQuery connections to Power BI datasets allow the Marketing team to create a composite model referencing both datasets. Data stays in the original datasets, governance is maintained, and the Marketing team can add their own calculations.\n\nWhy the others are wrong:\n- A. Importing creates disconnected copies that don't stay synchronized with the source datasets.\n- C. Excel export loses the governance, security, and automatic refresh of the Power BI datasets.\n- D. Mixing unrelated business domains in a single dataset violates data governance principles and creates maintenance issues."
+    },
+    {
+      "id": 36,
+      "topic": "DAX Optimization - TREATAS function",
+      "type": "SingleChoice",
+      "questionText": "You have two tables that share a common column but don't have a physical relationship in the model. You need to use one table's filter context to filter the other in a DAX measure. Which function should you use?",
+      "options": [
+        "A. RELATED()",
+        "B. TREATAS()",
+        "C. LOOKUPVALUE()",
+        "D. CROSSJOIN()"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. TREATAS creates a virtual relationship by treating the values from one column as if they were filtering another column. It applies the filter context without requiring a physical relationship in the model.\n\nWhy the others are wrong:\n- A. RELATED requires a physical relationship between tables and cannot work without one.\n- C. LOOKUPVALUE retrieves a single value from a table but doesn't transfer filter context.\n- D. CROSSJOIN creates a Cartesian product of two tables, which is not appropriate for transferring filter context."
+    },
+    {
+      "id": 37,
+      "topic": "Power BI Governance - Capacity management",
+      "type": "MultipleChoice",
+      "questionText": "You manage a Power BI Premium capacity and need to ensure that report consumers experience consistent query performance even during heavy refresh operations. Which TWO actions should you take? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Configure autoscale to add v-cores during peak periods",
+        "B. Stagger dataset refresh schedules to avoid concurrent heavy refreshes",
+        "C. Disable all scheduled refreshes",
+        "D. Remove all dashboards to reduce query load"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Autoscale adds v-cores during peak demand periods to handle increased load. Staggering refresh schedules prevents multiple large refreshes from competing for resources simultaneously, maintaining query performance for report consumers.\n\nWhy the others are wrong:\n- C. Disabling all refreshes means data becomes stale, which defeats the purpose of BI.\n- D. Removing dashboards removes business value and doesn't address the root cause of resource contention."
+    },
+    {
+      "id": 38,
+      "topic": "Large Datasets - Aggregation design",
+      "type": "SingleChoice",
+      "questionText": "You are designing aggregation tables for a composite model. The detail table has 2 billion rows partitioned by Date, Product, and Region. Dashboard visuals show sales by Region and Month. At what granularity should you create the aggregation table?",
+      "options": [
+        "A. Daily granularity with all detail columns",
+        "B. Monthly granularity grouped by Region and Month",
+        "C. Yearly granularity grouped by Region only",
+        "D. Same granularity as the detail table"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Monthly granularity grouped by Region and Month matches the dashboard visual granularity. This creates a small aggregation table that can efficiently serve the most common queries while falling back to DirectQuery for detailed drill-downs.\n\nWhy the others are wrong:\n- A. Daily granularity with all columns would create a large aggregation table that doesn't significantly reduce query load.\n- C. Yearly granularity is too coarse and wouldn't serve monthly visuals; queries would fall back to DirectQuery.\n- D. Same granularity as the detail table provides no performance benefit."
+    },
+    {
+      "id": 39,
+      "topic": "Deployment Pipelines - Content ownership",
+      "type": "SingleChoice",
+      "questionText": "After deploying content through a Power BI deployment pipeline from Development to Production, who owns the content in the Production workspace?",
+      "options": [
+        "A. The user who performed the deployment",
+        "B. The workspace admin of the Production workspace",
+        "C. The original author in the Development workspace",
+        "D. The Power BI service administrator"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. When content is deployed through a pipeline, the user performing the deployment becomes the owner of the deployed items in the target workspace. This is important for understanding who can manage refresh schedules and permissions.\n\nWhy the others are wrong:\n- B. Workspace admins manage the workspace but don't automatically become owners of deployed content.\n- C. The original author retains ownership in Development but not in the deployed Production copy.\n- D. The Power BI admin manages tenant settings but doesn't automatically own deployed content."
+    },
+    {
+      "id": 40,
+      "topic": "DAX Optimization - Cardinality reduction",
+      "type": "SingleChoice",
+      "questionText": "Your Power BI model has a text column with 50 million unique values, consuming significant memory. The column is never used in reports or calculations. What should you do to reduce model size?",
+      "options": [
+        "A. Remove the column from the model (don't import it)",
+        "B. Convert the column to a numeric data type",
+        "C. Create an index on the column",
+        "D. Move the column to a calculated table"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. If a column is never used in reports, visualizations, relationships, or calculations, it should be removed from the model entirely. This eliminates the memory consumed by storing and encoding 50 million unique text values.\n\nWhy the others are wrong:\n- B. Converting to numeric might reduce size but the column isn't needed at all, so removal is better.\n- C. Power BI (VertiPaq) automatically creates dictionary encoding; manual indexes aren't applicable.\n- D. Moving to a calculated table still consumes memory; removal is the correct approach."
+    }
+  ]
+}

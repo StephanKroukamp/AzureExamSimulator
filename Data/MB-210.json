@@ -1,0 +1,366 @@
+{
+  "examCode": "MB-210",
+  "examTitle": "Dynamics 365 Sales Functional Consultant",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Leads - Lead qualification process",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to ensure that leads are automatically qualified when their annual revenue exceeds $1 million. What should you configure?",
+      "options": ["A. Create a business rule on the lead entity.", "B. Create a Power Automate flow triggered on lead creation.", "C. Configure a workflow that runs on lead creation.", "D. Modify the qualify lead ribbon button."],
+      "correctAnswers": ["B"],
+      "explanation": "A Power Automate flow triggered on lead creation can evaluate the annual revenue field and automatically qualify the lead if it exceeds $1 million. Business rules (A) cannot trigger the qualify action. Workflows (C) are being deprecated in favor of Power Automate. Modifying the ribbon button (D) does not automate the process."
+    },
+    {
+      "id": 2,
+      "topic": "Opportunities - Sales pipeline stages",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a business process flow for the opportunity entity that includes a stage for technical validation. The stage should only appear when the estimated value is greater than $50,000. What should you do?",
+      "options": ["A. Add a conditional branch in the business process flow.", "B. Create two separate business process flows and switch between them.", "C. Use a business rule to hide the stage.", "D. Add JavaScript to the form to control stage visibility."],
+      "correctAnswers": ["A"],
+      "explanation": "Business process flows support conditional branching, which allows you to show or hide stages based on field values such as estimated value. Creating separate flows (B) adds unnecessary complexity. Business rules (C) cannot control BPF stages. JavaScript (D) is not the recommended approach for controlling BPF stage visibility."
+    },
+    {
+      "id": 3,
+      "topic": "Quotes - Quote management",
+      "type": "SingleChoice",
+      "questionText": "A salesperson creates a quote from an opportunity and needs to send it to the customer. Before the quote can be sent, what must happen?",
+      "options": ["A. The quote must be converted to an order.", "B. The quote must be activated.", "C. The opportunity must be closed as won.", "D. The quote must have at least one quote line."],
+      "correctAnswers": ["B"],
+      "explanation": "A quote must be activated before it can be sent to a customer. Activating the quote changes its status to Active and makes it read-only. Converting to an order (A) happens after the customer accepts the quote. The opportunity does not need to be closed (C) before sending a quote. While having quote lines (D) is typical, the key requirement for sending is activation."
+    },
+    {
+      "id": 4,
+      "topic": "Orders - Order processing",
+      "type": "SingleChoice",
+      "questionText": "A customer accepts a quote and you need to create an order. What is the correct sequence of steps?",
+      "options": ["A. Close the quote, create a new order manually, link it to the opportunity.", "B. Activate the quote, then use the Create Order button on the quote.", "C. Win the opportunity first, then create the order from the opportunity.", "D. Create the order directly from the opportunity without using quotes."],
+      "correctAnswers": ["B"],
+      "explanation": "The correct process is to ensure the quote is activated, then use the Create Order button on the quote form. This automatically creates an order with the quote details. Closing the quote first (A) would prevent order creation from it. Winning the opportunity (C) is not required before creating an order. Creating orders directly from opportunities (D) bypasses the quote process."
+    },
+    {
+      "id": 5,
+      "topic": "Product Catalog - Product families and bundles",
+      "type": "SingleChoice",
+      "questionText": "You need to create a group of products that are always sold together with a discount. Which product catalog feature should you use?",
+      "options": ["A. Product family.", "B. Product bundle.", "C. Product relationship.", "D. Unit group."],
+      "correctAnswers": ["B"],
+      "explanation": "A product bundle allows you to group multiple products together and sell them as a single unit, often with a bundled price or discount. Product families (A) are used for categorization and property inheritance, not for selling products together. Product relationships (C) define cross-sell or upsell associations. Unit groups (D) define units of measure for products."
+    },
+    {
+      "id": 6,
+      "topic": "Forecasting - Sales forecasting configuration",
+      "type": "SingleChoice",
+      "questionText": "A sales director wants to use the forecasting feature in Dynamics 365 Sales. Which of the following is required to set up a forecast?",
+      "options": ["A. Configure a fiscal year calendar in system settings.", "B. Enable the Sales Insights premium license.", "C. Create a forecast definition with a hierarchy and rollup columns.", "D. Install the Dynamics 365 AI for Sales solution."],
+      "correctAnswers": ["C"],
+      "explanation": "To set up forecasting, you must create a forecast definition that includes a hierarchy (such as user or territory hierarchy) and rollup columns to aggregate data. A fiscal year calendar (A) is helpful but not strictly required for forecast setup. Sales Insights premium (B) is for AI-driven features, not basic forecasting. The AI for Sales solution (D) is not required for standard forecasting."
+    },
+    {
+      "id": 7,
+      "topic": "Leads - Lead scoring",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring predictive lead scoring in Dynamics 365 Sales. Which two prerequisites must be met? (Choose two.)",
+      "options": ["A. Sales Insights must be enabled.", "B. At least 40 qualified and 40 disqualified leads must exist in the last 2 years.", "C. The lead entity must have a custom scoring field.", "D. Power BI must be configured for the organization."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Predictive lead scoring requires Sales Insights to be enabled (A) and a minimum of 40 qualified and 40 disqualified leads within the last 2 years (B) to train the model. A custom scoring field (C) is not needed as the system creates its own score field. Power BI (D) is not a prerequisite for predictive scoring."
+    },
+    {
+      "id": 8,
+      "topic": "Sales Pipeline - Pipeline visualization",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to visualize the sales pipeline by stage and see the total estimated revenue at each stage. Which feature should you recommend?",
+      "options": ["A. Create a system chart on the opportunity entity.", "B. Use the Sales Pipeline chart in the Sales Hub.", "C. Build a Power BI dashboard and embed it.", "D. Export data to Excel and create a pivot chart."],
+      "correctAnswers": ["B"],
+      "explanation": "The Sales Pipeline chart in the Sales Hub is a built-in feature that provides pipeline visualization by stage with revenue aggregation. While system charts (A) can be created, the built-in pipeline chart is purpose-built for this need. Power BI (C) and Excel (D) are viable alternatives but add unnecessary complexity for a standard pipeline view."
+    },
+    {
+      "id": 9,
+      "topic": "Opportunities - Competitor tracking",
+      "type": "SingleChoice",
+      "questionText": "A sales team needs to track competitors on each opportunity and report on win/loss rates against specific competitors. How should you configure this?",
+      "options": ["A. Add a text field on the opportunity form for competitor names.", "B. Use the built-in Competitors entity and associate competitors to opportunities.", "C. Create a custom entity for competitors and use a many-to-many relationship.", "D. Track competitors as contacts with a custom type field."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Sales includes a built-in Competitors entity with a native many-to-many relationship to opportunities. This provides structured competitor tracking and supports win/loss analysis. A text field (A) does not allow structured reporting. Creating a custom entity (C) duplicates existing functionality. Tracking as contacts (D) is semantically incorrect."
+    },
+    {
+      "id": 10,
+      "topic": "Product Catalog - Price lists",
+      "type": "SingleChoice",
+      "questionText": "You need to configure pricing so that different customers receive different prices for the same product. What is the recommended approach?",
+      "options": ["A. Create multiple price lists and assign them to different customers or territories.", "B. Modify the product price each time a quote is created.", "C. Use a plugin to calculate prices at runtime.", "D. Create duplicate products with different prices."],
+      "correctAnswers": ["A"],
+      "explanation": "Multiple price lists allow you to define different prices for the same product and assign them to accounts, contacts, or territories. This is the standard and recommended approach. Modifying prices per quote (B) is error-prone and unscalable. Plugins (C) add complexity. Duplicate products (D) make catalog management difficult and reporting inaccurate."
+    },
+    {
+      "id": 11,
+      "topic": "Sales Pipeline - Business process flows",
+      "type": "SingleChoice",
+      "questionText": "A company wants different sales processes for their enterprise and SMB segments. What should you configure?",
+      "options": ["A. A single business process flow with conditional branches.", "B. Two separate business process flows, one for each segment.", "C. Security roles to control which stages are visible.", "D. A custom field to track the current stage manually."],
+      "correctAnswers": ["B"],
+      "explanation": "Creating two separate business process flows allows each segment to have its own distinct process with different stages and requirements. While conditional branching (A) is possible, separate flows provide cleaner management when the processes are fundamentally different. Security roles (C) cannot control BPF visibility at the stage level. Manual tracking (D) loses the benefit of guided processes."
+    },
+    {
+      "id": 12,
+      "topic": "Leads - Lead assignment",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically assign incoming leads to salespeople based on territory. What should you use?",
+      "options": ["A. Assignment rules in the Sales Hub app.", "B. A Power Automate flow that checks territory and assigns the owner.", "C. A workflow that triggers on lead creation.", "D. Manual assignment by the sales manager."],
+      "correctAnswers": ["A"],
+      "explanation": "Assignment rules in the Sales Hub app provide a native way to automatically route leads based on criteria such as territory, lead source, or other attributes. While Power Automate (B) can accomplish this, assignment rules are the purpose-built feature. Workflows (C) are being deprecated. Manual assignment (D) does not meet the automation requirement."
+    },
+    {
+      "id": 13,
+      "topic": "Quotes - Quote templates",
+      "type": "SingleChoice",
+      "questionText": "A company wants to generate professional-looking PDF quotes from Dynamics 365 Sales. What should you configure?",
+      "options": ["A. Use Word templates associated with the quote entity.", "B. Use the built-in PDF generation feature with quote templates.", "C. Export quotes to Excel and format them manually.", "D. Use Power Automate to create PDFs in SharePoint."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Sales includes a built-in PDF generation feature that works with customizable quote templates. This provides a native way to generate professional PDFs directly from the quote form. Word templates (A) generate Word documents, not PDFs. Excel export (C) requires manual formatting. Power Automate (D) adds unnecessary complexity for standard quote generation."
+    },
+    {
+      "id": 14,
+      "topic": "Opportunities - Close as won or lost",
+      "type": "SingleChoice",
+      "questionText": "When closing an opportunity as lost, which information is captured by default?",
+      "options": ["A. Actual revenue and close date only.", "B. Status reason, competitor, close date, and actual revenue.", "C. Only the close date.", "D. Status reason and a description field only."],
+      "correctAnswers": ["B"],
+      "explanation": "When closing an opportunity as lost, Dynamics 365 captures the status reason (why it was lost), the competitor who won, the close date, and the actual revenue (typically zero for losses). Only capturing actual revenue and close date (A), only close date (C), or only status reason and description (D) are incomplete representations of the default close dialog."
+    },
+    {
+      "id": 15,
+      "topic": "Forecasting - Forecast adjustments",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to manually adjust a forecast value for their team without changing the underlying opportunity data. What feature should they use?",
+      "options": ["A. Edit the opportunity estimated revenue directly.", "B. Use the manual adjustment column in the forecast grid.", "C. Create a Power Automate flow to update forecasts.", "D. Export the forecast to Excel, edit, and reimport."],
+      "correctAnswers": ["B"],
+      "explanation": "The forecast grid includes manual adjustment columns that allow managers to override or supplement the rolled-up values without changing underlying opportunity data. Editing opportunity revenue (A) changes the source data. Power Automate (C) cannot directly modify forecast adjustments. Excel export/import (D) is not supported for forecast adjustments."
+    },
+    {
+      "id": 16,
+      "topic": "Sales Pipeline - Opportunity views",
+      "type": "SingleChoice",
+      "questionText": "A salesperson wants to see only opportunities that are closing this month. How should you configure this?",
+      "options": ["A. Create a personal view with a filter on estimated close date equals this month.", "B. Create a system view that is shared with all users.", "C. Use Advanced Find every time to filter opportunities.", "D. Create a dashboard with a filtered list component."],
+      "correctAnswers": ["A"],
+      "explanation": "A personal view with a filter on the estimated close date set to 'This Month' provides the salesperson with a quick and reusable view of their closing opportunities. A system view (B) would be shared with everyone, which may not be appropriate. Advanced Find (C) requires manual setup each time. A dashboard (D) works but is more complex than a simple filtered view."
+    },
+    {
+      "id": 17,
+      "topic": "Product Catalog - Discount lists",
+      "type": "SingleChoice",
+      "questionText": "You need to configure volume-based discounts where customers get a percentage discount based on the quantity ordered. What should you set up?",
+      "options": ["A. Create a discount list with quantity-based tiers.", "B. Use a plugin to calculate discounts at order creation.", "C. Modify the price list to include quantity breaks.", "D. Create separate products for each quantity tier."],
+      "correctAnswers": ["A"],
+      "explanation": "Discount lists in Dynamics 365 Sales allow you to define quantity-based discount tiers with percentage or amount-based discounts. These are then associated with price list items. Plugins (B) add unnecessary custom code. Price lists (C) define base prices, not quantity discounts. Separate products (D) complicate the catalog unnecessarily."
+    },
+    {
+      "id": 18,
+      "topic": "Leads - Lead source tracking",
+      "type": "MultipleChoice",
+      "questionText": "A marketing director wants to track which lead sources generate the most revenue. Which two configurations are needed? (Choose two.)",
+      "options": ["A. Ensure the Lead Source field is populated on all leads.", "B. Configure the lead-to-opportunity mapping to carry over the lead source.", "C. Install a third-party analytics solution.", "D. Create a custom report using SQL Server Reporting Services."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "To track revenue by lead source, you need the Lead Source field populated on leads (A) and the lead-to-opportunity mapping configured to carry over the lead source field when a lead is qualified (B). A third-party analytics solution (C) is not required as built-in reporting can handle this. SSRS reports (D) are not necessary when standard views and charts can provide the analysis."
+    },
+    {
+      "id": 19,
+      "topic": "Orders - Invoice generation",
+      "type": "SingleChoice",
+      "questionText": "After an order is fulfilled, you need to create an invoice. What is the standard process in Dynamics 365 Sales?",
+      "options": ["A. Manually create a new invoice record and link it to the order.", "B. Use the Create Invoice button on the order form.", "C. Invoices are automatically created when an order is fulfilled.", "D. Export the order to an ERP system for invoicing."],
+      "correctAnswers": ["B"],
+      "explanation": "The standard process is to use the Create Invoice button on the order form, which creates an invoice with all order details carried over. Manual creation (A) bypasses the automated data transfer. Automatic invoice creation (C) does not happen by default. While ERP integration (D) is common, the standard Dynamics 365 process uses the Create Invoice button."
+    },
+    {
+      "id": 20,
+      "topic": "Opportunities - Sales activities",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to enforce that salespeople log at least one activity per week on active opportunities. What is the best approach?",
+      "options": ["A. Create a workflow that closes opportunities without weekly activities.", "B. Use a Power Automate flow to send reminder emails when no activity is logged in 7 days.", "C. Create a business rule that prevents saving the opportunity.", "D. Use a report to manually track activity compliance."],
+      "correctAnswers": ["B"],
+      "explanation": "A Power Automate flow can monitor opportunities for activity gaps and send automated reminders, encouraging compliance without blocking work. Closing opportunities (A) is too aggressive. Business rules (C) cannot check activity history on save. Manual reporting (D) does not provide proactive enforcement."
+    },
+    {
+      "id": 21,
+      "topic": "Sales Pipeline - Territory management",
+      "type": "SingleChoice",
+      "questionText": "You need to set up sales territories so that opportunities are automatically associated with the correct territory based on the customer's region. What should you configure?",
+      "options": ["A. Create territories and manually assign each opportunity.", "B. Use the hierarchy of territories and configure territory rules.", "C. Create a custom field on opportunities for territory.", "D. Use security roles to separate territories."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Sales supports a territory hierarchy where you can configure rules that automatically associate records with territories based on criteria such as customer region. Manual assignment (A) does not meet the automation requirement. A custom field (C) does not leverage built-in territory functionality. Security roles (D) control access, not territory assignment."
+    },
+    {
+      "id": 22,
+      "topic": "Forecasting - Forecast categories",
+      "type": "SingleChoice",
+      "questionText": "When configuring forecasts, you notice the default forecast categories include Pipeline, Best Case, Committed, and Closed. A manager wants to add a new category called 'Upside'. What should you do?",
+      "options": ["A. Add a new option to the Forecast Category option set.", "B. Create a new custom field for the additional category.", "C. Forecast categories cannot be modified.", "D. Use the opportunity status reason instead."],
+      "correctAnswers": ["A"],
+      "explanation": "Forecast categories are stored as an option set on the opportunity entity and can be customized by adding new options. This allows you to add categories like 'Upside' to match your sales methodology. A custom field (B) would not integrate with the forecasting feature. Categories can be modified (C is incorrect). Status reasons (D) serve a different purpose."
+    },
+    {
+      "id": 23,
+      "topic": "Product Catalog - Write-in products",
+      "type": "SingleChoice",
+      "questionText": "A salesperson needs to add a one-time consulting service to a quote that is not in the product catalog. What should they do?",
+      "options": ["A. Ask an administrator to add the product to the catalog first.", "B. Use a write-in product on the quote line.", "C. Create the quote without the service and add a note.", "D. Create a custom entity to track ad-hoc services."],
+      "correctAnswers": ["B"],
+      "explanation": "Write-in products allow salespeople to add items to quotes, orders, or invoices that are not in the product catalog. This is ideal for one-time or ad-hoc items. Requiring catalog addition (A) delays the sales process. Using notes (C) does not include the item in the quote total. A custom entity (D) is unnecessary when write-in products exist."
+    },
+    {
+      "id": 24,
+      "topic": "Leads - Duplicate detection",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent duplicate leads from being created based on email address. What should you configure?",
+      "options": ["A. Create a duplicate detection rule matching on the email address field.", "B. Make the email address field unique using a business rule.", "C. Use a plugin to check for duplicates before creation.", "D. Train users to search before creating leads."],
+      "correctAnswers": ["A"],
+      "explanation": "Duplicate detection rules in Dynamics 365 can be configured to match on the email address field and alert users when duplicates are detected. Business rules (B) cannot enforce field uniqueness. While plugins (C) could work, duplicate detection rules are the standard approach. Training (D) relies on user behavior and is not reliable."
+    },
+    {
+      "id": 25,
+      "topic": "Opportunities - Stakeholder tracking",
+      "type": "SingleChoice",
+      "questionText": "A sales team wants to track multiple decision-makers and influencers on each opportunity. What built-in feature should they use?",
+      "options": ["A. Add multiple contacts to the opportunity's connection roles.", "B. Use the Stakeholders subgrid on the opportunity form.", "C. Create a custom many-to-many relationship between opportunity and contact.", "D. List stakeholders in the opportunity description field."],
+      "correctAnswers": ["B"],
+      "explanation": "The Stakeholders subgrid on the opportunity form is a built-in feature that allows tracking of multiple contacts with their roles in the deal. Connection roles (A) are a general feature not specific to opportunity stakeholder tracking. A custom relationship (C) duplicates existing functionality. The description field (D) is unstructured and not reportable."
+    },
+    {
+      "id": 26,
+      "topic": "Sales Pipeline - Sales accelerator",
+      "type": "SingleChoice",
+      "questionText": "You are configuring the Sales Accelerator in Dynamics 365 Sales. What is its primary purpose?",
+      "options": ["A. To automate the creation of quotes and orders.", "B. To provide sellers with a prioritized work list and guided selling activities.", "C. To calculate sales forecasts using AI.", "D. To manage the product catalog and pricing."],
+      "correctAnswers": ["B"],
+      "explanation": "The Sales Accelerator provides sellers with a prioritized work list of activities and records that need attention, along with guided selling sequences. It does not automate quote/order creation (A), calculate forecasts (C), or manage the product catalog (D). Its focus is on seller productivity and engagement."
+    },
+    {
+      "id": 27,
+      "topic": "Quotes - Quote revision",
+      "type": "SingleChoice",
+      "questionText": "A customer requests changes to an active quote. What is the correct procedure?",
+      "options": ["A. Edit the active quote directly.", "B. Revise the quote to create a new version, then make changes.", "C. Delete the quote and create a new one.", "D. Close the quote and create an unrelated new quote."],
+      "correctAnswers": ["B"],
+      "explanation": "When changes are needed to an active quote, you must revise it, which creates a new version in Draft status that can be edited. Active quotes are read-only and cannot be edited directly (A). Deleting (C) loses the history. Closing and creating a new quote (D) breaks the relationship to the original."
+    },
+    {
+      "id": 28,
+      "topic": "Leads - Lead conversion",
+      "type": "MultipleChoice",
+      "questionText": "When qualifying a lead in Dynamics 365 Sales, which records can be created automatically? (Choose two.)",
+      "options": ["A. Account.", "B. Contact.", "C. Quote.", "D. Invoice."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "When qualifying a lead, Dynamics 365 automatically creates an Account (A), Contact (B), and Opportunity. Quotes (C) and Invoices (D) are not created during lead qualification; they are created later in the sales process from the opportunity."
+    },
+    {
+      "id": 29,
+      "topic": "Forecasting - Forecast snapshots",
+      "type": "SingleChoice",
+      "questionText": "A sales director wants to compare forecast data from the beginning of the quarter to the current forecast. What feature enables this?",
+      "options": ["A. Export forecasts to Excel at regular intervals.", "B. Use forecast snapshots that capture forecast data at points in time.", "C. Create a custom entity to store historical forecast data.", "D. Use the audit log to review changes."],
+      "correctAnswers": ["B"],
+      "explanation": "Forecast snapshots automatically capture forecast data at configured intervals, allowing comparison between different points in time. Excel exports (A) require manual effort and are not integrated. A custom entity (C) requires custom development. The audit log (D) tracks individual field changes, not complete forecast snapshots."
+    },
+    {
+      "id": 30,
+      "topic": "Product Catalog - Product lifecycle",
+      "type": "SingleChoice",
+      "questionText": "A product is being discontinued. You want to prevent it from being added to new quotes but keep it on existing quotes. What should you do?",
+      "options": ["A. Delete the product from the catalog.", "B. Retire the product.", "C. Set the product to Draft status.", "D. Remove the product from all price lists."],
+      "correctAnswers": ["B"],
+      "explanation": "Retiring a product prevents it from being added to new quotes, orders, or invoices while keeping it on existing records. Deleting (A) would remove it from existing records. Draft status (C) also prevents use but is intended for products not yet published. Removing from price lists (D) would cause pricing errors on existing records."
+    },
+    {
+      "id": 31,
+      "topic": "Opportunities - Sales playbooks",
+      "type": "SingleChoice",
+      "questionText": "A company wants to standardize their sales process by providing salespeople with a set of recommended activities when an opportunity reaches the proposal stage. What feature should they use?",
+      "options": ["A. Business process flow stages.", "B. Playbooks.", "C. Power Automate flows.", "D. Activity templates."],
+      "correctAnswers": ["B"],
+      "explanation": "Playbooks in Dynamics 365 Sales allow you to define a set of activities that are automatically created when triggered by events such as an opportunity reaching a specific stage. BPF stages (A) guide the process but do not create specific activities. Power Automate (C) could be used but is not the purpose-built feature. Activity templates (D) do not exist as a standard feature for this purpose."
+    },
+    {
+      "id": 32,
+      "topic": "Sales Pipeline - Relationship analytics",
+      "type": "SingleChoice",
+      "questionText": "You want to provide salespeople with insights about the health of their customer relationships based on email and meeting interactions. What should you enable?",
+      "options": ["A. Sales Insights relationship analytics.", "B. LinkedIn Sales Navigator integration.", "C. Customer Voice surveys.", "D. Power BI embedded dashboards."],
+      "correctAnswers": ["A"],
+      "explanation": "Sales Insights relationship analytics analyzes email and meeting interactions to provide a health score and insights about customer relationships. LinkedIn Sales Navigator (B) provides social selling features, not interaction analytics. Customer Voice (C) collects feedback surveys. Power BI (D) requires custom development for this specific analysis."
+    },
+    {
+      "id": 33,
+      "topic": "Orders - Order fulfillment",
+      "type": "SingleChoice",
+      "questionText": "After fulfilling an order in Dynamics 365 Sales, what happens to the order status?",
+      "options": ["A. The order is deleted.", "B. The order status changes to Fulfilled and becomes read-only.", "C. The order remains in Active status.", "D. The order automatically creates a new opportunity."],
+      "correctAnswers": ["B"],
+      "explanation": "When an order is fulfilled, its status changes to Fulfilled and the record becomes read-only. The order is not deleted (A). It does not remain Active (C). Fulfilling an order does not create a new opportunity (D)."
+    },
+    {
+      "id": 34,
+      "topic": "Leads - Auto-capture",
+      "type": "SingleChoice",
+      "questionText": "A salesperson wants Dynamics 365 to automatically track emails and meetings related to their leads without manual entry. What feature should be enabled?",
+      "options": ["A. Server-side synchronization only.", "B. Auto Capture in Sales Insights.", "C. Manual email tracking through the Dynamics 365 App for Outlook.", "D. A Power Automate flow that creates activities from emails."],
+      "correctAnswers": ["B"],
+      "explanation": "Auto Capture in Sales Insights automatically identifies and suggests emails and meetings from Exchange that are related to Dynamics 365 records, reducing manual tracking effort. Server-side synchronization (A) synchronizes tracked items but does not auto-suggest. Manual tracking (C) requires user action. Power Automate (D) would require custom configuration."
+    },
+    {
+      "id": 35,
+      "topic": "Opportunities - Opportunity close customization",
+      "type": "MultipleChoice",
+      "questionText": "You need to customize the opportunity close form to capture additional information when closing an opportunity. Which two actions can you take? (Choose two.)",
+      "options": ["A. Add custom fields to the Opportunity Close entity.", "B. Modify the quick create form for Opportunity Close.", "C. Add fields directly to the opportunity entity.", "D. Use the customizable Opportunity Close form feature."],
+      "correctAnswers": ["A", "D"],
+      "explanation": "You can add custom fields to the Opportunity Close entity (A) and use the customizable Opportunity Close form feature (D) to capture additional information during close. Modifying the quick create form (B) is not how the close dialog works. Adding fields to the opportunity entity (C) does not affect the close dialog."
+    },
+    {
+      "id": 36,
+      "topic": "Product Catalog - Unit groups",
+      "type": "SingleChoice",
+      "questionText": "A company sells a product both individually and in cases of 12. How should you configure this in the product catalog?",
+      "options": ["A. Create two separate products, one for each selling unit.", "B. Create a unit group with units for 'Each' and 'Case' with a quantity of 12.", "C. Use the product description to note the case quantity.", "D. Create a bundle with 12 individual products."],
+      "correctAnswers": ["B"],
+      "explanation": "Unit groups allow you to define different units of measure for the same product, with conversion factors between them. A unit group with 'Each' as the base unit and 'Case' equal to 12 'Each' handles this scenario. Separate products (A) complicates inventory tracking. Descriptions (C) are not functional. A bundle (D) is for different products sold together, not the same product in different quantities."
+    },
+    {
+      "id": 37,
+      "topic": "Sales Pipeline - Goal management",
+      "type": "SingleChoice",
+      "questionText": "You need to set up quarterly sales goals for each salesperson that roll up to their manager's goal. What should you configure?",
+      "options": ["A. Create individual goals with rollup queries and a parent-child goal hierarchy.", "B. Use the forecast feature instead of goals.", "C. Create a custom entity to track targets.", "D. Use Excel spreadsheets shared via SharePoint."],
+      "correctAnswers": ["A"],
+      "explanation": "Goal management in Dynamics 365 supports creating individual goals with rollup queries that automatically aggregate data, and parent-child hierarchies that roll up subordinate goals to manager goals. Forecasting (B) is a different feature that complements goals. Custom entities (C) and Excel (D) do not leverage the built-in goal tracking functionality."
+    },
+    {
+      "id": 38,
+      "topic": "Quotes - Multiple currencies",
+      "type": "SingleChoice",
+      "questionText": "A global company needs to create quotes in different currencies for different regions. What must be configured?",
+      "options": ["A. Create separate Dynamics 365 environments for each currency.", "B. Enable and configure multiple currencies with exchange rates in the system.", "C. Use only the base currency and convert manually.", "D. Create separate price lists for each currency only."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 supports multiple currencies. You need to enable the required currencies and configure exchange rates in system settings. Separate environments (A) are unnecessary and create data silos. Manual conversion (C) is error-prone. While separate price lists per currency (D) are part of the solution, you must first enable and configure the currencies in the system."
+    },
+    {
+      "id": 39,
+      "topic": "Sales Pipeline - Sequences",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to create a structured follow-up cadence for new leads that includes automated emails and phone call reminders over a 14-day period. What feature should they use?",
+      "options": ["A. Business process flows.", "B. Sequences in the Sales Accelerator.", "C. Power Automate approval flows.", "D. Recurring workflows."],
+      "correctAnswers": ["B"],
+      "explanation": "Sequences in the Sales Accelerator allow you to define a structured cadence of activities including automated emails and task reminders over a defined time period. Business process flows (A) guide users through stages but do not create timed activity cadences. Approval flows (C) are for approvals, not sales follow-up. Recurring workflows (D) do not support the level of cadence orchestration needed."
+    },
+    {
+      "id": 40,
+      "topic": "Opportunities - Relationship assistant",
+      "type": "SingleChoice",
+      "questionText": "The relationship assistant in Dynamics 365 Sales provides action cards to salespeople. What type of information do these action cards typically contain?",
+      "options": ["A. Product catalog updates and pricing changes.", "B. Reminders about upcoming meetings, emails needing replies, and overdue tasks.", "C. System administration alerts and security warnings.", "D. Marketing campaign performance metrics."],
+      "correctAnswers": ["B"],
+      "explanation": "The relationship assistant provides action cards with contextual reminders such as upcoming meetings, emails that need replies, overdue tasks, and other time-sensitive information related to sales activities. It does not provide product catalog updates (A), system alerts (C), or marketing metrics (D)."
+    }
+  ]
+}

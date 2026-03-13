@@ -1,0 +1,566 @@
+{
+  "examCode": "GH-900",
+  "examTitle": "GitHub Foundations",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Git Basics - Version control concepts",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of a distributed version control system like Git?",
+      "options": [
+        "A. To store files in the cloud for easy access.",
+        "B. To allow multiple developers to track and manage changes to code independently.",
+        "C. To automatically deploy code to production servers.",
+        "D. To compile source code into executable binaries."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Git is a distributed version control system designed to let multiple developers track changes, collaborate, and manage code history independently, each having a full copy of the repository.\n\nA is incorrect because while remote repositories can be hosted in the cloud, the primary purpose of Git is version control, not cloud storage.\n\nC is incorrect because deployment is handled by CI/CD tools, not Git itself.\n\nD is incorrect because compiling code is the job of a compiler, not a version control system."
+    },
+    {
+      "id": 2,
+      "topic": "Git Basics - Branching",
+      "type": "SingleChoice",
+      "questionText": "Which Git command creates a new branch and immediately switches to it?",
+      "options": [
+        "A. git branch new-branch",
+        "B. git checkout -b new-branch",
+        "C. git merge new-branch",
+        "D. git clone new-branch"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git checkout -b new-branch' creates a new branch named 'new-branch' and switches to it in a single command.\n\nA is incorrect because 'git branch new-branch' only creates the branch but does not switch to it.\n\nC is incorrect because 'git merge' combines changes from one branch into another; it does not create a branch.\n\nD is incorrect because 'git clone' copies an entire remote repository to a local machine; it does not create branches."
+    },
+    {
+      "id": 3,
+      "topic": "Git Basics - Staging area",
+      "type": "SingleChoice",
+      "questionText": "What does the command 'git add .' do?",
+      "options": [
+        "A. It commits all changes to the repository.",
+        "B. It pushes all changes to the remote repository.",
+        "C. It stages all modified and new files in the current directory for the next commit.",
+        "D. It creates a new branch with all current changes."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because 'git add .' stages all tracked modified files and new untracked files in the current directory and its subdirectories, preparing them for the next commit.\n\nA is incorrect because committing is done with 'git commit', not 'git add'.\n\nB is incorrect because pushing to a remote is done with 'git push'.\n\nD is incorrect because creating a branch is done with 'git branch' or 'git checkout -b'."
+    },
+    {
+      "id": 4,
+      "topic": "GitHub Features - Repositories",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between a public and a private repository on GitHub?",
+      "options": [
+        "A. Public repositories can only be viewed by organization members, while private repositories are visible to everyone.",
+        "B. Public repositories are visible to everyone on the internet, while private repositories are only accessible to the owner and explicitly granted collaborators.",
+        "C. There is no difference; all repositories on GitHub are public.",
+        "D. Private repositories cannot use GitHub Actions, while public repositories can."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because public repositories are visible to anyone on the internet, while private repositories restrict access to the repository owner and collaborators who have been explicitly granted access.\n\nA is incorrect because it reverses the definitions of public and private.\n\nC is incorrect because GitHub supports both public and private repositories.\n\nD is incorrect because GitHub Actions can be used with both public and private repositories."
+    },
+    {
+      "id": 5,
+      "topic": "GitHub Features - Forking",
+      "type": "SingleChoice",
+      "questionText": "What happens when you fork a repository on GitHub?",
+      "options": [
+        "A. A new branch is created in the original repository.",
+        "B. A complete copy of the repository is created under your GitHub account.",
+        "C. The original repository is deleted and replaced with your version.",
+        "D. You are added as a collaborator to the original repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because forking creates an independent copy of the entire repository under your own GitHub account, allowing you to make changes without affecting the original.\n\nA is incorrect because forking does not create a branch in the original repository; it creates a separate copy.\n\nC is incorrect because the original repository remains untouched when you fork it.\n\nD is incorrect because forking does not grant collaborator access to the original repository."
+    },
+    {
+      "id": 6,
+      "topic": "Pull Requests - Basics",
+      "type": "SingleChoice",
+      "questionText": "What is the primary purpose of a pull request on GitHub?",
+      "options": [
+        "A. To download code from a remote repository to your local machine.",
+        "B. To propose changes and request that they be reviewed and merged into a target branch.",
+        "C. To automatically deploy code to a staging environment.",
+        "D. To delete a branch after changes have been merged."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a pull request is a mechanism to propose changes from one branch to another, enabling code review, discussion, and approval before merging.\n\nA is incorrect because downloading code is done with 'git pull' or 'git clone', not a pull request.\n\nC is incorrect because deployment is not the purpose of a pull request, though CI/CD can be triggered by one.\n\nD is incorrect because while branches can be deleted after merging, that is not the primary purpose of a pull request."
+    },
+    {
+      "id": 7,
+      "topic": "Pull Requests - Reviews",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are valid review statuses a reviewer can submit on a GitHub pull request? (Choose two.)",
+      "options": [
+        "A. Approve",
+        "B. Reject",
+        "C. Request changes",
+        "D. Postpone"
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. When reviewing a pull request, a reviewer can 'Approve' the changes, 'Request changes' to ask the author to make modifications, or simply 'Comment' without an explicit approval or rejection.\n\nB is incorrect because 'Reject' is not a valid review status on GitHub pull requests.\n\nD is incorrect because 'Postpone' is not a valid review status on GitHub pull requests."
+    },
+    {
+      "id": 8,
+      "topic": "Issues - Tracking work",
+      "type": "SingleChoice",
+      "questionText": "Which GitHub feature allows you to organize and prioritize issues using a Kanban-style board?",
+      "options": [
+        "A. GitHub Discussions",
+        "B. GitHub Projects",
+        "C. GitHub Wiki",
+        "D. GitHub Gists"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Projects provides Kanban-style boards (and other views like tables) to organize, prioritize, and track issues and pull requests.\n\nA is incorrect because GitHub Discussions is a forum-like feature for community conversations, not a project management board.\n\nC is incorrect because GitHub Wiki is for documentation, not issue tracking.\n\nD is incorrect because Gists are for sharing small code snippets, not for project management."
+    },
+    {
+      "id": 9,
+      "topic": "Issues - Labels and milestones",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of labels on GitHub issues?",
+      "options": [
+        "A. To automatically assign issues to specific team members.",
+        "B. To categorize and filter issues for easier management.",
+        "C. To set deadlines on issues.",
+        "D. To lock issues from further comments."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because labels are used to categorize issues by type, priority, or other criteria, making it easier to filter and manage them.\n\nA is incorrect because labels do not automatically assign issues; assignment is a separate action.\n\nC is incorrect because deadlines are set using milestones, not labels.\n\nD is incorrect because locking issues is done through the lock conversation feature, not labels."
+    },
+    {
+      "id": 10,
+      "topic": "GitHub Actions - Workflows",
+      "type": "SingleChoice",
+      "questionText": "Where must GitHub Actions workflow files be stored in a repository?",
+      "options": [
+        "A. In the root directory of the repository.",
+        "B. In the .github/workflows directory.",
+        "C. In a directory named 'actions' at the root level.",
+        "D. In any directory, as long as the file has a .yml extension."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Actions requires workflow files to be placed in the .github/workflows directory of the repository to be recognized and executed.\n\nA is incorrect because workflow files in the root directory will not be detected by GitHub Actions.\n\nC is incorrect because there is no special 'actions' directory recognized by GitHub.\n\nD is incorrect because the location matters; only .github/workflows is scanned for workflow definitions."
+    },
+    {
+      "id": 11,
+      "topic": "GitHub Actions - Triggers",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following can trigger a GitHub Actions workflow? (Choose three.)",
+      "options": [
+        "A. A push to a branch.",
+        "B. A pull request being opened.",
+        "C. A scheduled cron expression.",
+        "D. Changing your GitHub profile picture."
+      ],
+      "correctAnswers": ["A", "B", "C"],
+      "explanation": "A, B, and C are correct. GitHub Actions workflows can be triggered by push events, pull request events, and scheduled cron expressions, among many other event types.\n\nD is incorrect because changing a profile picture is a user-level action that does not trigger repository workflows."
+    },
+    {
+      "id": 12,
+      "topic": "GitHub Actions - Runners",
+      "type": "SingleChoice",
+      "questionText": "What is a GitHub Actions runner?",
+      "options": [
+        "A. A GitHub employee who manually reviews workflow files.",
+        "B. A server that executes the jobs defined in a GitHub Actions workflow.",
+        "C. A type of GitHub repository template.",
+        "D. A command-line tool for creating workflow files locally."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a runner is a server (either GitHub-hosted or self-hosted) that executes the jobs defined in GitHub Actions workflows.\n\nA is incorrect because runners are automated servers, not human reviewers.\n\nC is incorrect because runners are execution environments, not repository templates.\n\nD is incorrect because runners execute workflows; they are not a CLI tool for authoring them."
+    },
+    {
+      "id": 13,
+      "topic": "GitHub Pages - Deployment",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub Pages primarily used for?",
+      "options": [
+        "A. Hosting backend APIs and microservices.",
+        "B. Hosting static websites directly from a GitHub repository.",
+        "C. Running database migrations.",
+        "D. Managing container images."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Pages is a static site hosting service that serves HTML, CSS, and JavaScript files directly from a GitHub repository.\n\nA is incorrect because GitHub Pages only supports static content, not backend APIs or server-side code.\n\nC is incorrect because database migrations require server-side execution, which GitHub Pages does not support.\n\nD is incorrect because container image management is handled by GitHub Container Registry, not GitHub Pages."
+    },
+    {
+      "id": 14,
+      "topic": "GitHub Pages - Configuration",
+      "type": "SingleChoice",
+      "questionText": "Which branch and folder combinations can be used as a publishing source for GitHub Pages?",
+      "options": [
+        "A. Only the 'main' branch and root folder.",
+        "B. Any branch with the root folder (/) or the /docs folder.",
+        "C. Only the 'gh-pages' branch.",
+        "D. Only branches that start with 'release/'."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Pages allows you to select any branch and configure the publishing source as either the root folder (/) or the /docs folder of that branch.\n\nA is incorrect because you are not limited to the 'main' branch.\n\nC is incorrect because while 'gh-pages' is a common convention, it is not the only option.\n\nD is incorrect because there is no restriction requiring branches to start with 'release/'."
+    },
+    {
+      "id": 15,
+      "topic": "Codespaces - Cloud development",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub Codespaces?",
+      "options": [
+        "A. A code review tool integrated into pull requests.",
+        "B. A cloud-hosted development environment that runs in the browser or a local IDE.",
+        "C. A GitHub feature for managing secret environment variables.",
+        "D. A static code analysis service."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Codespaces provides a full cloud-hosted development environment accessible from a browser or a compatible local IDE like VS Code.\n\nA is incorrect because code review is handled through pull requests and reviews, not Codespaces.\n\nC is incorrect because managing secrets is done through repository or organization settings, not Codespaces.\n\nD is incorrect because static code analysis is provided by tools like CodeQL, not Codespaces."
+    },
+    {
+      "id": 16,
+      "topic": "Codespaces - Dev containers",
+      "type": "SingleChoice",
+      "questionText": "Which file is used to configure a GitHub Codespace's development container?",
+      "options": [
+        "A. Dockerfile",
+        "B. .devcontainer/devcontainer.json",
+        "C. .github/codespace.yml",
+        "D. package.json"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the devcontainer.json file in the .devcontainer directory defines the configuration for a development container, including the base image, extensions, settings, and features.\n\nA is incorrect because while a Dockerfile can be referenced by devcontainer.json, the primary configuration file is devcontainer.json.\n\nC is incorrect because .github/codespace.yml is not a recognized configuration file for Codespaces.\n\nD is incorrect because package.json is for Node.js project dependencies, not Codespace configuration."
+    },
+    {
+      "id": 17,
+      "topic": "Security - Dependabot",
+      "type": "SingleChoice",
+      "questionText": "What does Dependabot do in a GitHub repository?",
+      "options": [
+        "A. It scans code for syntax errors and automatically fixes them.",
+        "B. It monitors dependencies for known vulnerabilities and creates pull requests to update them.",
+        "C. It manages user permissions and access to the repository.",
+        "D. It automatically creates release notes for new tags."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Dependabot monitors your project's dependencies for known security vulnerabilities and outdated packages, then automatically creates pull requests to update them.\n\nA is incorrect because Dependabot does not scan for or fix syntax errors.\n\nC is incorrect because user permissions are managed through repository settings and teams, not Dependabot.\n\nD is incorrect because release notes can be auto-generated by GitHub, but that is not Dependabot's function."
+    },
+    {
+      "id": 18,
+      "topic": "Security - Secret scanning",
+      "type": "SingleChoice",
+      "questionText": "What happens when GitHub detects a secret (such as an API key) committed to a public repository with secret scanning enabled?",
+      "options": [
+        "A. The commit is automatically reverted.",
+        "B. The repository is made private.",
+        "C. The secret scanning partner is notified so the credential can be revoked, and the repository admin is alerted.",
+        "D. The repository is deleted to prevent exposure."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because when secret scanning detects a known secret pattern in a public repository, GitHub notifies the service provider (partner) who issued the secret so it can be revoked, and alerts the repository administrator.\n\nA is incorrect because GitHub does not automatically revert commits.\n\nB is incorrect because GitHub does not change the repository visibility automatically.\n\nD is incorrect because GitHub does not delete repositories due to secret detection."
+    },
+    {
+      "id": 19,
+      "topic": "Git Basics - Merge conflicts",
+      "type": "SingleChoice",
+      "questionText": "When does a merge conflict occur in Git?",
+      "options": [
+        "A. When you try to push to a remote repository without pulling first.",
+        "B. When two branches have competing changes to the same lines in a file that Git cannot automatically resolve.",
+        "C. When a repository has no remote configured.",
+        "D. When you create a new branch from main."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a merge conflict occurs when Git cannot automatically reconcile competing changes made to the same lines of the same file on different branches.\n\nA is incorrect because pushing without pulling may result in a rejected push, but not necessarily a merge conflict.\n\nC is incorrect because having no remote configured is unrelated to merge conflicts.\n\nD is incorrect because creating a new branch does not cause conflicts since no merging is taking place."
+    },
+    {
+      "id": 20,
+      "topic": "Git Basics - Commit history",
+      "type": "SingleChoice",
+      "questionText": "Which command shows the commit history of a Git repository?",
+      "options": [
+        "A. git status",
+        "B. git log",
+        "C. git diff",
+        "D. git show"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git log' displays the commit history, showing commit hashes, authors, dates, and commit messages.\n\nA is incorrect because 'git status' shows the current state of the working directory and staging area, not the commit history.\n\nC is incorrect because 'git diff' shows changes between commits, the working directory, and the staging area, but not the full commit history.\n\nD is incorrect because 'git show' displays details of a specific commit or object, not the full log."
+    },
+    {
+      "id": 21,
+      "topic": "GitHub Features - README files",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a README.md file in a GitHub repository?",
+      "options": [
+        "A. To define the build process for the project.",
+        "B. To provide an introduction and documentation about the project that is displayed on the repository's main page.",
+        "C. To list all contributors who have committed to the repository.",
+        "D. To configure GitHub Actions workflows."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the README.md file is rendered on the repository's main page and serves as the primary documentation, providing an overview, setup instructions, and other important information about the project.\n\nA is incorrect because build processes are typically defined in build scripts, Makefiles, or CI configuration files.\n\nC is incorrect because while contributors may be listed in a README, its primary purpose is project documentation, and contributor lists are also available in the Insights tab.\n\nD is incorrect because GitHub Actions workflows are configured in .github/workflows, not in the README."
+    },
+    {
+      "id": 22,
+      "topic": "GitHub Features - Licensing",
+      "type": "SingleChoice",
+      "questionText": "Why is it important to include a LICENSE file in an open-source GitHub repository?",
+      "options": [
+        "A. It is required by GitHub to create a public repository.",
+        "B. It legally defines how others can use, modify, and distribute the project's code.",
+        "C. It prevents anyone from forking the repository.",
+        "D. It automatically adds a copyright notice to every file in the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because a LICENSE file specifies the legal terms under which the code can be used, modified, and distributed. Without a license, the default copyright laws apply, which restrict usage.\n\nA is incorrect because GitHub does not require a LICENSE file to create a public repository.\n\nC is incorrect because anyone can fork a public repository regardless of whether it has a license.\n\nD is incorrect because a LICENSE file does not automatically modify the contents of other files."
+    },
+    {
+      "id": 23,
+      "topic": "Pull Requests - Branch protection",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are configurable branch protection rules on GitHub? (Choose two.)",
+      "options": [
+        "A. Require pull request reviews before merging.",
+        "B. Require a minimum number of commits before merging.",
+        "C. Require status checks to pass before merging.",
+        "D. Require all issues to be closed before merging."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. Branch protection rules allow you to require pull request reviews and require status checks (such as CI/CD pipelines) to pass before a pull request can be merged.\n\nB is incorrect because branch protection does not include a rule for a minimum number of commits.\n\nD is incorrect because branch protection rules do not enforce closure of all issues before merging."
+    },
+    {
+      "id": 24,
+      "topic": "Issues - Templates",
+      "type": "SingleChoice",
+      "questionText": "Where are issue templates stored in a GitHub repository?",
+      "options": [
+        "A. In the .github/ISSUE_TEMPLATE directory.",
+        "B. In the root directory as issue-template.md.",
+        "C. In the repository settings under the Issues tab.",
+        "D. In the .github/workflows directory."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because GitHub recognizes issue templates stored in the .github/ISSUE_TEMPLATE directory, which can contain multiple template files in Markdown or YAML format.\n\nB is incorrect because GitHub does not look for a file named issue-template.md in the root directory.\n\nC is incorrect because while you can configure issue templates through the UI, the files are stored in .github/ISSUE_TEMPLATE.\n\nD is incorrect because .github/workflows is for GitHub Actions workflow files, not issue templates."
+    },
+    {
+      "id": 25,
+      "topic": "GitHub Actions - Secrets",
+      "type": "SingleChoice",
+      "questionText": "How do you securely pass sensitive information such as API keys to a GitHub Actions workflow?",
+      "options": [
+        "A. Hardcode them directly in the workflow YAML file.",
+        "B. Store them as GitHub Actions secrets and reference them using the secrets context.",
+        "C. Include them in the README.md file.",
+        "D. Pass them as command-line arguments in the repository description."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Actions secrets are encrypted environment variables stored at the repository or organization level and accessed in workflows using the ${{ secrets.SECRET_NAME }} syntax.\n\nA is incorrect because hardcoding secrets in workflow files exposes them in the repository history.\n\nC is incorrect because placing secrets in the README would make them publicly visible.\n\nD is incorrect because the repository description is public and not a mechanism for passing data to workflows."
+    },
+    {
+      "id": 26,
+      "topic": "GitHub Actions - Marketplace",
+      "type": "SingleChoice",
+      "questionText": "What is the GitHub Marketplace used for in the context of GitHub Actions?",
+      "options": [
+        "A. To buy and sell GitHub repositories.",
+        "B. To discover and use pre-built actions created by the community and vendors.",
+        "C. To purchase additional GitHub storage.",
+        "D. To manage billing for GitHub Enterprise."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the GitHub Marketplace provides a catalog of pre-built actions and apps that can be used in workflows, created by GitHub, the community, and third-party vendors.\n\nA is incorrect because the Marketplace is not for selling repositories.\n\nC is incorrect because storage upgrades are managed in billing settings, not the Marketplace.\n\nD is incorrect because billing for GitHub Enterprise is managed in the enterprise or organization settings."
+    },
+    {
+      "id": 27,
+      "topic": "Git Basics - Remote operations",
+      "type": "SingleChoice",
+      "questionText": "What does the command 'git fetch' do?",
+      "options": [
+        "A. It downloads new data from a remote repository and automatically merges it into the current branch.",
+        "B. It downloads new data from a remote repository without modifying the working directory or current branch.",
+        "C. It uploads local commits to the remote repository.",
+        "D. It creates a new remote repository on GitHub."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git fetch' downloads commits, files, and references from a remote repository into your local repository but does not merge them into your working branch.\n\nA is incorrect because that describes 'git pull', which is fetch + merge.\n\nC is incorrect because uploading commits is done with 'git push'.\n\nD is incorrect because creating a remote repository is done through GitHub or the API, not a Git command."
+    },
+    {
+      "id": 28,
+      "topic": "GitHub Features - Organizations",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using a GitHub organization over individual user accounts for a team project?",
+      "options": [
+        "A. Organizations allow unlimited private repositories on the free plan only.",
+        "B. Organizations provide centralized management of repositories, teams, and permissions.",
+        "C. Organizations automatically back up all repositories to a secondary location.",
+        "D. Organizations prevent any external contributors from submitting issues."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub organizations provide centralized management capabilities including team-based permissions, shared repositories, audit logs, and administrative controls that are essential for team collaboration.\n\nA is incorrect because both individual accounts and organizations can have private repositories on the free plan.\n\nC is incorrect because GitHub does not automatically back up repositories to a secondary location for organizations.\n\nD is incorrect because organizations do not prevent external users from submitting issues to public repositories."
+    },
+    {
+      "id": 29,
+      "topic": "Security - Two-factor authentication",
+      "type": "SingleChoice",
+      "questionText": "Why does GitHub recommend enabling two-factor authentication (2FA) for user accounts?",
+      "options": [
+        "A. It speeds up the login process.",
+        "B. It adds an additional layer of security beyond a password, making unauthorized access significantly harder.",
+        "C. It allows users to bypass branch protection rules.",
+        "D. It is required to create public repositories."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because two-factor authentication requires a second form of verification (such as a time-based code) in addition to the password, significantly reducing the risk of unauthorized account access.\n\nA is incorrect because 2FA adds an extra step to the login process, which is slightly slower.\n\nC is incorrect because 2FA does not affect branch protection rules.\n\nD is incorrect because 2FA is not required to create public repositories, though GitHub may require it for certain organizations."
+    },
+    {
+      "id": 30,
+      "topic": "GitHub Features - GitHub Discussions",
+      "type": "SingleChoice",
+      "questionText": "What is the primary use case for GitHub Discussions?",
+      "options": [
+        "A. To report bugs and track issues.",
+        "B. To have open-ended conversations, Q&A, and community engagement outside of issues and pull requests.",
+        "C. To configure CI/CD pipelines.",
+        "D. To manage repository access permissions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Discussions provides a forum-like space for open-ended conversations, questions, announcements, and community engagement that does not fit into the structured format of issues or pull requests.\n\nA is incorrect because bug reports and issue tracking are done through GitHub Issues.\n\nC is incorrect because CI/CD pipelines are configured through GitHub Actions.\n\nD is incorrect because access permissions are managed in repository or organization settings."
+    },
+    {
+      "id": 31,
+      "topic": "Git Basics - Rebasing",
+      "type": "SingleChoice",
+      "questionText": "What is the main difference between 'git merge' and 'git rebase'?",
+      "options": [
+        "A. 'git merge' deletes the source branch, while 'git rebase' keeps it.",
+        "B. 'git merge' creates a merge commit preserving branch history, while 'git rebase' rewrites commit history to create a linear sequence.",
+        "C. 'git rebase' is used for remote repositories, while 'git merge' is only for local branches.",
+        "D. There is no difference; they are aliases for the same command."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git merge' integrates changes by creating a new merge commit that combines two branch histories, while 'git rebase' moves or replays commits from one branch onto another, creating a linear history.\n\nA is incorrect because neither command automatically deletes the source branch.\n\nC is incorrect because both commands can be used with local branches.\n\nD is incorrect because they produce different commit histories and are distinct commands."
+    },
+    {
+      "id": 32,
+      "topic": "GitHub Pages - Static site generators",
+      "type": "SingleChoice",
+      "questionText": "Which static site generator is natively supported by GitHub Pages without additional configuration?",
+      "options": [
+        "A. Hugo",
+        "B. Gatsby",
+        "C. Jekyll",
+        "D. Next.js"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because Jekyll is natively supported by GitHub Pages. GitHub automatically builds Jekyll sites from the repository source without requiring a separate build step.\n\nA is incorrect because Hugo requires a custom GitHub Actions workflow to build the site before deploying.\n\nB is incorrect because Gatsby requires a build step that is not natively supported by GitHub Pages.\n\nD is incorrect because Next.js is a React framework that requires its own build and deployment configuration."
+    },
+    {
+      "id": 33,
+      "topic": "Codespaces - Prebuilds",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of prebuilds in GitHub Codespaces?",
+      "options": [
+        "A. To compile the project's source code before a developer opens the Codespace.",
+        "B. To pre-configure the development container so that Codespaces launch faster by having the environment ready.",
+        "C. To create a production-ready build artifact for deployment.",
+        "D. To run all unit tests before a Codespace is created."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Codespaces prebuilds pre-configure the development container, installing dependencies and setting up the environment in advance so that when a developer creates a Codespace, it starts much faster.\n\nA is incorrect because prebuilds focus on the container environment setup, not source code compilation.\n\nC is incorrect because prebuilds are for development environments, not production builds.\n\nD is incorrect because running unit tests is not the purpose of prebuilds."
+    },
+    {
+      "id": 34,
+      "topic": "GitHub Features - GitHub CLI",
+      "type": "SingleChoice",
+      "questionText": "What is the GitHub CLI (gh) used for?",
+      "options": [
+        "A. It replaces Git entirely for version control operations.",
+        "B. It provides a command-line interface to interact with GitHub features like pull requests, issues, and repositories.",
+        "C. It is a graphical user interface for GitHub Desktop.",
+        "D. It is a package manager for installing GitHub Actions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the GitHub CLI (gh) allows developers to interact with GitHub features directly from the terminal, including creating pull requests, managing issues, viewing workflow runs, and more.\n\nA is incorrect because gh does not replace Git; it complements it by adding GitHub-specific functionality.\n\nC is incorrect because gh is a command-line tool, not a graphical interface.\n\nD is incorrect because gh is not a package manager for GitHub Actions."
+    },
+    {
+      "id": 35,
+      "topic": "Security - CODEOWNERS",
+      "type": "SingleChoice",
+      "questionText": "What does the CODEOWNERS file in a GitHub repository do?",
+      "options": [
+        "A. It defines which users own the repository and can delete it.",
+        "B. It specifies individuals or teams that are automatically requested as reviewers for pull requests that modify matching file paths.",
+        "C. It lists all contributors who have ever committed to the repository.",
+        "D. It configures which users can push directly to the main branch."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the CODEOWNERS file maps file patterns to GitHub users or teams who are automatically requested as reviewers when a pull request modifies files matching those patterns.\n\nA is incorrect because repository ownership and deletion rights are managed in repository settings, not through CODEOWNERS.\n\nC is incorrect because CODEOWNERS defines reviewers for specific paths, not a historical list of contributors.\n\nD is incorrect because push access is controlled through branch protection rules and collaborator permissions, not CODEOWNERS."
+    },
+    {
+      "id": 36,
+      "topic": "Git Basics - Tags",
+      "type": "SingleChoice",
+      "questionText": "What is a Git tag typically used for?",
+      "options": [
+        "A. To create a new branch for feature development.",
+        "B. To mark specific points in the repository's history, often for releases.",
+        "C. To delete old commits from the repository.",
+        "D. To merge two branches together."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Git tags are used to mark specific commits, typically to denote release versions (e.g., v1.0.0) or other important milestones in the project history.\n\nA is incorrect because branch creation is done with 'git branch' or 'git checkout -b'.\n\nC is incorrect because tags do not delete commits.\n\nD is incorrect because merging is done with 'git merge' or 'git rebase'."
+    },
+    {
+      "id": 37,
+      "topic": "GitHub Features - Notifications",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following actions will generate a GitHub notification by default? (Choose two.)",
+      "options": [
+        "A. Being mentioned in a comment with @username.",
+        "B. Viewing a repository's README page.",
+        "C. Being assigned to an issue.",
+        "D. Browsing the GitHub Explore page."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. Being @mentioned in a comment and being assigned to an issue both trigger GitHub notifications by default.\n\nB is incorrect because simply viewing a README page does not generate a notification.\n\nD is incorrect because browsing the GitHub Explore page is a passive action that does not trigger notifications."
+    },
+    {
+      "id": 38,
+      "topic": "GitHub Features - GitHub Mobile",
+      "type": "SingleChoice",
+      "questionText": "Which of the following can you do with the GitHub Mobile app?",
+      "options": [
+        "A. Run GitHub Actions workflows directly from the app.",
+        "B. Review and merge pull requests, manage issues, and receive notifications.",
+        "C. Edit workflow YAML files with syntax highlighting.",
+        "D. Host GitHub Pages sites from your mobile device."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Mobile allows users to review and merge pull requests, manage issues, read and respond to notifications, and browse repositories on the go.\n\nA is incorrect because while you can view workflow runs, you cannot run or trigger workflows directly from the mobile app in the same way as the web interface.\n\nC is incorrect because GitHub Mobile does not provide a full code editor with syntax highlighting for YAML files.\n\nD is incorrect because GitHub Pages hosting is a server-side feature, not something managed from a mobile device."
+    },
+    {
+      "id": 39,
+      "topic": "Git Basics - .gitignore",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the .gitignore file?",
+      "options": [
+        "A. To list files that should be deleted from the repository.",
+        "B. To specify intentionally untracked files and directories that Git should ignore.",
+        "C. To define the order in which files are committed.",
+        "D. To encrypt sensitive files in the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because .gitignore specifies patterns for files and directories that Git should not track. This is commonly used to exclude build artifacts, dependencies, and sensitive configuration files.\n\nA is incorrect because .gitignore does not delete files; it prevents them from being tracked.\n\nC is incorrect because Git does not have a concept of commit ordering based on a file.\n\nD is incorrect because .gitignore does not provide encryption; it simply tells Git to ignore matching files."
+    },
+    {
+      "id": 40,
+      "topic": "GitHub Features - Releases",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of GitHub Releases?",
+      "options": [
+        "A. To automatically deploy code to production.",
+        "B. To package and distribute specific versions of software with release notes and downloadable assets.",
+        "C. To create snapshots of the repository database.",
+        "D. To schedule automatic backups of the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Releases allow maintainers to create versioned releases of their software, attach binary assets (such as compiled binaries or archives), and include release notes to communicate changes.\n\nA is incorrect because releases do not automatically deploy code, though they can be used to trigger deployment workflows.\n\nC is incorrect because releases are not database snapshots.\n\nD is incorrect because releases are not a backup mechanism."
+    }
+  ]
+}
