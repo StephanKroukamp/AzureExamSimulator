@@ -24,4 +24,22 @@ public class Question
 
     [JsonPropertyName("explanation")]
     public string Explanation { get; set; } = "";
+
+    // Ordering/DragDrop questions
+    [JsonPropertyName("items")]
+    public List<string>? Items { get; set; }
+
+    [JsonPropertyName("correctOrder")]
+    public List<int>? CorrectOrder { get; set; }
+
+    // Case Study questions
+    [JsonPropertyName("scenario")]
+    public string? Scenario { get; set; }
+
+    // Hotspot questions
+    [JsonPropertyName("imageUrl")]
+    public string? ImageUrl { get; set; }
+
+    [JsonPropertyName("regions")]
+    public List<HotspotRegion>? Regions { get; set; }
 }

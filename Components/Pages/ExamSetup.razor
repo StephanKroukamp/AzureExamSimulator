@@ -54,6 +54,36 @@
                 }
             </div>
 
+            <div class="form-section">
+                <h2>Filter by Topics</h2>
+                <button class="chip @(_showTopicFilter ? "active" : "")" @onclick="() => _showTopicFilter = !_showTopicFilter">
+                    @if (_showTopicFilter) { <text>Hide Topics</text> } else { <text>Show Topics (@_selectedTopics.Count / @_allTopics.Count)</text> }
+                </button>
+                @if (_showTopicFilter)
+                {
+                    <div class="topic-filter">
+                        <div class="topic-filter-actions">
+                            <button class="btn-ghost btn-sm" @onclick="SelectAllTopics">Select All</button>
+                            <button class="btn-ghost btn-sm" @onclick="DeselectAllTopics">Deselect All</button>
+                        </div>
+                        @foreach (var topic in _allTopics)
+                        {
+                            var t = topic;
+                            var count = _topicCounts[t];
+                            <label class="topic-filter-item">
+                                <input type="checkbox" checked="@_selectedTopics.Contains(t)"
+                                       @onchange="() => ToggleTopic(t)" />
+                                <span class="topic-name">@t</span>
+                                <span class="topic-count">(@count)</span>
+                            </label>
+                        }
+                    </div>
+                    <div class="topic-filter-summary">
+                        @_selectedTopics.Count of @_allTopics.Count topics selected (@FilteredQuestionCount questions)
+                    </div>
+                }
+            </div>
+
             @if (!_isPractice)
             {
                 <div class="form-section">
@@ -86,7 +116,8 @@
                 }
             </div>
 
-            <button class="btn-primary start-btn" @onclick="StartExam">
+            <button class="btn-primary start-btn" @onclick="StartExam"
+                    disabled="@(_selectedTopics.Count == 0)">
                 Start Exam &rarr;
             </button>
         </div>
@@ -103,12 +134,23 @@
     private int _customCount = 10;
     private int _timeLimit;
     private bool _showCustomInput;
+    private bool _showTopicFilter;
+    private List<string> _allTopics = [];
+    private HashSet<string> _selectedTopics = [];
+    private Dictionary<string, int> _topicCounts = [];
 
     private record QuestionOption(string Label, int Value);
     private List<QuestionOption> _questionOptions = [];
 
+    private int FilteredQuestionCount => _selectedTopics.Count == _allTopics.Count
+        ? _validCount
+        : QuestionValidator.GetValidQuestions(_exam!.Questions)
+            .Count(q => _selectedTopics.Contains(q.Topic));
+
+    private int EffectiveMaxCount => _selectedTopics.Count == _allTopics.Count ? _validCount : FilteredQuestionCount;
+
     private int EffectiveQuestionCount =>
-        _showCustomInput ? Math.Clamp(_customCount, 1, _validCount) : _selectedQuestionCount;
+        _showCustomInput ? Math.Clamp(_customCount, 1, EffectiveMaxCount) : Math.Min(_selectedQuestionCount, EffectiveMaxCount);
 
     protected override void OnInitialized()
     {
@@ -123,6 +165,13 @@
         if (_validCount >= 25) _questionOptions.Add(new("25", 25));
         if (_validCount >= 50) _questionOptions.Add(new("50", 50));
         _questionOptions.Add(new("Custom", -1));
+
+        var validQuestions = QuestionValidator.GetValidQuestions(_exam.Questions);
+        _topicCounts = validQuestions
+            .GroupBy(q => q.Topic)
+            .ToDictionary(g => g.Key, g => g.Count());
+        _allTopics = _topicCounts.Keys.OrderBy(t => t).ToList();
+        _selectedTopics = [.. _allTopics];
     }
 
     private void SelectQuestionCount(int value)
@@ -139,14 +188,26 @@
         }
     }
 
+    private void ToggleTopic(string topic)
+    {
+        if (!_selectedTopics.Remove(topic))
+            _selectedTopics.Add(topic);
+    }
+
+    private void SelectAllTopics() => _selectedTopics = [.. _allTopics];
+    private void DeselectAllTopics() => _selectedTopics = [];
+
     private void StartExam()
     {
-        if (_exam is null) return;
+        if (_exam is null || _selectedTopics.Count == 0) return;
 
         var config = new ExamConfig(
             IsPracticeMode: _isPractice,
             TimeLimitMinutes: _isPractice ? 0 : _timeLimit,
-            QuestionCount: EffectiveQuestionCount
+            QuestionCount: EffectiveQuestionCount,
+            SelectedTopics: _selectedTopics.Count == _allTopics.Count
+                ? null
+                : _selectedTopics.ToList()
         );
 
         ExamService.StartExam(_exam, config);

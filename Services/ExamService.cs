@@ -56,6 +56,13 @@ public class ExamService
     {
         var validQuestions = QuestionValidator.GetValidQuestions(exam.Questions);
 
+        if (config.SelectedTopics is { Count: > 0 })
+        {
+            validQuestions = validQuestions
+                .Where(q => config.SelectedTopics.Contains(q.Topic))
+                .ToList();
+        }
+
         var questionsToUse = validQuestions;
         if (config.QuestionCount < validQuestions.Count)
         {
@@ -208,6 +215,23 @@ public class ExamService
     {
         if (userAnswers.Length == 0) return false;
 
+        // Ordering questions: compare order-sensitive indices
+        if (question.Type == "Ordering" && question.CorrectOrder is { Count: > 0 })
+        {
+            var orderStr = userAnswers[0];
+            if (string.IsNullOrEmpty(orderStr)) return false;
+            try
+            {
+                var userOrder = orderStr.Split(',').Select(int.Parse).ToList();
+                return userOrder.SequenceEqual(question.CorrectOrder);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // Default: set-based comparison for choice/hotspot questions
         var ua = userAnswers
             .Where(a => a is not null)
             .Select(a => a.Trim().ToUpperInvariant())

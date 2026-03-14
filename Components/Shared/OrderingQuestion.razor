@@ -1,0 +1,120 @@
+<div class="ordering-list">
+    @for (var i = 0; i < _orderedItems.Count; i++)
+    {
+        var index = i;
+        var item = _orderedItems[i];
+        var feedbackClass = "";
+        @if (ShowFeedback && Question.CorrectOrder is not null)
+        {
+            feedbackClass = Question.CorrectOrder[index] == item.OriginalIndex ? "correct" : "incorrect";
+        }
+
+        <div class="ordering-item @feedbackClass @(_dragIndex == index ? "dragging" : "") @(_dropTarget == index ? "drop-target" : "")"
+             draggable="@(!Disabled)"
+             @ondragstart="() => OnDragStart(index)"
+             @ondragover:preventDefault
+             @ondragover="() => OnDragOver(index)"
+             @ondrop="() => OnDrop(index)"
+             @ondragend="OnDragEnd">
+            <span class="ordering-position">@(index + 1)</span>
+            <span class="ordering-text">@item.Text</span>
+            @if (!Disabled)
+            {
+                <span class="ordering-buttons">
+                    <button class="ordering-move-btn" @onclick="() => MoveUp(index)"
+                            disabled="@(index == 0)">&#9650;</button>
+                    <button class="ordering-move-btn" @onclick="() => MoveDown(index)"
+                            disabled="@(index == _orderedItems.Count - 1)">&#9660;</button>
+                </span>
+            }
+            @if (ShowFeedback && Question.CorrectOrder is not null)
+            {
+                @if (Question.CorrectOrder[index] == item.OriginalIndex)
+                {
+                    <span class="option-feedback correct-icon">&#10003;</span>
+                }
+                else
+                {
+                    <span class="option-feedback incorrect-icon">&#10007;</span>
+                }
+            }
+        </div>
+    }
+</div>
+
+@if (ShowFeedback && Question.CorrectOrder is not null)
+{
+    <div class="ordering-correct-order">
+        <strong>Correct order:</strong>
+        @for (var i = 0; i < Question.CorrectOrder.Count; i++)
+        {
+            <div class="ordering-correct-item">@(i + 1). @Question.Items![Question.CorrectOrder[i]]</div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public Question Question { get; set; } = default!;
+    [Parameter] public string[] SelectedAnswers { get; set; } = [];
+    [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
+    [Parameter] public bool ShowFeedback { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+
+    private List<OrderedItem> _orderedItems = [];
+    private int _dragIndex = -1;
+    private int _dropTarget = -1;
+
+    private record OrderedItem(int OriginalIndex, string Text);
+
+    protected override void OnParametersSet()
+    {
+        if (Question.Items is null) return;
+
+        if (SelectedAnswers.Length > 0 && !string.IsNullOrEmpty(SelectedAnswers[0]))
+        {
+            var indices = SelectedAnswers[0].Split(',').Select(int.Parse).ToList();
+            _orderedItems = indices.Select(i => new OrderedItem(i, Question.Items[i])).ToList();
+        }
+        else if (_orderedItems.Count == 0)
+        {
+            _orderedItems = Question.Items
+                .Select((text, i) => new OrderedItem(i, text))
+                .ToList();
+            _ = NotifyChanged();
+        }
+    }
+
+    private void OnDragStart(int index) => _dragIndex = index;
+    private void OnDragOver(int index) => _dropTarget = index;
+    private void OnDragEnd() { _dragIndex = -1; _dropTarget = -1; }
+
+    private async Task OnDrop(int targetIndex)
+    {
+        if (_dragIndex < 0 || _dragIndex == targetIndex) { OnDragEnd(); return; }
+        var item = _orderedItems[_dragIndex];
+        _orderedItems.RemoveAt(_dragIndex);
+        _orderedItems.Insert(targetIndex, item);
+        OnDragEnd();
+        await NotifyChanged();
+    }
+
+    private async Task MoveUp(int index)
+    {
+        if (Disabled || index <= 0) return;
+        (_orderedItems[index], _orderedItems[index - 1]) = (_orderedItems[index - 1], _orderedItems[index]);
+        await NotifyChanged();
+    }
+
+    private async Task MoveDown(int index)
+    {
+        if (Disabled || index >= _orderedItems.Count - 1) return;
+        (_orderedItems[index], _orderedItems[index + 1]) = (_orderedItems[index + 1], _orderedItems[index]);
+        await NotifyChanged();
+    }
+
+    private async Task NotifyChanged()
+    {
+        var order = string.Join(",", _orderedItems.Select(i => i.OriginalIndex));
+        await OnAnswerChanged.InvokeAsync([order]);
+    }
+}

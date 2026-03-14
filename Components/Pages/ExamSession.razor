@@ -169,6 +169,10 @@
                         <div class="sidebar-flagged-count">
                             &#9873; @ExamService.FlaggedQuestions.Count flagged
                         </div>
+                        <button class="btn-filter-flagged @(_filterFlagged ? "active" : "")"
+                                @onclick="ToggleFlaggedFilter">
+                            @(_filterFlagged ? "Show all" : "Show flagged only")
+                        </button>
                     }
                 </aside>
             </div>
@@ -220,6 +224,7 @@
     private bool _isTransitioning;
     private string _transitionDir = "";
     private bool _shortcutsDismissed;
+    private bool _filterFlagged;
     private System.Threading.Timer? _timer;
     private DotNetObjectReference<ExamSession>? _dotNetRef;
 
@@ -229,16 +234,26 @@
     private int RequiredAnswerCount =>
         ExamService.CurrentQuestion?.CorrectAnswers.Distinct().Count() ?? 1;
 
+    private bool IsOrderingQuestion =>
+        ExamService.CurrentQuestion?.Type == "Ordering"
+        && ExamService.CurrentQuestion?.Items is { Count: > 0 };
+
+    private bool IsHotspotQuestion =>
+        ExamService.CurrentQuestion?.Type == "Hotspot"
+        && ExamService.CurrentQuestion?.Regions is { Count: > 0 };
+
     private bool IsMultipleChoice =>
         ExamService.CurrentQuestion?.Type == "MultipleChoice"
         || (ExamService.CurrentQuestion?.Type is "DragDrop" or "Hotspot"
-            && RequiredAnswerCount > 1);
+            && !IsHotspotQuestion && RequiredAnswerCount > 1);
 
     private bool HasCorrectSelectionCount =>
         !IsMultipleChoice || _currentSelection.Length == RequiredAnswerCount;
 
     private bool CanSubmit =>
-        _currentSelection.Length > 0 && HasCorrectSelectionCount;
+        IsOrderingQuestion
+            ? _currentSelection.Length > 0
+            : _currentSelection.Length > 0 && HasCorrectSelectionCount;
 
     private double ProgressPercent =>
         ExamService.TotalQuestions > 0
@@ -332,11 +347,11 @@
             case "F":
                 ToggleFlag();
                 break;
-            case "a": case "A": SelectOption(0); break;
-            case "b": case "B": SelectOption(1); break;
-            case "c": case "C": SelectOption(2); break;
-            case "d": case "D": SelectOption(3); break;
-            case "e": case "E": SelectOption(4); break;
+            case "a": case "A": if (!IsOrderingQuestion && !IsHotspotQuestion) SelectOption(0); break;
+            case "b": case "B": if (!IsOrderingQuestion && !IsHotspotQuestion) SelectOption(1); break;
+            case "c": case "C": if (!IsOrderingQuestion && !IsHotspotQuestion) SelectOption(2); break;
+            case "d": case "D": if (!IsOrderingQuestion && !IsHotspotQuestion) SelectOption(3); break;
+            case "e": case "E": if (!IsOrderingQuestion && !IsHotspotQuestion) SelectOption(4); break;
         }
 
         await InvokeAsync(StateHasChanged);
@@ -365,6 +380,29 @@
     private void ToggleFlag()
     {
         ExamService.ToggleFlag(ExamService.CurrentQuestionIndex);
+        if (_filterFlagged && ExamService.FlaggedQuestions.Count == 0)
+            _filterFlagged = false;
+    }
+
+    private void ToggleFlaggedFilter()
+    {
+        _filterFlagged = !_filterFlagged;
+        if (_filterFlagged && ExamService.FlaggedQuestions.Count == 0)
+            _filterFlagged = false;
+    }
+
+    private List<int> FlaggedIndices => ExamService.FlaggedQuestions.OrderBy(x => x).ToList();
+
+    private int? NextFlaggedIndex()
+    {
+        var next = FlaggedIndices.FirstOrDefault(i => i > ExamService.CurrentQuestionIndex, -1);
+        return next >= 0 ? next : null;
+    }
+
+    private int? PreviousFlaggedIndex()
+    {
+        var prev = FlaggedIndices.LastOrDefault(i => i < ExamService.CurrentQuestionIndex, -1);
+        return prev >= 0 ? prev : null;
     }
 
     private void OnAnswerChanged(string[] answers)
@@ -403,8 +441,21 @@
         }
 
         _showFeedback = false;
-        if (ExamService.NextQuestion())
+
+        if (_filterFlagged)
+        {
+            var next = NextFlaggedIndex();
+            if (next.HasValue)
+            {
+                ExamService.GoToQuestion(next.Value);
+                AnimateTransition("slide-in-right");
+            }
+        }
+        else if (ExamService.NextQuestion())
+        {
             AnimateTransition("slide-in-right");
+        }
+
         _currentSelection = ExamService.GetCurrentAnswer();
     }
 
@@ -416,8 +467,21 @@
         }
 
         _showFeedback = false;
-        if (ExamService.PreviousQuestion())
+
+        if (_filterFlagged)
+        {
+            var prev = PreviousFlaggedIndex();
+            if (prev.HasValue)
+            {
+                ExamService.GoToQuestion(prev.Value);
+                AnimateTransition("slide-in-left");
+            }
+        }
+        else if (ExamService.PreviousQuestion())
+        {
             AnimateTransition("slide-in-left");
+        }
+
         _currentSelection = ExamService.GetCurrentAnswer();
     }
 

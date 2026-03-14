@@ -595,6 +595,89 @@
       "options": ["A. Deploying resources across multiple availability zones.", "B. Using a single large virtual machine instead of multiple smaller ones.", "C. Deploying resources to multiple Azure regions.", "D. Using the lowest-cost storage redundancy option."],
       "correctAnswers": ["A", "C"],
       "explanation": "A is correct because deploying across multiple availability zones protects against datacenter-level failures within a region, increasing availability.\n\nC is correct because deploying to multiple regions provides disaster recovery capability and increases overall availability by protecting against region-wide outages.\n\nB is incorrect because a single large VM is a single point of failure, which decreases availability.\n\nD is incorrect because the lowest-cost storage redundancy (LRS) stores copies in a single datacenter, providing less availability than zone-redundant or geo-redundant options."
+    },
+    {
+      "id": 67,
+      "topic": "Cloud Concepts - Cloud service models",
+      "type": "Ordering",
+      "questionText": "Arrange the following cloud service models from the most customer-managed responsibility to the least customer-managed responsibility:",
+      "items": [
+        "Infrastructure as a Service (IaaS)",
+        "Platform as a Service (PaaS)",
+        "Software as a Service (SaaS)"
+      ],
+      "correctOrder": [0, 1, 2],
+      "options": [],
+      "correctAnswers": [],
+      "explanation": "IaaS gives you the most control and responsibility — you manage the OS, middleware, and applications. PaaS abstracts the OS and middleware, so you only manage applications and data. SaaS abstracts almost everything — the provider manages the entire stack and you simply use the software."
+    },
+    {
+      "id": 68,
+      "topic": "Azure Architecture - Regions and availability",
+      "type": "Ordering",
+      "questionText": "Arrange the following Azure redundancy options from the lowest to the highest level of data durability:",
+      "items": [
+        "Locally Redundant Storage (LRS)",
+        "Zone-Redundant Storage (ZRS)",
+        "Geo-Redundant Storage (GRS)",
+        "Geo-Zone-Redundant Storage (GZRS)"
+      ],
+      "correctOrder": [0, 1, 2, 3],
+      "options": [],
+      "correctAnswers": [],
+      "explanation": "LRS replicates data three times within a single datacenter. ZRS replicates across three availability zones in a region. GRS replicates to a secondary region (with LRS in each). GZRS combines zone-redundancy in the primary region with geo-replication to a secondary region, providing the highest durability."
+    },
+    {
+      "id": 69,
+      "topic": "Azure Architecture - Regions and availability",
+      "type": "Hotspot",
+      "questionText": "Which of the following Azure components provides automatic failover across datacenters within a single region?",
+      "imageUrl": "",
+      "regions": [
+        {"id": "A", "label": "Availability Sets", "x": 0, "y": 0, "width": 100, "height": 25},
+        {"id": "B", "label": "Availability Zones", "x": 0, "y": 25, "width": 100, "height": 25},
+        {"id": "C", "label": "Resource Groups", "x": 0, "y": 50, "width": 100, "height": 25},
+        {"id": "D", "label": "Management Groups", "x": 0, "y": 75, "width": 100, "height": 25}
+      ],
+      "options": [],
+      "correctAnswers": ["B"],
+      "explanation": "Availability Zones are physically separate datacenters within an Azure region. Each zone has independent power, cooling, and networking. By deploying across availability zones, you get automatic failover protection against datacenter-level failures within a region.\n\nAvailability Sets protect against hardware failures within a single datacenter, not across datacenters. Resource Groups and Management Groups are organizational constructs and do not provide failover capabilities."
+    },
+    {
+      "id": 70,
+      "topic": "Azure Architecture - Regions and availability",
+      "type": "Hotspot",
+      "questionText": "Which Azure service would you use to distribute incoming network traffic across multiple virtual machines?",
+      "imageUrl": "",
+      "regions": [
+        {"id": "A", "label": "Azure Load Balancer", "x": 0, "y": 0, "width": 100, "height": 25},
+        {"id": "B", "label": "Azure VPN Gateway", "x": 0, "y": 25, "width": 100, "height": 25},
+        {"id": "C", "label": "Azure DNS", "x": 0, "y": 50, "width": 100, "height": 25},
+        {"id": "D", "label": "Azure Firewall", "x": 0, "y": 75, "width": 100, "height": 25}
+      ],
+      "options": [],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Load Balancer distributes incoming network traffic across multiple virtual machines to ensure high availability and reliability. It operates at layer 4 (TCP/UDP) and can handle millions of flows.\n\nAzure VPN Gateway is for establishing secure cross-premises connectivity. Azure DNS is for domain name resolution. Azure Firewall is a managed network security service for protecting your Azure Virtual Network resources."
+    },
+    {
+      "id": 71,
+      "topic": "Cloud Concepts - Benefits of cloud computing",
+      "type": "SingleChoice",
+      "scenario": "Contoso Ltd is a mid-size retail company with 500 employees. They currently run their e-commerce platform on on-premises servers. During the holiday season, their website experiences 10x normal traffic, causing slow page loads and occasional outages. The rest of the year, their servers are only utilised at 15% capacity. The IT team spends significant time on hardware maintenance and patching. Contoso wants to modernise their infrastructure while reducing costs and improving reliability.",
+      "questionText": "Based on the scenario, which cloud computing benefit would MOST directly address Contoso's holiday season traffic spikes?",
+      "options": ["A. High availability", "B. Elasticity", "C. Geo-distribution", "D. Disaster recovery"],
+      "correctAnswers": ["B"],
+      "explanation": "Elasticity is the ability to automatically scale resources up during peak demand (holiday season with 10x traffic) and scale down during low-demand periods (15% utilisation). This directly addresses both the traffic spike problem and the wasted capacity during off-peak times.\n\nHigh availability ensures uptime but doesn't specifically address the scaling need. Geo-distribution spreads resources geographically but isn't the primary solution for traffic spikes. Disaster recovery protects against data loss, not traffic management."
+    },
+    {
+      "id": 72,
+      "topic": "Cloud Concepts - Benefits of cloud computing",
+      "type": "SingleChoice",
+      "scenario": "Contoso Ltd is a mid-size retail company with 500 employees. They currently run their e-commerce platform on on-premises servers. During the holiday season, their website experiences 10x normal traffic, causing slow page loads and occasional outages. The rest of the year, their servers are only utilised at 15% capacity. The IT team spends significant time on hardware maintenance and patching. Contoso wants to modernise their infrastructure while reducing costs and improving reliability.",
+      "questionText": "Based on the scenario, which pricing model would help Contoso reduce costs for their underutilised servers during off-peak months?",
+      "options": ["A. Capital expenditure (CapEx)", "B. Operational expenditure (OpEx) with pay-as-you-go", "C. Fixed monthly pricing", "D. Reserved instance pricing only"],
+      "correctAnswers": ["B"],
+      "explanation": "The pay-as-you-go (OpEx) model means Contoso only pays for what they use. During off-peak months when utilisation is at 15%, their costs would scale down accordingly. This directly addresses the waste of running servers at 15% capacity.\n\nCapEx (buying servers) is what they currently do and it doesn't solve the utilisation problem. Fixed monthly pricing doesn't scale with demand. Reserved instances provide discounts for consistent workloads but don't address the variable demand pattern described."
     }
   ]
 }
