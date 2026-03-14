@@ -17,6 +17,23 @@
 <body>
     <Routes @rendermode="new InteractiveServerRenderMode(prerender: false)" />
     <script src="_framework/blazor.web.js"></script>
+    <script>
+        window.__registerKeyHandler = function(dotNetRef) {
+            window.__keyDotNetRef = dotNetRef;
+            window.__keyHandler = function(e) {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+                dotNetRef.invokeMethodAsync('OnKeyPress', e.key);
+            };
+            document.addEventListener('keydown', window.__keyHandler);
+        };
+        window.__unregisterKeyHandler = function() {
+            if (window.__keyHandler) {
+                document.removeEventListener('keydown', window.__keyHandler);
+                window.__keyHandler = null;
+            }
+            window.__keyDotNetRef = null;
+        };
+    </script>
 </body>
 
 </html>

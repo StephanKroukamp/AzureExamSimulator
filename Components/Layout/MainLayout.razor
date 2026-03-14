@@ -1,5 +1,6 @@
 @inherits LayoutComponentBase
 @inject ThemeService Theme
+@inject NavigationManager Nav
 
 <div class="app-layout">
     <header class="app-header">
@@ -8,10 +9,30 @@
                 <span class="logo-icon">&#9729;</span>
                 <span class="logo-text">Microsoft Exam Simulator</span>
             </a>
-            <button class="theme-toggle" @onclick="ToggleTheme" title="Toggle light/dark theme">
-                <span class="theme-toggle-icon">@(Theme.IsDark ? "\u2600" : "\u263E")</span>
-                <span>@(Theme.IsDark ? "Light" : "Dark")</span>
-            </button>
+            <div class="header-actions">
+                @if (BreadcrumbItems.Count > 0)
+                {
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="/" class="breadcrumb-item">Home</a>
+                        @foreach (var item in BreadcrumbItems)
+                        {
+                            <span class="breadcrumb-sep">/</span>
+                            @if (item.IsActive)
+                            {
+                                <span class="breadcrumb-item active">@item.Label</span>
+                            }
+                            else
+                            {
+                                <span class="breadcrumb-item">@item.Label</span>
+                            }
+                        }
+                    </nav>
+                }
+                <button class="theme-toggle" @onclick="ToggleTheme" title="Toggle light/dark theme">
+                    <span class="theme-toggle-icon">@(Theme.IsDark ? "\u2600" : "\u263E")</span>
+                    <span>@(Theme.IsDark ? "Light" : "Dark")</span>
+                </button>
+            </div>
         </div>
     </header>
     <main class="app-main">
@@ -20,6 +41,42 @@
 </div>
 
 @code {
+    private record BreadcrumbEntry(string Label, bool IsActive);
+
+    private List<BreadcrumbEntry> BreadcrumbItems
+    {
+        get
+        {
+            var uri = Nav.ToBaseRelativePath(Nav.Uri);
+            var segments = uri.Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+            if (segments.Length == 0) return [];
+
+            var items = new List<BreadcrumbEntry>();
+
+            // Pattern: exam/{code}/{page}
+            if (segments.Length >= 2 && segments[0].Equals("exam", StringComparison.OrdinalIgnoreCase))
+            {
+                items.Add(new(segments[1].ToUpperInvariant(), segments.Length == 2));
+
+                if (segments.Length >= 3)
+                {
+                    var pageName = segments[2] switch
+                    {
+                        "setup" => "Setup",
+                        "session" => "Session",
+                        "results" => "Results",
+                        "report" => "Report",
+                        _ => segments[2]
+                    };
+                    items.Add(new(pageName, true));
+                }
+            }
+
+            return items;
+        }
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

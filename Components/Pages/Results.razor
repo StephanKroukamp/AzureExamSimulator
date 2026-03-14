@@ -20,23 +20,34 @@
             <h1>@ExamService.CurrentExam.ExamTitle</h1>
         </div>
 
-        <div class="result-banner @(result.Passed ? "passed" : "failed")">
-            <div class="result-status">@(result.Passed ? "PASSED" : "FAILED")</div>
-            <div class="result-score">@result.ScoreOutOf1000 / 1000</div>
-            <div class="result-percentage">@result.Percentage.ToString("F1")%</div>
+        <!-- Animated SVG Score Gauge -->
+        <div class="score-gauge-container">
+            <svg class="score-gauge" viewBox="0 0 160 160">
+                <circle class="gauge-bg" cx="80" cy="80" r="70" />
+                <circle class="gauge-fill @(result.Passed ? "passed" : "failed")"
+                        cx="80" cy="80" r="70"
+                        style="--gauge-pct: @result.Percentage;" />
+            </svg>
+            <div class="gauge-text">
+                <div class="gauge-score">@_displayScore</div>
+                <div class="gauge-label">/ 1000</div>
+                <div class="gauge-status @(result.Passed ? "passed" : "failed")">
+                    @(result.Passed ? "PASSED" : "FAILED")
+                </div>
+            </div>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value correct">@result.Correct</div>
+                <div class="stat-value correct">@_displayCorrect</div>
                 <div class="stat-label">Correct</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value incorrect">@result.Incorrect</div>
+                <div class="stat-value incorrect">@_displayIncorrect</div>
                 <div class="stat-label">Incorrect</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value skipped">@result.Skipped</div>
+                <div class="stat-value skipped">@_displaySkipped</div>
                 <div class="stat-label">Skipped</div>
             </div>
             <div class="stat-card">
@@ -125,7 +136,8 @@
             <button class="btn-ghost" @onclick="DownloadReport">
                 <span>&#128196;</span> Download Report (PDF)
             </button>
-            <button class="btn-primary" @onclick="GoHome">Return Home</button>
+            <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
+            <button class="btn-secondary" @onclick="GoHome">Return Home</button>
         </div>
     }
 </div>
@@ -133,9 +145,56 @@
 @code {
     [Parameter] public string ExamCode { get; set; } = "";
 
+    private int _displayScore;
+    private int _displayCorrect;
+    private int _displayIncorrect;
+    private int _displaySkipped;
+    private bool _animated;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_animated && ExamService.CurrentExam is not null && ExamService.IsExamFinished)
+        {
+            _animated = true;
+            var result = ExamService.CalculateResult();
+            var targetScore = result.ScoreOutOf1000;
+            var targetCorrect = result.Correct;
+            var targetIncorrect = result.Incorrect;
+            var targetSkipped = result.Skipped;
+
+            const int steps = 30;
+            const int delayMs = 35;
+
+            for (var i = 1; i <= steps; i++)
+            {
+                var t = (double)i / steps;
+                // Ease-out curve
+                var eased = 1 - Math.Pow(1 - t, 3);
+                _displayScore = (int)(targetScore * eased);
+                _displayCorrect = (int)(targetCorrect * eased);
+                _displayIncorrect = (int)(targetIncorrect * eased);
+                _displaySkipped = (int)(targetSkipped * eased);
+                await InvokeAsync(StateHasChanged);
+                await Task.Delay(delayMs);
+            }
+
+            // Ensure exact final values
+            _displayScore = targetScore;
+            _displayCorrect = targetCorrect;
+            _displayIncorrect = targetIncorrect;
+            _displaySkipped = targetSkipped;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
     private void DownloadReport()
     {
         Nav.NavigateTo($"/exam/{ExamCode}/report");
+    }
+
+    private void RetakeExam()
+    {
+        Nav.NavigateTo($"/exam/{ExamCode}/setup");
     }
 
     private void GoHome()

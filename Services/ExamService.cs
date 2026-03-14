@@ -8,10 +8,18 @@ public class ExamService
     public ExamConfig? Config { get; private set; }
     public int CurrentQuestionIndex { get; private set; }
     public List<string[]> UserAnswers { get; private set; } = [];
+    public HashSet<int> FlaggedQuestions { get; private set; } = [];
     public bool IsExamActive { get; private set; }
     public bool IsExamFinished { get; private set; }
     public DateTime? StartTime { get; private set; }
     public bool HasSubmittedCurrentAnswer { get; private set; }
+
+    public void ToggleFlag(int index)
+    {
+        if (!FlaggedQuestions.Remove(index)) FlaggedQuestions.Add(index);
+    }
+
+    public bool IsFlagged(int index) => FlaggedQuestions.Contains(index);
 
     public TimeSpan Elapsed => StartTime.HasValue
         ? DateTime.UtcNow - StartTime.Value
@@ -65,6 +73,7 @@ public class ExamService
         Config = config;
         CurrentQuestionIndex = 0;
         UserAnswers = questionsToUse.Select(_ => Array.Empty<string>()).ToList();
+        FlaggedQuestions = [];
         IsExamActive = true;
         IsExamFinished = false;
         HasSubmittedCurrentAnswer = false;
@@ -188,6 +197,7 @@ public class ExamService
         Config = null;
         CurrentQuestionIndex = 0;
         UserAnswers = [];
+        FlaggedQuestions = [];
         IsExamActive = false;
         IsExamFinished = false;
         HasSubmittedCurrentAnswer = false;

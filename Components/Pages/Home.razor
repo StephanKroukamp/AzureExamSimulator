@@ -9,7 +9,20 @@
 
     @if (_exams is null)
     {
-        <div class="loading">Loading exams...</div>
+        <div class="exam-grid">
+            @for (var i = 0; i < 6; i++)
+            {
+                <div class="exam-card skeleton">
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line long"></div>
+                    <div class="skeleton-row">
+                        <div class="skeleton-block"></div>
+                        <div class="skeleton-block"></div>
+                    </div>
+                    <div class="skeleton-line short"></div>
+                </div>
+            }
+        </div>
     }
     else if (_exams.Count == 0)
     {
@@ -46,7 +59,11 @@
 
         @if (FilteredExams.Count == 0)
         {
-            <div class="empty-state">No exams match your search.</div>
+            <div class="empty-state">
+                <div class="empty-icon">&#128269;</div>
+                <p>No exams match your search.</p>
+                <button class="btn-secondary" @onclick="ClearSearch">Clear Search</button>
+            </div>
         }
         else
         {
