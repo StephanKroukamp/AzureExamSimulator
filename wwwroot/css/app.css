@@ -1265,7 +1265,10 @@ button:disabled {
 /* === Results Actions === */
 
 .results-actions {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     padding: 1.5rem 0;
 }
 
@@ -1524,5 +1527,559 @@ html, body, .app-header, .exam-card, .stat-card, .question-text,
     .review-answers {
         flex-direction: column;
         gap: 0.2rem;
+    }
+}
+
+/* === Exam Report Page === */
+
+.report-page {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease;
+}
+
+.report-toolbar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.report-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.report-header {
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.report-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.report-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.report-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.report-exam-info {
+    text-align: right;
+}
+
+.report-exam-code {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-light);
+}
+
+.report-exam-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+}
+
+.report-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Report Score Section */
+.report-score-section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.report-score-banner {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.25rem;
+}
+
+.report-score-banner.passed {
+    background: var(--success-bg);
+    border: 1px solid rgba(46, 204, 113, 0.25);
+}
+
+.report-score-banner.failed {
+    background: var(--error-bg);
+    border: 1px solid rgba(231, 76, 60, 0.25);
+}
+
+.report-score-status {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.passed .report-score-status { color: var(--success); }
+.failed .report-score-status { color: var(--error); }
+
+.report-score-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    margin-top: 0.25rem;
+}
+
+.report-score-pct {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.report-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.report-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.report-stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.report-stat-value.correct { color: var(--success); }
+.report-stat-value.incorrect { color: var(--error); }
+.report-stat-value.skipped { color: var(--warning); }
+
+.report-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Report Sections */
+.report-section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.report-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Report Table */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.report-table th {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border);
+    background: var(--bg-card);
+}
+
+.report-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.report-table .col-num {
+    text-align: center;
+    width: 70px;
+    font-family: var(--font-mono);
+}
+
+.report-table .col-status {
+    text-align: center;
+    width: 110px;
+}
+
+.report-table .col-topic {
+    min-width: 200px;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.status-tag.good {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.status-tag.warn {
+    background: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+.status-tag.bad {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.row-bad td:first-child { border-left: 3px solid var(--error); }
+.row-warn td:first-child { border-left: 3px solid var(--warning); }
+.row-good td:first-child { border-left: 3px solid var(--success); }
+
+/* Focus Areas */
+.report-focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.report-focus-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.focus-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.focus-icon {
+    font-weight: 800;
+    color: var(--error);
+    font-size: 0.9rem;
+}
+
+.focus-topic {
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.focus-score {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.focus-score.bad { color: var(--error); }
+.focus-score.warn { color: var(--warning); }
+
+.focus-advice {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Question Review in Report */
+.report-question {
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+}
+
+.report-question.correct { border-left: 4px solid var(--success); }
+.report-question.incorrect { border-left: 4px solid var(--error); }
+.report-question.skipped { border-left: 4px solid var(--warning); }
+
+.report-q-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.report-q-num {
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.report-q-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+}
+
+.report-q-status.correct {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.report-q-status.incorrect {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+.report-q-status.skipped {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.report-q-topic {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-left: auto;
+}
+
+.report-q-text {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    white-space: pre-wrap;
+}
+
+.report-q-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.report-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.report-option.correct-selected {
+    background: var(--success-bg);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.report-option.correct-missed {
+    background: rgba(46, 204, 113, 0.05);
+    border: 1px dashed rgba(46, 204, 113, 0.3);
+}
+
+.report-option.incorrect-selected {
+    background: var(--error-bg);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.opt-marker {
+    min-width: 18px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.correct-marker { color: var(--success); }
+.incorrect-marker { color: var(--error); }
+
+.opt-text {
+    color: var(--text-primary);
+}
+
+.report-q-answer-row {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.report-q-explanation {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+/* Report Footer */
+.report-footer {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.report-footer p {
+    margin: 0.2rem 0;
+}
+
+/* === Print Styles === */
+@media print {
+    /* Hide everything except report content */
+    .no-print,
+    .report-toolbar,
+    .app-header,
+    .app-footer,
+    nav,
+    .theme-toggle {
+        display: none !important;
+    }
+
+    /* Reset page */
+    html, body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 11pt !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .app-main {
+        padding: 0 !important;
+        max-width: none !important;
+    }
+
+    .report-page {
+        max-width: none !important;
+    }
+
+    .report-content {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+    }
+
+    /* Header */
+    .report-header {
+        border-bottom: 2px solid #0078d4 !important;
+        padding: 0 0 0.75rem !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .report-title { color: #111 !important; font-size: 16pt !important; }
+    .report-subtitle { color: #555 !important; }
+    .report-exam-code { color: #0078d4 !important; }
+    .report-exam-title { color: #555 !important; }
+    .report-meta { color: #666 !important; font-size: 9pt !important; }
+
+    /* Score */
+    .report-score-section { padding: 0.75rem 0 !important; }
+    .report-score-banner { padding: 0.75rem !important; }
+    .report-score-banner.passed {
+        background: #e8f8ee !important;
+        border: 1px solid #2ecc71 !important;
+    }
+    .report-score-banner.failed {
+        background: #fde8e6 !important;
+        border: 1px solid #e74c3c !important;
+    }
+    .report-score-status { font-size: 14pt !important; }
+    .passed .report-score-status { color: #1a9c54 !important; }
+    .failed .report-score-status { color: #c0392b !important; }
+    .report-score-value { color: #111 !important; }
+    .report-stat-value { font-size: 14pt !important; }
+    .report-stat-value.correct { color: #1a9c54 !important; }
+    .report-stat-value.incorrect { color: #c0392b !important; }
+    .report-stat-value.skipped { color: #c77d0a !important; }
+    .report-stat-label { color: #666 !important; }
+
+    /* Sections */
+    .report-section { padding: 0.75rem 0 !important; border-bottom: 1px solid #ddd !important; }
+    .report-section-title { color: #111 !important; border-bottom-color: #ddd !important; }
+
+    /* Table */
+    .report-table th { background: #f5f5f5 !important; color: #333 !important; border-bottom-color: #999 !important; }
+    .report-table td { color: #111 !important; border-bottom-color: #ddd !important; }
+    .row-bad td:first-child { border-left: 3px solid #e74c3c !important; }
+    .row-warn td:first-child { border-left: 3px solid #f39c12 !important; }
+    .row-good td:first-child { border-left: 3px solid #2ecc71 !important; }
+
+    .status-tag.good { background: #e8f8ee !important; color: #1a9c54 !important; border-color: #2ecc71 !important; }
+    .status-tag.warn { background: #fef5e0 !important; color: #c77d0a !important; border-color: #f39c12 !important; }
+    .status-tag.bad { background: #fde8e6 !important; color: #c0392b !important; border-color: #e74c3c !important; }
+
+    /* Focus areas */
+    .report-focus-item { background: #f9f9f9 !important; border-color: #ddd !important; }
+    .focus-topic { color: #111 !important; }
+    .focus-score.bad { color: #c0392b !important; }
+    .focus-score.warn { color: #c77d0a !important; }
+    .focus-advice { color: #555 !important; }
+
+    /* Questions */
+    .report-question {
+        padding: 0.75rem 1rem !important;
+        page-break-inside: avoid !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+    .report-question.correct { border-left: 4px solid #2ecc71 !important; }
+    .report-question.incorrect { border-left: 4px solid #e74c3c !important; }
+    .report-question.skipped { border-left: 4px solid #f39c12 !important; }
+
+    .report-q-num { color: #111 !important; }
+    .report-q-status.correct { background: #e8f8ee !important; color: #1a9c54 !important; }
+    .report-q-status.incorrect { background: #fde8e6 !important; color: #c0392b !important; }
+    .report-q-status.skipped { background: #fef5e0 !important; color: #c77d0a !important; }
+    .report-q-topic { color: #888 !important; }
+    .report-q-text { color: #111 !important; font-size: 9.5pt !important; }
+
+    .report-option { font-size: 9pt !important; }
+    .report-option.correct-selected { background: #e8f8ee !important; border: 1px solid #2ecc71 !important; }
+    .report-option.correct-missed { background: #f0faf4 !important; border: 1px dashed #2ecc71 !important; }
+    .report-option.incorrect-selected { background: #fde8e6 !important; border: 1px solid #e74c3c !important; }
+    .correct-marker { color: #1a9c54 !important; }
+    .incorrect-marker { color: #c0392b !important; }
+    .opt-text { color: #111 !important; }
+
+    .report-q-answer-row { color: #555 !important; font-size: 9pt !important; }
+    .report-q-explanation { background: #f5f5f5 !important; border-color: #ddd !important; color: #333 !important; font-size: 9pt !important; }
+
+    /* Footer */
+    .report-footer { color: #888 !important; border-top: 1px solid #ddd !important; }
+
+    /* Page settings */
+    @page {
+        margin: 1.5cm;
+        size: A4;
     }
 }

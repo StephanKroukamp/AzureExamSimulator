@@ -1,0 +1,255 @@
+@page "/exam/{ExamCode}/report"
+@inject ExamService ExamService
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="report-page">
+    @if (ExamService.CurrentExam is null || !ExamService.IsExamFinished)
+    {
+        <div class="empty-state">
+            <p>No exam results available.</p>
+            <a href="/" class="btn-primary">Go Home</a>
+        </div>
+    }
+    else
+    {
+        var result = ExamService.CalculateResult();
+        var examDate = DateTime.Now;
+
+        <div class="report-toolbar no-print">
+            <button class="btn-primary" @onclick="PrintReport">
+                <span>&#128196;</span> Save as PDF
+            </button>
+            <button class="btn-secondary" @onclick="GoBack">
+                <span>&#8592;</span> Back to Results
+            </button>
+        </div>
+
+        <div class="report-content">
+            <!-- Report Header -->
+            <div class="report-header">
+                <div class="report-title-row">
+                    <div>
+                        <h1 class="report-title">Exam Results Report</h1>
+                        <p class="report-subtitle">Microsoft Exam Simulator</p>
+                    </div>
+                    <div class="report-exam-info">
+                        <div class="report-exam-code">@ExamService.CurrentExam.ExamCode</div>
+                        <div class="report-exam-title">@ExamService.CurrentExam.ExamTitle</div>
+                    </div>
+                </div>
+                <div class="report-meta">
+                    <span>Date: @examDate.ToString("dd MMMM yyyy, HH:mm")</span>
+                    <span>Duration: @FormatTime(result.TimeTaken)</span>
+                    <span>Mode: @(ExamService.Config?.IsPracticeMode == true ? "Practice" : "Timed Exam")</span>
+                </div>
+            </div>
+
+            <!-- Score Summary -->
+            <div class="report-score-section">
+                <div class="report-score-banner @(result.Passed ? "passed" : "failed")">
+                    <div class="report-score-status">@(result.Passed ? "PASSED" : "FAILED")</div>
+                    <div class="report-score-value">@result.ScoreOutOf1000 / 1000</div>
+                    <div class="report-score-pct">@result.Percentage.ToString("F1")%</div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="report-stat">
+                        <span class="report-stat-value correct">@result.Correct</span>
+                        <span class="report-stat-label">Correct</span>
+                    </div>
+                    <div class="report-stat">
+                        <span class="report-stat-value incorrect">@result.Incorrect</span>
+                        <span class="report-stat-label">Incorrect</span>
+                    </div>
+                    <div class="report-stat">
+                        <span class="report-stat-value skipped">@result.Skipped</span>
+                        <span class="report-stat-label">Skipped</span>
+                    </div>
+                    <div class="report-stat">
+                        <span class="report-stat-value">@result.TotalQuestions</span>
+                        <span class="report-stat-label">Total</span>
+                    </div>
+                    <div class="report-stat">
+                        <span class="report-stat-value">700</span>
+                        <span class="report-stat-label">Pass Score</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Breakdown -->
+            @if (result.TopicBreakdown.Count > 0)
+            {
+                var weakTopics = result.TopicBreakdown
+                    .Where(t => t.Value.Total > 0)
+                    .Select(t => new { Topic = t.Key, Total = t.Value.Total, Correct = t.Value.Correct, Pct = (double)t.Value.Correct / t.Value.Total * 100 })
+                    .OrderBy(t => t.Pct)
+                    .ToList();
+
+                <div class="report-section">
+                    <h2 class="report-section-title">Topic Performance</h2>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th class="col-topic">Topic</th>
+                                <th class="col-num">Correct</th>
+                                <th class="col-num">Total</th>
+                                <th class="col-num">Score</th>
+                                <th class="col-status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var topic in weakTopics)
+                            {
+                                <tr class="@(topic.Pct < 50 ? "row-bad" : topic.Pct < 70 ? "row-warn" : "row-good")">
+                                    <td>@topic.Topic</td>
+                                    <td class="col-num">@topic.Correct</td>
+                                    <td class="col-num">@topic.Total</td>
+                                    <td class="col-num">@topic.Pct.ToString("F0")%</td>
+                                    <td class="col-status">
+                                        @if (topic.Pct >= 70)
+                                        {
+                                            <span class="status-tag good">Strong</span>
+                                        }
+                                        else if (topic.Pct >= 50)
+                                        {
+                                            <span class="status-tag warn">Needs Work</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-tag bad">Focus Area</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Focus Areas Recommendation -->
+                @if (weakTopics.Any(t => t.Pct < 70))
+                {
+                    <div class="report-section">
+                        <h2 class="report-section-title">Recommended Focus Areas</h2>
+                        <div class="report-focus-list">
+                            @foreach (var area in weakTopics.Where(t => t.Pct < 70))
+                            {
+                                <div class="report-focus-item">
+                                    <div class="focus-header">
+                                        <span class="focus-icon">@(area.Pct < 50 ? "!!" : "!")</span>
+                                        <span class="focus-topic">@area.Topic</span>
+                                        <span class="focus-score @(area.Pct < 50 ? "bad" : "warn")">@area.Pct.ToString("F0")%</span>
+                                    </div>
+                                    <p class="focus-advice">
+                                        You scored @area.Correct out of @area.Total in this area.
+                                        Review the @(area.Pct < 50 ? "fundamental concepts" : "advanced topics") related to @area.Topic
+                                        on Microsoft Learn to improve your score.
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+
+            <!-- Question Detail Review -->
+            <div class="report-section">
+                <h2 class="report-section-title">Question-by-Question Review</h2>
+
+                @for (var i = 0; i < ExamService.CurrentExam.Questions.Count; i++)
+                {
+                    var q = ExamService.CurrentExam.Questions[i];
+                    var ua = ExamService.UserAnswers[i];
+                    var isCorrect = ExamService.IsAnswerCorrect(i);
+                    var wasSkipped = ua.Length == 0;
+                    var statusClass = wasSkipped ? "skipped" : isCorrect ? "correct" : "incorrect";
+
+                    <div class="report-question @statusClass">
+                        <div class="report-q-header">
+                            <span class="report-q-num">Q@(i + 1)</span>
+                            <span class="report-q-status @statusClass">
+                                @(wasSkipped ? "SKIPPED" : isCorrect ? "CORRECT" : "INCORRECT")
+                            </span>
+                            <span class="report-q-topic">@q.Topic</span>
+                        </div>
+
+                        <div class="report-q-text">@q.QuestionText</div>
+
+                        <div class="report-q-options">
+                            @foreach (var option in q.Options)
+                            {
+                                var letter = option.Length > 0 ? option[0].ToString().ToUpperInvariant() : "";
+                                var isUserChoice = ua.Any(a => a.Trim().Equals(letter, StringComparison.OrdinalIgnoreCase));
+                                var isCorrectAnswer = q.CorrectAnswers.Any(a => a.Trim().Equals(letter, StringComparison.OrdinalIgnoreCase));
+
+                                var optClass = "";
+                                if (isCorrectAnswer && isUserChoice) optClass = "correct-selected";
+                                else if (isCorrectAnswer) optClass = "correct-missed";
+                                else if (isUserChoice) optClass = "incorrect-selected";
+
+                                <div class="report-option @optClass">
+                                    @if (isCorrectAnswer && isUserChoice)
+                                    {
+                                        <span class="opt-marker correct-marker">&#10003;</span>
+                                    }
+                                    else if (isCorrectAnswer)
+                                    {
+                                        <span class="opt-marker correct-marker">&#10003;</span>
+                                    }
+                                    else if (isUserChoice)
+                                    {
+                                        <span class="opt-marker incorrect-marker">&#10007;</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="opt-marker">&nbsp;</span>
+                                    }
+                                    <span class="opt-text">@option</span>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="report-q-answer-row">
+                            <span><strong>Your Answer:</strong> @(wasSkipped ? "Skipped" : string.Join(", ", ua))</span>
+                            <span><strong>Correct Answer:</strong> @string.Join(", ", q.CorrectAnswers)</span>
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(q.Explanation))
+                        {
+                            <div class="report-q-explanation">
+                                <strong>Explanation:</strong> @q.Explanation
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+            <!-- Footer -->
+            <div class="report-footer">
+                <p>Generated by Microsoft Exam Simulator on @examDate.ToString("dd MMMM yyyy") at @examDate.ToString("HH:mm")</p>
+                <p>This report is for study purposes only. Questions may not reflect actual Microsoft certification exam content.</p>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string ExamCode { get; set; } = "";
+
+    private async Task PrintReport()
+    {
+        await JS.InvokeVoidAsync("window.print");
+    }
+
+    private void GoBack()
+    {
+        Nav.NavigateTo($"/exam/{ExamCode}/results");
+    }
+
+    private static string FormatTime(TimeSpan ts)
+    {
+        if (ts.TotalHours >= 1)
+            return $"{(int)ts.TotalHours}h {ts.Minutes:D2}m {ts.Seconds:D2}s";
+        return $"{(int)ts.TotalMinutes}m {ts.Seconds:D2}s";
+    }
+}

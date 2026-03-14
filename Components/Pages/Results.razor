@@ -1,6 +1,7 @@
 @page "/exam/{ExamCode}/results"
 @inject ExamService ExamService
 @inject NavigationManager Nav
+@inject IJSRuntime JS
 
 <div class="results-page">
     @if (ExamService.CurrentExam is null || !ExamService.IsExamFinished)
@@ -121,6 +122,9 @@
         }
 
         <div class="results-actions">
+            <button class="btn-ghost" @onclick="DownloadReport">
+                <span>&#128196;</span> Download Report (PDF)
+            </button>
             <button class="btn-primary" @onclick="GoHome">Return Home</button>
         </div>
     }
@@ -128,6 +132,11 @@
 
 @code {
     [Parameter] public string ExamCode { get; set; } = "";
+
+    private void DownloadReport()
+    {
+        Nav.NavigateTo($"/exam/{ExamCode}/report");
+    }
 
     private void GoHome()
     {
