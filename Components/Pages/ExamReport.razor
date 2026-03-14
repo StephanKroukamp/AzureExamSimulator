@@ -20,6 +20,7 @@
             <div class="report-filename-row">
                 <label class="report-filename-label" for="pdfFileName">Filename:</label>
                 <input id="pdfFileName" type="text" class="report-filename-input" @bind="_fileName" />
+                <span class="report-filename-ext">.pdf</span>
             </div>
             <div class="report-toolbar-buttons">
                 <button class="btn-primary" @onclick="DownloadPdf">
@@ -256,6 +257,8 @@
     private async Task DownloadPdf()
     {
         var name = string.IsNullOrWhiteSpace(_fileName) ? "Exam Report" : _fileName.Trim();
+        // Strip any extension the user may have typed and enforce .pdf
+        name = Path.GetFileNameWithoutExtension(name) + ".pdf";
         await JS.InvokeVoidAsync("eval", $"document.title = '{name.Replace("'", "\\'")}'");
         await JS.InvokeVoidAsync("window.print");
         await JS.InvokeVoidAsync("eval", "document.title = 'Microsoft Exam Simulator'");
