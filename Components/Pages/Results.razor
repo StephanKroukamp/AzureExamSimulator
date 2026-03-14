@@ -20,6 +20,13 @@
             <h1>@ExamService.CurrentExam.ExamTitle</h1>
         </div>
 
+        <div class="results-actions top">
+            <button class="btn-ghost" @onclick="DownloadReport">
+                <span>&#128196;</span> Download Report (PDF)
+            </button>
+            <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
+        </div>
+
         <!-- Animated SVG Score Gauge -->
         <div class="score-gauge-container">
             <svg class="score-gauge" viewBox="0 0 160 160">
@@ -140,6 +147,7 @@
             <button class="btn-secondary" @onclick="GoHome">Return Home</button>
         </div>
     }
+    <iframe id="reportFrame" style="display:none"></iframe>
 </div>
 
 @code {
@@ -187,9 +195,12 @@
         }
     }
 
-    private void DownloadReport()
+    private async Task DownloadReport()
     {
-        Nav.NavigateTo($"/exam/{ExamCode}/report");
+        var title = ExamService.CurrentExam is not null
+            ? $"{ExamService.CurrentExam.ExamCode} {ExamService.CurrentExam.ExamTitle} Attempt - {DateTime.Now:yyyy-MM-dd}"
+            : "Exam Report";
+        await JS.InvokeVoidAsync("window.__printReport", $"/exam/{ExamCode}/report", title);
     }
 
     private void RetakeExam()
