@@ -17,12 +17,17 @@
         var examDate = DateTime.Now;
 
         <div class="report-toolbar no-print">
-            <button class="btn-primary" @onclick="PrintReport">
-                <span>&#128196;</span> Save as PDF
-            </button>
-            <button class="btn-secondary" @onclick="GoBack">
-                <span>&#8592;</span> Back to Results
-            </button>
+            <div class="report-filename-row">
+                <label class="report-filename-label" for="pdfFileName">Filename:</label>
+                <input id="pdfFileName" type="text" class="report-filename-input" @bind="_fileName" />
+            </div>
+            <div class="report-toolbar-buttons">
+                <button class="btn-primary" @onclick="DownloadPdf">
+                    <span>&#128196;</span> Download as PDF
+                </button>
+                <button class="btn-secondary" @onclick="RetakeExam">Retake Exam</button>
+                <button class="btn-ghost" @onclick="GoHome">Return Home</button>
+            </div>
         </div>
 
         <div class="report-content">
@@ -236,40 +241,35 @@
 @code {
     [Parameter] public string ExamCode { get; set; } = "";
 
-    private string PdfFileName
+    private string _fileName = "";
+
+    protected override void OnInitialized()
     {
-        get
+        if (ExamService.CurrentExam is not null)
         {
             var exam = ExamService.CurrentExam;
             var date = DateTime.Now.ToString("yyyy-MM-dd");
-            return exam is not null
-                ? $"{exam.ExamCode} {exam.ExamTitle} Attempt - {date}"
-                : $"Exam Attempt - {date}";
+            _fileName = $"{exam.ExamCode} {exam.ExamTitle} Attempt - {date}";
         }
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private async Task DownloadPdf()
     {
-        if (firstRender && ExamService.CurrentExam is not null && ExamService.IsExamFinished)
-        {
-            // Auto-trigger print on load so one click from results page opens print dialog
-            await Task.Delay(300); // Brief delay to let Blazor finish rendering
-            await PrintReport();
-        }
-    }
-
-    private async Task PrintReport()
-    {
-        // Set document title — browsers use this as the default PDF filename
-        await JS.InvokeVoidAsync("eval", $"document.title = '{PdfFileName.Replace("'", "\\'")}'");
+        var name = string.IsNullOrWhiteSpace(_fileName) ? "Exam Report" : _fileName.Trim();
+        await JS.InvokeVoidAsync("eval", $"document.title = '{name.Replace("'", "\\'")}'");
         await JS.InvokeVoidAsync("window.print");
-        // Restore original title after print dialog
         await JS.InvokeVoidAsync("eval", "document.title = 'Microsoft Exam Simulator'");
     }
 
-    private void GoBack()
+    private void RetakeExam()
     {
-        Nav.NavigateTo($"/exam/{ExamCode}/results");
+        Nav.NavigateTo($"/exam/{ExamCode}/setup");
+    }
+
+    private void GoHome()
+    {
+        ExamService.Reset();
+        Nav.NavigateTo("/");
     }
 
     private static string FormatTime(TimeSpan ts)

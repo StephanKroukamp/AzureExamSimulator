@@ -290,7 +290,7 @@
                 ExamService.FinishExam();
                 await InvokeAsync(() =>
                 {
-                    Nav.NavigateTo($"/exam/{ExamCode}/results");
+                    Nav.NavigateTo($"/exam/{ExamCode}/report");
                 });
             }
             else
@@ -517,7 +517,7 @@
         }
 
         ExamService.FinishExam();
-        Nav.NavigateTo($"/exam/{ExamCode}/results");
+        Nav.NavigateTo($"/exam/{ExamCode}/report");
     }
 
     private void DismissShortcuts()

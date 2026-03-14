@@ -21,7 +21,7 @@
         </div>
 
         <div class="results-actions top">
-            <button class="btn-ghost" @onclick="DownloadReport">
+            <button class="btn-ghost" @onclick="ViewReport">
                 <span>&#128196;</span> Download Report (PDF)
             </button>
             <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
@@ -140,7 +140,7 @@
         }
 
         <div class="results-actions">
-            <button class="btn-ghost" @onclick="DownloadReport">
+            <button class="btn-ghost" @onclick="ViewReport">
                 <span>&#128196;</span> Download Report (PDF)
             </button>
             <button class="btn-primary" @onclick="RetakeExam">Retake Exam</button>
@@ -194,7 +194,7 @@
         }
     }
 
-    private void DownloadReport()
+    private void ViewReport()
     {
         Nav.NavigateTo($"/exam/{ExamCode}/report");
     }
