@@ -361,6 +361,231 @@
       "options": ["A. Microsoft Defender for Cloud regulatory compliance dashboard.", "B. Azure Advisor security recommendations.", "C. Azure Policy compliance view.", "D. Microsoft Purview compliance portal."],
       "correctAnswers": ["A"],
       "explanation": "Microsoft Defender for Cloud provides a regulatory compliance dashboard that continuously assesses your Azure environment against regulatory standards like ISO 27001, PCI DSS, NIST, and others. It shows compliance status with actionable recommendations for each control. Option B is incorrect because Azure Advisor provides general recommendations for cost, performance, reliability, and security but does not map to specific regulatory frameworks. Option C is incorrect because Azure Policy compliance shows policy compliance but is not specifically organized by regulatory standards. Option D is incorrect because Microsoft Purview compliance portal focuses on data governance and compliance for Microsoft 365, not Azure infrastructure."
+    },
+    {
+      "id": 41,
+      "topic": "Identity and Access - Configuring application access",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application that needs to access Azure Key Vault secrets. The application runs on an Azure VM. You need to authenticate to Key Vault without storing credentials in code. What should you use?",
+      "options": ["A. A service principal with a client secret stored in app settings.", "B. A managed identity assigned to the virtual machine.", "C. A shared access signature (SAS) token for Key Vault.", "D. A certificate stored in the VM's local certificate store."],
+      "correctAnswers": ["B"],
+      "explanation": "A managed identity assigned to the VM provides an automatically managed identity in Microsoft Entra ID. The application can use this identity to authenticate to Key Vault without storing any credentials in code. Option A is incorrect because storing a client secret in app settings still requires managing credentials, which the question explicitly wants to avoid. Option C is incorrect because Azure Key Vault does not use SAS tokens for authentication; it uses Microsoft Entra ID-based authentication. Option D is incorrect because while certificate-based authentication is possible, it still requires managing and storing a certificate, whereas managed identity is fully automatic."
+    },
+    {
+      "id": 42,
+      "topic": "Identity and Access - Configuring Microsoft Entra ID",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that users can only access Azure resources from compliant devices that are joined to your organization's Microsoft Entra ID. Which Conditional Access grant control should you configure?",
+      "options": ["A. Require multi-factor authentication.", "B. Require device to be marked as compliant.", "C. Require Microsoft Entra hybrid joined device.", "D. Require approved client app."],
+      "correctAnswers": ["B"],
+      "explanation": "Requiring the device to be marked as compliant ensures that only devices that meet your organization's compliance policies (managed through Intune or another MDM solution) can access Azure resources. Option A is incorrect because MFA verifies user identity but does not verify the device's compliance status. Option C is incorrect because hybrid joined requires on-premises AD join, which is a different requirement than general compliance. Option D is incorrect because approved client app restricts which applications can be used but does not check whether the device itself is compliant."
+    },
+    {
+      "id": 43,
+      "topic": "Identity and Access - Implementing Privileged Identity Management",
+      "type": "MultipleChoice",
+      "questionText": "Your organization uses Microsoft Entra Privileged Identity Management (PIM). You need to configure PIM so that eligible role activations for the Contributor role require justification and are limited to 4 hours. Which TWO settings should you configure in the PIM role settings? (Choose two.)",
+      "options": ["A. Set maximum activation duration to 4 hours.", "B. Require justification on activation.", "C. Require Azure Multi-Factor Authentication on activation.", "D. Require approval to activate.", "E. Set permanent eligible assignment."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Setting the maximum activation duration to 4 hours limits how long the role remains active after activation, and requiring justification forces users to provide a reason when activating the role. Both directly address the stated requirements. Option C is incorrect because MFA on activation is a valid PIM setting but is not required by the scenario. Option D is incorrect because requiring approval adds an approval workflow, which was not part of the requirements. Option E is incorrect because permanent eligible assignments are about assignment duration, not activation settings."
+    },
+    {
+      "id": 44,
+      "topic": "Platform Protection - Configuring network security",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure SQL Database that must only be accessible from a specific Azure virtual network subnet. You need to prevent access from the public internet while allowing access from the subnet. What should you configure?",
+      "options": ["A. A virtual network service endpoint for Microsoft.Sql and a virtual network rule on the SQL server.", "B. A network security group (NSG) on the subnet.", "C. Azure Firewall with a DNAT rule.", "D. A private DNS zone."],
+      "correctAnswers": ["A"],
+      "explanation": "A virtual network service endpoint for Microsoft.Sql combined with a virtual network rule on the Azure SQL server restricts access to the specified subnet and blocks public internet access. Option B is incorrect because NSGs operate at the subnet and NIC level for VMs, but Azure SQL Database is a PaaS service that requires service endpoints or private endpoints for VNet-based access control. Option C is incorrect because Azure Firewall with DNAT rules is used for inbound traffic translation, not for restricting PaaS service access. Option D is incorrect because a private DNS zone provides name resolution but does not restrict access by itself."
+    },
+    {
+      "id": 45,
+      "topic": "Platform Protection - Configuring network security",
+      "type": "SingleChoice",
+      "questionText": "You need to restrict outbound internet access from an Azure subnet so that only traffic to specific FQDNs is allowed. Which service should you use?",
+      "options": ["A. Network security groups (NSGs).", "B. Azure Firewall with application rules.", "C. Azure DDoS Protection.", "D. Azure Front Door."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Firewall with application rules can filter outbound traffic based on fully qualified domain names (FQDNs), allowing you to permit traffic only to specific destinations. Option A is incorrect because NSGs work at layer 3/4 using IP addresses and ports, not FQDNs. Option C is incorrect because Azure DDoS Protection guards against distributed denial-of-service attacks and does not filter outbound traffic. Option D is incorrect because Azure Front Door is a global load balancer and CDN for inbound traffic optimization, not for outbound filtering."
+    },
+    {
+      "id": 46,
+      "topic": "Platform Protection - Configuring advanced security for compute",
+      "type": "SingleChoice",
+      "questionText": "You are deploying Azure Kubernetes Service (AKS). You need to ensure that only trusted container images from your Azure Container Registry (ACR) can be deployed to the cluster. What should you implement?",
+      "options": ["A. Azure Policy for Kubernetes with an allowed images policy.", "B. Microsoft Defender for Containers runtime protection.", "C. AKS network policies.", "D. Microsoft Entra Workload Identity."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy for Kubernetes allows you to define policies that restrict which container images can be deployed, including limiting to images from a specific ACR. Option B is incorrect because Microsoft Defender for Containers provides runtime threat detection and vulnerability scanning, but does not enforce which images can be deployed. Option C is incorrect because network policies control pod-to-pod network traffic, not image deployment restrictions. Option D is incorrect because Workload Identity manages identity for pods to access Azure resources, not image deployment policies."
+    },
+    {
+      "id": 47,
+      "topic": "Platform Protection - Configuring advanced security for compute",
+      "type": "SingleChoice",
+      "questionText": "You need to enable just-in-time (JIT) VM access for an Azure virtual machine. This should lock down inbound management ports and only open them upon request for a limited time. Which service provides this capability?",
+      "options": ["A. Azure Bastion.", "B. Microsoft Defender for Cloud.", "C. Azure Firewall Manager.", "D. Microsoft Entra Conditional Access."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Cloud provides the just-in-time (JIT) VM access feature that locks down inbound management ports (like RDP/SSH) and opens them only when an authorized user requests access, for a limited time period. Option A is incorrect because Azure Bastion provides a managed jump host for secure RDP/SSH access but does not implement JIT port opening. Option C is incorrect because Azure Firewall Manager centralizes firewall policy management but does not provide JIT access controls. Option D is incorrect because Conditional Access controls access to cloud apps based on conditions, not VM management port access."
+    },
+    {
+      "id": 48,
+      "topic": "Security Operations - Configuring and managing threat protection",
+      "type": "SingleChoice",
+      "questionText": "You need to detect compromised identities and risky sign-ins for your Microsoft Entra ID environment. Users with risky sign-ins should be required to change their password. Which feature should you configure?",
+      "options": ["A. Microsoft Entra ID Identity Protection with sign-in risk policy.", "B. Conditional Access with location-based conditions.", "C. Microsoft Defender for Identity.", "D. Azure Monitor with sign-in logs."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra ID Identity Protection uses machine learning to detect risky sign-ins and can enforce automatic remediation such as requiring password changes when risk is detected. Option B is incorrect because location-based Conditional Access can block access from untrusted locations but does not detect compromised credentials or require password changes based on risk level. Option C is incorrect because Microsoft Defender for Identity monitors on-premises Active Directory signals for lateral movement and domain compromise, not cloud-based sign-in risk. Option D is incorrect because Azure Monitor with sign-in logs provides logging and alerting but does not automatically enforce password changes."
+    },
+    {
+      "id": 49,
+      "topic": "Security Operations - Configuring and managing threat protection",
+      "type": "MultipleChoice",
+      "questionText": "You need to enable threat protection for your Azure Storage accounts and Azure SQL databases. Which TWO Microsoft Defender plans should you enable? (Choose two.)",
+      "options": ["A. Microsoft Defender for Storage.", "B. Microsoft Defender for App Service.", "C. Microsoft Defender for SQL.", "D. Microsoft Defender for Key Vault.", "E. Microsoft Defender for DNS."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Microsoft Defender for Storage detects unusual and potentially harmful attempts to access or exploit storage accounts, and Microsoft Defender for SQL protects Azure SQL databases by detecting anomalous activities indicating potential threats. Option B is incorrect because Defender for App Service protects web apps hosted in App Service, not storage or SQL. Option D is incorrect because Defender for Key Vault protects key vaults from unusual access patterns, not storage or SQL. Option E is incorrect because Defender for DNS detects suspicious DNS activities, not threats to storage or SQL."
+    },
+    {
+      "id": 50,
+      "topic": "Data Protection - Configuring encryption",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that Azure SQL Database encryption keys are managed by your organization rather than by Microsoft. You need to configure Transparent Data Encryption (TDE) with customer-managed keys. Where should you store the encryption key?",
+      "options": ["A. Azure Key Vault.", "B. Azure Storage account.", "C. Azure Managed HSM only.", "D. The SQL Server's master database."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Key Vault is the supported location for storing customer-managed TDE protector keys for Azure SQL Database. It provides FIPS 140-2 Level 2 validated hardware security modules and integrates directly with Azure SQL's TDE feature. Option B is incorrect because Azure Storage accounts are for storing data objects, not cryptographic keys for TDE. Option C is incorrect because while Azure Managed HSM is also supported, Azure Key Vault is the standard and most commonly used option. The question asks where you should store the key, and Key Vault is the correct primary answer. Option D is incorrect because the master database stores the database encryption key, not the TDE protector; the protector must be external for customer-managed TDE."
+    },
+    {
+      "id": 51,
+      "topic": "Data Protection - Configuring encryption",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that data written to Azure Blob Storage is encrypted using a key that your organization controls. The key must be stored in Azure Key Vault. What type of encryption should you configure on the storage account?",
+      "options": ["A. Customer-managed keys (CMK) with Azure Key Vault.", "B. Microsoft-managed keys with infrastructure encryption.", "C. Client-side encryption using the Storage SDK.", "D. Azure Disk Encryption."],
+      "correctAnswers": ["A"],
+      "explanation": "Customer-managed keys (CMK) with Azure Key Vault allows your organization to control the encryption key used for Azure Storage service-side encryption, meeting the requirement to use a key stored in Key Vault. Option B is incorrect because Microsoft-managed keys means Microsoft controls the encryption keys, not your organization. Option C is incorrect because client-side encryption encrypts data before it reaches Azure, but the question specifies configuring encryption on the storage account itself. Option D is incorrect because Azure Disk Encryption applies to VM disks, not Blob Storage."
+    },
+    {
+      "id": 52,
+      "topic": "Identity and Access - Configuring secure access by using Microsoft Entra ID",
+      "type": "SingleChoice",
+      "questionText": "You need to grant an external partner temporary access to resources in your Azure subscription. The partner has their own Microsoft Entra ID tenant. You want to avoid creating a new user account in your tenant. What should you use?",
+      "options": ["A. Microsoft Entra B2B collaboration.", "B. Microsoft Entra B2C.", "C. Create a guest account manually with a local password.", "D. Share a service principal with the partner."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra B2B collaboration allows you to invite external users to access resources using their own organizational credentials. The partner authenticates with their own tenant, and a guest object is created in your tenant for authorization. Option B is incorrect because B2C is designed for consumer-facing applications, not business partner collaboration. Option C is incorrect because creating a local account defeats the purpose of leveraging the partner's existing identity and adds credential management overhead. Option D is incorrect because sharing a service principal is not the recommended approach for user-level access and creates security risks."
+    },
+    {
+      "id": 53,
+      "topic": "Platform Protection - Implementing host security",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that all Azure virtual machines have endpoint protection installed and that non-compliant VMs are identified. Which Azure service should you use?",
+      "options": ["A. Microsoft Defender for Cloud with endpoint protection recommendations.", "B. Azure Update Manager.", "C. Azure Monitor with VM insights.", "D. Azure Automation State Configuration."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for Cloud monitors VMs for endpoint protection status and provides recommendations when endpoint protection is missing or unhealthy, clearly identifying non-compliant VMs. Option B is incorrect because Azure Update Manager handles OS updates and patches, not endpoint protection monitoring. Option C is incorrect because Azure Monitor with VM insights provides performance and dependency monitoring, not endpoint protection compliance. Option D is incorrect because Azure Automation State Configuration enforces desired state configurations but is not specifically designed to monitor endpoint protection status."
+    },
+    {
+      "id": 54,
+      "topic": "Platform Protection - Configuring network security",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure web application that must be protected from common web exploits such as SQL injection and cross-site scripting (XSS). Which service should you deploy?",
+      "options": ["A. Azure DDoS Protection Standard.", "B. Azure Web Application Firewall (WAF).", "C. Azure Firewall Premium.", "D. Network security groups (NSGs)."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Web Application Firewall (WAF) protects web applications from common exploits and vulnerabilities including SQL injection, cross-site scripting (XSS), and other OWASP Top 10 threats. Option A is incorrect because Azure DDoS Protection guards against distributed denial-of-service attacks, not application-layer exploits like SQL injection. Option C is incorrect because Azure Firewall Premium provides network-level and some application-level filtering with IDPS but is not purpose-built for web application exploit protection. Option D is incorrect because NSGs filter traffic at layers 3 and 4 using IP addresses and ports, and cannot inspect or filter application-layer payloads."
+    },
+    {
+      "id": 55,
+      "topic": "Security Operations - Managing security alerts",
+      "type": "SingleChoice",
+      "questionText": "You need to automate the response to security alerts in Microsoft Defender for Cloud. When a high-severity alert is generated, a Logic App should be triggered to notify the security team and create a ticket. What should you configure?",
+      "options": ["A. A workflow automation in Microsoft Defender for Cloud.", "B. An Azure Monitor action group.", "C. An Azure Event Grid subscription.", "D. A Microsoft Sentinel playbook."],
+      "correctAnswers": ["A"],
+      "explanation": "Workflow automation in Microsoft Defender for Cloud allows you to define automated responses to security alerts, including triggering Logic Apps for notification and ticketing workflows. Option B is incorrect because Azure Monitor action groups handle Azure Monitor alerts, not Defender for Cloud security alerts directly with workflow automation. Option C is incorrect because Event Grid subscriptions can route events but require additional configuration to respond specifically to Defender for Cloud alerts. Option D is incorrect because Microsoft Sentinel playbooks are used within Sentinel, not within Defender for Cloud directly, though Sentinel can ingest Defender alerts."
+    },
+    {
+      "id": 56,
+      "topic": "Data Protection - Configuring security for databases",
+      "type": "SingleChoice",
+      "questionText": "You need to discover and classify sensitive data such as Social Security numbers and credit card numbers in your Azure SQL Database. Which feature should you use?",
+      "options": ["A. Azure SQL Data Discovery and Classification.", "B. Transparent Data Encryption (TDE).", "C. Dynamic Data Masking.", "D. Azure SQL Auditing."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure SQL Data Discovery and Classification provides built-in capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It can identify columns containing data such as Social Security numbers and credit card numbers. Option B is incorrect because TDE encrypts the entire database at rest but does not discover or classify sensitive data. Option C is incorrect because Dynamic Data Masking masks data in query results for non-privileged users but does not discover or classify sensitive data. Option D is incorrect because SQL Auditing tracks database events for compliance but does not discover or classify data content."
+    },
+    {
+      "id": 57,
+      "topic": "Data Protection - Configuring security for databases",
+      "type": "SingleChoice",
+      "questionText": "You need to mask the email column in an Azure SQL Database so that non-privileged users see a masked value instead of the actual email address. What should you configure?",
+      "options": ["A. Dynamic Data Masking with an email masking function.", "B. Row-level security.", "C. Always Encrypted.", "D. Transparent Data Encryption."],
+      "correctAnswers": ["A"],
+      "explanation": "Dynamic Data Masking with the built-in email masking function replaces email values with a masked format (e.g., aXX@XXXX.com) for non-privileged users, while privileged users see the actual values. Option B is incorrect because row-level security filters which rows a user can see, not which columns are masked. Option C is incorrect because Always Encrypted encrypts columns end-to-end so that even the database engine cannot see plaintext values, which is more restrictive than masking. Option D is incorrect because TDE encrypts the entire database at rest and does not affect how data appears to query users."
+    },
+    {
+      "id": 58,
+      "topic": "Identity and Access - Configuring Microsoft Entra ID",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure Microsoft Entra Conditional Access to block legacy authentication protocols. Which TWO conditions should you include in your Conditional Access policy? (Choose two.)",
+      "options": ["A. Set the client apps condition to include Exchange ActiveSync clients and Other clients.", "B. Set the grant control to Block access.", "C. Set the cloud apps condition to All cloud apps.", "D. Set the sign-in risk condition to High.", "E. Set the device platform condition to Windows."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "To block legacy authentication, you must configure the client apps condition to target legacy protocols (Exchange ActiveSync clients and Other clients) and set the grant control to Block access. Option C is incorrect by itself; while you may target all cloud apps, the key discriminator is the client apps condition combined with block access. Option D is incorrect because sign-in risk is about detecting risky sign-ins, not blocking legacy authentication. Option E is incorrect because legacy authentication should be blocked across all platforms, not just Windows."
+    },
+    {
+      "id": 59,
+      "topic": "Platform Protection - Configuring network security",
+      "type": "SingleChoice",
+      "questionText": "You need to provide private connectivity from your Azure virtual network to Azure Key Vault so that traffic does not traverse the public internet. What should you configure?",
+      "options": ["A. A virtual network service endpoint.", "B. An Azure Private Endpoint.", "C. VNet peering.", "D. An Azure VPN Gateway."],
+      "correctAnswers": ["B"],
+      "explanation": "An Azure Private Endpoint assigns a private IP address from your VNet to the Key Vault, ensuring that all traffic between the VNet and Key Vault remains on the Microsoft backbone network and does not traverse the public internet. Option A is incorrect because while a service endpoint routes traffic over the Microsoft backbone, the Key Vault still has a public endpoint; the traffic does not truly stay within a private address space. Option C is incorrect because VNet peering connects two virtual networks, not a VNet to a PaaS service like Key Vault. Option D is incorrect because a VPN Gateway provides encrypted tunnel connectivity between on-premises networks or VNets, not private access to PaaS services."
+    },
+    {
+      "id": 60,
+      "topic": "Security Operations - Configuring and managing threat protection",
+      "type": "SingleChoice",
+      "questionText": "You need to investigate security incidents across your entire Azure environment, including correlating alerts from multiple sources such as Microsoft Defender for Cloud, Microsoft Entra ID, and Microsoft 365. Which service should you use?",
+      "options": ["A. Microsoft Sentinel.", "B. Microsoft Defender for Cloud.", "C. Azure Monitor.", "D. Microsoft Purview."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel is a cloud-native SIEM and SOAR solution that aggregates and correlates security data from multiple sources across the entire environment, enabling investigation of cross-platform security incidents. Option B is incorrect because Defender for Cloud focuses on cloud workload protection and provides security recommendations, but does not correlate alerts from Microsoft 365 or serve as a full SIEM. Option C is incorrect because Azure Monitor provides infrastructure monitoring and alerting but is not a security investigation and correlation platform. Option D is incorrect because Microsoft Purview focuses on data governance and compliance, not security incident investigation."
+    },
+    {
+      "id": 61,
+      "topic": "Identity and Access - Configuring secure access by using Microsoft Entra ID",
+      "type": "SingleChoice",
+      "questionText": "You have a web API registered in Microsoft Entra ID. A daemon application (with no user interaction) needs to call this API. What authentication flow should the daemon application use?",
+      "options": ["A. Client credentials flow.", "B. Authorization code flow with PKCE.", "C. Implicit grant flow.", "D. Device code flow."],
+      "correctAnswers": ["A"],
+      "explanation": "The client credentials flow is designed for daemon/service applications that run without user interaction. The application authenticates using its own identity (application ID and secret or certificate) rather than a user's identity. Option B is incorrect because the authorization code flow with PKCE requires user interaction to sign in and consent, which is not possible in a daemon application. Option C is incorrect because the implicit grant flow is deprecated for most scenarios and requires user interaction through a browser. Option D is incorrect because the device code flow is designed for devices with limited input capabilities and requires user interaction on a separate device."
+    },
+    {
+      "id": 62,
+      "topic": "Platform Protection - Configuring advanced security for compute",
+      "type": "MultipleChoice",
+      "questionText": "You need to harden your Azure Kubernetes Service (AKS) cluster. Which TWO actions improve the security posture of the cluster? (Choose two.)",
+      "options": ["A. Enable Microsoft Entra integration for AKS RBAC.", "B. Use Azure CNI networking instead of kubenet.", "C. Disable Kubernetes dashboard.", "D. Increase the node pool VM size.", "E. Enable cluster autoscaler."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Enabling Microsoft Entra integration for AKS RBAC ensures that cluster access is controlled through centralized identity management with proper authentication and authorization. Disabling the Kubernetes dashboard removes a potential attack surface that could be exploited for cluster reconnaissance. Option B is incorrect because Azure CNI provides more advanced networking but does not directly harden security posture. Option D is incorrect because VM size affects performance, not security. Option E is incorrect because the cluster autoscaler manages scaling based on load, not security hardening."
+    },
+    {
+      "id": 63,
+      "topic": "Security Operations - Configuring security policies",
+      "type": "SingleChoice",
+      "questionText": "You need to enforce that all Azure resources are deployed only in the West Europe and North Europe regions. Resources deployed to any other region should be denied. What should you use?",
+      "options": ["A. Azure Policy with the Allowed locations built-in policy.", "B. Microsoft Entra Conditional Access with named locations.", "C. Azure RBAC with custom role definitions.", "D. Management group access restrictions."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy with the Allowed locations built-in policy restricts resource deployment to specified Azure regions and denies deployments to any other region. Option B is incorrect because Conditional Access with named locations controls user sign-in based on network location, not Azure resource deployment locations. Option C is incorrect because RBAC controls who can perform actions on resources, not where resources can be created. Option D is incorrect because management groups provide a scope for governance but do not inherently restrict resource deployment locations without policies."
+    },
+    {
+      "id": 64,
+      "topic": "Data Protection - Implementing security for storage",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that Azure Blob Storage data cannot be deleted or modified for 7 years to meet regulatory requirements. What should you configure?",
+      "options": ["A. Immutable blob storage with a time-based retention policy.", "B. Soft delete with a 7-year retention period.", "C. Azure Backup for blob storage.", "D. Storage account lock with CanNotDelete."],
+      "correctAnswers": ["A"],
+      "explanation": "Immutable blob storage with a time-based retention policy ensures that data cannot be modified or deleted for the specified retention period, meeting regulatory compliance requirements like SEC 17a-4 and CFTC 1.31. Option B is incorrect because soft delete retains deleted data for recovery but does not prevent data from being deleted or modified in the first place. Option C is incorrect because Azure Backup creates copies of data for recovery but does not enforce immutability on the source data. Option D is incorrect because a CanNotDelete lock prevents the storage account from being deleted but does not prevent individual blobs from being modified or deleted."
+    },
+    {
+      "id": 65,
+      "topic": "Platform Protection - Implementing host security",
+      "type": "SingleChoice",
+      "questionText": "You need to encrypt the OS and data disks of an Azure virtual machine using keys stored in Azure Key Vault. The encryption must be applied transparently without application changes. Which feature should you use?",
+      "options": ["A. Azure Disk Encryption (ADE).", "B. Server-side encryption with customer-managed keys.", "C. BitLocker applied manually inside the VM.", "D. Azure Confidential Computing."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Disk Encryption (ADE) uses BitLocker (Windows) or DM-Crypt (Linux) to encrypt OS and data disks, with encryption keys stored and managed in Azure Key Vault. It integrates transparently without requiring application changes. Option B is incorrect because server-side encryption with customer-managed keys encrypts the managed disk at the storage layer but does not encrypt the OS disk volume within the VM. Option C is incorrect because manually applying BitLocker is not the managed Azure approach and requires manual key management rather than Key Vault integration. Option D is incorrect because Azure Confidential Computing provides hardware-based trusted execution environments for data-in-use protection, not standard disk encryption."
     }
   ]
 }

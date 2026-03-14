@@ -280,7 +280,7 @@
     {
       "id": 18,
       "topic": "Implement AI Solutions with Anomaly Detection",
-      "type": "DragDrop",
+      "type": "SingleChoice",
       "questionText": "You are building a solution that will detect anomalies in sensor data from the previous 24 hours. You need to ensure that the data is processed as it is collected in real-time. Which detection mode should you use?",
       "options": [
         "A. batch",
@@ -295,7 +295,7 @@
     {
       "id": 19,
       "topic": "Plan and Manage an Azure AI Solution",
-      "type": "Hotspot",
+      "type": "SingleChoice",
       "questionText": "You have an Azure subscription that has the following configurations:\n- Subscription ID: 843591aa-96b8-4737-ad09-00f9b1710606\n\nYou deploy an Azure Cognitive Services container. You need to configure the billing endpoint and the API key for the container.\n\nWhich environment variable setting should you use?",
       "options": [
         "A. Fluentd",
@@ -619,7 +619,7 @@
     {
       "id": 39,
       "topic": "Implement Natural Language Processing Solutions",
-      "type": "Hotspot",
+      "type": "SingleChoice",
       "questionText": "You are developing an application that includes language translation. The application will translate text retrieved by user queries. You need to determine the sentiment of the translated text for analytics. Which feature should you enable on the prediction endpoint?",
       "options": [
         "A. Add show-all-intents=true to the prediction endpoint query.",
@@ -748,6 +748,362 @@
         "C"
       ],
       "explanation": "Correct: C. Regenerate the secondary admin key, change the app to use the secondary admin key, and then regenerate the primary admin key.\n\nThis is the correct sequence to mitigate the compromised primary admin key while keeping the app functional:\n1. First, regenerate the secondary admin key to get a fresh, uncompromised key.\n2. Update the app to use the new secondary admin key. This ensures continuity since the app is a management portal that needs admin-level access for indexing operations.\n3. Finally, regenerate the primary admin key to invalidate the compromised key.\n\nWhy the others are wrong:\n- A. Regenerating the primary admin key first would immediately break the app since it is currently using that key. The app would experience downtime.\n- B. Query keys only provide read access for searching. The app is a management portal for indexing, which requires admin-level access (write operations). A query key would not be sufficient.\n- D. Similar to B, query keys provide read-only access and cannot perform indexing management operations that the app requires."
+    },
+    {
+      "id": 47,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You are building an application that uses Azure OpenAI Service. You need to limit the number of tokens generated in a completion response to control costs. Which parameter should you configure in the API request?",
+      "options": [
+        "A. temperature",
+        "B. max_tokens",
+        "C. top_p",
+        "D. frequency_penalty"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. The max_tokens parameter controls the maximum number of tokens the model will generate in the completion response. Setting this value limits the response length and helps control costs since Azure OpenAI charges per token.\n\nWhy the others are wrong:\n- A. temperature controls the randomness/creativity of the output (0 = deterministic, higher = more random) but does not limit the length of the response.\n- C. top_p (nucleus sampling) controls the diversity of the response by limiting the cumulative probability of token selections. It affects quality, not length.\n- D. frequency_penalty reduces the likelihood of the model repeating the same tokens. It affects repetition, not the maximum output length."
+    },
+    {
+      "id": 48,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You are developing a chatbot using Azure OpenAI Service with the GPT-4 model. You need to provide the model with a system-level instruction that defines the chatbot's persona and behavior throughout the conversation. Which message role should you use?",
+      "options": [
+        "A. user",
+        "B. assistant",
+        "C. system",
+        "D. function"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Correct: C. The system message role is used to provide high-level instructions that define the AI assistant's behavior, persona, and constraints. It is set at the beginning of the conversation and guides the model's responses throughout.\n\nWhy the others are wrong:\n- A. The user role represents messages from the end user asking questions or providing input. It is not used for defining the chatbot's behavior.\n- B. The assistant role represents the model's own responses. It is not used for setting instructions but rather for including prior assistant responses in the conversation history.\n- D. The function role is used in function calling scenarios to return the result of a function call back to the model. It is not for defining persona instructions."
+    },
+    {
+      "id": 49,
+      "topic": "Azure AI Search",
+      "type": "SingleChoice",
+      "questionText": "You are building an Azure AI Search solution that indexes PDF documents stored in Azure Blob Storage. You need to enrich the index with key phrases extracted from the document content. Which component should you add to the indexer pipeline?",
+      "options": [
+        "A. A custom analyzer",
+        "B. A skillset with a Key Phrase Extraction skill",
+        "C. A synonym map",
+        "D. A scoring profile"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. A skillset with a Key Phrase Extraction cognitive skill is the correct approach. Skillsets are attached to indexers and define AI enrichment steps. The Key Phrase Extraction skill uses Azure AI Language to extract key phrases from document content during indexing.\n\nWhy the others are wrong:\n- A. A custom analyzer defines how text is tokenized and filtered during indexing and querying (e.g., for language-specific analysis). It does not extract key phrases from content.\n- C. A synonym map maps terms to their synonyms to improve search recall. It does not extract key phrases from documents.\n- D. A scoring profile defines rules for boosting search results based on field values or freshness. It affects relevance scoring, not content enrichment."
+    },
+    {
+      "id": 50,
+      "topic": "Azure AI Language",
+      "type": "SingleChoice",
+      "questionText": "You are building a customer feedback analysis system. You need to determine not just the overall sentiment of each review but also identify sentiment toward specific aspects such as 'food quality' and 'service speed'. Which Azure AI Language feature should you use?",
+      "options": [
+        "A. Sentiment Analysis",
+        "B. Opinion Mining (Aspect-based Sentiment Analysis)",
+        "C. Key Phrase Extraction",
+        "D. Named Entity Recognition"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Opinion Mining (also called Aspect-based Sentiment Analysis) identifies specific aspects (targets) mentioned in text and the sentiment associated with each aspect. For example, it can determine that 'food quality' has positive sentiment while 'service speed' has negative sentiment in the same review.\n\nWhy the others are wrong:\n- A. Standard Sentiment Analysis provides an overall sentiment score for the entire text (positive, negative, neutral, mixed) but does not break it down by specific aspects or targets.\n- C. Key Phrase Extraction identifies important phrases in the text but does not associate sentiment with those phrases.\n- D. Named Entity Recognition identifies and categorizes entities (people, organizations, locations) but does not analyze sentiment toward those entities."
+    },
+    {
+      "id": 51,
+      "topic": "Azure OpenAI Service",
+      "type": "MultipleChoice",
+      "questionText": "You are implementing a Retrieval-Augmented Generation (RAG) pattern using Azure OpenAI and Azure AI Search. Which TWO components are essential for this pattern? Each correct answer presents part of the solution.",
+      "options": [
+        "A. An Azure AI Search index containing your organization's documents",
+        "B. A fine-tuned Azure OpenAI model trained on your data",
+        "C. An orchestration layer that retrieves relevant documents and includes them in the prompt",
+        "D. A custom neural voice profile for the responses"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Correct: A and C. The RAG pattern requires (A) a search index containing your organization's knowledge base documents so that relevant content can be retrieved, and (C) an orchestration layer that queries the search index based on the user's question, retrieves relevant documents, and includes them as context in the prompt sent to the Azure OpenAI model.\n\nWhy the others are wrong:\n- B. Fine-tuning the model on your data is a different approach from RAG. RAG specifically avoids the need for fine-tuning by providing relevant documents as context at query time. Fine-tuning changes model weights, while RAG augments the prompt.\n- D. A custom neural voice profile is related to Azure AI Speech text-to-speech capabilities. It is completely unrelated to the RAG pattern, which deals with grounding text generation in retrieved documents."
+    },
+    {
+      "id": 52,
+      "topic": "Azure AI Document Intelligence",
+      "type": "SingleChoice",
+      "questionText": "You need to extract data from invoices that have a consistent layout unique to your organization. The prebuilt invoice model does not capture all the fields you need. What should you do?",
+      "options": [
+        "A. Use the prebuilt Read model",
+        "B. Train a custom extraction model with labeled training data",
+        "C. Use the prebuilt General Document model",
+        "D. Use the Layout model with table extraction"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. When the prebuilt models do not capture all the fields you need, you should train a custom extraction model using labeled training data. Custom models allow you to define exactly which fields to extract based on your specific document layout, giving you full control over the extraction results.\n\nWhy the others are wrong:\n- A. The Read model extracts text and layout information (OCR) but does not extract structured key-value pairs or custom fields. It returns raw text without understanding document structure.\n- C. The General Document model extracts key-value pairs, entities, and tables from documents, but it uses a generic approach and may not capture organization-specific fields reliably.\n- D. The Layout model extracts text, tables, and selection marks but does not extract custom key-value fields specific to your invoice format."
+    },
+    {
+      "id": 53,
+      "topic": "Azure AI Vision",
+      "type": "SingleChoice",
+      "questionText": "You are building a retail application that needs to detect specific products on store shelves using images. You have a dataset of labeled product images. Which Azure AI service should you use?",
+      "options": [
+        "A. Azure AI Vision Image Analysis",
+        "B. Azure AI Custom Vision with object detection",
+        "C. Azure AI Face",
+        "D. Azure AI Video Indexer"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Azure AI Custom Vision with object detection allows you to train a model on your labeled product images to detect and locate specific products within images. Object detection provides bounding boxes around detected objects, which is ideal for identifying products on store shelves.\n\nWhy the others are wrong:\n- A. Azure AI Vision Image Analysis provides general image analysis including tagging and object detection with predefined categories, but it cannot be trained to recognize specific custom products unique to your retail application.\n- C. Azure AI Face is specifically designed for face detection, recognition, and analysis. It cannot detect products or non-face objects.\n- D. Azure AI Video Indexer is for analyzing video content to extract insights like spoken words, faces, and scenes. It is not designed for detecting specific products in still images."
+    },
+    {
+      "id": 54,
+      "topic": "Azure AI Speech",
+      "type": "SingleChoice",
+      "questionText": "You are building a voice-enabled application that needs to convert spoken English into text in real-time. The application must handle continuous speech and provide interim results as the user speaks. Which Azure AI Speech feature should you use?",
+      "options": [
+        "A. Speech Translation",
+        "B. Batch Transcription",
+        "C. Real-time Speech-to-Text with continuous recognition",
+        "D. Speaker Recognition"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": "Correct: C. Real-time Speech-to-Text with continuous recognition processes audio as it is received and provides both interim (partial) results and final recognized text. Continuous recognition keeps the recognition session open for ongoing speech, which is ideal for voice-enabled applications.\n\nWhy the others are wrong:\n- A. Speech Translation converts speech from one language to text or speech in another language. Since the requirement is English speech to English text (same language), translation is not needed.\n- B. Batch Transcription is designed for transcribing large volumes of pre-recorded audio files asynchronously. It does not provide real-time or interim results.\n- D. Speaker Recognition identifies who is speaking (verification or identification) but does not transcribe speech to text."
+    },
+    {
+      "id": 55,
+      "topic": "Azure AI Language",
+      "type": "SingleChoice",
+      "questionText": "You are building a Conversational Language Understanding (CLU) model for a virtual assistant. Users can ask 'Book a flight from Seattle to London on March 15'. You need to extract 'Seattle' as the departure city, 'London' as the destination city, and 'March 15' as the travel date. What should you define in your CLU model?",
+      "options": [
+        "A. Three separate intents for each piece of information",
+        "B. Entities for departure city, destination city, and travel date",
+        "C. Three separate utterances with no entity labels",
+        "D. A synonym list for city names"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Entities are used to extract specific pieces of information from user utterances. You define entities for departure city, destination city, and travel date, and label them in your training utterances so the model learns to extract these values from new user inputs.\n\nWhy the others are wrong:\n- A. Intents represent the overall purpose of the user's request (e.g., 'BookFlight'). Creating separate intents for each piece of information would fragment the user's single request into multiple intents, which is incorrect. The entire utterance should map to a single 'BookFlight' intent with entities for the details.\n- C. Utterances without entity labels would only help the model recognize the intent but would not teach it to extract the specific departure city, destination city, or travel date values.\n- D. A synonym list helps map different terms to the same concept but does not enable extraction of contextual roles like departure vs. destination city from a single utterance."
+    },
+    {
+      "id": 56,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure OpenAI Service and need to prevent the model from generating harmful or inappropriate content. Which feature should you enable?",
+      "options": [
+        "A. Token rate limiting",
+        "B. Azure AI Content Safety filters",
+        "C. Model fine-tuning with RLHF",
+        "D. Prompt caching"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Azure AI Content Safety filters are built into Azure OpenAI Service and can be configured to detect and block harmful content categories including hate, sexual, violence, and self-harm content in both prompts and completions. These filters can be set to different severity levels.\n\nWhy the others are wrong:\n- A. Token rate limiting controls how many tokens per minute can be processed to manage throughput and costs. It does not filter or moderate content for safety.\n- C. Model fine-tuning with RLHF (Reinforcement Learning from Human Feedback) is a training technique used to align models. It is not a configurable feature you enable on Azure OpenAI deployments to filter content at runtime.\n- D. Prompt caching is a performance optimization that stores and reuses responses for identical prompts. It has no content moderation capability."
+    },
+    {
+      "id": 57,
+      "topic": "Azure AI Search",
+      "type": "SingleChoice",
+      "questionText": "You have an Azure AI Search index with a large number of documents. You need to implement semantic ranking to improve the relevance of search results by understanding the meaning of queries. What should you configure?",
+      "options": [
+        "A. A scoring profile with term frequency boosting",
+        "B. A semantic configuration on the index",
+        "C. A custom analyzer with n-gram tokenization",
+        "D. A synonym map for the search fields"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. A semantic configuration on the index enables semantic ranking, which uses deep learning models to re-rank search results based on the semantic meaning of the query and documents. You define which fields should be used for semantic ranking in the configuration.\n\nWhy the others are wrong:\n- A. A scoring profile with term frequency boosting uses traditional information retrieval techniques (BM25-based) to boost results based on term frequency. It does not understand semantic meaning.\n- C. A custom analyzer with n-gram tokenization affects how text is tokenized during indexing and querying. N-grams help with partial matching but do not provide semantic understanding.\n- D. A synonym map maps terms to their synonyms (e.g., 'car' to 'automobile') to improve recall. While useful, it does not provide the deep semantic understanding that semantic ranking offers."
+    },
+    {
+      "id": 58,
+      "topic": "Azure AI Bot Service",
+      "type": "SingleChoice",
+      "questionText": "You have built a chatbot using the Microsoft Bot Framework and deployed it to Azure Bot Service. You need to make the bot available on Microsoft Teams and a company website. What should you configure?",
+      "options": [
+        "A. Two separate bot registrations, one for each platform",
+        "B. Channels for Microsoft Teams and Web Chat in the bot resource",
+        "C. Two separate Azure App Service plans",
+        "D. A custom domain for each platform"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Azure Bot Service uses channels to connect a single bot to multiple communication platforms. You configure the Microsoft Teams channel and the Web Chat channel in the bot resource settings. Each channel adapter handles the platform-specific protocol translation.\n\nWhy the others are wrong:\n- A. You do not need separate bot registrations. A single Azure Bot Service resource can connect to multiple channels simultaneously, which is one of its key benefits.\n- C. Azure App Service plans host the bot's web application code. The number of platforms the bot connects to does not require separate hosting plans.\n- D. Custom domains are related to DNS configuration for web endpoints. They are not the mechanism for making a bot available on different communication platforms like Teams."
+    },
+    {
+      "id": 59,
+      "topic": "Azure AI Language",
+      "type": "MultipleChoice",
+      "questionText": "You are building a custom text classification model using Azure AI Language. Which TWO steps are required to train the model? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Label your training data with the appropriate class categories",
+        "B. Deploy the model to an Azure Kubernetes Service cluster",
+        "C. Define the classes and upload training documents to the Language resource",
+        "D. Configure a custom neural voice profile"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Correct: A and C. To train a custom text classification model, you must (C) define your classification classes and upload training documents to your Language resource project, and (A) label the training documents with the appropriate class categories so the model can learn the association between text content and class labels.\n\nWhy the others are wrong:\n- B. Deploying to Azure Kubernetes Service is not required for training. Once trained, the model is deployed to a deployment name within the Language resource itself. AKS deployment is not part of the custom text classification workflow.\n- D. A custom neural voice profile is part of Azure AI Speech for creating custom text-to-speech voices. It is completely unrelated to text classification."
+    },
+    {
+      "id": 60,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You are using the Azure OpenAI Embeddings API to create vector representations of documents for semantic search. Which model should you use?",
+      "options": [
+        "A. gpt-4",
+        "B. text-embedding-ada-002",
+        "C. dall-e-3",
+        "D. whisper"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. text-embedding-ada-002 is an embedding model specifically designed to generate vector representations (embeddings) of text. These embeddings capture the semantic meaning of text and can be used for semantic search, clustering, and similarity comparisons.\n\nWhy the others are wrong:\n- A. gpt-4 is a large language model designed for text generation and conversation. While it processes text, it is not optimized for generating embeddings and is significantly more expensive for this purpose.\n- C. dall-e-3 is an image generation model that creates images from text descriptions. It does not produce text embeddings.\n- D. whisper is a speech-to-text model for audio transcription. It does not generate text embeddings."
+    },
+    {
+      "id": 61,
+      "topic": "Azure AI Search",
+      "type": "SingleChoice",
+      "questionText": "You are implementing vector search in Azure AI Search to enable semantic similarity search over your document collection. What must you configure on the index field that will store the vector embeddings?",
+      "options": [
+        "A. Set the field type to Edm.String and enable filtering",
+        "B. Set the field type to Collection(Edm.Single) and configure a vector search profile",
+        "C. Set the field type to Edm.Int32 and enable sorting",
+        "D. Set the field type to Edm.GeographyPoint and enable faceting"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Vector fields in Azure AI Search use the type Collection(Edm.Single) to store arrays of floating-point numbers (the embedding vectors). You must also configure a vector search profile that specifies the algorithm (e.g., HNSW) and its parameters for approximate nearest neighbor search.\n\nWhy the others are wrong:\n- A. Edm.String is for text fields. Vector embeddings are numerical arrays, not strings. Filtering is a text/value-based operation, not a vector similarity operation.\n- C. Edm.Int32 is for integer values. Embeddings are floating-point arrays, and sorting is irrelevant for vector similarity search.\n- D. Edm.GeographyPoint is for geographic coordinates (latitude/longitude). It has nothing to do with vector embeddings, and faceting is for categorical aggregation."
+    },
+    {
+      "id": 62,
+      "topic": "Azure AI Vision",
+      "type": "SingleChoice",
+      "questionText": "You are building a solution that needs to generate descriptive alt-text for images on a website to improve accessibility. Which Azure AI Vision capability should you use?",
+      "options": [
+        "A. Object Detection",
+        "B. Image Captioning (Describe Image)",
+        "C. OCR (Read API)",
+        "D. Spatial Analysis"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Image Captioning (Describe Image) generates human-readable descriptions of images in natural language. This is ideal for creating alt-text for accessibility because it produces complete sentences describing what is in the image.\n\nWhy the others are wrong:\n- A. Object Detection identifies and locates specific objects with bounding boxes. While it tells you what objects are in an image, it does not generate natural language descriptions suitable for alt-text.\n- C. OCR (Read API) extracts text that appears within images. It does not describe the visual content of images, only reads any text present in them.\n- D. Spatial Analysis analyzes the movement and presence of people in video feeds (e.g., counting people in an area). It is a video-based solution, not for generating image descriptions."
+    },
+    {
+      "id": 63,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You are using Azure OpenAI with the Chat Completions API. Your application needs to call external functions based on the model's output, such as looking up customer order status from a database. Which feature should you use?",
+      "options": [
+        "A. Prompt engineering with few-shot examples",
+        "B. Function calling",
+        "C. Fine-tuning the model",
+        "D. Increasing the temperature parameter"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Function calling allows the model to generate structured JSON output that specifies which function to call and with what arguments, based on the user's input. Your application can then execute the function (e.g., database lookup) and return the results to the model for a final response.\n\nWhy the others are wrong:\n- A. Prompt engineering with few-shot examples can help the model understand the desired format but does not provide a structured mechanism for the model to reliably specify function calls with typed parameters.\n- C. Fine-tuning changes the model's weights based on training data. It does not provide a mechanism for real-time function calling or integration with external systems.\n- D. Increasing the temperature makes the output more random and creative. This would actually make function calling less reliable, not enable it."
+    },
+    {
+      "id": 64,
+      "topic": "Azure AI Speech",
+      "type": "MultipleChoice",
+      "questionText": "You are building an application that needs to translate spoken French into spoken German in real-time. Which TWO Azure AI Speech features do you need? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Speech-to-Text",
+        "B. Speech Translation",
+        "C. Text-to-Speech",
+        "D. Speaker Recognition"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": "Correct: B and C. Speech Translation (B) takes spoken input in one language and can output translated text. To produce spoken output in German, you also need Text-to-Speech (C) to synthesize the translated text into spoken German audio. Together, these features enable real-time speech-to-speech translation.\n\nWhy the others are wrong:\n- A. Speech-to-Text converts speech to text in the same language. Speech Translation already handles the speech input recognition and translation in one step, so a separate Speech-to-Text service is redundant.\n- D. Speaker Recognition identifies or verifies who is speaking. It does not translate or synthesize speech."
+    },
+    {
+      "id": 65,
+      "topic": "Plan and Manage an Azure AI Solution",
+      "type": "SingleChoice",
+      "questionText": "You deploy an Azure AI Services multi-service resource. You need to authenticate API requests using Azure Active Directory (Entra ID) instead of subscription keys. What should you do?",
+      "options": [
+        "A. Enable managed identity on the AI Services resource and assign the Cognitive Services User role to the calling application",
+        "B. Regenerate the subscription keys and store them in Azure Key Vault",
+        "C. Configure a virtual network service endpoint for the AI Services resource",
+        "D. Create a custom domain name for the AI Services resource"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": "Correct: A. To use Azure AD (Entra ID) authentication with Azure AI Services, you need to use role-based access control (RBAC). You assign the Cognitive Services User role (or similar role) to the managed identity or service principal of the calling application. The application then obtains an Azure AD token to authenticate API requests.\n\nWhy the others are wrong:\n- B. Storing keys in Key Vault is a security best practice for key management but still uses key-based authentication, not Azure AD authentication.\n- C. Virtual network service endpoints restrict network access to the AI Services resource. They control which networks can reach the endpoint but do not change the authentication method.\n- D. A custom domain name is required for some Azure AD authentication scenarios with containers, but creating a custom domain alone does not configure Azure AD authentication."
+    },
+    {
+      "id": 66,
+      "topic": "Azure AI Search",
+      "type": "MultipleChoice",
+      "questionText": "You are building a knowledge mining solution using Azure AI Search with an indexer that processes documents from Azure Blob Storage. The indexer enriches documents using a skillset. Which TWO outputs can a knowledge store projection generate? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Tables in Azure Table Storage",
+        "B. Queues in Azure Queue Storage",
+        "C. Blobs (JSON or image files) in Azure Blob Storage",
+        "D. Topics in Azure Service Bus"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Correct: A and C. A knowledge store in Azure AI Search supports three types of projections: table projections that store structured data in Azure Table Storage (A), object projections that store JSON documents in Azure Blob Storage, and file projections that store extracted images in Azure Blob Storage (C).\n\nWhy the others are wrong:\n- B. Azure Queue Storage is a messaging service for asynchronous communication. Knowledge store projections do not write to queues.\n- D. Azure Service Bus topics are for publish-subscribe messaging patterns. Knowledge store projections do not output to Service Bus."
+    },
+    {
+      "id": 67,
+      "topic": "Azure OpenAI Service",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy an Azure OpenAI model that will handle a high volume of requests. You want to ensure consistent throughput without per-call throttling. Which deployment type should you use?",
+      "options": [
+        "A. Standard deployment with pay-per-token pricing",
+        "B. Provisioned Throughput Units (PTU) deployment",
+        "C. A batch deployment for offline processing",
+        "D. A development deployment with free tier"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Provisioned Throughput Units (PTU) deployment provides reserved model processing capacity measured in throughput units. This guarantees consistent throughput without being subject to per-call token-per-minute rate limits, making it ideal for high-volume production workloads.\n\nWhy the others are wrong:\n- A. Standard deployment with pay-per-token pricing is subject to token-per-minute rate limits that can cause throttling under high load. It is suitable for variable or lower-volume workloads.\n- C. Batch deployments process requests asynchronously in bulk. They are designed for offline processing of large datasets, not for real-time high-throughput API serving.\n- D. There is no specific 'development deployment with free tier' in Azure OpenAI. Standard deployments have rate limits, and all deployments incur costs based on usage or provisioned capacity."
+    },
+    {
+      "id": 68,
+      "topic": "Responsible AI",
+      "type": "SingleChoice",
+      "questionText": "You are designing an AI solution that will process personal data of EU citizens. According to responsible AI principles, what must you ensure regarding data handling?",
+      "options": [
+        "A. All data must be stored in a US-based data center for optimal performance",
+        "B. Users must be informed about how their data is collected, used, and stored, and must provide consent",
+        "C. Personal data should be retained indefinitely to improve model accuracy over time",
+        "D. Data processing details should be kept confidential to protect intellectual property"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": "Correct: B. Responsible AI principles require transparency about data handling and user consent. Users must be informed about how their personal data is collected, used, and stored. This aligns with both the Transparency principle of responsible AI and privacy regulations like GDPR.\n\nWhy the others are wrong:\n- A. Data residency requirements, especially for EU citizens under GDPR, may require data to be stored in the EU. Storing data in the US without appropriate safeguards could violate data protection regulations.\n- C. Retaining personal data indefinitely violates the data minimization principle. Data should be retained only as long as necessary for its stated purpose.\n- D. Keeping data processing details confidential from users contradicts the Transparency principle. Users have the right to understand how their data is processed."
     }
   ]
 }

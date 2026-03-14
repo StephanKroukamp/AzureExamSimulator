@@ -361,6 +361,222 @@
       "options": ["A. A web browser on their laptop.", "B. The Dynamics 365 Field Service mobile app.", "C. Email updates to the dispatcher.", "D. A paper-based field service form."],
       "correctAnswers": ["B"],
       "explanation": "The Dynamics 365 Field Service mobile app provides technicians with a native mobile experience for viewing schedules, updating statuses, capturing signatures, and accessing work order details offline or online. A laptop browser (A) is less portable. Email (C) is not real-time. Paper forms (D) require manual data entry."
+    },
+    {
+      "id": 41,
+      "topic": "Work Orders - Service tasks",
+      "type": "SingleChoice",
+      "questionText": "A company wants technicians to follow a standardized checklist of steps when performing a specific type of repair. What should you configure?",
+      "options": ["A. Add notes to the work order description field.", "B. Create service tasks associated with the incident type.", "C. Send an email with instructions to the technician.", "D. Create a custom entity to track checklist items."],
+      "correctAnswers": ["B"],
+      "explanation": "Service tasks are step-by-step instructions that are automatically added to work orders when an incident type is used. Technicians can mark each task complete as they work through the repair process. Work order notes (A) are unstructured and cannot be tracked as individual steps. Email instructions (C) are not integrated with the work order. Custom entities (D) duplicate built-in functionality."
+    },
+    {
+      "id": 42,
+      "topic": "Scheduling - Fulfillment preferences",
+      "type": "SingleChoice",
+      "questionText": "A company wants to offer customers morning (8 AM - 12 PM) and afternoon (1 PM - 5 PM) time slots for scheduling field service visits. What should you configure?",
+      "options": ["A. Resource work hours with different shifts.", "B. Fulfillment preferences with defined time group intervals.", "C. Business closures for non-available times.", "D. Separate booking rules for morning and afternoon."],
+      "correctAnswers": ["B"],
+      "explanation": "Fulfillment preferences allow you to define time windows (intervals) like morning and afternoon slots that are offered to customers when scheduling. Resource work hours (A) define when a resource is available but do not structure customer-facing time slots. Business closures (C) define non-working days, not time slot preferences. Separate booking rules (D) are not how time slot preferences are configured."
+    },
+    {
+      "id": 43,
+      "topic": "Agreements - Agreement booking setup",
+      "type": "MultipleChoice",
+      "questionText": "When configuring an agreement in Dynamics 365 Field Service, which two components can be automatically generated from the agreement? (Choose two.)",
+      "options": ["A. Work orders based on the agreement booking setup.", "B. Invoices based on the agreement invoice setup.", "C. Purchase orders for required parts.", "D. Customer accounts."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Agreements can automatically generate work orders through the agreement booking setup (A) on a recurring schedule, and invoices through the agreement invoice setup (B) for billing purposes. Purchase orders (C) are created separately based on inventory needs, not directly from agreements. Customer accounts (D) are not created from agreements; they must exist before an agreement is created."
+    },
+    {
+      "id": 44,
+      "topic": "Inventory - Inventory adjustments",
+      "type": "SingleChoice",
+      "questionText": "A technician discovers that the actual quantity of a part in their truck does not match the system count. What should they use to correct the discrepancy?",
+      "options": ["A. Create a new purchase order for the difference.", "B. Perform an inventory adjustment to correct the quantity.", "C. Delete the existing inventory record and recreate it.", "D. Ignore the discrepancy and report it at the end of the month."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory adjustments allow corrections to on-hand quantities in a warehouse (including truck stock) to match actual counts, maintaining accurate inventory records. A purchase order (A) adds new stock but does not correct existing count discrepancies. Deleting records (C) loses historical tracking. Ignoring discrepancies (D) leads to ongoing inaccuracies and potential service issues."
+    },
+    {
+      "id": 45,
+      "topic": "Resource Management - Resource pools",
+      "type": "SingleChoice",
+      "questionText": "A company has a group of five technicians who can all perform the same type of work and wants to schedule any available member of the group. What should you configure?",
+      "options": ["A. Create a resource pool containing all five technicians.", "B. Create five individual requirements for each work order.", "C. Manually check each technician's availability.", "D. Create a crew with all five members."],
+      "correctAnswers": ["A"],
+      "explanation": "A resource pool groups multiple resources together so that the scheduling engine can select any available member from the pool to fulfill a requirement. Five individual requirements (B) would book all technicians unnecessarily. Manual checking (C) does not leverage automated scheduling. A crew (D) is for resources that always work together as a unit, not for interchangeable individuals."
+    },
+    {
+      "id": 46,
+      "topic": "Work Orders - Work order types",
+      "type": "SingleChoice",
+      "questionText": "A field service company performs installations, repairs, and inspections. They want to categorize work orders and associate different pricing for each. What should they configure?",
+      "options": ["A. Custom fields on the work order to track the category.", "B. Work order types with associated price lists for installation, repair, and inspection.", "C. Separate business units for each type of work.", "D. Different incident types only."],
+      "correctAnswers": ["B"],
+      "explanation": "Work order types categorize work orders (installation, repair, inspection) and can be associated with specific price lists to ensure correct pricing. Custom fields (A) provide categorization but do not integrate with pricing. Separate business units (C) are organizational structures, not work categorizations. Incident types (D) define the specific issue but work order types provide the broader categorization and pricing association."
+    },
+    {
+      "id": 47,
+      "topic": "Scheduling - Schedule board configuration",
+      "type": "SingleChoice",
+      "questionText": "A dispatcher wants to view only technicians in a specific territory on the schedule board. How should this be configured?",
+      "options": ["A. Create a new schedule board tab with a filter for the specific territory.", "B. Remove technicians from other territories from the system.", "C. Use the search bar to find technicians each time.", "D. Create a separate Dynamics 365 environment for each territory."],
+      "correctAnswers": ["A"],
+      "explanation": "Schedule board tabs can be configured with default filters including territory, allowing dispatchers to focus on specific geographic areas. Removing resources (B) would prevent scheduling them elsewhere. Manual searching (C) is inefficient for daily operations. Separate environments (D) create data silos and prevent cross-territory visibility when needed."
+    },
+    {
+      "id": 48,
+      "topic": "IoT - Device commands",
+      "type": "SingleChoice",
+      "questionText": "A technician determines that a customer's connected device needs a remote restart before dispatching a physical visit. What Connected Field Service capability enables this?",
+      "options": ["A. Sending an email to the customer asking them to restart the device.", "B. Sending IoT device commands from within the Dynamics 365 interface.", "C. Calling the device manufacturer's support line.", "D. Scheduling a work order for the restart."],
+      "correctAnswers": ["B"],
+      "explanation": "Connected Field Service allows technicians and dispatchers to send commands (such as restart, reset, or diagnostic) to IoT devices directly from the Dynamics 365 interface, potentially resolving issues without a physical visit. Asking the customer (A) shifts the burden to them. Calling the manufacturer (C) adds delay. A work order for a remote restart (D) is unnecessary when commands can be sent directly."
+    },
+    {
+      "id": 49,
+      "topic": "Work Orders - Customer notifications",
+      "type": "SingleChoice",
+      "questionText": "A company wants to automatically notify customers via text message when a technician is on their way. What feature should they use?",
+      "options": ["A. Manual phone calls from the dispatcher.", "B. Automated booking notifications configured in Field Service settings.", "C. An email sent when the work order status changes.", "D. A custom Power Automate flow only."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Field Service includes built-in booking notification settings that can automatically send SMS or email notifications to customers when booking statuses change, such as when a technician is en route. Manual calls (A) do not scale. While email notifications (C) are possible, text messages provide more immediate notifications. Power Automate (D) could supplement but the built-in feature is the standard approach."
+    },
+    {
+      "id": 50,
+      "topic": "Inventory - Product returns",
+      "type": "SingleChoice",
+      "questionText": "A customer received a defective part during a field service visit. The technician needs to initiate a return. What record should be created?",
+      "options": ["A. A return merchandise authorization (RMA) record.", "B. A new purchase order to the vendor.", "C. A credit note on the work order.", "D. A new work order for the return."],
+      "correctAnswers": ["A"],
+      "explanation": "An RMA (Return Merchandise Authorization) record tracks the return of defective products, including the reason, the product, and the destination warehouse. A purchase order (B) is for acquiring new stock, not handling returns. Credit notes (C) handle financial adjustments but not the physical return process. A new work order (D) is for service work, not product returns."
+    },
+    {
+      "id": 51,
+      "topic": "Scheduling - Resource Scheduling Optimization scope",
+      "type": "MultipleChoice",
+      "questionText": "When configuring Resource Scheduling Optimization (RSO), which two elements define the scope of what RSO will optimize? (Choose two.)",
+      "options": ["A. A scope that defines which resources to include.", "B. A scope that defines which bookings or requirements to include.", "C. The Dynamics 365 license tier.", "D. The number of dispatchers in the organization."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "RSO scope is defined by selecting which resources to optimize (A) and which bookings or requirements to include (B), typically based on territories, work order types, or other criteria. The license tier (C) determines feature availability but does not configure the optimization scope. The number of dispatchers (D) is an organizational factor, not an RSO configuration setting."
+    },
+    {
+      "id": 52,
+      "topic": "Resource Management - Characteristics and skills",
+      "type": "SingleChoice",
+      "questionText": "A specific type of repair requires a technician with HVAC certification and at least 5 years of experience. How should you configure this requirement?",
+      "options": ["A. Add a note to the work order requesting a certified technician.", "B. Configure characteristics for HVAC certification with a proficiency level on the requirement and match them to resource characteristics.", "C. Assign the work order to a specific technician manually.", "D. Create a custom field on the resource entity for certifications."],
+      "correctAnswers": ["B"],
+      "explanation": "Characteristics (skills) with proficiency levels can be defined on requirements and matched against resource characteristics during scheduling, ensuring only qualified technicians are booked. Notes (A) are informational and not enforced by the scheduling engine. Manual assignment (C) bypasses automated scheduling. Custom fields (D) are not used by the scheduling engine for matching."
+    },
+    {
+      "id": 53,
+      "topic": "Agreements - Recurring work orders",
+      "type": "SingleChoice",
+      "questionText": "A customer has a maintenance agreement requiring quarterly inspections of their HVAC system. How should this be set up?",
+      "options": ["A. Manually create a work order every quarter.", "B. Configure an agreement with a booking setup that generates work orders on a quarterly recurrence pattern.", "C. Set a calendar reminder for the dispatcher.", "D. Create all four annual work orders at the beginning of the year."],
+      "correctAnswers": ["B"],
+      "explanation": "The agreement booking setup allows you to define a recurrence pattern (quarterly) that automatically generates work orders at the specified intervals, including predefined incident types, service tasks, and products. Manual creation (A) risks being forgotten and adds administrative overhead. Calendar reminders (C) rely on human action. Pre-creating all work orders (D) does not account for schedule changes and creates unnecessary records early."
+    },
+    {
+      "id": 54,
+      "topic": "Work Orders - Time entry",
+      "type": "SingleChoice",
+      "questionText": "A company needs technicians to log the time they spend on each work order for billing and payroll purposes. What feature should they use?",
+      "options": ["A. Update the work order duration estimate field.", "B. Use the time entry feature in Field Service to log actual hours against bookings.", "C. Send a daily timesheet via email.", "D. Track time in a separate spreadsheet."],
+      "correctAnswers": ["B"],
+      "explanation": "The time entry feature allows technicians to log actual time spent against their bookings, which can be used for billing customers and tracking labor costs. The duration estimate (A) is a planning field, not actual time. Email timesheets (C) are not integrated with the work order. Spreadsheets (D) create data silos and require manual reconciliation."
+    },
+    {
+      "id": 55,
+      "topic": "Scheduling - Travel time calculation",
+      "type": "SingleChoice",
+      "questionText": "The schedule board shows estimated travel time between work orders. What data source does Dynamics 365 Field Service use to calculate travel times?",
+      "options": ["A. A fixed time estimate configured per territory.", "B. Bing Maps integration for real-time route and distance calculations.", "C. Manual entry by the dispatcher.", "D. The straight-line distance between geocoded addresses."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Field Service integrates with Bing Maps to calculate travel times and distances based on actual road routes between service locations. Fixed estimates per territory (A) are too imprecise. Manual dispatcher entry (C) is time-consuming and inaccurate. Straight-line distance (D) does not account for road networks and would underestimate travel times."
+    },
+    {
+      "id": 56,
+      "topic": "Work Orders - Incident types",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of using incident types in Dynamics 365 Field Service?",
+      "options": ["A. They replace the need for work orders.", "B. They pre-populate work order details including service tasks, products, services, and characteristics when selected.", "C. They are required for all work orders.", "D. They automatically assign a technician."],
+      "correctAnswers": ["B"],
+      "explanation": "Incident types serve as templates that automatically pre-populate work order details such as service tasks, products needed, services to perform, duration estimates, and required characteristics, speeding up work order creation. They do not replace work orders (A); they enhance them. They are not required (C); work orders can be created without them. They do not assign technicians (D); that is handled by the scheduling engine."
+    },
+    {
+      "id": 57,
+      "topic": "Inventory - Warehouse management",
+      "type": "MultipleChoice",
+      "questionText": "In Dynamics 365 Field Service, which two types of warehouses can be configured to track inventory? (Choose two.)",
+      "options": ["A. A physical warehouse location.", "B. A technician's vehicle as a mobile warehouse.", "C. A customer's premises as a warehouse.", "D. A virtual warehouse with no physical location."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Field Service supports physical warehouse locations (A) for central inventory storage and technician vehicles as mobile warehouses (B), allowing truck stock to be tracked per technician. Customer premises (C) are service locations, not warehouses managed in the Field Service inventory system. Virtual warehouses (D) are not a standard concept in Field Service inventory management."
+    },
+    {
+      "id": 58,
+      "topic": "Resource Management - Crews",
+      "type": "SingleChoice",
+      "questionText": "A complex installation requires three technicians with different specialties to work together at the same time and location. What should you configure?",
+      "options": ["A. Three separate work orders for the same location.", "B. A crew resource that groups the three technicians as a single schedulable unit.", "C. Three resource requirements on the same work order scheduled independently.", "D. A resource pool with the three technicians."],
+      "correctAnswers": ["B"],
+      "explanation": "A crew groups multiple resources together as a single schedulable unit, ensuring they are booked together for the same time and location. Separate work orders (A) do not guarantee coordinated scheduling. Independent requirements (C) may result in different schedules for each technician. A resource pool (D) selects one available resource from the group, not all of them together."
+    },
+    {
+      "id": 59,
+      "topic": "Work Orders - Copilot work order creation",
+      "type": "SingleChoice",
+      "questionText": "A dispatcher receives a customer request via Outlook email describing a broken refrigerator at a commercial site. What is the fastest way to create a work order using Copilot?",
+      "options": ["A. Manually copy all details from the email into a new work order form.", "B. Use Copilot in Outlook to generate a work order directly from the email content, which pre-populates fields based on the email details.", "C. Forward the email to a shared mailbox and hope someone creates the work order.", "D. Create a Power Automate flow that parses every email in the inbox."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Outlook for Field Service can analyze the email content and generate a work order with pre-populated fields (customer, location, problem description) directly from the email. Manual copying (A) is slower and error-prone. Forwarding to a shared mailbox (C) provides no automation. A flow parsing all emails (D) would process unrelated emails and lacks the contextual intelligence of Copilot."
+    },
+    {
+      "id": 60,
+      "topic": "Scheduling - Fulfillment preferences",
+      "type": "SingleChoice",
+      "questionText": "A field service company wants to offer customers appointment windows such as 'Morning (8 AM - 12 PM)' or 'Afternoon (1 PM - 5 PM)' when scheduling work orders. What should you configure?",
+      "options": ["A. Create custom booking statuses for morning and afternoon.", "B. Configure fulfillment preferences with time group intervals that define the available appointment windows.", "C. Manually adjust each booking's start time after scheduling.", "D. Create separate work order types for morning and afternoon jobs."],
+      "correctAnswers": ["B"],
+      "explanation": "Fulfillment preferences with time group intervals define appointment windows (such as morning or afternoon) that the schedule assistant respects when suggesting available slots. Custom booking statuses (A) track booking progress, not time windows. Manual adjustment (C) defeats the purpose of automated scheduling. Separate work order types (D) are for categorizing the type of work, not scheduling windows."
+    },
+    {
+      "id": 61,
+      "topic": "Customer Assets - Functional locations",
+      "type": "SingleChoice",
+      "questionText": "A facilities management company needs to track assets (HVAC units, elevators) at specific locations within a building, such as floors or rooms. What Dynamics 365 Field Service feature should you use?",
+      "options": ["A. Create separate customer records for each floor.", "B. Configure functional locations to represent the hierarchical structure of the building (building > floor > room) and associate assets to specific functional locations.", "C. Use notes on the account record to describe asset locations.", "D. Store location details in a custom text field on each asset."],
+      "correctAnswers": ["B"],
+      "explanation": "Functional locations provide a hierarchical structure representing physical locations within a site (building, floor, room), enabling assets to be associated with specific locations for precise tracking and service history. Separate customer records per floor (A) misrepresent the organizational relationship. Notes (C) are unstructured and not queryable. Custom text fields (D) lack hierarchy and relational capabilities."
+    },
+    {
+      "id": 62,
+      "topic": "Mobile App - Offline mode and synchronization",
+      "type": "MultipleChoice",
+      "questionText": "A field technician frequently works in areas with poor internet connectivity. Which two configurations ensure they can continue working using the Field Service mobile app? (Choose two.)",
+      "options": ["A. Configure a mobile offline profile that includes the required tables and filters for the technician's data.", "B. Enable offline mode in the mobile app settings so data is cached locally on the device.", "C. Provide the technician with a satellite internet connection.", "D. Configure the app to only work when connected to Wi-Fi."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A mobile offline profile (A) defines which tables and records are synchronized to the device for offline use, and enabling offline mode (B) ensures the app caches data locally and synchronizes changes when connectivity is restored. Satellite internet (C) is a network solution, not an app configuration. Restricting to Wi-Fi only (D) would prevent the technician from working in areas without Wi-Fi."
+    },
+    {
+      "id": 63,
+      "topic": "Agreements - Automatic work order generation",
+      "type": "SingleChoice",
+      "questionText": "A company has a preventive maintenance contract that requires quarterly inspections of customer equipment. How should you configure Field Service to automatically generate work orders for each scheduled inspection?",
+      "options": ["A. Create a recurring calendar event in Outlook.", "B. Configure an agreement with agreement booking setup that defines the recurrence pattern, incident types, and auto-generation settings.", "C. Manually create four work orders at the start of each year.", "D. Use a Power Automate flow with a scheduled trigger to create work orders."],
+      "correctAnswers": ["B"],
+      "explanation": "Agreement booking setups in Field Service define the recurrence pattern (quarterly), associated incident types (inspection), preferred resources, and timing for automatic work order generation. This is the purpose-built feature for preventive maintenance contracts. Outlook events (A) are not integrated with Field Service work orders. Manual creation (C) does not scale and risks being forgotten. While Power Automate (D) could work, the agreement feature is the native and recommended approach for recurring service."
+    },
+    {
+      "id": 64,
+      "topic": "Inventory Management - Inventory adjustments and transfers",
+      "type": "SingleChoice",
+      "questionText": "A technician discovers that the actual count of a specific part in a warehouse differs from the system count. What is the correct process to reconcile this in Field Service?",
+      "options": ["A. Delete the product record and recreate it with the correct quantity.", "B. Create an inventory adjustment record to increase or decrease the quantity to match the actual physical count.", "C. Edit the product's unit price to compensate for the difference.", "D. Ignore the discrepancy until the next audit."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory adjustments in Field Service allow you to increase or decrease the on-hand quantity of a product at a specific warehouse to reconcile discrepancies between the system count and physical count. Deleting the product (A) would remove all associated records and history. Editing the price (C) has no relationship to quantity counts. Ignoring the discrepancy (D) leads to inaccurate inventory data and potential service disruptions."
     }
   ]
 }

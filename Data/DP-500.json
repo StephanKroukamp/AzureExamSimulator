@@ -561,6 +561,314 @@
       ],
       "correctAnswers": ["A"],
       "explanation": "Correct: A. If a column is never used in reports, visualizations, relationships, or calculations, it should be removed from the model entirely. This eliminates the memory consumed by storing and encoding 50 million unique text values.\n\nWhy the others are wrong:\n- B. Converting to numeric might reduce size but the column isn't needed at all, so removal is better.\n- C. Power BI (VertiPaq) automatically creates dictionary encoding; manual indexes aren't applicable.\n- D. Moving to a calculated table still consumes memory; removal is the correct approach."
+    },
+    {
+      "id": 41,
+      "topic": "Data Modeling - Many-to-many relationships",
+      "type": "SingleChoice",
+      "questionText": "You have a dataset where students can enroll in multiple courses, and each course has multiple students. How should you model this many-to-many relationship in Power BI?",
+      "options": [
+        "A. Create a direct many-to-many relationship between the Students and Courses tables",
+        "B. Create a bridge (junction) table with one-to-many relationships from both Students and Courses to the bridge table",
+        "C. Duplicate the Students table for each course",
+        "D. Use a calculated column to flatten all courses into one row per student"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A bridge (junction/associative) table with StudentID and CourseID columns allows proper one-to-many relationships from each dimension to the bridge. This is the star schema best practice and produces accurate aggregations.\n\nWhy the others are wrong:\n- A. Direct many-to-many relationships in Power BI can lead to ambiguous filter propagation and unexpected aggregation results.\n- C. Duplicating tables creates massive redundancy and maintenance issues.\n- D. Flattening courses into one row loses the relational structure and prevents proper analysis."
+    },
+    {
+      "id": 42,
+      "topic": "Power BI Service - Premium features",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO features are available only in Power BI Premium or Premium Per User (PPU) capacity? Each correct answer presents a complete solution.",
+      "options": [
+        "A. XMLA endpoint for read/write access to datasets",
+        "B. Paginated reports hosted in the Power BI service",
+        "C. Creating basic dashboards and reports",
+        "D. Publishing reports from Power BI Desktop"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. XMLA endpoint access (for tools like SQL Server Management Studio, Tabular Editor, or ALM Toolkit) and paginated reports in the Power BI service are Premium/PPU features.\n\nWhy the others are wrong:\n- C. Basic dashboards and reports can be created with Power BI Pro licenses.\n- D. Publishing reports from Power BI Desktop is available with Pro and Free (to My Workspace) licenses."
+    },
+    {
+      "id": 43,
+      "topic": "DAX - Time intelligence",
+      "type": "SingleChoice",
+      "questionText": "You need to create a DAX measure that calculates the running total of sales from the beginning of the year to the current date. Which DAX function should you use?",
+      "options": [
+        "A. TOTALYTD(SUM(Sales[Amount]), Dates[Date])",
+        "B. SUMX(Sales, Sales[Amount])",
+        "C. CALCULATE(SUM(Sales[Amount]), ALL(Dates))",
+        "D. PREVIOUSYEAR(SUM(Sales[Amount]))"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. TOTALYTD calculates a year-to-date running total by evaluating the expression from the beginning of the year to the last date in the current filter context. It is the standard time intelligence function for this purpose.\n\nWhy the others are wrong:\n- B. SUMX iterates over a table and sums values but does not provide year-to-date accumulation.\n- C. CALCULATE with ALL(Dates) removes all date filters, giving the grand total rather than a year-to-date running total.\n- D. PREVIOUSYEAR returns the value from the prior year, not a year-to-date running total."
+    },
+    {
+      "id": 44,
+      "topic": "Power BI Governance - Sensitivity labels",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that Power BI reports containing financial data be automatically labeled and protected. Which Microsoft technology should you use?",
+      "options": [
+        "A. Microsoft Purview Information Protection sensitivity labels applied to Power BI content",
+        "B. Power BI workspace-level access controls only",
+        "C. Azure Key Vault encryption keys",
+        "D. Microsoft Defender for Cloud alerts"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Microsoft Purview Information Protection sensitivity labels can be applied to Power BI datasets, reports, and dashboards. They provide classification, visual marking, and encryption that persists even when content is exported.\n\nWhy the others are wrong:\n- B. Workspace access controls manage who can view/edit but don't classify or protect data when exported outside Power BI.\n- C. Azure Key Vault manages encryption keys but doesn't provide classification or labeling of Power BI content.\n- D. Defender for Cloud provides threat detection, not content classification and labeling."
+    },
+    {
+      "id": 45,
+      "topic": "Data Modeling - Calculated tables vs calculated columns",
+      "type": "SingleChoice",
+      "questionText": "You need a date dimension table for your Power BI model that covers the years 2020 to 2025 with columns for Year, Month, Quarter, and Day. What is the recommended approach?",
+      "options": [
+        "A. Create a calculated table using CALENDAR() and ADDCOLUMNS() DAX functions",
+        "B. Import a date table from the source database",
+        "C. Use the auto date/time feature in Power BI",
+        "D. Create individual calculated columns for each date attribute in the fact table"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Importing a date dimension table from the source database is the best practice. It leverages query folding, reduces model processing time, and ensures consistency across reports and the data warehouse.\n\nWhy the others are wrong:\n- A. A calculated table using CALENDAR() works but increases model processing time and does not benefit from query folding.\n- C. Auto date/time creates hidden tables per date column, which bloats the model and provides limited customization.\n- D. Calculated columns on the fact table do not create a proper date dimension for relationships and filtering."
+    },
+    {
+      "id": 46,
+      "topic": "Dataflows - Dataflow Gen1 vs Gen2",
+      "type": "SingleChoice",
+      "questionText": "What is a key difference between Power BI Dataflows Gen1 and Dataflows Gen2 in Microsoft Fabric?",
+      "options": [
+        "A. Gen1 supports Power Query; Gen2 does not",
+        "B. Gen2 can output data to multiple Fabric destinations (lakehouse, warehouse, KQL database) while Gen1 outputs primarily to Power BI datasets",
+        "C. Gen2 requires coding; Gen1 is no-code only",
+        "D. Gen1 is only available in Fabric; Gen2 is only in Power BI Service"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dataflows Gen2 in Fabric can load data into various destinations including lakehouses, warehouses, and KQL databases, in addition to Power BI datasets. Gen1 primarily outputs to Power BI dataflow storage or Azure Data Lake.\n\nWhy the others are wrong:\n- A. Both Gen1 and Gen2 use Power Query Online for data transformation.\n- C. Both are low-code/no-code experiences using the Power Query interface.\n- D. Gen1 is available in Power BI Service; Gen2 is available in Microsoft Fabric workspaces."
+    },
+    {
+      "id": 47,
+      "topic": "Azure Synapse - Integration with Power BI",
+      "type": "SingleChoice",
+      "questionText": "You have a large data warehouse in Azure Synapse Analytics dedicated SQL pool. You need to create Power BI reports on this data without importing it. Which connection mode should you use?",
+      "options": [
+        "A. Import mode",
+        "B. DirectQuery mode",
+        "C. Live connection to Analysis Services",
+        "D. Export to CSV and import"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DirectQuery sends queries directly to the Synapse dedicated SQL pool at report interaction time, avoiding the need to import large volumes of data. This is ideal for large warehouses where import is impractical.\n\nWhy the others are wrong:\n- A. Import mode copies all data into Power BI's in-memory engine, which may not be feasible for very large datasets and creates data staleness.\n- C. Live connection is for connecting to Analysis Services models, not directly to Synapse SQL pools.\n- D. Exporting to CSV and importing is manual, loses real-time connectivity, and is not scalable."
+    },
+    {
+      "id": 48,
+      "topic": "Query Performance - Query diagnostics",
+      "type": "SingleChoice",
+      "questionText": "A Power BI report visual takes 30 seconds to render. You need to identify the bottleneck. Which tool should you use first?",
+      "options": [
+        "A. Performance Analyzer in Power BI Desktop",
+        "B. Azure Monitor logs",
+        "C. SQL Server Profiler",
+        "D. Windows Task Manager"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Performance Analyzer in Power BI Desktop captures the DAX query generated by each visual, the time spent in the DAX engine, the DirectQuery source, and visual rendering time. It is the first diagnostic tool for identifying report visual performance bottlenecks.\n\nWhy the others are wrong:\n- B. Azure Monitor logs provide service-level metrics but not visual-level DAX query diagnostics.\n- C. SQL Server Profiler traces SQL Server activity, not Power BI DAX engine performance.\n- D. Windows Task Manager shows system resource usage but cannot pinpoint Power BI visual performance issues."
+    },
+    {
+      "id": 49,
+      "topic": "Row-Level Security - Dynamic RLS",
+      "type": "SingleChoice",
+      "questionText": "You need to implement row-level security in a Power BI dataset so that each sales manager only sees data for their own region. The user-to-region mapping is stored in a table called UserRegionMapping. Which DAX expression should you use in the RLS role?",
+      "options": [
+        "A. [Region] = LOOKUPVALUE(UserRegionMapping[Region], UserRegionMapping[Email], USERPRINCIPALNAME())",
+        "B. [Region] = \"East\"",
+        "C. CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Region] = \"East\"))",
+        "D. ALL(Sales)"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. This DAX expression dynamically filters the data by looking up the current user's email (USERPRINCIPALNAME()) in the UserRegionMapping table and filtering rows to match their assigned region.\n\nWhy the others are wrong:\n- B. Hardcoding \"East\" would give all users the same static filter, not dynamic per-user filtering.\n- C. CALCULATE with FILTER is a measure expression, not a valid table filter expression for an RLS role definition.\n- D. ALL removes filters rather than applying them, which would show all data to everyone."
+    },
+    {
+      "id": 50,
+      "topic": "Composite Models - DirectQuery and Import",
+      "type": "SingleChoice",
+      "questionText": "You are building a Power BI model that combines a large DirectQuery table from Azure Synapse with a small imported Excel lookup table. What type of model is this?",
+      "options": [
+        "A. Import model",
+        "B. DirectQuery model",
+        "C. Composite model",
+        "D. Live connection model"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. A composite model combines tables with different storage modes (Import and DirectQuery) in the same model. This allows you to import small reference tables while keeping large fact tables in DirectQuery to avoid importing massive datasets.\n\nWhy the others are wrong:\n- A. An Import model has all tables in Import mode, which is not the case here.\n- B. A DirectQuery model has all tables in DirectQuery mode, which is not the case when the Excel table is imported.\n- D. Live connection connects to an existing Analysis Services model and does not allow combining storage modes."
+    },
+    {
+      "id": 51,
+      "topic": "Power BI Service - Deployment pipelines",
+      "type": "SingleChoice",
+      "questionText": "You manage Power BI content for a large organization. You need to promote reports from development to test to production with parameter changes between stages. Which feature should you use?",
+      "options": [
+        "A. Power BI deployment pipelines with stage-specific deployment rules",
+        "B. Manual copy-paste of .pbix files between workspaces",
+        "C. Power BI template files shared via email",
+        "D. SharePoint document library for version control"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Deployment pipelines provide managed content lifecycle management with stages (Dev, Test, Production). Deployment rules allow automatic parameter changes (data source, connection strings) when promoting between stages.\n\nWhy the others are wrong:\n- B. Manual copy-paste is error-prone, doesn't track versions, and doesn't support parameter changes.\n- C. Template files require manual reconfiguration at each stage and don't provide managed promotion workflows.\n- D. SharePoint is not designed for Power BI content lifecycle management and lacks deployment pipeline features."
+    },
+    {
+      "id": 52,
+      "topic": "Data Modeling - Star schema",
+      "type": "SingleChoice",
+      "questionText": "You are designing a Power BI data model for sales analytics. The source database has a normalized schema with 15 related tables. What transformation should you apply for optimal Power BI performance?",
+      "options": [
+        "A. Import all 15 tables as-is maintaining the normalized structure",
+        "B. Denormalize into a star schema with fact and dimension tables",
+        "C. Create one large flat table with all columns",
+        "D. Keep the normalized schema and use bidirectional relationships"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Star schema (denormalized dimension tables surrounding fact tables) is the recommended design for Power BI. It optimizes VertiPaq compression, simplifies DAX calculations, and improves query performance.\n\nWhy the others are wrong:\n- A. Importing a normalized schema with many tables creates complex relationship chains that degrade performance and complicate DAX.\n- C. One flat table eliminates relationships but creates massive redundancy, worsens compression, and prevents proper dimensional analysis.\n- D. Bidirectional relationships with normalized schemas can create ambiguity and performance issues in the VertiPaq engine."
+    },
+    {
+      "id": 53,
+      "topic": "Azure Analysis Services - Scalability",
+      "type": "SingleChoice",
+      "questionText": "Your Azure Analysis Services model is experiencing slow query performance during peak hours when many users access reports simultaneously. What should you configure to improve performance?",
+      "options": [
+        "A. Scale out with query replicas",
+        "B. Increase the number of partitions in the model",
+        "C. Switch to Import mode from DirectQuery",
+        "D. Reduce the number of DAX measures"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure Analysis Services query replicas distribute read-only query workload across multiple instances. This is the primary mechanism for handling concurrent user load during peak hours.\n\nWhy the others are wrong:\n- B. Increasing partitions helps with refresh performance (parallel partition processing) but doesn't directly address concurrent query scalability.\n- C. Azure Analysis Services already uses in-memory (Import-like) processing; switching modes doesn't apply.\n- D. Reducing DAX measures may improve individual query speed but doesn't address concurrent load scaling."
+    },
+    {
+      "id": 54,
+      "topic": "Data Governance - Microsoft Purview integration",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to catalog and discover Power BI datasets across the enterprise. Which tool should you use?",
+      "options": [
+        "A. Microsoft Purview Data Catalog",
+        "B. Power BI Desktop model view",
+        "C. Azure Data Factory",
+        "D. SQL Server Management Studio"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Microsoft Purview Data Catalog automatically scans and catalogs Power BI artifacts (datasets, reports, dashboards). It provides enterprise-wide data discovery, lineage tracking, and governance across Power BI and other data sources.\n\nWhy the others are wrong:\n- B. Power BI Desktop model view shows the model structure of a single report, not enterprise-wide catalog.\n- C. Azure Data Factory is for data integration and ETL, not data cataloging.\n- D. SQL Server Management Studio manages SQL databases, not Power BI content cataloging."
+    },
+    {
+      "id": 55,
+      "topic": "DAX - CALCULATE function",
+      "type": "SingleChoice",
+      "questionText": "You need a DAX measure that shows total sales for the Electronics category regardless of any category filter applied in the report. Which expression is correct?",
+      "options": [
+        "A. CALCULATE(SUM(Sales[Amount]), Products[Category] = \"Electronics\")",
+        "B. SUM(Sales[Amount])",
+        "C. CALCULATE(SUM(Sales[Amount]), ALL(Products[Category]), Products[Category] = \"Electronics\")",
+        "D. FILTER(Sales, Products[Category] = \"Electronics\")"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. CALCULATE with ALL(Products[Category]) first removes any existing category filter, then Products[Category] = \"Electronics\" applies a new filter for Electronics only. This ensures the measure always returns Electronics sales regardless of slicer selections.\n\nWhy the others are wrong:\n- A. Without ALL, existing category filters from slicers interact with the new filter, potentially returning an empty result if a different category is selected.\n- B. SUM without CALCULATE respects all current filters and does not filter specifically for Electronics.\n- D. FILTER returns a table, not a scalar value; it cannot be used as a standalone measure."
+    },
+    {
+      "id": 56,
+      "topic": "Power BI Service - Shared datasets",
+      "type": "SingleChoice",
+      "questionText": "You want multiple report creators to build reports on the same certified dataset without creating separate copies of the data. Which feature should you use?",
+      "options": [
+        "A. Shared datasets with live connection from Power BI Desktop",
+        "B. Export the dataset as CSV for each creator",
+        "C. Duplicate the dataset in each creator's workspace",
+        "D. Use DirectQuery to a shared SQL database"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Shared datasets in Power BI allow report creators to connect to a single published dataset using a live connection. This ensures a single source of truth, consistent metrics, and no data duplication.\n\nWhy the others are wrong:\n- B. Exporting as CSV creates static copies that become stale and inconsistent.\n- C. Duplicating datasets wastes storage, creates inconsistency, and increases maintenance.\n- D. DirectQuery to SQL bypasses the governed dataset layer with its certified measures and definitions."
+    },
+    {
+      "id": 57,
+      "topic": "Performance - Aggregation tables",
+      "type": "MultipleChoice",
+      "questionText": "You are implementing aggregation tables in a Power BI composite model. Which TWO considerations must you account for? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Aggregation tables must be set to Import storage mode for best performance",
+        "B. The GroupBy columns in the aggregation must match the relationship keys to dimension tables",
+        "C. Aggregation tables automatically detect the correct granularity",
+        "D. Aggregation tables replace the need for DirectQuery entirely"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Aggregation tables should be imported for in-memory performance. The GroupBy columns must align with dimension table keys so that DAX queries can be satisfied from the aggregation table when possible.\n\nWhy the others are wrong:\n- C. You must manually define the aggregation granularity and column mappings; they are not auto-detected.\n- D. Aggregation tables supplement DirectQuery by handling common queries in-memory; detailed queries still fall through to DirectQuery."
+    },
+    {
+      "id": 58,
+      "topic": "Azure Services - Azure Data Lake Storage Gen2",
+      "type": "SingleChoice",
+      "questionText": "Your Power BI dataflows store their data in Azure Data Lake Storage Gen2. What benefit does connecting your own ADLS Gen2 account provide over the built-in dataflow storage?",
+      "options": [
+        "A. Faster query performance in Power BI visuals",
+        "B. Direct access to CDM (Common Data Model) folders for reuse by other Azure services",
+        "C. Automatic data encryption that isn't available otherwise",
+        "D. Unlimited storage at no cost"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Connecting your own ADLS Gen2 account stores dataflow output as CDM folders in your lake, making the data accessible to other services (Azure Synapse, Databricks, etc.) outside Power BI for additional analytics.\n\nWhy the others are wrong:\n- A. Query performance depends on the model and query engine, not specifically on where dataflow data is stored.\n- C. Both built-in storage and customer-managed ADLS Gen2 provide encryption at rest.\n- D. ADLS Gen2 has storage costs; it is not free or unlimited."
+    },
+    {
+      "id": 59,
+      "topic": "Power BI Governance - Endorsement",
+      "type": "SingleChoice",
+      "questionText": "You want to signal to your organization that a specific Power BI dataset has been validated and is the recommended source for a particular business domain. Which endorsement level should you apply?",
+      "options": [
+        "A. Promoted",
+        "B. Certified",
+        "C. Featured",
+        "D. Published"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Certification is the highest level of endorsement in Power BI. It indicates that a dataset has been reviewed and approved by authorized reviewers as the trusted, authoritative source. Only users designated in tenant settings can certify content.\n\nWhy the others are wrong:\n- A. Promoted indicates content is valuable and ready for broader use, but it is a lower level of endorsement that any workspace member can apply.\n- C. Featured is a workspace setting for reports, not a dataset endorsement level.\n- D. Published simply means the content is in the Power BI service; it is not an endorsement level."
+    },
+    {
+      "id": 60,
+      "topic": "DAX - Variables and performance",
+      "type": "SingleChoice",
+      "questionText": "Your DAX measure references the same complex calculation multiple times within DIVIDE and IF functions. What should you do to improve readability and performance?",
+      "options": [
+        "A. Store the result in a DAX variable using VAR/RETURN",
+        "B. Create separate measures for each reference",
+        "C. Use CALCULATE to recalculate each time",
+        "D. Move the calculation to a Power Query step"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. DAX variables (VAR/RETURN) evaluate the expression once and reuse the result, avoiding redundant recalculation. They also improve measure readability by naming intermediate results.\n\nWhy the others are wrong:\n- B. Creating separate measures adds complexity and each measure reference still evaluates independently.\n- C. Using CALCULATE multiple times forces redundant evaluation of the same expression.\n- D. Moving to Power Query changes when the calculation runs (refresh time vs. query time) and may not be appropriate for context-dependent calculations."
+    },
+    {
+      "id": 61,
+      "topic": "Advanced Analytics - AI visuals",
+      "type": "SingleChoice",
+      "questionText": "A business user wants to ask natural language questions about their Power BI dataset and get visual answers. Which Power BI feature enables this?",
+      "options": [
+        "A. Q&A visual",
+        "B. Python visual",
+        "C. Smart Narrative visual",
+        "D. Decomposition Tree"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Q&A visual allows users to type natural language questions and receive visual answers (charts, tables, single values) based on the data model. It uses AI to interpret the question and generate appropriate visuals.\n\nWhy the others are wrong:\n- B. Python visuals require coding in Python to create custom visualizations, not natural language interaction.\n- C. Smart Narrative generates automated text summaries of data, but doesn't accept natural language questions.\n- D. Decomposition Tree allows interactive drill-down exploration but doesn't accept free-form natural language questions."
+    },
+    {
+      "id": 62,
+      "topic": "Data Modeling - Inactive relationships",
+      "type": "SingleChoice",
+      "questionText": "Your model has a Sales fact table with OrderDate and ShipDate columns, both related to a Date dimension. Only one relationship can be active. How should you use the inactive ShipDate relationship in a DAX measure?",
+      "options": [
+        "A. Use USERELATIONSHIP(Sales[ShipDate], Dates[Date]) inside CALCULATE",
+        "B. Create a duplicate Date table for ShipDate",
+        "C. Delete the inactive relationship and use FILTER instead",
+        "D. Make both relationships active simultaneously"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. USERELATIONSHIP activates a specific inactive relationship within the filter context of a CALCULATE expression. This allows you to create measures that analyze data by ShipDate while keeping OrderDate as the default active relationship.\n\nWhy the others are wrong:\n- B. While creating a role-playing dimension (duplicate Date table) is a valid pattern, it is not necessary when USERELATIONSHIP can activate the existing inactive relationship.\n- C. Deleting the relationship and using FILTER is more complex, harder to maintain, and less performant.\n- D. Power BI does not allow two active relationships between the same pair of tables."
     }
   ]
 }

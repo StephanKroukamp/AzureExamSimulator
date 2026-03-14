@@ -561,6 +561,356 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "B is correct because Clean Up Conversation analyzes the thread and removes messages whose content is entirely included in a later reply, reducing redundancy while preserving the complete conversation in the most recent messages.\n\nA is incorrect because it only removes redundant messages, not all messages.\n\nC is incorrect because it does not affect attachments.\n\nD is incorrect because it does not change read status."
+    },
+    {
+      "id": 41,
+      "topic": "Email Management - Message encryption",
+      "type": "SingleChoice",
+      "questionText": "How do you send an encrypted email in Outlook using Microsoft 365 Message Encryption?",
+      "options": [
+        "A. Attach a password-protected ZIP file to the email.",
+        "B. In the message compose window, go to Options tab > Encrypt (or Permissions) and select an encryption option.",
+        "C. Use a third-party encryption add-in.",
+        "D. Save the message as PDF and send the PDF."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Options tab in the message compose window provides encryption and permission settings through the Encrypt button, allowing you to apply Microsoft 365 Message Encryption or Information Rights Management (IRM) policies.\n\nA is incorrect because ZIP file encryption is a workaround, not Outlook's built-in encryption feature.\n\nC is incorrect because Outlook has built-in encryption capabilities through Microsoft 365.\n\nD is incorrect because saving as PDF does not encrypt the message content in transit."
+    },
+    {
+      "id": 42,
+      "topic": "Email Management - Sensitivity labels",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of sensitivity labels (like Confidential or Internal) applied to emails in Outlook?",
+      "options": [
+        "A. They change the visual appearance of the email with colored borders.",
+        "B. They classify the email and can apply protection policies such as encryption, watermarks, and access restrictions based on the label.",
+        "C. They determine which folder the email is stored in.",
+        "D. They set the priority level of the email."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because sensitivity labels in Microsoft 365 classify content and can enforce protection actions such as encrypting the message, restricting forwarding, adding watermarks, and controlling who can access the content.\n\nA is incorrect because while labels may display a visual indicator, their primary purpose is classification and protection enforcement.\n\nC is incorrect because sensitivity labels do not control folder placement.\n\nD is incorrect because priority levels (High, Normal, Low) are separate from sensitivity labels."
+    },
+    {
+      "id": 43,
+      "topic": "Calendar - Meeting response options",
+      "type": "SingleChoice",
+      "questionText": "When you receive a meeting invitation in Outlook, which response options are available?",
+      "options": [
+        "A. Accept, Decline only.",
+        "B. Accept, Tentative, Decline, and Propose New Time.",
+        "C. Accept, Decline, and Forward only.",
+        "D. Yes, No, Maybe."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook meeting invitations provide Accept, Tentative (maybe), Decline, and Propose New Time as response options. Each can also be sent with or without a response message.\n\nA is incorrect because Tentative and Propose New Time are also available.\n\nC is incorrect because Tentative and Propose New Time are missing, and Forward is an action, not a response.\n\nD is incorrect because Outlook uses the specific terms Accept, Tentative, and Decline."
+    },
+    {
+      "id": 44,
+      "topic": "Email Management - Read receipts",
+      "type": "SingleChoice",
+      "questionText": "How do you request a read receipt for a specific email in Outlook?",
+      "options": [
+        "A. Add '[Read Receipt]' to the subject line.",
+        "B. In the message compose window, go to Options tab and check 'Request a Read Receipt'.",
+        "C. Right-click the Send button and select 'Send with Receipt'.",
+        "D. Enable read receipts globally in File > Options for all messages."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Options tab in the message compose window has checkboxes for requesting both delivery receipts and read receipts for that specific message.\n\nA is incorrect because adding text to the subject line has no technical effect on receipts.\n\nC is incorrect because there is no 'Send with Receipt' option on the Send button.\n\nD is incorrect because while you can set global read receipt requests in Options, the question asks about a specific email."
+    },
+    {
+      "id": 45,
+      "topic": "Email Management - Conditional formatting in mail view",
+      "type": "SingleChoice",
+      "questionText": "You want emails from your manager to always appear in bold red text in the message list. Which feature should you use?",
+      "options": [
+        "A. Create a rule to categorize emails from your manager.",
+        "B. View tab > View Settings > Conditional Formatting, and create a rule for emails from your manager.",
+        "C. Home tab > Font Color > Red.",
+        "D. Right-click the email > Format > Bold Red."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Conditional Formatting in Outlook (View > View Settings > Conditional Formatting) allows you to define criteria-based formatting rules that change how messages appear in the message list, such as bold red text for specific senders.\n\nA is incorrect because categories add color markers but do not change the text appearance in the message list.\n\nC is incorrect because Font Color on the Home tab changes the formatting of email content you are composing, not the message list display.\n\nD is incorrect because there is no Format > Bold Red option in the right-click context menu."
+    },
+    {
+      "id": 46,
+      "topic": "Calendar - Room and resource scheduling",
+      "type": "SingleChoice",
+      "questionText": "How do you book a conference room when scheduling a meeting in Outlook?",
+      "options": [
+        "A. Add the room's email address to the 'To' field of the meeting invitation.",
+        "B. Use the Room Finder pane or add the room from the address book in the 'Location' field or as a resource.",
+        "C. Email the facilities department separately.",
+        "D. Create a separate calendar event for the room."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook's Room Finder (available in the meeting form) shows available rooms, and you can add rooms from the address book. Rooms in Exchange/Microsoft 365 have their own mailboxes that automatically accept or decline based on availability.\n\nA is incorrect because while adding the room email technically works, the Room Finder provides availability checking and is the intended method.\n\nC is incorrect because Exchange room resources automate the booking process.\n\nD is incorrect because room booking is integrated into the meeting creation process."
+    },
+    {
+      "id": 47,
+      "topic": "Email Management - Quick Parts",
+      "type": "SingleChoice",
+      "questionText": "You frequently include the same paragraph of text in emails. Which feature allows you to save and quickly insert reusable text blocks?",
+      "options": [
+        "A. AutoText / Quick Parts in the Insert tab of the message compose window.",
+        "B. Create a template for each email.",
+        "C. Save the text in a Word document and copy-paste each time.",
+        "D. Add the text to your email signature."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Quick Parts (including AutoText) allows you to save reusable text blocks that can be quickly inserted into messages through the Insert tab > Quick Parts in the compose window.\n\nB is incorrect because templates are for entire email layouts, not small reusable text blocks.\n\nC is incorrect because copy-pasting from Word is inefficient when Quick Parts provides a built-in solution.\n\nD is incorrect because signatures are automatically appended to messages, not selectively inserted text blocks."
+    },
+    {
+      "id": 48,
+      "topic": "Calendar - Calendar publish",
+      "type": "SingleChoice",
+      "questionText": "How can you share your calendar with people outside your organization who do not use Exchange?",
+      "options": [
+        "A. You cannot share calendars outside your organization.",
+        "B. Publish the calendar online via File > Account Settings > Internet Calendars, or share it as an ICS file attachment.",
+        "C. Export the calendar to PDF and email it.",
+        "D. Give them your Exchange credentials."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because you can publish your calendar to a WebDAV server or share it by emailing an ICS (iCalendar) file. In Microsoft 365, you can also publish it as a web link that external users can subscribe to.\n\nA is incorrect because external sharing is possible through calendar publishing and ICS files.\n\nC is incorrect because PDF export creates a static snapshot, not a live shared calendar.\n\nD is incorrect because sharing credentials is a security violation and unnecessary."
+    },
+    {
+      "id": 49,
+      "topic": "Email Management - Voting buttons",
+      "type": "SingleChoice",
+      "questionText": "You need to collect quick responses from team members (e.g., Yes/No/Maybe) on an email. Which feature should you use?",
+      "options": [
+        "A. Add a poll using Microsoft Forms.",
+        "B. In the message compose window, go to Options tab > Use Voting Buttons and select or customize the response options.",
+        "C. Ask recipients to reply with their vote in the email body.",
+        "D. Create a shared spreadsheet for tracking votes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Voting Buttons on the Options tab add interactive response buttons to the email. Recipients can click their choice, and Outlook tracks the responses in the original Sent message.\n\nA is incorrect because while Forms works for surveys, Voting Buttons are the built-in Outlook feature for quick email-based polling.\n\nC is incorrect because manual replies are harder to track than structured voting buttons.\n\nD is incorrect because a shared spreadsheet adds unnecessary complexity for simple email votes."
+    },
+    {
+      "id": 50,
+      "topic": "Email Management - Ignore conversation",
+      "type": "SingleChoice",
+      "questionText": "You are included in an email thread that is no longer relevant to you. How can you stop receiving notifications for this conversation?",
+      "options": [
+        "A. Delete all messages in the thread.",
+        "B. Home tab > Ignore, which moves current and future messages in the conversation to Deleted Items.",
+        "C. Create a rule specifically for that conversation.",
+        "D. Unsubscribe from the thread."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Ignore button on the Home tab moves all existing messages in the conversation to Deleted Items and automatically moves any future replies to Deleted Items as well.\n\nA is incorrect because deleting messages does not prevent future replies from appearing in your Inbox.\n\nC is incorrect because creating a rule is more complex than needed when the Ignore feature handles this directly.\n\nD is incorrect because email threads do not have an unsubscribe mechanism."
+    },
+    {
+      "id": 51,
+      "topic": "Email Management - Attachment options",
+      "type": "MultipleChoice",
+      "questionText": "When attaching a file stored on OneDrive to an email in Outlook, which sharing options are available? (Choose two.)",
+      "options": [
+        "A. Share as a OneDrive link with editing permissions.",
+        "B. Attach as a traditional copy of the file.",
+        "C. Share as an encrypted zip file.",
+        "D. Embed the file contents directly in the email body as HTML."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. When attaching a OneDrive file, Outlook prompts you to either share it as a cloud link (with configurable permissions for view or edit) or attach a traditional copy of the file.\n\nC is incorrect because Outlook does not automatically create encrypted zip files for attachments.\n\nD is incorrect because Outlook does not embed file contents as HTML in the email body."
+    },
+    {
+      "id": 52,
+      "topic": "Calendar - All-day events",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between an all-day event and a regular appointment in Outlook?",
+      "options": [
+        "A. All-day events block your entire day as busy.",
+        "B. All-day events appear as banners at the top of the calendar day and show as Free by default, while regular appointments appear in the time grid and show as Busy.",
+        "C. All-day events cannot have reminders.",
+        "D. All-day events are only visible to you."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because all-day events display as banners across the top of the calendar date and default to showing your status as Free, while regular appointments occupy specific time slots and show as Busy by default.\n\nA is incorrect because all-day events default to Free status, not Busy.\n\nC is incorrect because all-day events can have reminders configured.\n\nD is incorrect because all-day events are visible to others who can view your calendar."
+    },
+    {
+      "id": 53,
+      "topic": "Email Management - Message format",
+      "type": "SingleChoice",
+      "questionText": "What are the three message formats available in Outlook for composing emails?",
+      "options": [
+        "A. HTML, Rich Text, and Markdown.",
+        "B. HTML, Rich Text Format (RTF), and Plain Text.",
+        "C. HTML, PDF, and Plain Text.",
+        "D. Rich Text, Formatted Text, and Simple Text."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook supports three message formats: HTML (supports formatting, images, and links), Rich Text Format (supports formatting but only fully functional within Exchange), and Plain Text (no formatting).\n\nA is incorrect because Outlook does not natively support Markdown as a message format.\n\nC is incorrect because PDF is not a message format.\n\nD is incorrect because 'Formatted Text' and 'Simple Text' are not the correct names for Outlook's message formats."
+    },
+    {
+      "id": 54,
+      "topic": "Calendar - Meeting tracking",
+      "type": "SingleChoice",
+      "questionText": "How do you check which attendees have accepted, declined, or not responded to your meeting invitation?",
+      "options": [
+        "A. Send a follow-up email asking for confirmation.",
+        "B. Open the meeting from your calendar and click the Tracking button to see each attendee's response status.",
+        "C. Check each attendee's calendar individually.",
+        "D. Look in your Inbox for response emails."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Tracking button (or Tracking tab) on the meeting organizer's view shows a list of all attendees with their response status (Accepted, Tentative, Declined, or None/No Response).\n\nA is incorrect because follow-up emails are unnecessary when tracking is built in.\n\nC is incorrect because checking individual calendars does not show their response to your specific meeting.\n\nD is incorrect because response emails may be deleted or lost, while the Tracking view is always up to date."
+    },
+    {
+      "id": 55,
+      "topic": "Email Management - Mailbox cleanup",
+      "type": "SingleChoice",
+      "questionText": "Your mailbox is approaching its storage quota. Which Outlook tool helps you identify and manage large items?",
+      "options": [
+        "A. File > Info > Cleanup Tools > Mailbox Cleanup.",
+        "B. Home tab > Cleanup > Large Items.",
+        "C. View tab > Filter > By Size.",
+        "D. Data tab > Compress Mailbox."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Mailbox Cleanup tool (File > Info > Cleanup Tools) shows your mailbox size, helps you find items older than a specified date or larger than a specified size, and provides options to archive or delete them.\n\nB is incorrect because there is no Large Items cleanup option on the Home tab.\n\nC is incorrect because while you can sort by size, the View tab does not have a comprehensive cleanup tool.\n\nD is incorrect because there is no Compress Mailbox option on a Data tab."
+    },
+    {
+      "id": 56,
+      "topic": "Rules - Rule priority order",
+      "type": "SingleChoice",
+      "questionText": "When multiple rules match the same incoming email, in what order are they applied?",
+      "options": [
+        "A. Alphabetical order by rule name.",
+        "B. In the order they appear in the Rules list, from top to bottom.",
+        "C. The most recently created rule is applied first.",
+        "D. All matching rules are applied simultaneously."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook processes rules in the order they appear in the Manage Rules & Alerts dialog, from top to bottom. You can use the up/down arrows to change the priority order.\n\nA is incorrect because rule order is determined by position in the list, not alphabetical order.\n\nC is incorrect because creation date does not determine processing order.\n\nD is incorrect because rules are processed sequentially, not simultaneously."
+    },
+    {
+      "id": 57,
+      "topic": "Email Management - @ mentions",
+      "type": "SingleChoice",
+      "questionText": "What happens when you use @mention (typing @ followed by a person's name) in the body of an email in Outlook?",
+      "options": [
+        "A. It creates a hyperlink to their contact card only.",
+        "B. It highlights their name in the email body and automatically adds them to the To line if they are not already a recipient.",
+        "C. It sends them a separate notification email.",
+        "D. It tags them in the email for search purposes only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because @mentioning someone in an email body highlights their name (making it visually distinct) and automatically adds them to the To field if they are not already a recipient, ensuring they receive the message.\n\nA is incorrect because @mention does more than create a contact card link.\n\nC is incorrect because @mention does not send a separate notification email.\n\nD is incorrect because @mention adds the person as a recipient, not just a search tag."
+    },
+    {
+      "id": 58,
+      "topic": "Contacts - Creating contacts from emails",
+      "type": "SingleChoice",
+      "questionText": "How do you quickly add the sender of an email as a new contact in Outlook?",
+      "options": [
+        "A. Manually type their information into a new contact form.",
+        "B. Right-click the sender's name or email address and select Add to Outlook Contacts (or Open Contact Card > Add).",
+        "C. Forward their email to your Contacts folder.",
+        "D. Use File > Import to add the contact."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking the sender's name or email address provides quick access to add them as a contact, pre-populating the contact form with their available information.\n\nA is incorrect because manual entry is unnecessary when Outlook can extract sender information automatically.\n\nC is incorrect because forwarding to the Contacts folder does not create a contact.\n\nD is incorrect because the Import feature is for bulk imports, not individual contacts."
+    },
+    {
+      "id": 59,
+      "topic": "Email Management - Resend a message",
+      "type": "SingleChoice",
+      "questionText": "You need to resend an email that you previously sent, with modifications. How do you do this?",
+      "options": [
+        "A. Find the email in Sent Items and click Reply.",
+        "B. Open the sent email, go to Actions (or Message tab) > Resend This Message.",
+        "C. Create a new email and copy-paste the content.",
+        "D. Forward the email to the same recipients."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Resend This Message option opens a new compose window with the original recipients, subject, and content, allowing you to modify and resend the message as a new email.\n\nA is incorrect because Reply sends the response to the original sender (yourself), not the original recipients.\n\nC is incorrect because manual copy-paste is inefficient when the Resend feature is available.\n\nD is incorrect because forwarding adds FW: to the subject and changes the from/to relationship."
+    },
+    {
+      "id": 60,
+      "topic": "Calendar - Calendar groups",
+      "type": "SingleChoice",
+      "questionText": "What is a Calendar Group in Outlook?",
+      "options": [
+        "A. A meeting with a large number of attendees.",
+        "B. A named collection of calendars that can be displayed together for easy comparison, such as a team's calendars.",
+        "C. A group of recurring events on your calendar.",
+        "D. A shared calendar that all team members edit simultaneously."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Calendar Groups allow you to organize multiple calendars (such as team members' calendars) into named groups that can be displayed or hidden together for convenient viewing.\n\nA is incorrect because Calendar Groups are about organizing calendar views, not meeting size.\n\nC is incorrect because recurring events are individual calendar items, not a Calendar Group.\n\nD is incorrect because Calendar Groups display multiple calendars together; they are not a single shared calendar."
+    },
+    {
+      "id": 61,
+      "topic": "Email Management - Mail merge from Outlook",
+      "type": "SingleChoice",
+      "questionText": "How do you send personalized bulk emails using Outlook contacts?",
+      "options": [
+        "A. Create a Contact Group and send one email to the group.",
+        "B. Use Microsoft Word's Mail Merge feature with Outlook contacts as the data source, which generates individual personalized emails sent through Outlook.",
+        "C. BCC all recipients on a single email.",
+        "D. Use Quick Steps to send the same email to each contact one by one."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Word's Mail Merge integrates with Outlook contacts to create personalized emails with merge fields (like first name, company), sending individual customized messages through Outlook.\n\nA is incorrect because Contact Groups send one identical email to all members, not personalized messages.\n\nC is incorrect because BCC hides recipients but still sends the same message to everyone.\n\nD is incorrect because Quick Steps automate actions on existing emails, not generate personalized bulk emails."
+    },
+    {
+      "id": 62,
+      "topic": "Email Management - Conversation settings",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are configurable options for Conversation View in Outlook? (Choose two.)",
+      "options": [
+        "A. Show messages from Other Folders (so replies in Sent Items appear in the thread).",
+        "B. Always expand selected conversation.",
+        "C. Automatically delete older messages in the conversation.",
+        "D. Convert conversation threads to task lists."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. In View > Conversation Settings, you can configure options including showing messages from other folders, always expanding conversations, and showing messages as indented or not.\n\nC is incorrect because automatic deletion of older messages is not a Conversation View setting (that is the Clean Up feature).\n\nD is incorrect because converting threads to task lists is not a Conversation View option."
+    },
+    {
+      "id": 63,
+      "topic": "Email Management - Recall vs Undo Send",
+      "type": "SingleChoice",
+      "questionText": "In new Outlook and Outlook for the web, what feature gives you a brief window to cancel a sent email?",
+      "options": [
+        "A. Message Recall.",
+        "B. Undo Send, which delays sending by a configurable number of seconds (5-10) and provides an Undo button.",
+        "C. Delete from Sent Items.",
+        "D. Retract Message."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Undo Send in Outlook for the web and new Outlook holds the message for a configurable delay period (up to 10 seconds) during which you can click Undo to prevent it from being sent.\n\nA is incorrect because Message Recall is the classic Exchange feature that attempts to retract already-delivered messages, not a timed delay.\n\nC is incorrect because deleting from Sent Items does not remove the email from the recipient's inbox.\n\nD is incorrect because 'Retract Message' is not the official name of this feature in Outlook."
+    },
+    {
+      "id": 64,
+      "topic": "Email Management - Outlook add-ins",
+      "type": "SingleChoice",
+      "questionText": "How do you install add-ins to extend the functionality of Outlook?",
+      "options": [
+        "A. Download .exe files from the internet and install them.",
+        "B. Home tab > Get Add-ins (or File > Manage Add-ins) to browse and install from the Office Store.",
+        "C. Copy DLL files to the Outlook installation folder.",
+        "D. Add-ins must be installed by the IT administrator only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Get Add-ins button opens the Office Store where you can browse, install, and manage add-ins directly within Outlook. Administrators can also deploy add-ins centrally.\n\nA is incorrect because modern Outlook add-ins are web-based and installed through the Office Store, not via .exe files.\n\nC is incorrect because copying DLL files is not the supported method for modern add-in installation.\n\nD is incorrect because users can install their own add-ins unless the administrator has restricted this."
+    },
+    {
+      "id": 65,
+      "topic": "Email Management - Search operators",
+      "type": "SingleChoice",
+      "questionText": "Which search syntax finds all emails from John that have attachments and were received this month?",
+      "options": [
+        "A. john attachments this month",
+        "B. from:john hasattachments:yes received:this month",
+        "C. sender=john AND attachment=true AND date=thismonth",
+        "D. @john #attachments #recent"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Outlook supports Advanced Query Syntax (AQS) keywords such as from:, hasattachments:, and received: to create precise search queries.\n\nA is incorrect because without search operators, Outlook would search for these as keywords in message content, not as structured criteria.\n\nC is incorrect because the equals-sign syntax is not valid in Outlook search.\n\nD is incorrect because @ and # are not search operators in Outlook."
     }
   ]
 }

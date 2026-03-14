@@ -361,6 +361,204 @@
       "options": ["A. A cluster network name and IP address resource.", "B. A file share resource.", "C. A generic service resource.", "D. A distributed network name (DNN) by default."],
       "correctAnswers": ["A"],
       "explanation": "The Availability Group listener creates a cluster network name (VNN - Virtual Network Name) and an IP address resource in the failover cluster. Clients connect to the listener name, which directs them to the primary replica. Option B is incorrect because the listener creates a network name, not a file share. Option C is incorrect because a generic service resource is for non-cluster-aware applications. Option D is incorrect because while DNN is an alternative in newer deployments, the traditional listener creates a VNN with a cluster IP by default."
+    },
+    {
+      "id": 41,
+      "topic": "Azure Migrate - Implementing Azure Migrate for Hyper-V",
+      "type": "SingleChoice",
+      "questionText": "You need to discover and assess Hyper-V VMs for migration to Azure. The Hyper-V hosts are not managed by System Center VMM. What should you deploy?",
+      "options": ["A. The Azure Migrate appliance on a Hyper-V VM.", "B. The Azure Site Recovery configuration server.", "C. The Azure Migrate appliance on a VMware VM.", "D. A separate physical server running the Azure Migrate agent."],
+      "correctAnswers": ["A"],
+      "explanation": "For Hyper-V environments without VMM, the Azure Migrate appliance is deployed as a Hyper-V VM. It discovers VMs on Hyper-V hosts, collects performance data, and sends it to Azure for assessment. Option B is incorrect because the Site Recovery configuration server is for disaster recovery, not migration assessment. Option C is incorrect because a VMware VM deployment is for VMware environments. Option D is incorrect because the Azure Migrate appliance is a pre-configured VM, not an agent installed on a physical server."
+    },
+    {
+      "id": 42,
+      "topic": "Windows Admin Center - Implementing Azure File Sync",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Azure File Sync from Windows Admin Center to tier infrequently accessed files from an on-premises file server to Azure Files. What must you configure in the cloud tiering settings?",
+      "options": ["A. A volume free space policy percentage.", "B. A maximum file size for tiering.", "C. A per-user storage quota.", "D. A RAID configuration."],
+      "correctAnswers": ["A"],
+      "explanation": "Cloud tiering in Azure File Sync uses a volume free space policy that specifies the percentage of free space to maintain on the volume. Files that are least recently accessed are tiered to Azure Files when the volume approaches the threshold. Option B is incorrect because cloud tiering does not filter by file size as the primary policy mechanism. Option C is incorrect because Azure File Sync does not use per-user quotas for tiering decisions. Option D is incorrect because RAID is a disk configuration unrelated to cloud tiering."
+    },
+    {
+      "id": 43,
+      "topic": "Failover Clustering - Implementing Storage Replica",
+      "type": "SingleChoice",
+      "questionText": "You need to replicate a data volume between two standalone Windows Servers for disaster recovery. The replication should be synchronous with zero data loss. What should you implement?",
+      "options": ["A. Storage Replica in server-to-server mode with synchronous replication.", "B. DFS Replication between the two servers.", "C. Robocopy scheduled task.", "D. DFSR with RDC enabled."],
+      "correctAnswers": ["A"],
+      "explanation": "Storage Replica supports synchronous block-level replication between standalone servers (server-to-server mode), ensuring zero data loss. It replicates at the volume level using SMB 3.0 transport. Option B is incorrect because DFS Replication is file-based and does not guarantee zero data loss for all file types, especially open files. Option C is incorrect because Robocopy is a file copy tool that does not provide real-time replication or zero data loss. Option D is incorrect because DFSR, even with Remote Differential Compression, is still file-based and not suitable for zero-data-loss block replication."
+    },
+    {
+      "id": 44,
+      "topic": "Hyper-V Replication - Configuring replication authentication",
+      "type": "SingleChoice",
+      "questionText": "You are configuring Hyper-V Replica between two domain-joined Hyper-V servers on the same network. You want the simplest authentication configuration. Which authentication method should you use?",
+      "options": ["A. Kerberos (HTTP) authentication.", "B. Certificate-based (HTTPS) authentication.", "C. NTLM authentication.", "D. Token-based authentication."],
+      "correctAnswers": ["A"],
+      "explanation": "Kerberos authentication over HTTP is the simplest option for domain-joined Hyper-V hosts. It uses existing Active Directory infrastructure for authentication without requiring certificate management. Option B is incorrect because certificate-based authentication requires obtaining and managing certificates, which adds complexity for domain-joined hosts. Option C is incorrect because NTLM is not a supported authentication method for Hyper-V Replica. Option D is incorrect because token-based authentication is not an option for Hyper-V Replica."
+    },
+    {
+      "id": 45,
+      "topic": "Azure Site Recovery - Implementing mobility service",
+      "type": "SingleChoice",
+      "questionText": "You are replicating VMware VMs to Azure using Azure Site Recovery. You need to install the Mobility service on the source VMs. Which installation method is recommended for a large number of VMs?",
+      "options": ["A. Push installation from the process server.", "B. Manual installation on each VM via RDP.", "C. Azure Automation DSC.", "D. Group Policy software installation."],
+      "correctAnswers": ["A"],
+      "explanation": "Push installation from the process server automatically installs the Mobility service on VMware VMs when replication is enabled. This is the recommended method for large-scale deployments as it requires no manual intervention on each VM. Option B is incorrect because manual installation is not scalable for many VMs. Option C is incorrect because Azure Automation DSC is not the standard mechanism for Mobility service deployment. Option D is incorrect because the Mobility service is not deployed as an MSI through Group Policy."
+    },
+    {
+      "id": 46,
+      "topic": "Failover Clustering - Implementing cluster validation",
+      "type": "MultipleChoice",
+      "questionText": "Before creating a new failover cluster, you need to validate the configuration. Which TWO categories does the Cluster Validation Wizard test? (Choose two.)",
+      "options": ["A. Network connectivity between nodes.", "B. Storage configuration and access.", "C. Application compatibility.", "D. Internet bandwidth speed.", "E. User account permissions on file shares."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "The Cluster Validation Wizard tests network connectivity (verifying nodes can communicate on all networks) and storage configuration (verifying all nodes can access shared storage correctly). These are critical prerequisites for cluster formation. Option C is incorrect because the wizard does not test application compatibility. Option D is incorrect because internet bandwidth is not a cluster validation test. Option E is incorrect because user-level file share permissions are not part of cluster validation."
+    },
+    {
+      "id": 47,
+      "topic": "Azure Migrate - Implementing migration waves",
+      "type": "SingleChoice",
+      "questionText": "You are migrating 200 servers to Azure and want to group them into migration waves based on dependencies and criticality. Which approach should you use?",
+      "options": ["A. Use Azure Migrate dependency analysis to identify groups, then create migration waves with Azure Migrate groups.", "B. Migrate all servers at once during a single weekend.", "C. Migrate alphabetically by server name.", "D. Use Azure Advisor to determine migration order."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Migrate dependency analysis identifies interdependent servers, allowing you to create logical groups. You can then plan migration waves that move dependent servers together, reducing risk. Option B is incorrect because migrating all 200 servers simultaneously is extremely risky and impractical. Option C is incorrect because alphabetical order does not account for dependencies or business criticality. Option D is incorrect because Azure Advisor provides cost and performance recommendations, not migration wave planning."
+    },
+    {
+      "id": 48,
+      "topic": "Windows Admin Center - Implementing Azure Monitor integration",
+      "type": "SingleChoice",
+      "questionText": "You want to send performance metrics and event logs from servers managed by Windows Admin Center to Azure Monitor. What must you configure on each managed server?",
+      "options": ["A. Install the Azure Monitor Agent and configure a data collection rule.", "B. Install the WAC agent on each server.", "C. Configure a SCOM management pack.", "D. Enable Azure Diagnostics extension."],
+      "correctAnswers": ["A"],
+      "explanation": "The Azure Monitor Agent (AMA) collects performance counters and event logs from servers and sends them to Azure Monitor via data collection rules (DCRs). WAC can help configure this integration. Option B is incorrect because WAC does not require an agent on managed servers; it uses WinRM. Option C is incorrect because SCOM management packs are for System Center monitoring, not Azure Monitor. Option D is incorrect because the Azure Diagnostics extension is for Azure VMs, not on-premises servers managed by WAC."
+    },
+    {
+      "id": 49,
+      "topic": "Failover Clustering - Implementing affinity and anti-affinity rules",
+      "type": "SingleChoice",
+      "questionText": "You have a failover cluster running multiple VMs. You need to ensure that two specific VMs always run on different cluster nodes for redundancy. What should you configure?",
+      "options": ["A. Anti-affinity cluster group rule.", "B. Preferred owner settings.", "C. Possible owner settings.", "D. Resource dependency."],
+      "correctAnswers": ["A"],
+      "explanation": "Anti-affinity rules ensure that specified cluster groups (VMs) run on different nodes whenever possible. This provides redundancy by preventing both VMs from failing if a single node goes down. Option B is incorrect because preferred owners indicate which nodes a group prefers to run on but do not prevent two groups from running on the same node. Option C is incorrect because possible owners limit which nodes can host a group but do not address the relationship between groups. Option D is incorrect because resource dependencies define startup order within a group, not placement across nodes."
+    },
+    {
+      "id": 50,
+      "topic": "Azure Site Recovery - Configuring network mapping",
+      "type": "SingleChoice",
+      "questionText": "You are configuring Azure Site Recovery for VMware-to-Azure replication. After failover, VMs need to be connected to specific Azure virtual networks. What should you configure?",
+      "options": ["A. Network mapping in the Recovery Services vault.", "B. Azure VPN Gateway before failover.", "C. Static IP addresses on each source VM.", "D. DNS conditional forwarders."],
+      "correctAnswers": ["A"],
+      "explanation": "Network mapping in Azure Site Recovery maps source networks to target Azure virtual networks, ensuring VMs are placed in the correct network after failover. This is configured in the Recovery Services vault. Option B is incorrect because VPN Gateway provides connectivity between on-premises and Azure but does not control which VNet a failed-over VM connects to. Option C is incorrect because static IPs on source VMs do not determine the target Azure network. Option D is incorrect because DNS conditional forwarders handle name resolution, not network placement."
+    },
+    {
+      "id": 51,
+      "topic": "Hyper-V Replication - Implementing planned failover",
+      "type": "SingleChoice",
+      "questionText": "You need to move a VM from the primary Hyper-V site to the replica site for planned maintenance. Both sites are operational. You want zero data loss. What should you perform?",
+      "options": ["A. Planned failover.", "B. Unplanned failover.", "C. Test failover.", "D. Live migration."],
+      "correctAnswers": ["A"],
+      "explanation": "Planned failover in Hyper-V Replica shuts down the primary VM, replicates final changes to the replica site, and starts the replica VM. Since both sites are operational, all data is synchronized before the switch, ensuring zero data loss. Option B is incorrect because unplanned failover is for disaster scenarios and may result in data loss. Option C is incorrect because test failover creates a test copy and does not transition production. Option D is incorrect because live migration moves VMs between nodes in the same cluster, not between separate Hyper-V sites."
+    },
+    {
+      "id": 52,
+      "topic": "Failover Clustering - Implementing scale-out file server",
+      "type": "SingleChoice",
+      "questionText": "You need to provide continuously available SMB shares that can serve I/O from all cluster nodes simultaneously for Hyper-V over SMB. Which cluster role provides this capability?",
+      "options": ["A. Scale-Out File Server.", "B. File Server for general use.", "C. DFS Namespace server.", "D. iSCSI Target Server."],
+      "correctAnswers": ["A"],
+      "explanation": "Scale-Out File Server (SOFS) allows SMB shares to be active on all cluster nodes simultaneously, providing both high availability and scale-out performance. This is ideal for Hyper-V over SMB and SQL Server scenarios. Option B is incorrect because the general-use file server is active-passive, with shares served from only one node at a time. Option C is incorrect because DFS Namespaces provide a unified view of file shares but do not provide simultaneous multi-node access. Option D is incorrect because iSCSI Target Server provides block storage, not SMB file shares."
+    },
+    {
+      "id": 53,
+      "topic": "Azure Migrate - Configuring Azure Migrate projects",
+      "type": "SingleChoice",
+      "questionText": "You need to assess servers in two different geographical locations. Each location has its own network and no connectivity between them. What is the recommended Azure Migrate setup?",
+      "options": ["A. Deploy a separate Azure Migrate appliance at each location, connected to the same Azure Migrate project.", "B. Use a single appliance at one location to scan both.", "C. Create two separate Azure subscriptions.", "D. Use Azure ExpressRoute to connect both locations."],
+      "correctAnswers": ["A"],
+      "explanation": "A single Azure Migrate project can use multiple appliances, each deployed at a different location. Each appliance discovers servers in its local network and reports to the same project for consolidated assessment. Option B is incorrect because the appliance needs network connectivity to the servers it discovers and cannot scan across disconnected networks. Option C is incorrect because separate subscriptions are not needed; multiple appliances in one project suffice. Option D is incorrect because ExpressRoute connects to Azure, not between two on-premises locations."
+    },
+    {
+      "id": 54,
+      "topic": "Windows Admin Center - Implementing cluster creation",
+      "type": "SingleChoice",
+      "questionText": "You want to use Windows Admin Center to create a new failover cluster. Which prerequisite must be met on the target servers before creating the cluster?",
+      "options": ["A. The Failover Clustering feature must be installed on all target servers.", "B. WAC must be installed on each target server.", "C. All servers must be running Windows Server Datacenter edition.", "D. Azure Arc must be enabled on all servers."],
+      "correctAnswers": ["A"],
+      "explanation": "The Failover Clustering Windows feature must be installed on all servers that will be cluster nodes. WAC can then orchestrate the cluster creation process. Option B is incorrect because WAC manages servers remotely and does not need to be installed on each server. Option C is incorrect because Failover Clustering is available in both Standard and Datacenter editions. Option D is incorrect because Azure Arc is for hybrid management and is not a prerequisite for on-premises cluster creation."
+    },
+    {
+      "id": 55,
+      "topic": "Azure Site Recovery - Implementing capacity reservations",
+      "type": "SingleChoice",
+      "questionText": "You want to ensure that Azure VM capacity is available in the target region when you need to perform a failover with Azure Site Recovery. What should you configure?",
+      "options": ["A. On-demand capacity reservation in the target region.", "B. Reserved VM instances in the target region.", "C. Spot VM instances for failover.", "D. Azure auto-scale rules."],
+      "correctAnswers": ["A"],
+      "explanation": "On-demand capacity reservations guarantee that VM capacity is available in a specific region and availability zone when needed for failover, without requiring a long-term commitment. Option B is incorrect because Reserved VM instances provide cost savings with a commitment but do not guarantee capacity in the same way as capacity reservations. Option C is incorrect because Spot VMs can be evicted and are unsuitable for disaster recovery. Option D is incorrect because auto-scale rules manage existing deployments, not DR capacity guarantees."
+    },
+    {
+      "id": 56,
+      "topic": "Failover Clustering - Implementing rolling cluster upgrades",
+      "type": "SingleChoice",
+      "questionText": "You need to upgrade a Windows Server 2019 failover cluster to Windows Server 2022 without downtime. What process should you follow?",
+      "options": ["A. Cluster OS Rolling Upgrade by replacing nodes one at a time with Windows Server 2022 nodes.", "B. Shut down the entire cluster and rebuild on Windows Server 2022.", "C. In-place upgrade of all nodes simultaneously.", "D. Create a new cluster and use Hyper-V Replica to migrate VMs."],
+      "correctAnswers": ["A"],
+      "explanation": "Cluster OS Rolling Upgrade allows you to upgrade cluster nodes one at a time. You pause and drain a node, evict it, install the new OS, rejoin it, and repeat for each node. The cluster runs in mixed-mode until all nodes are upgraded, then you update the functional level. Option B is incorrect because shutting down the entire cluster causes downtime. Option C is incorrect because simultaneous in-place upgrades would cause downtime. Option D is incorrect because creating a new cluster with Hyper-V Replica is more complex and involves a separate infrastructure."
+    },
+    {
+      "id": 57,
+      "topic": "Hyper-V Replication - Configuring replication exclusions",
+      "type": "SingleChoice",
+      "questionText": "You are replicating a VM with Hyper-V Replica, but the VM has a large data disk that does not need to be replicated. What should you do?",
+      "options": ["A. Exclude the specific virtual hard disk from replication in the replication settings.", "B. Detach the disk before enabling replication.", "C. Create a separate VM for the data disk.", "D. Use a smaller replication frequency."],
+      "correctAnswers": ["A"],
+      "explanation": "Hyper-V Replica allows you to exclude specific virtual hard disks from replication. This reduces replication bandwidth and storage requirements for disks that contain non-critical data. Option B is incorrect because detaching the disk removes it from the VM entirely, preventing the VM from accessing it. Option C is incorrect because creating a separate VM adds unnecessary complexity. Option D is incorrect because reducing replication frequency still replicates the entire disk, just less often."
+    },
+    {
+      "id": 58,
+      "topic": "Azure Migrate - Implementing Azure Migrate for web apps",
+      "type": "MultipleChoice",
+      "questionText": "You need to migrate on-premises web applications to Azure. Which TWO target services does Azure Migrate support for web app migration? (Choose two.)",
+      "options": ["A. Azure App Service.", "B. Azure Kubernetes Service (AKS).", "C. Azure Virtual Desktop.", "D. Azure Cosmos DB.", "E. Azure Blob Storage."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Azure Migrate supports migrating web applications to Azure App Service (for PaaS web hosting) and Azure Kubernetes Service (for containerized workloads). Option C is incorrect because Azure Virtual Desktop is for virtual desktop infrastructure, not web app hosting. Option D is incorrect because Cosmos DB is a database service, not a web app hosting platform. Option E is incorrect because Blob Storage is for object storage, not web app hosting."
+    },
+    {
+      "id": 59,
+      "topic": "Failover Clustering - Implementing cluster sets",
+      "type": "SingleChoice",
+      "questionText": "You have multiple failover clusters and want to manage them as a single unified compute fabric, enabling VM live migration between clusters. What should you implement?",
+      "options": ["A. Cluster sets.", "B. Multi-site stretch cluster.", "C. Azure Arc for all clusters.", "D. System Center VMM fabric."],
+      "correctAnswers": ["A"],
+      "explanation": "Cluster sets allow you to group multiple failover clusters into a unified management boundary, enabling VM live migration between member clusters and unified health monitoring. Option B is incorrect because a stretch cluster spans sites within a single cluster, not multiple independent clusters. Option C is incorrect because Azure Arc provides cloud management but does not enable cross-cluster VM live migration. Option D is incorrect because while SCVMM can manage multiple clusters, cluster sets provide native Windows Server cross-cluster VM mobility."
+    },
+    {
+      "id": 60,
+      "topic": "Azure Site Recovery - Implementing automation with recovery plans",
+      "type": "SingleChoice",
+      "questionText": "You need to run a PowerShell script to update DNS records after Azure Site Recovery fails over VMs to Azure. Where should you add this script?",
+      "options": ["A. As an Azure Automation runbook action in the recovery plan.", "B. As a startup script on each Azure VM.", "C. In the Azure Site Recovery replication policy.", "D. In the Recovery Services vault access policy."],
+      "correctAnswers": ["A"],
+      "explanation": "Recovery plans in Azure Site Recovery support Azure Automation runbook actions that execute scripts at specific points during failover. Adding a DNS update runbook ensures records are updated automatically after failover. Option B is incorrect because VM startup scripts run inside the VM, not at the Azure resource level needed for DNS updates. Option C is incorrect because replication policies control replication behavior, not post-failover automation. Option D is incorrect because vault access policies control user permissions, not automation."
+    },
+    {
+      "id": 61,
+      "topic": "Windows Admin Center - Implementing Azure hybrid services",
+      "type": "SingleChoice",
+      "questionText": "You want to use Windows Admin Center to enable Azure Backup on an on-premises server. What must be configured in Azure before you can set up the backup?",
+      "options": ["A. A Recovery Services vault in the Azure subscription.", "B. An Azure Kubernetes Service cluster.", "C. An Azure SQL Database.", "D. An Azure Container Registry."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Backup requires a Recovery Services vault to store backup data. When configuring Azure Backup through WAC, you either select an existing vault or create a new one in the connected Azure subscription. Option B is incorrect because AKS is for container orchestration, not backup. Option C is incorrect because Azure SQL Database is a managed database service, not backup infrastructure. Option D is incorrect because Container Registry stores container images, not backup data."
+    },
+    {
+      "id": 62,
+      "topic": "Failover Clustering - Implementing cluster quorum for Azure",
+      "type": "SingleChoice",
+      "questionText": "You are deploying a Windows Server failover cluster on Azure VMs. Which quorum witness type is recommended for Azure deployments?",
+      "options": ["A. Cloud witness using an Azure Storage account.", "B. Disk witness using Azure managed disk.", "C. File share witness on an Azure Files share.", "D. No witness is needed for Azure clusters."],
+      "correctAnswers": ["A"],
+      "explanation": "Cloud witness is the recommended quorum witness for failover clusters running on Azure VMs. It uses a lightweight Azure Blob Storage container as a witness, providing a highly available and cost-effective solution. Option B is incorrect because a disk witness requires shared storage, and while Azure shared disks exist, cloud witness is simpler and recommended. Option C is incorrect because file share witnesses work but add complexity compared to cloud witness. Option D is incorrect because a witness is important for maintaining quorum, especially in clusters with an even number of nodes."
     }
   ]
 }

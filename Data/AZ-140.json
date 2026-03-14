@@ -361,6 +361,204 @@
       "options": ["A. Screen capture protection in the host pool RDP properties.", "B. Disable clipboard redirection.", "C. Enable Windows Information Protection on session hosts.", "D. Deploy Microsoft Defender for Endpoint on the local client."],
       "correctAnswers": ["A"],
       "explanation": "Screen capture protection is an AVD feature that prevents the remote session content from being captured by screenshot tools and screen recording software on the client device. When enabled, the AVD window appears as a black screen in captures. Option B is incorrect because clipboard redirection controls copy/paste but does not prevent screen capture. Option C is incorrect because WIP protects data within Windows but does not prevent screen capture from external tools. Option D is incorrect because Defender for Endpoint provides threat protection but does not block screen capture of RDP sessions."
+    },
+    {
+      "id": 41,
+      "topic": "Host Pools - Configuring Intune enrollment",
+      "type": "SingleChoice",
+      "questionText": "You need to manage Azure Virtual Desktop session hosts using Microsoft Intune for configuration and compliance policies. The session hosts are Microsoft Entra ID joined. What must you configure?",
+      "options": ["A. Enable automatic Intune enrollment for Microsoft Entra ID joined devices.", "B. Install the SCCM client on each session host.", "C. Deploy a Group Policy Object from on-premises AD.", "D. Install the Intune Company Portal app manually on each host."],
+      "correctAnswers": ["A"],
+      "explanation": "For Microsoft Entra ID joined session hosts, enabling automatic Intune enrollment ensures that session hosts are automatically enrolled in Intune when they join Entra ID, enabling device management and compliance policies. Option B is incorrect because SCCM is an on-premises management tool and is not the recommended approach for Entra ID joined AVD hosts. Option C is incorrect because on-premises GPOs require hybrid AD join, not applicable for Entra ID-only joined hosts. Option D is incorrect because manual installation is not scalable and automatic enrollment is the recommended approach."
+    },
+    {
+      "id": 42,
+      "topic": "Session Hosts - Configuring Azure AD DS for session hosts",
+      "type": "SingleChoice",
+      "questionText": "You do not have an on-premises Active Directory but need session hosts that are domain-joined to support legacy applications requiring Kerberos authentication. What should you deploy?",
+      "options": ["A. Microsoft Entra Domain Services (Azure AD DS).", "B. A new on-premises Active Directory forest.", "C. Azure Active Directory B2C.", "D. Azure Active Directory Application Proxy."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra Domain Services provides managed Active Directory capabilities (domain join, Kerberos, NTLM, LDAP, Group Policy) in Azure without deploying domain controllers. This supports legacy applications requiring Kerberos authentication. Option B is incorrect because deploying on-premises AD infrastructure adds unnecessary complexity when a cloud-managed option exists. Option C is incorrect because Azure AD B2C is for customer-facing identity management, not domain services. Option D is incorrect because Application Proxy provides secure remote access to on-premises apps but does not provide domain services."
+    },
+    {
+      "id": 43,
+      "topic": "FSLogix - Configuring per-group profile settings",
+      "type": "SingleChoice",
+      "questionText": "You need to store FSLogix profiles for executives on a high-performance Azure NetApp Files share, while standard users' profiles should be on Azure Files Standard. How should you configure this?",
+      "options": ["A. Use FSLogix per-group configuration with different VHDLocations registry settings for each group.", "B. Create separate host pools for executives and standard users.", "C. Use a single Azure Files share for all users.", "D. Configure NTFS permissions to redirect specific users."],
+      "correctAnswers": ["A"],
+      "explanation": "FSLogix supports per-group configuration through registry settings, allowing different VHDLocations (profile container storage paths) for different user groups. Executives can be directed to ANF while standard users use Azure Files. Option B is incorrect because separate host pools add infrastructure overhead when per-group FSLogix settings achieve the same goal. Option C is incorrect because a single share does not allow differentiated performance tiers. Option D is incorrect because NTFS permissions control access, not storage location for profile containers."
+    },
+    {
+      "id": 44,
+      "topic": "MSIX App Attach - Implementing CIM-based packaging",
+      "type": "SingleChoice",
+      "questionText": "You are preparing MSIX packages for app attach. You need to choose a disk image format that provides the best performance for mounting on Azure Virtual Desktop session hosts. Which format should you use?",
+      "options": ["A. CimFS (Composite Image File System).", "B. VHD.", "C. VHDX.", "D. ISO."],
+      "correctAnswers": ["A"],
+      "explanation": "CimFS is the recommended format for MSIX app attach as it provides better performance than VHD/VHDX for mounting MSIX packages. It is specifically designed for this use case and reduces mount times. Option B is incorrect because while VHD is supported, it has lower performance than CimFS for app attach scenarios. Option C is incorrect because VHDX is supported but also provides lower performance than CimFS. Option D is incorrect because ISO format is not supported for MSIX app attach."
+    },
+    {
+      "id": 45,
+      "topic": "RDP Properties - Configuring Teams optimization",
+      "type": "SingleChoice",
+      "questionText": "Users report poor audio and video quality when using Microsoft Teams in their Azure Virtual Desktop sessions. What feature must be enabled for optimal Teams performance?",
+      "options": ["A. Teams media optimization for AVD (WebRTC redirection).", "B. GPU acceleration on session hosts.", "C. Higher network bandwidth allocation.", "D. Install Teams on each user's local device only."],
+      "correctAnswers": ["A"],
+      "explanation": "Teams media optimization redirects audio and video processing to the local client device using WebRTC, dramatically improving call quality and reducing session host CPU load. This requires the AVD WebSocket service component on the session host and a compatible client. Option B is incorrect because GPU acceleration helps with graphics rendering but does not address the fundamental issue of processing media on the remote session. Option C is incorrect because without media optimization, Teams video still streams through the RDP connection, which is inherently less efficient. Option D is incorrect because the goal is to use Teams within the AVD session, not bypass it."
+    },
+    {
+      "id": 46,
+      "topic": "Scaling Plans - Implementing personal desktop scaling",
+      "type": "SingleChoice",
+      "questionText": "You have a personal host pool where users have assigned VMs. You want to automatically start a user's personal VM when they initiate a connection and stop it after they log off. What should you configure?",
+      "options": ["A. Start VM on Connect for the personal host pool with a scaling plan that deallocates VMs after logoff.", "B. Azure Automation runbooks triggered by user logon events.", "C. Always keep all personal VMs running.", "D. Manual start/stop by the IT helpdesk."],
+      "correctAnswers": ["A"],
+      "explanation": "Start VM on Connect automatically starts a personal VM when the assigned user connects, and scaling plans for personal host pools can deallocate VMs after user logoff (with configurable disconnect/logoff timers). This minimizes costs while ensuring on-demand availability. Option B is incorrect because while Automation runbooks could work, the native AVD scaling plan integration is simpler and purpose-built. Option C is incorrect because keeping all VMs running wastes resources. Option D is incorrect because manual management does not scale and delays user access."
+    },
+    {
+      "id": 47,
+      "topic": "Host Pools - Implementing Conditional Access",
+      "type": "MultipleChoice",
+      "questionText": "You need to enforce multi-factor authentication and device compliance for Azure Virtual Desktop connections. Which TWO Conditional Access settings should you configure? (Choose two.)",
+      "options": ["A. A policy targeting the Azure Virtual Desktop cloud app requiring MFA.", "B. A policy requiring compliant device for the Windows 365 cloud app.", "C. A policy targeting the Azure Virtual Desktop cloud app requiring a compliant or hybrid-joined device.", "D. A policy blocking all access from mobile devices to Azure Storage.", "E. A policy requiring password change every 30 days."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "You should create Conditional Access policies targeting the Azure Virtual Desktop cloud app that require MFA (for identity verification) and that require compliant or hybrid Entra ID joined devices (for device security). Option B is incorrect because Windows 365 is a different service from Azure Virtual Desktop. Option D is incorrect because Azure Storage policies do not control AVD access. Option E is incorrect because password change frequency is a password policy setting, not a Conditional Access control for AVD."
+    },
+    {
+      "id": 48,
+      "topic": "Session Hosts - Implementing Azure Image Builder",
+      "type": "SingleChoice",
+      "questionText": "You need to automate the creation and maintenance of custom session host images. The process should automatically apply updates, install applications, and distribute the image to Azure Compute Gallery. What should you use?",
+      "options": ["A. Azure VM Image Builder.", "B. Manually create and capture VMs each time.", "C. Azure DevTest Labs image factory.", "D. Windows Deployment Services."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure VM Image Builder provides an automated pipeline for creating custom VM images. It can apply Windows updates, install applications, run customization scripts, and distribute the resulting image to Azure Compute Gallery for use with AVD host pools. Option B is incorrect because manual image creation is time-consuming and inconsistent. Option C is incorrect because DevTest Labs is for development/test scenarios, not production AVD image management. Option D is incorrect because WDS is an on-premises deployment technology, not an Azure image automation service."
+    },
+    {
+      "id": 49,
+      "topic": "FSLogix - Implementing profile container resizing",
+      "type": "SingleChoice",
+      "questionText": "A user's FSLogix profile container has reached its maximum size limit, and the user cannot log on. You need to increase the maximum size. Where should you change this setting?",
+      "options": ["A. In the FSLogix Group Policy setting or registry key for SizeInMBs.", "B. In the Azure Files share quota.", "C. In the host pool properties.", "D. In the user's Entra ID profile."],
+      "correctAnswers": ["A"],
+      "explanation": "The maximum size of FSLogix profile containers is controlled by the SizeInMBs registry value or Group Policy setting. Increasing this value allows the VHD/VHDX to grow larger. The default is 30GB. Option B is incorrect because the Azure Files share quota limits the total share size, not individual profile container sizes. Option C is incorrect because host pool properties do not control FSLogix profile sizes. Option D is incorrect because Entra ID profiles do not have FSLogix size settings."
+    },
+    {
+      "id": 50,
+      "topic": "MSIX App Attach - Implementing application versioning",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy two different versions of the same MSIX application to different user groups in the same host pool. How should you configure this?",
+      "options": ["A. Create two separate app attach packages with different versions and assign them to different application groups.", "B. Install both versions on the session host image.", "C. Use environment variables to switch versions.", "D. Create two host pools with different images."],
+      "correctAnswers": ["A"],
+      "explanation": "MSIX app attach supports multiple versions of the same application. You create separate app attach packages for each version and assign them to different application groups, which are then assigned to the appropriate user groups. Option B is incorrect because MSIX app attach is designed to avoid installing applications on the image. Option C is incorrect because environment variables do not control MSIX app attach version selection. Option D is incorrect because separate host pools add unnecessary infrastructure when app attach can handle versioning."
+    },
+    {
+      "id": 51,
+      "topic": "RDP Properties - Configuring RDP Shortpath",
+      "type": "SingleChoice",
+      "questionText": "You want to enable RDP Shortpath for managed networks to improve connection quality between the AVD client and session hosts on a corporate network. What transport protocol does RDP Shortpath use?",
+      "options": ["A. UDP.", "B. TCP only.", "C. HTTP.", "D. WebSocket."],
+      "correctAnswers": ["A"],
+      "explanation": "RDP Shortpath uses UDP transport to establish a direct connection between the client and session host, reducing latency and improving responsiveness compared to the default TCP-based reverse connect transport through the AVD gateway. Option B is incorrect because while AVD uses TCP for the default gateway connection, Shortpath specifically uses UDP for better performance. Option C is incorrect because HTTP is not used for RDP transport. Option D is incorrect because WebSocket is used for the gateway connection, not Shortpath."
+    },
+    {
+      "id": 52,
+      "topic": "Scaling Plans - Configuring personal desktop disconnect handling",
+      "type": "SingleChoice",
+      "questionText": "In a personal host pool scaling plan, you want VMs to be deallocated 30 minutes after a user disconnects but NOT while they are logged off with an active session. What should you configure?",
+      "options": ["A. Set the disconnect timeout to 30 minutes and the logoff timeout to a longer period or 'Never'.", "B. Set both disconnect and logoff timeouts to 30 minutes.", "C. Disable the scaling plan for personal pools.", "D. Use Azure Automation to check connection status."],
+      "correctAnswers": ["A"],
+      "explanation": "Personal host pool scaling plans allow separate configuration for disconnect (network disconnect, not logged off) and logoff (user explicitly logs off) scenarios. Setting disconnect to 30 minutes deallocates after disconnection, while setting logoff to 'Never' or a longer period keeps VMs running when users have active sessions. Option B is incorrect because setting both to 30 minutes would deallocate VMs even when users intentionally stay logged on. Option C is incorrect because disabling the scaling plan would prevent cost savings. Option D is incorrect because Azure Automation is more complex than the built-in scaling plan functionality."
+    },
+    {
+      "id": 53,
+      "topic": "Host Pools - Implementing custom RDP file properties",
+      "type": "SingleChoice",
+      "questionText": "You need to configure Azure Virtual Desktop to use a specific time zone for all sessions regardless of the client's local time zone. Where should you configure this?",
+      "options": ["A. In the host pool's custom RDP properties using the 'redirected video capture encoding quality' and configuring time zone redirection.", "B. Set the session host's Windows time zone and disable time zone redirection with 'use redirection server name:i:1'.", "C. Disable time zone redirection in the host pool RDP properties and set the session host OS time zone.", "D. Configure Azure Policy to enforce time zone settings."],
+      "correctAnswers": ["C"],
+      "explanation": "To use a specific time zone for all sessions, you disable time zone redirection (which prevents the session from adopting the client's time zone) and set the desired time zone on the session host OS. This ensures all users see the same time zone. Option A is incorrect because video capture encoding quality is unrelated to time zone configuration. Option B is incorrect because 'use redirection server name' is not the correct RDP property for time zone control. Option D is incorrect because Azure Policy does not directly control RDP time zone redirection."
+    },
+    {
+      "id": 54,
+      "topic": "FSLogix - Implementing Office 365 container with OneDrive",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that OneDrive Files On-Demand works correctly in Azure Virtual Desktop sessions with FSLogix profile containers. What must you configure?",
+      "options": ["A. Enable per-machine installation of OneDrive and configure FSLogix to include OneDrive data in the profile container.", "B. Disable OneDrive completely and use mapped network drives.", "C. Install OneDrive only in user-mode on each session.", "D. Store OneDrive data on Azure Blob Storage."],
+      "correctAnswers": ["A"],
+      "explanation": "OneDrive should be installed in per-machine mode on the session host image, and FSLogix profile containers should be configured to include OneDrive cache data. This enables Files On-Demand functionality where files appear in File Explorer but are downloaded only when accessed. Option B is incorrect because disabling OneDrive removes cloud file synchronization capabilities. Option C is incorrect because user-mode OneDrive installation must be installed per-user, which does not persist in pooled host pools. Option D is incorrect because OneDrive data is managed by the OneDrive sync client, not directly stored on Blob Storage."
+    },
+    {
+      "id": 55,
+      "topic": "Session Hosts - Implementing Azure Private Link for AVD",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that all Azure Virtual Desktop traffic between session hosts and the AVD service travels over the Microsoft backbone network, not the public internet. What should you configure?",
+      "options": ["A. Azure Private Link for Azure Virtual Desktop.", "B. Azure ExpressRoute only.", "C. A site-to-site VPN.", "D. Azure Front Door."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Private Link for AVD creates private endpoints in your virtual network, ensuring that traffic between session hosts and the AVD control plane stays on the Microsoft backbone network. This provides enhanced security and compliance. Option B is incorrect because ExpressRoute provides private connectivity from on-premises to Azure but does not address the session host to AVD service communication path. Option C is incorrect because a VPN connects on-premises to Azure but does not privatize AVD service traffic. Option D is incorrect because Azure Front Door is a CDN/load balancer, not a private connectivity solution."
+    },
+    {
+      "id": 56,
+      "topic": "MSIX App Attach - Implementing certificate requirements",
+      "type": "SingleChoice",
+      "questionText": "Your MSIX packages are signed with a code signing certificate. For app attach to work correctly, what certificate requirement must be met on the session hosts?",
+      "options": ["A. The certificate's root CA must be trusted on the session hosts.", "B. The private key of the signing certificate must be on each session host.", "C. The certificate must be issued by Microsoft.", "D. No certificate configuration is needed for app attach."],
+      "correctAnswers": ["A"],
+      "explanation": "For MSIX app attach, the session hosts must trust the certificate chain used to sign the MSIX packages. The root CA certificate must be in the Trusted Root Certification Authorities store on each session host. Option B is incorrect because only the root CA trust is needed, not the private key. Option C is incorrect because any trusted certificate authority can issue the signing certificate. Option D is incorrect because unsigned MSIX packages or untrusted certificates will cause app attach to fail."
+    },
+    {
+      "id": 57,
+      "topic": "RDP Properties - Configuring connection security",
+      "type": "SingleChoice",
+      "questionText": "You need to enforce TLS 1.2 for all RDP connections to Azure Virtual Desktop session hosts. Where should you configure this?",
+      "options": ["A. In the session host's Windows registry or Group Policy to disable older TLS versions.", "B. In the host pool RDP properties.", "C. In the Azure Virtual Desktop workspace settings.", "D. In the AVD client application settings."],
+      "correctAnswers": ["A"],
+      "explanation": "TLS version enforcement is configured at the OS level on the session hosts through Windows registry settings or Group Policy. You disable TLS 1.0 and 1.1 to enforce TLS 1.2 for all connections. Option B is incorrect because host pool RDP properties control session behavior (redirection, display), not TLS versions. Option C is incorrect because workspace settings manage application group organization, not TLS configuration. Option D is incorrect because the client negotiates the highest TLS version the server supports, so enforcement must be on the server side."
+    },
+    {
+      "id": 58,
+      "topic": "Scaling Plans - Implementing tag-based exclusions",
+      "type": "SingleChoice",
+      "questionText": "You have a scaling plan that manages session hosts in a pooled host pool. You need to exclude two specific session hosts from the scaling plan because they are used for testing. What should you do?",
+      "options": ["A. Apply an exclusion tag to the VMs that should be excluded from the scaling plan.", "B. Move the VMs to a different resource group.", "C. Remove the VMs from the host pool.", "D. Create a separate scaling plan that does nothing."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Virtual Desktop scaling plans support exclusion tags. By applying a specific tag to session host VMs, you can exclude them from scaling operations while keeping them in the same host pool. Option B is incorrect because moving to a different resource group does not exclude VMs from scaling plan operations. Option C is incorrect because removing VMs from the host pool prevents users from connecting to them. Option D is incorrect because creating a separate plan that does nothing is unnecessarily complex."
+    },
+    {
+      "id": 59,
+      "topic": "Host Pools - Implementing Azure Virtual Desktop Insights",
+      "type": "MultipleChoice",
+      "questionText": "You need to enable Azure Virtual Desktop Insights to monitor session host performance, user connection quality, and profile loading times. Which TWO components must be configured? (Choose two.)",
+      "options": ["A. Azure Monitor Agent on session hosts with a data collection rule.", "B. A Log Analytics workspace configured for AVD diagnostics.", "C. Azure Sentinel integration.", "D. Azure DevOps pipeline.", "E. Azure Cost Management alerts."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "AVD Insights requires the Azure Monitor Agent (or Log Analytics agent) on session hosts to collect performance counters and events, plus a Log Analytics workspace where AVD diagnostic data and host metrics are stored and analyzed. Option C is incorrect because Sentinel is a SIEM solution, not required for AVD performance monitoring. Option D is incorrect because DevOps pipelines are for CI/CD, not monitoring. Option E is incorrect because Cost Management tracks spending, not session host performance."
+    },
+    {
+      "id": 60,
+      "topic": "FSLogix - Implementing profile container backup",
+      "type": "SingleChoice",
+      "questionText": "You need to back up FSLogix profile containers stored on Azure Files to protect against accidental deletion or corruption. What should you use?",
+      "options": ["A. Azure Backup for Azure Files.", "B. Windows Server Backup on each session host.", "C. Copy profiles to Blob Storage manually.", "D. FSLogix has built-in backup capabilities."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Backup for Azure Files provides snapshot-based backup of Azure file shares, protecting FSLogix profile containers against accidental deletion, corruption, or ransomware. It supports point-in-time restore. Option B is incorrect because session hosts do not permanently store profile data; it resides on Azure Files. Option C is incorrect because manual copying is not reliable or automated. Option D is incorrect because FSLogix does not have built-in backup capabilities; external backup solutions are needed."
+    },
+    {
+      "id": 61,
+      "topic": "Session Hosts - Implementing Trusted Launch with integrity monitoring",
+      "type": "SingleChoice",
+      "questionText": "You have enabled Trusted Launch on session hosts. You want to receive alerts if the boot integrity of a session host is compromised. What should you enable?",
+      "options": ["A. Guest attestation extension with Microsoft Defender for Cloud integration.", "B. Azure Monitor basic metrics.", "C. Azure Network Watcher.", "D. Azure Advisor security recommendations."],
+      "correctAnswers": ["A"],
+      "explanation": "The guest attestation extension verifies that Trusted Launch VMs have booted securely by checking the boot log against known-good measurements. Integration with Microsoft Defender for Cloud provides alerts when boot integrity is compromised. Option B is incorrect because basic metrics monitor CPU, memory, and disk, not boot integrity. Option C is incorrect because Network Watcher monitors network traffic, not VM boot security. Option D is incorrect because Advisor provides general recommendations but does not monitor real-time boot integrity."
+    },
+    {
+      "id": 62,
+      "topic": "Host Pools - Implementing single sign-on for AVD",
+      "type": "SingleChoice",
+      "questionText": "You want users to authenticate only once when connecting to Azure Virtual Desktop, without being prompted for credentials again when the session host connects. The session hosts are Microsoft Entra ID joined. What should you enable?",
+      "options": ["A. Microsoft Entra ID single sign-on for AVD in the host pool RDP properties.", "B. AD FS with Windows Integrated Authentication.", "C. Saved credentials in the AVD client.", "D. Pass-through authentication with Microsoft Entra Connect."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra ID single sign-on for AVD provides a seamless authentication experience where users authenticate once and are automatically signed in to the session host. This is configured in the host pool RDP properties and works with Entra ID joined session hosts. Option B is incorrect because AD FS is for on-premises federation scenarios and adds unnecessary complexity. Option C is incorrect because saved credentials are client-side and not a true SSO solution. Option D is incorrect because pass-through authentication is for hybrid identity synchronization, not AVD session SSO."
     }
   ]
 }

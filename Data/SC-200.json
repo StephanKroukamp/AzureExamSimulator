@@ -361,6 +361,231 @@
       "options": ["A. SecurityEvent | where TimeGenerated > ago(24h) | summarize EventCount = count(), DistinctEvents = dcount(EventID) by SourceIP | top 10 by EventCount desc", "B. SecurityEvent | where TimeGenerated > ago(24h) | top 10 by SourceIP", "C. SecurityEvent | where TimeGenerated > ago(24h) | distinct SourceIP | take 10", "D. SecurityEvent | where TimeGenerated > ago(24h) | summarize count() by EventID | top 10"],
       "correctAnswers": ["A"],
       "explanation": "This query correctly uses summarize with count() for total events and dcount(EventID) for distinct event types, grouped by SourceIP, then returns the top 10 by event count in descending order. Option B is incorrect because top without summarize doesn't aggregate data. Option C is incorrect because distinct only removes duplicates and doesn't count events. Option D is incorrect because it groups by EventID, not SourceIP, so it shows top event types rather than top IP addresses."
+    },
+    {
+      "id": 41,
+      "topic": "Microsoft Sentinel - Watchlists",
+      "type": "SingleChoice",
+      "questionText": "You need to create a list of known VPN IP addresses used by your organization that should be excluded from certain Microsoft Sentinel analytics rules. Which feature should you use to maintain this list and reference it in KQL queries?",
+      "options": ["A. Microsoft Sentinel Watchlists.", "B. Azure AD Named Locations.", "C. A custom Log Analytics table.", "D. An Azure Storage blob file."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel Watchlists allow you to import lists of data (such as IP addresses) that can be referenced in KQL queries using the _GetWatchlist() function. This is ideal for maintaining exclusion or inclusion lists used in analytics rules. Option B is incorrect because Named Locations are used in Conditional Access policies, not in Sentinel KQL queries. Option C is incorrect because while a custom table could work, Watchlists are purpose-built for this scenario with easier management. Option D is incorrect because blob storage files cannot be directly referenced in KQL queries."
+    },
+    {
+      "id": 42,
+      "topic": "Microsoft Defender XDR - Incident management",
+      "type": "SingleChoice",
+      "questionText": "Microsoft Defender XDR automatically correlates alerts from multiple sources into a single incident. An incident contains alerts from Defender for Endpoint, Defender for Office 365, and Defender for Identity. What is the primary benefit of this automatic correlation?",
+      "options": ["A. It reduces the total number of alerts analysts must investigate by grouping related alerts into unified incidents.", "B. It automatically remediates all threats without analyst intervention.", "C. It eliminates the need for Microsoft Sentinel.", "D. It prevents all future similar attacks automatically."],
+      "correctAnswers": ["A"],
+      "explanation": "Automatic incident correlation in Defender XDR reduces alert fatigue by grouping related alerts across products into single incidents, giving analysts a complete attack story. This improves investigation efficiency. Option B is incorrect because while some automated remediation is available, not all threats are auto-remediated. Option C is incorrect because Sentinel provides additional SIEM capabilities (third-party data, custom analytics, SOAR) that complement Defender XDR. Option D is incorrect because correlation helps investigation but doesn't automatically prevent future attacks."
+    },
+    {
+      "id": 43,
+      "topic": "KQL - String operations",
+      "type": "SingleChoice",
+      "questionText": "You need to write a KQL query to find all processes in the DeviceProcessEvents table where the command line contains the string 'powershell' regardless of case. Which KQL operator should you use?",
+      "options": ["A. contains", "B. has_cs", "C. == ", "D. startswith_cs"],
+      "correctAnswers": ["A"],
+      "explanation": "The 'contains' operator in KQL performs a case-insensitive substring search, which matches 'powershell' regardless of capitalization in the command line string. Option B is incorrect because 'has_cs' is case-sensitive and looks for whole terms, not substrings. Option C is incorrect because '==' requires an exact full-string match, not a substring search. Option D is incorrect because 'startswith_cs' is case-sensitive and only matches at the beginning of the string."
+    },
+    {
+      "id": 44,
+      "topic": "Microsoft Defender for Cloud - Workload protections",
+      "type": "MultipleChoice",
+      "questionText": "You need to enable advanced threat protection for your Azure workloads. Which TWO workload protection plans does Microsoft Defender for Cloud offer? (Choose two.)",
+      "options": ["A. Defender for Servers.", "B. Defender for Azure DevOps.", "C. Defender for Storage.", "D. Defender for Power BI dashboards.", "E. Defender for Azure Monitor."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Microsoft Defender for Cloud offers Defender for Servers (providing EDR, vulnerability assessment, and adaptive application controls) and Defender for Storage (detecting anomalous access patterns and malware in blob storage). Option B is incorrect because while Defender for DevOps exists, it provides code security scanning, not traditional workload protection. Option D is incorrect because there is no specific Defender plan for Power BI dashboards. Option E is incorrect because there is no Defender plan for Azure Monitor."
+    },
+    {
+      "id": 45,
+      "topic": "Microsoft Sentinel - Data connectors",
+      "type": "SingleChoice",
+      "questionText": "You need to ingest logs from a third-party firewall appliance that supports syslog into Microsoft Sentinel. Which data connector approach should you use?",
+      "options": ["A. Deploy a Log Analytics agent on a Linux VM configured as a syslog forwarder to receive and forward logs to the Sentinel workspace.", "B. Install the Log Analytics agent directly on the firewall appliance.", "C. Use the Azure Activity connector.", "D. Configure direct API integration from the firewall to Sentinel."],
+      "correctAnswers": ["A"],
+      "explanation": "For syslog-based appliances, the standard approach is deploying a Linux syslog forwarder VM with the Log Analytics agent (or Azure Monitor Agent). The firewall sends syslog to this forwarder, which ingests the data into the Sentinel workspace. Option B is incorrect because you typically cannot install agents directly on network appliances. Option C is incorrect because the Azure Activity connector is for Azure management plane logs, not third-party firewall logs. Option D is incorrect because most firewall appliances don't have native Sentinel API connectors."
+    },
+    {
+      "id": 46,
+      "topic": "KQL - Join operations",
+      "type": "SingleChoice",
+      "questionText": "You need to correlate sign-in events from SigninLogs with security alerts from SecurityAlert to find users who had a failed sign-in followed by a security alert within the same hour. Which KQL join kind should you use to return only matching records from both tables?",
+      "options": ["A. innerunique join.", "B. leftouter join.", "C. rightouter join.", "D. fullouter join."],
+      "correctAnswers": ["A"],
+      "explanation": "An innerunique join returns only records that have matching values in both tables, which is what you need to find users present in both SigninLogs and SecurityAlert. The 'innerunique' variant deduplicates the left table for performance. Option B is incorrect because leftouter returns all left-side records even without matches, including sign-ins without alerts. Option C is incorrect because rightouter returns all right-side records even without matches. Option D is incorrect because fullouter returns all records from both sides, including non-matching rows."
+    },
+    {
+      "id": 47,
+      "topic": "Microsoft Defender for Endpoint - Attack surface reduction",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent Office applications from creating child processes, which is a common technique used by macro-based malware. Which Microsoft Defender for Endpoint feature should you configure?",
+      "options": ["A. Attack Surface Reduction (ASR) rules.", "B. Endpoint Detection and Response (EDR).", "C. Web content filtering.", "D. Controlled folder access."],
+      "correctAnswers": ["A"],
+      "explanation": "Attack Surface Reduction rules include a specific rule to block Office applications from creating child processes, preventing macro-based malware from launching PowerShell or other executables. Option B is incorrect because EDR detects and responds to threats after they occur, rather than proactively blocking specific behaviors. Option C is incorrect because web content filtering blocks access to web categories, not Office macro behavior. Option D is incorrect because controlled folder access protects folders from unauthorized changes by untrusted apps, not Office child process creation."
+    },
+    {
+      "id": 48,
+      "topic": "Microsoft Sentinel - Workbooks",
+      "type": "SingleChoice",
+      "questionText": "Your SOC manager requests a visual dashboard that shows sign-in trends, failed authentication attempts by location, and MFA registration status over time. Which Microsoft Sentinel feature should you use to create this dashboard?",
+      "options": ["A. Microsoft Sentinel Workbooks.", "B. Microsoft Sentinel Hunting queries.", "C. Microsoft Sentinel Notebooks.", "D. Microsoft Sentinel Entity pages."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Sentinel Workbooks provide interactive visual dashboards built on Azure Monitor Workbooks. They support charts, graphs, tables, and time-range controls ideal for trend analysis and operational dashboards. Option B is incorrect because hunting queries are for proactive threat investigation, not persistent dashboards. Option C is incorrect because Notebooks are Jupyter-based tools for advanced data science investigations, not operational dashboards. Option D is incorrect because entity pages show information about specific entities (users, IPs), not customizable dashboards."
+    },
+    {
+      "id": 49,
+      "topic": "Microsoft Defender for Cloud - Just-in-time VM access",
+      "type": "SingleChoice",
+      "questionText": "You need to secure management ports on Azure VMs so that RDP and SSH ports are closed by default and only opened temporarily when administrators need access. Which feature should you enable?",
+      "options": ["A. Microsoft Defender for Cloud Just-in-Time (JIT) VM access.", "B. Azure Bastion.", "C. Azure Firewall with DNAT rules.", "D. Network Security Group rules allowing RDP from any source."],
+      "correctAnswers": ["A"],
+      "explanation": "JIT VM access in Defender for Cloud closes management ports by default and opens them temporarily for a specified duration when an authorized user requests access. It automatically creates and removes NSG rules. Option B is incorrect because Azure Bastion provides secure RDP/SSH access without exposing public IPs but doesn't implement time-based port closure. Option C is incorrect because DNAT rules route traffic but don't provide time-limited, request-based access. Option D is incorrect because allowing RDP from any source is a major security risk."
+    },
+    {
+      "id": 50,
+      "topic": "KQL - Let statements and functions",
+      "type": "SingleChoice",
+      "questionText": "You frequently use the same KQL query logic to detect brute force attacks across multiple analytics rules. You want to define this logic once and reuse it. Which KQL feature should you use?",
+      "options": ["A. User-defined functions saved in Log Analytics.", "B. The 'let' statement within each individual query.", "C. Azure Monitor action groups.", "D. Microsoft Sentinel content hub solutions."],
+      "correctAnswers": ["A"],
+      "explanation": "User-defined functions in Log Analytics allow you to save a KQL query as a reusable function that can be called by name in any query or analytics rule. This promotes consistency and reduces maintenance effort. Option B is incorrect because 'let' statements are scoped to a single query and cannot be shared across multiple analytics rules. Option C is incorrect because action groups define notification actions, not reusable query logic. Option D is incorrect because content hub solutions are packaged content bundles, not custom reusable query functions."
+    },
+    {
+      "id": 51,
+      "topic": "Microsoft Sentinel - UEBA",
+      "type": "SingleChoice",
+      "questionText": "You want Microsoft Sentinel to automatically identify anomalous user behavior such as unusual sign-in locations, atypical resource access, or abnormal data downloads. Which feature should you enable?",
+      "options": ["A. User and Entity Behavior Analytics (UEBA).", "B. Scheduled analytics rules.", "C. Threat Intelligence connector.", "D. Data Collection Rules."],
+      "correctAnswers": ["A"],
+      "explanation": "UEBA in Microsoft Sentinel uses machine learning to build behavioral baselines for users and entities, then identifies anomalous activities that deviate from normal patterns. It enriches entity pages with behavioral insights. Option B is incorrect because scheduled analytics rules detect specific known patterns, not behavioral anomalies. Option C is incorrect because Threat Intelligence provides external IoC feeds, not internal behavioral analysis. Option D is incorrect because Data Collection Rules define what data to ingest, not how to analyze behavior."
+    },
+    {
+      "id": 52,
+      "topic": "Microsoft Defender XDR - Advanced hunting",
+      "type": "SingleChoice",
+      "questionText": "You need to use Microsoft Defender XDR advanced hunting to find all devices where a specific file hash was observed in the last 7 days. Which table should you query?",
+      "options": ["A. DeviceFileEvents.", "B. EmailEvents.", "C. IdentityLogonEvents.", "D. CloudAppEvents."],
+      "correctAnswers": ["A"],
+      "explanation": "DeviceFileEvents contains information about file creation, modification, and other file system events on devices, including file hashes. This is the correct table for searching file hash indicators. Option B is incorrect because EmailEvents tracks email delivery events, not device file activity. Option C is incorrect because IdentityLogonEvents tracks authentication events, not file operations. Option D is incorrect because CloudAppEvents tracks cloud application activities, not device-level file events."
+    },
+    {
+      "id": 53,
+      "topic": "Microsoft Sentinel - Automation rules",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically assign all new Microsoft Sentinel incidents with 'High' severity to a specific SOC analyst and add a tag for tracking. Which feature should you use?",
+      "options": ["A. Automation rules with conditions based on incident severity.", "B. Analytics rules with custom KQL.", "C. Workbook visualizations.", "D. Hunting bookmarks."],
+      "correctAnswers": ["A"],
+      "explanation": "Automation rules can trigger on incident creation and apply conditions (such as severity equals High) to perform actions like assigning an owner and adding tags. This automates incident triage. Option B is incorrect because analytics rules create incidents and alerts but don't manage incident assignment or tagging. Option C is incorrect because workbooks provide visualization, not automation. Option D is incorrect because hunting bookmarks save interesting findings during investigations, not automate incident management."
+    },
+    {
+      "id": 54,
+      "topic": "Microsoft Defender for Cloud - Regulatory compliance",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to continuously assess its Azure environment against PCI-DSS requirements and generate compliance reports for auditors. Which feature in Microsoft Defender for Cloud should you use?",
+      "options": ["A. Regulatory compliance dashboard with the PCI-DSS standard added.", "B. Secure Score recommendations only.", "C. Azure Advisor recommendations.", "D. Azure Service Health."],
+      "correctAnswers": ["A"],
+      "explanation": "The regulatory compliance dashboard in Defender for Cloud allows you to add industry standards (including PCI-DSS) and continuously assess your environment against those controls. It provides downloadable compliance reports for auditors. Option B is incorrect because Secure Score provides general security posture improvement guidance but doesn't map to specific regulatory frameworks. Option C is incorrect because Azure Advisor provides performance, cost, and reliability recommendations, not regulatory compliance assessment. Option D is incorrect because Service Health tracks Azure platform issues, not compliance posture."
+    },
+    {
+      "id": 55,
+      "topic": "KQL - Render operator",
+      "type": "SingleChoice",
+      "questionText": "You have written a KQL query that summarizes security events by hour and want to display the results as a time series chart in Microsoft Sentinel. Which KQL operator should you add to the end of your query?",
+      "options": ["A. render timechart", "B. render piechart", "C. project-away TimeGenerated", "D. sort by TimeGenerated asc"],
+      "correctAnswers": ["A"],
+      "explanation": "The 'render timechart' operator displays query results as a time series chart, which is ideal for showing trends in security events over time. Option B is incorrect because a piechart shows proportional data, not time-based trends. Option C is incorrect because project-away removes columns from the output and doesn't create visualizations. Option D is incorrect because sort orders the results but doesn't create a chart visualization."
+    },
+    {
+      "id": 56,
+      "topic": "Microsoft Sentinel - Content hub",
+      "type": "SingleChoice",
+      "questionText": "You are deploying Microsoft Sentinel and need to quickly onboard analytics rules, workbooks, hunting queries, and data connectors for a common data source like Azure Active Directory. What is the most efficient approach?",
+      "options": ["A. Install the Azure Active Directory solution from the Microsoft Sentinel Content Hub.", "B. Manually create each analytics rule, workbook, and hunting query from scratch.", "C. Import community content from GitHub repositories manually.", "D. Use only the built-in analytics rule templates without additional content."],
+      "correctAnswers": ["A"],
+      "explanation": "The Content Hub provides pre-packaged solutions that include data connectors, analytics rules, workbooks, hunting queries, and playbooks for specific data sources. Installing the Azure AD solution deploys all these components at once. Option B is incorrect because manual creation is time-consuming and error-prone when pre-built solutions exist. Option C is incorrect because while community content exists, the Content Hub provides Microsoft-supported, tested solutions. Option D is incorrect because using only built-in templates misses workbooks, hunting queries, and other valuable content."
+    },
+    {
+      "id": 57,
+      "topic": "Microsoft Defender for Endpoint - Live response",
+      "type": "SingleChoice",
+      "questionText": "During an active incident investigation, you need to remotely connect to a compromised endpoint to collect forensic evidence, run scripts, and take remediation actions. Which Defender for Endpoint feature should you use?",
+      "options": ["A. Live Response.", "B. Automated investigation.", "C. Threat analytics.", "D. Device inventory."],
+      "correctAnswers": ["A"],
+      "explanation": "Live Response provides a remote shell connection to an endpoint, allowing analysts to collect files, run pre-uploaded scripts, perform forensic analysis, and execute remediation commands during an investigation. Option B is incorrect because automated investigation runs pre-defined investigation playbooks, not interactive remote access. Option C is incorrect because threat analytics provides reports on emerging threats, not remote endpoint access. Option D is incorrect because device inventory shows device information but doesn't provide interactive remote access."
+    },
+    {
+      "id": 58,
+      "topic": "Microsoft Sentinel - Near-real-time analytics",
+      "type": "SingleChoice",
+      "questionText": "You need to create a Microsoft Sentinel analytics rule that detects suspicious activity within 1 minute of the event occurring, rather than waiting for a scheduled query interval. Which type of rule should you use?",
+      "options": ["A. NRT (Near Real-Time) analytics rule.", "B. Scheduled analytics rule running every 5 minutes.", "C. Fusion analytics rule.", "D. Microsoft incident creation rule."],
+      "correctAnswers": ["A"],
+      "explanation": "NRT analytics rules run once per minute, providing near real-time detection with minimal delay between event occurrence and alert generation. They are designed for time-sensitive detections. Option B is incorrect because scheduled rules have a minimum interval of 5 minutes and additional query latency. Option C is incorrect because Fusion rules use ML to correlate multi-stage attacks but don't guarantee 1-minute detection. Option D is incorrect because Microsoft incident creation rules generate Sentinel incidents from other Microsoft security products' alerts, not custom KQL-based detections."
+    },
+    {
+      "id": 59,
+      "topic": "Microsoft Defender for Cloud Apps - App discovery",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to discover all cloud applications being used by employees, including unsanctioned shadow IT apps. Which feature should you configure?",
+      "options": ["A. Microsoft Defender for Cloud Apps Cloud Discovery.", "B. Microsoft Entra Enterprise Applications.", "C. Azure AD Application Proxy.", "D. Microsoft Intune App Inventory."],
+      "correctAnswers": ["A"],
+      "explanation": "Cloud Discovery in Defender for Cloud Apps analyzes network traffic logs to discover cloud applications in use, providing visibility into shadow IT. It categorizes apps by risk level and usage. Option B is incorrect because Enterprise Applications shows apps registered or consented in your tenant, not all cloud apps accessed by users. Option C is incorrect because Application Proxy provides access to on-premises apps, not cloud app discovery. Option D is incorrect because Intune App Inventory shows installed apps on managed devices, not cloud SaaS usage."
+    },
+    {
+      "id": 60,
+      "topic": "KQL - Externaldata operator",
+      "type": "SingleChoice",
+      "questionText": "You have a CSV file stored in Azure Blob Storage containing a list of known malicious IP addresses. You need to reference this list in a KQL query to find matching connections in your logs. Which KQL operator should you use?",
+      "options": ["A. externaldata operator to load the CSV from the blob URI.", "B. The 'import' keyword.", "C. The 'lookup' operator with a local file path.", "D. The 'read_csv' function."],
+      "correctAnswers": ["A"],
+      "explanation": "The externaldata operator in KQL loads data from an external source (such as an Azure Blob Storage CSV file) into the query at runtime, allowing you to join or filter against the external list. Option B is incorrect because there is no 'import' keyword in KQL. Option C is incorrect because 'lookup' requires a tabular expression, not a local file path, and cannot read from external files directly. Option D is incorrect because there is no 'read_csv' function in KQL."
+    },
+    {
+      "id": 61,
+      "topic": "Microsoft Sentinel - Threat hunting",
+      "type": "MultipleChoice",
+      "questionText": "You are performing proactive threat hunting in Microsoft Sentinel. Which TWO capabilities are available for threat hunting? (Choose two.)",
+      "options": ["A. Built-in hunting queries organized by MITRE ATT&CK tactics.", "B. Livestream to monitor query results in real-time during a hunting session.", "C. Automatic remediation of all discovered threats.", "D. Direct modification of firewall rules from hunting queries.", "E. Integration with Azure Billing for cost tracking."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Microsoft Sentinel provides built-in hunting queries mapped to MITRE ATT&CK tactics for structured hunting, and Livestream allows analysts to monitor query results in real-time during active hunting sessions. Option C is incorrect because hunting discovers threats but remediation is a separate process requiring analyst decision-making. Option D is incorrect because hunting queries are read-only and cannot directly modify infrastructure. Option E is incorrect because hunting is a security function, not related to billing."
+    },
+    {
+      "id": 62,
+      "topic": "Microsoft Defender for Cloud - Adaptive application controls",
+      "type": "SingleChoice",
+      "questionText": "You want to create application allowlists for your Azure VMs so that only approved applications can run. Microsoft Defender for Cloud should learn the normal application patterns and alert on anomalies. Which feature should you use?",
+      "options": ["A. Adaptive application controls.", "B. File integrity monitoring.", "C. Vulnerability assessment.", "D. Network topology map."],
+      "correctAnswers": ["A"],
+      "explanation": "Adaptive application controls in Defender for Cloud use machine learning to analyze running applications on VMs, recommend allowlist rules, and alert when unapproved applications are executed. Option B is incorrect because file integrity monitoring tracks changes to system files, not application execution. Option C is incorrect because vulnerability assessment identifies software vulnerabilities, not unauthorized application execution. Option D is incorrect because network topology shows network connections, not application execution patterns."
+    },
+    {
+      "id": 63,
+      "topic": "Microsoft Defender XDR - Automated investigation and response",
+      "type": "SingleChoice",
+      "questionText": "A phishing email is detected by Microsoft Defender for Office 365 and an associated malicious file has been downloaded on an endpoint. Microsoft Defender XDR starts an automated investigation. What happens during the automated investigation?",
+      "options": ["A. The system analyzes the alert, investigates related entities, correlates evidence across products, and provides pending remediation actions for analyst approval.", "B. The system immediately deletes all emails from the sender without analysis.", "C. The system only generates a report and takes no further action.", "D. The system disables the user's account permanently."],
+      "correctAnswers": ["A"],
+      "explanation": "Automated investigation in Defender XDR analyzes the initial alert, examines related entities (emails, files, devices, users), correlates evidence across Defender products, and suggests remediation actions that may require analyst approval depending on the automation level. Option B is incorrect because automated investigation doesn't blindly delete emails; it performs analysis first. Option C is incorrect because it goes beyond reporting and provides actionable remediation steps. Option D is incorrect because permanent account disabling is not an automated investigation action."
+    },
+    {
+      "id": 64,
+      "topic": "Microsoft Sentinel - Entity mapping",
+      "type": "SingleChoice",
+      "questionText": "When creating a Microsoft Sentinel analytics rule, you map the 'Account' entity to the UserPrincipalName column and the 'IP' entity to the SourceIP column in your KQL query. What is the purpose of this entity mapping?",
+      "options": ["A. It enables Sentinel to correlate incidents across rules, enrich entity pages, and support investigation graph features.", "B. It improves KQL query performance.", "C. It reduces data ingestion costs.", "D. It automatically blocks the mapped IP addresses."],
+      "correctAnswers": ["A"],
+      "explanation": "Entity mapping connects query results to Sentinel's entity model, enabling incident correlation across rules, populating entity pages with investigation context, and supporting the investigation graph for visual incident exploration. Option B is incorrect because entity mapping doesn't affect KQL query execution performance. Option C is incorrect because entity mapping doesn't influence data ingestion or costs. Option D is incorrect because entity mapping provides context for investigation but doesn't trigger automatic blocking actions."
+    },
+    {
+      "id": 65,
+      "topic": "Microsoft Defender for Cloud - Cloud workload protection",
+      "type": "SingleChoice",
+      "questionText": "You need to detect suspicious activities on Azure SQL databases such as SQL injection attempts and anomalous database access patterns. Which Defender for Cloud plan should you enable?",
+      "options": ["A. Microsoft Defender for SQL.", "B. Microsoft Defender for Servers.", "C. Microsoft Defender for Storage.", "D. Microsoft Defender for Key Vault."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Defender for SQL provides threat detection for Azure SQL databases, including detection of SQL injection attacks, anomalous access patterns, brute force attempts, and suspicious database activities. Option B is incorrect because Defender for Servers protects virtual machines and server workloads, not SQL databases. Option C is incorrect because Defender for Storage monitors Azure Storage accounts for suspicious activity. Option D is incorrect because Defender for Key Vault monitors key vault access for suspicious operations."
     }
   ]
 }

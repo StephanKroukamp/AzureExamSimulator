@@ -361,6 +361,356 @@
       "options": ["A. Hard-code all values directly in the flow actions.", "B. Use input variables for configurable values, implement error handling, use subflows for modularity, and add descriptive comments.", "C. Avoid using subflows to keep everything in one place.", "D. Disable all logging to improve performance."],
       "correctAnswers": ["B"],
       "explanation": "Production desktop flows should use input variables for flexibility, implement comprehensive error handling, organize logic into subflows, and include comments for maintainability. Hard-coding reduces flexibility. Avoiding subflows reduces maintainability. Disabling logging impedes troubleshooting."
+    },
+    {
+      "id": 41,
+      "topic": "Desktop Flows - Custom Actions",
+      "type": "SingleChoice",
+      "questionText": "You need to reuse a complex desktop flow logic across multiple flows in your organization. What feature allows you to package this logic for reuse?",
+      "options": [
+        "A. Copy and paste the actions into each flow.",
+        "B. Create a custom action (desktop flow action) that encapsulates the logic and can be called from other flows.",
+        "C. Email the flow to each developer.",
+        "D. Store the logic in a Word document."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Custom actions in Power Automate for desktop allow you to package reusable logic as callable actions that other flows can invoke, promoting consistency and reducing duplication.\n\nWhy the others are wrong:\n- A. Copy-pasting creates independent copies that must be maintained separately.\n- C. Emailing is not a code sharing mechanism.\n- D. Word documents cannot be executed as flow logic."
+    },
+    {
+      "id": 42,
+      "topic": "Cloud Flows - Connection Security",
+      "type": "SingleChoice",
+      "questionText": "When a cloud flow triggers an unattended desktop flow, what credentials are used to sign into the machine?",
+      "options": [
+        "A. The flow creator's credentials.",
+        "B. The credentials specified in the desktop flow connection (domain, username, and password).",
+        "C. No credentials are needed.",
+        "D. The machine's local administrator account."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The desktop flow connection in the cloud flow specifies the machine/machine group and the Windows credentials (domain\\username and password) used to establish a Windows session on the target machine.\n\nWhy the others are wrong:\n- A. The flow creator's credentials are not automatically used for machine sign-in.\n- C. Windows requires valid credentials to establish a session.\n- D. The local administrator account is not automatically used; specific credentials must be configured."
+    },
+    {
+      "id": 43,
+      "topic": "Process Advisor - Process Mining with Event Logs",
+      "type": "SingleChoice",
+      "questionText": "Besides task recordings, what other data source can Process Mining (formerly Process Advisor) use to analyze business processes?",
+      "options": [
+        "A. Only manual task recordings.",
+        "B. Event logs from systems of record (like ERP or CRM systems) containing case IDs, activity names, and timestamps.",
+        "C. Only Power BI reports.",
+        "D. Only Excel spreadsheets."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Process Mining supports importing event log data from systems of record. Each event log entry contains a Case ID, Activity Name, and Timestamp, enabling automatic process map generation and bottleneck analysis from existing system data.\n\nWhy the others are wrong:\n- A. Process Mining supports both task recordings and event log imports.\n- C. Power BI reports are not a data source for Process Mining.\n- D. While data can come from CSV/Excel files, the key is that it supports structured event log data, not just spreadsheets."
+    },
+    {
+      "id": 44,
+      "topic": "UI Automation - Recorder",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the desktop recorder in Power Automate for desktop?",
+      "options": [
+        "A. To record audio during flow execution.",
+        "B. To capture user interactions with desktop applications and automatically generate corresponding flow actions.",
+        "C. To create video tutorials.",
+        "D. To monitor CPU usage."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The desktop recorder captures mouse clicks, keyboard input, and UI interactions while the user performs actions on applications, automatically generating the corresponding desktop flow actions with the appropriate UI selectors.\n\nWhy the others are wrong:\n- A. Audio recording is not a feature of the desktop recorder.\n- C. The recorder generates flow actions, not video tutorials.\n- D. CPU monitoring is not related to the desktop recorder."
+    },
+    {
+      "id": 45,
+      "topic": "Exception Handling - Global Error Handling",
+      "type": "SingleChoice",
+      "questionText": "How can you implement a global error handler that catches any unhandled exception in a desktop flow?",
+      "options": [
+        "A. Global error handling is not supported.",
+        "B. Wrap the entire main flow logic in an On block error action that defines the fallback behavior.",
+        "C. Add a comment at the end of the flow.",
+        "D. Use a global variable named 'Error'."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. By wrapping the main flow logic in an On block error action, any unhandled exception within the block triggers the error handling branch, allowing you to log errors, take screenshots, set output variables, and clean up resources.\n\nWhy the others are wrong:\n- A. Block-level error handling effectively provides global error handling when applied to the entire flow.\n- C. Comments do not affect flow execution.\n- D. A variable named 'Error' does not provide error handling behavior."
+    },
+    {
+      "id": 46,
+      "topic": "Desktop Flows - JSON and XML Actions",
+      "type": "SingleChoice",
+      "questionText": "A desktop flow receives a JSON string from a cloud flow and needs to extract specific values. Which action should you use?",
+      "options": [
+        "A. Read text from file.",
+        "B. Convert JSON to custom object, then access properties using the %JsonObject.PropertyName% notation.",
+        "C. Use regular expressions to parse the JSON.",
+        "D. Display the JSON in a message box."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Convert JSON to custom object' action parses a JSON string into a structured object, allowing you to access individual properties using dot notation in subsequent actions.\n\nWhy the others are wrong:\n- A. Read text from file reads files, not JSON strings already in variables.\n- C. Regular expressions for JSON parsing are fragile and error-prone.\n- D. Displaying in a message box shows the data but does not extract specific values."
+    },
+    {
+      "id": 47,
+      "topic": "AI Builder - Document Processing",
+      "type": "SingleChoice",
+      "questionText": "Which AI Builder model type can extract key information from invoices, receipts, and other structured documents in a desktop or cloud flow?",
+      "options": [
+        "A. Object detection model.",
+        "B. Document processing (form processing) model.",
+        "C. Text classification model.",
+        "D. Prediction model."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. AI Builder's document processing (formerly form processing) model extracts key-value pairs and tables from structured and semi-structured documents like invoices, receipts, and purchase orders.\n\nWhy the others are wrong:\n- A. Object detection identifies objects in images, not document fields.\n- C. Text classification categorizes text into labels, not extracting structured field data.\n- D. Prediction models predict outcomes based on historical data, not document extraction."
+    },
+    {
+      "id": 48,
+      "topic": "Desktop Flows - Web Data Extraction",
+      "type": "SingleChoice",
+      "questionText": "You need to extract a data table from a web page using Power Automate for desktop. Which action should you use?",
+      "options": [
+        "A. Get text from web page.",
+        "B. Extract data from web page, targeting the table element.",
+        "C. Take screenshot of web page.",
+        "D. Download file from web."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Extract data from web page' action can target table elements on a web page and extract the structured tabular data into a data table variable that can be iterated in the flow.\n\nWhy the others are wrong:\n- A. 'Get text from web page' retrieves text from a single element, not a structured table.\n- C. Screenshots capture an image, not structured data that can be processed.\n- D. 'Download file from web' downloads files, not on-page table data."
+    },
+    {
+      "id": 49,
+      "topic": "Attended/Unattended Bots - Hosted Machine Groups",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using hosted machine groups compared to self-hosted machine groups for unattended desktop flows?",
+      "options": [
+        "A. Hosted groups are always free.",
+        "B. Hosted machine groups are managed by Microsoft and automatically provisioned cloud-hosted VMs, eliminating the need to maintain physical or virtual infrastructure.",
+        "C. Hosted groups are faster than any other option.",
+        "D. Hosted groups do not require licenses."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Hosted machine groups use Microsoft-managed cloud VMs that are automatically provisioned and deprovisioned, removing the burden of infrastructure management while providing scalable unattended RPA execution.\n\nWhy the others are wrong:\n- A. Hosted machine groups have associated costs through Power Automate licensing.\n- C. Performance depends on the workload; hosted groups are not inherently faster.\n- D. Hosted machine groups require Power Automate premium and unattended RPA licenses."
+    },
+    {
+      "id": 50,
+      "topic": "Desktop Flows - HTTP Actions",
+      "type": "SingleChoice",
+      "questionText": "A desktop flow needs to call a REST API to retrieve data. Which action should you use?",
+      "options": [
+        "A. Run PowerShell script.",
+        "B. Invoke web service (Send web request).",
+        "C. Open web browser.",
+        "D. Read text from file."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Invoke web service' (Send web request) action sends HTTP requests (GET, POST, PUT, DELETE, etc.) to REST APIs and returns the response, allowing desktop flows to integrate with web services.\n\nWhy the others are wrong:\n- A. PowerShell can make web requests but adds unnecessary complexity when a dedicated action exists.\n- C. Opening a web browser navigates to a URL but does not programmatically call an API.\n- D. Reading from a file does not interact with web APIs."
+    },
+    {
+      "id": 51,
+      "topic": "UI Automation - Desktop Application Actions",
+      "type": "MultipleChoice",
+      "questionText": "Which two built-in action groups in Power Automate for desktop provide specialized automation for common desktop applications? (Choose two.)",
+      "options": [
+        "A. Excel actions for spreadsheet automation.",
+        "B. Outlook actions for email automation.",
+        "C. Photoshop actions for image editing.",
+        "D. AutoCAD actions for drawing."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Power Automate for desktop provides dedicated Excel actions (open, read, write, close workbooks) and Outlook actions (send email, process messages) for common office automation scenarios.\n\nWhy the others are wrong:\n- C. Photoshop does not have dedicated built-in actions; it would need UI automation.\n- D. AutoCAD does not have dedicated built-in actions in Power Automate for desktop."
+    },
+    {
+      "id": 52,
+      "topic": "Process Advisor - Automation Recommendations",
+      "type": "SingleChoice",
+      "questionText": "After analyzing a process with Process Mining, how does it recommend which activities to automate?",
+      "options": [
+        "A. It randomly selects activities.",
+        "B. It identifies repetitive, high-frequency, and rule-based activities as top automation candidates.",
+        "C. It only recommends manual activities.",
+        "D. It requires the user to select activities manually without guidance."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Process Mining analyzes activity frequency, duration, and variability to identify repetitive, rule-based activities that are the best candidates for automation, prioritizing those with the highest potential ROI.\n\nWhy the others are wrong:\n- A. Recommendations are data-driven, not random.\n- C. It analyzes all activities, not just manual ones.\n- D. It provides guided recommendations, not just manual selection."
+    },
+    {
+      "id": 53,
+      "topic": "Desktop Flows - Power Fx in Desktop Flows",
+      "type": "SingleChoice",
+      "questionText": "Power Automate for desktop supports Power Fx expressions. What is the advantage of using Power Fx expressions in desktop flows?",
+      "options": [
+        "A. Power Fx is only for canvas apps.",
+        "B. Power Fx provides a consistent, low-code expression language for data manipulation, enabling functions like text formatting, date calculations, and logical operations.",
+        "C. Power Fx replaces all existing desktop flow actions.",
+        "D. Power Fx can only handle numeric calculations."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Fx in desktop flows provides a familiar, low-code expression language (shared with canvas apps and other Power Platform tools) for inline data manipulation without needing separate actions.\n\nWhy the others are wrong:\n- A. Power Fx is expanding across the Power Platform, including desktop flows.\n- C. Power Fx expressions complement existing actions; they do not replace them.\n- D. Power Fx handles text, dates, logical operations, and many other data types beyond numeric."
+    },
+    {
+      "id": 54,
+      "topic": "Exception Handling - Graceful Cleanup",
+      "type": "SingleChoice",
+      "questionText": "When a desktop flow fails midway through processing, Excel and browser instances may remain open. How should you ensure these are properly closed?",
+      "options": [
+        "A. Hope the user closes them manually.",
+        "B. Include cleanup actions (close Excel, close browser) in the error handling branch of the On block error action.",
+        "C. Restart the machine after every flow run.",
+        "D. Never open Excel or browsers in desktop flows."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The error handling branch of On block error should include cleanup actions to close open applications, save progress, and release resources, ensuring a clean state regardless of whether the flow succeeds or fails.\n\nWhy the others are wrong:\n- A. Relying on manual intervention is unreliable, especially for unattended flows.\n- C. Restarting the machine is disruptive and unnecessary.\n- D. Avoiding Excel and browsers eliminates core automation capabilities."
+    },
+    {
+      "id": 55,
+      "topic": "Desktop Flows - Environment Variables",
+      "type": "SingleChoice",
+      "questionText": "How can you make a desktop flow's behavior configurable without modifying the flow itself when moving between development and production environments?",
+      "options": [
+        "A. Use hard-coded values in every action.",
+        "B. Use environment variables referenced as input variables in the desktop flow, with values set per environment.",
+        "C. Create separate desktop flows for each environment.",
+        "D. Use random values."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Environment variables store configuration values that differ between environments. Desktop flows receive these as input variables from the calling cloud flow, which reads the environment variable values.\n\nWhy the others are wrong:\n- A. Hard-coded values require editing the flow for each environment.\n- C. Separate flows double maintenance effort.\n- D. Random values are not meaningful configuration."
+    },
+    {
+      "id": 56,
+      "topic": "UI Automation - Citrix Automation",
+      "type": "SingleChoice",
+      "questionText": "How can Power Automate for desktop automate applications running inside a Citrix virtual desktop session?",
+      "options": [
+        "A. Citrix cannot be automated.",
+        "B. Using image-based automation and OCR actions since standard UI selectors may not work through the Citrix layer.",
+        "C. Only through direct API calls.",
+        "D. By installing Power Automate inside the Citrix session."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Citrix sessions typically render as images on the client side, so standard UI selectors may not identify individual elements. Image-based automation (click on image) and OCR (extract text from screen) are the primary techniques for Citrix automation.\n\nWhy the others are wrong:\n- A. Citrix applications can be automated through image-based and OCR techniques.\n- C. APIs may not be available for legacy applications running in Citrix.\n- D. While installing agents inside Citrix is possible in some scenarios, image-based automation from outside is the standard approach."
+    },
+    {
+      "id": 57,
+      "topic": "Cloud Flows - Desktop Flow Monitoring",
+      "type": "SingleChoice",
+      "questionText": "How can an administrator monitor the queue of pending desktop flow runs across machines in an organization?",
+      "options": [
+        "A. By checking each machine individually.",
+        "B. Through the Power Automate desktop flow queue and machine status monitoring in the admin center.",
+        "C. By reading Windows Event Logs on each machine.",
+        "D. Monitoring is not available."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Power Automate portal and admin center provide centralized monitoring of desktop flow run queues, machine status (online/offline/busy), and run history across all machines and machine groups.\n\nWhy the others are wrong:\n- A. Checking each machine individually is not scalable or practical.\n- C. Windows Event Logs do not contain Power Automate queue information.\n- D. Centralized monitoring is available through the Power Automate portal."
+    },
+    {
+      "id": 58,
+      "topic": "Desktop Flows - Credential Management",
+      "type": "SingleChoice",
+      "questionText": "When a desktop flow needs to enter credentials into a legacy application, what is the most secure approach?",
+      "options": [
+        "A. Hard-code the username and password in the flow actions.",
+        "B. Use input variables marked as sensitive (password type) that receive credentials securely from the calling cloud flow or credential store.",
+        "C. Store credentials in a plain text file.",
+        "D. Display a prompt asking the user to type the password."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sensitive input variables mask values in logs and UI. Credentials can be securely passed from Azure Key Vault via the cloud flow or using Power Automate's credential store, avoiding exposure.\n\nWhy the others are wrong:\n- A. Hard-coding credentials is a security risk and visible to anyone who can edit the flow.\n- C. Plain text files are a major security vulnerability.\n- D. Prompting for passwords prevents unattended execution and is not scalable."
+    },
+    {
+      "id": 59,
+      "topic": "AI Builder - Text Recognition",
+      "type": "SingleChoice",
+      "questionText": "A desktop flow needs to process scanned paper documents by extracting text from images. Which AI Builder capability should you use?",
+      "options": [
+        "A. Sentiment analysis.",
+        "B. Text recognition (OCR) from AI Builder.",
+        "C. Object detection.",
+        "D. Language detection."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. AI Builder's text recognition (OCR) capability extracts text from images, scanned documents, and photos, converting them into machine-readable text that can be processed in flows.\n\nWhy the others are wrong:\n- A. Sentiment analysis determines the emotional tone of text, not extracts text from images.\n- C. Object detection identifies objects in images, not text.\n- D. Language detection identifies the language of existing text, not extract text from images."
+    },
+    {
+      "id": 60,
+      "topic": "Desktop Flows - Flow Sharing",
+      "type": "MultipleChoice",
+      "questionText": "Which two ways can desktop flows be shared with other users in an organization? (Choose two.)",
+      "options": [
+        "A. Share through the Power Automate portal with specific users or groups.",
+        "B. Include the desktop flow in a solution and deploy to other environments.",
+        "C. Email the .pad file directly.",
+        "D. Post the flow on social media."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Desktop flows can be shared through the Power Automate portal with specific users/groups (co-owner or run-only access). They can also be packaged in solutions for deployment across environments.\n\nWhy the others are wrong:\n- C. Desktop flow .pad files cannot be simply emailed for sharing; the portal or solutions must be used.\n- D. Social media is not a mechanism for sharing Power Automate flows."
+    },
+    {
+      "id": 61,
+      "topic": "UI Automation - Wait Actions",
+      "type": "SingleChoice",
+      "questionText": "A desktop flow clicks a button that triggers a slow operation in the target application. How should you wait for the operation to complete before proceeding?",
+      "options": [
+        "A. Add a fixed 30-second wait after the click.",
+        "B. Use 'Wait for window content' or 'Wait for UI element' actions that detect when the operation completes.",
+        "C. Skip the wait and hope it finishes in time.",
+        "D. Run the flow multiple times until it works."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dynamic wait actions like 'Wait for window content' or 'Wait for UI element' pause the flow until a specific condition is met (element appears, text changes, window loads), adapting to varying processing times.\n\nWhy the others are wrong:\n- A. Fixed waits are unreliable: too short and the flow fails; too long and the flow is slow.\n- C. Not waiting causes the flow to interact with incomplete states, leading to failures.\n- D. Running multiple times is not a reliable strategy."
+    },
+    {
+      "id": 62,
+      "topic": "Desktop Flows - Power Automate for Desktop Updates",
+      "type": "SingleChoice",
+      "questionText": "How should you manage updates to Power Automate for desktop across machines in your organization?",
+      "options": [
+        "A. Updates are not available.",
+        "B. Enable automatic updates through the application or deploy updates centrally using enterprise tools like Microsoft Endpoint Manager.",
+        "C. Manually download and install on each machine individually.",
+        "D. Updates are only available through Windows Update."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Automate for desktop supports automatic updates and can also be deployed centrally using Microsoft Endpoint Manager (Intune), SCCM, or other enterprise deployment tools for managed environments.\n\nWhy the others are wrong:\n- A. Updates are regularly released for Power Automate for desktop.\n- C. Manual installation on each machine is feasible but not scalable for large organizations.\n- D. Updates are available through the application itself and enterprise tools, not just Windows Update."
+    },
+    {
+      "id": 63,
+      "topic": "Process Advisor - KPIs",
+      "type": "SingleChoice",
+      "questionText": "What key metrics does Process Mining display on the process analytics dashboard?",
+      "options": [
+        "A. Only the total number of process recordings.",
+        "B. Throughput time, rework rate, case frequency, activity frequency, and process variants.",
+        "C. Only the number of users.",
+        "D. Only the cost of the process."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Process Mining analytics show throughput time (how long the process takes), rework rate (repeated activities), case and activity frequency, number of process variants, and bottleneck identification.\n\nWhy the others are wrong:\n- A. The dashboard provides much more than just recording counts.\n- C. User count is not the primary metric in process analytics.\n- D. Cost is not directly calculated by Process Mining; it focuses on time and frequency metrics."
+    },
+    {
+      "id": 64,
+      "topic": "Desktop Flows - Running Scripts",
+      "type": "SingleChoice",
+      "questionText": "A desktop flow needs to execute a Python script that processes a CSV file. Which action should you use?",
+      "options": [
+        "A. Run PowerShell script (calling Python from PowerShell).",
+        "B. Run Python script action.",
+        "C. Open the script in Notepad.",
+        "D. Email the script to someone."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Automate for desktop includes a 'Run Python script' action that executes Python code directly, with support for passing variables in and out. Python must be installed on the machine.\n\nWhy the others are wrong:\n- A. While PowerShell can call Python, the dedicated Python action is more direct and purpose-built.\n- C. Opening in Notepad displays the script but does not execute it.\n- D. Emailing does not execute the script."
+    },
+    {
+      "id": 65,
+      "topic": "Desktop Flows - DLP for Desktop Flows",
+      "type": "SingleChoice",
+      "questionText": "How can administrators restrict which action groups are available in Power Automate for desktop flows?",
+      "options": [
+        "A. Desktop flow actions cannot be restricted.",
+        "B. Configure desktop flow action group restrictions in DLP policies to block or allow specific action groups.",
+        "C. Uninstall Power Automate for desktop.",
+        "D. Remove all machines from the organization."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DLP policies in Power Platform now support desktop flow action groups, allowing administrators to block specific action groups (like scripting, terminal, or command session actions) to enforce governance.\n\nWhy the others are wrong:\n- A. Desktop flow action restrictions are now supported through DLP policies.\n- C. Uninstalling removes all RPA capability, not just specific actions.\n- D. Removing machines is extreme and eliminates all desktop automation."
     }
   ]
 }

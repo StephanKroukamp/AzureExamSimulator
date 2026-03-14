@@ -361,6 +361,231 @@
       "options": ["A. Community forums only.", "B. Microsoft 365 support included with subscriptions.", "C. Self-help documentation only.", "D. Third-party support only."],
       "correctAnswers": ["B"],
       "explanation": "Microsoft 365 subscriptions include 24/7 phone and web-based technical support for administrators. The level of support and response time varies by plan and severity.\n\nA is incorrect because community forums are available but are not the only support option.\n\nC is incorrect because documentation is available but Microsoft also provides direct technical support.\n\nD is incorrect because Microsoft provides first-party support; third-party support is optional."
+    },
+    {
+      "id": 41,
+      "topic": "Cloud Concepts - SaaS, IaaS, PaaS",
+      "type": "SingleChoice",
+      "questionText": "Microsoft 365 is primarily an example of which cloud service model?",
+      "options": ["A. Infrastructure as a Service (IaaS).", "B. Platform as a Service (PaaS).", "C. Software as a Service (SaaS).", "D. Desktop as a Service (DaaS)."],
+      "correctAnswers": ["C"],
+      "explanation": "Microsoft 365 is primarily a Software as a Service (SaaS) offering where Microsoft hosts and manages the applications (Word, Excel, Teams, etc.) and infrastructure, and customers access them over the internet via subscription.\n\nA is incorrect because IaaS provides virtual machines and infrastructure, not managed applications.\n\nB is incorrect because PaaS provides a development platform, not ready-to-use productivity applications.\n\nD is incorrect because DaaS provides virtual desktops, which is a different service (like Windows 365)."
+    },
+    {
+      "id": 42,
+      "topic": "Cloud Concepts - Office 365 vs Microsoft 365",
+      "type": "SingleChoice",
+      "questionText": "What is a key difference between Office 365 and Microsoft 365?",
+      "options": ["A. Office 365 includes Windows licenses; Microsoft 365 does not.", "B. Microsoft 365 includes everything in Office 365 plus Windows, device management (Intune), and advanced security features.", "C. They are exactly the same product with different names.", "D. Office 365 is more expensive than Microsoft 365."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft 365 bundles Office 365 productivity apps and cloud services together with Windows licenses, Enterprise Mobility + Security (including Intune), and advanced security and compliance features in a single subscription.\n\nA is incorrect because it reverses the relationship; Microsoft 365 (not Office 365) includes Windows.\n\nC is incorrect because they are distinct offerings with Microsoft 365 being more comprehensive.\n\nD is incorrect because Microsoft 365 is typically more expensive since it includes more features."
+    },
+    {
+      "id": 43,
+      "topic": "Cloud Concepts - Hybrid work",
+      "type": "SingleChoice",
+      "questionText": "How does Microsoft 365 support hybrid work environments?",
+      "options": ["A. By requiring all employees to work from the office.", "B. By providing cloud-based tools accessible from anywhere, enabling collaboration between on-site and remote workers.", "C. By only supporting work on company-owned devices.", "D. By disabling access outside of office networks."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft 365 supports hybrid work by providing cloud-based productivity tools (Teams, SharePoint, OneDrive) accessible from any location and device, enabling seamless collaboration between employees regardless of where they work.\n\nA is incorrect because Microsoft 365 specifically enables flexible work locations.\n\nC is incorrect because Microsoft 365 supports both managed and personal devices (with proper policies).\n\nD is incorrect because Microsoft 365 is designed for anywhere access, not restricted to office networks."
+    },
+    {
+      "id": 44,
+      "topic": "Microsoft Entra ID - Identity management",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service provides cloud-based identity and access management for Microsoft 365 and other applications?",
+      "options": ["A. Microsoft Intune.", "B. Microsoft Entra ID (Azure Active Directory).", "C. Microsoft Defender for Identity.", "D. Microsoft Purview."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud-based identity and access management service that authenticates users and controls access to Microsoft 365, Azure, and thousands of other SaaS applications.\n\nA is incorrect because Intune manages devices and apps, not identity authentication.\n\nC is incorrect because Defender for Identity monitors on-premises Active Directory signals for threats, not identity management.\n\nD is incorrect because Purview handles data governance and compliance."
+    },
+    {
+      "id": 45,
+      "topic": "Microsoft Entra ID - Self-service password reset",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Entra ID feature allows users to reset their own passwords without contacting the IT help desk?",
+      "options": ["A. Conditional Access.", "B. Self-Service Password Reset (SSPR).", "C. Multi-factor authentication.", "D. Identity Protection."],
+      "correctAnswers": ["B"],
+      "explanation": "Self-Service Password Reset (SSPR) enables users to reset their own passwords by verifying their identity through alternative methods (phone, email, security questions), reducing help desk calls and improving productivity.\n\nA is incorrect because Conditional Access controls access based on conditions, not password resets.\n\nC is incorrect because MFA verifies identity with additional factors, not password reset capability.\n\nD is incorrect because Identity Protection detects identity risks, not self-service password management."
+    },
+    {
+      "id": 46,
+      "topic": "Microsoft Entra ID - Hybrid identity",
+      "type": "SingleChoice",
+      "questionText": "What is hybrid identity in the context of Microsoft 365?",
+      "options": ["A. Using two separate passwords for on-premises and cloud resources.", "B. Synchronizing on-premises Active Directory identities with Microsoft Entra ID so users have a single identity for both environments.", "C. Creating cloud-only accounts with no on-premises connection.", "D. Using biometric authentication exclusively."],
+      "correctAnswers": ["B"],
+      "explanation": "Hybrid identity synchronizes user identities between on-premises Active Directory and Microsoft Entra ID using tools like Microsoft Entra Connect, providing users with a single identity to access both on-premises and cloud resources.\n\nA is incorrect because hybrid identity provides single sign-on, not separate passwords.\n\nC is incorrect because cloud-only accounts are not hybrid; hybrid involves both on-premises and cloud.\n\nD is incorrect because biometric authentication is an MFA method, not a definition of hybrid identity."
+    },
+    {
+      "id": 47,
+      "topic": "Microsoft 365 Security - Zero Trust",
+      "type": "SingleChoice",
+      "questionText": "What is the Zero Trust security model that Microsoft 365 supports?",
+      "options": ["A. A model that trusts all users within the corporate network.", "B. A model that assumes breach and verifies every access request regardless of location, requiring explicit verification, least privilege, and assuming compromise.", "C. A model that blocks all external access.", "D. A model that relies solely on firewalls for protection."],
+      "correctAnswers": ["B"],
+      "explanation": "Zero Trust is a security model based on three principles: verify explicitly (always authenticate and authorize), use least privilege access, and assume breach. It treats every access request as if it originates from an untrusted network.\n\nA is incorrect because Zero Trust does not trust any user by default, even those inside the network.\n\nC is incorrect because Zero Trust allows access from anywhere when properly verified, not blocking all external access.\n\nD is incorrect because Zero Trust goes far beyond firewalls, using identity, device compliance, and data-level controls."
+    },
+    {
+      "id": 48,
+      "topic": "Microsoft 365 Security - Secure Score",
+      "type": "SingleChoice",
+      "questionText": "What is Microsoft Secure Score?",
+      "options": ["A. A credit score for purchasing Microsoft products.", "B. A numerical representation of an organization's security posture with recommendations to improve it.", "C. A performance benchmark for Microsoft 365 applications.", "D. A compliance certification score."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Secure Score is a measurement of an organization's security posture expressed as a numerical value. It provides actionable recommendations for improving security across identity, devices, apps, and data.\n\nA is incorrect because Secure Score has nothing to do with purchasing or credit.\n\nC is incorrect because it measures security posture, not application performance.\n\nD is incorrect because it is a security improvement tool, not a formal compliance certification."
+    },
+    {
+      "id": 49,
+      "topic": "Microsoft 365 Security - Defender for Identity",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Defender component monitors on-premises Active Directory signals to detect advanced threats, compromised identities, and malicious insider actions?",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Defender for Identity.", "C. Microsoft Defender for Office 365.", "D. Microsoft Defender for Cloud Apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Identity uses on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.\n\nA is incorrect because Defender for Endpoint protects device endpoints, not on-premises AD signals.\n\nC is incorrect because Defender for Office 365 protects email and collaboration tools.\n\nD is incorrect because Defender for Cloud Apps monitors and controls access to cloud applications (shadow IT)."
+    },
+    {
+      "id": 50,
+      "topic": "Device Management - Windows 365 vs Azure Virtual Desktop",
+      "type": "SingleChoice",
+      "questionText": "What is a key difference between Windows 365 and Azure Virtual Desktop?",
+      "options": ["A. Windows 365 provides a dedicated Cloud PC per user with a simple per-user subscription, while Azure Virtual Desktop is more flexible with shared session hosts and consumption-based pricing.", "B. Azure Virtual Desktop only works on macOS devices.", "C. Windows 365 requires on-premises infrastructure.", "D. They are identical products with different names."],
+      "correctAnswers": ["A"],
+      "explanation": "Windows 365 provides a dedicated, persistent Cloud PC for each user with a fixed per-user monthly subscription. Azure Virtual Desktop is more flexible, supporting shared multi-session hosts, consumption-based Azure pricing, and more complex configurations.\n\nB is incorrect because Azure Virtual Desktop supports multiple client platforms, not just macOS.\n\nC is incorrect because Windows 365 is fully cloud-based and does not require on-premises infrastructure.\n\nD is incorrect because they are different products with different pricing models and capabilities."
+    },
+    {
+      "id": 51,
+      "topic": "Device Management - Windows Autopatch",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service automates the deployment of Windows quality and feature updates, Microsoft 365 Apps updates, and driver updates?",
+      "options": ["A. Windows Update for Business.", "B. Windows Autopatch.", "C. Windows Autopilot.", "D. System Center Configuration Manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Windows Autopatch is a cloud service that automates the deployment of Windows quality updates, feature updates, Microsoft 365 Apps updates, Microsoft Edge updates, and driver updates using deployment rings to manage rollouts.\n\nA is incorrect because Windows Update for Business provides update policies but does not automate full ring-based deployment management.\n\nC is incorrect because Autopilot handles initial device provisioning and setup, not ongoing update management.\n\nD is incorrect because SCCM is an on-premises management tool, not a cloud-first automation service."
+    },
+    {
+      "id": 52,
+      "topic": "Compliance - eDiscovery",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Purview feature helps organizations find, preserve, and export content from Microsoft 365 services for legal investigations?",
+      "options": ["A. Data Loss Prevention.", "B. eDiscovery.", "C. Retention policies.", "D. Insider Risk Management."],
+      "correctAnswers": ["B"],
+      "explanation": "eDiscovery in Microsoft Purview allows organizations to search for, preserve (hold), and export content across Exchange, SharePoint, OneDrive, and Teams for legal investigations, litigation, and regulatory inquiries.\n\nA is incorrect because DLP prevents data leakage, not legal content discovery.\n\nC is incorrect because retention policies manage data lifecycle, not legal search and export.\n\nD is incorrect because Insider Risk Management detects risky user behavior, not legal content discovery."
+    },
+    {
+      "id": 53,
+      "topic": "Compliance - Microsoft Priva",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft solution helps organizations manage privacy risks and automate subject rights requests?",
+      "options": ["A. Microsoft Purview DLP.", "B. Microsoft Priva.", "C. Microsoft Defender XDR.", "D. Microsoft Intune."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Priva helps organizations safeguard personal data and build a privacy-resilient workplace. It includes Privacy Risk Management (identifying overexposed personal data) and Subject Rights Requests (automating responses to data subject requests under GDPR and similar regulations).\n\nA is incorrect because DLP prevents data sharing but does not manage privacy risk or subject rights requests.\n\nC is incorrect because Defender XDR handles security threats, not privacy management.\n\nD is incorrect because Intune manages devices, not privacy compliance."
+    },
+    {
+      "id": 54,
+      "topic": "Compliance - Data residency",
+      "type": "SingleChoice",
+      "questionText": "What does data residency mean in the context of Microsoft 365?",
+      "options": ["A. The speed at which data is processed.", "B. The geographic location where customer data is stored at rest, which can be configured to meet regulatory requirements.", "C. The number of copies of data stored.", "D. The encryption method used for data."],
+      "correctAnswers": ["B"],
+      "explanation": "Data residency in Microsoft 365 refers to the geographic location where customer data is stored at rest. Organizations can select their data location to meet regulatory and compliance requirements (such as EU data must stay in EU datacenters).\n\nA is incorrect because data residency is about location, not processing speed.\n\nC is incorrect because data redundancy (copies) is a separate concept from residency (location).\n\nD is incorrect because encryption is a security method, not related to geographic storage location."
+    },
+    {
+      "id": 55,
+      "topic": "Licensing - Billing options",
+      "type": "SingleChoice",
+      "questionText": "Which billing option allows organizations to commit to a longer term for Microsoft 365 subscriptions in exchange for discounted pricing?",
+      "options": ["A. Monthly billing with no commitment.", "B. Annual commitment.", "C. Per-transaction billing.", "D. Free trial indefinitely."],
+      "correctAnswers": ["B"],
+      "explanation": "Annual commitment (annual subscription) offers a discounted per-user monthly price in exchange for committing to a 12-month subscription term. This is the most common billing model for Microsoft 365.\n\nA is incorrect because monthly billing with no commitment typically costs more per user.\n\nC is incorrect because Microsoft 365 is subscription-based, not per-transaction.\n\nD is incorrect because free trials are time-limited and do not provide ongoing discounted pricing."
+    },
+    {
+      "id": 56,
+      "topic": "Licensing - SLA and service credits",
+      "type": "SingleChoice",
+      "questionText": "What does Microsoft guarantee through its Service Level Agreement (SLA) for Microsoft 365?",
+      "options": ["A. 100% uptime at all times.", "B. A financially-backed uptime commitment (typically 99.9%), with service credits if the SLA is not met.", "C. Unlimited storage for all users.", "D. Free hardware replacement for all devices."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft's SLA for Microsoft 365 guarantees a financially-backed uptime commitment (typically 99.9%). If Microsoft fails to meet this commitment, customers may be eligible for service credits as a percentage of their monthly service fee.\n\nA is incorrect because 100% uptime is not guaranteed; the SLA typically guarantees 99.9%.\n\nC is incorrect because storage limits apply based on the subscription plan.\n\nD is incorrect because hardware is not covered under the Microsoft 365 SLA."
+    },
+    {
+      "id": 57,
+      "topic": "Productivity - Microsoft Copilot capabilities",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO are capabilities of Microsoft 365 Copilot? (Choose two.)",
+      "options": ["A. Summarizing long email threads in Outlook.", "B. Replacing the need for internet connectivity.", "C. Generating draft presentations in PowerPoint from a prompt.", "D. Providing physical hardware support."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Microsoft 365 Copilot in Outlook can summarize long email threads, draft replies, and prioritize important messages.\n\nC is correct because Copilot in PowerPoint can generate draft presentations with slides, content, and design from a natural language prompt or existing document.\n\nB is incorrect because Microsoft 365 requires internet connectivity; Copilot does not eliminate this need.\n\nD is incorrect because Copilot is an AI assistant for productivity, not a hardware support tool."
+    },
+    {
+      "id": 58,
+      "topic": "Microsoft 365 Admin - Reports and analytics",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 admin center feature provides reports on user adoption, service usage, and activity across Microsoft 365 services?",
+      "options": ["A. Exchange message trace.", "B. Usage reports in the Microsoft 365 admin center.", "C. Power BI Desktop.", "D. Azure Monitor."],
+      "correctAnswers": ["B"],
+      "explanation": "The Microsoft 365 admin center provides built-in usage reports that show adoption metrics, active users, service activity (email, Teams, OneDrive, SharePoint), and other organizational insights.\n\nA is incorrect because Exchange message trace tracks individual email messages, not overall usage reports.\n\nC is incorrect because Power BI Desktop is a data visualization tool, not the built-in admin reporting feature.\n\nD is incorrect because Azure Monitor is for Azure resource monitoring, not Microsoft 365 usage reporting."
+    },
+    {
+      "id": 59,
+      "topic": "Microsoft 365 Security - Defender for Cloud Apps",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Defender component provides visibility and control over cloud applications used in an organization, helping discover shadow IT?",
+      "options": ["A. Microsoft Defender for Endpoint.", "B. Microsoft Defender for Cloud Apps.", "C. Microsoft Defender for Office 365.", "D. Microsoft Defender for Identity."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Defender for Cloud Apps is a Cloud Access Security Broker (CASB) that provides visibility into cloud app usage (including shadow IT discovery), data protection, and threat detection across SaaS applications.\n\nA is incorrect because Defender for Endpoint focuses on device/endpoint threats.\n\nC is incorrect because Defender for Office 365 focuses on email and collaboration threats.\n\nD is incorrect because Defender for Identity focuses on on-premises AD identity threats."
+    },
+    {
+      "id": 60,
+      "topic": "Compliance - Sensitivity labels",
+      "type": "SingleChoice",
+      "questionText": "What do sensitivity labels in Microsoft Purview Information Protection allow organizations to do?",
+      "options": ["A. Track employee work hours.", "B. Classify and protect documents and emails by applying encryption, watermarks, and access restrictions based on sensitivity.", "C. Schedule Microsoft Teams meetings.", "D. Manage user passwords."],
+      "correctAnswers": ["B"],
+      "explanation": "Sensitivity labels allow organizations to classify documents and emails according to their sensitivity (e.g., Confidential, Highly Confidential) and apply protection actions such as encryption, watermarks, content markings, and access restrictions.\n\nA is incorrect because tracking work hours is an HR function, not a sensitivity label capability.\n\nC is incorrect because meeting scheduling is a Teams/Outlook feature, not related to sensitivity labels.\n\nD is incorrect because password management is handled by Entra ID, not sensitivity labels."
+    },
+    {
+      "id": 61,
+      "topic": "Microsoft Teams - Teams Phone",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft Teams feature enables organizations to make and receive external phone calls (PSTN) directly through Teams?",
+      "options": ["A. Teams channels.", "B. Teams Phone with Calling Plan.", "C. Teams file sharing.", "D. Teams Whiteboard."],
+      "correctAnswers": ["B"],
+      "explanation": "Teams Phone with Calling Plan enables organizations to replace their traditional phone system by making and receiving external Public Switched Telephone Network (PSTN) calls directly through Microsoft Teams.\n\nA is incorrect because channels are for organizing conversations within teams, not external phone calls.\n\nC is incorrect because file sharing is for document collaboration, not telephony.\n\nD is incorrect because Whiteboard is a digital canvas for visual collaboration, not phone calls."
+    },
+    {
+      "id": 62,
+      "topic": "Productivity - Microsoft Bookings",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft 365 application allows customers to schedule appointments with staff members through a self-service booking page?",
+      "options": ["A. Microsoft Planner.", "B. Microsoft Bookings.", "C. Microsoft To Do.", "D. Microsoft Lists."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Bookings provides a web-based booking page where external customers can view available time slots and schedule appointments with staff members. It integrates with Outlook calendars and Teams for virtual appointments.\n\nA is incorrect because Planner manages team tasks, not customer appointment scheduling.\n\nC is incorrect because To Do is for personal task management.\n\nD is incorrect because Lists is for tracking information, not appointment scheduling."
+    },
+    {
+      "id": 63,
+      "topic": "Device Management - Deployment rings",
+      "type": "SingleChoice",
+      "questionText": "In the context of Windows-as-a-Service (WaaS), what are deployment rings?",
+      "options": ["A. Physical hardware components in a server.", "B. Groups of devices that receive Windows updates at different times to manage risk during rollout.", "C. Types of Microsoft 365 licenses.", "D. Security perimeters around the network."],
+      "correctAnswers": ["B"],
+      "explanation": "Deployment rings are groups of devices organized to receive Windows updates in a phased approach. A small pilot ring gets updates first, and after validation, updates roll out to broader groups, reducing risk of widespread issues.\n\nA is incorrect because deployment rings are a software update strategy, not physical hardware.\n\nC is incorrect because deployment rings are not related to licensing.\n\nD is incorrect because deployment rings manage update rollout, not network security perimeters."
+    },
+    {
+      "id": 64,
+      "topic": "Licensing - Add-on licensing",
+      "type": "SingleChoice",
+      "questionText": "What is add-on licensing in Microsoft 365?",
+      "options": ["A. A free upgrade applied automatically to all plans.", "B. Additional licenses purchased on top of a base plan to unlock specific features not included in the base subscription.", "C. A discount applied when purchasing multiple licenses.", "D. A license that replaces the base plan entirely."],
+      "correctAnswers": ["B"],
+      "explanation": "Add-on licensing allows organizations to purchase additional capabilities on top of a base Microsoft 365 plan. Examples include adding Microsoft Copilot, Power BI Pro, or audio conferencing to an existing E3 subscription.\n\nA is incorrect because add-ons are purchased separately, not applied automatically for free.\n\nC is incorrect because volume discounts and add-on licensing are different concepts.\n\nD is incorrect because add-ons supplement the base plan rather than replacing it."
+    },
+    {
+      "id": 65,
+      "topic": "Microsoft 365 Admin - Copilot dashboard",
+      "type": "SingleChoice",
+      "questionText": "What does the Microsoft Copilot dashboard in the Microsoft 365 admin center provide?",
+      "options": ["A. A tool for building custom chatbots.", "B. Insights into Copilot adoption and usage across the organization, including how users are engaging with Copilot features.", "C. A code editor for developing applications.", "D. A tool for managing Azure virtual machines."],
+      "correctAnswers": ["B"],
+      "explanation": "The Microsoft Copilot dashboard in the Microsoft 365 admin center provides administrators with insights into Copilot adoption, usage patterns, and impact across the organization, helping understand how employees are using Copilot features.\n\nA is incorrect because building chatbots is done in Microsoft Copilot Studio, not the admin dashboard.\n\nC is incorrect because the dashboard is for analytics, not code development.\n\nD is incorrect because Azure VM management is done in the Azure Portal."
     }
   ]
 }

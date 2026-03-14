@@ -564,6 +564,357 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. The most common cause of configuration errors on Teams Rooms devices after initial setup is an incorrect or missing license on the resource account, or an expired password. The Teams Rooms Pro (or Basic) license must be assigned, and the account must be able to authenticate.\n\nWhy the others are wrong:\n- A. A slow internet connection would cause quality issues, not a 'not configured properly' error.\n- C. Display resolution issues would cause visual problems, not a configuration error message.\n- D. Too many USB devices might cause peripheral issues but would not trigger a device configuration error."
+    },
+    {
+      "id": 41,
+      "topic": "Teams Phone - Shared Calling",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants multiple users to share a single phone number for making and receiving PSTN calls, reducing the number of phone numbers and calling plans needed. Which feature should you configure?",
+      "options": [
+        "A. Call delegation with a shared line.",
+        "B. Shared Calling policy.",
+        "C. Common area phone with a shared device license.",
+        "D. A call queue with all users as agents."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Shared Calling allows multiple users to share a single phone number through a resource account. Users can make and receive PSTN calls using the shared number, reducing the need for individual phone numbers and calling plans.\n\nWhy the others are wrong:\n- A. Call delegation allows a delegate to make/receive calls on behalf of another user but both users need their own phone numbers.\n- C. Common area phones are for shared physical devices in common spaces, not for sharing a number across multiple users' personal devices.\n- D. A call queue distributes incoming calls to agents but does not allow agents to make outbound calls using a shared number."
+    },
+    {
+      "id": 42,
+      "topic": "Teams Rooms - Teams Rooms Pro vs Basic License",
+      "type": "SingleChoice",
+      "questionText": "You need to determine which Teams Rooms license to assign to a conference room. The room requires advanced features like the Teams Rooms Pro Management portal and cloud-based device management. Which license should you assign?",
+      "options": [
+        "A. Microsoft Teams Rooms Basic.",
+        "B. Microsoft Teams Rooms Pro.",
+        "C. Microsoft 365 E5.",
+        "D. Microsoft Teams Shared Devices."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Rooms Pro provides advanced features including the Teams Rooms Pro Management portal, intelligent camera features, advanced room analytics, and cloud-based management capabilities. Basic license provides core functionality without these advanced features.\n\nWhy the others are wrong:\n- A. Teams Rooms Basic provides core meeting join and sharing capabilities but lacks the Pro Management portal and advanced features.\n- C. Microsoft 365 E5 is a user license, not a room license, and does not include Teams Rooms-specific functionality.\n- D. Shared Devices license is for common area phones and shared devices, not Teams Rooms."
+    },
+    {
+      "id": 43,
+      "topic": "Meetings and Events - Webinar Configuration",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a Teams webinar that allows external attendees to register and limits registration to 500 people. Where should you configure the registration settings?",
+      "options": [
+        "A. In the Teams admin center meeting policy.",
+        "B. In the webinar scheduling experience in the Teams client when creating the webinar.",
+        "C. In the Microsoft 365 admin center.",
+        "D. In the Exchange admin center calendar settings."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Webinar registration settings including registration capacity, registration form fields, and whether to allow external attendees are configured in the Teams client when the organizer creates the webinar event. The admin controls who can schedule webinars via meeting policies.\n\nWhy the others are wrong:\n- A. Meeting policies control whether users can schedule webinars and set limits, but the specific registration configuration for each webinar is done by the organizer in the Teams client.\n- C. The Microsoft 365 admin center does not have webinar registration settings.\n- D. Exchange admin center manages email and calendar settings, not Teams webinar registration."
+    },
+    {
+      "id": 44,
+      "topic": "Teams Rooms - Cloud Video Interop",
+      "type": "SingleChoice",
+      "questionText": "Your organization has existing Cisco and Polycom video conferencing systems in meeting rooms. You need these systems to join Microsoft Teams meetings. What solution should you implement?",
+      "options": [
+        "A. Replace all existing systems with Teams Rooms devices.",
+        "B. Cloud Video Interop (CVI) through a certified partner.",
+        "C. Direct SIP integration between the video systems and Teams.",
+        "D. A VPN connection from the video systems to Microsoft 365."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Cloud Video Interop (CVI) uses certified partner solutions (like Pexip, Poly, Cisco Webex Video Integration) to enable third-party video conferencing systems to join Teams meetings. The CVI gateway translates between the SIP/H.323 protocols used by legacy systems and Teams.\n\nWhy the others are wrong:\n- A. Replacing all systems is expensive and may not be immediately feasible.\n- C. Direct SIP integration between legacy video systems and Teams is not natively supported.\n- D. A VPN does not enable protocol interoperability between legacy video systems and Teams meetings."
+    },
+    {
+      "id": 45,
+      "topic": "Teams Devices - SIP Gateway",
+      "type": "SingleChoice",
+      "questionText": "You have SIP-compatible desk phones that you want to use with Microsoft Teams without replacing them. What feature allows these phones to register with Teams?",
+      "options": [
+        "A. Direct Routing SBC.",
+        "B. Microsoft Teams SIP Gateway.",
+        "C. Operator Connect.",
+        "D. Teams Phone Mobile."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft Teams SIP Gateway enables compatible SIP devices (from manufacturers like Cisco, Poly, Yealink) to register with Microsoft Teams and provide basic calling functionality. This allows organizations to reuse existing SIP phone hardware.\n\nWhy the others are wrong:\n- A. Direct Routing SBCs connect carrier PSTN trunks to Teams, not individual SIP desk phones.\n- C. Operator Connect provides PSTN connectivity through carriers, not SIP device registration.\n- D. Teams Phone Mobile integrates mobile phone numbers with Teams, not SIP desk phones."
+    },
+    {
+      "id": 46,
+      "topic": "Meetings and Events - Audio Conferencing Bridge",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a dedicated dial-in number for audio conferencing that is included in all meeting invitations for users in the US. What should you configure?",
+      "options": [
+        "A. A Microsoft Calling Plan number.",
+        "B. A default audio conferencing bridge number assigned to the users.",
+        "C. A Direct Routing SBC number.",
+        "D. A Teams auto attendant number."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The audio conferencing bridge has conference numbers assigned to it. You set a default bridge number for each user, and this number is automatically included in their Teams meeting invitations as the dial-in number.\n\nWhy the others are wrong:\n- A. Calling Plan numbers are for individual user PSTN calling, not for audio conferencing dial-in.\n- C. Direct Routing SBC numbers are for PSTN calling, not for Microsoft Audio Conferencing bridge numbers.\n- D. Auto attendant numbers handle incoming IVR calls, not audio conferencing dial-in."
+    },
+    {
+      "id": 47,
+      "topic": "Teams Rooms - AOSP Device Management",
+      "type": "SingleChoice",
+      "questionText": "You are deploying Teams Rooms on Android devices and need to manage them with Microsoft Intune. Which enrollment method is appropriate for Android-based Teams devices?",
+      "options": [
+        "A. Android Enterprise work profile enrollment.",
+        "B. Android Open Source Project (AOSP) device management enrollment.",
+        "C. Samsung Knox enrollment.",
+        "D. Google Play for Work enrollment."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Rooms on Android devices and other Teams Android devices use Android Open Source Project (AOSP) device management for Intune enrollment. This provides device management capabilities without requiring Google Mobile Services.\n\nWhy the others are wrong:\n- A. Android Enterprise work profile is for personal devices with a separate work profile, not for dedicated Teams devices.\n- C. Samsung Knox is Samsung-specific and not the standard enrollment method for Teams Rooms devices.\n- D. Google Play for Work requires Google Mobile Services, which Teams devices running AOSP may not have."
+    },
+    {
+      "id": 48,
+      "topic": "Teams Phone - Call Delegation",
+      "type": "SingleChoice",
+      "questionText": "An executive wants their assistant to be able to make and receive calls on their behalf using the executive's phone number. What should you configure?",
+      "options": [
+        "A. Call forwarding to the assistant.",
+        "B. Call delegation where the assistant is added as a delegate.",
+        "C. A shared line appearance on the assistant's phone.",
+        "D. A call queue with the executive and assistant as agents."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Call delegation allows a user (executive) to designate another user (assistant) as a delegate. The delegate can make and receive calls on the executive's behalf, with calls showing the executive's caller ID. This is configured in Teams settings.\n\nWhy the others are wrong:\n- A. Call forwarding redirects calls to the assistant but does not allow the assistant to make calls on the executive's behalf.\n- C. Shared line appearance is a different feature for SIP phones and is not the standard Teams delegation mechanism.\n- D. A call queue distributes calls to agents and does not provide the delegation relationship needed."
+    },
+    {
+      "id": 49,
+      "topic": "Teams Rooms - Content Camera",
+      "type": "SingleChoice",
+      "questionText": "You want to enable a feature in your Teams Room that captures content from a physical whiteboard and shares it digitally with remote meeting participants with AI enhancement. What should you configure?",
+      "options": [
+        "A. A USB document camera.",
+        "B. A content camera pointed at the whiteboard with intelligent capture enabled.",
+        "C. Screen sharing from a laptop.",
+        "D. The Microsoft Whiteboard app."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A content camera in Teams Rooms captures physical whiteboard content and uses AI-powered intelligent capture to enhance the image, making it clear and readable for remote participants. It can also make the presenter appear transparent in front of the board.\n\nWhy the others are wrong:\n- A. A USB document camera captures documents but does not provide the AI enhancement and whiteboard-specific features of a content camera.\n- C. Screen sharing requires a digital document; it does not capture physical whiteboard content.\n- D. The Microsoft Whiteboard app is a digital whiteboard, not a capture solution for physical whiteboards."
+    },
+    {
+      "id": 50,
+      "topic": "Meetings and Events - Teams Premium Features",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to use advanced meeting protection features including watermarking on shared content and end-to-end encryption for meetings. Which license is required?",
+      "options": [
+        "A. Microsoft 365 E5.",
+        "B. Microsoft Teams Premium add-on license.",
+        "C. Microsoft 365 E3.",
+        "D. Audio Conferencing license."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Premium is an add-on license that provides advanced meeting features including watermarking (which overlays the participant's email on shared content), end-to-end encryption for meetings, custom branded meeting experiences, and advanced meeting protection.\n\nWhy the others are wrong:\n- A. E5 includes many advanced features but does not include Teams Premium-specific capabilities like watermarking.\n- C. E3 provides core Microsoft 365 functionality without advanced meeting protection features.\n- D. Audio Conferencing provides dial-in capabilities, not meeting protection features."
+    },
+    {
+      "id": 51,
+      "topic": "Teams Rooms - Conditional Access for Resource Accounts",
+      "type": "SingleChoice",
+      "questionText": "Your Conditional Access policy requires MFA for all sign-ins, but Teams Rooms devices cannot perform interactive MFA. How should you handle this?",
+      "options": [
+        "A. Disable MFA for the entire organization.",
+        "B. Exclude Teams Rooms resource accounts from the MFA Conditional Access policy or create a separate policy with device compliance instead of MFA.",
+        "C. Enable MFA on the Teams Rooms touch console.",
+        "D. Use certificate-based authentication on Teams Rooms devices."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Since Teams Rooms devices operate in a non-interactive kiosk mode and cannot perform MFA prompts, you should exclude resource accounts from MFA policies and instead create a separate Conditional Access policy that requires device compliance or uses a trusted network location.\n\nWhy the others are wrong:\n- A. Disabling MFA organization-wide would compromise security for all users.\n- C. The Teams Rooms touch console does not support interactive MFA input.\n- D. While certificate-based auth is possible in some scenarios, the standard approach is to exclude room accounts from MFA and use alternative conditions."
+    },
+    {
+      "id": 52,
+      "topic": "Network Planning - eCDN",
+      "type": "SingleChoice",
+      "questionText": "Your organization is hosting a Teams Town hall for 10,000 employees across multiple offices. You need to reduce the WAN bandwidth impact. What should you deploy?",
+      "options": [
+        "A. A local caching proxy for Teams.",
+        "B. An Enterprise Content Delivery Network (eCDN) solution.",
+        "C. QoS policies for Town hall traffic.",
+        "D. Additional internet bandwidth at each office."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An eCDN (Enterprise Content Delivery Network) solution optimizes the delivery of live event video by using peer-to-peer sharing, local caching, or multicast within each office network. This significantly reduces the WAN and internet bandwidth required for large Town halls.\n\nWhy the others are wrong:\n- A. A general caching proxy does not handle live streaming optimization for Teams Town halls.\n- C. QoS policies prioritize traffic but do not reduce the total bandwidth consumed.\n- D. Adding bandwidth is expensive and does not efficiently solve the problem when 10,000 users stream simultaneously."
+    },
+    {
+      "id": 53,
+      "topic": "Teams Rooms - Teams Casting",
+      "type": "SingleChoice",
+      "questionText": "A user wants to walk into a meeting room and wirelessly cast their laptop screen to the Teams Rooms display without joining a meeting. Which feature should be enabled?",
+      "options": [
+        "A. Proximity join.",
+        "B. Teams casting.",
+        "C. HDMI ingest.",
+        "D. Miracast to display."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams casting allows users to wirelessly cast content from their Teams client to a nearby Teams Rooms display without joining a meeting. This is useful for ad-hoc presentations and content sharing outside of scheduled meetings.\n\nWhy the others are wrong:\n- A. Proximity join helps a user join a room's meeting, not cast content outside of a meeting.\n- C. HDMI ingest requires a physical cable connection, not wireless.\n- D. Miracast is a separate wireless display protocol; Teams casting is the Teams-specific feature for this scenario."
+    },
+    {
+      "id": 54,
+      "topic": "Teams Phone - Auto Attendant Call Priorities",
+      "type": "SingleChoice",
+      "questionText": "You have a call queue where VIP customers should be answered before other callers. How can you implement priority-based call handling?",
+      "options": [
+        "A. Create separate call queues with different priorities and route VIP calls to the high-priority queue.",
+        "B. Configure call priorities within a single call queue based on caller ID.",
+        "C. Add more agents to handle VIP calls faster.",
+        "D. Create an auto attendant that asks callers if they are VIP."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Teams call queues support call priorities when multiple queues share the same agents. By creating a separate high-priority queue for VIP calls and routing them there (via auto attendant or separate number), agents will receive VIP calls before calls from the lower-priority queue.\n\nWhy the others are wrong:\n- B. Teams call queues do not natively support per-caller priority within a single queue based on caller ID.\n- C. Adding agents improves overall response time but does not prioritize VIP callers over others.\n- D. Asking callers to self-identify as VIP is unreliable and adds friction to the caller experience."
+    },
+    {
+      "id": 55,
+      "topic": "Teams Rooms - Room Remote (Companion Mode)",
+      "type": "SingleChoice",
+      "questionText": "A meeting participant in a Teams Room wants to use their personal device to manage the meeting (mute participants, start recording) rather than walking to the room console. What feature enables this?",
+      "options": [
+        "A. Proximity join and add the room.",
+        "B. Room remote (companion mode) from their Teams mobile or desktop client.",
+        "C. Remote desktop connection to the Teams Rooms compute.",
+        "D. Bluetooth control of the room console."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Room remote (companion mode) allows meeting participants to use their personal Teams client on a mobile device or laptop to control the Teams Room's meeting experience, including managing participants, starting recording, and adjusting settings.\n\nWhy the others are wrong:\n- A. Proximity join adds the room to a meeting but does not provide meeting control capabilities from the personal device.\n- C. Remote desktop to the compute module is not supported or practical for in-meeting control.\n- D. Bluetooth control of the room console is not a supported feature."
+    },
+    {
+      "id": 56,
+      "topic": "Teams Devices - Teams Panels",
+      "type": "SingleChoice",
+      "questionText": "You want to install a small touchscreen device outside each meeting room that displays room availability, scheduled meetings, and allows one-touch reservation. Which device type should you deploy?",
+      "options": [
+        "A. Teams Rooms touch console.",
+        "B. Teams Panels.",
+        "C. Teams Displays.",
+        "D. Surface Hub."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Panels are small touchscreen devices mounted outside meeting rooms that display room availability (green/red status), upcoming meetings, and allow ad-hoc room reservation with one touch. They sync with the room's Exchange calendar.\n\nWhy the others are wrong:\n- A. The touch console is the in-room meeting controller placed on the table, not an outside-room scheduling display.\n- C. Teams Displays are personal desk devices for individual users, not room scheduling displays.\n- D. Surface Hub is a large in-room collaboration device, not a compact outside-room scheduling panel."
+    },
+    {
+      "id": 57,
+      "topic": "Meetings and Events - Meeting Recording and Copilot",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to leverage Microsoft 365 Copilot for generating meeting summaries and action items after Teams meetings. What must be enabled for Copilot to function?",
+      "options": [
+        "A. Meeting recording to OneDrive.",
+        "B. Meeting transcription in the Teams meeting policy.",
+        "C. Meeting chat enabled.",
+        "D. Live captions during the meeting."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft 365 Copilot in Teams requires transcription to be enabled. Copilot uses the meeting transcript as its data source to generate summaries, action items, and answer questions about meeting content.\n\nWhy the others are wrong:\n- A. Recording saves the audio/video but Copilot needs the text transcript, not the recording.\n- C. Meeting chat is a separate communication channel that Copilot does not use as its primary data source for meeting summarization.\n- D. Live captions display text in real-time during the meeting but are not the same as transcription that Copilot processes."
+    },
+    {
+      "id": 58,
+      "topic": "Teams Rooms - HDMI Ingest",
+      "type": "SingleChoice",
+      "questionText": "An in-room participant wants to share content from a non-Teams laptop during a Teams meeting by connecting a cable. Which feature on the Teams Rooms device enables this?",
+      "options": [
+        "A. Proximity join.",
+        "B. HDMI ingest on the Teams Rooms compute module.",
+        "C. USB passthrough.",
+        "D. Bluetooth screen sharing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. HDMI ingest allows any laptop (even one without Teams) to share content in a Teams meeting by connecting an HDMI cable to the Teams Rooms compute module. The video signal from the laptop is captured and shared in the meeting.\n\nWhy the others are wrong:\n- A. Proximity join requires the Teams app on the laptop and uses Bluetooth for detection, not cable.\n- C. USB passthrough is not a standard content sharing method for Teams Rooms.\n- D. Bluetooth screen sharing is not supported for wired content sharing scenarios."
+    },
+    {
+      "id": 59,
+      "topic": "Teams Phone - Queues App",
+      "type": "SingleChoice",
+      "questionText": "Your call queue agents need a dedicated interface within Teams to manage their queue calls, see queue statistics, and opt in/out of queues. Which feature provides this?",
+      "options": [
+        "A. The Teams Calls app.",
+        "B. The Queues app in Teams.",
+        "C. The Teams admin center call queue page.",
+        "D. A third-party contact center integration."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Queues app in Teams provides agents with a dedicated interface to handle call queue calls, view real-time queue statistics, opt in/out of queues, and manage their queue experience. It also provides supervisors with monitoring capabilities.\n\nWhy the others are wrong:\n- A. The Teams Calls app provides general calling features but does not have the specialized queue management interface.\n- C. The Teams admin center is for administrators to configure queues, not for agents to handle calls.\n- D. A third-party solution is unnecessary when the built-in Queues app provides this functionality."
+    },
+    {
+      "id": 60,
+      "topic": "Teams Rooms - Bookable Desks",
+      "type": "SingleChoice",
+      "questionText": "Your organization is implementing a flexible workspace strategy. You want employees to reserve desks through Teams or Outlook before coming to the office. What should you configure?",
+      "options": [
+        "A. Room mailboxes for each desk.",
+        "B. Bookable desks using Teams Places with desk resource accounts.",
+        "C. SharePoint list of available desks.",
+        "D. A Teams channel where users claim desks."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Bookable desks in Teams Places allow organizations to create desk resources that employees can reserve through Teams or Outlook. Each desk has a resource account, and availability is managed through the calendar system.\n\nWhy the others are wrong:\n- A. While room mailboxes are used for meeting rooms, bookable desks have a specific configuration in Teams Places designed for flexible workspace management.\n- C. A SharePoint list would be a manual process without calendar integration or Teams booking experience.\n- D. A Teams channel for claiming desks lacks formal reservation management and calendar integration."
+    },
+    {
+      "id": 61,
+      "topic": "Network Planning - Call Quality Dashboard Configuration",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure the Call Quality Dashboard (CQD) to provide location-specific call quality reporting. Which two steps must you complete? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Upload tenant building data (subnet-to-building mapping) to CQD.",
+        "B. Configure reporting labels in Call Analytics.",
+        "C. Install CQD agents on each endpoint device.",
+        "D. Enable Microsoft Defender for Endpoint integration.",
+        "E. Configure Azure Monitor to collect Teams telemetry."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. To get location-specific reporting in CQD, you must upload tenant building data that maps subnets to physical buildings/locations, and configure reporting labels in Call Analytics to categorize calls by location. This enables location-based call quality analysis.\n\nWhy the others are wrong:\n- C. CQD agents are not installed on endpoints; Teams clients automatically send quality data to CQD.\n- D. Defender for Endpoint provides security signals, not call quality data.\n- E. Azure Monitor is not used to collect Teams call quality telemetry; CQD has its own data pipeline."
+    },
+    {
+      "id": 62,
+      "topic": "Teams Rooms - Direct Guest Join",
+      "type": "SingleChoice",
+      "questionText": "Your Teams Rooms device needs to join a meeting hosted on Zoom or Cisco Webex. Which feature enables this?",
+      "options": [
+        "A. Cloud Video Interop (CVI).",
+        "B. Direct Guest Join.",
+        "C. SIP Join via CVI.",
+        "D. External access (federation)."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Direct Guest Join allows Teams Rooms devices to join third-party meetings (Zoom, Cisco Webex) natively using the meeting join link. The Teams Room connects as a guest to the third-party platform.\n\nWhy the others are wrong:\n- A. CVI enables third-party video devices to join Teams meetings, not the other direction.\n- C. SIP Join via CVI uses SIP protocol to join Teams meetings from legacy systems, not for joining external platform meetings.\n- D. External access enables Teams-to-Teams communication between organizations, not joining meetings on other platforms."
+    },
+    {
+      "id": 63,
+      "topic": "Teams Phone - Compliance Recording",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs all Teams Phone calls and meetings to be automatically recorded for regulatory compliance. Users must not be able to stop or delete recordings. What type of solution should you implement?",
+      "options": [
+        "A. Enable cloud recording for all meetings in the meeting policy.",
+        "B. Deploy a certified policy-based compliance recording solution via the Teams compliance recording API.",
+        "C. Configure Exchange Online journaling for Teams content.",
+        "D. Use Microsoft Stream to record all meetings."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Policy-based compliance recording using certified third-party solutions (like Verint, NICE, ASC) connected via the Teams compliance recording API automatically records all calls and meetings. Users cannot stop or bypass the recording, and the solution meets regulatory requirements.\n\nWhy the others are wrong:\n- A. Cloud recording can be started by users but can also be stopped, and it is not mandatory or tamper-proof for compliance.\n- C. Exchange journaling captures message content but does not record audio/video calls.\n- D. Microsoft Stream hosts recordings but does not provide mandatory, policy-based recording."
+    },
+    {
+      "id": 64,
+      "topic": "Teams Rooms - Hot Desking on Shared Devices",
+      "type": "SingleChoice",
+      "questionText": "You want employees to temporarily sign into shared Teams desk phones to access their personal calling features and contacts. What feature should you enable?",
+      "options": [
+        "A. Common area phone mode.",
+        "B. Hot desking on Teams certified phones.",
+        "C. Shared device mode.",
+        "D. Teams web client on the phone."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Hot desking allows users to temporarily sign into shared Teams phones to access their personal profile, contacts, call history, and voicemail. When they sign out, the phone returns to its base state.\n\nWhy the others are wrong:\n- A. Common area phone mode provides a shared experience without personal user profiles.\n- C. Shared device mode is for mobile devices and tablets, not specifically for desk phones.\n- D. Teams web client is not the standard interface for Teams certified desk phones."
+    },
+    {
+      "id": 65,
+      "topic": "Troubleshooting - Teams Rooms Authentication",
+      "type": "SingleChoice",
+      "questionText": "A Teams Rooms device is showing 'Sign-in failed' on the console. The resource account was recently created and a Teams Rooms Pro license was assigned. What should you check first?",
+      "options": [
+        "A. The room display resolution settings.",
+        "B. The resource account password has not expired and the account is not blocked by Conditional Access policies.",
+        "C. The HDMI cable connections.",
+        "D. The Teams client version on the device."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The most common cause of sign-in failures on Teams Rooms devices is an expired or changed password on the resource account, or a Conditional Access policy blocking the sign-in (such as requiring MFA, which Teams Rooms cannot perform interactively). Check the account status and CA policy exclusions first.\n\nWhy the others are wrong:\n- A. Display resolution does not affect authentication.\n- C. HDMI cables affect display output, not sign-in.\n- D. While client version matters, authentication failures point to account or policy issues first."
     }
   ]
 }

@@ -361,6 +361,356 @@
       "options": ["A. It refreshes all data every time.", "B. It only refreshes new and changed data based on date parameters, reducing refresh time and source system load.", "C. It eliminates the need for a data gateway.", "D. It converts the dataset to DirectQuery mode."],
       "correctAnswers": ["B"],
       "explanation": "Incremental refresh only refreshes data within a defined rolling window of new and changed data, significantly reducing refresh duration and load on source systems. It does not refresh all data, eliminate gateways, or convert to DirectQuery."
+    },
+    {
+      "id": 41,
+      "topic": "DAX - DISTINCTCOUNT Function",
+      "type": "SingleChoice",
+      "questionText": "You need to count the number of unique customers who placed orders. Which DAX function should you use?",
+      "options": [
+        "A. COUNT.",
+        "B. COUNTROWS.",
+        "C. DISTINCTCOUNT.",
+        "D. COUNTA."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. DISTINCTCOUNT counts the number of unique (distinct) values in a column, providing the count of unique customers. It handles blank values by excluding them.\n\nWhy the others are wrong:\n- A. COUNT counts all non-blank numeric values in a column, including duplicates.\n- B. COUNTROWS counts rows in a table, not distinct values in a column.\n- D. COUNTA counts all non-blank values including duplicates."
+    },
+    {
+      "id": 42,
+      "topic": "Power Query - Parameters",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a Power Query parameter that allows users to filter data by a specific region before loading. What type of Power Query element should you create?",
+      "options": [
+        "A. A custom function.",
+        "B. A query parameter.",
+        "C. A reference query.",
+        "D. A grouped query."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Query parameters allow you to define values that can be used in data source queries and filter conditions. They can also be bound to incremental refresh configurations and managed through deployment pipeline rules.\n\nWhy the others are wrong:\n- A. A custom function is for reusable transformation logic, not for storing filter values.\n- C. A reference query creates a new query that references an existing one; it does not define user parameters.\n- D. Grouped queries are an organizational feature in Power Query, not parameterization."
+    },
+    {
+      "id": 43,
+      "topic": "Data Modeling - Composite Models",
+      "type": "SingleChoice",
+      "questionText": "What does a composite model in Power BI allow you to do?",
+      "options": [
+        "A. Create only Import mode tables.",
+        "B. Combine Import mode and DirectQuery mode tables in the same data model.",
+        "C. Create only DirectQuery tables.",
+        "D. Replace the data model with a flat file."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Composite models allow mixing Import and DirectQuery storage modes in the same data model, enabling you to import some tables for performance while using DirectQuery for others to access real-time data.\n\nWhy the others are wrong:\n- A. Import-only models are not composite; composite specifically means combining modes.\n- C. DirectQuery-only models are not composite.\n- D. Composite models are not about flat files."
+    },
+    {
+      "id": 44,
+      "topic": "DAX - CALCULATE with Multiple Filters",
+      "type": "SingleChoice",
+      "questionText": "What happens when you pass multiple filter arguments to the CALCULATE function?",
+      "options": [
+        "A. Only the first filter is applied.",
+        "B. All filter arguments are combined with an AND logic (intersection).",
+        "C. The filters are applied with OR logic.",
+        "D. An error occurs."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When CALCULATE has multiple filter arguments, they are combined using AND logic, meaning all conditions must be true simultaneously. This creates an intersection of the filter conditions.\n\nWhy the others are wrong:\n- A. All filter arguments are applied, not just the first.\n- C. Filters use AND logic, not OR. To achieve OR, you would need to use a single table filter expression.\n- D. Multiple filters are valid and do not cause errors."
+    },
+    {
+      "id": 45,
+      "topic": "Visualizations - Slicers",
+      "type": "SingleChoice",
+      "questionText": "You want to create a slicer that allows users to filter report data by selecting a date range. Which slicer style should you use?",
+      "options": [
+        "A. A list slicer showing each individual date.",
+        "B. A between (range) slicer with a slider for start and end dates.",
+        "C. A dropdown slicer.",
+        "D. A tile slicer."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Between' range slicer with date fields provides a slider or date pickers for selecting a start and end date, which is the most intuitive way to filter by date range.\n\nWhy the others are wrong:\n- A. A list of individual dates is impractical for large date ranges and does not easily support range selection.\n- C. A dropdown for dates requires users to select individual dates, not a range.\n- D. Tile slicers display individual values as tiles and are not suited for range selection."
+    },
+    {
+      "id": 46,
+      "topic": "Power Query - Column from Examples",
+      "type": "SingleChoice",
+      "questionText": "In Power Query, how can you quickly create a new column by providing example output values and letting Power Query infer the transformation?",
+      "options": [
+        "A. By writing M code manually.",
+        "B. By using the 'Column from Examples' feature.",
+        "C. By importing the column from another file.",
+        "D. By using the Replace Values step."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. 'Column from Examples' allows you to type example values for a new column, and Power Query automatically infers the transformation pattern to generate the entire column.\n\nWhy the others are wrong:\n- A. Writing M code works but is not the 'example-driven' approach described.\n- C. Importing from another file does not infer transformations from examples.\n- D. Replace Values modifies existing values but does not create new columns from examples."
+    },
+    {
+      "id": 47,
+      "topic": "DAX - SELECTEDVALUE Function",
+      "type": "SingleChoice",
+      "questionText": "You want to display the currently selected value from a slicer in a card visual. Which DAX function should you use?",
+      "options": [
+        "A. FIRSTNONBLANK.",
+        "B. SELECTEDVALUE.",
+        "C. ALLSELECTED.",
+        "D. HASONEVALUE."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. SELECTEDVALUE returns the value of a column when exactly one value is visible in the current filter context (e.g., when one slicer item is selected). If multiple values are in context, it returns an alternate result or BLANK.\n\nWhy the others are wrong:\n- A. FIRSTNONBLANK returns the first non-blank value based on an expression, not the selected slicer value.\n- C. ALLSELECTED returns a table reflecting all filters except those from the current visual, not a single value.\n- D. HASONEVALUE returns TRUE/FALSE indicating whether a single value is in context, not the value itself."
+    },
+    {
+      "id": 48,
+      "topic": "Data Modeling - Role-Playing Dimensions",
+      "type": "SingleChoice",
+      "questionText": "Your fact table has three date columns: OrderDate, ShipDate, and DeliveryDate, all relating to the same Date dimension table. How should you model this in Power BI?",
+      "options": [
+        "A. Create three separate date tables, one for each date column.",
+        "B. Create one date table with three relationships (one active, two inactive) and use USERELATIONSHIP in measures.",
+        "C. Merge all three dates into a single column.",
+        "D. Create three separate data models."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A single date table with one active relationship (e.g., OrderDate) and two inactive relationships (ShipDate, DeliveryDate) is the standard pattern. DAX measures use USERELATIONSHIP within CALCULATE to activate the inactive relationships as needed.\n\nWhy the others are wrong:\n- A. Three separate date tables create data redundancy and increase model size unnecessarily.\n- C. Merging dates into one column loses the distinction between order, ship, and delivery dates.\n- D. Separate data models are not needed for role-playing dimensions."
+    },
+    {
+      "id": 49,
+      "topic": "Visualizations - Small Multiples",
+      "type": "SingleChoice",
+      "questionText": "You need to display the same chart for each product category side by side for comparison. Which Power BI feature should you use?",
+      "options": [
+        "A. A single chart with a legend.",
+        "B. Small multiples.",
+        "C. A slicer.",
+        "D. Drill-through."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Small multiples create a grid of the same chart, one for each value of a dimension (like product category), enabling easy visual comparison across categories.\n\nWhy the others are wrong:\n- A. A single chart with a legend shows all categories together but makes comparison harder with many categories.\n- C. A slicer filters data but only shows one category at a time.\n- D. Drill-through navigates to a detail page but does not show side-by-side comparisons."
+    },
+    {
+      "id": 50,
+      "topic": "DAX - DIVIDE Function",
+      "type": "SingleChoice",
+      "questionText": "Why should you use the DIVIDE function instead of the division operator (/) in DAX measures?",
+      "options": [
+        "A. DIVIDE is faster than the / operator.",
+        "B. DIVIDE handles division by zero gracefully by returning BLANK or a specified alternate result instead of an error.",
+        "C. The / operator does not work in DAX.",
+        "D. DIVIDE automatically rounds the result."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. DIVIDE safely handles division by zero by returning BLANK (or a specified alternate value) instead of throwing an error. The / operator returns an error on division by zero.\n\nWhy the others are wrong:\n- A. DIVIDE is not inherently faster; the performance difference is negligible.\n- C. The / operator works in DAX but does not handle division by zero.\n- D. DIVIDE does not automatically round results."
+    },
+    {
+      "id": 51,
+      "topic": "Power Query - Fuzzy Matching",
+      "type": "SingleChoice",
+      "questionText": "You need to merge two tables in Power Query where the key columns have slight spelling variations (e.g., 'Microsoft Corp' vs 'Microsoft Corporation'). Which feature should you use?",
+      "options": [
+        "A. Standard exact merge.",
+        "B. Fuzzy merge with a similarity threshold.",
+        "C. Append queries.",
+        "D. Cross join."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fuzzy merge uses similarity algorithms to match values that are not exactly the same, with a configurable similarity threshold to control how close the match must be.\n\nWhy the others are wrong:\n- A. Standard merge requires exact matches and would not match 'Microsoft Corp' with 'Microsoft Corporation'.\n- C. Append stacks rows vertically and does not perform matching or joining.\n- D. A cross join produces a Cartesian product and does not handle fuzzy matching."
+    },
+    {
+      "id": 52,
+      "topic": "Data Modeling - Calculation Groups",
+      "type": "SingleChoice",
+      "questionText": "You have 20 measures and need to apply time intelligence patterns (YTD, QTD, MTD, PY) to each of them. What is the most efficient approach?",
+      "options": [
+        "A. Create 80 additional measures (4 time intelligence versions for each of 20 measures).",
+        "B. Use a calculation group with calculation items for each time intelligence pattern.",
+        "C. Create a separate report page for each time period.",
+        "D. Use slicers to filter by time period."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Calculation groups allow you to define time intelligence patterns once as calculation items, and they can be applied to any measure dynamically. This avoids creating dozens of redundant measures.\n\nWhy the others are wrong:\n- A. Creating 80 measures is tedious, hard to maintain, and clutters the model.\n- C. Separate pages do not provide dynamic time intelligence.\n- D. Slicers filter dates but do not apply time intelligence calculations like YTD or PY."
+    },
+    {
+      "id": 53,
+      "topic": "DAX - Variables",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of using VAR in DAX measures?",
+      "options": [
+        "A. VAR creates permanent calculated columns.",
+        "B. VAR stores intermediate results for reuse, improving readability and performance by avoiding repeated evaluation.",
+        "C. VAR creates global variables shared across measures.",
+        "D. VAR is required for all DAX expressions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. VAR defines intermediate results that are evaluated once and can be referenced multiple times with RETURN, improving both readability and performance by avoiding redundant calculations.\n\nWhy the others are wrong:\n- A. VAR does not create calculated columns; variables exist only within the scope of the expression.\n- C. Variables are scoped to the measure they are defined in, not shared globally.\n- D. VAR is optional and is a best practice, not a requirement."
+    },
+    {
+      "id": 54,
+      "topic": "Visualizations - Sync Slicers",
+      "type": "SingleChoice",
+      "questionText": "You have a multi-page report and want a date slicer on page 1 to also filter data on pages 2 and 3. What feature should you configure?",
+      "options": [
+        "A. Drill-through.",
+        "B. Sync slicers across pages.",
+        "C. Report-level filters.",
+        "D. Bookmarks."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sync slicers allow a slicer on one page to synchronize its selections across multiple pages, ensuring consistent filtering throughout the report.\n\nWhy the others are wrong:\n- A. Drill-through navigates to a detail page for a specific data point, not for cross-page filtering.\n- C. Report-level filters apply a fixed filter, not a user-interactive slicer.\n- D. Bookmarks capture page state but do not dynamically sync slicer selections."
+    },
+    {
+      "id": 55,
+      "topic": "Power Query - Unpivot",
+      "type": "SingleChoice",
+      "questionText": "You have a table with monthly sales data in columns (Jan, Feb, Mar, ..., Dec). You need to transform this into rows with Month and Sales columns. Which Power Query transformation should you use?",
+      "options": [
+        "A. Pivot Columns.",
+        "B. Unpivot Columns.",
+        "C. Transpose.",
+        "D. Group By."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Unpivot Columns converts columns into rows, creating an Attribute column (Month) and a Value column (Sales) from the monthly columns. This normalizes wide data into tall format.\n\nWhy the others are wrong:\n- A. Pivot Columns does the opposite: converting rows to columns (tall to wide).\n- C. Transpose swaps all rows and columns entirely, which is not the same as unpivoting.\n- D. Group By aggregates data, not reshapes it from wide to tall format."
+    },
+    {
+      "id": 56,
+      "topic": "Data Modeling - DirectQuery Limitations",
+      "type": "MultipleChoice",
+      "questionText": "Which two are limitations of DirectQuery mode compared to Import mode in Power BI? (Choose two.)",
+      "options": [
+        "A. Slower query performance since queries are sent to the source in real-time.",
+        "B. Some DAX functions and Power Query transformations are not supported.",
+        "C. DirectQuery cannot connect to SQL Server.",
+        "D. DirectQuery does not support data modeling."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. DirectQuery sends queries to the source for every interaction, which can be slower than in-memory Import. Additionally, some DAX functions (like certain iterators) and Power Query transformations are restricted in DirectQuery mode.\n\nWhy the others are wrong:\n- C. DirectQuery supports SQL Server; it is one of the most common DirectQuery sources.\n- D. DirectQuery supports data modeling including relationships, measures, and calculated columns (with some limitations)."
+    },
+    {
+      "id": 57,
+      "topic": "DAX - SAMEPERIODLASTYEAR",
+      "type": "SingleChoice",
+      "questionText": "You need to create a measure that compares current period sales to the same period last year. Which DAX function should you use?",
+      "options": [
+        "A. DATESYTD.",
+        "B. SAMEPERIODLASTYEAR.",
+        "C. FIRSTDATE.",
+        "D. CLOSINGBALANCEMONTH."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. SAMEPERIODLASTYEAR shifts the current date context back by one year, enabling year-over-year comparison. Used with CALCULATE, it evaluates a measure for the same period in the prior year.\n\nWhy the others are wrong:\n- A. DATESYTD returns dates from the beginning of the year to the current date, not the prior year.\n- C. FIRSTDATE returns the earliest date in context, not a shifted time period.\n- D. CLOSINGBALANCEMONTH returns the value at the end of a month, not a prior-year comparison."
+    },
+    {
+      "id": 58,
+      "topic": "Visualizations - Decomposition Tree",
+      "type": "SingleChoice",
+      "questionText": "Which Power BI visual allows users to interactively drill down into a measure across multiple dimensions to identify root causes?",
+      "options": [
+        "A. Treemap.",
+        "B. Decomposition tree.",
+        "C. Waterfall chart.",
+        "D. Funnel chart."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The decomposition tree visual enables interactive, ad-hoc exploration by letting users drill down through multiple dimensions to understand what drives a measure's value, with AI-assisted splits.\n\nWhy the others are wrong:\n- A. Treemap shows hierarchical data as nested rectangles but does not support interactive ad-hoc exploration.\n- C. Waterfall charts show cumulative sequential impacts on a value, not dimensional drill-down.\n- D. Funnel charts show stage progression, not root cause analysis."
+    },
+    {
+      "id": 59,
+      "topic": "Power Query - Data Profiling",
+      "type": "SingleChoice",
+      "questionText": "In Power Query Editor, which feature provides statistics about column quality, distribution, and patterns to help identify data issues?",
+      "options": [
+        "A. Advanced Editor.",
+        "B. Column Quality, Column Distribution, and Column Profile views.",
+        "C. Query Dependencies.",
+        "D. Applied Steps."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The View tab in Power Query Editor provides Column Quality (valid/error/empty percentages), Column Distribution (distinct/unique value counts), and Column Profile (detailed statistics) to help identify data quality issues.\n\nWhy the others are wrong:\n- A. Advanced Editor shows M code, not data profiling statistics.\n- C. Query Dependencies shows the dependency graph between queries, not column statistics.\n- D. Applied Steps shows the transformation sequence, not data quality metrics."
+    },
+    {
+      "id": 60,
+      "topic": "DAX - RANKX Function",
+      "type": "SingleChoice",
+      "questionText": "You need to rank products by their total sales amount within a report. Which DAX function should you use?",
+      "options": [
+        "A. TOPN.",
+        "B. RANKX.",
+        "C. ORDERBY.",
+        "D. SUMMARIZE."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. RANKX evaluates an expression for each row in a table and returns the rank of the current value among all values. It is ideal for ranking products by sales.\n\nWhy the others are wrong:\n- A. TOPN returns the top N rows from a table but does not assign rank numbers.\n- C. ORDERBY is used within WINDOW functions, not as a standalone ranking function.\n- D. SUMMARIZE creates summary tables but does not assign rankings."
+    },
+    {
+      "id": 61,
+      "topic": "Workspaces - Sensitivity Labels",
+      "type": "SingleChoice",
+      "questionText": "How can you protect sensitive Power BI content from unauthorized distribution?",
+      "options": [
+        "A. By using page-level filters.",
+        "B. By applying Microsoft Information Protection sensitivity labels to datasets, reports, and dashboards.",
+        "C. By password-protecting the PBIX file.",
+        "D. By hiding the workspace."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sensitivity labels from Microsoft Information Protection (MIP) can be applied to Power BI content, providing persistent data protection that travels with the content, including encryption and usage restrictions when exported.\n\nWhy the others are wrong:\n- A. Page-level filters restrict data display but do not protect against unauthorized distribution.\n- C. PBIX password protection is limited to the file and does not apply in the Power BI service.\n- D. Hiding a workspace does not prevent members from distributing content."
+    },
+    {
+      "id": 62,
+      "topic": "Power Query - Native Database Query",
+      "type": "SingleChoice",
+      "questionText": "In Power Query, how can you run a custom SQL query against a SQL Server data source?",
+      "options": [
+        "A. You cannot use custom SQL in Power Query.",
+        "B. By entering the SQL statement in the 'Advanced options' section of the SQL Server connection dialog.",
+        "C. By writing the SQL in a separate text file.",
+        "D. By using the DAX query view."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When connecting to SQL Server in Power Query, the Advanced options section allows you to enter a native SQL query that is sent directly to the database engine.\n\nWhy the others are wrong:\n- A. Power Query supports native SQL queries for many database sources.\n- C. While possible programmatically, the standard approach is the connection dialog.\n- D. DAX query view is for writing DAX queries against the data model, not SQL against the source."
+    },
+    {
+      "id": 63,
+      "topic": "DAX - CROSSFILTER Function",
+      "type": "SingleChoice",
+      "questionText": "You have a bidirectional relationship between Sales and Products tables. You want a measure that temporarily changes the cross-filter direction to single direction. Which function should you use?",
+      "options": [
+        "A. USERELATIONSHIP.",
+        "B. CROSSFILTER.",
+        "C. TREATAS.",
+        "D. REMOVEFILTERS."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. CROSSFILTER modifies the cross-filter direction of a relationship within a CALCULATE expression, allowing you to temporarily change between Single, Both, or None directions.\n\nWhy the others are wrong:\n- A. USERELATIONSHIP activates an inactive relationship but does not change cross-filter direction.\n- C. TREATAS applies a virtual relationship using column values but does not modify existing relationship properties.\n- D. REMOVEFILTERS clears filters from columns/tables but does not change cross-filter direction."
+    },
+    {
+      "id": 64,
+      "topic": "Visualizations - Q&A Visual",
+      "type": "MultipleChoice",
+      "questionText": "Which two benefits does the Q&A visual in Power BI provide? (Choose two.)",
+      "options": [
+        "A. Allows users to ask natural language questions about the data.",
+        "B. Automatically generates appropriate visualizations based on the question.",
+        "C. Replaces the need for all other visuals.",
+        "D. Executes SQL queries directly on the source database."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The Q&A visual lets users type natural language questions and automatically generates appropriate visualizations (charts, tables, cards) based on the query and data model.\n\nWhy the others are wrong:\n- C. Q&A supplements other visuals for ad-hoc exploration; it does not replace designed visuals.\n- D. Q&A generates DAX queries against the data model, not SQL against the source."
+    },
+    {
+      "id": 65,
+      "topic": "Data Modeling - Performance Analyzer",
+      "type": "SingleChoice",
+      "questionText": "You need to identify which visuals are causing slow report rendering. Which Power BI Desktop tool should you use?",
+      "options": [
+        "A. Query Editor.",
+        "B. Performance Analyzer.",
+        "C. Model View.",
+        "D. Data View."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Performance Analyzer records the time each visual takes to render, including DAX query execution time and visual rendering time, helping identify performance bottlenecks.\n\nWhy the others are wrong:\n- A. Query Editor is for data transformation, not visual performance analysis.\n- C. Model View shows the data model structure, not performance metrics.\n- D. Data View shows the data in tables, not visual rendering performance."
     }
   ]
 }

@@ -566,6 +566,358 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. Intune enrollment restrictions allow you to block personally owned devices by platform. You can create a device type restriction that allows Android Enterprise enrollment but blocks personally owned Android devices.\n\nWhy the others are wrong:\n- A. Compliance policies evaluate already-enrolled devices; they cannot prevent enrollment.\n- C. Conditional Access can require compliant devices but cannot directly prevent personal device enrollment.\n- D. App protection policies protect data within apps but do not control device enrollment."
+    },
+    {
+      "id": 41,
+      "topic": "Tenant Management - Microsoft 365 Backup",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to protect Exchange Online mailboxes, SharePoint Online sites, and OneDrive accounts from accidental deletion and ransomware. Which native Microsoft 365 feature should you configure?",
+      "options": [
+        "A. Microsoft 365 Backup in the Microsoft 365 admin center.",
+        "B. Exchange Online litigation hold on all mailboxes.",
+        "C. Azure Backup with a Recovery Services vault.",
+        "D. OneDrive file versioning."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Microsoft 365 Backup is a native backup solution available in the Microsoft 365 admin center that provides backup and restore capabilities for Exchange Online mailboxes, SharePoint Online sites, and OneDrive accounts.\n\nWhy the others are wrong:\n- B. Litigation hold preserves content for legal purposes but is not a backup and restore solution for disaster recovery.\n- C. Azure Backup with Recovery Services vaults is for Azure resources and on-premises workloads, not Microsoft 365 SaaS data.\n- D. OneDrive file versioning helps recover individual file versions but does not provide comprehensive backup across Exchange, SharePoint, and OneDrive."
+    },
+    {
+      "id": 42,
+      "topic": "Identity Synchronization - Microsoft Entra Cloud Sync",
+      "type": "SingleChoice",
+      "questionText": "You need to synchronize users from multiple disconnected Active Directory forests to a single Microsoft Entra tenant. The synchronization must be lightweight and managed from the cloud. Which solution should you use?",
+      "options": [
+        "A. Azure AD Connect with multiple instances.",
+        "B. Microsoft Entra Cloud Sync with lightweight agents in each forest.",
+        "C. Active Directory Federation Services across forests.",
+        "D. LDAP connector in Azure AD."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Entra Cloud Sync uses lightweight provisioning agents installed in each forest, with configuration managed entirely from the cloud. It supports multi-forest scenarios and is simpler to deploy than Azure AD Connect for this topology.\n\nWhy the others are wrong:\n- A. Azure AD Connect does not support multiple instances synchronizing to the same tenant in standard configurations.\n- C. AD FS provides federated authentication but does not synchronize user objects to Entra ID.\n- D. There is no native LDAP connector in Azure AD for multi-forest synchronization."
+    },
+    {
+      "id": 43,
+      "topic": "Security Policies - Microsoft Secure Score",
+      "type": "SingleChoice",
+      "questionText": "You want to improve your organization's security posture by following recommended actions. Which Microsoft tool provides a numerical score and prioritized security recommendations across Microsoft 365 services?",
+      "options": [
+        "A. Microsoft Sentinel threat dashboard.",
+        "B. Microsoft Secure Score in the Microsoft Defender portal.",
+        "C. Azure Advisor security recommendations.",
+        "D. Microsoft Purview compliance score."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Secure Score, accessible from the Microsoft Defender portal, provides a numerical security score and prioritized improvement actions across Microsoft 365 services including identity, devices, apps, and data.\n\nWhy the others are wrong:\n- A. Microsoft Sentinel is a SIEM for security event management, not a security posture scoring tool for Microsoft 365.\n- C. Azure Advisor provides recommendations for Azure resources, not Microsoft 365 services.\n- D. Microsoft Purview compliance score measures compliance posture against regulatory standards, not general security configuration."
+    },
+    {
+      "id": 44,
+      "topic": "Compliance - Sensitivity Labels",
+      "type": "MultipleChoice",
+      "questionText": "You need to apply sensitivity labels to Microsoft 365 groups, Teams, and SharePoint sites to control external sharing and privacy settings. Which two prerequisites must be met? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Enable sensitivity labels for containers in the Microsoft Entra admin center using PowerShell.",
+        "B. Create and publish sensitivity labels scoped to Groups & sites.",
+        "C. Assign Microsoft 365 E1 licenses to all users.",
+        "D. Deploy Azure Information Protection unified labeling client.",
+        "E. Enable audit logging in the Microsoft Purview compliance portal."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. You must first enable sensitivity labels for Microsoft 365 groups/Teams/sites using PowerShell (Set-AzureADGroup cmdlets), and then create sensitivity labels scoped to 'Groups & sites' in the Microsoft Purview compliance portal.\n\nWhy the others are wrong:\n- C. E1 licenses do not include the required sensitivity label features; you need at least E3 or the appropriate add-on.\n- D. The AIP unified labeling client is for on-premises file labeling, not for labeling Microsoft 365 groups and sites.\n- E. Audit logging is recommended but not a specific prerequisite for enabling sensitivity labels on containers."
+    },
+    {
+      "id": 45,
+      "topic": "Device Management - Microsoft Entra Registered Devices",
+      "type": "SingleChoice",
+      "questionText": "An employee wants to access corporate resources from their personal Windows device without enrolling it in Intune. Which device registration type allows basic access with app protection policies?",
+      "options": [
+        "A. Microsoft Entra joined.",
+        "B. Hybrid Microsoft Entra joined.",
+        "C. Microsoft Entra registered (Workplace joined).",
+        "D. Intune device enrollment with device administrator."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Microsoft Entra registered (formerly Workplace joined) allows personal devices to register with Entra ID without full device management. Combined with app protection policies, this provides basic access to corporate resources on personal devices.\n\nWhy the others are wrong:\n- A. Entra joined devices are corporate-owned and fully managed by the organization.\n- B. Hybrid Entra join requires the device to be domain-joined to on-premises AD, which is not typical for personal devices.\n- D. Full Intune enrollment gives the organization management control over the device, which the employee wants to avoid."
+    },
+    {
+      "id": 46,
+      "topic": "Tenant Management - Administrative Units",
+      "type": "SingleChoice",
+      "questionText": "Your organization has regional IT teams that should only manage users in their respective countries. You need to delegate user management without giving them access to all users. What should you configure?",
+      "options": [
+        "A. Create separate Microsoft 365 tenants for each region.",
+        "B. Create administrative units in Microsoft Entra ID scoped to each region and assign scoped admin roles.",
+        "C. Create security groups for each region and assign Global Administrator to group owners.",
+        "D. Configure Conditional Access policies per region."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Administrative units allow you to scope admin roles to a subset of users. You create an administrative unit for each region, add the regional users, and assign roles (like User Administrator) scoped to that administrative unit.\n\nWhy the others are wrong:\n- A. Separate tenants would fragment the organization and create management complexity.\n- C. Assigning Global Administrator is far too broad and does not limit management to specific users.\n- D. Conditional Access controls access to resources, not delegation of administrative tasks."
+    },
+    {
+      "id": 47,
+      "topic": "Security Policies - Microsoft Defender for Cloud Apps",
+      "type": "SingleChoice",
+      "questionText": "You need to discover and assess shadow IT by identifying unsanctioned cloud applications being used in your organization. Which Microsoft Defender XDR component should you use?",
+      "options": [
+        "A. Microsoft Defender for Endpoint.",
+        "B. Microsoft Defender for Cloud Apps with Cloud Discovery.",
+        "C. Microsoft Defender for Identity.",
+        "D. Microsoft Defender for Office 365."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Defender for Cloud Apps includes Cloud Discovery, which analyzes traffic logs to discover and assess cloud applications being used in the organization. It identifies sanctioned and unsanctioned (shadow IT) apps and provides risk assessments.\n\nWhy the others are wrong:\n- A. Defender for Endpoint protects endpoints from threats but does not provide cloud app discovery and assessment.\n- C. Defender for Identity monitors on-premises AD for identity-based threats, not cloud app usage.\n- D. Defender for Office 365 protects against email and collaboration threats, not shadow IT discovery."
+    },
+    {
+      "id": 48,
+      "topic": "Identity Synchronization - IdFix Tool",
+      "type": "SingleChoice",
+      "questionText": "Before deploying Azure AD Connect, you need to identify and fix directory synchronization errors in your on-premises Active Directory. Which tool should you run?",
+      "options": [
+        "A. Active Directory Users and Computers.",
+        "B. IdFix tool.",
+        "C. Azure AD Connect Health.",
+        "D. LDP.exe."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The IdFix tool scans your on-premises Active Directory for common synchronization errors such as duplicate attributes, invalid characters, format violations, and other issues that would cause sync failures. Running it before deploying Azure AD Connect helps prevent synchronization problems.\n\nWhy the others are wrong:\n- A. ADUC is a general AD management tool but does not specifically scan for synchronization compatibility issues.\n- C. Azure AD Connect Health monitors sync health after deployment, not before.\n- D. LDP.exe is a low-level LDAP browser tool, not designed for identifying sync errors."
+    },
+    {
+      "id": 49,
+      "topic": "Compliance - Data Loss Prevention Endpoint",
+      "type": "SingleChoice",
+      "questionText": "You need to prevent users from copying sensitive files from their Windows 11 devices to USB drives. The devices are enrolled in Intune. Which solution should you configure?",
+      "options": [
+        "A. A DLP policy for Exchange Online.",
+        "B. Endpoint DLP in Microsoft Purview targeting Windows devices.",
+        "C. BitLocker encryption on USB drives.",
+        "D. An Intune device restriction profile blocking USB storage."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Endpoint DLP extends Microsoft Purview DLP to Windows endpoints. It can monitor and restrict actions on sensitive files, including copying to USB drives, based on sensitive information types detected in the files.\n\nWhy the others are wrong:\n- A. Exchange Online DLP only monitors email content, not local file operations on endpoints.\n- C. BitLocker encrypts the USB drive but does not prevent sensitive files from being copied to it.\n- D. Blocking all USB storage via Intune is too broad; Endpoint DLP allows selective blocking only for files containing sensitive information."
+    },
+    {
+      "id": 50,
+      "topic": "Security Policies - Conditional Access - Risk-Based",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically block sign-ins that are determined to be high risk by Microsoft Entra ID Protection. What should you configure?",
+      "options": [
+        "A. A Conditional Access policy with the sign-in risk condition set to High and the grant control set to Block access.",
+        "B. A Microsoft Defender for Endpoint alert rule.",
+        "C. An Azure Sentinel analytics rule.",
+        "D. A DLP policy for sign-in protection."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Conditional Access policies can use sign-in risk as a condition. Setting the sign-in risk level to High with a Block access grant control automatically blocks high-risk sign-in attempts detected by Entra ID Protection.\n\nWhy the others are wrong:\n- B. Defender for Endpoint alerts are for endpoint threats, not sign-in risk management.\n- C. Sentinel analytics rules create incidents for investigation but do not automatically block sign-ins.\n- D. DLP policies protect data, not sign-in sessions."
+    },
+    {
+      "id": 51,
+      "topic": "Tenant Management - Microsoft 365 Network Connectivity",
+      "type": "SingleChoice",
+      "questionText": "You need to assess and optimize the network connectivity from your office locations to Microsoft 365 services. Which tool in the Microsoft 365 admin center provides connectivity insights and recommendations?",
+      "options": [
+        "A. Service health dashboard.",
+        "B. Network connectivity insights under Health in the Microsoft 365 admin center.",
+        "C. Azure Network Watcher.",
+        "D. Microsoft Teams Network Assessment Tool."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Network connectivity section in the Microsoft 365 admin center provides insights into network performance to Microsoft 365 services from your office locations, with recommendations for improving connectivity.\n\nWhy the others are wrong:\n- A. Service health shows service-level incidents, not per-location network connectivity analysis.\n- C. Azure Network Watcher is for Azure virtual network diagnostics, not Microsoft 365 SaaS connectivity.\n- D. The Teams Network Assessment Tool specifically tests Teams media connectivity, not overall Microsoft 365 network performance."
+    },
+    {
+      "id": 52,
+      "topic": "Identity Synchronization - SSPR",
+      "type": "SingleChoice",
+      "questionText": "You want users to be able to reset their own passwords without calling the help desk. The password change should also update their on-premises Active Directory password. Which two features must you enable?",
+      "options": [
+        "A. Self-Service Password Reset (SSPR) in Microsoft Entra ID and password writeback in Azure AD Connect.",
+        "B. SSPR and Azure AD Application Proxy.",
+        "C. Password hash synchronization only.",
+        "D. Windows Hello for Business."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Self-Service Password Reset allows users to reset their passwords through the Microsoft Entra ID portal. Password writeback (configured in Azure AD Connect) synchronizes the new password back to on-premises Active Directory, ensuring both directories are updated.\n\nWhy the others are wrong:\n- B. Application Proxy publishes on-premises web applications; it has nothing to do with password reset.\n- C. Password hash synchronization sends on-premises password hashes to the cloud but does not enable self-service password reset or writeback.\n- D. Windows Hello for Business provides passwordless authentication but does not address self-service password reset."
+    },
+    {
+      "id": 53,
+      "topic": "Security Policies - Anti-Phishing Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to protect your organization's executives from impersonation attacks where attackers spoof their email addresses. Which Microsoft Defender for Office 365 feature should you configure?",
+      "options": [
+        "A. Safe Attachments policy.",
+        "B. Anti-phishing policy with user impersonation protection.",
+        "C. Anti-spam policy with high confidence spam settings.",
+        "D. DKIM signing for outbound email."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Anti-phishing policies in Defender for Office 365 include user impersonation protection that specifically protects designated users (like executives) from impersonation attacks where attackers use similar-looking email addresses or display names.\n\nWhy the others are wrong:\n- A. Safe Attachments scans attachments for malware but does not detect impersonation of specific users.\n- C. Anti-spam policies filter unwanted bulk mail, not targeted impersonation attacks.\n- D. DKIM signing validates outbound email authenticity but does not protect against inbound impersonation of executives."
+    },
+    {
+      "id": 54,
+      "topic": "Compliance - Retention Labels with Disposition Review",
+      "type": "SingleChoice",
+      "questionText": "A regulatory requirement states that financial records must be retained for 7 years and then manually reviewed before being deleted. Which Microsoft Purview feature supports this requirement?",
+      "options": [
+        "A. A retention policy with auto-delete after 7 years.",
+        "B. A retention label with a 7-year retention period and disposition review action.",
+        "C. An eDiscovery hold with a 7-year duration.",
+        "D. A litigation hold on the finance department mailboxes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Retention labels support disposition review, which triggers a review process at the end of the retention period. Reviewers can then decide to extend retention, apply a different label, or permanently delete the content.\n\nWhy the others are wrong:\n- A. Retention policies auto-delete after the period and do not support disposition review.\n- C. eDiscovery holds preserve content indefinitely for legal purposes; they do not have a built-in retention period or disposition review.\n- D. Litigation hold preserves content indefinitely and does not provide time-bound retention with review."
+    },
+    {
+      "id": 55,
+      "topic": "Device Management - Conditional Access with App Protection",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that users can only access Exchange Online from mobile devices using an approved app like Microsoft Outlook. What type of Conditional Access grant control should you use?",
+      "options": [
+        "A. Require device to be marked as compliant.",
+        "B. Require approved client app.",
+        "C. Require multifactor authentication.",
+        "D. Require password change."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Require approved client app' grant control in Conditional Access restricts access to services like Exchange Online to only apps that are on Microsoft's approved client app list (which includes Outlook). This works on both enrolled and unenrolled devices.\n\nWhy the others are wrong:\n- A. Requiring device compliance means the device must be enrolled in Intune and meet compliance policy requirements, which may not be desired for personal devices.\n- C. MFA adds a second authentication factor but does not restrict which app is used to access the service.\n- D. Requiring password change forces users to update their password but does not restrict app usage."
+    },
+    {
+      "id": 56,
+      "topic": "Tenant Management - PowerShell Bulk Operations",
+      "type": "SingleChoice",
+      "questionText": "You need to create 500 user accounts in Microsoft 365 from a CSV file. Which approach is the most efficient?",
+      "options": [
+        "A. Create each user manually in the Microsoft 365 admin center.",
+        "B. Use the Microsoft 365 admin center bulk user import feature or Microsoft Graph PowerShell to import users from a CSV file.",
+        "C. Use Azure AD Connect to sync from Active Directory.",
+        "D. Create users through the Exchange admin center."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft 365 admin center supports bulk user creation via CSV import, and Microsoft Graph PowerShell (New-MgUser with Import-Csv) enables scripted bulk operations. Both approaches efficiently handle 500 users.\n\nWhy the others are wrong:\n- A. Creating 500 users manually is extremely time-consuming and error-prone.\n- C. Azure AD Connect synchronizes from on-premises AD, which assumes these users already exist on-premises. The question states creating new users.\n- D. The Exchange admin center does not support bulk user creation for Microsoft 365."
+    },
+    {
+      "id": 57,
+      "topic": "Security Policies - Threat Policies",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure Safe Attachments for your organization. Which two delivery options are available for email messages with suspicious attachments? Each correct answer presents a complete option.",
+      "options": [
+        "A. Block - Prevent delivery of messages with detected malware attachments.",
+        "B. Dynamic Delivery - Deliver the message body immediately and replace attachments with placeholders until scanning completes.",
+        "C. Forward - Forward all attachments to an external sandbox for analysis.",
+        "D. Encrypt - Encrypt suspicious attachments and deliver them.",
+        "E. Delete - Silently discard the attachment without notifying the sender."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Safe Attachments supports Block (prevent delivery of malicious messages) and Dynamic Delivery (deliver message body immediately while attachments are scanned in a sandbox, replacing them with placeholders until scanning completes).\n\nWhy the others are wrong:\n- C. There is no 'Forward to external sandbox' option; scanning occurs in Microsoft's detonation sandbox.\n- D. Encrypting suspicious attachments is not a Safe Attachments delivery option.\n- E. While Safe Attachments can prevent delivery, 'silently discard without notifying' is not a named option."
+    },
+    {
+      "id": 58,
+      "topic": "Compliance - Information Barriers",
+      "type": "SingleChoice",
+      "questionText": "Your law firm needs to prevent attorneys working on Case A from communicating with attorneys working on Case B through Teams and SharePoint. Which Microsoft Purview feature should you implement?",
+      "options": [
+        "A. Data Loss Prevention policies.",
+        "B. Information Barriers.",
+        "C. Sensitivity labels.",
+        "D. Communication Compliance."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Information Barriers define segments of users and policies that block communication between specific segments. This prevents Teams chat, calls, meeting invitations, and SharePoint sharing between the defined groups.\n\nWhy the others are wrong:\n- A. DLP policies detect and protect sensitive information but do not block communication between user groups.\n- C. Sensitivity labels classify and protect content but do not restrict which users can communicate with each other.\n- D. Communication Compliance monitors communications for policy violations but does not block communication between user groups."
+    },
+    {
+      "id": 59,
+      "topic": "Identity Synchronization - Troubleshooting Export Errors",
+      "type": "SingleChoice",
+      "questionText": "Azure AD Connect sync shows 'export errors' in the synchronization dashboard. Many user objects are failing to export to Microsoft Entra ID. Which tool should you use to investigate the specific export errors?",
+      "options": [
+        "A. Event Viewer on the Azure AD Connect server.",
+        "B. Synchronization Service Manager, viewing the export run profile details.",
+        "C. Azure AD Connect Health in the Azure portal.",
+        "D. Microsoft Entra admin center sign-in logs."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Synchronization Service Manager (miisclient.exe) on the Azure AD Connect server shows detailed run profile results including specific export errors, affected objects, and error descriptions. This is the primary troubleshooting tool for sync export errors.\n\nWhy the others are wrong:\n- A. Event Viewer may contain some synchronization events but does not provide the detailed per-object error information.\n- C. Azure AD Connect Health provides high-level monitoring and alerts but does not show individual object-level export error details.\n- D. Sign-in logs show authentication events, not directory synchronization export errors."
+    },
+    {
+      "id": 60,
+      "topic": "Security Policies - Microsoft Defender for Endpoint Onboarding",
+      "type": "SingleChoice",
+      "questionText": "You need to onboard 1,000 Windows 11 devices to Microsoft Defender for Endpoint. The devices are managed by Microsoft Intune. What is the recommended onboarding method?",
+      "options": [
+        "A. Run a local onboarding script on each device.",
+        "B. Create an endpoint detection and response (EDR) policy in Intune to deploy the Defender for Endpoint configuration.",
+        "C. Install the Microsoft Monitoring Agent on each device.",
+        "D. Use Group Policy to deploy the onboarding package."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. For Intune-managed devices, the recommended method is to create an EDR policy in Intune that deploys the Defender for Endpoint onboarding configuration to all targeted devices. This scales automatically to all managed devices.\n\nWhy the others are wrong:\n- A. Running local scripts on 1,000 devices is not scalable and requires physical or remote access to each device.\n- C. The Microsoft Monitoring Agent (MMA) is deprecated for Defender for Endpoint onboarding on modern Windows devices; the unified agent is used instead.\n- D. Group Policy can be used but Intune is the recommended method when devices are already Intune-managed."
+    },
+    {
+      "id": 61,
+      "topic": "Tenant Management - Software Updates in Admin Center",
+      "type": "SingleChoice",
+      "questionText": "You need to monitor and manage the deployment of Microsoft 365 Apps updates across your organization from a central location. Where should you go?",
+      "options": [
+        "A. Windows Update for Business in Intune.",
+        "B. The Software updates page in the Microsoft 365 admin center.",
+        "C. Azure Update Manager.",
+        "D. SharePoint admin center."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft 365 admin center includes a Software updates section where administrators can monitor and manage Microsoft 365 Apps update deployments, view update readiness, and configure update channels and rollout waves.\n\nWhy the others are wrong:\n- A. Windows Update for Business manages Windows OS updates, not Microsoft 365 Apps updates.\n- C. Azure Update Manager handles updates for Azure VMs and Arc-enabled servers, not Microsoft 365 Apps.\n- D. The SharePoint admin center manages SharePoint Online settings and has no software update management capabilities."
+    },
+    {
+      "id": 62,
+      "topic": "Compliance - Content Explorer",
+      "type": "SingleChoice",
+      "questionText": "You need to verify that your sensitivity labels and sensitive information types are being correctly identified across your organization's content. Which tool in Microsoft Purview provides visibility into labeled and sensitive content?",
+      "options": [
+        "A. Audit log search.",
+        "B. Content Explorer.",
+        "C. eDiscovery Content Search.",
+        "D. Microsoft Defender Threat Explorer."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Content Explorer in Microsoft Purview provides a snapshot view of items that have sensitivity labels, retention labels, or have been classified as sensitive information types. It allows you to drill into the content to verify correct classification.\n\nWhy the others are wrong:\n- A. Audit log search shows user and admin activities but does not show a content classification inventory.\n- C. eDiscovery Content Search finds content based on keywords and conditions but is not designed for viewing label classification status.\n- D. Threat Explorer shows email threats and is unrelated to content classification."
+    },
+    {
+      "id": 63,
+      "topic": "Security Policies - Incident Management",
+      "type": "SingleChoice",
+      "questionText": "A Microsoft Defender XDR incident has been created that correlates alerts from Defender for Endpoint and Defender for Office 365. Where should you investigate and manage this incident?",
+      "options": [
+        "A. The Microsoft 365 admin center.",
+        "B. The Microsoft Defender portal incident queue.",
+        "C. The Microsoft Purview compliance portal.",
+        "D. The Azure portal Security Center."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft Defender portal provides a unified incident queue where correlated alerts from all Defender XDR products (Endpoint, Office 365, Identity, Cloud Apps) are combined into incidents for investigation and response.\n\nWhy the others are wrong:\n- A. The Microsoft 365 admin center manages tenant settings, not security incidents.\n- C. The Purview compliance portal manages compliance features, not security incident investigation.\n- D. Azure Security Center (now Defender for Cloud) manages Azure resource security, not Microsoft 365 Defender XDR incidents."
+    },
+    {
+      "id": 64,
+      "topic": "Tenant Management - Monitoring Adoption",
+      "type": "SingleChoice",
+      "questionText": "Your CIO wants a report showing how many users are actively using Teams, Exchange, SharePoint, and OneDrive. Where can you find this information?",
+      "options": [
+        "A. Microsoft 365 admin center > Reports > Usage.",
+        "B. Microsoft Entra admin center > Users > Activity.",
+        "C. Teams admin center > Analytics.",
+        "D. Azure Monitor > Metrics."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Usage reports in the Microsoft 365 admin center provide comprehensive adoption and usage data across all Microsoft 365 services including Teams, Exchange, SharePoint, OneDrive, and more with active user counts and activity metrics.\n\nWhy the others are wrong:\n- B. Entra admin center shows sign-in activity but not service-level usage across all Microsoft 365 workloads.\n- C. Teams admin center analytics only covers Teams usage, not Exchange, SharePoint, or OneDrive.\n- D. Azure Monitor is for monitoring Azure resources, not Microsoft 365 service adoption."
+    },
+    {
+      "id": 65,
+      "topic": "Identity Synchronization - Entra Connect Health",
+      "type": "SingleChoice",
+      "questionText": "You need proactive monitoring and email alerts when your Azure AD Connect synchronization fails or has errors. Which service should you use?",
+      "options": [
+        "A. Azure Monitor with Log Analytics.",
+        "B. Microsoft Entra Connect Health.",
+        "C. Windows Event Forwarding.",
+        "D. System Center Operations Manager."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Entra Connect Health provides monitoring for Azure AD Connect synchronization (and AD FS if used). It sends email alerts for sync failures, errors, and health issues, and provides a dashboard in the Azure portal showing sync status.\n\nWhy the others are wrong:\n- A. Azure Monitor can be configured for custom monitoring but Entra Connect Health is the purpose-built solution for Azure AD Connect monitoring.\n- C. Windows Event Forwarding collects Windows events but does not provide the Azure AD Connect-specific health monitoring and alerting.\n- D. SCOM is an on-premises monitoring solution that does not natively monitor Azure AD Connect cloud sync health."
     }
   ]
 }

@@ -361,6 +361,231 @@
       "options": ["A. Ensuring data quality and accuracy.", "B. Increasing the speed of database queries.", "C. Defining data ownership and stewardship.", "D. Reducing the cost of cloud storage."],
       "correctAnswers": ["A", "C"],
       "explanation": "A is correct because ensuring data quality and accuracy is a core aspect of data governance, which involves managing the availability, usability, integrity, and security of data.\n\nC is correct because defining data ownership and stewardship ensures accountability for data assets and is a fundamental component of data governance.\n\nB is incorrect because query performance optimization is a database administration task, not a governance concern.\n\nD is incorrect because reducing storage costs is a cost management concern, not specifically a data governance aspect."
+    },
+    {
+      "id": 41,
+      "topic": "Core Data Concepts - Database types",
+      "type": "SingleChoice",
+      "questionText": "Which type of database is optimized for Online Analytical Processing (OLAP) and typically uses a denormalized schema?",
+      "options": ["A. A transactional database.", "B. An analytical database.", "C. A graph database.", "D. A key-value database."],
+      "correctAnswers": ["B"],
+      "explanation": "An analytical database (OLAP) is optimized for complex analytical queries over large volumes of historical data. It typically uses a denormalized schema such as star or snowflake to improve query performance for aggregations and reporting.\n\nA is incorrect because a transactional database (OLTP) uses a normalized schema optimized for high-frequency insert, update, and delete operations.\n\nC is incorrect because a graph database is optimized for traversing relationships between entities, not analytical aggregations.\n\nD is incorrect because a key-value database is optimized for simple lookups by key, not complex analytical queries."
+    },
+    {
+      "id": 42,
+      "topic": "Core Data Concepts - Data file formats",
+      "type": "SingleChoice",
+      "questionText": "Which file format is a row-based, optimized file format commonly used in the Hadoop ecosystem for serializing data?",
+      "options": ["A. Parquet.", "B. Avro.", "C. CSV.", "D. JSON."],
+      "correctAnswers": ["B"],
+      "explanation": "Avro is a row-based data serialization format commonly used in the Hadoop ecosystem. It stores data with its schema, making it efficient for write-heavy operations and data serialization.\n\nA is incorrect because Parquet is a columnar storage format, not row-based.\n\nC is incorrect because CSV is a simple text-based format without serialization optimization.\n\nD is incorrect because JSON is a text-based semi-structured format, not an optimized serialization format."
+    },
+    {
+      "id": 43,
+      "topic": "Relational Data - Azure SQL Managed Instance",
+      "type": "SingleChoice",
+      "questionText": "An organization needs to migrate an on-premises SQL Server database to Azure with near-100% engine compatibility, including support for SQL Server Agent, cross-database queries, and CLR. Which Azure service should they choose?",
+      "options": ["A. Azure SQL Database.", "B. Azure SQL Managed Instance.", "C. SQL Server on Azure Virtual Machines.", "D. Azure Database for PostgreSQL."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure SQL Managed Instance provides near-100% compatibility with the on-premises SQL Server engine as a managed PaaS service. It supports features like SQL Server Agent, cross-database queries, CLR, and database mail that are not available in Azure SQL Database.\n\nA is incorrect because Azure SQL Database does not support some instance-scoped features like SQL Server Agent, cross-database queries, or CLR.\n\nC is incorrect because while SQL Server on Azure VMs provides full compatibility, it is an IaaS solution that requires you to manage the OS and SQL Server, not a fully managed service.\n\nD is incorrect because Azure Database for PostgreSQL is based on PostgreSQL, not SQL Server."
+    },
+    {
+      "id": 44,
+      "topic": "Relational Data - SQL Server on Azure VMs",
+      "type": "SingleChoice",
+      "questionText": "Which Azure SQL deployment option gives you full control over the SQL Server engine and the underlying operating system?",
+      "options": ["A. Azure SQL Database.", "B. Azure SQL Managed Instance.", "C. SQL Server on Azure Virtual Machines.", "D. Azure Cosmos DB for NoSQL."],
+      "correctAnswers": ["C"],
+      "explanation": "SQL Server on Azure Virtual Machines is an IaaS offering that provides full control over both the SQL Server engine and the underlying operating system. It is ideal for lift-and-shift migrations or when you need OS-level access.\n\nA is incorrect because Azure SQL Database is a PaaS service where Microsoft manages the underlying infrastructure.\n\nB is incorrect because Azure SQL Managed Instance is a PaaS service that manages the OS and most engine maintenance for you.\n\nD is incorrect because Azure Cosmos DB for NoSQL is a NoSQL database, not a SQL Server deployment."
+    },
+    {
+      "id": 45,
+      "topic": "Non-Relational Data - Azure File Storage",
+      "type": "SingleChoice",
+      "questionText": "Which Azure storage service provides fully managed file shares that can be accessed via the Server Message Block (SMB) protocol?",
+      "options": ["A. Azure Blob Storage.", "B. Azure Files.", "C. Azure Table Storage.", "D. Azure Queue Storage."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Files provides fully managed file shares in the cloud that are accessible via the SMB protocol (and NFS protocol). They can be mounted concurrently by cloud or on-premises deployments and are useful for replacing or extending on-premises file servers.\n\nA is incorrect because Azure Blob Storage is for unstructured object data and is accessed via REST APIs, not SMB.\n\nC is incorrect because Azure Table Storage is a NoSQL key-value store, not a file share service.\n\nD is incorrect because Azure Queue Storage is for message queuing between application components."
+    },
+    {
+      "id": 46,
+      "topic": "Non-Relational Data - Blob access tiers",
+      "type": "SingleChoice",
+      "questionText": "Which Azure Blob Storage access tier offers the lowest storage cost but the highest access cost, intended for data that is rarely accessed and stored for at least 180 days?",
+      "options": ["A. Hot tier.", "B. Cool tier.", "C. Cold tier.", "D. Archive tier."],
+      "correctAnswers": ["D"],
+      "explanation": "The Archive tier has the lowest storage cost of all tiers but the highest access cost and latency. Data must be stored for at least 180 days and must be rehydrated before it can be accessed, making it suitable for long-term backup and archival data.\n\nA is incorrect because the Hot tier has the highest storage cost but the lowest access cost, optimized for frequently accessed data.\n\nB is incorrect because the Cool tier has lower storage costs than Hot but higher access costs, intended for infrequently accessed data stored for at least 30 days.\n\nC is incorrect because the Cold tier is between Cool and Archive; it has lower storage costs than Cool but higher than Archive, intended for data stored at least 90 days."
+    },
+    {
+      "id": 47,
+      "topic": "Non-Relational Data - Azure Cosmos DB use cases",
+      "type": "SingleChoice",
+      "questionText": "Which scenario is best suited for Azure Cosmos DB?",
+      "options": ["A. Running complex SQL joins across multiple normalized tables.", "B. A globally distributed application that requires single-digit millisecond response times and guaranteed availability.", "C. Hosting a traditional ERP system with stored procedures and triggers.", "D. Generating monthly financial reports from historical data."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Cosmos DB is designed for globally distributed applications requiring low-latency access (single-digit milliseconds), guaranteed high availability (99.999% SLA with multi-region writes), and elastic scalability. It is ideal for IoT, gaming, retail, and web/mobile applications.\n\nA is incorrect because complex SQL joins across normalized tables are characteristic of relational databases, not Cosmos DB.\n\nC is incorrect because traditional ERP systems with stored procedures and triggers are typically hosted on relational database engines like SQL Server.\n\nD is incorrect because monthly report generation is a typical analytical workload suited for data warehouses, not Cosmos DB."
+    },
+    {
+      "id": 48,
+      "topic": "Analytics - Microsoft Fabric",
+      "type": "SingleChoice",
+      "questionText": "Which Microsoft service is an end-to-end analytics platform that unifies data engineering, data warehousing, real-time analytics, data science, and business intelligence into a single SaaS experience?",
+      "options": ["A. Azure Synapse Analytics.", "B. Microsoft Fabric.", "C. Azure Data Factory.", "D. Azure HDInsight."],
+      "correctAnswers": ["B"],
+      "explanation": "Microsoft Fabric is a unified, end-to-end analytics SaaS platform that brings together data engineering, data warehousing, real-time analytics, data science, and business intelligence. It uses OneLake as a single data lake for the entire organization.\n\nA is incorrect because Azure Synapse Analytics is an integrated analytics service but is a PaaS offering, not the unified SaaS platform that Fabric provides.\n\nC is incorrect because Azure Data Factory is specifically a data integration service, not a full analytics platform.\n\nD is incorrect because Azure HDInsight provides managed open-source analytics clusters but does not unify all analytics workloads into one platform."
+    },
+    {
+      "id": 49,
+      "topic": "Core Data Concepts - Data Analyst responsibilities",
+      "type": "SingleChoice",
+      "questionText": "Which data professional is primarily responsible for exploring data, creating visualizations, and building reports to help organizations make data-driven decisions?",
+      "options": ["A. Database Administrator.", "B. Data Engineer.", "C. Data Analyst.", "D. Data Architect."],
+      "correctAnswers": ["C"],
+      "explanation": "A Data Analyst explores and analyzes data to identify trends, creates visualizations, and builds reports and dashboards to help stakeholders make informed business decisions. They commonly use tools like Power BI, Excel, and SQL.\n\nA is incorrect because a Database Administrator manages and maintains database systems, focusing on performance, availability, and security.\n\nB is incorrect because a Data Engineer designs and builds data pipelines and storage systems, not reports and visualizations.\n\nD is incorrect because a Data Architect designs the overall data infrastructure and architecture, not operational reports."
+    },
+    {
+      "id": 50,
+      "topic": "Core Data Concepts - Database Administrator responsibilities",
+      "type": "SingleChoice",
+      "questionText": "Which data professional is primarily responsible for managing database availability, performance tuning, and implementing backup and recovery strategies?",
+      "options": ["A. Data Engineer.", "B. Database Administrator.", "C. Data Analyst.", "D. Data Scientist."],
+      "correctAnswers": ["B"],
+      "explanation": "A Database Administrator (DBA) is responsible for managing and maintaining database systems, ensuring high availability, optimizing performance, implementing security controls, and managing backup and disaster recovery strategies.\n\nA is incorrect because a Data Engineer focuses on building data pipelines and data integration, not day-to-day database management.\n\nC is incorrect because a Data Analyst creates reports and visualizations, not manages database infrastructure.\n\nD is incorrect because a Data Scientist builds predictive models and performs advanced analytics, not database administration."
+    },
+    {
+      "id": 51,
+      "topic": "Relational Data - Common database objects",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are common objects found in a relational database? (Choose two.)",
+      "options": ["A. Stored procedures.", "B. Partitions keys.", "C. Views.", "D. Documents."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because stored procedures are precompiled sets of SQL statements stored in the database that can be executed as a single unit, commonly used for encapsulating business logic.\n\nC is correct because views are virtual tables defined by SQL queries that simplify complex queries, provide data abstraction, and control access to data.\n\nB is incorrect because partition keys are a concept in NoSQL databases like Azure Cosmos DB, not a standard relational database object.\n\nD is incorrect because documents are a concept in document databases (NoSQL), not relational databases."
+    },
+    {
+      "id": 52,
+      "topic": "Relational Data - SQL statements",
+      "type": "SingleChoice",
+      "questionText": "Which SQL clause is used to filter the results of a SELECT statement based on a specified condition?",
+      "options": ["A. ORDER BY.", "B. GROUP BY.", "C. WHERE.", "D. HAVING."],
+      "correctAnswers": ["C"],
+      "explanation": "The WHERE clause filters rows returned by a SELECT statement based on a specified condition. Only rows that meet the condition are included in the result set.\n\nA is incorrect because ORDER BY sorts the result set by one or more columns but does not filter rows.\n\nB is incorrect because GROUP BY groups rows that have the same values in specified columns for aggregation, not for row-level filtering.\n\nD is incorrect because HAVING filters groups created by GROUP BY, not individual rows. It is used with aggregate functions."
+    },
+    {
+      "id": 53,
+      "topic": "Relational Data - Azure Database for MySQL",
+      "type": "SingleChoice",
+      "questionText": "Which Azure service provides a fully managed relational database based on the MySQL community edition engine?",
+      "options": ["A. Azure SQL Database.", "B. Azure Database for MySQL.", "C. Azure Cosmos DB for Table.", "D. Azure SQL Managed Instance."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure Database for MySQL is a fully managed relational database service based on the MySQL community edition. It provides built-in high availability, automatic backups, and scaling without requiring infrastructure management.\n\nA is incorrect because Azure SQL Database is based on the Microsoft SQL Server engine, not MySQL.\n\nC is incorrect because Azure Cosmos DB for Table is a NoSQL service, not a MySQL-based relational database.\n\nD is incorrect because Azure SQL Managed Instance is based on SQL Server, not MySQL."
+    },
+    {
+      "id": 54,
+      "topic": "Non-Relational Data - Azure Cosmos DB APIs",
+      "type": "SingleChoice",
+      "questionText": "Which Azure Cosmos DB API should you use if your application needs to store and query data using SQL syntax against JSON documents?",
+      "options": ["A. API for MongoDB.", "B. API for Apache Cassandra.", "C. API for NoSQL.", "D. API for Apache Gremlin."],
+      "correctAnswers": ["C"],
+      "explanation": "The Azure Cosmos DB API for NoSQL (formerly the SQL API) allows you to query JSON documents using a SQL-like syntax. It is the native and most feature-rich API in Cosmos DB.\n\nA is incorrect because the API for MongoDB uses the MongoDB wire protocol and query language, not SQL syntax.\n\nB is incorrect because the API for Apache Cassandra uses CQL (Cassandra Query Language), not SQL.\n\nD is incorrect because the API for Apache Gremlin uses the Gremlin graph traversal language for graph queries."
+    },
+    {
+      "id": 55,
+      "topic": "Analytics - Power BI data models",
+      "type": "SingleChoice",
+      "questionText": "In Power BI, what is a measure?",
+      "options": ["A. A table that stores raw data imported from a data source.", "B. A DAX formula that performs calculations on data in the model, typically aggregations.", "C. A visual element displayed on a report page.", "D. A connection string used to connect to a data source."],
+      "correctAnswers": ["B"],
+      "explanation": "A measure in Power BI is a calculation defined using Data Analysis Expressions (DAX) that performs dynamic aggregations and calculations on data in the model, such as SUM, AVERAGE, or COUNT. Measures are evaluated in context based on filters applied in reports.\n\nA is incorrect because a table that stores raw data is simply a data table in the model, not a measure.\n\nC is incorrect because a visual element on a report page is a visualization (chart, graph, table), not a measure.\n\nD is incorrect because a connection string is part of a data source configuration, not a measure."
+    },
+    {
+      "id": 56,
+      "topic": "Analytics - Power BI visualizations",
+      "type": "SingleChoice",
+      "questionText": "Which Power BI visualization type is best suited for showing the proportion of parts to a whole?",
+      "options": ["A. Line chart.", "B. Bar chart.", "C. Pie chart.", "D. Scatter plot."],
+      "correctAnswers": ["C"],
+      "explanation": "A pie chart is best suited for showing the proportion of individual parts to a whole, displaying categories as slices where each slice's size represents its percentage of the total.\n\nA is incorrect because a line chart is best for showing trends over time, not parts of a whole.\n\nB is incorrect because a bar chart is best for comparing values across categories, not showing proportional relationships to a total.\n\nD is incorrect because a scatter plot is best for showing the relationship or correlation between two numerical variables."
+    },
+    {
+      "id": 57,
+      "topic": "Analytics - Data ingestion and processing",
+      "type": "SingleChoice",
+      "questionText": "In a data analytics pipeline, what is the purpose of the data ingestion stage?",
+      "options": ["A. To transform raw data into a structured format.", "B. To collect and import data from various sources into a storage system.", "C. To create visualizations and dashboards from processed data.", "D. To archive data that is no longer needed."],
+      "correctAnswers": ["B"],
+      "explanation": "Data ingestion is the process of collecting and importing data from various external sources into a centralized storage system (such as a data lake or warehouse) for subsequent processing and analysis.\n\nA is incorrect because transforming raw data into a structured format is the data transformation or processing stage, not ingestion.\n\nC is incorrect because creating visualizations and dashboards is the data presentation or reporting stage.\n\nD is incorrect because archiving data is a data lifecycle management activity, not ingestion."
+    },
+    {
+      "id": 58,
+      "topic": "Core Data Concepts - Transactional workload features",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are characteristics of a transactional (OLTP) workload? (Choose two.)",
+      "options": ["A. Optimized for complex aggregation queries across large datasets.", "B. Supports high volumes of concurrent read and write operations.", "C. Uses normalized schemas to minimize data redundancy.", "D. Primarily stores historical data for trend analysis."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "B is correct because OLTP systems are designed to handle high volumes of concurrent transactions (reads and writes) from many users simultaneously with low latency.\n\nC is correct because OLTP databases use normalized schemas to minimize data redundancy and ensure data integrity during frequent insert, update, and delete operations.\n\nA is incorrect because complex aggregation queries across large datasets are characteristic of analytical (OLAP) workloads, not transactional.\n\nD is incorrect because storing historical data for trend analysis is characteristic of data warehouses and analytical systems, not OLTP."
+    },
+    {
+      "id": 59,
+      "topic": "Analytics - Snowflake schema",
+      "type": "SingleChoice",
+      "questionText": "What is a snowflake schema in a data warehouse?",
+      "options": ["A. A schema where all dimension tables are directly connected to the fact table without normalization.", "B. A variation of the star schema where dimension tables are further normalized into sub-dimension tables.", "C. A schema used only for real-time streaming data.", "D. A schema where fact tables are connected to each other without dimension tables."],
+      "correctAnswers": ["B"],
+      "explanation": "A snowflake schema is a variation of the star schema where dimension tables are normalized into multiple related tables (sub-dimensions). For example, a Product dimension might be split into Product and Category tables. This reduces redundancy but can increase query complexity.\n\nA is incorrect because that description matches a star schema, where dimension tables are denormalized and directly connected to the fact table.\n\nC is incorrect because a snowflake schema is not specific to streaming data; it is a data warehouse schema design.\n\nD is incorrect because in a snowflake schema, fact tables are connected to dimension tables, not to other fact tables without dimensions."
+    },
+    {
+      "id": 60,
+      "topic": "Core Data Concepts - Analytical workload features",
+      "type": "SingleChoice",
+      "questionText": "Which characteristic best describes an analytical workload?",
+      "options": ["A. It processes large numbers of small, individual insert and update operations per second.", "B. It runs complex queries that aggregate and analyze large volumes of historical data.", "C. It stores data exclusively in JSON format.", "D. It requires strong ACID transaction support for every operation."],
+      "correctAnswers": ["B"],
+      "explanation": "Analytical workloads run complex queries that aggregate, summarize, and analyze large volumes of historical data to support decision-making. They are read-heavy and optimized for scanning large datasets rather than frequent individual updates.\n\nA is incorrect because processing many small individual inserts and updates is characteristic of transactional (OLTP) workloads.\n\nC is incorrect because analytical workloads do not exclusively use JSON; they typically use columnar formats or relational schemas.\n\nD is incorrect because while ACID support may exist, analytical workloads prioritize query performance over strict transactional consistency."
+    },
+    {
+      "id": 61,
+      "topic": "Relational Data - Relational data features",
+      "type": "SingleChoice",
+      "questionText": "Which feature of relational data ensures that a value in a foreign key column must correspond to a valid value in the referenced primary key column?",
+      "options": ["A. Normalization.", "B. Indexing.", "C. Referential integrity.", "D. Data encryption."],
+      "correctAnswers": ["C"],
+      "explanation": "Referential integrity is a property of relational databases that ensures relationships between tables remain consistent. It guarantees that a foreign key value in one table must match an existing primary key value in the referenced table, or be null.\n\nA is incorrect because normalization is the process of organizing data to reduce redundancy, not specifically about enforcing foreign key relationships.\n\nB is incorrect because indexing improves query performance but does not enforce data relationships.\n\nD is incorrect because data encryption protects data confidentiality, not relationship consistency."
+    },
+    {
+      "id": 62,
+      "topic": "Non-Relational Data - Azure Cosmos DB request units",
+      "type": "SingleChoice",
+      "questionText": "In Azure Cosmos DB, what are Request Units (RUs) used to measure?",
+      "options": ["A. The amount of disk storage consumed by a container.", "B. The cost of database operations such as reads, writes, and queries.", "C. The number of partitions in a container.", "D. The number of concurrent users connected to the database."],
+      "correctAnswers": ["B"],
+      "explanation": "Request Units (RUs) in Azure Cosmos DB are a blended measure of the computational cost of database operations, including reads, writes, and queries. Azure Cosmos DB uses RUs to normalize the cost of all operations and provision throughput accordingly.\n\nA is incorrect because storage is measured in gigabytes and billed separately from throughput (RUs).\n\nC is incorrect because the number of partitions depends on data volume and partition key, not RU consumption.\n\nD is incorrect because RUs measure operation cost, not the number of concurrent connections."
+    },
+    {
+      "id": 63,
+      "topic": "Analytics - Data Lake concepts",
+      "type": "SingleChoice",
+      "questionText": "What is a key advantage of a data lake over a traditional data warehouse?",
+      "options": ["A. A data lake enforces a strict schema on data before it is stored.", "B. A data lake can store raw data in any format, including structured, semi-structured, and unstructured data.", "C. A data lake is optimized exclusively for SQL queries.", "D. A data lake automatically transforms data into a star schema."],
+      "correctAnswers": ["B"],
+      "explanation": "A data lake can store vast amounts of raw data in its native format, including structured (CSV, Parquet), semi-structured (JSON, XML), and unstructured data (images, videos). It applies a schema-on-read approach, meaning the schema is defined when data is queried, not when it is stored.\n\nA is incorrect because it is the opposite of how a data lake works; data lakes use schema-on-read, not schema-on-write.\n\nC is incorrect because data lakes support various query engines, not just SQL, and can process data using Spark, Python, and other tools.\n\nD is incorrect because data lakes store raw data; transformation into schemas like star schema requires separate processing."
+    },
+    {
+      "id": 64,
+      "topic": "Analytics - Power BI paginated reports",
+      "type": "SingleChoice",
+      "questionText": "Which Power BI feature is designed for creating pixel-perfect, printable reports with precise formatting, such as invoices or regulatory reports?",
+      "options": ["A. Power BI dashboards.", "B. Power BI paginated reports.", "C. Power BI dataflows.", "D. Power BI quick insights."],
+      "correctAnswers": ["B"],
+      "explanation": "Power BI paginated reports are designed for pixel-perfect printing and PDF generation with precise formatting. They are ideal for operational reports such as invoices, statements, and regulatory documents that need to fit perfectly on printed pages.\n\nA is incorrect because Power BI dashboards are single-page summaries of interactive visualizations, not designed for print formatting.\n\nC is incorrect because Power BI dataflows are used for data preparation and ETL, not report rendering.\n\nD is incorrect because quick insights use AI to automatically find patterns in data, not to create formatted printable reports."
+    },
+    {
+      "id": 65,
+      "topic": "Core Data Concepts - Data file formats",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO of the following are common file formats used to store data for analytics workloads? (Choose two.)",
+      "options": ["A. Parquet.", "B. DOCX.", "C. CSV.", "D. EXE."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A is correct because Parquet is a columnar file format widely used in big data analytics for its efficient compression and fast query performance.\n\nC is correct because CSV (Comma-Separated Values) is a widely used plain text file format for tabular data and is commonly used in data analytics pipelines.\n\nB is incorrect because DOCX is a Microsoft Word document format for rich text documents, not a data analytics file format.\n\nD is incorrect because EXE is an executable program file, not a data storage format."
     }
   ]
 }

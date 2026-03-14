@@ -561,6 +561,356 @@
       ],
       "correctAnswers": ["A"],
       "explanation": "A is correct because clicking the chart reveals the Chart Elements button (+) where you can check Data Labels to display values directly on the chart's data points.\n\nB is incorrect because you need to right-click a data series, not the chart background, and the Format Data Labels option only appears after data labels have been added.\n\nC is incorrect because the Insert tab does not have a Data Labels option for charts.\n\nD is incorrect because you cannot type values directly onto a chart."
+    },
+    {
+      "id": 41,
+      "topic": "Workbook Management - Protecting worksheets",
+      "type": "SingleChoice",
+      "questionText": "You want to prevent users from editing formulas in certain cells while allowing them to enter data in other cells. Which approach should you use?",
+      "options": [
+        "A. Lock all cells and protect the workbook structure.",
+        "B. Unlock the data entry cells, keep formula cells locked, and then protect the worksheet.",
+        "C. Hide the formulas using number formatting.",
+        "D. Convert all formulas to static values."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because by default all cells are locked, but locking only takes effect when the worksheet is protected. You must unlock the cells you want users to edit, keep the formula cells locked, and then protect the sheet via Review > Protect Sheet.\n\nA is incorrect because protecting the workbook structure prevents adding/deleting sheets, not editing cells.\n\nC is incorrect because number formatting changes display but does not prevent editing.\n\nD is incorrect because converting to static values destroys the formulas entirely."
+    },
+    {
+      "id": 42,
+      "topic": "Formulas - SWITCH function",
+      "type": "SingleChoice",
+      "questionText": "Which function evaluates an expression against a list of value/result pairs and returns the result for the first matching value?",
+      "options": [
+        "A. CHOOSE",
+        "B. SWITCH",
+        "C. IFS",
+        "D. LOOKUP"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because SWITCH evaluates an expression and compares it to a list of value/result pairs, returning the result that corresponds to the first match. For example, =SWITCH(A1, 1, \"Low\", 2, \"Medium\", 3, \"High\").\n\nA is incorrect because CHOOSE selects a value from a list based on an index number, not by matching values.\n\nC is incorrect because IFS evaluates multiple conditions (logical tests), not specific value matches.\n\nD is incorrect because LOOKUP searches a range for a value and returns a corresponding result, but uses a different syntax and matching approach."
+    },
+    {
+      "id": 43,
+      "topic": "Data Management - Flash Fill",
+      "type": "SingleChoice",
+      "questionText": "You have full names in column A (e.g., 'John Smith') and you type 'John' in cell B1. When you begin typing 'Jane' in B2, Excel suggests extracting all first names automatically. What feature is this?",
+      "options": [
+        "A. AutoComplete",
+        "B. Flash Fill",
+        "C. Text to Columns",
+        "D. AutoFill"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Flash Fill recognizes patterns in your data entry and automatically fills the remaining cells based on the detected pattern, such as extracting first names from full names.\n\nA is incorrect because AutoComplete suggests previously entered values in the same column, not pattern-based extraction.\n\nC is incorrect because Text to Columns splits data using delimiters, requiring manual configuration.\n\nD is incorrect because AutoFill extends series (like dates or numbers) but does not detect text extraction patterns."
+    },
+    {
+      "id": 44,
+      "topic": "Formulas - LET function",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the LET function in Excel?",
+      "options": [
+        "A. To restrict cell editing permissions.",
+        "B. To assign names to intermediate calculation results within a formula, improving readability and performance.",
+        "C. To create a dropdown list of allowed values.",
+        "D. To define a named range in the formula bar."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the LET function allows you to define named variables within a formula that can be reused in the calculation, reducing redundancy and improving both readability and performance.\n\nA is incorrect because cell permissions are managed through worksheet protection.\n\nC is incorrect because dropdown lists are created with Data Validation.\n\nD is incorrect because named ranges are defined through the Name Manager, not the LET function."
+    },
+    {
+      "id": 45,
+      "topic": "Data Management - Power Query",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of Power Query (Get & Transform) in Excel?",
+      "options": [
+        "A. To create advanced charts and visualizations.",
+        "B. To connect to, import, clean, and transform data from various sources before loading it into Excel.",
+        "C. To write VBA macros for automation.",
+        "D. To manage print layouts and page breaks."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Power Query is a data connection and transformation tool that allows you to import data from diverse sources (databases, web, files), clean it, reshape it, and load the results into Excel worksheets or the data model.\n\nA is incorrect because charts are created through the Insert tab, not Power Query.\n\nC is incorrect because VBA macros are written in the Visual Basic Editor, not Power Query.\n\nD is incorrect because print layout management is done through Page Layout settings."
+    },
+    {
+      "id": 46,
+      "topic": "Formulas - UNIQUE function",
+      "type": "SingleChoice",
+      "questionText": "What does the UNIQUE function return in Microsoft 365 Excel?",
+      "options": [
+        "A. The single largest value in a range.",
+        "B. A dynamic array of distinct values from a range, removing duplicates.",
+        "C. A count of how many unique values exist in a range.",
+        "D. A Boolean value indicating if all values in a range are unique."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the UNIQUE function returns a dynamic array containing only the distinct values from the specified range or array, automatically spilling the results into adjacent cells.\n\nA is incorrect because finding the largest value is done with the MAX function.\n\nC is incorrect because counting unique values would require combining UNIQUE with COUNTA or similar.\n\nD is incorrect because UNIQUE returns the actual unique values, not a Boolean result."
+    },
+    {
+      "id": 47,
+      "topic": "Data Management - Remove duplicates",
+      "type": "SingleChoice",
+      "questionText": "You have a dataset with duplicate rows and need to remove them while keeping one instance of each. Which feature should you use?",
+      "options": [
+        "A. Data tab > Remove Duplicates.",
+        "B. Home tab > Find & Select > Replace.",
+        "C. Data tab > Sort > Ascending.",
+        "D. Review tab > Delete Duplicates."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Remove Duplicates feature on the Data tab allows you to select which columns to check for duplicates and permanently removes duplicate rows, keeping the first occurrence.\n\nB is incorrect because Find & Replace works with specific values, not duplicate detection.\n\nC is incorrect because sorting arranges data but does not remove duplicates.\n\nD is incorrect because there is no Delete Duplicates option on the Review tab."
+    },
+    {
+      "id": 48,
+      "topic": "Formulas - SORT function",
+      "type": "SingleChoice",
+      "questionText": "What does the SORT function in Microsoft 365 Excel do?",
+      "options": [
+        "A. It permanently rearranges the data in the source range.",
+        "B. It returns a dynamically sorted array of the data without changing the original range.",
+        "C. It sorts the current worksheet tabs alphabetically.",
+        "D. It opens the Sort dialog box."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the SORT function returns a new sorted array that spills into adjacent cells, leaving the original data unchanged. It accepts parameters for which column to sort by and the sort order.\n\nA is incorrect because SORT does not modify the source data; it creates a new sorted output.\n\nC is incorrect because worksheet tab sorting is not related to the SORT function.\n\nD is incorrect because the SORT function is a formula, not a menu command."
+    },
+    {
+      "id": 49,
+      "topic": "Workbook Management - Named ranges",
+      "type": "SingleChoice",
+      "questionText": "What is the primary benefit of using named ranges in Excel formulas?",
+      "options": [
+        "A. Named ranges make formulas execute faster.",
+        "B. Named ranges make formulas more readable and easier to maintain by replacing cell references with descriptive names.",
+        "C. Named ranges automatically sort data.",
+        "D. Named ranges prevent cells from being edited."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because named ranges replace cryptic cell references like B2:B500 with descriptive names like SalesData, making formulas like =SUM(SalesData) much easier to read, understand, and maintain.\n\nA is incorrect because named ranges do not significantly affect formula execution speed.\n\nC is incorrect because named ranges are references, not sorting mechanisms.\n\nD is incorrect because named ranges do not provide cell protection."
+    },
+    {
+      "id": 50,
+      "topic": "Data Management - Text to Columns",
+      "type": "SingleChoice",
+      "questionText": "You have a column containing data like 'Smith, John' and need to split last names and first names into separate columns. Which feature should you use?",
+      "options": [
+        "A. Flash Fill",
+        "B. Data tab > Text to Columns",
+        "C. LEFT and RIGHT functions",
+        "D. Home tab > Merge & Center"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Text to Columns on the Data tab allows you to split cell content into multiple columns using a delimiter (such as a comma) or fixed widths.\n\nA is incorrect because while Flash Fill can extract parts of text by example, Text to Columns is the purpose-built tool for splitting delimited data.\n\nC is incorrect because LEFT and RIGHT require knowing exact character positions, which vary.\n\nD is incorrect because Merge & Center combines cells, not splits them."
+    },
+    {
+      "id": 51,
+      "topic": "Formulas - FILTER function",
+      "type": "SingleChoice",
+      "questionText": "What does the FILTER function in Microsoft 365 Excel do?",
+      "options": [
+        "A. It applies AutoFilter dropdown arrows to a range.",
+        "B. It returns a dynamic array of rows from a range that meet specified criteria.",
+        "C. It hides rows that do not match criteria.",
+        "D. It permanently deletes rows that do not match criteria."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the FILTER function returns a new array containing only the rows that satisfy the specified Boolean condition, spilling results into adjacent cells without modifying the original data.\n\nA is incorrect because AutoFilter dropdowns are applied through the Data tab, not the FILTER function.\n\nC is incorrect because FILTER extracts matching data to a new location rather than hiding rows in place.\n\nD is incorrect because FILTER does not delete any data."
+    },
+    {
+      "id": 52,
+      "topic": "Workbook Management - Freeze panes",
+      "type": "SingleChoice",
+      "questionText": "You want to keep row 1 (headers) visible while scrolling through a large dataset. What should you do?",
+      "options": [
+        "A. View tab > Freeze Panes > Freeze Top Row.",
+        "B. Home tab > Lock Row.",
+        "C. Page Layout tab > Fixed Headers.",
+        "D. Data tab > Pin Row."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because View > Freeze Panes > Freeze Top Row locks the first row so it remains visible as you scroll vertically through the worksheet.\n\nB is incorrect because there is no Lock Row option on the Home tab.\n\nC is incorrect because there is no Fixed Headers option on the Page Layout tab.\n\nD is incorrect because there is no Pin Row option on the Data tab."
+    },
+    {
+      "id": 53,
+      "topic": "Formulas - INDIRECT function",
+      "type": "SingleChoice",
+      "questionText": "What does the INDIRECT function do in Excel?",
+      "options": [
+        "A. It returns the cell address of the active cell.",
+        "B. It converts a text string into a cell reference that Excel can evaluate.",
+        "C. It creates an indirect link to an external workbook.",
+        "D. It indirectly calculates values using an iterative method."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because INDIRECT takes a text string (such as \"A1\" or \"Sheet2!B5\") and interprets it as a valid cell reference, allowing dynamic construction of references.\n\nA is incorrect because the active cell address is returned by the CELL function.\n\nC is incorrect because external links are created using standard file path references, not INDIRECT.\n\nD is incorrect because iterative calculations are controlled through Excel Options, not the INDIRECT function."
+    },
+    {
+      "id": 54,
+      "topic": "Data Management - Consolidate",
+      "type": "SingleChoice",
+      "questionText": "You have sales data on three separate worksheets and want to combine them into a summary on a fourth sheet. Which feature is best suited for this?",
+      "options": [
+        "A. Data tab > Consolidate.",
+        "B. Home tab > Merge Worksheets.",
+        "C. Insert tab > Combine Data.",
+        "D. View tab > Arrange All."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Consolidate feature on the Data tab combines data from multiple ranges (including different worksheets) using a summary function such as SUM, AVERAGE, or COUNT.\n\nB is incorrect because there is no Merge Worksheets option on the Home tab.\n\nC is incorrect because there is no Combine Data option on the Insert tab.\n\nD is incorrect because Arrange All controls window layout, not data consolidation."
+    },
+    {
+      "id": 55,
+      "topic": "Charts - Sunburst and Treemap charts",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following chart types are available in Excel for visualizing hierarchical data? (Choose two.)",
+      "options": [
+        "A. Sunburst chart",
+        "B. Treemap chart",
+        "C. Gantt chart",
+        "D. Network diagram"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. Sunburst charts display hierarchical data as concentric rings, while Treemap charts show hierarchical data as nested rectangles. Both were introduced in Excel 2016.\n\nC is incorrect because Excel does not have a built-in Gantt chart type (though one can be simulated with stacked bar charts).\n\nD is incorrect because Network diagrams are not a standard Excel chart type."
+    },
+    {
+      "id": 56,
+      "topic": "Workbook Management - Custom views",
+      "type": "SingleChoice",
+      "questionText": "You frequently need to switch between different display settings (hidden columns, zoom levels, filter states) for the same worksheet. Which feature helps with this?",
+      "options": [
+        "A. View tab > Custom Views to save and restore different view configurations.",
+        "B. Create multiple copies of the worksheet with different settings.",
+        "C. Use macros to toggle settings.",
+        "D. Save different versions of the workbook file."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Custom Views allow you to save named snapshots of display and print settings, including hidden rows/columns, filter settings, and zoom levels, so you can quickly switch between them.\n\nB is incorrect because duplicating worksheets wastes space and creates data synchronization issues.\n\nC is incorrect because while macros can work, Custom Views is the purpose-built feature for this task.\n\nD is incorrect because saving separate files creates version management problems."
+    },
+    {
+      "id": 57,
+      "topic": "Formulas - LAMBDA function",
+      "type": "SingleChoice",
+      "questionText": "What does the LAMBDA function allow you to create in Microsoft 365 Excel?",
+      "options": [
+        "A. A macro that runs when a cell value changes.",
+        "B. A custom reusable function that can be named and called like a built-in function.",
+        "C. A connection to an external database.",
+        "D. A chart template for reuse."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because LAMBDA allows you to define custom functions with parameters that can be assigned a name through the Name Manager, making them callable like native Excel functions (e.g., =MyFunction(A1, B1)).\n\nA is incorrect because event-triggered macros require VBA, not LAMBDA.\n\nC is incorrect because database connections are managed through Power Query or Data connections.\n\nD is incorrect because chart templates are saved through chart design tools."
+    },
+    {
+      "id": 58,
+      "topic": "Data Management - Goal Seek",
+      "type": "SingleChoice",
+      "questionText": "You have a loan payment formula and want to find the interest rate that results in a monthly payment of exactly $500. Which tool should you use?",
+      "options": [
+        "A. Solver.",
+        "B. Data tab > What-If Analysis > Goal Seek.",
+        "C. PMT function with trial and error.",
+        "D. Data Validation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Goal Seek finds the input value needed in one cell to produce a desired result in a formula cell. You set the payment cell to 500 and tell Goal Seek to change the interest rate cell.\n\nA is incorrect because while Solver could work, it is designed for more complex optimization problems with multiple variables and constraints; Goal Seek is simpler and more appropriate for single-variable scenarios.\n\nC is incorrect because manual trial and error is inefficient when Goal Seek automates the process.\n\nD is incorrect because Data Validation restricts input values, not calculates them."
+    },
+    {
+      "id": 59,
+      "topic": "Formulas - Nested IF vs IFS",
+      "type": "SingleChoice",
+      "questionText": "You need to assign letter grades based on a score: A for 90+, B for 80-89, C for 70-79, D for 60-69, and F below 60. Which function provides the cleanest solution?",
+      "options": [
+        "A. A single IF function.",
+        "B. =IFS(A1>=90,\"A\",A1>=80,\"B\",A1>=70,\"C\",A1>=60,\"D\",TRUE,\"F\")",
+        "C. =CHOOSE(A1,\"A\",\"B\",\"C\",\"D\",\"F\")",
+        "D. =SWITCH(A1,90,\"A\",80,\"B\",70,\"C\",60,\"D\",\"F\")"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because IFS evaluates multiple conditions in order and returns the result for the first TRUE condition. Using TRUE as the final condition acts as a default case for scores below 60.\n\nA is incorrect because a single IF function can only test one condition; this scenario requires nested IFs or the IFS function.\n\nC is incorrect because CHOOSE requires an index number, not a comparison; it cannot evaluate ranges like 80-89.\n\nD is incorrect because SWITCH matches exact values (90, 80, etc.) rather than evaluating conditions like >=90."
+    },
+    {
+      "id": 60,
+      "topic": "Workbook Management - Shared workbooks and co-authoring",
+      "type": "SingleChoice",
+      "questionText": "How do multiple users simultaneously edit the same Excel workbook in real time?",
+      "options": [
+        "A. Save the workbook to a local network drive and enable the Share Workbook feature.",
+        "B. Save the workbook to OneDrive or SharePoint and use the co-authoring feature in Excel for Microsoft 365.",
+        "C. Email the workbook to each user and merge changes manually.",
+        "D. Use Track Changes to allow sequential editing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because co-authoring in Excel for Microsoft 365 requires the file to be stored on OneDrive or SharePoint. Multiple users can then open and edit the file simultaneously, with changes syncing automatically.\n\nA is incorrect because the legacy Share Workbook feature has been deprecated and does not support true real-time co-authoring.\n\nC is incorrect because emailing copies creates version conflicts and does not allow simultaneous editing.\n\nD is incorrect because Track Changes supports sequential review, not simultaneous editing."
+    },
+    {
+      "id": 61,
+      "topic": "Data Management - Scenario Manager",
+      "type": "SingleChoice",
+      "questionText": "You want to compare different sets of input values (best case, worst case, most likely) in a financial model. Which What-If Analysis tool should you use?",
+      "options": [
+        "A. Goal Seek",
+        "B. Data Table",
+        "C. Scenario Manager",
+        "D. Solver"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because Scenario Manager allows you to define and save multiple sets of input values (scenarios), switch between them, and generate a summary report comparing the results of each scenario.\n\nA is incorrect because Goal Seek finds a single input value to achieve a specific result, not compares multiple scenarios.\n\nB is incorrect because Data Tables show results for one or two variable inputs in a tabular format, but do not name and manage distinct scenarios.\n\nD is incorrect because Solver optimizes toward a target value with constraints, rather than comparing named scenarios."
+    },
+    {
+      "id": 62,
+      "topic": "Formulas - XMATCH function",
+      "type": "SingleChoice",
+      "questionText": "What does the XMATCH function return?",
+      "options": [
+        "A. The value found at the matching position.",
+        "B. The relative position of a lookup value in a range, with support for exact match, approximate match, and wildcard search modes.",
+        "C. A Boolean TRUE or FALSE indicating whether a match was found.",
+        "D. The cell address of the matching value."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because XMATCH returns the relative position of a value within a range or array, and supports exact match (default), approximate match (binary search), and wildcard matching. It is the modern replacement for MATCH.\n\nA is incorrect because XMATCH returns a position number, not the matched value itself (that would require INDEX or XLOOKUP).\n\nC is incorrect because XMATCH returns a numeric position, not a Boolean.\n\nD is incorrect because XMATCH returns a relative position number, not a cell address."
+    },
+    {
+      "id": 63,
+      "topic": "Workbook Management - Data model",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following are benefits of adding data to the Excel Data Model? (Choose two.)",
+      "options": [
+        "A. You can create relationships between tables from different sources without VLOOKUP.",
+        "B. You can use DAX measures for advanced calculations in PivotTables.",
+        "C. Data Model tables are always smaller in file size than regular worksheets.",
+        "D. The Data Model automatically backs up your workbook."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. The Data Model allows you to define relationships between multiple tables and use them in PivotTables without needing VLOOKUP. It also enables DAX (Data Analysis Expressions) for advanced calculated measures.\n\nC is incorrect because the Data Model can increase file size, especially with large datasets stored in compressed columnar format.\n\nD is incorrect because the Data Model does not provide backup functionality."
+    },
+    {
+      "id": 64,
+      "topic": "Data Management - Subtotals",
+      "type": "SingleChoice",
+      "questionText": "You want to add subtotals for each department in a sorted list. Which feature should you use?",
+      "options": [
+        "A. Insert tab > Subtotal.",
+        "B. Data tab > Subtotal, after sorting the data by the department field.",
+        "C. Home tab > AutoSum for each department group.",
+        "D. Formulas tab > Insert Subtotal Function."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Subtotal feature on the Data tab automatically inserts subtotal rows at each change in the specified grouping field. The data must be sorted by that field first for the subtotals to be meaningful.\n\nA is incorrect because there is no Subtotal option on the Insert tab.\n\nC is incorrect because AutoSum would require manually selecting each department group.\n\nD is incorrect because there is no Insert Subtotal Function on the Formulas tab."
+    },
+    {
+      "id": 65,
+      "topic": "Formulas - CHOOSECOLS and CHOOSEROWS",
+      "type": "SingleChoice",
+      "questionText": "You have a table in A1:E100 and want to extract only columns 1, 3, and 5 into a new dynamic array. Which function should you use?",
+      "options": [
+        "A. =INDEX(A1:E100,,{1,3,5})",
+        "B. =CHOOSECOLS(A1:E100,1,3,5)",
+        "C. =FILTER(A1:E100,{1,0,1,0,1})",
+        "D. =COLUMNS(A1:E100,1,3,5)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because CHOOSECOLS returns specified columns from an array or range. CHOOSECOLS(A1:E100,1,3,5) returns a dynamic array containing only the 1st, 3rd, and 5th columns.\n\nA is incorrect because INDEX with an array constant in the column argument does not work this way in standard Excel.\n\nC is incorrect because FILTER is designed to filter rows based on criteria, not select specific columns.\n\nD is incorrect because COLUMNS returns the count of columns in a range, not selected columns of data."
     }
   ]
 }

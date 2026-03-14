@@ -361,6 +361,356 @@
       "options": ["A. Solutions cannot be stored in source control.", "B. By unpacking solutions into individual component files using 'pac solution unpack' and committing to a Git repository.", "C. By taking screenshots of the maker portal.", "D. By exporting ZIP files and storing them in email."],
       "correctAnswers": ["B"],
       "explanation": "The 'pac solution unpack' command extracts solution ZIP files into individual XML and JSON component files that can be version-controlled in Git. Solutions can be stored in source control. Screenshots and email are not source control methods."
+    },
+    {
+      "id": 41,
+      "topic": "Plug-ins - Secure and Unsecure Configuration",
+      "type": "SingleChoice",
+      "questionText": "Where should you store configuration values like API endpoint URLs that a Dataverse plug-in needs at runtime, allowing administrators to change them without redeploying code?",
+      "options": [
+        "A. Hard-code them in the plug-in assembly.",
+        "B. In the plug-in step's Unsecure or Secure Configuration fields registered in the Plug-in Registration Tool.",
+        "C. In a text file on the server.",
+        "D. In the plug-in's source code comments."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Unsecure and Secure Configuration strings are passed to the plug-in constructor, allowing administrators to update configuration values through the Plug-in Registration Tool without recompiling and redeploying the assembly. Secure configuration is encrypted and only accessible to the plug-in.\n\nWhy the others are wrong:\n- A. Hard-coding requires recompilation and redeployment for any change.\n- C. Sandboxed plug-ins cannot access the server file system.\n- D. Source code comments are not accessible at runtime."
+    },
+    {
+      "id": 42,
+      "topic": "PCF Controls - Platform APIs",
+      "type": "SingleChoice",
+      "questionText": "In a PCF control, how do you access the current user's information?",
+      "options": [
+        "A. By making a direct Web API call.",
+        "B. By using the context.userSettings object provided by the framework.",
+        "C. By reading browser cookies.",
+        "D. By querying the DOM."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The PCF framework provides context.userSettings which includes the user's display name, user ID, language, and security roles. This is the supported and recommended approach.\n\nWhy the others are wrong:\n- A. Direct Web API calls can retrieve user data but are unnecessary when the framework provides it.\n- C. Browser cookies should not be used for user identity in PCF controls.\n- D. DOM queries do not reliably provide user information."
+    },
+    {
+      "id": 43,
+      "topic": "Custom Connectors - Pagination",
+      "type": "SingleChoice",
+      "questionText": "An external API returns paginated results. How should you handle pagination in a custom connector?",
+      "options": [
+        "A. Only retrieve the first page and ignore the rest.",
+        "B. Implement pagination by defining the paging policy in the custom connector definition, specifying the nextLink or token-based pattern.",
+        "C. Create separate actions for each page.",
+        "D. Ask users to call the connector repeatedly for each page."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Custom connectors support paging policies that automatically handle pagination by following nextLink URLs or using token/offset-based patterns, transparently returning all pages of data.\n\nWhy the others are wrong:\n- A. Ignoring additional pages loses data.\n- C. Separate actions per page is impractical and not maintainable.\n- D. Manual repeated calls defeat the purpose of automation."
+    },
+    {
+      "id": 44,
+      "topic": "Dataverse Web API - Change Tracking",
+      "type": "SingleChoice",
+      "questionText": "You need to synchronize data between Dataverse and an external system, retrieving only records that have changed since the last sync. Which Web API feature should you use?",
+      "options": [
+        "A. $filter with a ModifiedOn date.",
+        "B. Change tracking using the Prefer: odata.track-changes header.",
+        "C. $expand to include all related records.",
+        "D. $orderby to sort by modified date."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Change tracking (using the Prefer: odata.track-changes header) provides a delta token that tracks changes since the last request, returning only created, updated, or deleted records. This is the most efficient synchronization method.\n\nWhy the others are wrong:\n- A. Filtering by ModifiedOn works but can miss deleted records and is less efficient than change tracking.\n- C. $expand retrieves related records but does not track changes.\n- D. $orderby sorts results but does not filter to only changed records."
+    },
+    {
+      "id": 45,
+      "topic": "ALM - Power Platform CLI",
+      "type": "MultipleChoice",
+      "questionText": "Which two operations can you perform using the Power Platform CLI (pac)? (Choose two.)",
+      "options": [
+        "A. Export and import Dataverse solutions.",
+        "B. Initialize and push PCF control projects.",
+        "C. Deploy Azure Virtual Machines.",
+        "D. Create Power BI dashboards."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The Power Platform CLI (pac) supports solution management (export, import, clone, unpack, pack) and PCF control development (init, push, build). It is the primary CLI tool for Power Platform developers.\n\nWhy the others are wrong:\n- C. Azure VMs are managed through Azure CLI or Azure PowerShell, not pac.\n- D. Power BI dashboards are created in the Power BI service or Desktop, not through pac."
+    },
+    {
+      "id": 46,
+      "topic": "Plug-ins - Tracing Service",
+      "type": "SingleChoice",
+      "questionText": "How should you add diagnostic logging to a Dataverse plug-in for troubleshooting?",
+      "options": [
+        "A. Use Console.WriteLine().",
+        "B. Use the ITracingService to write trace messages that appear in the plug-in trace log.",
+        "C. Write to the Windows Event Log.",
+        "D. Create Dataverse records for each log entry."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. ITracingService.Trace() writes messages to the Dataverse plug-in trace log, which can be viewed in the Platform Trace Log table. This is the supported diagnostic logging mechanism.\n\nWhy the others are wrong:\n- A. Console.WriteLine() has no effect in the sandboxed server-side execution environment.\n- C. Sandboxed plug-ins cannot access the Windows Event Log.\n- D. Creating records for logging adds unnecessary overhead and pollutes the data model."
+    },
+    {
+      "id": 47,
+      "topic": "PCF Controls - WebAPI",
+      "type": "SingleChoice",
+      "questionText": "How can a PCF control read data from a Dataverse table other than the one it is bound to?",
+      "options": [
+        "A. It cannot; PCF controls can only access their bound data.",
+        "B. By using the context.webAPI methods (retrieveRecord, retrieveMultipleRecords, etc.) provided by the framework.",
+        "C. By directly calling fetch() to the Dataverse REST endpoint.",
+        "D. By embedding an iframe with a model-driven app view."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The PCF framework provides webAPI methods (createRecord, deleteRecord, retrieveRecord, retrieveMultipleRecords, updateRecord) that allow controls to interact with any Dataverse table the user has permission to access.\n\nWhy the others are wrong:\n- A. PCF controls can access Dataverse data beyond their bound property through webAPI.\n- C. Direct fetch() calls bypass the framework's authentication and are not the recommended approach.\n- D. Embedding iframes is not the standard way to access data in PCF controls."
+    },
+    {
+      "id": 48,
+      "topic": "Custom Connectors - IP Restrictions",
+      "type": "SingleChoice",
+      "questionText": "Your custom connector calls an API that is IP-restricted. What do you need to configure to allow Power Automate cloud flows to reach the API?",
+      "options": [
+        "A. No configuration needed; Power Automate uses dynamic IPs.",
+        "B. Allowlist the Power Automate outbound IP addresses for the relevant Azure region in the API's firewall.",
+        "C. Host the API on the same machine as Power Automate.",
+        "D. Use a VPN in the cloud flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft publishes the outbound IP addresses used by Power Automate for each Azure region. These IPs must be allowlisted in the target API's firewall to permit traffic from cloud flows.\n\nWhy the others are wrong:\n- A. Power Automate uses known, documented outbound IPs per region that can and should be allowlisted.\n- C. Power Automate is a cloud service; you cannot host the API on its machine.\n- D. Cloud flows do not support VPN connections natively (on-premises data gateway is used for on-premises access)."
+    },
+    {
+      "id": 49,
+      "topic": "Dataverse Web API - Upsert",
+      "type": "SingleChoice",
+      "questionText": "What HTTP method and approach does the Dataverse Web API use for an upsert operation (create if not exists, update if exists)?",
+      "options": [
+        "A. POST to the entity set URL.",
+        "B. PATCH to a specific record URL using an alternate key; the server creates or updates based on existence.",
+        "C. PUT to the entity set URL.",
+        "D. DELETE followed by POST."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. An upsert is performed by sending a PATCH request to a URL that identifies the record by its primary key or alternate key. If the record exists, it is updated; if not, it is created.\n\nWhy the others are wrong:\n- A. POST always creates a new record and fails if it already exists (with duplicate detection).\n- C. PUT is not the standard method for Dataverse upsert operations.\n- D. DELETE followed by POST is destructive and not an upsert pattern."
+    },
+    {
+      "id": 50,
+      "topic": "ALM - Solution Checker",
+      "type": "SingleChoice",
+      "questionText": "What does the Power Platform Solution Checker analyze?",
+      "options": [
+        "A. User adoption metrics.",
+        "B. Solution components for best practices, performance issues, and reliability problems.",
+        "C. Network bandwidth.",
+        "D. Database storage consumption."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Solution Checker performs static analysis on Power Platform solutions, identifying issues with plug-in code, JavaScript web resources, workflows, and canvas apps against best practices, performance, and reliability rules.\n\nWhy the others are wrong:\n- A. User adoption metrics are tracked by analytics tools, not Solution Checker.\n- C. Network bandwidth is an infrastructure concern, not analyzed by Solution Checker.\n- D. Storage consumption is monitored in the admin center, not by Solution Checker."
+    },
+    {
+      "id": 51,
+      "topic": "Plug-ins - Depth and Recursion",
+      "type": "SingleChoice",
+      "questionText": "A plug-in registered on the Update message of a table also updates the same table in its execution logic, causing infinite recursion. How should you prevent this?",
+      "options": [
+        "A. Disable the plug-in after the first execution.",
+        "B. Check the context.Depth property and exit early if it exceeds a threshold.",
+        "C. Use a different programming language.",
+        "D. Remove all Update plug-ins."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The IPluginExecutionContext.Depth property indicates how many times the pipeline has been invoked recursively. Checking this value (e.g., exiting if Depth > 1) prevents infinite recursion.\n\nWhy the others are wrong:\n- A. Disabling a plug-in at runtime is not a supported pattern.\n- C. The programming language does not affect recursion behavior.\n- D. Removing all plug-ins eliminates the business logic entirely."
+    },
+    {
+      "id": 52,
+      "topic": "PCF Controls - Resource Files",
+      "type": "SingleChoice",
+      "questionText": "How do you include localized strings in a PCF control that supports multiple languages?",
+      "options": [
+        "A. Hard-code strings in every language within the TypeScript code.",
+        "B. Use RESX (resource) files declared in the ControlManifest.Input.xml and access strings through context.resources.getString().",
+        "C. Create separate PCF controls for each language.",
+        "D. Use browser localStorage for translations."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. RESX files provide a standard .NET localization mechanism. They are declared as resources in the manifest, and the framework provides context.resources.getString() to retrieve the appropriate localized string based on the user's language setting.\n\nWhy the others are wrong:\n- A. Hard-coding strings in multiple languages is unmaintainable and does not follow localization standards.\n- C. Separate controls per language is extreme duplication.\n- D. Browser localStorage is not a localization mechanism and is not reliable for PCF controls."
+    },
+    {
+      "id": 53,
+      "topic": "Dataverse Web API - Paging",
+      "type": "SingleChoice",
+      "questionText": "When querying the Dataverse Web API and the result set is large, how does the API handle pagination?",
+      "options": [
+        "A. It returns all records in a single response regardless of count.",
+        "B. It returns a page of records with an @odata.nextLink URL to retrieve the next page.",
+        "C. It truncates results without notification.",
+        "D. It throws an error if there are too many records."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Dataverse Web API returns paginated results (default 5,000 records per page) with an @odata.nextLink URL in the response that you follow to retrieve subsequent pages.\n\nWhy the others are wrong:\n- A. Results are paginated, not returned all at once.\n- C. The API provides the nextLink to indicate more data is available.\n- D. Large result sets are handled through pagination, not errors."
+    },
+    {
+      "id": 54,
+      "topic": "Custom Connectors - Testing",
+      "type": "SingleChoice",
+      "questionText": "Where can you test the operations of a custom connector before using it in a flow or app?",
+      "options": [
+        "A. Only in a production cloud flow.",
+        "B. In the custom connector's Test tab within the Power Automate maker portal.",
+        "C. By deploying to Azure first.",
+        "D. Testing is not possible."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The custom connector designer includes a Test tab where you can create a connection, select an operation, provide parameters, and execute it to verify the response directly.\n\nWhy the others are wrong:\n- A. You do not need to create a production flow to test connector operations.\n- C. Azure deployment is not required for testing custom connectors.\n- D. Testing is built into the connector designer."
+    },
+    {
+      "id": 55,
+      "topic": "ALM - Solution Dependencies",
+      "type": "SingleChoice",
+      "questionText": "When importing a managed solution that depends on a column from another solution, and that solution is not installed, what happens?",
+      "options": [
+        "A. The import succeeds with a warning.",
+        "B. The import fails with a missing dependency error listing the required components.",
+        "C. The missing column is automatically created.",
+        "D. The dependency is silently ignored."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed solution import validates all dependencies before proceeding. If a required component (like a column from another solution) is missing, the import fails with an error listing the missing dependencies.\n\nWhy the others are wrong:\n- A. Missing dependencies cause failures, not just warnings.\n- C. Dependencies are not auto-created; the required solution must be installed first.\n- D. Dependencies are strictly validated, not ignored."
+    },
+    {
+      "id": 56,
+      "topic": "Plug-ins - Organization Service",
+      "type": "MultipleChoice",
+      "questionText": "Which two methods on the IOrganizationService interface can you use to create a new record in Dataverse from within a plug-in? (Choose two.)",
+      "options": [
+        "A. Create() method with an Entity object.",
+        "B. Execute() method with a CreateRequest message.",
+        "C. Update() method with a new record.",
+        "D. Retrieve() method."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Create() directly creates a record from an Entity object. Execute() with a CreateRequest achieves the same result but allows additional options like SuppressDuplicateDetection.\n\nWhy the others are wrong:\n- C. Update() modifies existing records; it cannot create new ones.\n- D. Retrieve() reads records and does not create them."
+    },
+    {
+      "id": 57,
+      "topic": "PCF Controls - Fluent UI",
+      "type": "SingleChoice",
+      "questionText": "What UI component library does Microsoft recommend for building PCF controls that match the look and feel of model-driven apps?",
+      "options": [
+        "A. Bootstrap.",
+        "B. Fluent UI (formerly Office UI Fabric).",
+        "C. Material Design.",
+        "D. Tailwind CSS."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Fluent UI is Microsoft's component library that provides the same design language used in model-driven apps, Dynamics 365, and Microsoft 365, ensuring visual consistency.\n\nWhy the others are wrong:\n- A. Bootstrap is a general-purpose framework that does not match the Microsoft design language.\n- C. Material Design is Google's design system.\n- D. Tailwind CSS is a utility framework, not a component library matching Microsoft's design language."
+    },
+    {
+      "id": 58,
+      "topic": "Dataverse Web API - Custom Actions",
+      "type": "SingleChoice",
+      "questionText": "You have created a custom action named 'new_CalculateDiscount' bound to the Account table. How do you call it using the Web API?",
+      "options": [
+        "A. GET /api/data/v9.2/accounts?action=new_CalculateDiscount",
+        "B. POST /api/data/v9.2/accounts({accountid})/Microsoft.Dynamics.CRM.new_CalculateDiscount",
+        "C. DELETE /api/data/v9.2/new_CalculateDiscount",
+        "D. PATCH /api/data/v9.2/accounts({accountid})"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Bound custom actions are invoked using a POST request to the record URL appended with the fully qualified action name (Microsoft.Dynamics.CRM.{action_name}).\n\nWhy the others are wrong:\n- A. GET requests are for retrieving data, not invoking actions, and the URL format is incorrect.\n- C. DELETE is for deleting records, not invoking actions.\n- D. PATCH is for updating records, not invoking custom actions."
+    },
+    {
+      "id": 59,
+      "topic": "ALM - Managed Properties",
+      "type": "SingleChoice",
+      "questionText": "You are preparing a managed solution for distribution. You want to prevent consumers from modifying the security roles included in the solution. What should you configure?",
+      "options": [
+        "A. Export the solution as unmanaged.",
+        "B. Set the 'Can be customized' managed property to false for the security roles.",
+        "C. Remove the security roles from the solution.",
+        "D. Password-protect the solution file."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed properties control what consumers can do with components in a managed solution. Setting 'Can be customized' to false prevents modification of the security roles in the target environment.\n\nWhy the others are wrong:\n- A. Unmanaged solutions allow full customization, which is the opposite of the requirement.\n- C. Removing security roles eliminates them from the solution entirely.\n- D. Solution files cannot be password-protected."
+    },
+    {
+      "id": 60,
+      "topic": "PCF Controls - Dataset Paging",
+      "type": "SingleChoice",
+      "questionText": "In a PCF dataset control, how do you implement pagination when the dataset contains more records than can be displayed at once?",
+      "options": [
+        "A. Load all records at once regardless of count.",
+        "B. Use the dataset.paging object with methods like loadNextPage() and loadPreviousPage().",
+        "C. Create separate controls for each page.",
+        "D. Limit the view to 10 records only."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The PCF dataset API provides a paging object with methods (loadNextPage, loadPreviousPage, setPageSize) and properties (pageSize, totalResultCount, hasNextPage, hasPreviousPage) for implementing pagination.\n\nWhy the others are wrong:\n- A. Loading all records causes performance issues and is not feasible for large datasets.\n- C. Separate controls per page is not a viable pagination strategy.\n- D. Artificially limiting records loses data accessibility."
+    },
+    {
+      "id": 61,
+      "topic": "Plug-ins - Service Provider",
+      "type": "SingleChoice",
+      "questionText": "In a Dataverse plug-in's Execute method, how do you obtain an instance of the IOrganizationService?",
+      "options": [
+        "A. Create a new instance directly with 'new OrganizationService()'.",
+        "B. Retrieve the IOrganizationServiceFactory from the service provider and use CreateOrganizationService().",
+        "C. Use a static Singleton pattern.",
+        "D. Read it from the configuration file."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The IServiceProvider parameter in Execute provides access to IOrganizationServiceFactory, which creates an IOrganizationService instance. Passing null creates the service as the system user; passing the user ID creates it as that user.\n\nWhy the others are wrong:\n- A. OrganizationService cannot be directly instantiated in a plug-in.\n- C. Singleton patterns are not reliable in the multi-threaded, sandboxed plug-in environment.\n- D. Configuration files are not used for service instantiation in plug-ins."
+    },
+    {
+      "id": 62,
+      "topic": "Custom Connectors - Response Validation",
+      "type": "SingleChoice",
+      "questionText": "How do you define the response schema for a custom connector action so that downstream flow steps can reference response properties?",
+      "options": [
+        "A. You cannot define response schemas.",
+        "B. Define the response schema in the custom connector's action definition, either manually or by importing from a sample response.",
+        "C. Write JavaScript to parse the response in the flow.",
+        "D. Store the response schema in SharePoint."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The custom connector designer allows you to define the response schema for each action by importing from a sample JSON response or manually specifying the properties and types. This enables downstream steps to reference response properties with dynamic content.\n\nWhy the others are wrong:\n- A. Response schemas are a core part of custom connector definitions.\n- C. JavaScript is not used in standard Power Automate flow steps for parsing.\n- D. SharePoint is not used for storing connector response schemas."
+    },
+    {
+      "id": 63,
+      "topic": "Dataverse Web API - Alternate Keys for Upsert",
+      "type": "SingleChoice",
+      "questionText": "When performing an upsert using an alternate key via the Web API, how do you specify the alternate key values in the URL?",
+      "options": [
+        "A. Pass them as query parameters: /accounts?externalId=123",
+        "B. Include the key values in the entity URL: /accounts(externalId='123')",
+        "C. Send them in a custom HTTP header.",
+        "D. Include them only in the request body."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Alternate key values are specified in the URL path using the key name and value format: /accounts(keyname='value') for single keys, or /accounts(key1='val1',key2='val2') for composite keys.\n\nWhy the others are wrong:\n- A. Query parameters are for OData options ($filter, $select, etc.), not record identification.\n- C. Custom HTTP headers are not used for record identification.\n- D. The body contains the record data; the URL identifies which record to upsert."
+    },
+    {
+      "id": 64,
+      "topic": "ALM - Solution Patching",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of solution patches in Power Platform ALM?",
+      "options": [
+        "A. To completely replace the base solution.",
+        "B. To deliver incremental updates containing only the changed components, applied on top of the base solution.",
+        "C. To delete components from the base solution.",
+        "D. To convert managed solutions to unmanaged."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Solution patches contain only the components that have changed since the base solution, allowing incremental updates without redeploying the entire solution. They are layered on top of the base.\n\nWhy the others are wrong:\n- A. Patches add to the base solution; they do not replace it.\n- C. Patches deliver changes but cannot delete components from the base.\n- D. Patches do not change the managed/unmanaged status of solutions."
+    },
+    {
+      "id": 65,
+      "topic": "Plug-ins - Target Entity",
+      "type": "SingleChoice",
+      "questionText": "In a plug-in registered on the Create message, how do you access the record being created?",
+      "options": [
+        "A. By querying the database directly.",
+        "B. By retrieving the 'Target' parameter from context.InputParameters and casting it to Entity.",
+        "C. By reading the PostEntityImages (always available for Create).",
+        "D. By accessing context.OutputParameters directly."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Target' input parameter contains the Entity object being created, including all the attribute values provided by the caller. You cast context.InputParameters['Target'] to Entity.\n\nWhy the others are wrong:\n- A. Direct database queries bypass the platform and are not supported in sandboxed plug-ins.\n- C. PostEntityImages are not available in Pre-operation steps of Create (the record does not exist yet).\n- D. OutputParameters contain the result (like the new record's ID), not the record being created."
     }
   ]
 }

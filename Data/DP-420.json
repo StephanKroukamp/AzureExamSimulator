@@ -561,6 +561,314 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. The Cosmos DB API for MongoDB is wire-protocol compatible with MongoDB. Applications using MongoDB drivers and query syntax can connect to Cosmos DB with minimal code changes, typically only requiring a connection string update.\n\nWhy the others are wrong:\n- A. SQL API uses a different query language and data access patterns than MongoDB, requiring significant code changes.\n- C. Cassandra API is compatible with Apache Cassandra workloads, not MongoDB.\n- D. Gremlin API is for graph database workloads, not MongoDB-compatible applications."
+    },
+    {
+      "id": 41,
+      "topic": "Partition Keys - Hierarchical partition keys",
+      "type": "SingleChoice",
+      "questionText": "You are designing a multi-tenant Cosmos DB container where each tenant has multiple departments, and each department has many documents. You want optimal partition key distribution. Which partition key strategy should you use?",
+      "options": [
+        "A. Use /tenantId as the single partition key",
+        "B. Use hierarchical partition keys with /tenantId, /departmentId, and /id",
+        "C. Use /id as the partition key",
+        "D. Create a separate container for each tenant"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Hierarchical partition keys (up to 3 levels) allow Cosmos DB to distribute data more granularly. Using /tenantId, /departmentId, and /id ensures that large tenants are spread across multiple physical partitions while still enabling efficient queries at any level of the hierarchy.\n\nWhy the others are wrong:\n- A. Using only /tenantId could create hot partitions for large tenants that exceed the 20 GB logical partition limit.\n- C. Using /id creates single-item partitions, which is overly granular and prevents efficient multi-item queries by tenant or department.\n- D. Creating separate containers per tenant is not scalable, increases management overhead, and wastes provisioned throughput."
+    },
+    {
+      "id": 42,
+      "topic": "Throughput - Autoscale",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB container experiences unpredictable traffic spikes throughout the day, ranging from 500 RU/s to 15,000 RU/s. You want to minimize costs while handling peak load. Which throughput configuration should you use?",
+      "options": [
+        "A. Provision manual throughput at 15,000 RU/s",
+        "B. Provision autoscale throughput with a maximum of 15,000 RU/s",
+        "C. Provision manual throughput at 500 RU/s",
+        "D. Use serverless mode with a 15,000 RU/s cap"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Autoscale automatically scales between 10% of the maximum (1,500 RU/s) and the maximum (15,000 RU/s) based on demand. You only pay for the throughput consumed, making it cost-effective for unpredictable workloads.\n\nWhy the others are wrong:\n- A. Manual throughput at 15,000 RU/s would be wasteful during low-traffic periods since you pay for the full amount regardless of usage.\n- C. Manual throughput at 500 RU/s would cause rate limiting (429 errors) during traffic spikes.\n- D. Serverless mode does not have a configurable RU/s cap and is better suited for intermittent workloads with long idle periods, not sustained variable traffic."
+    },
+    {
+      "id": 43,
+      "topic": "Consistency Levels - Bounded Staleness",
+      "type": "SingleChoice",
+      "questionText": "You configure Bounded Staleness consistency on a Cosmos DB account with K=100 operations and T=5 seconds. What does this guarantee?",
+      "options": [
+        "A. Reads will never be more than 100 versions or 5 seconds behind the most recent write",
+        "B. Writes will be delayed by at most 5 seconds",
+        "C. Reads return the same value for exactly 5 seconds after a write",
+        "D. The system will reject writes after 100 operations per second"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Bounded Staleness guarantees that reads lag behind writes by at most K versions (100) or T time interval (5 seconds), whichever is reached first. This provides a predictable staleness window.\n\nWhy the others are wrong:\n- B. Bounded Staleness does not delay writes; it bounds how stale reads can be.\n- C. It does not guarantee reads return the same value for a fixed duration; it bounds the maximum staleness.\n- D. K refers to the version lag tolerance for reads, not a write rate limit."
+    },
+    {
+      "id": 44,
+      "topic": "Change Feed - Processing",
+      "type": "SingleChoice",
+      "questionText": "You need to process all inserts and updates in a Cosmos DB container in real time and forward them to an Azure Event Hub. Which approach should you use?",
+      "options": [
+        "A. Use the change feed processor library with a lease container",
+        "B. Poll the container every second using SQL queries",
+        "C. Enable Azure Monitor alerts on write operations",
+        "D. Use a stored procedure that triggers on every write"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The change feed processor library provides a reliable, scalable way to read the change feed. It uses a lease container to track progress, supports multiple consumers, and handles partition splits automatically.\n\nWhy the others are wrong:\n- B. Polling with SQL queries is inefficient, costly in RUs, and can miss changes between polls.\n- C. Azure Monitor alerts notify about metrics/conditions but don't provide the actual document changes for processing.\n- D. Cosmos DB does not support server-side triggers that fire automatically on writes; triggers must be explicitly invoked in the request."
+    },
+    {
+      "id": 45,
+      "topic": "Indexing - Composite indexes",
+      "type": "SingleChoice",
+      "questionText": "Your application frequently queries a Cosmos DB container with ORDER BY lastName ASC, firstName ASC. What should you create to optimize this query?",
+      "options": [
+        "A. Two separate single-property indexes on lastName and firstName",
+        "B. A composite index on (lastName ASC, firstName ASC)",
+        "C. A spatial index on lastName",
+        "D. Exclude lastName and firstName from the index"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A composite index on (lastName ASC, firstName ASC) directly supports the multi-column ORDER BY clause, allowing the query engine to return results in the requested order without an in-memory sort, reducing RU consumption.\n\nWhy the others are wrong:\n- A. Separate single-property indexes cannot serve a multi-property ORDER BY efficiently; a composite index is required.\n- C. Spatial indexes are for geospatial data types (Point, Polygon), not for sorting string properties.\n- D. Excluding these properties from the index would make the ORDER BY query fail or consume significantly more RUs."
+    },
+    {
+      "id": 46,
+      "topic": "Stored Procedures - Transactional batch",
+      "type": "SingleChoice",
+      "questionText": "You need to insert 5 related documents into a Cosmos DB container as an atomic transaction. All documents share the same partition key. Which approach should you use?",
+      "options": [
+        "A. Use a stored procedure that inserts all 5 documents within the same execution",
+        "B. Insert each document individually with separate SDK calls",
+        "C. Use a cross-partition query to insert documents",
+        "D. Use the bulk executor library with different partition keys"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Stored procedures execute within a single partition and provide ACID transactions. All operations within a stored procedure either succeed or fail together, making them ideal for atomic multi-document writes within the same partition key.\n\nWhy the others are wrong:\n- B. Individual SDK calls are separate operations without transactional guarantees; if one fails, the others are not rolled back.\n- C. Cross-partition queries are for reads, not writes, and do not provide transactional guarantees.\n- D. The bulk executor processes operations across partitions in parallel but does not provide atomicity across different partition keys."
+    },
+    {
+      "id": 47,
+      "topic": "Performance - Request Units",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO factors increase the RU cost of a Cosmos DB query? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Queries that perform cross-partition fan-out",
+        "B. Queries that return a large number of documents",
+        "C. Using the same partition key for all documents",
+        "D. Reading from the nearest region with Session consistency"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Cross-partition queries fan out to multiple physical partitions, each consuming RUs. Returning many documents increases data transfer and processing costs. Both significantly increase the total RU charge.\n\nWhy the others are wrong:\n- C. Using the same partition key for all documents is a design issue (hot partition) but does not directly increase query RU cost; it can actually make single-partition queries cheaper.\n- D. Reading from the nearest region with Session consistency is the most efficient pattern and does not increase RU cost."
+    },
+    {
+      "id": 48,
+      "topic": "Global Distribution - Multi-region writes",
+      "type": "SingleChoice",
+      "questionText": "You enable multi-region writes on a Cosmos DB account with regions in East US and West Europe. What conflict resolution policy must you configure?",
+      "options": [
+        "A. No conflict resolution is needed; Cosmos DB prevents all conflicts",
+        "B. You must choose Last Writer Wins (LWW) or a custom conflict resolution stored procedure",
+        "C. Multi-region writes automatically use Strong consistency",
+        "D. You must manually merge conflicts using an external application"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. With multi-region writes, concurrent writes to the same document in different regions can conflict. Cosmos DB requires a conflict resolution policy: Last Writer Wins (using a configurable timestamp path) or a custom stored procedure for application-specific resolution.\n\nWhy the others are wrong:\n- A. Conflicts can and do occur with multi-region writes; they must be resolved.\n- C. Multi-region writes support all consistency levels except Strong consistency, which is not available with multi-region writes.\n- D. Cosmos DB handles conflict resolution automatically using the configured policy; manual external merging is not required."
+    },
+    {
+      "id": 49,
+      "topic": "Design Patterns - Denormalization",
+      "type": "SingleChoice",
+      "questionText": "You are designing a Cosmos DB solution for a blog application. Each blog post has an author name displayed with it. The author name rarely changes but posts are read millions of times per day. What design approach should you use?",
+      "options": [
+        "A. Normalize the data and use a JOIN query to fetch the author name at read time",
+        "B. Embed (denormalize) the author name directly in each blog post document",
+        "C. Store author names in a separate relational database",
+        "D. Use a materialized view to compute author names at query time"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Denormalizing the author name into each post document optimizes for the read-heavy pattern. Since the author name rarely changes, the cost of updating denormalized copies is minimal compared to the massive read savings from avoiding joins.\n\nWhy the others are wrong:\n- A. Cosmos DB SQL API does not support cross-document JOIN queries. Even within a document, JOINs only work with embedded arrays.\n- C. Introducing a separate relational database adds latency, complexity, and cross-service dependency for a simple lookup.\n- D. Cosmos DB does not have built-in materialized views that auto-compute values at query time."
+    },
+    {
+      "id": 50,
+      "topic": "Indexing - Indexing modes",
+      "type": "SingleChoice",
+      "questionText": "You have a Cosmos DB container that receives high-throughput writes and is rarely queried. You want to minimize the RU cost of writes. Which indexing mode should you configure?",
+      "options": [
+        "A. Consistent indexing mode with all paths included",
+        "B. No indexing (exclude all paths from the indexing policy)",
+        "C. Lazy indexing mode",
+        "D. Spatial indexing mode on all properties"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Excluding all paths from the indexing policy eliminates the RU overhead of maintaining indexes on writes. Since the container is rarely queried, the trade-off of no index support is acceptable.\n\nWhy the others are wrong:\n- A. Consistent indexing with all paths included maximizes write RU cost because every property is indexed synchronously.\n- C. Lazy indexing mode has been deprecated in Cosmos DB; it is no longer a supported option.\n- D. Spatial indexing adds overhead for geospatial index maintenance, which is unnecessary if the container is rarely queried."
+    },
+    {
+      "id": 51,
+      "topic": "Server-side Programming - User Defined Functions",
+      "type": "SingleChoice",
+      "questionText": "You need to create a reusable function that calculates a tax amount and can be called within Cosmos DB SQL queries. Which server-side feature should you use?",
+      "options": [
+        "A. Stored procedure",
+        "B. Pre-trigger",
+        "C. User Defined Function (UDF)",
+        "D. Post-trigger"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. UDFs are JavaScript functions that can be called within SQL queries (e.g., SELECT udf.calculateTax(c.price) FROM c). They extend the query language with custom business logic.\n\nWhy the others are wrong:\n- A. Stored procedures are standalone executable programs invoked via SDK, not callable within SQL queries.\n- B. Pre-triggers execute before a create, replace, or delete operation; they cannot be used in SELECT queries.\n- D. Post-triggers execute after a write operation; they cannot be used in SELECT queries."
+    },
+    {
+      "id": 52,
+      "topic": "Throughput - Serverless vs Provisioned",
+      "type": "SingleChoice",
+      "questionText": "You are building a development and testing environment for a Cosmos DB application. Traffic is intermittent with long idle periods between test runs. Which capacity mode should you select?",
+      "options": [
+        "A. Provisioned throughput with autoscale",
+        "B. Provisioned throughput at 400 RU/s minimum",
+        "C. Serverless mode",
+        "D. Dedicated capacity mode"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Serverless mode charges only for the RUs consumed per operation, with no minimum charge during idle periods. This is ideal for development/testing environments with intermittent, unpredictable traffic and long idle times.\n\nWhy the others are wrong:\n- A. Autoscale has a minimum charge of 10% of max RU/s even during idle periods.\n- B. Provisioned at 400 RU/s incurs continuous charges regardless of actual usage.\n- D. Dedicated capacity mode is not a Cosmos DB offering; the options are provisioned (manual/autoscale) and serverless."
+    },
+    {
+      "id": 53,
+      "topic": "Change Feed - All versions and deletes mode",
+      "type": "SingleChoice",
+      "questionText": "You need to capture document deletions from a Cosmos DB container's change feed. Which change feed mode should you use?",
+      "options": [
+        "A. Latest version mode (default)",
+        "B. All versions and deletes mode",
+        "C. Enable soft-delete on the container",
+        "D. Use Azure Monitor to detect deletions"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The all versions and deletes mode of the change feed captures creates, updates, and deletes, including intermediate versions of a document. This is the only change feed mode that surfaces deletion events.\n\nWhy the others are wrong:\n- A. The default latest version mode only captures inserts and updates; it does not surface delete events.\n- C. Soft-delete is an application-level pattern (adding a flag), not a Cosmos DB feature that integrates with the change feed.\n- D. Azure Monitor provides metrics and diagnostics but does not provide a stream of individual document change events."
+    },
+    {
+      "id": 54,
+      "topic": "Consistency Levels - Session tokens",
+      "type": "SingleChoice",
+      "questionText": "Your application uses Session consistency and has multiple application instances behind a load balancer. Users report reading stale data after writes. What is the most likely cause?",
+      "options": [
+        "A. The Cosmos DB account has too few RUs provisioned",
+        "B. Session tokens are not being passed between application instances serving the same user session",
+        "C. Session consistency is equivalent to Eventual consistency",
+        "D. The container's indexing policy is excluding the queried properties"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Session consistency guarantees read-your-own-writes only within the same session, identified by the session token. If a user's write goes to instance A and the subsequent read goes to instance B (via load balancer), instance B must use the session token from the write response to guarantee reading the latest write.\n\nWhy the others are wrong:\n- A. Insufficient RUs cause throttling (429 errors), not stale reads.\n- C. Session consistency provides stronger guarantees than Eventual consistency within the same session.\n- D. Indexing policy affects query performance and capability, not data staleness."
+    },
+    {
+      "id": 55,
+      "topic": "Design Patterns - Reference data pattern",
+      "type": "MultipleChoice",
+      "questionText": "You are designing a Cosmos DB data model for a social media application. Which TWO strategies should you use to handle frequently changing user profile data referenced by thousands of posts? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Embed the full user profile in every post document",
+        "B. Store a minimal subset of user data in posts and the full profile in a separate document",
+        "C. Use the change feed to propagate profile updates to denormalized copies in posts",
+        "D. Use cross-document JOINs to fetch profile data at read time"
+      ],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Correct: B and C. Embedding only essential user data (e.g., username, avatar URL) in posts minimizes the denormalization surface. Using the change feed to propagate profile updates ensures denormalized copies stay in sync when profile data changes.\n\nWhy the others are wrong:\n- A. Embedding the full profile in every post creates massive redundancy and makes updates extremely expensive when profile data changes frequently.\n- D. Cosmos DB SQL API does not support cross-document JOINs; JOINs only work within a single document."
+    },
+    {
+      "id": 56,
+      "topic": "Security - RBAC and data plane access",
+      "type": "SingleChoice",
+      "questionText": "You want to grant a developer read-only access to data in a Cosmos DB container without sharing the account's primary key. Which approach should you use?",
+      "options": [
+        "A. Share the primary read-only key with the developer",
+        "B. Configure Azure RBAC with the Cosmos DB Built-in Data Reader role assigned to the developer's Azure AD identity",
+        "C. Create a resource token with read permission scoped to the container",
+        "D. Disable authentication on the Cosmos DB account"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure RBAC with the Cosmos DB Built-in Data Reader role provides identity-based, granular access control. The developer authenticates with their Azure AD credentials without needing any shared key.\n\nWhy the others are wrong:\n- A. The read-only key still grants access to all data in the account and cannot be scoped to specific containers or users.\n- C. Resource tokens provide scoped access but require a middleware service to generate and manage them; RBAC is the modern, recommended approach.\n- D. Disabling authentication would expose all data to anyone, which is a severe security risk."
+    },
+    {
+      "id": 57,
+      "topic": "Performance - Point reads vs queries",
+      "type": "SingleChoice",
+      "questionText": "You need to retrieve a single document from Cosmos DB by its id and partition key. Which operation provides the lowest RU cost?",
+      "options": [
+        "A. A SQL query: SELECT * FROM c WHERE c.id = 'doc1' AND c.partitionKey = 'pk1'",
+        "B. A point read using ReadItemAsync with the id and partition key",
+        "C. A cross-partition query: SELECT * FROM c WHERE c.id = 'doc1'",
+        "D. A stored procedure that fetches the document"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A point read (ReadItemAsync) is the most RU-efficient way to retrieve a single document. It directly accesses the item by id and partition key without going through the query engine, typically costing 1 RU for a 1 KB document.\n\nWhy the others are wrong:\n- A. A SQL query goes through the query engine, which adds overhead even for single-document retrieval, resulting in higher RU cost than a point read.\n- C. A cross-partition query fans out to all partitions, which is the most expensive option for retrieving a single known document.\n- D. A stored procedure invocation has overhead beyond a simple point read and is unnecessary for single-document retrieval."
+    },
+    {
+      "id": 58,
+      "topic": "Backup and Restore - Continuous backup",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires the ability to restore a Cosmos DB account to any point within the last 7 days. Which backup mode should you enable?",
+      "options": [
+        "A. Periodic backup with 4-hour interval",
+        "B. Continuous backup (7-day retention)",
+        "C. Manual backup using Azure Data Factory",
+        "D. Export to Azure Blob Storage daily"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Continuous backup mode provides point-in-time restore (PITR) capability, allowing you to restore to any second within the retention window (7 or 30 days). This provides the granular recovery the requirement demands.\n\nWhy the others are wrong:\n- A. Periodic backup takes snapshots at intervals (minimum 1 hour) and retains 2 copies. You can only restore to a backup point, not to any arbitrary second.\n- C. Manual backups via ADF require custom implementation and don't provide seamless point-in-time restore.\n- D. Daily exports to Blob Storage only provide daily recovery points, not continuous point-in-time restore."
+    },
+    {
+      "id": 59,
+      "topic": "Querying - Pagination with continuation tokens",
+      "type": "SingleChoice",
+      "questionText": "Your Cosmos DB query returns 10,000 results but the client only needs to display 50 at a time. How should you handle this efficiently?",
+      "options": [
+        "A. Use MaxItemCount to limit page size and continuation tokens to fetch subsequent pages",
+        "B. Retrieve all 10,000 results and paginate in the application",
+        "C. Use OFFSET and LIMIT for each page request",
+        "D. Create 200 separate queries, each filtering a different range"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Setting MaxItemCount limits the number of results per response page. Cosmos DB returns a continuation token that you pass back in the next request to get the next page. This is efficient because each page only costs the RUs to process that page's worth of data.\n\nWhy the others are wrong:\n- B. Retrieving all 10,000 results wastes RUs and memory; most of the data is never displayed.\n- C. OFFSET/LIMIT in Cosmos DB is supported but becomes increasingly expensive as the offset grows because the engine must process and skip all preceding documents.\n- D. Creating 200 separate queries is complex, error-prone, and difficult to maintain."
+    },
+    {
+      "id": 60,
+      "topic": "Integrated Cache",
+      "type": "SingleChoice",
+      "questionText": "You have a read-heavy Cosmos DB workload where the same documents are read thousands of times per minute. You want to reduce RU consumption without changing application code. Which feature should you enable?",
+      "options": [
+        "A. Cosmos DB integrated cache with a dedicated gateway",
+        "B. Azure Redis Cache in front of Cosmos DB",
+        "C. Increase the provisioned RU/s",
+        "D. Enable multi-region reads"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Cosmos DB integrated cache is an in-memory cache within the dedicated gateway that caches point reads and query results. It requires minimal code changes (just changing the connection mode to Gateway with the dedicated gateway endpoint) and reduces backend RU consumption.\n\nWhy the others are wrong:\n- B. Azure Redis Cache requires significant application code changes to implement cache-aside patterns and adds operational complexity.\n- C. Increasing RU/s handles more load but doesn't reduce the per-request cost; it just prevents throttling.\n- D. Multi-region reads improve latency and availability but don't reduce the RU cost per read operation."
+    },
+    {
+      "id": 61,
+      "topic": "Data Migration - Azure Data Factory",
+      "type": "MultipleChoice",
+      "questionText": "You need to migrate 500 GB of data from an on-premises MongoDB to Azure Cosmos DB for MongoDB API. Which TWO tools can you use? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Azure Data Factory with MongoDB source and Cosmos DB sink",
+        "B. Azure Database Migration Service (DMS)",
+        "C. Azure Storage Explorer",
+        "D. Power BI Desktop"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Azure Data Factory supports MongoDB as a source and Cosmos DB as a sink, enabling orchestrated batch migration. Azure Database Migration Service provides online and offline migration paths specifically for database migrations including MongoDB to Cosmos DB.\n\nWhy the others are wrong:\n- C. Azure Storage Explorer is for browsing and managing Azure Storage accounts, not for database migration.\n- D. Power BI Desktop is a data visualization tool, not a data migration tool."
+    },
+    {
+      "id": 62,
+      "topic": "Throughput - Database vs container level",
+      "type": "SingleChoice",
+      "questionText": "You have a Cosmos DB database with 10 containers. Three containers are heavily used while the other seven are used rarely. You want to optimize cost. Which throughput provisioning approach should you use?",
+      "options": [
+        "A. Provision shared database-level throughput for all 10 containers",
+        "B. Provision dedicated throughput on each of the 3 heavy containers and shared database throughput for the remaining 7",
+        "C. Provision dedicated throughput on all 10 containers",
+        "D. Use serverless mode for the entire database"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. This hybrid approach gives the 3 heavy containers guaranteed dedicated throughput to meet their needs, while the 7 lightweight containers share a database-level throughput pool efficiently, minimizing overall cost.\n\nWhy the others are wrong:\n- A. Shared database throughput for all containers means the 3 heavy containers could starve the lightweight ones, and you cannot guarantee throughput for any specific container.\n- C. Provisioning dedicated throughput on all 10 containers means paying for minimum throughput (400 RU/s or more) on each rarely-used container.\n- D. Serverless has per-operation costs that could be expensive for the 3 heavily used containers with sustained traffic."
     }
   ]
 }

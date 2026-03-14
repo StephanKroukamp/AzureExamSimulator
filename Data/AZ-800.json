@@ -361,6 +361,204 @@
       "options": ["A. Windows Server Update Services (WSUS).", "B. Azure Update Manager.", "C. Microsoft Endpoint Configuration Manager.", "D. Windows Update for Business."],
       "correctAnswers": ["B"],
       "explanation": "Azure Update Manager provides a unified update management experience for both Azure VMs and Azure Arc-enabled servers from the Azure portal. It supports assessment, scheduling, and deployment of updates across hybrid environments. Option A is incorrect because WSUS is an on-premises solution that does not natively manage Azure VMs. Option C is incorrect because MECM primarily manages on-premises devices and requires additional configuration for Azure VMs. Option D is incorrect because Windows Update for Business is designed for Windows 10/11 devices, not server workloads."
+    },
+    {
+      "id": 41,
+      "topic": "Active Directory Domain Services - Configuring AD DS trusts",
+      "type": "SingleChoice",
+      "questionText": "Your company needs to share resources with a partner company that has its own Active Directory forest. Users from both forests need access to resources in the other forest. What type of trust should you create?",
+      "options": ["A. External trust.", "B. Forest trust.", "C. Shortcut trust.", "D. Realm trust."],
+      "correctAnswers": ["B"],
+      "explanation": "A forest trust enables resource sharing between all domains in both forests. It can be one-way or two-way and supports SID filtering for security. Option A is incorrect because an external trust is between individual domains, not entire forests. Option C is incorrect because a shortcut trust optimizes authentication paths within the same forest or between trusted forests but does not establish a new trust relationship. Option D is incorrect because a realm trust is used for interoperability with non-Windows Kerberos realms."
+    },
+    {
+      "id": 42,
+      "topic": "DNS - Implementing DNSSEC",
+      "type": "SingleChoice",
+      "questionText": "You need to protect your DNS zone against DNS spoofing attacks by digitally signing DNS responses. What should you implement?",
+      "options": ["A. DNS Socket Pool.", "B. DNSSEC (DNS Security Extensions).", "C. DNS cache locking.", "D. Response Rate Limiting."],
+      "correctAnswers": ["B"],
+      "explanation": "DNSSEC digitally signs DNS records, allowing clients to verify that responses are authentic and have not been tampered with. This protects against DNS spoofing and cache poisoning attacks. Option A is incorrect because DNS Socket Pool randomizes source ports to reduce spoofing risk but does not digitally sign responses. Option C is incorrect because cache locking prevents cached entries from being overwritten but does not sign responses. Option D is incorrect because Response Rate Limiting mitigates DNS amplification DDoS attacks, not spoofing."
+    },
+    {
+      "id": 43,
+      "topic": "DHCP - Implementing DHCP policies",
+      "type": "SingleChoice",
+      "questionText": "You need to assign different DNS servers to wireless clients than to wired clients within the same DHCP scope. What should you configure?",
+      "options": ["A. A DHCP policy based on the relay agent information.", "B. Two separate DHCP scopes.", "C. DHCP reservations for all wireless clients.", "D. A DHCP superscope."],
+      "correctAnswers": ["A"],
+      "explanation": "DHCP policies allow you to assign different options (like DNS servers) to clients based on conditions such as relay agent information, MAC address prefix, or vendor class. Wireless access points typically include relay agent information that distinguishes wireless from wired clients. Option B is incorrect because both client types are on the same subnet, so two scopes would create conflicts. Option C is incorrect because creating reservations for all wireless clients is not scalable. Option D is incorrect because a superscope groups multiple scopes on the same physical segment but does not differentiate by client type."
+    },
+    {
+      "id": 44,
+      "topic": "Hyper-V - Configuring virtual switches",
+      "type": "SingleChoice",
+      "questionText": "You need to create a Hyper-V virtual switch that allows VMs to communicate with each other and with external networks, while also allowing the Hyper-V host to use the same physical adapter. What type of virtual switch should you create?",
+      "options": ["A. Private virtual switch.", "B. Internal virtual switch.", "C. External virtual switch with the 'Allow management operating system to share this network adapter' option enabled.", "D. External virtual switch without management OS sharing."],
+      "correctAnswers": ["C"],
+      "explanation": "An external virtual switch with management OS sharing allows VMs to communicate with each other, with external networks, and allows the Hyper-V host to share the physical adapter for its own network connectivity. Option A is incorrect because a private switch only allows VM-to-VM communication, with no external or host access. Option B is incorrect because an internal switch allows VM-to-VM and VM-to-host communication but not external network access. Option D is incorrect because without management OS sharing, the host loses its network connectivity through that adapter."
+    },
+    {
+      "id": 45,
+      "topic": "Group Policy - Implementing Group Policy Preferences",
+      "type": "SingleChoice",
+      "questionText": "You need to map a network drive for all users in the Marketing OU. The mapping should be applied at logon but users should be able to remove it if needed. What should you use?",
+      "options": ["A. Group Policy Preferences drive mapping with 'Update' action.", "B. A logon script via Group Policy.", "C. Group Policy Preferences drive mapping with 'Replace' action.", "D. Folder Redirection policy."],
+      "correctAnswers": ["A"],
+      "explanation": "Group Policy Preferences with the Update action applies the drive mapping at logon but allows users to modify or remove the mapping since preferences are not enforced. Option B is incorrect because logon scripts can map drives but lack the management interface and item-level targeting of GPP. Option C is incorrect because the Replace action deletes and recreates the mapping each time, which is more aggressive than needed. Option D is incorrect because Folder Redirection redirects user profile folders (Documents, Desktop, etc.) to network locations, not arbitrary drive mappings."
+    },
+    {
+      "id": 46,
+      "topic": "Azure Arc - Implementing Azure Arc for governance",
+      "type": "MultipleChoice",
+      "questionText": "You have onboarded on-premises servers to Azure Arc. Which TWO Azure management capabilities can you now use on these servers? (Choose two.)",
+      "options": ["A. Azure Policy guest configuration to audit server settings.", "B. Azure VM resize to change hardware specifications.", "C. Microsoft Defender for Cloud for security recommendations.", "D. Azure live migration of the server to Azure.", "E. Azure Blob Storage for server file storage."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Azure Arc-enabled servers support Azure Policy guest configuration for auditing OS and application settings, and Microsoft Defender for Cloud for security posture management and threat protection. Option B is incorrect because Azure Arc does not allow resizing on-premises hardware; the server remains on physical infrastructure. Option D is incorrect because Azure Arc does not provide live migration capability; Azure Migrate is used for migration. Option E is incorrect because Blob Storage is an Azure cloud service, not directly related to Arc server management."
+    },
+    {
+      "id": 47,
+      "topic": "Hybrid Identity - Configuring password writeback",
+      "type": "SingleChoice",
+      "questionText": "Users reset their passwords through Microsoft Entra ID self-service password reset (SSPR). You need to ensure the new passwords are synchronized back to on-premises Active Directory. What must you enable?",
+      "options": ["A. Password writeback in Microsoft Entra Connect.", "B. Password hash synchronization.", "C. Azure AD Domain Services.", "D. Active Directory password replication."],
+      "correctAnswers": ["A"],
+      "explanation": "Password writeback is a feature of Microsoft Entra Connect that allows password changes made in Microsoft Entra ID (such as through SSPR) to be written back to the on-premises Active Directory. Option B is incorrect because password hash synchronization goes from on-premises to the cloud, not the reverse direction. Option C is incorrect because Azure AD Domain Services is a managed domain service in Azure, not a mechanism for synchronizing passwords back to on-premises AD. Option D is incorrect because AD password replication is a native AD feature between domain controllers, not between cloud and on-premises."
+    },
+    {
+      "id": 48,
+      "topic": "Active Directory Domain Services - Implementing Read-Only Domain Controllers",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy a domain controller in a remote branch office where physical security is limited. The DC should not store most user passwords locally. What should you deploy?",
+      "options": ["A. A Read-Only Domain Controller (RODC).", "B. A standard writable domain controller.", "C. An AD LDS instance.", "D. A member server with RSAT tools."],
+      "correctAnswers": ["A"],
+      "explanation": "A Read-Only Domain Controller (RODC) maintains a read-only copy of the AD database and does not store passwords by default (except those explicitly configured in the Password Replication Policy). This minimizes risk if the DC is physically compromised. Option B is incorrect because a writable DC stores all passwords and allows changes, which is a security risk in an unsecured location. Option C is incorrect because AD LDS provides lightweight directory services for applications, not full domain authentication. Option D is incorrect because a member server with RSAT does not provide local authentication or directory services."
+    },
+    {
+      "id": 49,
+      "topic": "DNS - Implementing DNS policies",
+      "type": "SingleChoice",
+      "questionText": "You need to configure DNS to return different IP addresses for the same hostname based on the source subnet of the client query. For example, internal clients should resolve to an internal IP and external clients to an external IP. What should you configure?",
+      "options": ["A. DNS split-brain using DNS policies.", "B. DNS round-robin.", "C. A secondary DNS zone.", "D. WINS forward lookup."],
+      "correctAnswers": ["A"],
+      "explanation": "DNS policies in Windows Server 2016 and later allow you to configure split-brain DNS, where different responses are returned based on query attributes like client subnet. This enables the same hostname to resolve to different IPs for internal versus external clients. Option B is incorrect because round-robin distributes queries across multiple IP addresses sequentially but does not differentiate by client subnet. Option C is incorrect because a secondary zone provides redundancy, not client-specific responses. Option D is incorrect because WINS is a legacy NetBIOS name resolution method."
+    },
+    {
+      "id": 50,
+      "topic": "Hyper-V - Configuring VM checkpoints",
+      "type": "SingleChoice",
+      "questionText": "You need to create a checkpoint of a production Hyper-V VM running SQL Server. The checkpoint must be application-consistent to ensure database integrity. What type of checkpoint should you use?",
+      "options": ["A. Standard checkpoint.", "B. Production checkpoint.", "C. Automatic checkpoint.", "D. Snapshot through Disk Management."],
+      "correctAnswers": ["B"],
+      "explanation": "Production checkpoints use Volume Shadow Copy Service (VSS) on Windows or file system freezing on Linux to create application-consistent backups. This ensures database integrity for applications like SQL Server. Option A is incorrect because standard checkpoints capture VM state (memory and processor state), similar to a saved state, and may leave databases in an inconsistent state. Option C is incorrect because automatic checkpoints are a Hyper-V feature that takes a checkpoint before applying changes but does not specify application consistency. Option D is incorrect because Disk Management snapshots are not a Hyper-V checkpoint mechanism."
+    },
+    {
+      "id": 51,
+      "topic": "Group Policy - Implementing Central Store",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that all domain administrators use the same set of Group Policy Administrative Templates when editing GPOs. What should you create?",
+      "options": ["A. A Central Store for Administrative Templates in SYSVOL.", "B. A DFS Replication group for ADMX files.", "C. A shared folder on each domain controller.", "D. A GPO that deploys ADMX files to administrator workstations."],
+      "correctAnswers": ["A"],
+      "explanation": "The Central Store is a folder structure in SYSVOL (\\\\domain\\SYSVOL\\domain\\Policies\\PolicyDefinitions) where ADMX/ADML files are stored. When present, all Group Policy editors automatically use these templates, ensuring consistency. Option B is incorrect because DFS-R already replicates SYSVOL, so the Central Store within SYSVOL is the correct approach. Option C is incorrect because shared folders on individual DCs are not automatically used by the Group Policy editor. Option D is incorrect because deploying ADMX files to workstations does not centralize or standardize template management."
+    },
+    {
+      "id": 52,
+      "topic": "DHCP - Implementing DHCPv6",
+      "type": "SingleChoice",
+      "questionText": "You need to configure IPv6 address assignment for clients on your network. The clients should receive IPv6 addresses and configuration information from a DHCP server. What should you configure?",
+      "options": ["A. A DHCPv6 stateful scope.", "B. SLAAC (Stateless Address Autoconfiguration) only.", "C. Manual IPv6 addresses on each client.", "D. A DNS AAAA record for each client."],
+      "correctAnswers": ["A"],
+      "explanation": "A DHCPv6 stateful scope provides both IPv6 addresses and configuration options (like DNS servers) to clients, similar to DHCPv4 functionality. Option B is incorrect because SLAAC allows clients to generate their own addresses from the network prefix but does not provide additional configuration like DNS server addresses without DHCPv6 assistance. Option C is incorrect because manual configuration is not scalable. Option D is incorrect because DNS AAAA records resolve hostnames to IPv6 addresses but do not assign addresses to clients."
+    },
+    {
+      "id": 53,
+      "topic": "Active Directory Domain Services - Implementing AD DS sites and replication",
+      "type": "SingleChoice",
+      "questionText": "You have two office locations connected by a slow WAN link. You need to control Active Directory replication between the sites to occur only during off-peak hours. What should you configure?",
+      "options": ["A. Site link schedules and replication intervals.", "B. Connection objects with manual replication triggers.", "C. DFSR replication groups.", "D. GPO replication settings."],
+      "correctAnswers": ["A"],
+      "explanation": "AD site links define replication topology between sites. You can configure the schedule (specific hours when replication is allowed) and replication interval (frequency within the allowed schedule) to control when and how often replication occurs. Option B is incorrect because manually managing connection objects bypasses the automatic topology optimization by the Knowledge Consistency Checker (KCC). Option C is incorrect because DFS Replication is for file and SYSVOL replication, not the entire AD database. Option D is incorrect because GPO replication follows AD replication, and there is no separate GPO replication setting."
+    },
+    {
+      "id": 54,
+      "topic": "Hyper-V - Implementing Discrete Device Assignment",
+      "type": "SingleChoice",
+      "questionText": "You need to assign a physical GPU from the Hyper-V host to a single VM for high-performance graphics rendering. What feature should you use?",
+      "options": ["A. Discrete Device Assignment (DDA).", "B. RemoteFX vGPU.", "C. GPU-Partitioning (GPU-P).", "D. Enhanced Session Mode."],
+      "correctAnswers": ["A"],
+      "explanation": "Discrete Device Assignment (DDA) allows you to assign a physical PCIe device (such as a GPU) directly to a single VM, providing near-native performance. The host loses access to the device while it is assigned. Option B is incorrect because RemoteFX vGPU has been deprecated in Windows Server 2019 and later. Option C is incorrect because GPU-P (GPU Partitioning) shares a single GPU among multiple VMs and is a different technology with different use cases. Option D is incorrect because Enhanced Session Mode provides enhanced display and device redirection for VM console connections, not GPU passthrough."
+    },
+    {
+      "id": 55,
+      "topic": "Azure Arc - Configuring Azure Arc extensions",
+      "type": "SingleChoice",
+      "questionText": "You need to install the Log Analytics agent on all your Azure Arc-enabled servers to collect performance data. What is the recommended method?",
+      "options": ["A. Deploy the Log Analytics VM extension through Azure Policy.", "B. Manually install the agent using RDP on each server.", "C. Use Azure Migrate to deploy agents.", "D. Install the agent through Windows Update."],
+      "correctAnswers": ["A"],
+      "explanation": "Azure Policy can automatically deploy VM extensions (including the Log Analytics agent) to Azure Arc-enabled servers at scale. This ensures all current and future Arc-enabled servers receive the extension. Option B is incorrect because manual installation is not scalable for managing many servers. Option C is incorrect because Azure Migrate is for migration assessment, not extension deployment. Option D is incorrect because the Log Analytics agent is not distributed through Windows Update."
+    },
+    {
+      "id": 56,
+      "topic": "Hybrid Identity - Implementing Microsoft Entra Connect Health",
+      "type": "SingleChoice",
+      "questionText": "You need to monitor the health and synchronization status of your Microsoft Entra Connect deployment. Which service should you use?",
+      "options": ["A. Microsoft Entra Connect Health.", "B. Azure Monitor.", "C. System Center Operations Manager.", "D. Event Viewer on the Entra Connect server."],
+      "correctAnswers": ["A"],
+      "explanation": "Microsoft Entra Connect Health provides monitoring for Microsoft Entra Connect synchronization, AD FS, and AD DS. It shows sync errors, alerts, and performance data in the Azure portal. Option B is incorrect because Azure Monitor provides general Azure monitoring but does not have the specific Entra Connect synchronization insights that Connect Health provides. Option C is incorrect because SCOM can monitor the server but lacks the Entra ID-specific sync health information. Option D is incorrect because Event Viewer provides local event logs but not the comprehensive health dashboard and proactive alerts of Connect Health."
+    },
+    {
+      "id": 57,
+      "topic": "Active Directory Domain Services - Implementing group managed service accounts",
+      "type": "SingleChoice",
+      "questionText": "You need to configure a service running on multiple servers to use the same service account with automatic password management. The password should rotate automatically without administrator intervention. What type of account should you create?",
+      "options": ["A. Group Managed Service Account (gMSA).", "B. Managed Service Account (MSA).", "C. Standard domain user account.", "D. Local system account."],
+      "correctAnswers": ["A"],
+      "explanation": "A Group Managed Service Account (gMSA) provides automatic password management and can be used across multiple servers (e.g., servers in a load-balanced web farm). The Microsoft Key Distribution Service on DCs handles password rotation. Option B is incorrect because a standalone Managed Service Account (MSA) can only be used on a single server, not across multiple servers. Option C is incorrect because standard domain accounts require manual password management and rotation. Option D is incorrect because the local system account cannot be used for cross-server services and does not provide the same security benefits."
+    },
+    {
+      "id": 58,
+      "topic": "DNS - Configuring DNS aging and scavenging",
+      "type": "SingleChoice",
+      "questionText": "Your DNS zone contains many stale records from decommissioned servers. You need to automatically remove these outdated records. What should you configure?",
+      "options": ["A. DNS aging and scavenging on the zone and server.", "B. DNS zone transfer limits.", "C. A shorter TTL for all records.", "D. Manual deletion of old records monthly."],
+      "correctAnswers": ["A"],
+      "explanation": "DNS aging and scavenging must be enabled on both the zone (to set no-refresh and refresh intervals) and the DNS server (to perform the actual scavenging). Stale records that have not been refreshed within the configured intervals are automatically removed. Option B is incorrect because zone transfer limits control which servers can receive zone data, not record cleanup. Option C is incorrect because TTL controls how long resolvers cache records, not how long records remain in the zone. Option D is incorrect because manual deletion is error-prone and does not scale."
+    },
+    {
+      "id": 59,
+      "topic": "Hyper-V - Implementing VM resource controls",
+      "type": "SingleChoice",
+      "questionText": "You have multiple VMs running on a Hyper-V host. One VM is consuming excessive disk I/O and degrading performance for other VMs. What should you configure to limit this VM's storage I/O?",
+      "options": ["A. Storage QoS (Quality of Service) policies.", "B. Dynamic memory limits.", "C. CPU resource controls.", "D. Network bandwidth management."],
+      "correctAnswers": ["A"],
+      "explanation": "Storage QoS policies allow you to set minimum and maximum IOPS limits per VM or per virtual hard disk, preventing a single VM from monopolizing storage I/O. Option B is incorrect because dynamic memory controls RAM allocation, not disk I/O. Option C is incorrect because CPU resource controls manage processor utilization, not storage. Option D is incorrect because network bandwidth management controls network throughput, not disk I/O."
+    },
+    {
+      "id": 60,
+      "topic": "Group Policy - Implementing Restricted Groups",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that only specific Active Directory groups are members of the local Administrators group on all servers in the Servers OU. No additional members should be allowed. What should you use?",
+      "options": ["A. Restricted Groups policy in a GPO.", "B. Group Policy Preferences Local Users and Groups.", "C. LAPS (Local Administrator Password Solution).", "D. Active Directory delegation of control."],
+      "correctAnswers": ["A"],
+      "explanation": "Restricted Groups policy enforces the exact membership of local groups. When applied, it removes any members not specified and adds those that are specified, ensuring only authorized groups are in the local Administrators group. Option B is incorrect because GPP Local Users and Groups can manage group membership but uses update/replace/create/delete actions and is less strict about enforcing exact membership. Option C is incorrect because LAPS manages local administrator passwords, not group membership. Option D is incorrect because delegation of control sets permissions on AD objects, not local group membership."
+    },
+    {
+      "id": 61,
+      "topic": "Hybrid Identity - Implementing seamless single sign-on",
+      "type": "SingleChoice",
+      "questionText": "You want users on domain-joined computers to automatically sign in to Microsoft Entra ID-integrated applications without entering credentials. You are using password hash synchronization. What additional feature should you enable?",
+      "options": ["A. Seamless SSO in Microsoft Entra Connect.", "B. AD FS with certificate-based authentication.", "C. Windows Hello for Business.", "D. Azure Multi-Factor Authentication only."],
+      "correctAnswers": ["A"],
+      "explanation": "Seamless SSO works with password hash synchronization and pass-through authentication to automatically sign in users on domain-joined devices. It uses Kerberos authentication to silently authenticate to Microsoft Entra ID. Option B is incorrect because AD FS requires deploying and managing federation infrastructure, which is unnecessary when using PHS with Seamless SSO. Option C is incorrect because Windows Hello for Business is a credential technology (PIN, biometric) rather than an automatic SSO mechanism for cloud applications. Option D is incorrect because MFA adds a second authentication factor but does not provide single sign-on capability."
+    },
+    {
+      "id": 62,
+      "topic": "Azure Arc - Implementing Azure Automanage for Arc servers",
+      "type": "MultipleChoice",
+      "questionText": "You are using Azure Automanage for Azure Arc-enabled servers. Which TWO configuration capabilities does Automanage provide? (Choose two.)",
+      "options": ["A. Automatic configuration of Azure Backup for the server.", "B. Automatic VM resizing based on performance.", "C. Automatic onboarding to Microsoft Defender for Cloud.", "D. Automatic hardware firmware updates.", "E. Automatic public IP assignment."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Azure Automanage for Arc-enabled servers can automatically configure Azure Backup for server protection and onboard servers to Microsoft Defender for Cloud for security monitoring and recommendations. Option B is incorrect because Azure Arc does not manage physical hardware specifications. Option D is incorrect because firmware updates are managed by the hardware vendor, not Azure. Option E is incorrect because public IP assignment is for Azure VMs, and Arc-enabled servers retain their on-premises network configuration."
     }
   ]
 }

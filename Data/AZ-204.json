@@ -659,6 +659,314 @@
         "B"
       ],
       "explanation": "Correct Answer: B. Azure Event Hub is designed for high-throughput data streaming scenarios capable of handling millions of events per second. It provides durable storage through its capture feature, ensuring user responses are not lost. Event Hub supports multiple consumer groups, allowing different divisions to independently read the same agreement data at their own pace. This matches the requirements: millions per hour throughput, no data loss, and availability to all parties regardless of individual service uptime. Why A is incorrect: Azure Storage Queue is designed for simpler messaging scenarios and has a maximum throughput of approximately 20,000 messages per second per queue. While it could handle millions per hour, each message can only be consumed once, so it would not support multiple divisions reading the same agreement data independently. Why C is incorrect: Azure Service Bus Topic supports publish-subscribe patterns with multiple subscriptions, but it is designed for enterprise messaging, not high-throughput streaming. Its throughput is lower than Event Hub and may not handle millions of agreements per hour efficiently. Why D is incorrect: While Azure Cosmos DB could store agreements with high throughput and global availability, the scenario describes a streaming/ingestion pattern where Event Hub's ability to capture and distribute events to multiple consumers is a better architectural fit."
+    },
+    {
+      "id": 42,
+      "topic": "Develop Azure compute solutions - Azure Functions Durable Functions",
+      "type": "SingleChoice",
+      "questionText": "You are developing a workflow that coordinates multiple Azure Functions. The workflow must call several functions in sequence, collect their results, and then call a final function with the aggregated results. The workflow may run for several hours. You need to implement this solution. What should you use?",
+      "options": [
+        "A. Azure Durable Functions with a function chaining pattern.",
+        "B. Azure Logic Apps with HTTP triggers to each function.",
+        "C. Azure Queue Storage to chain function invocations.",
+        "D. A single Azure Function with nested HTTP calls."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Durable Functions provide the function chaining pattern, which executes a sequence of functions in a specific order using an orchestrator function. The orchestrator manages state, handles retries, and supports long-running workflows that can run for hours or days. Results from each function are automatically available to subsequent functions. Why B is incorrect: While Logic Apps can orchestrate workflows, the question specifies Azure Functions, and Durable Functions provide a code-first approach that integrates natively with the Azure Functions ecosystem. Why C is incorrect: Using Queue Storage to chain functions requires manual state management, error handling, and result aggregation, adding significant complexity compared to Durable Functions. Why D is incorrect: A single function with nested HTTP calls would be limited by execution timeouts, would not persist state across failures, and would hold resources for the entire duration."
+    },
+    {
+      "id": 43,
+      "topic": "Develop Azure compute solutions - Azure Functions Bindings",
+      "type": "SingleChoice",
+      "questionText": "You are developing an Azure Function that reads a message from an Azure Service Bus queue and writes data to Azure Cosmos DB. You want to minimize the amount of code you write. How should you configure the function?",
+      "options": [
+        "A. Use a Service Bus queue trigger and a Cosmos DB output binding.",
+        "B. Use an HTTP trigger with Service Bus SDK and Cosmos DB SDK.",
+        "C. Use a Timer trigger that polls the Service Bus queue and writes to Cosmos DB using the SDK.",
+        "D. Use a Service Bus queue trigger with a Cosmos DB input binding."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Functions bindings handle the connection and I/O operations declaratively, minimizing code. A Service Bus queue trigger automatically fires when a message arrives, and a Cosmos DB output binding automatically writes the function's return value or output parameter to the database. Why B is incorrect: Using SDKs directly for both Service Bus and Cosmos DB requires writing connection management, error handling, and serialization code manually, which does not minimize code. Why C is incorrect: A Timer trigger requires polling logic and does not react to messages in real time, adding unnecessary complexity and latency. Why D is incorrect: A Cosmos DB input binding reads data from Cosmos DB; it does not write data. The requirement is to write data to Cosmos DB, which requires an output binding."
+    },
+    {
+      "id": 44,
+      "topic": "Develop Azure compute solutions - Azure App Service Scaling",
+      "type": "SingleChoice",
+      "questionText": "You manage an Azure App Service web application that experiences high traffic every weekday between 9 AM and 5 PM. Traffic drops significantly outside those hours. You need to configure autoscaling to handle the peak traffic while minimizing costs. What should you configure?",
+      "options": [
+        "A. Scale out based on a schedule that increases instances during business hours and decreases them outside business hours.",
+        "B. Scale up to a higher pricing tier during business hours.",
+        "C. Use manual scaling to set the instance count to the peak requirement at all times.",
+        "D. Scale out based on CPU percentage only."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Schedule-based autoscaling allows you to proactively increase instances before the predictable traffic spike and reduce them when traffic drops. This ensures capacity is available when needed while minimizing costs during off-peak hours. Why B is incorrect: Scaling up changes the VM size, which requires a brief restart and is a coarser adjustment. Scale out (adding instances) is more appropriate for handling increased traffic load. Why C is incorrect: Setting instances to peak capacity at all times wastes money during off-peak hours when fewer instances are needed. Why D is incorrect: CPU-based scaling is reactive and may not scale up fast enough for the sudden daily traffic increase at 9 AM, potentially causing performance issues before new instances are provisioned."
+    },
+    {
+      "id": 45,
+      "topic": "Develop for Azure storage - Azure Cosmos DB Change Feed",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application that uses Azure Cosmos DB. You need to implement a solution that processes all inserts and updates to documents in a container in real time. The solution must support multiple consumers reading the change stream independently. What should you use?",
+      "options": [
+        "A. Azure Cosmos DB change feed with the change feed processor library.",
+        "B. Azure Cosmos DB stored procedures triggered on document changes.",
+        "C. Periodic queries against the container using the _ts (timestamp) property.",
+        "D. Azure Cosmos DB triggers (pre-triggers and post-triggers)."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. The Cosmos DB change feed provides a persistent, ordered log of inserts and updates to documents. The change feed processor library manages lease distribution across multiple consumers, enabling parallel and independent processing by different consumer groups. Why B is incorrect: Cosmos DB stored procedures are executed on demand or as part of a transaction, not triggered automatically on document changes. They do not provide a continuous change stream. Why C is incorrect: Periodic polling introduces latency, wastes RUs on repeated queries, and requires complex checkpoint management. The change feed provides real-time push-based notification. Why D is incorrect: Cosmos DB pre-triggers and post-triggers execute during create, replace, or delete operations within the same transaction. They are synchronous and do not support multiple independent consumers or asynchronous processing."
+    },
+    {
+      "id": 46,
+      "topic": "Develop for Azure storage - Azure Blob Storage Access Tiers",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application that stores images in Azure Blob Storage. Images are frequently accessed during the first 7 days after upload, occasionally accessed for the next 30 days, and rarely accessed after that. You need to minimize storage costs. What should you implement?",
+      "options": [
+        "A. A lifecycle management policy that moves blobs to Cool after 7 days and to Archive after 37 days.",
+        "B. Upload all blobs to the Archive tier and rehydrate on access.",
+        "C. Use only the Hot tier for all blobs.",
+        "D. Upload all blobs to the Cool tier."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. A lifecycle management policy automates tier transitions based on the last modified date. Blobs start in Hot (lowest access cost for the first 7 days of frequent access), move to Cool after 7 days (lower storage cost for occasional access), and finally to Archive after 37 days (lowest storage cost for rare access). Why B is incorrect: Uploading directly to Archive makes all blobs inaccessible without rehydration, which takes up to 15 hours and incurs high retrieval costs. This would severely impact the frequent access during the first 7 days. Why C is incorrect: Using Hot tier for all blobs has the highest storage costs. Blobs older than 7 days would benefit from cheaper Cool or Archive tiers. Why D is incorrect: The Cool tier has higher access costs than Hot. For the first 7 days of frequent access, Hot tier is more cost-effective. The Cool tier also has a 30-day minimum storage duration charge."
+    },
+    {
+      "id": 47,
+      "topic": "Implement Azure security - Azure App Configuration",
+      "type": "SingleChoice",
+      "questionText": "You are developing a microservices application deployed across multiple Azure App Services. All services need to share the same configuration settings, and you need the ability to update settings without redeploying the applications. Feature flags must also be supported. What should you use?",
+      "options": [
+        "A. Azure App Configuration.",
+        "B. Azure Key Vault for all configuration.",
+        "C. Environment variables in each App Service.",
+        "D. A shared configuration file in Azure Blob Storage."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure App Configuration provides centralized management of application settings and feature flags. All microservices can connect to the same App Configuration store, and changes propagate dynamically without redeployment. It natively supports feature flags with targeting filters. Why B is incorrect: Azure Key Vault is designed for secrets, keys, and certificates, not general application configuration. It does not support feature flags and is more expensive for high-frequency configuration reads. Why C is incorrect: Environment variables are scoped to individual App Service instances and must be updated separately for each service, which does not provide centralized management. Changes require a restart. Why D is incorrect: A shared configuration file in Blob Storage requires custom code to read, watch for changes, and parse the file. It does not provide built-in feature flag support or dynamic refresh capabilities."
+    },
+    {
+      "id": 48,
+      "topic": "Implement Azure security - Azure AD Authentication for APIs",
+      "type": "MultipleChoice",
+      "questionText": "You are developing a REST API hosted on Azure App Service. The API must be protected so that only authenticated users from your Azure AD tenant can call it. You need to configure authentication. Which two actions should you perform? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Register the API as an application in Azure AD.",
+        "B. Enable App Service Authentication (Easy Auth) with Azure AD as the identity provider.",
+        "C. Configure CORS on the App Service.",
+        "D. Add API keys to all client requests."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct Answers: A and B. A: Registering the API in Azure AD creates an application object that defines the API's identity, permissions, and authentication requirements. This is the prerequisite for Azure AD-based authentication. B: Enabling App Service Authentication with Azure AD as the provider configures the App Service platform to validate Azure AD tokens on incoming requests, rejecting unauthenticated calls before they reach your code. Why C is incorrect: CORS (Cross-Origin Resource Sharing) controls which domains can make browser-based requests to the API. It is a browser security feature, not an authentication mechanism. Why D is incorrect: API keys provide a simple shared secret but do not integrate with Azure AD for user authentication. They do not identify individual users or leverage Azure AD's security features like conditional access."
+    },
+    {
+      "id": 49,
+      "topic": "Connect to and consume Azure services - Azure API Management Policies",
+      "type": "SingleChoice",
+      "questionText": "You manage an API through Azure API Management. You need to limit each subscription key to a maximum of 100 calls per minute. If the limit is exceeded, the caller should receive a 429 (Too Many Requests) response. What policy should you apply?",
+      "options": [
+        "A. rate-limit-by-key",
+        "B. quota-by-key",
+        "C. ip-filter",
+        "D. validate-jwt"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. The rate-limit-by-key policy restricts the call rate per specified key (such as a subscription key) over a short time window. When the limit is exceeded, the caller receives a 429 Too Many Requests response. This prevents API abuse and ensures fair usage. Why B is incorrect: quota-by-key enforces a usage quota over a longer period (e.g., daily or monthly call limits), not a per-minute rate limit. Quotas are for overall consumption limits, not burst protection. Why C is incorrect: ip-filter restricts access based on IP addresses. It does not limit the rate of calls from allowed IPs. Why D is incorrect: validate-jwt validates JSON Web Tokens for authentication and authorization. It does not provide rate limiting functionality."
+    },
+    {
+      "id": 50,
+      "topic": "Connect to and consume Azure services - Azure CDN Caching",
+      "type": "SingleChoice",
+      "questionText": "You are developing a web application that serves static assets through Azure CDN. Some assets are updated frequently and must not be served stale. You need to control how long assets are cached by the CDN. What should you configure?",
+      "options": [
+        "A. Set the Cache-Control header on the origin server responses.",
+        "B. Disable CDN caching entirely.",
+        "C. Use Azure Front Door instead of CDN.",
+        "D. Store assets in Azure Table Storage."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Setting Cache-Control headers (e.g., max-age, no-cache, must-revalidate) on origin responses tells the CDN how long to cache each asset. Frequently updated assets can use shorter max-age values or no-cache directives, while stable assets can use longer cache durations. Why B is incorrect: Disabling caching entirely defeats the purpose of using a CDN and would increase latency and origin server load for all assets, not just the frequently updated ones. Why C is incorrect: Azure Front Door also uses caching and Cache-Control headers. Switching to Front Door does not solve the caching control problem and adds unnecessary migration effort. Why D is incorrect: Azure Table Storage is a NoSQL data store, not a static asset serving or caching solution. It is not designed for serving web content through a CDN."
+    },
+    {
+      "id": 51,
+      "topic": "Develop Azure compute solutions - Azure Container Apps",
+      "type": "SingleChoice",
+      "questionText": "You are developing a microservices application and need a serverless container platform that supports scale-to-zero, KEDA-based autoscaling, and built-in Dapr integration. You want to avoid managing Kubernetes infrastructure. What should you use?",
+      "options": [
+        "A. Azure Container Apps.",
+        "B. Azure Kubernetes Service (AKS).",
+        "C. Azure Container Instances (ACI).",
+        "D. Azure App Service with custom containers."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Container Apps is a serverless container platform that provides scale-to-zero, KEDA-based autoscaling rules, and built-in Dapr integration for microservice communication patterns. It abstracts away Kubernetes management while providing container orchestration features. Why B is incorrect: AKS provides full Kubernetes control but requires managing the cluster infrastructure, nodes, and upgrades, which the scenario specifically wants to avoid. Why C is incorrect: ACI runs individual containers or container groups but does not provide built-in KEDA autoscaling or Dapr integration. Why D is incorrect: App Service with custom containers does not support KEDA-based autoscaling or built-in Dapr integration."
+    },
+    {
+      "id": 52,
+      "topic": "Develop for Azure storage - Azure Cosmos DB Stored Procedures",
+      "type": "SingleChoice",
+      "questionText": "You are developing an Azure Cosmos DB application that needs to update multiple documents atomically within the same logical partition. If any update fails, all changes must be rolled back. What should you use?",
+      "options": [
+        "A. A stored procedure.",
+        "B. A user-defined function (UDF).",
+        "C. A change feed processor.",
+        "D. Multiple individual PATCH operations."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Cosmos DB stored procedures execute within the scope of a single logical partition and provide ACID transactions. If any operation within the stored procedure fails, all changes are automatically rolled back, providing atomicity across multiple document updates. Why B is incorrect: User-defined functions are used for custom computation within queries (similar to SQL scalar functions). They are read-only and cannot modify documents. Why C is incorrect: The change feed processor reads changes after they are committed. It does not provide transactional updates across multiple documents. Why D is incorrect: Individual PATCH operations are independent and do not provide atomicity. If one fails, previously successful operations are not rolled back."
+    },
+    {
+      "id": 53,
+      "topic": "Implement Azure security - Azure Managed HSM",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application that requires cryptographic keys to be stored in FIPS 140-2 Level 3 validated hardware security modules. The keys must never leave the HSM boundary. What should you use?",
+      "options": [
+        "A. Azure Key Vault Managed HSM.",
+        "B. Azure Key Vault Standard tier.",
+        "C. Azure Key Vault Premium tier.",
+        "D. Azure Storage Service Encryption with customer-managed keys."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Key Vault Managed HSM provides FIPS 140-2 Level 3 validated HSMs where cryptographic operations are performed within the HSM boundary, ensuring keys never leave the hardware. It offers single-tenant HSM instances with full administrative control. Why B is incorrect: Key Vault Standard tier uses software-protected keys, not hardware security modules. It does not meet FIPS 140-2 Level 3 requirements. Why C is incorrect: Key Vault Premium tier supports HSM-backed keys at FIPS 140-2 Level 2, not Level 3. Keys in Premium tier may be extracted for backup purposes. Why D is incorrect: Storage Service Encryption uses keys for encrypting data at rest in storage accounts. It does not provide a general-purpose HSM for application cryptographic operations."
+    },
+    {
+      "id": 54,
+      "topic": "Monitor, troubleshoot, and optimize Azure solutions - Azure Redis Cache",
+      "type": "SingleChoice",
+      "questionText": "You are developing a web application that reads product catalog data from Azure SQL Database. The catalog data changes infrequently but is read thousands of times per second. Response latency must be under 10 milliseconds. You need to improve read performance. What should you implement?",
+      "options": [
+        "A. Azure Cache for Redis as a read-through cache.",
+        "B. Azure SQL Database read replicas.",
+        "C. Azure Cosmos DB as a secondary data store.",
+        "D. Increase the Azure SQL Database DTU tier."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Cache for Redis provides sub-millisecond response times for cached data, easily meeting the 10ms requirement. A read-through cache pattern checks Redis first and falls back to SQL Database on cache misses, dramatically reducing database load for frequently read, infrequently changed data. Why B is incorrect: SQL Database read replicas distribute read load but still have network and query processing latency that may exceed 10ms under high concurrency. They add cost for each replica. Why C is incorrect: Cosmos DB provides low latency, but introducing a secondary data store for catalog data that rarely changes adds synchronization complexity. Redis is simpler and faster for caching scenarios. Why D is incorrect: Increasing DTU tier improves SQL Database performance but at significantly higher cost. It does not achieve sub-10ms latency for thousands of reads per second as efficiently as an in-memory cache."
+    },
+    {
+      "id": 55,
+      "topic": "Connect to and consume Azure services - Azure SignalR Service",
+      "type": "SingleChoice",
+      "questionText": "You are developing a real-time dashboard that needs to push updates to thousands of connected browser clients simultaneously whenever data changes in the backend. You need a fully managed solution. What should you use?",
+      "options": [
+        "A. Azure SignalR Service.",
+        "B. Azure Event Grid with webhook subscriptions.",
+        "C. Long polling from client-side JavaScript.",
+        "D. Azure Notification Hubs."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure SignalR Service is a fully managed real-time messaging service that handles WebSocket connections to thousands of clients. When backend data changes, the service pushes updates to all connected clients instantly without them needing to poll. Why B is incorrect: Event Grid with webhooks delivers events to server-side endpoints, not directly to browser clients. You would still need a mechanism to push updates from your server to the browsers. Why C is incorrect: Long polling is inefficient compared to WebSocket connections because each client repeatedly makes HTTP requests. It does not scale well to thousands of clients and adds unnecessary server load and latency. Why D is incorrect: Azure Notification Hubs is designed for mobile push notifications (iOS, Android, Windows), not real-time browser communication for web dashboards."
+    },
+    {
+      "id": 56,
+      "topic": "Develop Azure compute solutions - Azure Functions Dependency Injection",
+      "type": "SingleChoice",
+      "questionText": "You are developing an Azure Functions application using C#. You need to use dependency injection to register services. Where should you configure the dependency injection container?",
+      "options": [
+        "A. In a class that inherits from FunctionsStartup.",
+        "B. In the function's Run method.",
+        "C. In the host.json configuration file.",
+        "D. In the local.settings.json file."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Functions supports dependency injection through a Startup class that inherits from FunctionsStartup. The Configure method on this class receives an IFunctionsHostBuilder that allows registering services in the DI container, just like ASP.NET Core's ConfigureServices. Why B is incorrect: The Run method is invoked for each function execution. Registering services there would create new service instances on every invocation, defeating the purpose of DI and singleton/scoped lifetime management. Why C is incorrect: The host.json file configures Azure Functions host-level settings like logging, extensions, and function timeout. It does not support dependency injection configuration. Why D is incorrect: The local.settings.json file stores app settings and connection strings for local development. It does not support service registration or dependency injection configuration."
+    },
+    {
+      "id": 57,
+      "topic": "Develop for Azure storage - Azure Blob Storage Concurrency",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application where multiple processes may simultaneously update the same blob in Azure Blob Storage. You need to prevent lost updates by ensuring that a write only succeeds if the blob has not been modified since it was last read. What should you implement?",
+      "options": [
+        "A. Optimistic concurrency using the ETag and If-Match header.",
+        "B. Pessimistic concurrency using blob leases.",
+        "C. Last-writer-wins with no concurrency control.",
+        "D. Copy the blob before updating."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Optimistic concurrency uses the ETag (entity tag) returned when reading a blob. When writing, including the ETag in an If-Match header ensures the write succeeds only if the blob has not been modified since the read. If another process modified the blob, the write fails with a 412 Precondition Failed, preventing lost updates. Why B is incorrect: Pessimistic concurrency using blob leases locks the blob for exclusive access. While it prevents concurrent modifications, it is heavier weight and the question specifically describes a pattern where writes should succeed only if the blob has not changed (optimistic pattern). Why C is incorrect: Last-writer-wins provides no protection against lost updates, which is exactly what the scenario wants to prevent. Why D is incorrect: Copying a blob before updating creates a backup but does not prevent simultaneous updates from overwriting each other."
+    },
+    {
+      "id": 58,
+      "topic": "Implement Azure security - Azure AD Application Permissions",
+      "type": "SingleChoice",
+      "questionText": "You are developing a daemon application (no user interaction) that needs to read all users' calendars from Microsoft Graph. The application runs as a background service. What type of permission should you configure?",
+      "options": [
+        "A. Application permissions with admin consent.",
+        "B. Delegated permissions with user consent.",
+        "C. Delegated permissions with admin consent.",
+        "D. No permissions are needed for daemon applications."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Daemon applications run without a signed-in user and use application permissions (also called app roles). These permissions are granted to the application itself and require admin consent because they allow access to all users' data. The application authenticates using the client credentials flow. Why B is incorrect: Delegated permissions act on behalf of a signed-in user. A daemon application has no signed-in user, so delegated permissions cannot be used. Why C is incorrect: Even with admin consent, delegated permissions still require a signed-in user context to function. A daemon application operates without user context. Why D is incorrect: All applications accessing Microsoft Graph resources require appropriate permissions. Without permissions, API calls would be denied with authorization errors."
+    },
+    {
+      "id": 59,
+      "topic": "Connect to and consume Azure services - Azure Event Grid Custom Topics",
+      "type": "SingleChoice",
+      "questionText": "You are developing a solution where your application needs to publish custom events that multiple subscribers can independently process. Each subscriber needs only specific event types. What should you use?",
+      "options": [
+        "A. Azure Event Grid custom topic with filtered event subscriptions.",
+        "B. Azure Service Bus topic with subscriptions.",
+        "C. Azure Queue Storage with multiple queues.",
+        "D. Azure Notification Hubs."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Event Grid custom topics allow publishing custom events. Event subscriptions support filtering by event type, subject prefix, subject suffix, and advanced filters, enabling each subscriber to receive only the events they need. Event Grid provides at-least-once delivery with built-in retry. Why B is incorrect: While Service Bus topics with subscriptions also support publish-subscribe with filtering, Event Grid is purpose-built for event-driven architectures with simpler setup and pay-per-event pricing. Service Bus is better suited for transactional messaging. Why C is incorrect: Azure Queue Storage does not support publish-subscribe patterns. Each message is consumed by a single consumer, so multiple subscribers would not all receive the same events. Why D is incorrect: Notification Hubs is for mobile push notifications, not for general-purpose event distribution between application components."
+    },
+    {
+      "id": 60,
+      "topic": "Develop Azure compute solutions - Azure App Service WebJobs",
+      "type": "SingleChoice",
+      "questionText": "You need to run a continuous background process alongside your Azure App Service web application. The process must monitor an Azure Storage queue and process messages as they arrive. The process must restart automatically if it stops. What should you use?",
+      "options": [
+        "A. A continuous WebJob with a QueueTrigger.",
+        "B. A triggered WebJob with a CRON schedule.",
+        "C. An Azure Function on a Consumption plan.",
+        "D. A background thread in the web application."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. A continuous WebJob runs continuously alongside the App Service web app and can use the WebJobs SDK QueueTrigger to automatically process messages from Azure Storage queues. The Always On setting ensures it restarts automatically if it stops. Why B is incorrect: A triggered WebJob with a CRON schedule runs periodically, not continuously. It would not process queue messages in real time as they arrive. Why C is incorrect: While Azure Functions with a queue trigger would work, the question specifies the process should run alongside the App Service web app. A WebJob runs within the same App Service plan, sharing resources without additional cost. Why D is incorrect: A background thread in the web application would stop when the app pool recycles or the web application scales. It does not have built-in queue trigger support or automatic restart capabilities."
+    },
+    {
+      "id": 61,
+      "topic": "Develop for Azure storage - Azure Cosmos DB Request Units",
+      "type": "SingleChoice",
+      "questionText": "You are developing an Azure Cosmos DB application. Your workload has predictable traffic during the day but is idle at night. You need to minimize costs while ensuring adequate throughput during peak hours. What throughput mode should you configure?",
+      "options": [
+        "A. Autoscale throughput.",
+        "B. Manual provisioned throughput set to peak requirement.",
+        "C. Serverless mode.",
+        "D. Manual provisioned throughput set to average requirement."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Autoscale throughput automatically scales between 10% and 100% of the configured maximum RU/s based on actual usage. During idle nighttime hours, throughput scales down to the minimum (10% of max), reducing costs. During peak daytime hours, it scales up to handle the load. Why B is incorrect: Manual provisioned throughput at peak level means you pay for peak capacity 24/7, including during idle nighttime hours when it is wasted. Why C is incorrect: Serverless mode charges per RU consumed and is cost-effective for sporadic workloads. However, for predictable daytime traffic with sustained throughput needs, autoscale is more cost-effective and provides guaranteed throughput. Why D is incorrect: Manual provisioned throughput at average levels would be insufficient during peak hours, causing throttling (429 errors) and poor performance."
+    },
+    {
+      "id": 62,
+      "topic": "Monitor, troubleshoot, and optimize Azure solutions - Distributed Tracing",
+      "type": "MultipleChoice",
+      "questionText": "You are developing a distributed application with multiple Azure services. You need to trace a single user request as it flows through the web API, a Service Bus queue, an Azure Function, and a Cosmos DB operation. Which two components should you implement? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Application Insights SDK in all services with W3C trace context propagation.",
+        "B. Azure Monitor Logs with custom KQL queries.",
+        "C. Distributed tracing correlation using the same operation ID across all services.",
+        "D. Azure Network Watcher connection monitor."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Correct Answers: A and C. A: The Application Insights SDK automatically instruments HTTP calls, Service Bus messages, and Cosmos DB operations. W3C trace context propagation ensures correlation headers are passed between services. C: Using the same operation ID across all services links all telemetry items in the distributed trace, allowing you to view the entire request flow in Application Insights Application Map and end-to-end transaction views. Why B is incorrect: Azure Monitor Logs and KQL queries can analyze telemetry after it is collected, but they do not provide the instrumentation needed to capture and correlate distributed traces. They are a consumption tool, not a collection mechanism. Why D is incorrect: Network Watcher monitors network connectivity between Azure resources. It does not provide application-level distributed tracing across service boundaries."
+    },
+    {
+      "id": 63,
+      "topic": "Implement Azure security - Azure Key Vault Certificate Management",
+      "type": "SingleChoice",
+      "questionText": "You are developing an application hosted on Azure App Service that requires TLS certificates. The certificates must auto-renew before expiration. You need to minimize management overhead. What should you do?",
+      "options": [
+        "A. Store the certificate in Azure Key Vault and configure App Service to reference it with auto-rotation.",
+        "B. Manually upload a new certificate to App Service before each expiration.",
+        "C. Use a self-signed certificate generated by App Service.",
+        "D. Purchase a certificate from a third-party CA and store it in Blob Storage."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct Answer: A. Azure Key Vault can manage certificate lifecycle, including auto-renewal with integrated CAs. App Service can reference Key Vault certificates and automatically picks up renewed certificates, eliminating manual intervention. Why B is incorrect: Manual certificate upload requires monitoring expiration dates and performing updates before each renewal, which creates management overhead and risk of downtime if a renewal is missed. Why C is incorrect: Self-signed certificates cause browser trust warnings for end users and are not suitable for production applications. They also require manual renewal. Why D is incorrect: Certificates in Blob Storage cannot auto-renew and require manual retrieval and installation. Blob Storage is not designed for certificate management and lacks access control granularity."
     }
   ]
 }

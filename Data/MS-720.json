@@ -564,6 +564,358 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. The Direct Routing Health Dashboard in the Teams admin center shows the connectivity status of each SBC, including TLS connectivity, SIP options (health checks), concurrent call counts, and any connectivity issues.\n\nWhy the others are wrong:\n- A. Azure Monitor does not natively monitor Teams Direct Routing SBC health.\n- C. Microsoft 365 Service health shows service-level incidents for Microsoft services, not individual SBC connection status.\n- D. Microsoft Defender portal monitors device security, not SBC connectivity health."
+    },
+    {
+      "id": 41,
+      "topic": "PSTN Connectivity - Operator Connect",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to use a third-party carrier for PSTN connectivity with Microsoft Teams, but you want Microsoft to manage the SBC infrastructure. Which connectivity option should you choose?",
+      "options": [
+        "A. Microsoft Calling Plans.",
+        "B. Direct Routing.",
+        "C. Operator Connect.",
+        "D. Teams Phone Mobile."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Operator Connect allows you to use your preferred third-party carrier for PSTN connectivity while the carrier manages the SBC infrastructure in their data centers. Microsoft facilitates the connection between the carrier's SBC and Teams, reducing complexity.\n\nWhy the others are wrong:\n- A. Calling Plans use Microsoft as the carrier, not a third-party.\n- B. Direct Routing requires you to deploy and manage your own SBC infrastructure.\n- D. Teams Phone Mobile integrates a user's mobile SIM number with Teams but does not replace the carrier's SBC management model."
+    },
+    {
+      "id": 42,
+      "topic": "Direct Routing - Media Bypass",
+      "type": "SingleChoice",
+      "questionText": "You want to reduce latency for Direct Routing calls by allowing media to flow directly between the Teams client and the SBC without traversing the Microsoft cloud. What should you enable?",
+      "options": [
+        "A. Local Media Optimization.",
+        "B. Media bypass on the PSTN gateway configuration.",
+        "C. QoS policies for media traffic.",
+        "D. Conference mode on call queues."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Media bypass allows the media stream (audio/video) to flow directly between the Teams client and the SBC, bypassing the Microsoft cloud media processors. This reduces latency and bandwidth consumption through the cloud. It is enabled on the PSTN gateway (New-CsOnlinePSTNGateway -MediaBypass $true).\n\nWhy the others are wrong:\n- A. Local Media Optimization optimizes media paths for branch offices with a centralized SBC but is a different feature from media bypass.\n- C. QoS policies prioritize traffic but do not change the media path to bypass the cloud.\n- D. Conference mode is a call queue feature for faster agent-caller connection, unrelated to media routing."
+    },
+    {
+      "id": 43,
+      "topic": "Calling Plans - Number Porting",
+      "type": "SingleChoice",
+      "questionText": "Your organization is migrating to Microsoft Calling Plans and wants to keep existing phone numbers. What process must you follow to transfer numbers from the current carrier to Microsoft?",
+      "options": [
+        "A. Create a new number request in the Teams admin center.",
+        "B. Create a port order request in the Teams admin center to transfer numbers from the current carrier.",
+        "C. Contact Microsoft support to add numbers to your tenant directly.",
+        "D. Configure Direct Routing with the existing carrier."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A port order request in the Teams admin center initiates the process of transferring (porting) existing phone numbers from your current carrier to Microsoft Calling Plans. You provide authorization documents and the process takes several days to weeks.\n\nWhy the others are wrong:\n- A. A new number request acquires new phone numbers from Microsoft, not transfers of existing numbers.\n- C. Microsoft support cannot add numbers directly; the formal port order process must be followed.\n- D. Direct Routing allows you to keep your carrier but does not transfer numbers to Microsoft Calling Plans."
+    },
+    {
+      "id": 44,
+      "topic": "Auto Attendants - Holiday Handling",
+      "type": "SingleChoice",
+      "questionText": "You need your auto attendant to play a special greeting and redirect calls to voicemail on company holidays. What should you configure?",
+      "options": [
+        "A. Create a separate auto attendant for holidays.",
+        "B. Configure holiday call flow settings within the auto attendant with holiday schedules.",
+        "C. Manually change the auto attendant greeting on each holiday.",
+        "D. Use a Power Automate flow to redirect calls on holidays."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Auto attendants support holiday call flow settings where you define holiday dates and associate them with specific greetings and call routing. When a holiday matches, the auto attendant automatically uses the holiday call flow instead of the normal business hours or after-hours flow.\n\nWhy the others are wrong:\n- A. A separate auto attendant for holidays is unnecessary since holiday handling is built into the auto attendant.\n- C. Manual changes on each holiday are unreliable and not scalable.\n- D. Power Automate cannot directly control auto attendant call routing."
+    },
+    {
+      "id": 45,
+      "topic": "Direct Routing - SIP Trunk Configuration",
+      "type": "MultipleChoice",
+      "questionText": "You are configuring a new SBC for Direct Routing. Which two requirements must the SBC meet for successful pairing with Microsoft Teams? Each correct answer presents a requirement.",
+      "options": [
+        "A. The SBC must have a public trusted TLS certificate from a supported Certificate Authority.",
+        "B. The SBC must have a public IP address and FQDN resolvable from the internet.",
+        "C. The SBC must support SIP over UDP on port 5060.",
+        "D. The SBC must be running Windows Server 2019 or later.",
+        "E. The SBC must support H.323 protocol."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Direct Routing requires the SBC to have a trusted public TLS certificate (from a supported CA like DigiCert, GlobalSign, etc.) and a public IP/FQDN that Microsoft Teams can reach. SIP signaling uses TLS over port 5061.\n\nWhy the others are wrong:\n- C. Direct Routing uses SIP over TLS (port 5061), not UDP on port 5060.\n- D. SBCs are specialized network appliances with their own operating systems; Windows Server is not required.\n- E. Teams uses SIP, not H.323 protocol."
+    },
+    {
+      "id": 46,
+      "topic": "Call Queues - Routing Methods",
+      "type": "SingleChoice",
+      "questionText": "Your call center wants to route incoming calls to the agent who has been idle the longest to ensure even workload distribution. Which call queue routing method should you select?",
+      "options": [
+        "A. Attendant routing.",
+        "B. Serial routing.",
+        "C. Longest idle routing.",
+        "D. Round robin routing."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Longest idle routing directs incoming calls to the agent who has been idle (not on a call) for the longest time. This ensures workload is evenly distributed and prevents any single agent from being overloaded.\n\nWhy the others are wrong:\n- A. Attendant routing rings all agents simultaneously, and the first to answer takes the call.\n- B. Serial routing rings agents in a fixed order, not based on idle time.\n- D. Round robin routes to agents in sequential order, cycling through the list, but does not consider actual idle time."
+    },
+    {
+      "id": 47,
+      "topic": "Emergency Calling - Dynamic Emergency Calling",
+      "type": "SingleChoice",
+      "questionText": "Your organization has multiple floors in a building, and you need emergency calls to include the specific floor information. How should you configure dynamic emergency calling?",
+      "options": [
+        "A. Assign a static emergency address to each user manually.",
+        "B. Configure network topology with subnets mapped to emergency addresses that include floor-level location details.",
+        "C. Use GPS on desktop computers to determine the floor.",
+        "D. Ask users to update their location manually before each call."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dynamic emergency calling uses network topology configuration where subnets (or Wi-Fi access points) are mapped to specific emergency addresses with detailed location information including building, floor, and wing. When a user makes an emergency call, their network information determines the location sent to emergency services.\n\nWhy the others are wrong:\n- A. Static addresses per user do not update when users move between floors.\n- C. Desktop computers typically do not have GPS, and even if they did, GPS does not work well indoors for floor detection.\n- D. Relying on users to manually update their location is unreliable and not compliant."
+    },
+    {
+      "id": 48,
+      "topic": "SBC - TLS Certificate Requirements",
+      "type": "SingleChoice",
+      "questionText": "When configuring TLS certificates on an SBC for Direct Routing, what must the Subject Name or Subject Alternative Name of the certificate match?",
+      "options": [
+        "A. The internal hostname of the SBC.",
+        "B. The FQDN configured as the SBC name in the Teams Online PSTN Gateway configuration.",
+        "C. The Microsoft Teams service FQDN.",
+        "D. The carrier's domain name."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The TLS certificate on the SBC must have a Subject Name (CN) or Subject Alternative Name (SAN) that matches the FQDN used when creating the Online PSTN Gateway in Teams (New-CsOnlinePSTNGateway -Identity sbc.contoso.com). This ensures TLS validation succeeds during SIP signaling.\n\nWhy the others are wrong:\n- A. Internal hostnames are not used for TLS validation with Microsoft Teams; the public FQDN must match.\n- C. The Microsoft Teams service FQDN is on Microsoft's side; the SBC certificate must match the SBC's own FQDN.\n- D. The carrier's domain name is not relevant to the SBC's TLS certificate for Teams connectivity."
+    },
+    {
+      "id": 49,
+      "topic": "Calling Plans - Dial Plan Normalization",
+      "type": "SingleChoice",
+      "questionText": "Users in your UK office dial local numbers starting with 0 (e.g., 020 7946 0000). Microsoft Teams requires E.164 format. You need to create a normalization rule that converts this to +442079460000. What regex pattern should the normalization rule match?",
+      "options": [
+        "A. ^(\\d{11})$",
+        "B. ^0(\\d{10})$",
+        "C. ^\\+(\\d{12})$",
+        "D. ^(\\d{7})$"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The pattern ^0(\\d{10})$ matches a number starting with 0 followed by 10 digits (total 11 digits, typical UK national format). The translation rule would use +44$1 to replace the leading 0 with +44, converting to E.164 format.\n\nWhy the others are wrong:\n- A. ^(\\d{11})$ matches any 11 digits but does not specifically capture the leading 0 for removal and replacement.\n- C. ^\\+(\\d{12})$ matches numbers already in E.164 format and would not normalize local UK numbers.\n- D. ^(\\d{7})$ only matches 7-digit numbers, which is too short for UK national numbers."
+    },
+    {
+      "id": 50,
+      "topic": "Direct Routing - PSTN Usage Records",
+      "type": "SingleChoice",
+      "questionText": "In the Direct Routing configuration, what is the purpose of PSTN usage records?",
+      "options": [
+        "A. They track the number of minutes each user spends on PSTN calls.",
+        "B. They link voice routing policies to voice routes, controlling which routes are available to which users.",
+        "C. They record all PSTN call details for billing purposes.",
+        "D. They define the phone number format for each country."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. PSTN usage records are the binding element between voice routing policies (assigned to users) and voice routes (which point to SBCs). A voice routing policy references PSTN usage records, and each PSTN usage record is associated with one or more voice routes.\n\nWhy the others are wrong:\n- A. PSTN usage records do not track call minutes; call analytics and CQD provide that data.\n- C. They do not record call details; call detail records (CDRs) handle billing data.\n- D. Phone number formats are defined in dial plans, not PSTN usage records."
+    },
+    {
+      "id": 51,
+      "topic": "Auto Attendants - Channel-Based Call Queues",
+      "type": "SingleChoice",
+      "questionText": "You want to allow members of a Teams channel to handle calls from a call queue, with the queue agent list dynamically matching the channel membership. What should you configure?",
+      "options": [
+        "A. A standard call queue with manually added agents.",
+        "B. A channel-based call queue that uses a Teams channel for agent membership.",
+        "C. An auto attendant that transfers calls to the channel.",
+        "D. A distribution group as the call queue agent list."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Channel-based call queues use a Teams channel's membership as the agent list. When members are added or removed from the channel, the call queue agent list updates automatically, eliminating manual agent management.\n\nWhy the others are wrong:\n- A. A standard call queue requires manual agent management and does not sync with channel membership.\n- C. Auto attendants do not route calls to Teams channels for handling.\n- D. A distribution group can be used as an agent source but does not dynamically match a Teams channel."
+    },
+    {
+      "id": 52,
+      "topic": "SBC - Network Requirements",
+      "type": "MultipleChoice",
+      "questionText": "You are planning firewall rules for a Direct Routing SBC. Which two ports and protocols must be open for SIP signaling and media traffic from the SBC to Microsoft Teams? Each correct answer presents a required port.",
+      "options": [
+        "A. TCP port 5061 for SIP signaling over TLS.",
+        "B. UDP port range 49152-53247 for media (SRTP).",
+        "C. TCP port 443 for HTTPS API calls.",
+        "D. TCP port 25 for SMTP.",
+        "E. UDP port 5060 for unencrypted SIP."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Direct Routing requires TCP port 5061 for SIP signaling (SIP over TLS) and UDP ports in the range 49152-53247 for media traffic (SRTP) between the SBC and Microsoft Teams transport relays.\n\nWhy the others are wrong:\n- C. HTTPS (443) is used for management and web interfaces but is not the primary port for SIP signaling or media.\n- D. SMTP (port 25) is for email and is not used by Direct Routing.\n- E. Unencrypted SIP on UDP 5060 is not used by Microsoft Teams; all SIP signaling must be encrypted via TLS on port 5061."
+    },
+    {
+      "id": 53,
+      "topic": "Calling Plans - Service Numbers",
+      "type": "SingleChoice",
+      "questionText": "You need a phone number for your auto attendant that is not assigned to any individual user. What type of phone number should you acquire?",
+      "options": [
+        "A. A user (subscriber) number.",
+        "B. A service (toll or toll-free) number.",
+        "C. A conference bridge number.",
+        "D. A resource account number from a user's existing allocation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Service numbers (toll or toll-free) are designed for services like auto attendants, call queues, and conference bridges. They support higher concurrent call capacity than user numbers and are not assigned to individual users.\n\nWhy the others are wrong:\n- A. User (subscriber) numbers are for individual users and have lower concurrent call limits, making them unsuitable for auto attendants.\n- C. Conference bridge numbers are specifically for audio conferencing dial-in, not for auto attendants.\n- D. There is no concept of allocating a user's number to a resource account."
+    },
+    {
+      "id": 54,
+      "topic": "Emergency Calling - Notification Configuration",
+      "type": "SingleChoice",
+      "questionText": "Your organization requires that when any employee makes an emergency call from Teams, a conference call is automatically initiated that includes the security team. What should you configure?",
+      "options": [
+        "A. An auto attendant with emergency number detection.",
+        "B. An emergency calling policy with notification mode set to 'Conference muted' and the security team as the notification group.",
+        "C. A Power Automate flow triggered by emergency calls.",
+        "D. A compliance recording policy for emergency calls."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Emergency calling policies support a 'Conference muted' notification mode that automatically adds designated security personnel to the emergency call in a muted state. The security team can listen to the call and unmute to provide assistance if needed.\n\nWhy the others are wrong:\n- A. Auto attendants handle incoming calls and do not detect or respond to outbound emergency calls.\n- C. Power Automate cannot be triggered by emergency calls or add participants to active calls.\n- D. Compliance recording records calls but does not add personnel to the call."
+    },
+    {
+      "id": 55,
+      "topic": "Direct Routing - Local Media Optimization",
+      "type": "SingleChoice",
+      "questionText": "Your organization has a centralized SBC at headquarters and branch offices connected via WAN. You want media traffic from branch office users to stay local rather than being hairpinned through the central SBC. What should you configure?",
+      "options": [
+        "A. Media bypass only.",
+        "B. Local Media Optimization (LMO) with proxy SBCs at branch offices.",
+        "C. Separate Direct Routing SBCs at each branch office.",
+        "D. QoS policies for WAN traffic."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Local Media Optimization allows branch office users' media to be routed through local proxy SBCs rather than traversing the WAN to the centralized SBC. The signaling still goes through the central SBC, but media is optimized to stay local.\n\nWhy the others are wrong:\n- A. Media bypass routes media directly between the client and SBC but does not address the branch office scenario with a centralized SBC.\n- C. Deploying full SBCs at each branch is more expensive and complex than using LMO with proxy SBCs.\n- D. QoS policies prioritize traffic but do not change the media routing path."
+    },
+    {
+      "id": 56,
+      "topic": "Call Queues - Overflow Handling",
+      "type": "SingleChoice",
+      "questionText": "Your call queue has a maximum of 25 concurrent calls. You need to define what happens when the 26th caller tries to enter the queue. What should you configure?",
+      "options": [
+        "A. The call timeout action.",
+        "B. The call overflow action.",
+        "C. The agent alert time.",
+        "D. Presence-based routing."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The overflow action in a call queue defines what happens when the maximum number of calls in the queue is reached. Options include disconnecting, redirecting to another number, voicemail, auto attendant, or another call queue.\n\nWhy the others are wrong:\n- A. Call timeout handles what happens when a caller waits too long, not when the queue is full.\n- C. Agent alert time controls how long a call rings an individual agent before moving to the next agent.\n- D. Presence-based routing controls which agents receive calls based on their Teams presence."
+    },
+    {
+      "id": 57,
+      "topic": "SBC - SIP Options Health Check",
+      "type": "SingleChoice",
+      "questionText": "Microsoft Teams sends periodic SIP OPTIONS messages to your SBC. Your SBC is not responding, and the Direct Routing health dashboard shows the SBC as inactive. What is the most likely cause?",
+      "options": [
+        "A. The SBC does not have a valid TLS certificate.",
+        "B. A firewall is blocking SIP OPTIONS messages on port 5061 between Microsoft and the SBC.",
+        "C. The SBC does not support the SIP OPTIONS method.",
+        "D. The Teams admin center has a configuration error."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. SIP OPTIONS messages are health checks sent by Microsoft Teams to the SBC. If a firewall blocks port 5061 (SIP over TLS) between Microsoft's signaling infrastructure and the SBC, the OPTIONS messages cannot reach the SBC, causing it to appear inactive.\n\nWhy the others are wrong:\n- A. An invalid TLS certificate would cause TLS handshake failures, which would be reported differently in the health dashboard.\n- C. SIP OPTIONS is a basic SIP method supported by all certified SBCs.\n- D. If the SBC was added correctly (New-CsOnlinePSTNGateway), the issue is connectivity, not configuration."
+    },
+    {
+      "id": 58,
+      "topic": "Calling Plans - User Voicemail",
+      "type": "SingleChoice",
+      "questionText": "A user reports that their Teams voicemail is not working. Calls go to the correct user but callers cannot leave messages. Which setting should you check?",
+      "options": [
+        "A. The user's calling policy.",
+        "B. The user's voicemail policy to ensure voicemail is enabled, and verify the user has an Exchange Online mailbox.",
+        "C. The user's dial plan.",
+        "D. The auto attendant configuration."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams voicemail requires that the voicemail policy has voicemail enabled and that the user has an Exchange Online mailbox (voicemail messages are stored in Exchange). Both conditions must be met for voicemail to function.\n\nWhy the others are wrong:\n- A. Calling policies control calling features but do not specifically enable or disable voicemail.\n- C. Dial plans normalize dialed numbers and do not affect voicemail functionality.\n- D. Auto attendant configuration is for the auto attendant, not for individual user voicemail."
+    },
+    {
+      "id": 59,
+      "topic": "Direct Routing - Gateway Translation Rules",
+      "type": "SingleChoice",
+      "questionText": "Your SBC needs to add a prefix to outbound caller IDs before sending calls to the carrier because the carrier requires a specific format. Where should you configure this translation?",
+      "options": [
+        "A. In the Teams dial plan.",
+        "B. In the Online PSTN Gateway trunk translation rules (Set-CsOnlinePSTNGateway -OutbundPstnNumberTranslationRules).",
+        "C. In the voice routing policy.",
+        "D. In the Teams admin center user phone number settings."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Trunk translation rules on the Online PSTN Gateway (configured via Set-CsOnlinePSTNGateway with translation rule parameters) can modify caller IDs and called numbers as they pass through the SBC to the carrier. This handles format requirements from the carrier.\n\nWhy the others are wrong:\n- A. Dial plans normalize numbers dialed by the user, not the caller ID sent to the carrier.\n- C. Voice routing policies select which SBC to route through but do not perform number translation.\n- D. User phone number settings define the assigned number but do not transform outbound caller IDs."
+    },
+    {
+      "id": 60,
+      "topic": "Calling Plans - Unassigned Numbers",
+      "type": "SingleChoice",
+      "questionText": "Your organization has phone numbers that are no longer assigned to users. You want callers to these numbers to hear a custom announcement rather than an error tone. What should you configure?",
+      "options": [
+        "A. A voicemail policy for unassigned numbers.",
+        "B. Routing of unassigned numbers to an announcement or auto attendant.",
+        "C. A dial plan with normalization for unassigned numbers.",
+        "D. An Exchange Online auto-reply for the numbers."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The unassigned number routing feature in Teams Phone allows you to route calls to unassigned numbers to a custom announcement (audio file or TTS) or redirect them to an auto attendant, user, or resource account.\n\nWhy the others are wrong:\n- A. Voicemail policies apply to user accounts, not unassigned numbers.\n- C. Dial plans normalize dialed numbers but do not handle routing for unassigned numbers.\n- D. Exchange Online does not handle PSTN call routing for unassigned phone numbers."
+    },
+    {
+      "id": 61,
+      "topic": "Network Optimization - QoS Configuration",
+      "type": "SingleChoice",
+      "questionText": "You need to implement Quality of Service (QoS) for Teams to prioritize audio traffic over other network traffic. What DSCP value should you assign to Teams audio packets?",
+      "options": [
+        "A. DSCP 0 (Best Effort).",
+        "B. DSCP 46 (Expedited Forwarding).",
+        "C. DSCP 34 (Assured Forwarding 41).",
+        "D. DSCP 18 (Assured Forwarding 21)."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft recommends DSCP 46 (Expedited Forwarding) for Teams audio traffic. This is the highest priority DSCP marking and ensures audio packets receive preferential treatment across the network.\n\nWhy the others are wrong:\n- A. DSCP 0 is the default best-effort marking and provides no prioritization.\n- C. DSCP 34 (AF41) is recommended for Teams video traffic, not audio.\n- D. DSCP 18 (AF21) is recommended for Teams application sharing traffic, not audio."
+    },
+    {
+      "id": 62,
+      "topic": "Direct Routing - On-Network Conferencing",
+      "type": "SingleChoice",
+      "questionText": "You want PSTN participants who join a meeting to have their media routed through the local Direct Routing SBC rather than through Microsoft's cloud. What should you configure?",
+      "options": [
+        "A. Audio Conferencing with a dedicated conference bridge.",
+        "B. On-network conferencing for Direct Routing.",
+        "C. Media bypass for the SBC.",
+        "D. A separate meeting policy for PSTN participants."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. On-network conferencing for Direct Routing routes the media of PSTN participants joining a meeting through the local SBC rather than through Microsoft's cloud, reducing bandwidth usage and latency for PSTN legs.\n\nWhy the others are wrong:\n- A. Audio Conferencing provides Microsoft-hosted dial-in numbers; it does not route through your SBC.\n- C. Media bypass routes individual call media between client and SBC but does not handle meeting conferencing scenarios.\n- D. Meeting policies control meeting features but do not control PSTN media routing paths."
+    },
+    {
+      "id": 63,
+      "topic": "Troubleshooting - Call Analytics",
+      "type": "SingleChoice",
+      "questionText": "A specific user is reporting poor call quality. You need to investigate their recent calls to identify network issues. Which tool provides per-call and per-user analysis?",
+      "options": [
+        "A. Call Quality Dashboard (CQD).",
+        "B. Call Analytics (per-user call history) in the Teams admin center.",
+        "C. Microsoft 365 Service Health.",
+        "D. Network planner."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Call Analytics in the Teams admin center provides per-user, per-call detail including audio quality metrics, network statistics, and device information. It is ideal for troubleshooting specific user complaints.\n\nWhy the others are wrong:\n- A. CQD provides aggregate call quality trends across the organization but is less suited for troubleshooting a single user's specific calls.\n- C. Service Health shows Microsoft 365 service incidents, not user-specific call quality.\n- D. Network planner is used during planning to estimate bandwidth requirements, not for troubleshooting existing calls."
+    },
+    {
+      "id": 64,
+      "topic": "Calling Plans - Caller ID Policies",
+      "type": "SingleChoice",
+      "questionText": "Your helpdesk team needs all outbound calls to display the main office number instead of their individual phone numbers. What should you configure?",
+      "options": [
+        "A. A calling policy with caller ID set to anonymous.",
+        "B. A caller ID policy that replaces the user's number with a service number or resource account number.",
+        "C. A dial plan that translates outbound numbers.",
+        "D. An auto attendant with the helpdesk number."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Caller ID policies in Teams Phone allow you to replace the calling user's phone number with a service number or resource account number for outbound PSTN calls. Assigning this policy to the helpdesk team displays the main office number.\n\nWhy the others are wrong:\n- A. Anonymous caller ID hides the number entirely, which may cause called parties to not answer.\n- C. Dial plans normalize dialed numbers, not the outbound caller ID displayed to the called party.\n- D. Auto attendants handle incoming calls and do not control outbound caller ID for users."
+    },
+    {
+      "id": 65,
+      "topic": "Troubleshooting - Real-time Telemetry",
+      "type": "SingleChoice",
+      "questionText": "An executive is about to join an important Teams call, and you want to monitor the call quality in real-time during the call. Which tool should you use?",
+      "options": [
+        "A. Call Quality Dashboard.",
+        "B. Real-time Telemetry in the Teams admin center.",
+        "C. Network Assessment Tool.",
+        "D. Microsoft 365 admin center Health dashboard."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Real-time Telemetry in the Teams admin center allows administrators to monitor active calls and meetings in real-time, viewing quality metrics like packet loss, jitter, and latency as the call is happening.\n\nWhy the others are wrong:\n- A. CQD shows historical call quality data, not real-time metrics for active calls.\n- C. The Network Assessment Tool is used for pre-deployment network testing, not live call monitoring.\n- D. The Health dashboard shows service-level health, not individual call quality metrics."
     }
   ]
 }

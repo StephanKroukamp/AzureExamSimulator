@@ -9,7 +9,7 @@
       "questionText": "You need to create a product that comes in multiple sizes and colors. What type of product should you create?",
       "options": ["A. A distinct product.", "B. A product master with size and color product dimensions.", "C. Separate products for each size and color combination.", "D. A service item."],
       "correctAnswers": ["B"],
-      "explanation": "A product master with product dimensions (size, color, style, configuration) allows you to define variants for each combination. Distinct products (A) do not support dimensions. Separate products (C) are unmanageable for many combinations. Service items (D) are not physical products."
+      "explanation": "A product master with product dimensions (size, color, style, configuration) allows you to define variants for each combination efficiently through a single product definition.\n\nA is incorrect because distinct products do not support product dimensions or variants.\nC is incorrect because separate products for each combination are unmanageable for large numbers of combinations.\nD is incorrect because service items are for non-physical items and do not support product dimensions."
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "questionText": "A warehouse receives items from a vendor without a purchase order. How should the inventory be adjusted?",
       "options": ["A. Create a purchase order retroactively.", "B. Use an inventory movement journal to add the items to inventory.", "C. Ignore the receipt and leave the items untracked.", "D. Record it as a sales return."],
       "correctAnswers": ["B"],
-      "explanation": "An inventory movement journal allows you to adjust inventory quantities and values for items received without a PO. Creating a retroactive PO (A) may be appropriate but a movement journal is the direct inventory adjustment. Ignoring the receipt (C) creates inventory discrepancies. A sales return (D) is for customer returns."
+      "explanation": "An inventory movement journal allows you to adjust inventory quantities and values for items received without a PO, recording the on-hand increase with proper financial posting.\n\nA is incorrect because while a retroactive PO may be needed for procurement tracking, an inventory movement journal is the direct way to adjust inventory.\nC is incorrect because ignoring the receipt creates inventory discrepancies between physical and system counts.\nD is incorrect because a sales return is for items returned by customers, not goods received from vendors."
     },
     {
       "id": 3,
@@ -27,7 +27,7 @@
       "questionText": "An employee needs to request the purchase of office supplies. What is the correct first step in the procurement process?",
       "options": ["A. Create a purchase order directly.", "B. Create a purchase requisition that goes through an approval workflow.", "C. Contact the vendor directly.", "D. Submit an email to the procurement department."],
       "correctAnswers": ["B"],
-      "explanation": "Purchase requisitions allow employees to formally request items, which then go through approval workflows before being converted to purchase orders. Direct PO creation (A) bypasses approval controls. Vendor contact (C) and emails (D) are informal and untracked."
+      "explanation": "Purchase requisitions allow employees to formally request items, which then go through approval workflows before being converted to purchase orders, ensuring proper authorization.\n\nA is incorrect because direct PO creation bypasses the approval controls required for procurement governance.\nC is incorrect because vendor contact is informal, untracked, and bypasses procurement policies.\nD is incorrect because emails are informal and do not integrate with the procurement system for tracking and approval."
     },
     {
       "id": 4,
@@ -36,7 +36,7 @@
       "questionText": "You need to configure a warehouse that supports advanced features like location directives and work templates. What must you enable?",
       "options": ["A. Basic warehousing.", "B. Advanced warehouse management (WMS) processes on the warehouse.", "C. A third-party warehouse management system.", "D. Manual location tracking."],
       "correctAnswers": ["B"],
-      "explanation": "Enabling advanced warehouse management processes (WMS) on a warehouse unlocks features like location directives, work templates, and wave processing. Basic warehousing (A) does not support these features. Third-party systems (C) add complexity. Manual tracking (D) is not scalable."
+      "explanation": "Enabling advanced warehouse management processes (WMS) on a warehouse unlocks features like location directives, work templates, wave processing, and mobile device flows.\n\nA is incorrect because basic warehousing does not support location directives, work templates, or wave processing.\nC is incorrect because third-party systems add complexity and cost when the built-in WMS is comprehensive.\nD is incorrect because manual tracking is not scalable and does not leverage system automation."
     },
     {
       "id": 5,
@@ -45,7 +45,7 @@
       "questionText": "A company needs to plan shipments efficiently by consolidating multiple sales orders into a single truckload. What feature should they use?",
       "options": ["A. Individual shipment for each order.", "B. Load planning and consolidation in Transportation Management.", "C. Manual assignment of orders to trucks.", "D. A spreadsheet to track shipments."],
       "correctAnswers": ["B"],
-      "explanation": "Load planning in Transportation Management allows consolidation of multiple orders into loads, optimizing truck utilization. Individual shipments (A) waste capacity. Manual assignment (C) is inefficient. Spreadsheets (D) are not integrated with the system."
+      "explanation": "Load planning in Transportation Management allows consolidation of multiple orders into loads based on capacity, destination, and scheduling, optimizing truck utilization and freight costs.\n\nA is incorrect because individual shipments waste truck capacity and increase shipping costs.\nC is incorrect because manual assignment is inefficient and does not optimize load capacity.\nD is incorrect because spreadsheets are not integrated with the system's order and shipping data."
     },
     {
       "id": 6,
@@ -54,7 +54,7 @@
       "questionText": "A company wants to automatically generate purchase orders and production orders based on demand forecasts and sales orders. What should they use?",
       "options": ["A. Manual creation of orders by planners.", "B. Master planning (MRP) to generate planned orders.", "C. A Power Automate flow to create orders.", "D. The budgeting module."],
       "correctAnswers": ["B"],
-      "explanation": "Master planning (MRP) analyzes demand (sales orders, forecasts) against supply (inventory, pending orders) and generates planned purchase and production orders to meet demand. Manual creation (A) does not scale. Power Automate (C) cannot perform MRP logic. Budgeting (D) is for financial planning."
+      "explanation": "Master planning (MRP) analyzes demand (sales orders, forecasts) against supply (inventory, pending orders) and generates planned purchase and production orders to meet demand.\n\nA is incorrect because manual creation does not scale and cannot efficiently balance supply and demand across many items.\nC is incorrect because Power Automate cannot perform the complex MRP calculations for supply and demand balancing.\nD is incorrect because budgeting is for financial planning, not material requirements planning."
     },
     {
       "id": 7,
@@ -63,7 +63,7 @@
       "questionText": "Which two actions are required before a product can be used in transactions in a specific legal entity? (Choose two.)",
       "options": ["A. Create the product as a shared product.", "B. Release the product to the legal entity.", "C. Assign the product to a marketing campaign.", "D. Register the product with a government agency."],
       "correctAnswers": ["A", "B"],
-      "explanation": "Products are first created as shared products (A) in the product information management, then released to specific legal entities (B) where they can be used in transactions. Marketing campaigns (C) and government registration (D) are not prerequisites for using products in transactions."
+      "explanation": "Products are first created as shared products (A) in product information management, then released to specific legal entities (B) where they receive entity-specific settings and can be used in transactions.\n\nC is incorrect because marketing campaign assignment is not a prerequisite for transactional use.\nD is incorrect because government registration is not a system requirement for using products in D365 transactions."
     },
     {
       "id": 8,
@@ -72,7 +72,7 @@
       "questionText": "A warehouse needs to perform a physical inventory count. What journal type should they use?",
       "options": ["A. Movement journal.", "B. Counting journal.", "C. Transfer journal.", "D. BOM journal."],
       "correctAnswers": ["B"],
-      "explanation": "Counting journals are specifically designed for physical inventory counts, allowing you to enter counted quantities and the system calculates the adjustment. Movement journals (A) are for deliberate adjustments. Transfer journals (C) move inventory between locations. BOM journals (D) handle bill of materials consumption."
+      "explanation": "Counting journals are specifically designed for physical inventory counts, allowing you to enter counted quantities while the system calculates and posts the necessary adjustments.\n\nA is incorrect because movement journals are for deliberate inventory adjustments, not physical count reconciliation.\nC is incorrect because transfer journals move inventory between locations or dimensions, not record physical counts.\nD is incorrect because BOM journals handle bill of materials consumption for production, not inventory counting."
     },
     {
       "id": 9,
@@ -81,7 +81,7 @@
       "questionText": "A procurement manager wants to evaluate vendor performance based on delivery timeliness and quality. What feature should they use?",
       "options": ["A. A manual spreadsheet tracker.", "B. Vendor evaluation criteria and scorecards in the procurement module.", "C. Customer satisfaction surveys.", "D. Financial statement analysis of the vendor."],
       "correctAnswers": ["B"],
-      "explanation": "Vendor evaluation criteria and scorecards allow systematic tracking and scoring of vendor performance on metrics like delivery and quality. Spreadsheets (A) are not integrated. Customer surveys (C) are for customer feedback. Financial analysis (D) assesses vendor financial health, not performance."
+      "explanation": "Vendor evaluation criteria and scorecards allow systematic tracking and scoring of vendor performance on defined metrics like delivery timeliness and quality.\n\nA is incorrect because spreadsheets are not integrated with procurement transaction data for automatic performance tracking.\nC is incorrect because customer satisfaction surveys measure customer experience, not vendor performance.\nD is incorrect because financial analysis assesses vendor financial health, not operational performance like delivery and quality."
     },
     {
       "id": 10,
@@ -90,7 +90,7 @@
       "questionText": "You need to define where items should be stored when received in the warehouse. What should you configure?",
       "options": ["A. A fixed bin for all items.", "B. Location directives for the purchase order put-away work order type.", "C. A manual assignment process.", "D. A warehouse map document."],
       "correctAnswers": ["B"],
-      "explanation": "Location directives define rules for where items should be placed (put-away) or picked from based on criteria like item, quantity, and warehouse zone. A fixed bin (A) does not optimize space. Manual assignment (C) is inefficient. A map document (D) is not a system feature."
+      "explanation": "Location directives define rules for where items should be placed (put-away) based on criteria like item, quantity, and warehouse zone, optimizing storage utilization.\n\nA is incorrect because a fixed bin for all items does not optimize space or consider item-specific storage requirements.\nC is incorrect because manual assignment is inefficient and inconsistent.\nD is incorrect because a warehouse map document is not a system feature that directs put-away operations."
     },
     {
       "id": 11,
@@ -99,7 +99,7 @@
       "questionText": "A company wants to automatically calculate freight charges based on weight, distance, and carrier rates. What should they configure?",
       "options": ["A. Manual freight calculations for each shipment.", "B. Rate engines and rate masters in Transportation Management.", "C. A flat fee for all shipments.", "D. Vendor-provided spreadsheets for rate lookup."],
       "correctAnswers": ["B"],
-      "explanation": "Rate engines and rate masters define carrier rate structures based on factors like weight, distance, and zone, enabling automatic freight charge calculation. Manual calculations (A) are error-prone. Flat fees (C) do not account for variable factors. Spreadsheets (D) are not integrated."
+      "explanation": "Rate engines and rate masters define carrier rate structures based on factors like weight, distance, and zone, enabling automatic and accurate freight charge calculation.\n\nA is incorrect because manual calculations are error-prone and time-consuming for high shipment volumes.\nC is incorrect because flat fees do not account for variable factors and may result in over or under-charging.\nD is incorrect because spreadsheets are not integrated with the transportation system for automatic calculation."
     },
     {
       "id": 12,
@@ -108,7 +108,7 @@
       "questionText": "You need to ensure that a minimum quantity of a critical raw material is always available in inventory. What should you configure?",
       "options": ["A. A very large purchase order.", "B. Minimum inventory (safety stock) settings in the item coverage.", "C. An agreement with the vendor for emergency delivery.", "D. Manual monitoring of stock levels."],
       "correctAnswers": ["B"],
-      "explanation": "Minimum inventory (safety stock) settings in item coverage define the minimum quantity to maintain. Master planning generates replenishment orders when stock falls below this level. Large POs (A) may result in excess stock. Vendor agreements (C) are for emergency situations. Manual monitoring (D) is reactive."
+      "explanation": "Minimum inventory (safety stock) settings in item coverage define the minimum quantity to maintain, and master planning generates replenishment orders when stock falls below this level.\n\nA is incorrect because a large PO may result in excess stock, storage costs, and potential obsolescence.\nC is incorrect because vendor agreements for emergency delivery are reactive, not proactive inventory management.\nD is incorrect because manual monitoring is reactive and may miss critical low stock situations."
     },
     {
       "id": 13,
@@ -117,7 +117,7 @@
       "questionText": "A company needs to organize products into a hierarchical structure for procurement and reporting purposes. What should they configure?",
       "options": ["A. Product groups only.", "B. A procurement category hierarchy.", "C. A flat list of product IDs.", "D. Custom fields on each product."],
       "correctAnswers": ["B"],
-      "explanation": "Procurement category hierarchies organize products into a hierarchical structure used for procurement policies, reporting, and vendor catalogs. Product groups (A) provide a single-level grouping. Flat lists (C) lack hierarchy. Custom fields (D) add attributes but not categorization."
+      "explanation": "Procurement category hierarchies organize products into a multi-level hierarchical structure used for procurement policies, spending analysis, and vendor catalogs.\n\nA is incorrect because product groups provide only a single-level grouping without hierarchy.\nC is incorrect because a flat list lacks organizational hierarchy for reporting and policy application.\nD is incorrect because custom fields add attributes to individual products but do not provide categorization structure."
     },
     {
       "id": 14,
@@ -126,7 +126,7 @@
       "questionText": "Which two are examples of storage dimensions in Dynamics 365 Supply Chain Management? (Choose two.)",
       "options": ["A. Site.", "B. Warehouse.", "C. Color.", "D. Serial number."],
       "correctAnswers": ["A", "B"],
-      "explanation": "Site (A) and Warehouse (B) are storage dimensions that define where inventory is stored. Color (C) is a product dimension. Serial number (D) is a tracking dimension."
+      "explanation": "Site (A) and Warehouse (B) are storage dimensions that define where inventory is physically stored within the organization.\n\nC is incorrect because Color is a product dimension that defines product variants.\nD is incorrect because Serial number is a tracking dimension used to track individual units."
     },
     {
       "id": 15,
@@ -135,7 +135,7 @@
       "questionText": "A company has negotiated a yearly contract with a vendor for a fixed price on raw materials. How should this be recorded?",
       "options": ["A. Create a purchase order for the entire year's supply.", "B. Create a purchase agreement (blanket order) with the negotiated terms.", "C. Record the agreement in a Word document.", "D. Create a recurring purchase order."],
       "correctAnswers": ["B"],
-      "explanation": "Purchase agreements capture negotiated terms and allow multiple purchase orders to be placed against them throughout the agreement period. A single large PO (A) commits to the entire quantity upfront. Word documents (C) are not system-managed. Recurring POs (D) do not track against an agreement."
+      "explanation": "Purchase agreements capture negotiated terms (price, quantity commitments) and allow multiple purchase orders to be placed against them throughout the agreement period.\n\nA is incorrect because a single large PO commits to the entire quantity upfront, which may not align with delivery schedules.\nC is incorrect because Word documents are not system-managed and cannot be referenced when creating purchase orders.\nD is incorrect because recurring POs do not track cumulative quantities against an agreement."
     },
     {
       "id": 16,
@@ -144,7 +144,7 @@
       "questionText": "Multiple sales orders need to be processed together for efficient warehouse picking. What feature groups these orders?",
       "options": ["A. Batch picking.", "B. Wave processing that groups orders and creates warehouse work.", "C. Manual order selection.", "D. A printed pick list."],
       "correctAnswers": ["B"],
-      "explanation": "Wave processing groups sales order lines based on criteria (carrier, delivery date, etc.) and generates warehouse work for efficient picking. Batch picking (A) is a picking method, not a grouping mechanism. Manual selection (C) is inefficient. Printed pick lists (D) are outputs, not processing features."
+      "explanation": "Wave processing groups sales order lines based on criteria (carrier, delivery date, ship-from warehouse) and generates warehouse work for efficient, coordinated picking.\n\nA is incorrect because batch picking is a picking method, not the grouping mechanism that creates work.\nC is incorrect because manual selection is inefficient and does not leverage automated optimization.\nD is incorrect because printed pick lists are output documents, not processing features that group and optimize work."
     },
     {
       "id": 17,
@@ -153,7 +153,7 @@
       "questionText": "You need to configure a new shipping carrier in Transportation Management. What information is required?",
       "options": ["A. Only the carrier name.", "B. Carrier details, carrier services, and associated rate masters.", "C. The carrier's financial statements.", "D. The carrier's employee list."],
       "correctAnswers": ["B"],
-      "explanation": "Carrier setup requires defining the carrier entity, its services (ground, express, etc.), and associated rate masters for freight calculation. Only the name (A) is insufficient. Financial statements (C) and employee lists (D) are not part of carrier configuration."
+      "explanation": "Carrier setup requires defining the carrier entity, its available services (ground, express, next-day, etc.), and associated rate masters for freight charge calculation.\n\nA is incorrect because only the name is insufficient; services and rates are needed for transportation management functionality.\nC is incorrect because financial statements are not part of the carrier configuration in the system.\nD is incorrect because the carrier's employee list is irrelevant to transportation management configuration."
     },
     {
       "id": 18,
@@ -162,7 +162,7 @@
       "questionText": "You want master planning to consider both sales order demand and sales forecast demand. What settings should you configure?",
       "options": ["A. Include only sales orders in the plan.", "B. Configure the master plan to include both sales orders and forecasts with forecast reduction settings.", "C. Run separate plans for sales orders and forecasts.", "D. Ignore forecasts entirely."],
       "correctAnswers": ["B"],
-      "explanation": "Master plan settings allow you to include multiple demand types including sales orders and forecasts. Forecast reduction settings prevent double-counting when actual orders replace forecast demand. Including only sales orders (A) ignores future demand. Separate plans (C) do not provide a unified view. Ignoring forecasts (D) reduces planning accuracy."
+      "explanation": "Master plan settings allow you to include multiple demand types. Forecast reduction settings prevent double-counting by reducing forecast quantities as actual sales orders are received.\n\nA is incorrect because including only sales orders ignores expected future demand from forecasts.\nC is incorrect because separate plans do not provide a unified supply-demand picture.\nD is incorrect because ignoring forecasts reduces planning accuracy and may cause stock-outs."
     },
     {
       "id": 19,
@@ -171,7 +171,7 @@
       "questionText": "A manufactured product consists of 5 components. How do you define the product structure?",
       "options": ["A. List the components in the product description.", "B. Create a bill of materials (BOM) for the product listing all components and quantities.", "C. Create 5 separate purchase orders.", "D. Use a product bundle."],
       "correctAnswers": ["B"],
-      "explanation": "A bill of materials (BOM) formally defines the components, quantities, and relationships needed to manufacture a product. Description text (A) is not structured. Purchase orders (C) are for procurement. Product bundles (D) are a sales concept, not manufacturing."
+      "explanation": "A bill of materials (BOM) formally defines the components, their quantities, and relationships needed to manufacture a product, enabling production planning and costing.\n\nA is incorrect because description text is not structured data that the system can use for planning and costing.\nC is incorrect because purchase orders are for procurement, not manufacturing product structure definition.\nD is incorrect because product bundles are a sales concept for selling multiple items together, not a manufacturing definition."
     },
     {
       "id": 20,
@@ -180,7 +180,7 @@
       "questionText": "A company uses the FIFO (First In, First Out) inventory valuation method. What does this mean for cost calculation?",
       "options": ["A. The most recent purchases are expensed first.", "B. The oldest inventory costs are expensed first when items are sold.", "C. All items are valued at the average cost.", "D. Each item is valued individually."],
       "correctAnswers": ["B"],
-      "explanation": "FIFO assumes the oldest inventory (first in) is sold first (first out), meaning the cost of goods sold reflects the earliest purchase costs. Most recent first (A) is LIFO. Average cost (C) is the weighted average method. Individual valuation (D) is specific identification."
+      "explanation": "FIFO assumes the oldest inventory (first in) is sold first (first out), meaning the cost of goods sold reflects the earliest purchase costs while ending inventory reflects the most recent costs.\n\nA is incorrect because most recent first is the LIFO (Last In, First Out) method.\nC is incorrect because average cost is the weighted average valuation method.\nD is incorrect because individual valuation is the specific identification method."
     },
     {
       "id": 21,
@@ -189,7 +189,7 @@
       "questionText": "A procurement department needs to get competitive bids from multiple vendors for a large order. What should they create?",
       "options": ["A. A purchase order for each vendor.", "B. A request for quotation (RFQ) sent to multiple vendors.", "C. An email asking for quotes.", "D. A reverse auction."],
       "correctAnswers": ["B"],
-      "explanation": "RFQs allow you to formally solicit bids from multiple vendors, compare responses, and award the order based on the best terms. Purchase orders (A) commit to specific vendors. Emails (C) are informal. Reverse auctions (D) are a different procurement method."
+      "explanation": "RFQs allow you to formally solicit bids from multiple vendors, compare responses side-by-side, and award the order based on the best terms within a structured process.\n\nA is incorrect because purchase orders commit to purchases; they should not be created before selecting a vendor through a competitive process.\nC is incorrect because emails are informal, lack standardization, and are not tracked in the procurement system.\nD is incorrect because reverse auctions are a different procurement method used for price-driven competitive bidding."
     },
     {
       "id": 22,
@@ -198,7 +198,7 @@
       "questionText": "You need to define the steps that warehouse workers follow when picking items for sales orders. What should you configure?",
       "options": ["A. A printed instruction manual.", "B. Work templates that define pick and put work lines.", "C. A training program for workers.", "D. Custom mobile app screens."],
       "correctAnswers": ["B"],
-      "explanation": "Work templates define the sequence of warehouse work steps (pick from location, put to staging/shipping) and determine how work is created. Instruction manuals (A) are not system-integrated. Training (C) teaches processes but does not automate them. Custom mobile screens (D) are presentation, not process definition."
+      "explanation": "Work templates define the sequence of warehouse work steps (pick from location, put to staging/shipping) and how work is created and structured for different order types.\n\nA is incorrect because instruction manuals are not system-integrated and cannot direct work creation.\nC is incorrect because training teaches processes but does not automate or structure the work in the system.\nD is incorrect because mobile screens present work to users but work templates define what work is created."
     },
     {
       "id": 23,
@@ -207,7 +207,7 @@
       "questionText": "After receiving a carrier's invoice, you need to compare it against the system-calculated freight charges. What feature supports this?",
       "options": ["A. Manual comparison of invoices.", "B. Freight bill reconciliation in Transportation Management.", "C. Accounts payable invoice matching.", "D. A Power BI freight report."],
       "correctAnswers": ["B"],
-      "explanation": "Freight bill reconciliation automatically matches carrier invoices against system-calculated charges, identifying discrepancies. Manual comparison (A) is time-consuming. AP invoice matching (C) is for purchase order matching, not freight-specific. Power BI (D) provides reporting, not reconciliation."
+      "explanation": "Freight bill reconciliation automatically matches carrier invoices against system-calculated charges, identifying discrepancies for resolution before payment.\n\nA is incorrect because manual comparison is time-consuming and error-prone for high shipment volumes.\nC is incorrect because AP invoice matching validates against purchase orders, not freight charge calculations.\nD is incorrect because Power BI provides reporting visualization but does not perform the reconciliation matching."
     },
     {
       "id": 24,
@@ -216,7 +216,7 @@
       "questionText": "You want to control how master planning determines replenishment for different categories of items. What should you configure?",
       "options": ["A. A single planning parameter for all items.", "B. Coverage groups with specific settings for lead times, order modifiers, and coverage types.", "C. Individual manual orders for each item.", "D. A Power Automate flow for replenishment."],
       "correctAnswers": ["B"],
-      "explanation": "Coverage groups define how master planning handles replenishment for groups of items, including settings for coverage type (period, min/max, requirement), lead times, and order modifiers. A single parameter (A) does not allow differentiation. Manual orders (C) bypass planning. Power Automate (D) cannot perform MRP."
+      "explanation": "Coverage groups define how master planning handles replenishment for groups of items, with settings for coverage type (period, min/max, requirement), lead times, and order modifiers.\n\nA is incorrect because a single parameter does not allow differentiation between item categories with different planning needs.\nC is incorrect because manual orders bypass the planning system and do not scale.\nD is incorrect because Power Automate cannot perform the complex MRP calculations needed for replenishment planning."
     },
     {
       "id": 25,
@@ -225,7 +225,7 @@
       "questionText": "A company sells customizable products where customers choose from various options (engine type, color, accessories). What product configuration approach should they use?",
       "options": ["A. Create a separate product for every possible combination.", "B. Use constraint-based product configuration with a configuration model.", "C. Add comments to the sales order.", "D. Use a spreadsheet to track configurations."],
       "correctAnswers": ["B"],
-      "explanation": "Constraint-based product configuration uses models with attributes and rules to allow customers to configure products within defined constraints. Separate products (A) are unmanageable for many combinations. Comments (C) are not structured. Spreadsheets (D) are external to the system."
+      "explanation": "Constraint-based product configuration uses models with attributes, components, and rules to allow customers to configure products within defined constraints, automatically generating BOMs and routes.\n\nA is incorrect because separate products for every combination is unmanageable when options create thousands of variants.\nC is incorrect because comments are not structured data and cannot drive BOM or routing changes.\nD is incorrect because spreadsheets are external to the system and cannot integrate with order processing."
     },
     {
       "id": 26,
@@ -234,7 +234,7 @@
       "questionText": "A food manufacturer needs to track production batches for recall purposes. What tracking dimension should they use?",
       "options": ["A. Serial number.", "B. Batch number.", "C. Color.", "D. Site."],
       "correctAnswers": ["B"],
-      "explanation": "Batch numbers track groups of items produced together, essential for recall management in industries like food, pharmaceuticals, and chemicals. Serial numbers (A) track individual items. Color (C) is a product dimension. Site (D) is a storage dimension."
+      "explanation": "Batch numbers track groups of items produced together, essential for recall management in regulated industries like food, pharmaceuticals, and chemicals.\n\nA is incorrect because serial numbers track individual items, which is too granular for batch-level recall purposes.\nC is incorrect because Color is a product dimension for product variants, not a tracking mechanism.\nD is incorrect because Site is a storage dimension indicating location, not a production tracking mechanism."
     },
     {
       "id": 27,
@@ -243,7 +243,7 @@
       "questionText": "A company wants to process a vendor return for defective goods. What type of purchase order should they create?",
       "options": ["A. A standard purchase order.", "B. A returned purchase order (negative quantity or return order type).", "C. A sales order.", "D. A credit note."],
       "correctAnswers": ["B"],
-      "explanation": "A return purchase order handles the return of goods to a vendor, tracking the physical return and financial credit. Standard POs (A) are for procurement. Sales orders (C) are for customer sales. Credit notes (D) are financial documents but do not track the physical return."
+      "explanation": "A return purchase order handles the return of goods to a vendor, tracking both the physical return and the financial credit or replacement.\n\nA is incorrect because standard POs are for procuring goods, not returning them.\nC is incorrect because sales orders are for selling to customers, not returning goods to vendors.\nD is incorrect because credit notes are financial documents but do not manage the physical return process."
     },
     {
       "id": 28,
@@ -252,7 +252,7 @@
       "questionText": "Which two activities can warehouse workers perform using the Warehouse Management mobile app? (Choose two.)",
       "options": ["A. Pick items for sales orders.", "B. Receive items from purchase orders.", "C. Create marketing campaigns.", "D. Approve vendor invoices."],
       "correctAnswers": ["A", "B"],
-      "explanation": "The Warehouse Management mobile app supports picking operations (A) and receiving operations (B) along with other warehouse activities. Marketing campaigns (C) and invoice approvals (D) are not warehouse mobile app functions."
+      "explanation": "The Warehouse Management mobile app supports picking operations for outbound orders (A) and receiving operations for inbound purchase orders (B), along with other warehouse activities.\n\nC is incorrect because marketing campaigns are managed in Dynamics 365 Marketing, not the warehouse mobile app.\nD is incorrect because vendor invoice approval is an accounts payable function, not a warehouse mobile operation."
     },
     {
       "id": 29,
@@ -261,7 +261,7 @@
       "questionText": "A company needs to define the most efficient route for delivering goods to customers in a specific region. What should they configure?",
       "options": ["A. A Google Maps integration.", "B. Route plans with route segments defining the delivery sequence and stops.", "C. A manual route guide for drivers.", "D. A GPS tracking system only."],
       "correctAnswers": ["B"],
-      "explanation": "Route plans with segments define the delivery route including stops, sequence, and associated carriers for systematic route management. GPS integrations (A, D) assist navigation but do not define the business route plan. Manual guides (C) are not system-managed."
+      "explanation": "Route plans with segments define the delivery route including stops, sequence, transit times, and associated carriers for systematic and repeatable route management.\n\nA is incorrect because while GPS integrations assist navigation, they do not define the business-level route plan in the system.\nC is incorrect because manual guides are not system-managed and cannot be used for automated cost and schedule calculations.\nD is incorrect because GPS tracking monitors vehicle location but does not define delivery routes in the transportation management system."
     },
     {
       "id": 30,
@@ -270,7 +270,7 @@
       "questionText": "After running master planning, the system suggests advancing a planned purchase order by 5 days to meet demand. What type of message is this?",
       "options": ["A. An error message.", "B. An action message recommending to advance the order.", "C. A warning message about inventory levels.", "D. A system notification."],
       "correctAnswers": ["B"],
-      "explanation": "Action messages are recommendations generated by master planning for planners to take action on planned or existing orders, such as advancing, postponing, or increasing quantities. They are not errors (A), generic warnings (C), or system notifications (D)."
+      "explanation": "Action messages are recommendations generated by master planning for planners to take action on planned or existing orders, such as advancing, postponing, increasing, or decreasing quantities.\n\nA is incorrect because action messages are recommendations, not errors indicating something went wrong.\nC is incorrect because action messages are specific order-level recommendations, not general inventory level warnings.\nD is incorrect because system notifications are general alerts, not MRP-specific planning recommendations."
     },
     {
       "id": 31,
@@ -279,7 +279,7 @@
       "questionText": "A company needs to test incoming raw materials against quality standards before accepting them into inventory. What should they configure?",
       "options": ["A. A manual inspection process.", "B. Quality orders that are automatically created on purchase receipt with test groups and acceptable quality levels.", "C. A third-party inspection service.", "D. Visual inspection by warehouse workers."],
       "correctAnswers": ["B"],
-      "explanation": "Quality orders can be automatically triggered on purchase receipt, defining tests to perform and acceptable quality levels before inventory acceptance. Manual (A) and visual (D) inspections are not systematic. Third-party services (C) may be used but quality orders manage the process in D365."
+      "explanation": "Quality orders can be automatically triggered on purchase receipt with defined test groups and acceptable quality levels (AQL), creating a systematic quality control process.\n\nA is incorrect because manual inspection lacks system tracking and consistency.\nC is incorrect because while third-party inspectors may perform tests, quality orders manage the process within D365.\nD is incorrect because visual inspection by warehouse workers is informal and does not provide documented quality records."
     },
     {
       "id": 32,
@@ -288,7 +288,7 @@
       "questionText": "A product is being discontinued and should no longer be available for new sales orders, but existing orders should be fulfilled. What should you do?",
       "options": ["A. Delete the product.", "B. Set the product to a 'Stopped' status for sales transactions.", "C. Remove it from all price lists.", "D. Set inventory to zero."],
       "correctAnswers": ["B"],
-      "explanation": "Setting a product to 'Stopped' for sales prevents it from being added to new orders while allowing existing orders to be processed. Deleting (A) removes it from existing orders. Removing from price lists (C) causes pricing errors. Zero inventory (D) prevents fulfillment of existing orders."
+      "explanation": "Setting a product to 'Stopped' for sales prevents it from being added to new sales orders while allowing existing orders and other transaction types to be processed.\n\nA is incorrect because deleting the product would affect existing orders and lose all product history.\nC is incorrect because removing from price lists causes pricing errors on existing orders rather than preventing new ones.\nD is incorrect because setting inventory to zero prevents fulfillment of existing orders and does not prevent new order entry."
     },
     {
       "id": 33,
@@ -297,7 +297,7 @@
       "questionText": "You need to enforce that all purchases over $10,000 require three vendor quotes. What should you configure?",
       "options": ["A. A verbal policy communicated to the purchasing team.", "B. A purchasing policy rule that enforces RFQ requirements based on amount.", "C. A workflow that blocks all purchases over $10,000.", "D. A budget control rule."],
       "correctAnswers": ["B"],
-      "explanation": "Purchasing policy rules can enforce requirements such as mandatory RFQs based on purchase amounts, ensuring compliance with procurement guidelines. Verbal policies (A) rely on compliance. Blocking workflows (C) prevent purchases rather than requiring quotes. Budget control (D) manages spending limits, not procurement process requirements."
+      "explanation": "Purchasing policy rules can enforce requirements such as mandatory RFQs based on purchase amounts, ensuring compliance with procurement guidelines through system enforcement.\n\nA is incorrect because verbal policies rely on individual compliance without system enforcement.\nC is incorrect because blocking all purchases over $10,000 prevents legitimate purchases rather than requiring quotations.\nD is incorrect because budget control manages spending limits against budgets, not procurement process requirements."
     },
     {
       "id": 34,
@@ -306,7 +306,7 @@
       "questionText": "You need to automatically pack items into shipping containers based on container capacity. What WMS feature should you configure?",
       "options": ["A. Manual packing by warehouse workers.", "B. Containerization with container build templates.", "C. A packing slip process.", "D. Load planning only."],
       "correctAnswers": ["B"],
-      "explanation": "Containerization with container build templates automatically determines how items should be packed into containers based on dimensions and weight constraints. Manual packing (A) is labor-intensive. Packing slips (C) are documents, not packing logic. Load planning (D) manages truck loads, not individual container packing."
+      "explanation": "Containerization with container build templates automatically determines how items should be packed into containers based on dimensions, weight constraints, and stacking rules.\n\nA is incorrect because manual packing is labor-intensive, inconsistent, and does not optimize container utilization.\nC is incorrect because packing slips are shipping documents, not container packing logic.\nD is incorrect because load planning manages truck-level loads, not individual container packing."
     },
     {
       "id": 35,
@@ -315,7 +315,7 @@
       "questionText": "After reviewing planned purchase orders from master planning, a planner wants to convert them into actual purchase orders. What action should they take?",
       "options": ["A. Delete the planned orders and create purchase orders manually.", "B. Firm the planned orders to convert them into purchase orders.", "C. Wait for the system to convert them automatically.", "D. Copy the planned order details to a new PO."],
       "correctAnswers": ["B"],
-      "explanation": "Firming planned orders converts them into actual purchase orders (or production orders), carrying over all the planned details. Deleting and recreating (A) duplicates effort. Automatic conversion (C) does not happen without firming. Manual copying (D) is inefficient."
+      "explanation": "Firming planned orders converts them into actual purchase orders (or production orders), carrying over all planned details including quantities, dates, and vendor assignments.\n\nA is incorrect because deleting and manually recreating duplicates effort and may introduce errors.\nC is incorrect because planned orders do not automatically convert without the firming action.\nD is incorrect because manual copying is inefficient and error-prone compared to the firming process."
     },
     {
       "id": 36,
@@ -324,7 +324,7 @@
       "questionText": "A warehouse manager needs to identify slow-moving inventory that has been in stock for over 180 days. What report should they use?",
       "options": ["A. On-hand inventory report.", "B. Inventory aging report.", "C. Inventory valuation report.", "D. Inventory turnover report."],
       "correctAnswers": ["B"],
-      "explanation": "The inventory aging report shows how long items have been in stock, helping identify slow-moving and obsolete inventory. On-hand reports (A) show current quantities. Valuation reports (C) show financial values. Turnover reports (D) show movement frequency but not specific aging periods."
+      "explanation": "The inventory aging report shows how long items have been in stock by categorizing inventory into aging buckets, helping identify slow-moving and obsolete inventory.\n\nA is incorrect because on-hand reports show current quantities but not how long items have been in stock.\nC is incorrect because valuation reports show financial values of inventory but not aging periods.\nD is incorrect because turnover reports show movement frequency but not specific aging of individual stock quantities."
     },
     {
       "id": 37,
@@ -333,7 +333,7 @@
       "questionText": "A warehouse needs to schedule dock appointments for inbound and outbound shipments to avoid congestion. What feature supports this?",
       "options": ["A. A paper-based scheduling board.", "B. Dock appointment scheduling in Transportation Management.", "C. A shared Outlook calendar.", "D. First-come-first-served arrival."],
       "correctAnswers": ["B"],
-      "explanation": "Dock appointment scheduling manages inbound and outbound dock schedules, ensuring efficient use of dock resources and reducing wait times. Paper scheduling (A) is not integrated. Outlook (C) is not connected to shipment data. First-come-first-served (D) causes congestion."
+      "explanation": "Dock appointment scheduling manages inbound and outbound dock schedules, ensuring efficient use of dock resources, reducing wait times, and preventing congestion.\n\nA is incorrect because paper scheduling is not integrated with shipment data and is difficult to manage.\nC is incorrect because Outlook is not connected to shipment and load data for automatic scheduling.\nD is incorrect because first-come-first-served causes congestion and unpredictable dock utilization."
     },
     {
       "id": 38,
@@ -342,7 +342,7 @@
       "questionText": "Which two types of trade agreements can be configured for pricing in Supply Chain Management? (Choose two.)",
       "options": ["A. Sales price trade agreements.", "B. Purchase price trade agreements.", "C. Employee salary agreements.", "D. Lease agreements."],
       "correctAnswers": ["A", "B"],
-      "explanation": "Sales price trade agreements (A) define customer pricing and purchase price trade agreements (B) define vendor pricing. These are the core pricing mechanisms. Employee salaries (C) and leases (D) are managed in different modules."
+      "explanation": "Sales price trade agreements (A) define customer pricing with date ranges and quantity breaks. Purchase price trade agreements (B) define negotiated vendor pricing.\n\nC is incorrect because employee salaries are managed in HR/payroll modules, not trade agreements.\nD is incorrect because lease agreements are managed in asset leasing, not supply chain trade agreements."
     },
     {
       "id": 39,
@@ -351,7 +351,7 @@
       "questionText": "A company wants to use historical sales data to predict future demand for planning purposes. What feature should they use?",
       "options": ["A. Manual sales estimates.", "B. Demand forecasting using Azure Machine Learning integration.", "C. Previous year's sales orders as a fixed forecast.", "D. A survey of sales representatives."],
       "correctAnswers": ["B"],
-      "explanation": "Demand forecasting in D365 uses statistical models and Azure Machine Learning to analyze historical data and generate demand predictions. Manual estimates (A) are subjective. Fixed previous year data (C) does not account for trends. Sales rep surveys (D) are informal and biased."
+      "explanation": "Demand forecasting in D365 uses statistical models and Azure Machine Learning to analyze historical data and generate demand predictions, considering trends and seasonality.\n\nA is incorrect because manual estimates are subjective and do not leverage statistical analysis.\nC is incorrect because fixed prior-year data does not account for trends, growth, or seasonal variations.\nD is incorrect because sales rep surveys are informal, subjective, and difficult to aggregate systematically."
     },
     {
       "id": 40,
@@ -360,7 +360,232 @@
       "questionText": "Pick locations in the warehouse are running low on a popular item. You want the system to automatically move stock from bulk storage to picking locations. What should you configure?",
       "options": ["A. Manual stock transfers by warehouse workers.", "B. Replenishment strategies with min/max thresholds for pick locations.", "C. Larger pick locations.", "D. More frequent purchase orders."],
       "correctAnswers": ["B"],
-      "explanation": "Replenishment strategies define min/max thresholds for pick locations and automatically create replenishment work to move stock from bulk storage when levels fall below minimum. Manual transfers (A) are reactive. Larger locations (C) may not be feasible. More purchases (D) add to bulk stock but do not move items to pick locations."
+      "explanation": "Replenishment strategies define min/max thresholds for pick locations and automatically create replenishment work to move stock from bulk storage when levels fall below the minimum.\n\nA is incorrect because manual transfers are reactive and may not keep up with demand.\nC is incorrect because larger locations may not be physically feasible and do not automate the replenishment process.\nD is incorrect because more purchases add to bulk stock but do not automatically move items to pick locations."
+    },
+    {
+      "id": 41,
+      "topic": "Inventory - Inventory reservations",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of inventory reservation are supported in Dynamics 365 Supply Chain Management? (Choose two.)",
+      "options": ["A. Manual reservation where a user selects specific inventory lots.", "B. Automatic reservation based on reservation hierarchy and FIFO principles.", "C. Reservation against inventory not yet purchased.", "D. Reservation that bypasses on-hand inventory checks."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Manual reservation (A) allows users to select specific lots or batches. Automatic reservation (B) follows the reservation hierarchy to reserve available inventory based on configured rules.\n\nC is incorrect because reservations can only be made against on-hand or on-order inventory, not against non-existent supply.\nD is incorrect because reservations always validate against available inventory; they cannot bypass quantity checks."
+    },
+    {
+      "id": 42,
+      "topic": "Product Management - Product attributes",
+      "type": "SingleChoice",
+      "questionText": "A company needs to store additional properties for products (such as voltage, material type, and certifications) for catalog and search purposes. What should they configure?",
+      "options": ["A. Custom fields on the product form.", "B. Product attributes and attribute groups.", "C. Financial dimensions.", "D. Product description text."],
+      "correctAnswers": ["B"],
+      "explanation": "Product attributes and attribute groups allow you to define structured, searchable properties for products that can be used in catalogs, procurement categories, and product comparisons.\n\nA is incorrect because custom fields are not designed for the structured attribute management and search capabilities.\nC is incorrect because financial dimensions are for financial analysis, not product properties.\nD is incorrect because description text is unstructured and not suitable for systematic searching or filtering."
+    },
+    {
+      "id": 43,
+      "topic": "Inventory - Inventory closing",
+      "type": "SingleChoice",
+      "questionText": "At month-end, the finance team needs to ensure inventory costs are properly settled and adjusted. What process should they run?",
+      "options": ["A. Physical inventory count.", "B. Inventory closing and adjustment.", "C. Inventory transfer.", "D. Inventory recalculation only."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory closing settles inventory transactions against each other according to the selected valuation method (FIFO, LIFO, weighted average) and posts cost adjustments to the general ledger.\n\nA is incorrect because a physical count verifies quantities but does not settle costs between transactions.\nC is incorrect because inventory transfers move stock between locations but do not settle costs.\nD is incorrect because recalculation updates costs but does not perform the full settlement that closing provides."
+    },
+    {
+      "id": 44,
+      "topic": "Procurement - Approved vendor list",
+      "type": "MultipleChoice",
+      "questionText": "Which two enforcement modes are available for approved vendor lists in Dynamics 365 Supply Chain Management? (Choose two.)",
+      "options": ["A. Warning - displays a warning but allows the purchase order.", "B. Not allowed - blocks the purchase order for unapproved vendors.", "C. Auto-approve - automatically adds any vendor to the approved list.", "D. Redirect - sends the order to a different vendor automatically."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Warning mode (A) alerts the buyer but permits the transaction. Not allowed mode (B) blocks the creation of purchase orders with unapproved vendors entirely.\n\nC is incorrect because there is no auto-approve mode; vendors must be explicitly added to approved lists.\nD is incorrect because there is no redirect mode; the system does not automatically substitute vendors."
+    },
+    {
+      "id": 45,
+      "topic": "Warehouse Management - Zone-based put-away",
+      "type": "SingleChoice",
+      "questionText": "A warehouse stores temperature-sensitive items in a cold storage zone and regular items in a standard zone. How should put-away be directed?",
+      "options": ["A. Warehouse workers decide where to place items.", "B. Configure location directives with zone-based criteria that route items to the appropriate zone.", "C. Label all items with the zone name.", "D. Use a fixed location for all items."],
+      "correctAnswers": ["B"],
+      "explanation": "Location directives with zone-based criteria automatically route items to the correct warehouse zone based on item properties like storage requirements, ensuring compliance with temperature and other constraints.\n\nA is incorrect because relying on worker decisions is inconsistent and may result in spoilage or compliance issues.\nC is incorrect because labels provide visual guidance but do not automate the put-away direction in the system.\nD is incorrect because fixed locations for all items do not account for different storage requirements."
+    },
+    {
+      "id": 46,
+      "topic": "Master Planning - Planning fence",
+      "type": "SingleChoice",
+      "questionText": "You want master planning to only generate planned orders for the next 90 days rather than looking at all future demand. What should you configure?",
+      "options": ["A. Delete demand beyond 90 days.", "B. Set the coverage time fence to 90 days.", "C. Run master planning more frequently.", "D. Reduce the number of items in the plan."],
+      "correctAnswers": ["B"],
+      "explanation": "The coverage time fence limits the planning horizon, so master planning only generates planned orders for demand within the specified number of days, ignoring demand beyond that window.\n\nA is incorrect because deleting future demand removes legitimate orders and forecasts.\nC is incorrect because running more frequently does not limit the planning horizon.\nD is incorrect because reducing items excludes products from planning rather than limiting the time window."
+    },
+    {
+      "id": 47,
+      "topic": "Inventory - Quarantine management",
+      "type": "MultipleChoice",
+      "questionText": "Which two events can trigger automatic quarantine of inventory in Dynamics 365 Supply Chain Management? (Choose two.)",
+      "options": ["A. Purchase order product receipt.", "B. Production order report as finished.", "C. Customer payment receipt.", "D. Vendor invoice posting."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Quarantine can be automatically triggered on purchase order receipt (A) and when production orders are reported as finished (B), holding items for quality inspection.\n\nC is incorrect because customer payments are financial transactions that do not involve physical inventory movement.\nD is incorrect because vendor invoice posting is a financial event, not a physical receipt event that triggers quarantine."
+    },
+    {
+      "id": 48,
+      "topic": "Product Management - Engineering change management",
+      "type": "SingleChoice",
+      "questionText": "An engineering team needs to make a controlled change to a product's BOM that must go through an approval process before taking effect. What feature should they use?",
+      "options": ["A. Directly edit the active BOM.", "B. Engineering change management with change orders and approval workflows.", "C. Create a completely new product.", "D. Add notes to the existing BOM."],
+      "correctAnswers": ["B"],
+      "explanation": "Engineering change management provides a structured process for proposing, reviewing, approving, and implementing changes to product definitions including BOMs and routes.\n\nA is incorrect because directly editing the active BOM bypasses the approval process and may affect in-progress production.\nC is incorrect because creating a new product is excessive for a BOM modification.\nD is incorrect because notes do not implement the actual BOM changes or provide approval workflows."
+    },
+    {
+      "id": 49,
+      "topic": "Procurement - Vendor rebates",
+      "type": "SingleChoice",
+      "questionText": "A vendor offers a 3% rebate if the company purchases over $100,000 worth of goods within a year. How should this be managed?",
+      "options": ["A. Track purchases manually and request a credit.", "B. Configure a vendor rebate agreement with quantity or amount thresholds.", "C. Negotiate a lower unit price instead.", "D. Ignore the rebate offer."],
+      "correctAnswers": ["B"],
+      "explanation": "Vendor rebate agreements automatically track cumulative purchases against defined thresholds and generate rebate claims when thresholds are met, ensuring all earned rebates are captured.\n\nA is incorrect because manual tracking is error-prone and may miss threshold achievement.\nC is incorrect because negotiating a lower price is a different approach and does not address the rebate agreement.\nD is incorrect because ignoring a rebate offer means losing earned savings."
+    },
+    {
+      "id": 50,
+      "topic": "Warehouse Management - Cluster picking",
+      "type": "SingleChoice",
+      "questionText": "A warehouse wants to increase picking efficiency by having workers pick for multiple orders simultaneously in a single pass through the warehouse. What feature should they use?",
+      "options": ["A. Individual order picking.", "B. Cluster picking that groups multiple orders for simultaneous picking.", "C. Zone picking only.", "D. Manual pick path optimization."],
+      "correctAnswers": ["B"],
+      "explanation": "Cluster picking allows a worker to pick items for multiple orders simultaneously using separate containers or positions on a cart, reducing travel time through the warehouse.\n\nA is incorrect because individual order picking requires separate trips for each order, increasing travel time.\nC is incorrect because zone picking assigns workers to zones but does not inherently combine multiple orders.\nD is incorrect because manual optimization is informal and does not leverage system-directed multi-order picking."
+    },
+    {
+      "id": 51,
+      "topic": "Master Planning - Intercompany planning",
+      "type": "MultipleChoice",
+      "questionText": "Which two planned orders does intercompany master planning automatically create when Company B has demand for a component manufactured by Company A? (Choose two.)",
+      "options": ["A. A planned intercompany purchase order in Company B.", "B. A planned intercompany sales order in Company A.", "C. A planned transfer order between shared warehouses.", "D. A planned budget entry in both companies."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Intercompany planning creates a planned purchase order in Company B (A) to fulfill its demand, and a corresponding planned sales order in Company A (B) to supply the component.\n\nC is incorrect because intercompany planning uses purchase and sales orders between legal entities, not transfer orders (which are used within a single entity).\nD is incorrect because budget entries are financial planning entries, not supply chain planned orders."
+    },
+    {
+      "id": 52,
+      "topic": "Inventory - Inventory blocking",
+      "type": "SingleChoice",
+      "questionText": "A batch of raw materials is suspected of being defective and should not be used in production until investigated. How should you prevent its use?",
+      "options": ["A. Move it to a separate physical area.", "B. Create an inventory blocking record for the specific batch.", "C. Delete the inventory transaction.", "D. Change the item number."],
+      "correctAnswers": ["B"],
+      "explanation": "Inventory blocking prevents specific inventory (by batch, location, or dimensions) from being reserved, picked, or consumed in transactions until the block is removed.\n\nA is incorrect because physical relocation does not prevent the system from allowing the inventory to be used in transactions.\nC is incorrect because deleting the transaction removes the inventory record entirely, losing traceability.\nD is incorrect because changing the item number misrepresents the product and creates data integrity issues."
+    },
+    {
+      "id": 53,
+      "topic": "Transportation - Accessorial charges",
+      "type": "SingleChoice",
+      "questionText": "A carrier charges extra fees for residential delivery, fuel surcharge, and liftgate service. How should these additional charges be managed?",
+      "options": ["A. Add them manually to each shipment.", "B. Configure accessorial charges in Transportation Management that are automatically applied based on criteria.", "C. Negotiate to include them in the base rate.", "D. Ignore the extra charges."],
+      "correctAnswers": ["B"],
+      "explanation": "Accessorial charges in Transportation Management automatically apply additional fees (fuel surcharges, residential delivery, liftgate, etc.) based on configurable criteria like service type or delivery address.\n\nA is incorrect because manual addition is time-consuming and may miss applicable charges.\nC is incorrect because negotiation changes the business arrangement rather than addressing system configuration.\nD is incorrect because ignoring charges leads to freight cost discrepancies and financial inaccuracies."
+    },
+    {
+      "id": 54,
+      "topic": "Product Management - Product compliance",
+      "type": "SingleChoice",
+      "questionText": "A company ships hazardous materials and needs to track regulatory information for transportation compliance. What should they configure?",
+      "options": ["A. Notes on the sales order.", "B. Product compliance data including hazardous material codes and shipping regulations on the released product.", "C. A separate compliance database.", "D. Driver training records."],
+      "correctAnswers": ["B"],
+      "explanation": "Product compliance data on released products tracks hazardous material classifications, UN numbers, packing groups, and shipping regulations needed for regulatory compliance during transportation.\n\nA is incorrect because sales order notes are unstructured and do not integrate with shipping documentation.\nC is incorrect because a separate database is disconnected from the product and order data.\nD is incorrect because driver training is an HR concern, not product-level compliance data."
+    },
+    {
+      "id": 55,
+      "topic": "Inventory - Inventory on-hand visibility",
+      "type": "MultipleChoice",
+      "questionText": "Which two dimensions are typically used to view on-hand inventory in Supply Chain Management? (Choose two.)",
+      "options": ["A. Site and warehouse.", "B. Batch number and serial number.", "C. Customer account.", "D. Vendor invoice number."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "On-hand inventory is viewed using storage dimensions like site and warehouse (A) and tracking dimensions like batch number and serial number (B) to identify specific inventory.\n\nC is incorrect because customer account is a transaction attribute, not an inventory dimension.\nD is incorrect because vendor invoice number is an accounts payable reference, not an inventory dimension."
+    },
+    {
+      "id": 56,
+      "topic": "Warehouse Management - License plate receiving",
+      "type": "SingleChoice",
+      "questionText": "A warehouse wants to receive an entire mixed pallet from a purchase order using a single scan. What receiving method should they use?",
+      "options": ["A. Individual item scanning.", "B. License plate receiving that associates all items on the pallet with a single license plate ID.", "C. Manual data entry for each item.", "D. Automatic receiving without verification."],
+      "correctAnswers": ["B"],
+      "explanation": "License plate receiving allows a warehouse worker to receive all items on a mixed pallet by scanning or entering a single license plate ID, streamlining the receiving process.\n\nA is incorrect because individual item scanning is slower for mixed pallets with multiple items.\nC is incorrect because manual data entry is the slowest and most error-prone method.\nD is incorrect because receiving without verification does not validate that the correct items and quantities were received."
+    },
+    {
+      "id": 57,
+      "topic": "Master Planning - Planning optimization",
+      "type": "MultipleChoice",
+      "questionText": "Which two benefits does Planning Optimization provide compared to the legacy MRP engine? (Choose two.)",
+      "options": ["A. Significantly faster processing by running as a cloud-based microservice.", "B. Reduced impact on the F&O application server during planning runs.", "C. Elimination of the need for item coverage settings.", "D. Automatic creation of customer invoices."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Planning Optimization runs MRP calculations as a separate cloud service, providing much faster processing (A) and reducing the load on the F&O application server (B).\n\nC is incorrect because item coverage settings are still required; Planning Optimization uses the same master data configurations.\nD is incorrect because customer invoicing is an Accounts Receivable function unrelated to planning optimization."
+    },
+    {
+      "id": 58,
+      "topic": "Procurement - Category-based purchasing",
+      "type": "SingleChoice",
+      "questionText": "An employee needs to order a service (consulting) that is not an inventoried item. What procurement approach should they use?",
+      "options": ["A. Create an item record for the service.", "B. Use category-based purchasing on the purchase requisition or purchase order.", "C. Pay the vendor directly without a PO.", "D. Record it as a fixed asset."],
+      "correctAnswers": ["B"],
+      "explanation": "Category-based purchasing allows procurement of non-inventoried items and services using procurement categories, without requiring an item record in product information management.\n\nA is incorrect because creating an item record for a one-time service adds unnecessary master data.\nC is incorrect because paying without a PO bypasses procurement controls and approval processes.\nD is incorrect because consulting services are expenses, not capital assets."
+    },
+    {
+      "id": 59,
+      "topic": "Inventory - Transfer orders",
+      "type": "MultipleChoice",
+      "questionText": "Which two statuses does a transfer order pass through during the movement of inventory between warehouses? (Choose two.)",
+      "options": ["A. Shipped - items have left the source warehouse.", "B. Received - items have arrived at the destination warehouse.", "C. Invoiced - the transfer has been billed to a customer.", "D. Approved - a manager has approved the transfer budget."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Transfer orders track inventory through a Shipped status when items leave the source warehouse (A) and a Received status when items arrive at the destination (B), with in-transit tracking between.\n\nC is incorrect because transfer orders are internal movements and are not invoiced to customers.\nD is incorrect because transfer orders do not have a budget approval step; they are operational inventory movements."
+    },
+    {
+      "id": 60,
+      "topic": "Warehouse Management - Slotting",
+      "type": "SingleChoice",
+      "questionText": "A warehouse wants to optimize the placement of fast-moving items in locations closest to the shipping area. What feature should they use?",
+      "options": ["A. Manual rearrangement of items.", "B. Slotting to define optimal location assignments based on demand and item characteristics.", "C. Random location assignment.", "D. First-available location put-away."],
+      "correctAnswers": ["B"],
+      "explanation": "Slotting analyzes item demand, velocity, dimensions, and other criteria to recommend optimal warehouse location assignments, placing fast-movers closest to shipping areas.\n\nA is incorrect because manual rearrangement is labor-intensive and does not use data-driven optimization.\nC is incorrect because random assignment does not optimize for picking efficiency.\nD is incorrect because first-available put-away fills locations without considering item velocity or picking optimization."
+    },
+    {
+      "id": 61,
+      "topic": "Master Planning - Finite capacity planning",
+      "type": "SingleChoice",
+      "questionText": "A production facility has limited machine capacity. Master planning should not schedule more production than the machines can handle. What should you enable?",
+      "options": ["A. Infinite capacity planning.", "B. Finite capacity scheduling that considers resource availability.", "C. Manual capacity calculations.", "D. Overtime authorization."],
+      "correctAnswers": ["B"],
+      "explanation": "Finite capacity scheduling considers the actual availability of production resources (machines, labor) and schedules production orders only when capacity is available, preventing overloading.\n\nA is incorrect because infinite capacity planning ignores resource constraints and may schedule beyond machine capacity.\nC is incorrect because manual calculations are error-prone and cannot keep up with dynamic scheduling needs.\nD is incorrect because overtime authorization is a workforce decision, not a planning parameter that prevents machine overloading."
+    },
+    {
+      "id": 62,
+      "topic": "Inventory - Consignment inventory",
+      "type": "SingleChoice",
+      "questionText": "A vendor stores raw materials at your warehouse, but the company only pays for them when they are consumed in production. What inventory model supports this?",
+      "options": ["A. Standard purchased inventory.", "B. Consignment inventory owned by the vendor.", "C. Safety stock.", "D. Just-in-time delivery."],
+      "correctAnswers": ["B"],
+      "explanation": "Consignment inventory allows vendors to store goods at the customer's warehouse while retaining ownership. The customer takes ownership (and pays) only when the inventory is consumed or transferred.\n\nA is incorrect because standard purchasing transfers ownership at receipt, requiring immediate payment.\nC is incorrect because safety stock is a minimum inventory level, not an ownership model.\nD is incorrect because just-in-time delivery is a scheduling approach, not an inventory ownership model."
+    },
+    {
+      "id": 63,
+      "topic": "Product Management - Product lifecycle states",
+      "type": "MultipleChoice",
+      "questionText": "Which two benefits do product lifecycle states provide? (Choose two.)",
+      "options": ["A. Control which transactions are allowed for products in each state.", "B. Enable bulk management of products transitioning between lifecycle stages.", "C. Automatically change product prices.", "D. Generate marketing content for products."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Product lifecycle states control which transactions (planning, purchasing, selling) are allowed for products in each state (A) and enable bulk operations for transitioning many products between states (B).\n\nC is incorrect because lifecycle states do not automatically modify pricing.\nD is incorrect because lifecycle states do not generate marketing content."
+    },
+    {
+      "id": 64,
+      "topic": "Procurement - Sealed bidding",
+      "type": "SingleChoice",
+      "questionText": "A government procurement team needs to ensure that vendor bids on an RFQ remain confidential until the bidding deadline. What feature should they use?",
+      "options": ["A. Standard RFQ process.", "B. Sealed bidding on the RFQ that keeps bids encrypted until the unsealing deadline.", "C. Manual bid collection via postal mail.", "D. Separate RFQs for each vendor."],
+      "correctAnswers": ["B"],
+      "explanation": "Sealed bidding encrypts vendor responses so they cannot be viewed until the designated unsealing date, ensuring fairness and confidentiality in the bidding process.\n\nA is incorrect because standard RFQ processing allows bid viewing as responses arrive, which may compromise fairness.\nC is incorrect because postal mail is slow, costly, and not integrated with the procurement system.\nD is incorrect because separate RFQs do not prevent early viewing of responses."
+    },
+    {
+      "id": 65,
+      "topic": "Warehouse Management - Cycle counting",
+      "type": "SingleChoice",
+      "questionText": "A warehouse needs to continuously verify inventory accuracy by counting a portion of items each day rather than doing a full annual count. What should they configure?",
+      "options": ["A. Annual physical inventory count.", "B. Cycle counting plans that rotate through items or locations on a defined schedule.", "C. Random spot checks by managers.", "D. Automated sensor-based counting."],
+      "correctAnswers": ["B"],
+      "explanation": "Cycle counting plans define schedules for counting subsets of inventory on a rotating basis, ensuring all items are counted over time while minimizing operational disruption compared to full counts.\n\nA is incorrect because annual counts are disruptive and leave accuracy unverified for most of the year.\nC is incorrect because random spot checks are ad-hoc and do not ensure comprehensive coverage.\nD is incorrect because automated sensor counting is not a standard D365 warehouse management feature."
     }
   ]
 }

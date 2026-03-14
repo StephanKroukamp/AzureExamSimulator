@@ -361,6 +361,222 @@
       "options": ["A. Export it to a solution.", "B. Go live with the scoring model.", "C. Assign it to a user.", "D. Connect it to a customer journey."],
       "correctAnswers": ["B"],
       "explanation": "A lead scoring model must be set to 'Live' status (go live) before it begins evaluating and scoring leads. Exporting to a solution (A) is for deployment, not activation. Assigning to a user (B) is not required. Connecting to a journey (D) is not necessary for the model to function."
+    },
+    {
+      "id": 41,
+      "topic": "Customer Journeys - Consent enforcement",
+      "type": "SingleChoice",
+      "questionText": "A company needs to ensure that customer journeys only target contacts who have given explicit consent for commercial communications. How is this enforced in Dynamics 365 Customer Insights - Journeys?",
+      "options": ["A. By manually checking each contact's consent before adding them to a segment.", "B. Through the consent center and compliance profiles that automatically filter contacts based on their consent level.", "C. By adding a condition tile at the start of every journey to check consent.", "D. Consent is not required for marketing communications in Dynamics 365."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Customer Insights - Journeys uses compliance profiles and the consent center to automatically enforce consent. Contacts who have not provided the required level of consent are automatically excluded from communications. Manual checking (A) is not scalable. While condition tiles (C) could add checks, the system handles consent enforcement automatically through compliance profiles. Consent is legally required in many jurisdictions (D is incorrect)."
+    },
+    {
+      "id": 42,
+      "topic": "Segments - Real-time segments",
+      "type": "SingleChoice",
+      "questionText": "In Customer Insights - Journeys, what is the difference between a segment used in outbound marketing versus a segment used in real-time journeys?",
+      "options": ["A. There is no difference; both use the same segment type.", "B. Real-time journey segments are created in Customer Insights - Data, while outbound segments are created in outbound marketing.", "C. Outbound marketing uses marketing segments; real-time journeys can use both marketing segments and Customer Insights - Data segments.", "D. Real-time journeys do not support segments at all."],
+      "correctAnswers": ["C"],
+      "explanation": "Outbound marketing uses its own marketing segments, while real-time journeys can leverage both marketing segments and segments created in Customer Insights - Data for richer audience targeting. They are not identical (A). Real-time segments can come from multiple sources, not just Customer Insights - Data (B). Real-time journeys do support segments (D is incorrect)."
+    },
+    {
+      "id": 43,
+      "topic": "Email Marketing - Email template design",
+      "type": "SingleChoice",
+      "questionText": "A marketing designer wants to create a reusable email section that includes a header with the company logo and navigation links, to be used across multiple email templates. What should they create?",
+      "options": ["A. A content block.", "B. A new email template for each campaign.", "C. A custom HTML email.", "D. A shared CSS stylesheet."],
+      "correctAnswers": ["A"],
+      "explanation": "Content blocks are reusable design components that can be created once and inserted into multiple email templates, ensuring consistency for elements like headers and footers. Creating new templates each time (B) leads to inconsistency and duplicate effort. Custom HTML (C) bypasses the designer and is harder to maintain. Email clients do not support shared stylesheets (D) in the way web pages do."
+    },
+    {
+      "id": 44,
+      "topic": "Customer Journeys - Journey branching",
+      "type": "SingleChoice",
+      "questionText": "In a real-time customer journey, you want to send different content to contacts based on whether they are new leads or existing customers. What should you use?",
+      "options": ["A. Create two separate journeys for each audience.", "B. Use an attribute branch that checks the contact's customer status.", "C. Use a trigger-based branch.", "D. Send the same content to everyone and let them self-select."],
+      "correctAnswers": ["B"],
+      "explanation": "An attribute branch evaluates a contact's field values (such as customer status) and routes them down different paths in the journey, allowing personalized content for each group. Two separate journeys (A) add management overhead for what is conceptually one campaign. A trigger-based branch (C) reacts to actions, not static attributes. Sending identical content (D) ignores the personalization requirement."
+    },
+    {
+      "id": 45,
+      "topic": "Lead Scoring - Contact scoring",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Marketing, lead scoring models can score which types of records?",
+      "options": ["A. Only lead records.", "B. Lead records and contact records.", "C. Only contact records.", "D. Account records only."],
+      "correctAnswers": ["B"],
+      "explanation": "Lead scoring models in Dynamics 365 Marketing can score both lead and contact records, allowing marketers to evaluate engagement regardless of whether the person is a lead or an existing contact. Scoring is not limited to leads only (A) or contacts only (C). Account records (D) are not directly scored by the lead scoring model, though account-level data can inform individual scores."
+    },
+    {
+      "id": 46,
+      "topic": "Event Management - Event sponsorship",
+      "type": "SingleChoice",
+      "questionText": "A company wants to track event sponsors and their sponsorship levels within Dynamics 365 Marketing event management. How should this be configured?",
+      "options": ["A. Create custom fields on the event entity for each sponsor.", "B. Use the built-in sponsorship management features including sponsor and sponsorship plan entities.", "C. Track sponsors in a separate Excel spreadsheet.", "D. Create a custom entity for sponsors with a relationship to events."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing event management includes built-in entities for sponsors and sponsorship plans, allowing you to track sponsor details, sponsorship levels, and associate them with events. Custom fields per sponsor (A) do not scale. Excel spreadsheets (C) are disconnected from the CRM. A custom entity (D) duplicates existing functionality."
+    },
+    {
+      "id": 47,
+      "topic": "Marketing Forms - Form analytics",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager wants to understand why a marketing form has a high abandonment rate. Which metric from form insights would be most useful?",
+      "options": ["A. Total submissions count.", "B. Submission-to-visit ratio and field-level drop-off data.", "C. The number of contacts created.", "D. The page load time."],
+      "correctAnswers": ["B"],
+      "explanation": "The submission-to-visit ratio shows what percentage of visitors actually complete the form, and field-level analytics can reveal which fields cause contacts to abandon the form. Total submissions (A) do not show abandonment. Contacts created (C) is a downstream metric. Page load time (D) may be a factor but is not available in form insights and does not show field-level issues."
+    },
+    {
+      "id": 48,
+      "topic": "Customer Journeys - Journey templates",
+      "type": "SingleChoice",
+      "questionText": "A marketing team frequently creates similar journeys for product launches. What can they do to reduce setup time?",
+      "options": ["A. Copy and modify an existing live journey each time.", "B. Create journey templates that can be reused as starting points for new journeys.", "C. Use a single journey for all product launches and change the content.", "D. Build a Power Automate flow that creates journeys."],
+      "correctAnswers": ["B"],
+      "explanation": "Journey templates allow marketers to save a journey design as a template that can be reused as a starting point, reducing setup time while allowing customization for each launch. Copying live journeys (A) can be done but is less clean than using purpose-built templates. Reusing a single journey (C) would overwrite previous campaign data. Power Automate (D) cannot create customer journeys programmatically in this way."
+    },
+    {
+      "id": 49,
+      "topic": "Email Marketing - Conditional dynamic content",
+      "type": "MultipleChoice",
+      "questionText": "You need to display different content blocks in a marketing email based on the recipient's country. Which two approaches can achieve this? (Choose two.)",
+      "options": ["A. Use conditional content in the email designer that shows different sections based on the contact's country field.", "B. Create separate emails for each country and use separate journeys.", "C. Use dynamic content tokens with conditional expressions.", "D. Use A/B testing to send different versions."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Conditional content (A) allows you to define content variations within a single email that display based on contact attributes like country. Dynamic content tokens with conditional expressions (C) can also display different text based on field values. Separate emails and journeys (B) work but create unnecessary duplication and management overhead. A/B testing (D) randomly assigns versions for testing purposes, not based on recipient attributes."
+    },
+    {
+      "id": 50,
+      "topic": "Segments - Consent-based segments",
+      "type": "SingleChoice",
+      "questionText": "A company needs to create a segment that only includes contacts who have consented to receive email communications. How should this be achieved?",
+      "options": ["A. Add a condition in the segment definition that checks the contact's email consent status.", "B. Consent is automatically handled and does not need to be included in segment definitions.", "C. Create a separate consent entity and join it to the segment.", "D. Use a static segment and manually verify consent for each contact."],
+      "correctAnswers": ["A"],
+      "explanation": "While compliance profiles handle consent enforcement at the journey level, you can also explicitly include consent status conditions in segment definitions for more precise targeting. Consent is enforced at the journey level (B is partially correct), but including it in segments provides additional control and visibility. A separate entity (C) is unnecessary as consent data is already linked to contacts. Manual verification (D) is impractical."
+    },
+    {
+      "id": 51,
+      "topic": "Customer Journeys - Custom triggers",
+      "type": "SingleChoice",
+      "questionText": "A company wants to trigger a real-time journey when a customer makes a purchase in their e-commerce system. What should they configure?",
+      "options": ["A. A scheduled segment refresh that checks purchase data.", "B. A custom trigger that is fired via API from the e-commerce system.", "C. A Power Automate flow that runs every hour to check purchases.", "D. Manual journey entry for each purchase."],
+      "correctAnswers": ["B"],
+      "explanation": "Custom triggers allow external systems to fire events via API that can initiate real-time journeys. The e-commerce system would call the trigger API when a purchase occurs. Scheduled segment refreshes (A) introduce delays and are not event-driven. Hourly Power Automate flows (C) also introduce delays. Manual entry (D) does not scale."
+    },
+    {
+      "id": 52,
+      "topic": "Email Marketing - Sender authentication",
+      "type": "SingleChoice",
+      "questionText": "Before sending marketing emails from a custom domain (e.g., marketing@contoso.com), what DNS records must be configured?",
+      "options": ["A. Only an MX record for the domain.", "B. SPF and DKIM records to authenticate the domain for sending.", "C. A CNAME record pointing to Microsoft Exchange.", "D. No DNS changes are needed; Dynamics 365 handles everything."],
+      "correctAnswers": ["B"],
+      "explanation": "SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail) DNS records must be configured to authenticate your domain for email sending, which improves deliverability and prevents spoofing. An MX record alone (A) handles receiving, not sending authentication. A CNAME to Exchange (C) is not how marketing email authentication works. DNS changes are required (D is incorrect) for proper domain authentication."
+    },
+    {
+      "id": 53,
+      "topic": "Lead Scoring - Model performance",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager wants to evaluate whether the current lead scoring model is effectively identifying sales-ready leads. What should they review?",
+      "options": ["A. The total number of leads in the system.", "B. The conversion rate of leads that reached the sales-ready threshold versus those that did not.", "C. The number of emails sent by the marketing team.", "D. The average time to close all opportunities."],
+      "correctAnswers": ["B"],
+      "explanation": "Comparing the conversion rate of leads that reached the sales-ready score against those that did not reveals whether the scoring model effectively differentiates high-quality leads. Total lead count (A) does not indicate model quality. Email volume (C) is a marketing activity metric, not a scoring effectiveness measure. Opportunity close time (D) is influenced by many factors beyond lead scoring."
+    },
+    {
+      "id": 54,
+      "topic": "Event Management - Speaker management",
+      "type": "SingleChoice",
+      "questionText": "You are organizing a conference and need to manage speaker information including biographies, session assignments, and photos. Where should you manage this data?",
+      "options": ["A. In the contact entity with custom fields.", "B. In the speaker entity within event management.", "C. In a SharePoint document library.", "D. In a custom Power Apps canvas app."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Marketing event management includes a dedicated speaker entity that stores speaker details such as biographies, photos, and session assignments, with relationships to events and sessions. Using contacts with custom fields (A) conflates speakers with general contacts. SharePoint (C) is not integrated with event management features. A custom app (D) duplicates built-in functionality."
+    },
+    {
+      "id": 55,
+      "topic": "Customer Journeys - Journey goals",
+      "type": "SingleChoice",
+      "questionText": "A marketing manager sets a goal on a customer journey to track when 500 contacts make a purchase within 30 days of journey entry. What does this goal measure?",
+      "options": ["A. The total number of contacts who entered the journey.", "B. The effectiveness of the journey in driving a specific business outcome.", "C. The email open rate for journey emails.", "D. The total revenue generated by the journey."],
+      "correctAnswers": ["B"],
+      "explanation": "Journey goals measure whether the journey achieves a specific business outcome, such as driving purchases. Setting a target of 500 purchases within 30 days evaluates the journey's effectiveness at producing that result. Total entry count (A) measures reach, not effectiveness. Email open rate (C) is an engagement metric, not a business outcome. Revenue (D) is not directly tracked by journey goals, which focus on count-based targets."
+    },
+    {
+      "id": 56,
+      "topic": "Marketing Forms - Form types",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of marketing forms are available in Dynamics 365 Marketing? (Choose two.)",
+      "options": ["A. Landing page forms that are hosted on marketing pages.", "B. Embedded forms that can be placed on external websites using a code snippet.", "C. SharePoint forms integrated with marketing.", "D. Power BI input forms."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Dynamics 365 Marketing supports landing page forms hosted on marketing pages (A) and embedded forms that can be placed on external websites using JavaScript or iframe code snippets (B). SharePoint forms (C) are not integrated with Dynamics 365 Marketing form functionality. Power BI (D) is an analytics tool and does not provide input forms for marketing data collection."
+    },
+    {
+      "id": 57,
+      "topic": "Email Marketing - Email preview and testing",
+      "type": "SingleChoice",
+      "questionText": "Before sending a marketing email to your full audience, you want to verify how it renders across different email clients. What feature should you use?",
+      "options": ["A. Send a test email to yourself and check it in one email client.", "B. Use the inbox preview feature that shows rendering across multiple email clients.", "C. Export the HTML and test it in a web browser.", "D. Send the email to the full audience with a note to report rendering issues."],
+      "correctAnswers": ["B"],
+      "explanation": "The inbox preview feature shows how your email will render across multiple email clients and devices, helping identify rendering issues before sending. Testing in one client (A) misses client-specific rendering differences. HTML export in a browser (C) does not replicate email client rendering engines. Sending to the full audience (D) risks a poor experience for recipients who encounter rendering problems."
+    },
+    {
+      "id": 58,
+      "topic": "Segments - Segment insights",
+      "type": "SingleChoice",
+      "questionText": "A marketing analyst wants to understand how segment membership has changed over the past 30 days. What should they use?",
+      "options": ["A. Export the segment to Excel daily and compare.", "B. Use the segment insights feature that shows membership trends over time.", "C. Count members manually each day.", "D. Create a Power Automate flow to log daily counts."],
+      "correctAnswers": ["B"],
+      "explanation": "Segment insights provide built-in analytics showing how membership has changed over time, including growth and decline trends. Daily Excel exports (A) require manual effort and are not integrated. Manual counting (C) is impractical. While a Power Automate flow (D) could track counts, the built-in insights feature already provides this capability without custom development."
+    },
+    {
+      "id": 59,
+      "topic": "Customer Journeys - Real-time marketing triggers",
+      "type": "SingleChoice",
+      "questionText": "In Dynamics 365 Customer Insights - Journeys (real-time marketing), you need to start a journey immediately when a contact submits a marketing form. What type of trigger should you use?",
+      "options": ["A. A segment-based trigger that evaluates membership hourly.", "B. A trigger-based journey using the Marketing Form Submitted trigger.", "C. A scheduled journey that runs once per day.", "D. A manual journey start by a marketing manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Trigger-based journeys in real-time marketing respond to events in real time, such as form submissions. The Marketing Form Submitted trigger starts the journey immediately when the event occurs. Segment-based triggers (A) evaluate at intervals, not in real time. Scheduled journeys (C) run at predefined times. Manual starts (D) require human intervention and do not scale."
+    },
+    {
+      "id": 60,
+      "topic": "Segments - Exclusion segments",
+      "type": "SingleChoice",
+      "questionText": "A marketing team wants to send a promotional email to all contacts in a loyalty program segment but exclude contacts who have already made a purchase in the last 7 days. How should you configure this?",
+      "options": ["A. Manually remove contacts who purchased recently from the loyalty segment.", "B. Use a suppression segment in the journey settings that excludes contacts matching the recent purchase criteria.", "C. Create a new segment that includes only contacts who have not purchased.", "D. Send the email to all and apologize to those who already purchased."],
+      "correctAnswers": ["B"],
+      "explanation": "Suppression segments in journeys exclude specific contacts from receiving communications, allowing you to target the loyalty segment while automatically excluding recent purchasers. Manually removing contacts (A) is not dynamic and could accidentally alter the base segment. While creating a new segment (C) could work, the suppression segment approach is more maintainable and reusable. Sending to all (D) creates a poor customer experience."
+    },
+    {
+      "id": 61,
+      "topic": "Marketing Channels - SMS messaging",
+      "type": "SingleChoice",
+      "questionText": "You need to configure SMS messaging as a channel in Dynamics 365 Customer Insights - Journeys. What is required before sending SMS messages?",
+      "options": ["A. No configuration is needed; SMS works out of the box.", "B. Configure an SMS provider integration (such as Azure Communication Services or Twilio) and obtain consent from recipients.", "C. Purchase a separate SMS application from AppSource.", "D. Send SMS through the email channel by converting emails to text."],
+      "correctAnswers": ["B"],
+      "explanation": "SMS messaging requires configuring an SMS provider (Azure Communication Services, Twilio, or Infobip) and ensuring proper consent is obtained from recipients before sending. SMS does not work out of the box (A); provider integration is required. A separate AppSource app (C) is not needed as the capability is built-in once a provider is configured. Emails cannot be converted to SMS (D); they are separate channels with different content models."
+    },
+    {
+      "id": 62,
+      "topic": "Events and Webinars - Teams webinar integration",
+      "type": "MultipleChoice",
+      "questionText": "Which two capabilities does the Microsoft Teams integration provide for events in Dynamics 365 Marketing? (Choose two.)",
+      "options": ["A. Automatic creation of Teams webinars or live events linked to marketing events.", "B. Real-time synchronization of event registrations and attendance data back to Dynamics 365.", "C. Automatic generation of marketing content from webinar recordings.", "D. Replacement of all in-person events with virtual events."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Teams integration automatically provisions Teams webinars or live events when configured in the marketing event (A), and attendance data from Teams is synchronized back to Dynamics 365 for follow-up journeys and analytics (B). Marketing content is not auto-generated from recordings (C). The integration supports virtual events but does not replace in-person events (D); both formats are supported."
+    },
+    {
+      "id": 63,
+      "topic": "Lead Management - Lead scoring models",
+      "type": "SingleChoice",
+      "questionText": "You are configuring a lead scoring model that should increase a lead's score when the lead opens emails and visits specific web pages. What type of scoring conditions should you define?",
+      "options": ["A. Only demographic conditions based on lead fields.", "B. Behavioral conditions based on email interactions and website visit interactions.", "C. A single condition based on the lead source field.", "D. Conditions based on the lead's account annual revenue only."],
+      "correctAnswers": ["B"],
+      "explanation": "Behavioral scoring conditions track engagement activities such as email opens, link clicks, website visits, event registrations, and form submissions. These interaction-based conditions increase scores based on engagement behavior. Demographic conditions (A) score based on profile data like job title or company size, not engagement. A single lead source condition (C) is static and does not reflect ongoing engagement. Annual revenue (D) is a demographic attribute, not a behavioral signal."
+    },
+    {
+      "id": 64,
+      "topic": "Consent and Compliance - Double opt-in",
+      "type": "SingleChoice",
+      "questionText": "A European organization must comply with GDPR requirements for email marketing consent. What feature should you configure to implement double opt-in?",
+      "options": ["A. A single subscription form that automatically opts in all contacts.", "B. A double opt-in process where contacts first submit a form and then confirm their subscription by clicking a link in a confirmation email.", "C. An admin manually approves each new subscriber.", "D. Opt-in is not required for email marketing in Europe."],
+      "correctAnswers": ["B"],
+      "explanation": "Double opt-in requires contacts to confirm their subscription by responding to a confirmation email after the initial form submission, providing verified consent that satisfies GDPR requirements. Automatic opt-in (A) does not meet GDPR consent standards. Manual admin approval (C) is impractical at scale and is not the standard double opt-in process. GDPR does require explicit consent for marketing communications (D is incorrect)."
     }
   ]
 }

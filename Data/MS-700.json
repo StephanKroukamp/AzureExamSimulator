@@ -564,6 +564,358 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. Communication compliance in Microsoft Purview includes built-in trainable classifiers for detecting inappropriate text including harassment, threats, and profanity. You can create a policy that monitors Teams messages and assigns HR as reviewers.\n\nWhy the others are wrong:\n- A. DLP policies detect sensitive information types (like credit card numbers) but do not classify messages for inappropriate content.\n- C. Insider risk management detects risky user behaviors (like data exfiltration) but does not monitor message content for inappropriate language.\n- D. eDiscovery holds preserve content for legal purposes but do not monitor or flag inappropriate content."
+    },
+    {
+      "id": 41,
+      "topic": "Teams Governance - Sensitivity Labels for Teams",
+      "type": "SingleChoice",
+      "questionText": "You need to control the privacy setting (Public or Private) and external sharing for specific Teams based on classification. Which feature should you use?",
+      "options": [
+        "A. Teams templates with privacy settings.",
+        "B. Sensitivity labels scoped to Groups & sites.",
+        "C. Microsoft 365 group naming policies.",
+        "D. Conditional Access policies for Teams."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sensitivity labels scoped to Groups & sites can enforce privacy settings (Public/Private), guest access, and external sharing settings on Teams. When a label is applied during team creation, these settings are automatically enforced.\n\nWhy the others are wrong:\n- A. Templates define initial structure but do not enforce ongoing privacy and sharing controls.\n- C. Naming policies control group names, not privacy or sharing settings.\n- D. Conditional Access controls access to services based on conditions, not team-level privacy and sharing settings."
+    },
+    {
+      "id": 42,
+      "topic": "Teams Environment - Multitenant Organization",
+      "type": "SingleChoice",
+      "questionText": "Your company has acquired another organization, and both have separate Microsoft 365 tenants. You need users from both tenants to see each other as internal users in Teams, with full search and presence. What should you configure?",
+      "options": [
+        "A. External access (federation) between the two tenants.",
+        "B. A multitenant organization (MTO) with B2B direct connect.",
+        "C. Guest access for all users from the other tenant.",
+        "D. Shared channels between the two tenants."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A multitenant organization (MTO) configuration enables users across tenants to appear as internal users with full Teams integration including shared people search, presence, and rich collaboration. It uses cross-tenant synchronization and B2B direct connect.\n\nWhy the others are wrong:\n- A. External access allows basic chat and calling but users appear as external, not internal.\n- C. Guest access adds individual users to the other tenant but they appear as guests, not internal users.\n- D. Shared channels enable collaboration in specific channels but do not make users from the other tenant appear as internal across all of Teams."
+    },
+    {
+      "id": 43,
+      "topic": "Teams Networking - Network Assessment Tool",
+      "type": "SingleChoice",
+      "questionText": "Before deploying Teams at a new office, you need to verify that the network meets Microsoft's requirements for Teams media quality. Which tool should you run?",
+      "options": [
+        "A. Microsoft 365 network connectivity test tool.",
+        "B. Microsoft Teams Network Assessment Tool.",
+        "C. Azure Network Watcher.",
+        "D. Wireshark packet capture."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Microsoft Teams Network Assessment Tool tests network connectivity to Teams media relay edge servers and measures packet loss, jitter, and latency against Microsoft's recommended thresholds for Teams call quality.\n\nWhy the others are wrong:\n- A. The Microsoft 365 network connectivity test assesses overall M365 connectivity but does not specifically test Teams media quality metrics.\n- C. Azure Network Watcher diagnoses Azure virtual network issues, not on-premises to Teams cloud connectivity.\n- D. Wireshark captures packets for analysis but does not automatically test against Teams media quality thresholds."
+    },
+    {
+      "id": 44,
+      "topic": "Teams Meetings - Town Halls",
+      "type": "SingleChoice",
+      "questionText": "Your organization needs to host a company-wide event for 5,000 employees where only executives can present and employees can submit Q&A. Which Teams meeting type should you use?",
+      "options": [
+        "A. A standard Teams meeting with a large meeting capacity.",
+        "B. A Teams Town hall.",
+        "C. A Teams webinar with registration.",
+        "D. A Teams live event (classic)."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Town halls are designed for large-scale broadcast events supporting up to 10,000 attendees (or more with premium). They provide presenter/attendee separation and built-in Q&A functionality, ideal for company-wide events.\n\nWhy the others are wrong:\n- A. Standard meetings have lower capacity limits and are designed for interactive meetings, not broadcast-style events.\n- C. Webinars support up to 1,000 interactive attendees, which is insufficient for 5,000 employees.\n- D. Teams live events (classic) have been replaced by Town halls as the recommended solution for large broadcast events."
+    },
+    {
+      "id": 45,
+      "topic": "Teams Policies - Policy Packages",
+      "type": "SingleChoice",
+      "questionText": "You need to quickly apply a predefined set of Teams policies (messaging, meeting, calling, app setup) to all frontline workers. What is the most efficient approach?",
+      "options": [
+        "A. Assign each policy individually to every frontline worker.",
+        "B. Assign a policy package designed for frontline workers to a security group.",
+        "C. Create a custom Teams template for frontline workers.",
+        "D. Configure org-wide settings for all users."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Policy packages bundle multiple Teams policies (messaging, meeting, calling, app setup, etc.) into a single package. Microsoft provides built-in packages for frontline workers. Assigning the package to a group applies all policies at once.\n\nWhy the others are wrong:\n- A. Assigning each policy individually is time-consuming and error-prone for large numbers of users.\n- C. Teams templates define team structure, not user-level policy assignments.\n- D. Org-wide settings apply to all users and cannot differentiate between frontline workers and other employees."
+    },
+    {
+      "id": 46,
+      "topic": "Teams Governance - Access Reviews",
+      "type": "SingleChoice",
+      "questionText": "You want team owners to periodically review and confirm the membership of their teams to remove stale members. Which feature should you configure?",
+      "options": [
+        "A. Microsoft Entra ID Access Reviews for Microsoft 365 groups.",
+        "B. Microsoft 365 group expiration policy.",
+        "C. Teams membership report in the admin center.",
+        "D. A Power Automate flow to audit team membership."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Microsoft Entra ID Access Reviews allow you to create recurring reviews where team/group owners are asked to confirm or remove members. Members who are not confirmed can be automatically removed.\n\nWhy the others are wrong:\n- B. Expiration policies delete inactive groups but do not review individual member access.\n- C. Membership reports show current members but do not provide a review workflow to confirm or remove members.\n- D. A Power Automate flow could be built but is unnecessary when the built-in Access Reviews feature exists."
+    },
+    {
+      "id": 47,
+      "topic": "Teams Apps - Custom App Upload",
+      "type": "SingleChoice",
+      "questionText": "A developer in your organization has created a custom Teams app and wants to test it. You need to allow them to upload the app to Teams without making it available to all users. What should you configure?",
+      "options": [
+        "A. Enable 'Upload custom apps' in the user's app setup policy.",
+        "B. Publish the app to the Microsoft Teams app store.",
+        "C. Enable 'Allow third-party apps' in org-wide settings.",
+        "D. Create an app permission policy that allows all custom apps."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The 'Upload custom apps' (sideloading) setting in the app setup policy allows specific users to upload custom apps to Teams for personal testing. This does not make the app available organization-wide.\n\nWhy the others are wrong:\n- B. Publishing to the store makes the app available to all users, which is not desired for testing.\n- C. Third-party app settings control apps from the Teams store, not custom organizational apps.\n- D. An app permission policy for all custom apps is broader than needed; the requirement is only to allow one developer to sideload."
+    },
+    {
+      "id": 48,
+      "topic": "Teams Calling - Auto Attendant Business Hours",
+      "type": "SingleChoice",
+      "questionText": "You need to configure an auto attendant that plays a different greeting and routes calls differently during business hours versus after hours. What should you configure?",
+      "options": [
+        "A. Two separate auto attendants, one for each time period.",
+        "B. Business hours and after-hours call flows within a single auto attendant.",
+        "C. A Power Automate flow that switches call routing based on time.",
+        "D. A calling policy with time-based restrictions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A single auto attendant supports separate call flows for business hours and after hours. You define the business hours schedule and configure different greetings, menus, and routing for each period.\n\nWhy the others are wrong:\n- A. Two separate auto attendants would require separate phone numbers and is unnecessarily complex.\n- C. Power Automate cannot directly control auto attendant call routing in real-time.\n- D. Calling policies control user calling features, not auto attendant time-based routing."
+    },
+    {
+      "id": 49,
+      "topic": "Teams Compliance - Retention for Teams",
+      "type": "SingleChoice",
+      "questionText": "You need to retain all Teams channel messages for 3 years and then automatically delete them. Private chats should be retained for 1 year. What should you configure?",
+      "options": [
+        "A. One retention policy with different settings for Teams channel messages and Teams chats.",
+        "B. Two separate retention policies: one for Teams channel messages (3 years) and one for Teams chats (1 year).",
+        "C. A retention label applied to all Teams messages.",
+        "D. Exchange Online retention policies for Teams content."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Since Teams channel messages and Teams private chats have different retention requirements, you need two separate retention policies with different retention periods targeting each Teams location independently.\n\nWhy the others are wrong:\n- A. A single retention policy cannot have different retention periods for different locations within the same policy.\n- C. Retention labels cannot be manually applied to Teams messages at scale; retention policies are the appropriate mechanism.\n- D. Exchange Online retention policies target Exchange mailbox content, not Teams channel messages directly."
+    },
+    {
+      "id": 50,
+      "topic": "Teams Security - Conditional Access for Teams",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that users can only access Microsoft Teams from compliant devices. Users on non-compliant devices should be blocked. Which Conditional Access configuration should you use?",
+      "options": [
+        "A. Target the Microsoft Teams cloud app and require device compliance as a grant control.",
+        "B. Target all cloud apps and require MFA.",
+        "C. Create a Teams meeting policy that requires compliant devices.",
+        "D. Configure device restrictions in the Teams admin center."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A Conditional Access policy targeting the Microsoft Teams cloud app with the grant control 'Require device to be marked as compliant' ensures only Intune-compliant devices can access Teams.\n\nWhy the others are wrong:\n- B. Targeting all cloud apps with MFA adds authentication requirements but does not restrict access based on device compliance.\n- C. Teams meeting policies do not have device compliance requirements.\n- D. The Teams admin center does not have device compliance enforcement controls."
+    },
+    {
+      "id": 51,
+      "topic": "Teams Governance - Shared Channels",
+      "type": "SingleChoice",
+      "questionText": "You want to collaborate with users in a partner organization within a specific Teams channel, without adding them as guests to your tenant. Which channel type should you use?",
+      "options": [
+        "A. Standard channel with external access.",
+        "B. Private channel with guest members.",
+        "C. Shared channel with B2B direct connect cross-tenant access.",
+        "D. A new team with the partner added as guests."
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Shared channels allow external collaboration through B2B direct connect. External users access the shared channel without being added as guests in the host tenant. This requires cross-tenant access settings to be configured in both tenants.\n\nWhy the others are wrong:\n- A. Standard channels do not support direct external collaboration; external users need to be in the team.\n- B. Private channels require members to be part of the parent team, which would require guest access.\n- D. Adding partner users as guests requires them to have guest accounts in your tenant, which the requirement wants to avoid."
+    },
+    {
+      "id": 52,
+      "topic": "Teams Meetings - Meeting Templates",
+      "type": "SingleChoice",
+      "questionText": "Your organization wants to enforce specific settings (lobby bypass disabled, recording not allowed, chat disabled) for all confidential meetings. What should you create?",
+      "options": [
+        "A. A custom meeting policy assigned to all users.",
+        "B. A custom meeting template with enforced settings.",
+        "C. A sensitivity label for meetings.",
+        "D. A Teams admin center global meeting setting."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Custom meeting templates allow you to define enforced settings that organizers cannot change when scheduling meetings using that template. Settings like lobby bypass, recording, and chat can be locked to specific values.\n\nWhy the others are wrong:\n- A. Meeting policies set maximum/minimum allowed values but do not enforce specific settings for individual meetings; organizers can still change options within policy limits.\n- C. Sensitivity labels can enforce some meeting settings but meeting templates provide more granular control over meeting-specific options.\n- D. Global meeting settings apply to all meetings for all users and cannot be targeted to specific meeting types."
+    },
+    {
+      "id": 53,
+      "topic": "Teams Devices - VDI Configuration",
+      "type": "SingleChoice",
+      "questionText": "You are deploying Microsoft Teams for users connecting through a Virtual Desktop Infrastructure (VDI). What should you configure to optimize audio and video performance?",
+      "options": [
+        "A. Install the Teams desktop app on each VDI virtual machine with no additional configuration.",
+        "B. Deploy Teams with media optimization to redirect audio and video to the local endpoint.",
+        "C. Use Teams web client instead of the desktop client.",
+        "D. Configure a dedicated GPU on each VDI virtual machine."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams media optimization for VDI (available on Citrix, VMware, Azure Virtual Desktop, and Windows 365) redirects audio and video processing to the local client device rather than processing it on the virtual machine. This significantly improves call and meeting quality.\n\nWhy the others are wrong:\n- A. Without media optimization, audio and video would be processed on the virtual machine, consuming resources and increasing latency.\n- C. The web client lacks some features and may not provide optimal VDI performance compared to the optimized desktop client.\n- D. A dedicated GPU helps but does not address the fundamental issue of media being processed in the data center rather than locally."
+    },
+    {
+      "id": 54,
+      "topic": "Teams Governance - PowerShell Operations",
+      "type": "SingleChoice",
+      "questionText": "You need to retrieve a list of all teams in your organization and their owners using a scripted approach. Which PowerShell module should you use?",
+      "options": [
+        "A. Microsoft Teams PowerShell module (Get-Team cmdlet).",
+        "B. Exchange Online PowerShell module.",
+        "C. Azure AD PowerShell module.",
+        "D. SharePoint Online Management Shell."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Microsoft Teams PowerShell module provides the Get-Team cmdlet to list all teams and Get-TeamUser to retrieve team owners and members. This is the purpose-built module for Teams administration via PowerShell.\n\nWhy the others are wrong:\n- B. Exchange Online PowerShell manages Exchange resources and does not have Teams-specific cmdlets.\n- C. Azure AD PowerShell can list Microsoft 365 groups (which back Teams) but does not provide Teams-specific details like channels and team settings.\n- D. SharePoint Online Management Shell manages SharePoint sites and does not provide Teams team information."
+    },
+    {
+      "id": 55,
+      "topic": "Teams Meetings - Copilot Configuration",
+      "type": "SingleChoice",
+      "questionText": "Your organization has Microsoft 365 Copilot licenses. For Copilot to generate meeting summaries and action items in Teams meetings, what must be enabled?",
+      "options": [
+        "A. Meeting recording only.",
+        "B. Meeting transcription in the Teams meeting policy.",
+        "C. Meeting chat.",
+        "D. External participant access."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft 365 Copilot in Teams meetings requires transcription to be enabled in the meeting policy. Copilot uses the real-time transcript to generate summaries, action items, and answer questions about the meeting content.\n\nWhy the others are wrong:\n- A. Recording saves the meeting but Copilot specifically needs the transcription, not the recording.\n- C. Meeting chat enables text communication during meetings but is not the source Copilot uses for meeting summarization.\n- D. External participant access is unrelated to Copilot functionality."
+    },
+    {
+      "id": 56,
+      "topic": "Teams External Collaboration - Domain Control",
+      "type": "SingleChoice",
+      "questionText": "You need to allow external access in Teams only for users from two specific partner domains, while blocking all other external domains. What should you configure?",
+      "options": [
+        "A. Add the two partner domains to an allow list in Teams external access settings.",
+        "B. Block all domains in the deny list.",
+        "C. Disable external access globally.",
+        "D. Configure guest access for the two partner organizations."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. In the Teams admin center external access settings, you can configure an allow list that permits federation only with specified domains. When an allow list is configured, all other domains are implicitly blocked.\n\nWhy the others are wrong:\n- B. A deny list blocks specific domains but allows all others, which is the opposite of the requirement.\n- C. Disabling external access globally would block all external communication, including with the two partner domains.\n- D. Guest access is a different feature that adds users to your tenant; external access enables federated communication without guest accounts."
+    },
+    {
+      "id": 57,
+      "topic": "Teams Monitoring - Alert Rules",
+      "type": "SingleChoice",
+      "questionText": "You need to receive notifications when Teams devices in meeting rooms go offline. Where should you configure alert rules?",
+      "options": [
+        "A. Azure Monitor alerts.",
+        "B. Teams admin center > Notifications & alerts.",
+        "C. Microsoft 365 admin center > Health.",
+        "D. Microsoft Defender portal > Alert policies."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Teams admin center provides Notifications & alerts for monitoring Teams devices. You can create rules that trigger notifications when devices go offline, have health issues, or encounter other problems.\n\nWhy the others are wrong:\n- A. Azure Monitor is for Azure resources, not Teams device monitoring.\n- C. The M365 admin center Health section shows service-level incidents, not individual device status.\n- D. The Defender portal manages security alerts, not device connectivity alerts."
+    },
+    {
+      "id": 58,
+      "topic": "Teams Channels - Channel Types",
+      "type": "MultipleChoice",
+      "questionText": "You need to understand the differences between channel types in Teams. Which two statements are correct? Each correct answer presents a complete fact.",
+      "options": [
+        "A. Standard channels are visible to all team members and share the team's SharePoint site.",
+        "B. Private channels have their own separate SharePoint site collection.",
+        "C. Shared channels can include external users without adding them as guests to the team.",
+        "D. Private channels can include users who are not members of the parent team.",
+        "E. Standard channels support external user direct membership."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Standard channels are accessible to all team members and store files in the team's SharePoint site. Private channels create a separate SharePoint site collection for their files.\n\nWhy the others are wrong:\n- C. While shared channels support external access through B2B direct connect, this statement is about shared channels, not specifically about the differences between the three types.\n- D. Private channel members must be members of the parent team.\n- E. Standard channels do not support external user direct membership; external users need to be team members (guests) first."
+    },
+    {
+      "id": 59,
+      "topic": "Teams Troubleshooting - Client Issues",
+      "type": "SingleChoice",
+      "questionText": "A user reports that the Teams desktop client is freezing and crashing frequently. You have verified that their device meets minimum requirements. What should you try first?",
+      "options": [
+        "A. Reinstall the Windows operating system.",
+        "B. Clear the Teams client cache.",
+        "C. Assign a new Teams license to the user.",
+        "D. Disable all Teams policies for the user."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Clearing the Teams client cache is the standard first troubleshooting step for Teams desktop client issues like freezing and crashes. Corrupted cache files are a common cause of client instability.\n\nWhy the others are wrong:\n- A. Reinstalling the OS is an extreme measure and should not be a first troubleshooting step.\n- C. License issues would prevent features from working, not cause crashes.\n- D. Disabling policies would not resolve client-side caching or application issues."
+    },
+    {
+      "id": 60,
+      "topic": "Teams Governance - Guest Access Management",
+      "type": "SingleChoice",
+      "questionText": "You need to remove all guest users from your tenant who have not signed in for 90 days. What is the most efficient approach?",
+      "options": [
+        "A. Manually check each guest user's last sign-in date and remove them.",
+        "B. Configure a Microsoft Entra ID Access Review that targets guest users and uses sign-in activity as a criterion.",
+        "C. Delete all guest accounts and re-invite those who need access.",
+        "D. Use a Teams admin center report to remove inactive guests."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Entra ID Access Reviews can be configured to review guest user access and use inactivity (no sign-in for a specified period) as a recommendation criterion. Inactive guests can be automatically removed after the review period.\n\nWhy the others are wrong:\n- A. Manual checking is impractical for organizations with many guest users.\n- C. Deleting all guests and re-inviting is disruptive and would affect active guests.\n- D. The Teams admin center does not provide guest inactivity reports with removal capabilities."
+    },
+    {
+      "id": 61,
+      "topic": "Teams Security - DLP for Teams",
+      "type": "MultipleChoice",
+      "questionText": "You need to configure a DLP policy that blocks messages containing sensitive information in Teams. Which two locations should you include in the DLP policy? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Teams chat and channel messages.",
+        "B. Exchange email.",
+        "C. SharePoint sites.",
+        "D. OneDrive accounts.",
+        "E. Teams chat and channel messages plus shared in Teams channel messages."
+      ],
+      "correctAnswers": ["A", "E"],
+      "explanation": "Correct: A and E. To fully protect Teams communications, the DLP policy should cover both Teams chat and channel messages and the files shared in Teams channel messages. This ensures both text messages and shared file content are scanned.\n\nWhy the others are wrong:\n- B. Exchange email is a separate location for email DLP, not Teams messages.\n- C. SharePoint sites would need to be included separately if SharePoint content protection is needed, but the question specifically asks about Teams.\n- D. OneDrive accounts protect files stored in OneDrive but are not the primary location for Teams message content."
+    },
+    {
+      "id": 62,
+      "topic": "Teams Meetings - Virtual Appointments",
+      "type": "SingleChoice",
+      "questionText": "Your healthcare organization needs to conduct patient consultations through Teams with a virtual lobby experience and SMS notifications. Which Teams feature should you use?",
+      "options": [
+        "A. Standard Teams meetings with external guests.",
+        "B. Teams Virtual Appointments.",
+        "C. Teams webinars with registration.",
+        "D. Teams town halls."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Teams Virtual Appointments provides a structured appointment experience with a virtual lobby, SMS notifications, browser-based join for external participants, and scheduling integration. It is designed for B2C scenarios like healthcare consultations.\n\nWhy the others are wrong:\n- A. Standard meetings lack the structured lobby, SMS notification, and appointment management features.\n- C. Webinars are designed for one-to-many events, not one-to-one appointments.\n- D. Town halls are for large broadcast events, not individual consultations."
+    },
+    {
+      "id": 63,
+      "topic": "Teams Calling - Voicemail Policies",
+      "type": "SingleChoice",
+      "questionText": "You need to ensure that voicemail messages left for users are automatically transcribed and the transcription is included in the voicemail notification email. What should you configure?",
+      "options": [
+        "A. A calling policy with voicemail transcription enabled.",
+        "B. A voicemail policy with transcription enabled.",
+        "C. An Exchange Online transport rule.",
+        "D. A Teams messaging policy."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Voicemail policies in Teams control voicemail features including transcription. Enabling transcription in the voicemail policy ensures that voicemail messages are automatically transcribed and the text is included in the notification email.\n\nWhy the others are wrong:\n- A. Calling policies control general calling features but do not have voicemail transcription settings.\n- C. Exchange transport rules process email in transit but cannot enable voicemail transcription.\n- D. Messaging policies control Teams chat features, not voicemail settings."
+    },
+    {
+      "id": 64,
+      "topic": "Teams Environment - Frontline Workers",
+      "type": "SingleChoice",
+      "questionText": "You need to deploy Teams for 500 frontline workers who share devices. The workers need to sign in quickly with minimal friction using their corporate credentials. What should you configure?",
+      "options": [
+        "A. Standard Teams desktop app with individual user sign-in.",
+        "B. Shared device mode with Microsoft Entra ID shared device registration.",
+        "C. A common area phone account for each device.",
+        "D. Teams web client in a kiosk browser."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Shared device mode allows multiple frontline workers to share a single device. Users sign in and sign out quickly, with the device being fully cleaned between sessions. Microsoft Entra ID shared device registration enables this scenario with corporate credentials.\n\nWhy the others are wrong:\n- A. Standard sign-in requires full authentication each time and previous user data may persist.\n- C. Common area phone accounts are for shared phones in communal spaces, not for devices shared by individual workers who need their personal identity.\n- D. A kiosk browser provides limited functionality compared to the full Teams experience in shared device mode."
+    },
+    {
+      "id": 65,
+      "topic": "Teams Monitoring - Usage Reports",
+      "type": "SingleChoice",
+      "questionText": "You need to identify which teams in your organization have the highest storage usage and the most active users. Where should you look?",
+      "options": [
+        "A. Teams admin center > Analytics & reports > Usage reports > Teams usage.",
+        "B. Microsoft 365 admin center > Reports > Usage > Microsoft Teams.",
+        "C. SharePoint admin center > Site usage.",
+        "D. Microsoft Purview compliance portal > Content explorer."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The Teams admin center provides detailed usage reports including per-team metrics such as active users, messages, reactions, meetings, and storage usage. This allows you to identify high-usage teams.\n\nWhy the others are wrong:\n- B. The M365 admin center reports provide organization-level Teams usage but are less detailed for per-team analysis.\n- C. SharePoint site usage shows SharePoint storage but does not directly correlate to Teams activity metrics.\n- D. Content explorer shows content classification, not Teams usage metrics."
     }
   ]
 }

@@ -361,6 +361,213 @@
       "options": ["A. Only the list of required licenses.", "B. Business requirements, solution overview, data model, security design, integration architecture, ALM strategy, and non-functional requirements.", "C. Only screenshots of the finished application.", "D. Only the project timeline."],
       "correctAnswers": ["B"],
       "explanation": "A comprehensive SAD covers business requirements, solution overview with component diagrams, data model design, security architecture, integration patterns, ALM and deployment strategy, and non-functional requirements like performance and scalability. Licenses, screenshots, and timelines are supporting details but not the complete document."
+    },
+    {
+      "id": 41,
+      "topic": "Solution Envisioning - Fit/Gap Analysis",
+      "type": "SingleChoice",
+      "questionText": "During a fit/gap analysis for a Power Platform solution, the architect identifies a requirement that cannot be met by out-of-the-box Dataverse or Dynamics 365 features. What should the architect do next?",
+      "options": ["A. Remove the requirement from scope.", "B. Evaluate AppSource solutions, custom development, or third-party integrations to address the gap.", "C. Tell the customer the requirement is impossible.", "D. Switch to a completely different platform."],
+      "correctAnswers": ["B"],
+      "explanation": "When a gap is identified, the architect should evaluate alternative approaches such as AppSource marketplace solutions, custom Power Platform development (plug-ins, PCF controls, custom connectors), or third-party integrations. Removing the requirement (A) ignores a valid business need. Declaring it impossible (C) is premature without exploring alternatives. Switching platforms (D) is disproportionate when alternatives exist within the ecosystem."
+    },
+    {
+      "id": 42,
+      "topic": "Solution Envisioning - Risk Assessment",
+      "type": "MultipleChoice",
+      "questionText": "Which two factors should a Solution Architect assess when evaluating an organization's risk factors during solution planning? (Choose two.)",
+      "options": ["A. The organization's change management readiness and user adoption maturity.", "B. The complexity of existing integrations and data migration requirements.", "C. The color scheme of the organization's logo.", "D. The personal preferences of the project sponsor."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Change management readiness (A) directly impacts whether users will adopt the new solution, and integration/migration complexity (B) affects timeline, cost, and technical risk. Logo colors (C) are irrelevant to solution risk. Personal preferences (D) should not drive risk assessment decisions."
+    },
+    {
+      "id": 43,
+      "topic": "Architect a Solution - Solution Topology",
+      "type": "SingleChoice",
+      "questionText": "An organization has operations in three countries with different data residency requirements. How should the Solution Architect design the environment topology?",
+      "options": ["A. Use a single global environment for all countries.", "B. Deploy separate environments in the appropriate geographic regions to comply with data residency requirements.", "C. Store all data in a single Azure Blob Storage account.", "D. Use only SharePoint for data storage to avoid residency issues."],
+      "correctAnswers": ["B"],
+      "explanation": "Separate environments in the appropriate geographic regions ensure compliance with data residency regulations such as GDPR in Europe. Each Dataverse environment is provisioned in a specific region. A single global environment (A) may violate data residency requirements. Azure Blob Storage (C) does not replace Dataverse. SharePoint (D) does not solve data residency for Power Platform data."
+    },
+    {
+      "id": 44,
+      "topic": "Architect a Solution - Data Model Design",
+      "type": "SingleChoice",
+      "questionText": "When designing the Dataverse data model, a Solution Architect needs to represent a many-to-many relationship between Contacts and Projects. What is the recommended approach?",
+      "options": ["A. Create a lookup column on the Contact table pointing to Project.", "B. Use a native many-to-many (N:N) relationship or create an intersect table if additional attributes are needed on the relationship.", "C. Store project IDs as a comma-separated string in a text column on Contact.", "D. Create duplicate Contact records for each Project."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse supports native N:N relationships for simple associations, or a custom intersect table when additional attributes (like role, start date) are needed on the relationship. A single lookup (A) only supports one-to-many. Comma-separated strings (C) violate relational design principles and prevent proper querying. Duplicate records (D) create data integrity issues."
+    },
+    {
+      "id": 45,
+      "topic": "Architect a Solution - Relationship Behaviors",
+      "type": "SingleChoice",
+      "questionText": "A Solution Architect is designing a parent-child relationship between an Account table and a custom Project table. The business requires that when an Account is deleted, all related Projects must also be deleted. Which relationship behavior should be configured?",
+      "options": ["A. Referential relationship behavior.", "B. Parental (cascade delete) relationship behavior.", "C. Custom relationship with no cascade.", "D. Configurable cascade behavior set to Remove Link."],
+      "correctAnswers": ["B"],
+      "explanation": "Parental relationship behavior cascades the delete action from parent to child records, automatically deleting all related Projects when the Account is deleted. Referential (A) only removes the link but does not delete child records. No cascade (C) leaves orphaned child records. Remove Link (D) clears the lookup value but does not delete the child records."
+    },
+    {
+      "id": 46,
+      "topic": "Architect a Solution - Authentication Strategy",
+      "type": "SingleChoice",
+      "questionText": "An external system needs to call the Dataverse Web API without a user context. What authentication approach should the Solution Architect recommend?",
+      "options": ["A. Store a user's username and password in the external system.", "B. Register an application in Microsoft Entra ID and use OAuth 2.0 client credentials (application user) for server-to-server authentication.", "C. Use anonymous access to the Web API.", "D. Share a personal access token via email."],
+      "correctAnswers": ["B"],
+      "explanation": "Server-to-server (S2S) authentication using an Entra ID app registration with OAuth 2.0 client credentials flow is the recommended approach for non-interactive integrations. The application user is assigned a security role in Dataverse to control access. Storing credentials (A) is a security risk. Anonymous access (C) is not supported by Dataverse. Sharing tokens via email (D) is insecure and tokens expire."
+    },
+    {
+      "id": 47,
+      "topic": "Architect a Solution - Business Continuity",
+      "type": "SingleChoice",
+      "questionText": "A customer requires a disaster recovery strategy for their Power Platform solution. What should the Solution Architect include in the business continuity plan?",
+      "options": ["A. Rely solely on Microsoft's built-in redundancy with no additional planning.", "B. Define backup and restore procedures, document environment replication strategies, establish RPO/RTO targets, and plan for failover scenarios.", "C. Keep a printed copy of all data.", "D. Use only a single environment to simplify recovery."],
+      "correctAnswers": ["B"],
+      "explanation": "A proper business continuity plan includes defined backup procedures (system and manual backups), environment replication across regions if needed, Recovery Point Objective (RPO) and Recovery Time Objective (RTO) targets, and documented failover procedures. While Microsoft provides infrastructure redundancy, organizations must plan for application-level recovery (A is insufficient). Printed copies (C) are impractical. A single environment (D) creates a single point of failure."
+    },
+    {
+      "id": 48,
+      "topic": "Architect a Solution - Custom Connectors",
+      "type": "SingleChoice",
+      "questionText": "An organization needs to integrate Power Automate with a proprietary REST API that does not have a standard connector. What should the Solution Architect recommend?",
+      "options": ["A. Abandon the integration requirement.", "B. Build a custom connector that defines the API endpoints, authentication, and data schema.", "C. Manually copy data between systems.", "D. Rebuild the proprietary system in Power Apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Custom connectors allow Power Platform to connect to any REST API by defining the API endpoints, authentication methods (OAuth 2.0, API key, Basic), and request/response schemas. This enables Power Automate flows and Power Apps to interact with the API. Abandoning the requirement (A) ignores the business need. Manual copying (C) is error-prone and not scalable. Rebuilding (D) is unnecessarily costly."
+    },
+    {
+      "id": 49,
+      "topic": "Architect a Solution - RPA Strategy",
+      "type": "SingleChoice",
+      "questionText": "When should a Solution Architect recommend Power Automate desktop flows (RPA) as part of the solution?",
+      "options": ["A. For all automation scenarios regardless of API availability.", "B. When automating legacy systems that lack APIs or modern integration capabilities, requiring UI-based interaction.", "C. As a replacement for all cloud flows.", "D. Only for testing purposes."],
+      "correctAnswers": ["B"],
+      "explanation": "Desktop flows (RPA) are specifically designed for automating legacy applications that do not have APIs or modern integration capabilities, using UI-based interactions like mouse clicks and keyboard input. API-based integration should be preferred when available (A is incorrect). Desktop flows complement cloud flows, they do not replace them (C). They are production tools, not just for testing (D)."
+    },
+    {
+      "id": 50,
+      "topic": "Security Architecture - External Users",
+      "type": "SingleChoice",
+      "questionText": "A Solution Architect needs to provide external partners with access to specific Dataverse data. What is the recommended approach?",
+      "options": ["A. Give external partners full internal user accounts.", "B. Use Power Pages (portals) with appropriate web roles and table permissions to provide controlled external access.", "C. Email data exports to partners weekly.", "D. Disable all security for the environment."],
+      "correctAnswers": ["B"],
+      "explanation": "Power Pages (formerly Power Apps portals) provide authenticated external access to Dataverse data with web roles and table permissions controlling what external users can see and do. Full internal accounts (A) are costly and over-privileged. Email exports (C) are not real-time and risk data leakage. Disabling security (D) exposes all data to everyone."
+    },
+    {
+      "id": 51,
+      "topic": "Security Architecture - Entra ID Groups",
+      "type": "MultipleChoice",
+      "questionText": "Which two benefits does using Microsoft Entra ID security groups with Dataverse provide? (Choose two.)",
+      "options": ["A. Automatically assigning security roles to users based on group membership.", "B. Restricting environment access to only members of a specific security group.", "C. Eliminating the need for Dataverse security roles entirely.", "D. Automatically creating Dataverse tables."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Entra ID security groups can be associated with Dataverse environments to restrict access (B), and Dataverse teams linked to Entra ID groups can automatically assign security roles (A) when users are added to the group. Entra ID groups do not replace security roles (C); they work together. Groups do not create tables (D)."
+    },
+    {
+      "id": 52,
+      "topic": "Implement the Solution - API Limits",
+      "type": "SingleChoice",
+      "questionText": "A Solution Architect discovers that a Power Automate flow makes 15,000 Dataverse API calls per minute during a batch process. What concern should this raise?",
+      "options": ["A. No concern; there are no API limits.", "B. The flow may exceed Dataverse API request limits, resulting in 429 throttling errors and degraded performance for all users.", "C. API calls are free and unlimited for all license types.", "D. Only custom code is subject to API limits, not flows."],
+      "correctAnswers": ["B"],
+      "explanation": "Dataverse enforces API request limits per user and per environment to ensure fair resource usage. Exceeding these limits triggers HTTP 429 (Too Many Requests) responses and can degrade performance for all users in the environment. API limits exist (A is wrong). Limits depend on license type (C is wrong). Both flows and custom code are subject to limits (D is wrong). The architect should implement retry logic, batch operations, or spread processing over time."
+    },
+    {
+      "id": 53,
+      "topic": "Implement the Solution - Solution Checker",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Solution Checker in Power Platform?",
+      "options": ["A. To check if solutions have been purchased.", "B. To perform static analysis of Power Platform solutions against best practice rules, identifying performance issues, reliability risks, and security concerns.", "C. To count the number of components in a solution.", "D. To automatically fix all issues in a solution."],
+      "correctAnswers": ["B"],
+      "explanation": "Solution Checker analyzes customizations against a set of best practice rules covering performance, reliability, security, accessibility, and maintainability. It identifies issues like inefficient plug-in code, deprecated API usage, and potential performance problems. It does not check purchases (A), merely count components (C), or auto-fix issues (D); it reports findings for developers to address."
+    },
+    {
+      "id": 54,
+      "topic": "Implement the Solution - Go-Live Readiness",
+      "type": "MultipleChoice",
+      "questionText": "Which two factors should a Solution Architect verify as part of go-live readiness? (Choose two.)",
+      "options": ["A. All user acceptance testing has been completed and signed off.", "B. Data migration has been validated with reconciliation reports confirming accuracy.", "C. The office kitchen has been restocked.", "D. All developers have updated their LinkedIn profiles."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "UAT sign-off (A) confirms the solution meets business requirements from the users' perspective. Data migration validation (B) ensures migrated data is accurate, complete, and reconciled against source systems. Office kitchen (C) and LinkedIn profiles (D) are irrelevant to solution go-live readiness."
+    },
+    {
+      "id": 55,
+      "topic": "Implement the Solution - Performance Issues",
+      "type": "SingleChoice",
+      "questionText": "Users report that a model-driven app form takes over 10 seconds to load. What should the Solution Architect investigate first?",
+      "options": ["A. The users' monitor resolution.", "B. The number of synchronous plug-ins, sub-grids, embedded canvas apps, and custom JavaScript executing on form load.", "C. The version of Microsoft Word installed.", "D. The users' email signature length."],
+      "correctAnswers": ["B"],
+      "explanation": "Form load performance is directly affected by synchronous plug-ins that execute during record retrieval, the number of sub-grids loading data, embedded canvas apps initializing, and custom JavaScript running on form load. Reducing these improves load time. Monitor resolution (A), Word version (C), and email signatures (D) do not affect model-driven app form load performance."
+    },
+    {
+      "id": 56,
+      "topic": "Architect a Solution - Data Visualization Strategy",
+      "type": "SingleChoice",
+      "questionText": "An organization needs executive dashboards showing aggregated data from multiple Dataverse tables and external data sources. Which approach should the Solution Architect recommend?",
+      "options": ["A. Build all dashboards as canvas apps.", "B. Use Power BI embedded in model-driven apps for rich, interactive dashboards combining multiple data sources.", "C. Export data to Excel and create manual charts.", "D. Use only Dataverse system dashboards for all reporting needs."],
+      "correctAnswers": ["B"],
+      "explanation": "Power BI provides rich, interactive dashboards that can combine data from Dataverse, SQL, and other sources, and can be embedded in model-driven apps for seamless access. Canvas apps (A) are not optimized for complex data visualization. Manual Excel charts (C) are not real-time or scalable. System dashboards (D) have limited visualization capabilities and cannot easily combine external data sources."
+    },
+    {
+      "id": 57,
+      "topic": "Architect a Solution - SharePoint Integration",
+      "type": "SingleChoice",
+      "questionText": "A customer wants to store large documents (contracts, drawings) associated with Dataverse records without consuming Dataverse database storage. What should the Solution Architect recommend?",
+      "options": ["A. Store documents as Dataverse notes with attachments.", "B. Enable SharePoint integration for document management, which stores files in SharePoint while maintaining the association with Dataverse records.", "C. Store documents as base64-encoded text in a Dataverse column.", "D. Use Azure Blob Storage with no connection to Dataverse."],
+      "correctAnswers": ["B"],
+      "explanation": "SharePoint integration for Dataverse stores documents in SharePoint document libraries while maintaining navigation and association from the Dataverse record. This avoids consuming Dataverse database storage capacity for large files. Dataverse notes (A) consume database storage. Base64 encoding (C) dramatically increases storage usage and is impractical. Azure Blob Storage (D) works but lacks the built-in seamless integration that SharePoint provides with Dataverse."
+    },
+    {
+      "id": 58,
+      "topic": "Architect a Solution - Teams Integration",
+      "type": "SingleChoice",
+      "questionText": "How can a Solution Architect leverage Microsoft Teams integration with Power Platform for collaborative scenarios?",
+      "options": ["A. Teams cannot integrate with Power Platform.", "B. Embed model-driven or canvas apps as tabs in Teams channels, use adaptive cards in Teams from Power Automate, and leverage Dataverse for Teams for lightweight scenarios.", "C. Only use Teams for voice calls.", "D. Replace all Power Platform apps with Teams apps."],
+      "correctAnswers": ["B"],
+      "explanation": "Teams integration includes embedding Power Apps as tabs, sending adaptive cards and approval notifications via Power Automate, using Dataverse for Teams for team-specific lightweight apps, and leveraging Power Virtual Agents (Copilot Studio) chatbots in Teams. Teams does integrate with Power Platform (A is wrong). Teams supports much more than voice calls (C). Teams complements Power Platform rather than replacing it (D)."
+    },
+    {
+      "id": 59,
+      "topic": "Solution Envisioning - ISV and AppSource Evaluation",
+      "type": "SingleChoice",
+      "questionText": "When evaluating an AppSource solution to address a functional requirement, what should the Solution Architect consider?",
+      "options": ["A. Only the price of the solution.", "B. The solution's compatibility with existing customizations, its vendor support model, update frequency, licensing impact, and alignment with the overall solution architecture.", "C. Whether the solution has the most downloads.", "D. Only whether it has good reviews."],
+      "correctAnswers": ["B"],
+      "explanation": "A thorough evaluation considers compatibility with existing customizations, vendor support and roadmap, update frequency and ALM impact, licensing costs and model, security implications, and how well it fits the overall architecture. Price alone (A) ignores compatibility and support risks. Download count (C) does not guarantee fit. Reviews (D) are one input but not sufficient for an architectural decision."
+    },
+    {
+      "id": 60,
+      "topic": "Architect a Solution - Environment Strategy",
+      "type": "SingleChoice",
+      "questionText": "An enterprise has multiple development teams working on different Power Platform solutions. How should the Solution Architect structure development environments?",
+      "options": ["A. All teams share a single development environment.", "B. Assign separate development environments per team or project to isolate development activities and reduce conflicts.", "C. Use only the default environment for all development.", "D. Each developer should use their own production environment."],
+      "correctAnswers": ["B"],
+      "explanation": "Separate development environments per team or project prevent conflicts from overlapping customizations, allow independent development cycles, and support proper solution segmentation. Sharing a single environment (A) causes conflicts and makes it difficult to isolate changes. The default environment (C) should not be used for development. Production environments (D) should never be used for development."
+    },
+    {
+      "id": 61,
+      "topic": "Implement the Solution - Deployment Plans",
+      "type": "MultipleChoice",
+      "questionText": "Which two components should be included in a Power Platform solution deployment plan? (Choose two.)",
+      "options": ["A. A sequence of managed solution imports with dependency order documented.", "B. A rollback procedure in case the deployment fails.", "C. A plan for the team holiday party.", "D. A list of the team's favorite restaurants."],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Deployment plans must include the ordered sequence of solution imports respecting dependencies (A) and a documented rollback procedure to revert to the previous state if issues are discovered (B). Social activities (C) and restaurant preferences (D) are not deployment planning concerns."
+    },
+    {
+      "id": 62,
+      "topic": "Architect a Solution - Networking and ExpressRoute",
+      "type": "SingleChoice",
+      "questionText": "An organization with strict network security requirements wants to ensure that traffic between their on-premises network and Power Platform does not traverse the public internet. What should the Solution Architect recommend?",
+      "options": ["A. Use a VPN tunnel to each Power Platform service individually.", "B. Implement Azure ExpressRoute with Microsoft peering to provide a private connection path for Power Platform traffic.", "C. Disable all internet access in the organization.", "D. Use only mobile data connections."],
+      "correctAnswers": ["B"],
+      "explanation": "Azure ExpressRoute with Microsoft peering provides a private, dedicated connection between on-premises networks and Microsoft cloud services including Power Platform, avoiding the public internet. Individual VPN tunnels (A) are not how Power Platform connectivity works. Disabling internet (C) would prevent access to cloud services entirely. Mobile data (D) still traverses the public internet."
+    },
+    {
+      "id": 63,
+      "topic": "Architect a Solution - Power Platform Well-Architected Framework",
+      "type": "SingleChoice",
+      "questionText": "What is the Power Platform Well-Architected Framework, and how should a Solution Architect use it?",
+      "options": ["A. A framework for building physical architecture diagrams of office buildings.", "B. A set of best practices and guiding tenets across pillars including reliability, security, operational excellence, performance efficiency, and experience optimization that the architect should apply to solution design decisions.", "C. A tool for generating code automatically.", "D. A licensing calculator for Power Platform."],
+      "correctAnswers": ["B"],
+      "explanation": "The Power Platform Well-Architected Framework provides design principles and best practices organized into pillars (reliability, security, operational excellence, performance efficiency, and experience optimization) that guide architectural decisions. It is not about physical buildings (A), code generation (C), or licensing (D). Solution Architects should evaluate their designs against these pillars to ensure robust, well-designed solutions."
     }
   ]
 }

@@ -564,6 +564,356 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. DLP policies in the Power Platform admin center allow administrators to classify connectors into Business, Non-Business, or Blocked categories. Blocking high-risk connectors prevents makers from using them in any app or flow within the policy scope.\n\nWhy the others are wrong:\n- A. You cannot remove built-in connectors from the platform.\n- C. Disabling the entire platform is extreme and prevents legitimate use.\n- D. An email policy is not enforceable and relies on compliance without technical controls."
+    },
+    {
+      "id": 41,
+      "topic": "Dataverse - Column Types",
+      "type": "SingleChoice",
+      "questionText": "A client needs a column in Dataverse that automatically calculates the total value of all child records (related line items). Which column type should you use?",
+      "options": [
+        "A. Formula column.",
+        "B. Rollup column.",
+        "C. Calculated column.",
+        "D. Whole number column."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Rollup columns aggregate values from related (child) records using SUM, COUNT, AVG, MIN, or MAX. They run on a scheduled basis and are ideal for cross-table aggregation.\n\nWhy the others are wrong:\n- A. Formula columns use Power Fx and currently have limited cross-table aggregation support.\n- C. Calculated columns derive values from columns on the same record, not from related records.\n- D. A whole number column stores static data and does not automatically calculate from child records."
+    },
+    {
+      "id": 42,
+      "topic": "Power Automate - Cloud Flow Types",
+      "type": "SingleChoice",
+      "questionText": "A user needs to process each item in a SharePoint list that meets certain criteria. The flow should run every night at midnight. Which type of cloud flow should you create?",
+      "options": [
+        "A. An instant (manually triggered) flow.",
+        "B. A scheduled cloud flow with a recurrence trigger.",
+        "C. An automated cloud flow triggered by item creation.",
+        "D. A desktop flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A scheduled cloud flow with a recurrence trigger set to midnight daily will execute on the defined schedule, allowing you to query the SharePoint list and process matching items.\n\nWhy the others are wrong:\n- A. An instant flow requires manual triggering and would not run automatically at midnight.\n- C. An automated trigger on item creation only fires when new items are added, not on a schedule.\n- D. Desktop flows are for RPA automation on desktop applications, not scheduled cloud processing."
+    },
+    {
+      "id": 43,
+      "topic": "Power Virtual Agents - Topic Design",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Copilot Studio (formerly Power Virtual Agents), what is a 'topic'?",
+      "options": [
+        "A. A database table that stores conversation history.",
+        "B. A discrete conversation path that defines how the bot responds to a specific user intent.",
+        "C. A license tier for the chatbot service.",
+        "D. A report showing bot performance metrics."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A topic defines a conversation path consisting of trigger phrases (what the user says) and a conversation tree (how the bot responds), including questions, conditions, and actions.\n\nWhy the others are wrong:\n- A. Conversation history is stored separately, not in topics.\n- C. Topics are not related to licensing tiers.\n- D. Performance metrics are found in the Analytics section, not in topics."
+    },
+    {
+      "id": 44,
+      "topic": "Dataverse - Business Process Flows",
+      "type": "SingleChoice",
+      "questionText": "A sales team needs a guided process that moves opportunities through stages: Qualify, Develop, Propose, and Close. What should you configure?",
+      "options": [
+        "A. A Power Automate approval workflow.",
+        "B. A business process flow with four stages.",
+        "C. A canvas app with four screens.",
+        "D. A model-driven app with four dashboards."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A business process flow provides a visual guide at the top of a model-driven app form, walking users through defined stages with required or recommended steps in each stage.\n\nWhy the others are wrong:\n- A. An approval workflow handles approvals but does not provide a visual stage-based process guide.\n- C. A canvas app with screens does not integrate with the model-driven app form experience.\n- D. Dashboards display data summaries, not step-by-step process guidance."
+    },
+    {
+      "id": 45,
+      "topic": "Power Apps - SharePoint Integration",
+      "type": "SingleChoice",
+      "questionText": "A client wants to customize the form used for creating new items in a SharePoint list. What is the recommended approach using Power Platform?",
+      "options": [
+        "A. Modify the SharePoint list's InfoPath form.",
+        "B. Customize the SharePoint list form using Power Apps (integrated form customization).",
+        "C. Build a standalone canvas app that connects to SharePoint.",
+        "D. Use SharePoint Designer workflows."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Apps provides integrated form customization for SharePoint lists, allowing you to customize the new/edit/view forms directly within the SharePoint experience using the Power Apps form designer.\n\nWhy the others are wrong:\n- A. InfoPath is deprecated and no longer recommended for SharePoint form customization.\n- C. A standalone canvas app works but is not integrated into the SharePoint list experience as seamlessly.\n- D. SharePoint Designer is deprecated and was for workflows, not form customization."
+    },
+    {
+      "id": 46,
+      "topic": "Dataverse - Table Ownership",
+      "type": "SingleChoice",
+      "questionText": "When creating a new Dataverse table, you must choose between 'User or team' and 'Organization' ownership types. When should you choose 'Organization' ownership?",
+      "options": [
+        "A. When every record needs individual access control based on ownership.",
+        "B. When all records should be accessible to everyone in the organization without ownership-based security.",
+        "C. When records need to be shared with specific teams.",
+        "D. When you want to use hierarchical security."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Organization-owned tables have records that are accessible to all users in the organization. They do not have an Owner field and cannot leverage ownership-based security roles at the user or team level.\n\nWhy the others are wrong:\n- A. Individual access control based on ownership requires 'User or team' ownership.\n- C. Sharing records requires 'User or team' ownership.\n- D. Hierarchical security relies on the manager hierarchy of record owners, requiring 'User or team' ownership."
+    },
+    {
+      "id": 47,
+      "topic": "Power Automate - Error Handling",
+      "type": "SingleChoice",
+      "questionText": "A cloud flow occasionally fails because an external API returns a 429 (Too Many Requests) error. How should you handle this?",
+      "options": [
+        "A. Ignore the error and let the flow fail.",
+        "B. Configure the action's retry policy with exponential backoff.",
+        "C. Remove the action that calls the API.",
+        "D. Switch to a different connector."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Power Automate actions support configurable retry policies (fixed interval or exponential backoff) that automatically retry failed requests. Exponential backoff is ideal for rate-limiting (429) errors as it progressively increases the delay between retries.\n\nWhy the others are wrong:\n- A. Ignoring errors results in incomplete business processes.\n- C. Removing the API call eliminates the functionality.\n- D. The rate-limiting issue would likely occur with any connector calling the same API."
+    },
+    {
+      "id": 48,
+      "topic": "Power Virtual Agents - Entity Extraction",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Copilot Studio, a chatbot needs to extract a customer's order number from their message. What should you use?",
+      "options": [
+        "A. A trigger phrase.",
+        "B. An entity (slot) to capture the order number value from the user's input.",
+        "C. A Power Automate flow.",
+        "D. A condition node."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Entities (slots) define patterns of information the bot should extract from user messages, such as order numbers, dates, or names. They can be prebuilt or custom-defined with patterns.\n\nWhy the others are wrong:\n- A. Trigger phrases determine which topic to activate, not how to extract specific data from messages.\n- C. A Power Automate flow can process data but does not extract it from the conversation message.\n- D. A condition node evaluates logic but does not extract data from user input."
+    },
+    {
+      "id": 49,
+      "topic": "Dataverse - Dataverse for Teams",
+      "type": "SingleChoice",
+      "questionText": "What is the key limitation of Dataverse for Teams compared to full Dataverse?",
+      "options": [
+        "A. Dataverse for Teams cannot store any data.",
+        "B. Dataverse for Teams has limited storage, no custom connectors, and the environment is scoped to a single Teams team.",
+        "C. Dataverse for Teams does not support tables.",
+        "D. Dataverse for Teams requires a premium license."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dataverse for Teams provides a simplified Dataverse experience scoped to a Teams team with limited storage (2GB per environment + 1GB per user), no premium connectors, and no custom connectors. It is included with Microsoft 365 licenses.\n\nWhy the others are wrong:\n- A. Dataverse for Teams can store data in tables.\n- C. Dataverse for Teams supports tables, columns, and relationships.\n- D. Dataverse for Teams is included with select Microsoft 365 licenses and does not require a premium Power Platform license."
+    },
+    {
+      "id": 50,
+      "topic": "Power Apps - Model-Driven App Security",
+      "type": "MultipleChoice",
+      "questionText": "Which two components are required to give a user access to a model-driven app? (Choose two.)",
+      "options": [
+        "A. Assign a security role with appropriate table privileges.",
+        "B. Share the model-driven app with the user or their security role.",
+        "C. Give the user a Power BI Pro license.",
+        "D. Create a personal view for the user."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Users need both a security role (to access the underlying data) and the app must be shared with them (to see and launch the app). Both are required.\n\nWhy the others are wrong:\n- C. A Power BI Pro license is for Power BI, not model-driven apps.\n- D. Personal views are optional user preferences, not a requirement for app access."
+    },
+    {
+      "id": 51,
+      "topic": "Power Automate - Approvals",
+      "type": "SingleChoice",
+      "questionText": "A functional consultant needs to configure an approval where the approver can choose from custom responses like 'Approve', 'Reject', or 'Request More Info'. Which approval type should be used?",
+      "options": [
+        "A. Approve/Reject - First to respond.",
+        "B. Approve/Reject - Everyone must approve.",
+        "C. Custom Responses - Wait for all responses.",
+        "D. Custom Responses - Wait for one response."
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. 'Custom Responses - Wait for one response' allows you to define custom response options beyond just Approve/Reject, and the flow continues after one approver responds.\n\nWhy the others are wrong:\n- A. Approve/Reject only provides two response options (Approve or Reject).\n- B. Approve/Reject - Everyone must approve also only provides Approve/Reject options.\n- C. 'Wait for all responses' would be needed if multiple approvers must all respond with custom options, but the question implies a single approver."
+    },
+    {
+      "id": 52,
+      "topic": "Dataverse - Status and Status Reason",
+      "type": "SingleChoice",
+      "questionText": "In Dataverse, what is the relationship between the Status (statecode) and Status Reason (statuscode) columns?",
+      "options": [
+        "A. They are independent and unrelated.",
+        "B. Status Reason values are grouped under Status values; each Status has its own set of valid Status Reasons.",
+        "C. Status is automatically set based on Status Reason.",
+        "D. They always have the same values."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Status has fixed values (typically Active and Inactive for custom tables). Status Reason values are children of Status values, so each Status has its own valid set of Status Reasons. For example, under Active you might have 'New', 'In Progress', 'On Hold'.\n\nWhy the others are wrong:\n- A. They are directly related through a parent-child mapping.\n- C. Status is the parent; changing Status Reason does set the appropriate Status, but the hierarchy is Status -> Status Reason.\n- D. They have different values; Status is broad (Active/Inactive) while Status Reason is specific."
+    },
+    {
+      "id": 53,
+      "topic": "Power Virtual Agents - Escalation",
+      "type": "SingleChoice",
+      "questionText": "A chatbot built in Microsoft Copilot Studio cannot resolve a customer's complex issue. What is the recommended approach?",
+      "options": [
+        "A. End the conversation and tell the customer to call back.",
+        "B. Configure a 'Transfer to agent' node to hand off the conversation to a live agent in Omnichannel for Customer Service.",
+        "C. Restart the conversation from the beginning.",
+        "D. Send an email to the support team."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The 'Transfer to agent' node escalates the conversation to a live agent through Omnichannel for Customer Service or other supported engagement hubs, passing conversation context for a smooth handoff.\n\nWhy the others are wrong:\n- A. Ending abruptly provides a poor customer experience.\n- C. Restarting does not resolve the complex issue.\n- D. Sending an email disconnects the real-time conversation and delays resolution."
+    },
+    {
+      "id": 54,
+      "topic": "Dataverse - Many-to-Many Relationships",
+      "type": "SingleChoice",
+      "questionText": "A training organization needs to track which instructors can teach which courses. Each instructor can teach multiple courses, and each course can be taught by multiple instructors. What relationship type should you use?",
+      "options": [
+        "A. One-to-many from Instructors to Courses.",
+        "B. Many-to-many between Instructors and Courses.",
+        "C. One-to-one between Instructors and Courses.",
+        "D. A lookup column on the Course table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A many-to-many relationship correctly models the scenario where each instructor can teach multiple courses and each course can have multiple instructors. Dataverse creates an intersect (relationship) table automatically.\n\nWhy the others are wrong:\n- A. One-to-many would mean each course can only have one instructor.\n- C. One-to-one would mean each instructor teaches exactly one course and vice versa.\n- D. A single lookup column only allows one instructor per course."
+    },
+    {
+      "id": 55,
+      "topic": "Power Automate - Connectors",
+      "type": "SingleChoice",
+      "questionText": "A client needs to connect Power Automate to a line-of-business REST API that does not have a pre-built connector. What should you recommend?",
+      "options": [
+        "A. It is not possible to connect to the API.",
+        "B. Create a custom connector using the API's OpenAPI definition.",
+        "C. Use the SharePoint connector as a workaround.",
+        "D. Manually copy data between systems."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Custom connectors allow you to define connections to any REST API by providing or creating an OpenAPI (Swagger) definition, specifying authentication, actions, and triggers.\n\nWhy the others are wrong:\n- A. Custom connectors enable connections to virtually any REST API.\n- C. The SharePoint connector is for SharePoint, not arbitrary REST APIs.\n- D. Manual data copying defeats the purpose of automation."
+    },
+    {
+      "id": 56,
+      "topic": "Dataverse - Views",
+      "type": "MultipleChoice",
+      "questionText": "Which two types of views are available in Dataverse model-driven apps? (Choose two.)",
+      "options": [
+        "A. System views created by administrators.",
+        "B. Personal views created by individual users.",
+        "C. Dashboard views shared across organizations.",
+        "D. Canvas views embedded in forms."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. System views are created by customizers/administrators and available to all users with appropriate privileges. Personal views are created by individual users for their own use.\n\nWhy the others are wrong:\n- C. Dashboard views are not a standard view type in Dataverse.\n- D. Canvas views are not a Dataverse view type."
+    },
+    {
+      "id": 57,
+      "topic": "Power Apps - Solutions",
+      "type": "SingleChoice",
+      "questionText": "A functional consultant is packaging customizations to move from development to production. What is the recommended approach?",
+      "options": [
+        "A. Manually recreate all customizations in production.",
+        "B. Export a managed solution from development and import it into production.",
+        "C. Copy the entire development environment to production.",
+        "D. Share the development environment with production users."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Exporting a managed solution packages all customizations into a transportable file that can be imported into production. Managed solutions prevent direct editing in production, ensuring controlled deployments.\n\nWhy the others are wrong:\n- A. Manual recreation is error-prone, time-consuming, and not auditable.\n- C. Copying the entire environment includes test data and development artifacts that should not be in production.\n- D. Sharing a development environment with production users is not a deployment strategy."
+    },
+    {
+      "id": 58,
+      "topic": "Power Virtual Agents - Authentication",
+      "type": "SingleChoice",
+      "questionText": "A chatbot needs to access user-specific data from Dataverse during the conversation. How should you configure the bot?",
+      "options": [
+        "A. Store user credentials in the bot's topic.",
+        "B. Configure authentication in the bot to sign in users and use their identity to query Dataverse.",
+        "C. Use a generic service account for all queries.",
+        "D. Ask the user to type their password in the chat."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Microsoft Copilot Studio supports authentication configuration (using Azure AD/Entra ID) that allows the bot to sign in users and use their identity to make authenticated calls to Dataverse or other services.\n\nWhy the others are wrong:\n- A. Storing credentials in topics is a security vulnerability.\n- C. A generic service account would return the same data for all users, not user-specific data.\n- D. Asking users to type passwords in chat is a security risk and poor user experience."
+    },
+    {
+      "id": 59,
+      "topic": "Dataverse - Alternate Keys",
+      "type": "SingleChoice",
+      "questionText": "During a data integration project, you need to match records between Dataverse and an external ERP system using the ERP's unique identifier. What should you configure in Dataverse?",
+      "options": [
+        "A. A new primary key column.",
+        "B. An alternate key on the column storing the ERP identifier.",
+        "C. A calculated column.",
+        "D. A many-to-many relationship."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Alternate keys define unique constraints that can be used for upsert operations during data integration, allowing records to be matched using the ERP identifier instead of the Dataverse GUID.\n\nWhy the others are wrong:\n- A. You cannot change the primary key in Dataverse; it is always the auto-generated GUID.\n- C. Calculated columns derive values and cannot serve as unique match keys.\n- D. A many-to-many relationship creates associations between tables, not matching criteria for integration."
+    },
+    {
+      "id": 60,
+      "topic": "Power Automate - Parallel Branches",
+      "type": "SingleChoice",
+      "questionText": "In a cloud flow, you need to simultaneously send an email notification AND update a Dataverse record when a form is submitted. How should you configure this?",
+      "options": [
+        "A. Place both actions sequentially in the flow.",
+        "B. Use parallel branches to execute both actions simultaneously.",
+        "C. Create two separate flows.",
+        "D. Use a Do until loop."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Parallel branches allow multiple actions to execute simultaneously within the same flow, improving performance and ensuring both actions start at the same time.\n\nWhy the others are wrong:\n- A. Sequential execution works but is slower since one action must complete before the next starts.\n- C. Two separate flows add maintenance overhead and may have timing issues.\n- D. A Do until loop is for repetition until a condition is met, not for parallel execution."
+    },
+    {
+      "id": 61,
+      "topic": "Power Apps - Canvas App Sharing",
+      "type": "SingleChoice",
+      "questionText": "When you share a canvas app with a user, what also needs to be configured for the user to successfully use the app?",
+      "options": [
+        "A. Nothing else; sharing the app is sufficient.",
+        "B. The user must also have appropriate permissions to the data sources the app connects to.",
+        "C. The user needs a Power BI license.",
+        "D. The user must install Power Apps Desktop."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Sharing a canvas app grants access to the app itself, but users also need appropriate permissions to the underlying data sources (SharePoint lists, Dataverse tables, SQL databases, etc.) or the app will fail to load data.\n\nWhy the others are wrong:\n- A. Sharing alone is insufficient if the user lacks data source permissions.\n- C. Power BI licenses are not required for canvas apps.\n- D. Canvas apps run in a browser or mobile app; Power Apps Desktop is not required."
+    },
+    {
+      "id": 62,
+      "topic": "Dataverse - Connection Roles",
+      "type": "SingleChoice",
+      "questionText": "A client needs to track informal relationships between contacts, such as 'is a friend of' or 'is a colleague of'. What Dataverse feature should you use?",
+      "options": [
+        "A. One-to-many relationships.",
+        "B. Connection roles.",
+        "C. Lookup columns.",
+        "D. Many-to-many relationships."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Connection roles allow you to define informal, user-managed relationships between records (of the same or different tables) with role labels like 'Friend', 'Colleague', 'Spouse'. These are flexible and do not require schema changes.\n\nWhy the others are wrong:\n- A. One-to-many relationships are structural schema relationships, not informal connections.\n- C. Lookup columns create structural relationships in the schema.\n- D. Many-to-many relationships are structural and do not support role-based labels per connection."
+    },
+    {
+      "id": 63,
+      "topic": "Power Automate - Expression Functions",
+      "type": "SingleChoice",
+      "questionText": "In a Power Automate flow, you need to combine a user's first name and last name into a full name. Which expression should you use?",
+      "options": [
+        "A. add(firstName, lastName)",
+        "B. concat(triggerOutputs()?['body/firstName'], ' ', triggerOutputs()?['body/lastName'])",
+        "C. merge(firstName, lastName)",
+        "D. join(firstName, lastName)"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The concat() function concatenates multiple strings together. Including a space character between first and last name creates a properly formatted full name.\n\nWhy the others are wrong:\n- A. add() is for arithmetic operations (adding numbers), not string concatenation.\n- C. merge() does not exist as a standard Power Automate expression function.\n- D. join() is used to join an array into a string with a separator, not for concatenating individual values."
+    },
+    {
+      "id": 64,
+      "topic": "Power Virtual Agents - Adaptive Cards",
+      "type": "SingleChoice",
+      "questionText": "In Microsoft Copilot Studio, how can you display rich, interactive content like forms or carousels within a chatbot conversation?",
+      "options": [
+        "A. By embedding a canvas app in each message.",
+        "B. By using Adaptive Cards in the bot's message nodes.",
+        "C. By sending an email with the content.",
+        "D. By redirecting the user to a website."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Adaptive Cards are a platform-agnostic card format that renders rich, interactive content (text, images, buttons, inputs, carousels) directly within the chat conversation.\n\nWhy the others are wrong:\n- A. Canvas apps cannot be embedded directly in individual chat messages.\n- C. Sending an email takes the user outside the conversation.\n- D. Redirecting to a website disrupts the conversational experience."
+    },
+    {
+      "id": 65,
+      "topic": "Dataverse - Cascading Behavior",
+      "type": "SingleChoice",
+      "questionText": "In a one-to-many relationship between Account (parent) and Contact (child), you want deleting an Account to also delete all related Contacts. What cascading behavior should you configure?",
+      "options": [
+        "A. Referential (Remove Link).",
+        "B. Parental (Cascade All).",
+        "C. Restrict.",
+        "D. Custom with no cascade."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Parental (Cascade All) behavior cascades delete, assign, share, and unshare operations from the parent to all child records. Deleting an Account with this setting also deletes all related Contacts.\n\nWhy the others are wrong:\n- A. Referential (Remove Link) removes the reference to the parent but does not delete child records.\n- C. Restrict prevents the parent from being deleted if child records exist.\n- D. Custom with no cascade would not propagate the delete to child records."
     }
   ]
 }

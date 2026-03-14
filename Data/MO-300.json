@@ -561,6 +561,356 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "B is correct because Record Slide Show captures narration audio, webcam video (as a picture-in-picture overlay), slide timings, laser pointer movements, and ink annotations, creating a complete recorded presentation.\n\nA is incorrect because it captures much more than just webcam video.\n\nC is incorrect because audio narration is a key component of the recording.\n\nD is incorrect because it records only the slideshow, not the entire desktop."
+    },
+    {
+      "id": 41,
+      "topic": "Slide Design - Guides and gridlines",
+      "type": "SingleChoice",
+      "questionText": "How do you display gridlines and drawing guides on a slide to help align objects precisely?",
+      "options": [
+        "A. Design tab > Alignment Tools.",
+        "B. View tab > check Gridlines and Guides checkboxes.",
+        "C. Home tab > Arrange > Show Grid.",
+        "D. Insert tab > Grid and Guides."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the View tab contains checkboxes for Gridlines and Guides that display visual alignment aids on the slide canvas to help position objects accurately.\n\nA is incorrect because there is no Alignment Tools group on the Design tab.\n\nC is incorrect because while Home > Arrange has alignment commands, the gridline display is on the View tab.\n\nD is incorrect because the Insert tab does not have Grid and Guides options."
+    },
+    {
+      "id": 42,
+      "topic": "Multimedia - Embedding video",
+      "type": "SingleChoice",
+      "questionText": "What is the difference between embedding a video and linking to a video file in PowerPoint?",
+      "options": [
+        "A. There is no difference; both methods produce the same result.",
+        "B. Embedding stores the video inside the presentation file (increasing file size), while linking references an external file that must remain accessible.",
+        "C. Linking produces higher quality video playback.",
+        "D. Embedding only works with YouTube videos."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because embedding includes the video data within the .pptx file, making it portable but larger, while linking keeps a reference to the external file, requiring the file to be present at the linked location during playback.\n\nA is incorrect because embedding and linking behave differently regarding file size and portability.\n\nC is incorrect because video quality depends on the source file, not the insertion method.\n\nD is incorrect because embedding works with local video files; online videos from YouTube use a separate insert method."
+    },
+    {
+      "id": 43,
+      "topic": "Multimedia - Audio playback options",
+      "type": "SingleChoice",
+      "questionText": "You want background music to play continuously across all slides in your presentation. How do you configure this?",
+      "options": [
+        "A. Insert the audio on every slide individually.",
+        "B. Insert the audio on the first slide, then in Playback tab select 'Play in Background', which sets it to play across slides and loop.",
+        "C. Add the audio file as a transition sound on every slide.",
+        "D. Convert the presentation to a video with an audio track."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the 'Play in Background' option on the Playback tab configures the audio to start automatically, play across all slides, loop until stopped, and hide the speaker icon during the show.\n\nA is incorrect because inserting audio on every slide creates duplicate audio objects and is unnecessary.\n\nC is incorrect because transition sounds play only during individual slide transitions, not continuously.\n\nD is incorrect because converting to video is a final export step, not a configuration for live presentations."
+    },
+    {
+      "id": 44,
+      "topic": "Slide Design - Formatting shapes",
+      "type": "SingleChoice",
+      "questionText": "You want to apply the same formatting (fill, outline, effects) from one shape to multiple other shapes quickly. What should you use?",
+      "options": [
+        "A. Copy and paste the formatted shape.",
+        "B. Home tab > Format Painter, then click each target shape.",
+        "C. Right-click > Set as Default Shape.",
+        "D. Design tab > Format All Shapes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Format Painter copies formatting from one object and applies it to others. Double-clicking the Format Painter locks it so you can apply to multiple shapes without reselecting it.\n\nA is incorrect because copying the shape duplicates the entire object, not just the formatting.\n\nC is incorrect because Set as Default Shape sets the default for new shapes but does not change existing ones.\n\nD is incorrect because there is no Format All Shapes option on the Design tab."
+    },
+    {
+      "id": 45,
+      "topic": "Animations - Effect Options",
+      "type": "SingleChoice",
+      "questionText": "After applying a Fly In entrance animation, you want the object to fly in from the right side instead of the default bottom. Where do you change this?",
+      "options": [
+        "A. Animations tab > Effect Options dropdown > select 'From Right'.",
+        "B. Right-click the object > Animation Settings > Direction.",
+        "C. Transitions tab > Direction > From Right.",
+        "D. Animation Pane > double-click > General tab > Direction."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because the Effect Options dropdown on the Animations tab provides direction variants for the selected animation, such as From Bottom, From Right, From Left, or From Top.\n\nB is incorrect because there is no 'Animation Settings' context menu option in modern PowerPoint.\n\nC is incorrect because the Transitions tab controls slide transitions, not object animations.\n\nD is incorrect because while the Animation Pane can access advanced settings, the Effect Options dropdown is the standard method."
+    },
+    {
+      "id": 46,
+      "topic": "Multimedia - Trimming video",
+      "type": "SingleChoice",
+      "questionText": "You have inserted a video into your presentation but only need a 30-second portion of it. How do you trim the video?",
+      "options": [
+        "A. Use external video editing software to trim the file first.",
+        "B. Select the video, then use Playback tab > Trim Video to set the start and end points.",
+        "C. Right-click the video > Properties > Duration.",
+        "D. Animations tab > Video Duration > Set Length."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Trim Video option on the Playback tab opens a dialog where you can drag start and end markers to select the portion of the video to play during the presentation.\n\nA is incorrect because PowerPoint has built-in trimming capabilities, making external software unnecessary for simple trims.\n\nC is incorrect because there is no Duration property in a right-click context menu for videos.\n\nD is incorrect because the Animations tab does not have video duration controls."
+    },
+    {
+      "id": 47,
+      "topic": "Slide Design - Aligning objects",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following alignment options are available when selecting multiple objects on a slide? (Choose two.)",
+      "options": [
+        "A. Align Left",
+        "B. Distribute Horizontally",
+        "C. Align to Paragraph",
+        "D. Align to Theme"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. When multiple objects are selected, the Align menu (Home > Arrange > Align) offers options including Align Left, Align Center, Align Right, Align Top, Align Middle, Align Bottom, Distribute Horizontally, and Distribute Vertically.\n\nC is incorrect because 'Align to Paragraph' is not an object alignment option.\n\nD is incorrect because 'Align to Theme' is not a valid alignment option."
+    },
+    {
+      "id": 48,
+      "topic": "Collaboration - Comments and reviewing",
+      "type": "SingleChoice",
+      "questionText": "How do you add a comment to a specific object or text on a slide for a colleague to review?",
+      "options": [
+        "A. Type the comment in the Notes pane.",
+        "B. Select the object or text, then use Review tab > New Comment (or Insert > Comment).",
+        "C. Add a text box next to the object with your comment.",
+        "D. Email your colleague with a description of the change."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the New Comment feature on the Review tab creates a threaded comment attached to the selected object or text, allowing colleagues to reply and resolve comments during review.\n\nA is incorrect because Notes pane content is for speaker notes during presentations, not review comments.\n\nC is incorrect because text boxes become part of the slide content, not a review annotation.\n\nD is incorrect because emailing descriptions is outside the collaborative review workflow in PowerPoint."
+    },
+    {
+      "id": 49,
+      "topic": "Slide Design - Custom slide shows",
+      "type": "SingleChoice",
+      "questionText": "You have a 50-slide presentation and need to present different subsets of slides to different audiences. Which feature should you use?",
+      "options": [
+        "A. Create separate copies of the presentation for each audience.",
+        "B. Slide Show tab > Custom Slide Show to create named subsets of slides.",
+        "C. Hide slides you do not need and unhide them later.",
+        "D. Use sections to organize slides and skip sections during the show."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Custom Slide Shows allow you to define named collections of slides from the same presentation, selecting which slides to include and their order, without duplicating the file.\n\nA is incorrect because creating separate copies leads to maintenance issues and duplicated content.\n\nC is incorrect because hiding slides is a one-at-a-time approach that must be reconfigured for each audience.\n\nD is incorrect because skipping sections during a live show is unreliable and not a structured approach."
+    },
+    {
+      "id": 50,
+      "topic": "Multimedia - Inserting online images",
+      "type": "SingleChoice",
+      "questionText": "How do you insert a stock image or online picture into a PowerPoint slide?",
+      "options": [
+        "A. Insert tab > Pictures > Stock Images or Online Pictures.",
+        "B. Design tab > Image Gallery.",
+        "C. Home tab > Paste Special > From Web.",
+        "D. File tab > Import > Online Images."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Insert > Pictures provides options for inserting images from your device, stock images (in Microsoft 365), or online pictures via Bing image search.\n\nB is incorrect because there is no Image Gallery on the Design tab.\n\nC is incorrect because Paste Special is for pasting clipboard content in different formats, not for searching online images.\n\nD is incorrect because the File tab does not have an Import > Online Images option."
+    },
+    {
+      "id": 51,
+      "topic": "Transitions - Morph prerequisites",
+      "type": "SingleChoice",
+      "questionText": "For the Morph transition to animate an object's movement between two slides, what must be true?",
+      "options": [
+        "A. The object must have an animation applied to it.",
+        "B. The same object must exist on both consecutive slides, but in different positions, sizes, or states.",
+        "C. The two slides must have the same background.",
+        "D. The object must be a shape; Morph does not work with images."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Morph identifies matching objects between consecutive slides (by name or type) and animates the differences in their position, size, rotation, color, or other properties during the transition.\n\nA is incorrect because Morph works without any separate animations; the transition itself creates the animation.\n\nC is incorrect because the background does not need to match for Morph to work.\n\nD is incorrect because Morph works with images, shapes, text, icons, and other object types."
+    },
+    {
+      "id": 52,
+      "topic": "Slide Design - Inserting 3D models",
+      "type": "SingleChoice",
+      "questionText": "How do you insert a 3D model into a PowerPoint slide?",
+      "options": [
+        "A. Insert tab > 3D Models, then choose from stock models or a file.",
+        "B. Design tab > 3D Effects.",
+        "C. Animations tab > 3D Animation.",
+        "D. View tab > 3D View Mode."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Insert > 3D Models allows you to insert 3D objects from the built-in stock library or from a local file, which can then be rotated and animated on the slide.\n\nB is incorrect because the Design tab does not have a 3D Effects option for inserting models.\n\nC is incorrect because the Animations tab applies animations to existing objects, not inserts 3D models.\n\nD is incorrect because there is no 3D View Mode on the View tab."
+    },
+    {
+      "id": 53,
+      "topic": "Collaboration - Protecting a presentation",
+      "type": "SingleChoice",
+      "questionText": "You want to prevent anyone from modifying your finalized presentation. Which feature should you use?",
+      "options": [
+        "A. File tab > Info > Protect Presentation > Mark as Final.",
+        "B. Review tab > Restrict Editing.",
+        "C. Slide Show tab > Lock Presentation.",
+        "D. View tab > Read Only Mode."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Mark as Final sets the presentation to read-only mode and displays a notification bar, discouraging editing. For stronger protection, you can also encrypt with a password.\n\nB is incorrect because Restrict Editing is a Word feature, not available in PowerPoint in the same way.\n\nC is incorrect because there is no Lock Presentation option on the Slide Show tab.\n\nD is incorrect because there is no Read Only Mode on the View tab."
+    },
+    {
+      "id": 54,
+      "topic": "Slide Design - Converting text to SmartArt",
+      "type": "SingleChoice",
+      "questionText": "You have a bulleted list on a slide and want to convert it into a professional diagram. What is the quickest method?",
+      "options": [
+        "A. Delete the text and insert a SmartArt graphic, then retype the content.",
+        "B. Right-click the text box and select Convert to SmartArt, then choose a layout.",
+        "C. Copy the text, insert a SmartArt graphic, and paste into each shape.",
+        "D. Use the Design Ideas panel to auto-convert."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because right-clicking a text placeholder with bulleted text and selecting Convert to SmartArt transforms the text directly into a SmartArt diagram, preserving the content and mapping each bullet to a shape.\n\nA is incorrect because deleting and retyping is unnecessary when direct conversion is available.\n\nC is incorrect because manual copy-paste into each shape is inefficient.\n\nD is incorrect because Design Ideas may suggest layouts but does not specifically provide a Convert to SmartArt function."
+    },
+    {
+      "id": 55,
+      "topic": "Multimedia - Bookmark in video",
+      "type": "SingleChoice",
+      "questionText": "How do you add a bookmark to a specific point in a video embedded in PowerPoint?",
+      "options": [
+        "A. Edit the video file externally to add chapter markers.",
+        "B. Select the video, play to the desired point, then use Playback tab > Add Bookmark.",
+        "C. Insert tab > Bookmark > Video Position.",
+        "D. Bookmarks are not supported for videos in PowerPoint."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because you can play the video to a specific moment and click Add Bookmark on the Playback tab to mark that point. Bookmarks can be used as animation triggers.\n\nA is incorrect because PowerPoint has built-in bookmark functionality for videos.\n\nC is incorrect because the Insert tab does not have a video bookmark feature.\n\nD is incorrect because PowerPoint does support video bookmarks."
+    },
+    {
+      "id": 56,
+      "topic": "Exporting - Compress media",
+      "type": "SingleChoice",
+      "questionText": "Your presentation file is very large due to embedded videos. How can you reduce the file size?",
+      "options": [
+        "A. File tab > Info > Compress Media, then select a quality level.",
+        "B. Delete the videos and add hyperlinks to online versions instead.",
+        "C. Save the presentation as .ppsx instead of .pptx.",
+        "D. Right-click each video > Reduce Size."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because File > Info > Compress Media compresses all embedded media files in the presentation to a selected quality level (Full HD, HD, or Standard), significantly reducing file size.\n\nB is incorrect because deleting videos and linking changes the content delivery and requires internet access during the presentation.\n\nC is incorrect because changing the file extension does not compress media.\n\nD is incorrect because there is no 'Reduce Size' option in the right-click menu for videos."
+    },
+    {
+      "id": 57,
+      "topic": "Slide Design - Summary Zoom",
+      "type": "SingleChoice",
+      "questionText": "What does a Summary Zoom slide do in PowerPoint?",
+      "options": [
+        "A. It summarizes the text content of all slides into bullet points.",
+        "B. It creates an interactive overview slide with clickable thumbnails that link to different sections of the presentation.",
+        "C. It zooms in on the most important slide in the presentation.",
+        "D. It generates a table of contents in Word format."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Summary Zoom (Insert > Zoom > Summary Zoom) creates a slide with interactive thumbnails representing each section. During the presentation, clicking a thumbnail navigates to that section and returns to the summary afterward.\n\nA is incorrect because Summary Zoom provides visual navigation, not text summarization.\n\nC is incorrect because Summary Zoom links to multiple sections, not a single slide.\n\nD is incorrect because Summary Zoom is a slide-based feature, not a Word document generator."
+    },
+    {
+      "id": 58,
+      "topic": "Animations - Animation Painter",
+      "type": "SingleChoice",
+      "questionText": "You have configured a complex animation sequence on one object and want to apply the identical animation to another object. What tool should you use?",
+      "options": [
+        "A. Format Painter.",
+        "B. Animation Painter on the Animations tab.",
+        "C. Copy the object and delete the original.",
+        "D. Right-click > Copy Animation."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the Animation Painter on the Animations tab copies all animations from one object and applies them to another with a single click, similar to how Format Painter works for formatting.\n\nA is incorrect because Format Painter copies visual formatting (colors, fonts, etc.), not animations.\n\nC is incorrect because copying the object duplicates the entire object, not just its animations.\n\nD is incorrect because there is no 'Copy Animation' option in the right-click context menu."
+    },
+    {
+      "id": 59,
+      "topic": "Slide Design - Using rulers and Smart Guides",
+      "type": "SingleChoice",
+      "questionText": "When you drag an object on a slide, faint dotted lines appear to help you align it with other objects. What are these called?",
+      "options": [
+        "A. Gridlines.",
+        "B. Smart Guides.",
+        "C. Rulers.",
+        "D. Snap points."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Smart Guides are the dynamic alignment lines that appear when you move or resize objects, showing when edges or centers align with other objects on the slide.\n\nA is incorrect because gridlines are a fixed grid pattern displayed across the entire slide.\n\nC is incorrect because rulers are the measurement scales along the top and left edges of the editing area.\n\nD is incorrect because snap points are locations where objects lock into place, not the visible guide lines themselves."
+    },
+    {
+      "id": 60,
+      "topic": "Exporting - Presentation to images",
+      "type": "SingleChoice",
+      "questionText": "How do you save each slide of a presentation as a separate image file?",
+      "options": [
+        "A. File > Save As > change file type to JPEG or PNG, then choose 'All Slides' when prompted.",
+        "B. File > Export > Image Gallery.",
+        "C. Right-click each slide > Save as Image, one at a time.",
+        "D. Insert tab > Screenshot > Save All Slides."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because saving the presentation as JPEG or PNG through File > Save As prompts you to save either just the current slide or all slides. Choosing 'All Slides' creates a folder with each slide saved as a separate image file.\n\nB is incorrect because there is no Image Gallery export option.\n\nC is incorrect because while you can right-click a slide thumbnail to save as image, doing it one at a time is inefficient, and the Save As method is more practical.\n\nD is incorrect because the Screenshot feature captures images of other windows, not exports slides."
+    },
+    {
+      "id": 61,
+      "topic": "Collaboration - Comparing presentations",
+      "type": "SingleChoice",
+      "questionText": "You received an edited version of your presentation from a colleague and want to see what they changed. Which feature should you use?",
+      "options": [
+        "A. Review tab > Compare to merge changes from the other presentation.",
+        "B. Open both files side by side and visually compare them.",
+        "C. Use File > Version History.",
+        "D. This feature is not available in PowerPoint."
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "A is correct because Review > Compare opens the other presentation and shows all differences between the two versions, allowing you to accept or reject individual changes.\n\nB is incorrect because visual comparison is inefficient and may miss subtle changes.\n\nC is incorrect because Version History shows saved versions of the same file, not a comparison between two separate files.\n\nD is incorrect because the Compare feature is available in PowerPoint."
+    },
+    {
+      "id": 62,
+      "topic": "Slide Design - Editing pictures",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following picture editing actions can be performed directly within PowerPoint without external software? (Choose two.)",
+      "options": [
+        "A. Remove Background",
+        "B. Crop to Shape",
+        "C. Apply HDR effects",
+        "D. Convert to vector format"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "A and B are correct. PowerPoint includes built-in picture tools for Remove Background (which uses intelligent detection to remove the image background) and Crop to Shape (which crops the image into any selected shape).\n\nC is incorrect because HDR effects are not a built-in PowerPoint picture editing feature.\n\nD is incorrect because PowerPoint cannot convert raster images to vector format."
+    },
+    {
+      "id": 63,
+      "topic": "Slide Show - Set up show options",
+      "type": "SingleChoice",
+      "questionText": "You want to set up a presentation to run continuously at a kiosk without any user interaction needed. How do you configure this?",
+      "options": [
+        "A. Transitions tab > set all slides to auto-advance.",
+        "B. Slide Show tab > Set Up Slide Show > select 'Browsed at a kiosk (full screen)', which loops continuously.",
+        "C. File > Options > Loop Presentation.",
+        "D. Save as .ppsx so it auto-plays on loop."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the 'Browsed at a kiosk' option in Set Up Slide Show automatically enables looping and disables user navigation (Esc exits), making it ideal for unattended kiosk displays. Slide timings must be set for auto-advance.\n\nA is incorrect because auto-advance alone does not enable continuous looping.\n\nC is incorrect because there is no Loop Presentation option in File > Options.\n\nD is incorrect because .ppsx starts in slideshow mode but does not automatically loop."
+    },
+    {
+      "id": 64,
+      "topic": "Multimedia - Inserting screen recording",
+      "type": "SingleChoice",
+      "questionText": "How do you record your screen and insert the recording directly into a PowerPoint slide?",
+      "options": [
+        "A. Use Windows screen recording and import the file.",
+        "B. Insert tab > Screen Recording, select the area, and record.",
+        "C. Slide Show tab > Record Screen.",
+        "D. File tab > New > Screen Recording Slide."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Insert > Screen Recording allows you to select an area of your screen, record it (with or without audio), and insert the recording directly onto the current slide as a video.\n\nA is incorrect because while external recording works, PowerPoint has this capability built in.\n\nC is incorrect because the Slide Show tab has Record Slide Show, not Screen Recording.\n\nD is incorrect because there is no Screen Recording Slide option under File > New."
+    },
+    {
+      "id": 65,
+      "topic": "Accessibility - Table structure",
+      "type": "SingleChoice",
+      "questionText": "Why should you use PowerPoint's built-in table feature rather than creating a visual table from shapes and text boxes?",
+      "options": [
+        "A. Built-in tables look better than shape-based tables.",
+        "B. Built-in tables have proper structure that screen readers can interpret as rows and columns, making them accessible.",
+        "C. Built-in tables are smaller in file size.",
+        "D. Built-in tables automatically animate during presentations."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because tables created with the Insert > Table feature have semantic structure (rows, columns, header rows) that assistive technologies can interpret and navigate, whereas shapes arranged to look like a table have no semantic meaning.\n\nA is incorrect because visual appearance depends on design, and shape-based tables can look identical.\n\nC is incorrect because file size differences are negligible.\n\nD is incorrect because tables do not automatically animate."
     }
   ]
 }

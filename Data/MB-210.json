@@ -361,6 +361,222 @@
       "options": ["A. Product catalog updates and pricing changes.", "B. Reminders about upcoming meetings, emails needing replies, and overdue tasks.", "C. System administration alerts and security warnings.", "D. Marketing campaign performance metrics."],
       "correctAnswers": ["B"],
       "explanation": "The relationship assistant provides action cards with contextual reminders such as upcoming meetings, emails that need replies, overdue tasks, and other time-sensitive information related to sales activities. It does not provide product catalog updates (A), system alerts (C), or marketing metrics (D)."
+    },
+    {
+      "id": 41,
+      "topic": "Configure Dynamics 365 Sales - Security roles",
+      "type": "SingleChoice",
+      "questionText": "A company wants to restrict salespeople from viewing opportunities owned by other team members while allowing sales managers to view all opportunities in their business unit. What should you configure?",
+      "options": ["A. Create a personal view filtered by owner for salespeople.", "B. Configure security roles with User-level access for salespeople and Business Unit-level access for managers on the opportunity entity.", "C. Use field-level security to hide the opportunity form from other users.", "D. Create separate business units for each salesperson."],
+      "correctAnswers": ["B"],
+      "explanation": "Security roles control data access at different levels. Setting User-level read access on opportunities for salespeople restricts them to their own records, while Business Unit-level access for managers allows them to see all opportunities in their business unit. Personal views (A) filter data display but do not enforce security; users could still access other records. Field-level security (C) controls individual field visibility, not entire record access. Separate business units per salesperson (D) would create unnecessary organizational complexity and break rollup reporting."
+    },
+    {
+      "id": 42,
+      "topic": "Configure Dynamics 365 Sales - Environment configuration",
+      "type": "SingleChoice",
+      "questionText": "An organization is deploying Dynamics 365 Sales and needs to configure the fiscal year to start on April 1 with quarterly periods. Where should this be configured?",
+      "options": ["A. In the Power Platform admin center under environment settings.", "B. In Dynamics 365 Sales under Settings > Business Management > Fiscal Year Settings.", "C. In the forecast configuration settings.", "D. In the system customization area under the Organization entity."],
+      "correctAnswers": ["B"],
+      "explanation": "Fiscal year settings in Dynamics 365 are configured under Settings > Business Management > Fiscal Year Settings, where you can define the start date, period template (quarterly, monthly, etc.), and naming conventions. The Power Platform admin center (A) manages environment-level settings but not fiscal year specifics. Forecast configuration (C) uses fiscal year settings but does not define them. The Organization entity (D) contains some system settings but fiscal year has its own dedicated configuration area."
+    },
+    {
+      "id": 43,
+      "topic": "Configure Dynamics 365 Sales - Email engagement",
+      "type": "SingleChoice",
+      "questionText": "A sales team wants to know when a customer opens an email or clicks a link sent from Dynamics 365 Sales. Which feature should be enabled?",
+      "options": ["A. Server-side synchronization with Exchange.", "B. Email engagement in Sales Insights.", "C. Dynamics 365 App for Outlook.", "D. Auto Capture."],
+      "correctAnswers": ["B"],
+      "explanation": "Email engagement in Sales Insights tracks when recipients open emails, click links, and view attachments, providing salespeople with actionable insights about customer interest. Server-side synchronization (A) handles email synchronization between Exchange and Dynamics 365 but does not track opens or clicks. The Dynamics 365 App for Outlook (C) enables tracking and creating records from Outlook but does not provide open/click tracking. Auto Capture (D) suggests relevant emails for tracking but does not monitor recipient engagement."
+    },
+    {
+      "id": 44,
+      "topic": "Manage core sales features - Opportunity product lines",
+      "type": "SingleChoice",
+      "questionText": "When adding products to an opportunity, a salesperson notices that the revenue field does not update automatically. What is the most likely cause?",
+      "options": ["A. The opportunity revenue calculation is set to User Provided instead of System Calculated.", "B. The products have not been published in the product catalog.", "C. The price list has not been assigned to the opportunity.", "D. The opportunity is in a closed state."],
+      "correctAnswers": ["A"],
+      "explanation": "When an opportunity's revenue calculation is set to User Provided, the estimated revenue field must be manually entered and does not automatically sum from product line items. Changing it to System Calculated enables automatic aggregation. Unpublished products (B) cannot be added to opportunities at all, so this would not be the issue if products were added successfully. A missing price list (C) would cause pricing errors when adding products, not silent revenue failures. A closed opportunity (D) would be read-only and not allow adding products."
+    },
+    {
+      "id": 45,
+      "topic": "Manage core sales features - Lead entity customization",
+      "type": "MultipleChoice",
+      "questionText": "A company wants to ensure certain fields on the lead form are mandatory before a lead can be qualified. Which two approaches can achieve this? (Choose two.)",
+      "options": ["A. Create a business rule that shows an error message if required fields are empty when the user clicks Qualify.", "B. Configure the fields as Business Required on the lead form.", "C. Create a synchronous plugin on the QualifyLead message that validates field values.", "D. Use a Power Automate flow triggered on lead qualification."],
+      "correctAnswers": ["B", "C"],
+      "explanation": "Setting fields as Business Required on the form (B) prevents the record from being saved without those values, ensuring they are populated before qualification. A synchronous plugin on the QualifyLead message (C) can validate specific field values and throw an error to block qualification if requirements are not met. Business rules (A) cannot intercept the Qualify button action directly; they work on form events like field changes and save. A Power Automate flow (D) runs asynchronously after the event and cannot block the qualification process."
+    },
+    {
+      "id": 46,
+      "topic": "Configure additional tools and services - LinkedIn Sales Navigator",
+      "type": "SingleChoice",
+      "questionText": "A company has purchased LinkedIn Sales Navigator and wants to integrate it with Dynamics 365 Sales. What does this integration provide?",
+      "options": ["A. Automatic creation of leads from LinkedIn profiles.", "B. Display of LinkedIn profile information, recommended leads, and InMail capabilities within Dynamics 365 records.", "C. Automatic synchronization of all LinkedIn connections as contacts.", "D. Replacement of the standard lead scoring with LinkedIn's scoring model."],
+      "correctAnswers": ["B"],
+      "explanation": "The LinkedIn Sales Navigator integration embeds LinkedIn profile data, recommended leads, icebreakers, and InMail capabilities directly within Dynamics 365 lead, contact, account, and opportunity forms. It does not automatically create leads from profiles (A); users must manually save recommendations. It does not synchronize all connections as contacts (C) as that would create unwanted data volume. It does not replace Dynamics 365 lead scoring (D); both scoring systems work independently."
+    },
+    {
+      "id": 47,
+      "topic": "Configure Dynamics 365 Sales - Sales Hub app configuration",
+      "type": "SingleChoice",
+      "questionText": "An administrator needs to customize the site map of the Sales Hub app to add a new custom entity to the main navigation. Where should this be done?",
+      "options": ["A. Modify the site map directly in the default solution.", "B. Use the App Designer to edit the Sales Hub site map.", "C. Edit the sitemap.xml file and import it.", "D. Add the entity to the navigation using JavaScript."],
+      "correctAnswers": ["B"],
+      "explanation": "The App Designer provides a visual interface to edit the site map of model-driven apps like Sales Hub, including adding new entities, groups, and areas to the navigation. Modifying the default solution's site map (A) is not recommended as it could be overwritten by updates. There is no standalone sitemap.xml file to edit (C); the site map is a component within the app definition. JavaScript (D) cannot modify the site map structure of model-driven apps."
+    },
+    {
+      "id": 48,
+      "topic": "Manage core sales features - Connection roles",
+      "type": "SingleChoice",
+      "questionText": "A company needs to track that a specific contact is the 'Technical Evaluator' for multiple opportunities. What is the recommended approach?",
+      "options": ["A. Add a custom lookup field on each opportunity pointing to the contact.", "B. Use the Stakeholders subgrid with a custom stakeholder role.", "C. Create a custom N:N relationship between contacts and opportunities.", "D. Store the information in the opportunity notes."],
+      "correctAnswers": ["B"],
+      "explanation": "The Stakeholders subgrid on opportunities supports custom roles, allowing you to add a contact as a 'Technical Evaluator' across multiple opportunities with proper role tracking. A custom lookup field (A) would only allow one contact per opportunity in that role. A custom N:N relationship (C) duplicates existing stakeholder functionality and does not include role information. Notes (D) are unstructured and cannot be used for reporting or filtering."
+    },
+    {
+      "id": 49,
+      "topic": "Configure additional tools and services - Microsoft Teams integration",
+      "type": "SingleChoice",
+      "questionText": "A sales team wants to collaborate on opportunities using Microsoft Teams directly from Dynamics 365 Sales. What must be configured?",
+      "options": ["A. Install the Dynamics 365 app for Teams and enable Teams integration in Dynamics 365 settings.", "B. Create a Power Automate flow to post opportunity updates to Teams channels.", "C. Manually share Dynamics 365 URLs in Teams chats.", "D. Export opportunity data to SharePoint and share via Teams."],
+      "correctAnswers": ["A"],
+      "explanation": "Enabling Teams integration in Dynamics 365 settings and installing the Dynamics 365 app for Teams allows users to collaborate on records directly, including linking Teams channels to Dynamics 365 records and accessing record data within Teams. Power Automate flows (B) can send notifications but do not provide the full collaboration experience. Sharing URLs (C) is manual and does not embed record context. SharePoint export (D) adds unnecessary steps and does not maintain a live connection to the data."
+    },
+    {
+      "id": 50,
+      "topic": "Configure Dynamics 365 Sales - Data import",
+      "type": "SingleChoice",
+      "questionText": "A company is migrating leads from a legacy CRM system. The data includes 50,000 lead records with custom fields. What is the recommended approach for importing this data?",
+      "options": ["A. Manually create each lead record in the application.", "B. Use the Dynamics 365 Import Data Wizard with a mapped CSV file.", "C. Use the Dataverse Web API with a custom script for large data volumes.", "D. Copy and paste data directly into the grid view."],
+      "correctAnswers": ["C"],
+      "explanation": "For large data volumes like 50,000 records with custom field mappings, the Dataverse Web API with a custom script (or tools like the Data Import Framework) provides the best performance, error handling, and control over field mapping. The Import Data Wizard (B) works for smaller datasets but may encounter timeouts and performance issues with 50,000 records. Manual creation (A) is impractical for this volume. Grid copy/paste (D) is limited in record count and does not support complex field mappings."
+    },
+    {
+      "id": 51,
+      "topic": "Manage core sales features - Activity management",
+      "type": "MultipleChoice",
+      "questionText": "A sales manager wants to track all customer interactions on opportunities. Which two activity types are automatically tracked when server-side synchronization is configured with Exchange? (Choose two.)",
+      "options": ["A. Emails that are tracked using the Dynamics 365 App for Outlook or tracking tokens.", "B. All phone calls made from the salesperson's mobile phone.", "C. Appointments that are tracked from Outlook.", "D. LinkedIn InMail messages."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "With server-side synchronization configured, emails tracked using the Dynamics 365 App for Outlook or tracking tokens (A) and tracked appointments from Outlook (C) are automatically synchronized to Dynamics 365 and associated with relevant records. Phone calls from mobile phones (B) are not automatically tracked by server-side synchronization; they must be logged manually or through a telephony integration. LinkedIn InMail messages (D) are managed through the LinkedIn Sales Navigator integration and are not synchronized via Exchange server-side synchronization."
+    },
+    {
+      "id": 52,
+      "topic": "Configure additional tools and services - Copilot in Dynamics 365 Sales",
+      "type": "SingleChoice",
+      "questionText": "A sales team wants to use Copilot in Dynamics 365 Sales to help prepare for customer meetings. What can Copilot provide?",
+      "options": ["A. Automatic rescheduling of meetings based on customer availability.", "B. A summary of recent interactions, open opportunities, and key insights about the account.", "C. Direct access to the customer's internal ERP system data.", "D. Automatic creation of quotes based on meeting topics."],
+      "correctAnswers": ["B"],
+      "explanation": "Copilot in Dynamics 365 Sales can provide meeting preparation summaries including recent interactions, open opportunities, and key account insights drawn from CRM data. It does not automatically reschedule meetings (A) as it is an assistive tool, not a scheduling agent. It cannot access external ERP systems (C) as it works within the Dynamics 365 data boundary. It does not automatically create quotes from meeting topics (D) as quote creation requires deliberate user action with specific product and pricing selections."
+    },
+    {
+      "id": 53,
+      "topic": "Configure Dynamics 365 Sales - Custom dashboards",
+      "type": "SingleChoice",
+      "questionText": "A sales director wants a dashboard showing pipeline by stage, top opportunities by revenue, and activities due this week. What type of dashboard should you create?",
+      "options": ["A. A Power BI dashboard embedded in a model-driven app.", "B. An interactive dashboard in Dynamics 365 with visual filters and streams.", "C. A classic Dynamics 365 dashboard with charts and lists.", "D. A canvas app dashboard built in Power Apps."],
+      "correctAnswers": ["C"],
+      "explanation": "A classic Dynamics 365 dashboard with charts and lists is the most straightforward way to combine pipeline charts, opportunity lists sorted by revenue, and activity due lists in a single view. While Power BI dashboards (A) offer advanced analytics, they require additional licensing and setup for a requirement that standard dashboards handle well. Interactive dashboards (B) are designed for entity-specific filtering experiences, not multi-entity summary views. Canvas app dashboards (D) require separate development and do not integrate as seamlessly with the Sales Hub navigation."
+    },
+    {
+      "id": 54,
+      "topic": "Manage core sales features - Lead disqualification",
+      "type": "SingleChoice",
+      "questionText": "A salesperson disqualifies a lead and later discovers the lead should have been qualified. What can they do?",
+      "options": ["A. Delete the disqualified lead and create a new one.", "B. Reactivate the lead and then qualify it.", "C. Create an opportunity directly without reactivating the lead.", "D. Contact the system administrator to change the lead status via a database update."],
+      "correctAnswers": ["B"],
+      "explanation": "Disqualified leads can be reactivated in Dynamics 365, which returns them to an open state where they can then be qualified through the normal process. Deleting and recreating (A) loses the original lead history and any associated activities. Creating an opportunity directly (C) bypasses the lead qualification process and does not link back to the lead. Direct database updates (D) are unsupported and can cause data integrity issues."
+    },
+    {
+      "id": 55,
+      "topic": "Configure additional tools and services - Power Automate integration",
+      "type": "SingleChoice",
+      "questionText": "A company wants to automatically notify the finance team via email when an opportunity over $100,000 is closed as won. What should you configure?",
+      "options": ["A. A business rule on the opportunity entity.", "B. A real-time workflow triggered on opportunity close.", "C. A Power Automate flow triggered when an opportunity's status changes to Won.", "D. A scheduled report that runs daily."],
+      "correctAnswers": ["C"],
+      "explanation": "A Power Automate flow can be triggered when the opportunity status changes to Won, check the revenue threshold, and send an email notification to the finance team. Business rules (A) cannot send emails or trigger external notifications. Real-time workflows (B) are being deprecated in favor of Power Automate and have limited email formatting capabilities. A scheduled daily report (D) does not provide timely notification when the opportunity is won."
+    },
+    {
+      "id": 56,
+      "topic": "Manage core sales features - Opportunity recalculation",
+      "type": "SingleChoice",
+      "questionText": "An opportunity contains 15 product line items with various prices and quantities. A salesperson reports that the total amount shown on the opportunity does not match their manual calculation. What should you verify first?",
+      "options": ["A. Whether any products have been retired from the catalog.", "B. Whether the pricing calculation method on the opportunity is set to use system pricing or custom pricing.", "C. Whether the salesperson has the correct security role.", "D. Whether the opportunity is linked to the correct account."],
+      "correctAnswers": ["B"],
+      "explanation": "The pricing calculation method determines how Dynamics 365 calculates prices on opportunity products. If set to use custom pricing (via a pricing plugin or override), the amounts may differ from standard catalog prices. This is the most likely cause of a pricing discrepancy. Retired products (A) can still appear on existing records and would not change their calculated prices. Security roles (C) control access, not pricing calculations. The linked account (D) may affect which price list is defaulted but would not cause existing line item totals to miscalculate."
+    },
+    {
+      "id": 57,
+      "topic": "Configure Dynamics 365 Sales - Form customization",
+      "type": "MultipleChoice",
+      "questionText": "You are customizing the opportunity main form. Which two methods can you use to show or hide sections based on the opportunity type? (Choose two.)",
+      "options": ["A. Create a business rule that controls section visibility based on the opportunity type field.", "B. Create multiple forms and use form selector rules based on security roles.", "C. Use JavaScript on the form's OnLoad and OnChange events to toggle section visibility.", "D. Create a canvas app and embed it in the form."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "Business rules (A) can control section visibility on model-driven app forms based on field values such as opportunity type without requiring code. JavaScript (C) on OnLoad and OnChange events provides more complex conditional logic for section visibility. Multiple forms with form selectors (B) are based on security roles, not field values like opportunity type. Embedding a canvas app (D) adds a separate app component but does not control the visibility of native form sections."
+    },
+    {
+      "id": 58,
+      "topic": "Configure additional tools and services - Dynamics 365 App for Outlook",
+      "type": "SingleChoice",
+      "questionText": "A salesperson wants to create a new lead in Dynamics 365 directly from an email in Outlook without leaving the email client. What feature enables this?",
+      "options": ["A. Server-side synchronization automatic record creation.", "B. The Dynamics 365 App for Outlook with quick create forms.", "C. A Power Automate flow that monitors the inbox.", "D. The Outlook email tracking token feature."],
+      "correctAnswers": ["B"],
+      "explanation": "The Dynamics 365 App for Outlook provides an embedded pane within Outlook where users can track emails and create new records (including leads) using quick create forms without leaving the email client. Server-side synchronization (A) handles email sync but does not provide interactive record creation from the email client. A Power Automate flow (C) can automate record creation but does not provide a user-driven interface within Outlook. Email tracking tokens (D) identify tracked emails for automatic linking but do not provide record creation capabilities."
+    },
+    {
+      "id": 59,
+      "topic": "Configure Dynamics 365 Sales - Sales accelerator",
+      "type": "SingleChoice",
+      "questionText": "A sales organization wants to provide sellers with a prioritized list of activities across all their leads and opportunities in a single workspace. Which feature should you configure?",
+      "options": ["A. The sales pipeline chart on the dashboard.", "B. The sales accelerator with sequences and work list.", "C. A custom view on the activities entity.", "D. A Power BI report embedded in the sitemap."],
+      "correctAnswers": ["B"],
+      "explanation": "The sales accelerator provides a work list that aggregates and prioritizes upcoming activities across leads and opportunities, combined with sequences that define seller engagement steps. The pipeline chart (A) visualizes stages but does not prioritize activities. A custom activities view (C) shows activities but lacks AI-driven prioritization and sequence context. Power BI (D) provides analytics but is not an interactive work management tool."
+    },
+    {
+      "id": 60,
+      "topic": "Manage core sales features - Forecasting",
+      "type": "SingleChoice",
+      "questionText": "A sales director needs to configure a revenue forecast that allows managers to adjust their team's projected revenue while preserving the original system-calculated values. What should you configure?",
+      "options": ["A. A rollup column on the opportunity entity.", "B. A forecast model with manual adjustment columns so managers can override system-calculated values without changing the underlying data.", "C. A calculated field on the account entity.", "D. A Power Automate flow that recalculates totals nightly."],
+      "correctAnswers": ["B"],
+      "explanation": "Dynamics 365 Sales forecasting supports manual adjustment columns that allow managers to provide their own projections alongside system-calculated rollup values. This preserves the original data while enabling manager judgment. Rollup columns (A) aggregate data but do not support manual adjustments. Calculated fields (C) are formula-based and do not allow overrides. Nightly recalculation (D) would overwrite manual adjustments."
+    },
+    {
+      "id": 61,
+      "topic": "Configure additional tools and services - LinkedIn Sales Navigator",
+      "type": "MultipleChoice",
+      "questionText": "Which two capabilities does the LinkedIn Sales Navigator integration provide within Dynamics 365 Sales? (Choose two.)",
+      "options": ["A. Display LinkedIn profile information and recommended leads directly within Dynamics 365 records.", "B. Automatically create invoices based on LinkedIn connections.", "C. Enable InMail messaging and connection requests from within Dynamics 365.", "D. Replace the Dynamics 365 contact form with the LinkedIn profile page."],
+      "correctAnswers": ["A", "C"],
+      "explanation": "LinkedIn Sales Navigator integration surfaces LinkedIn profile data, recommendations, and icebreakers on Dynamics 365 lead and contact records (A), and enables sellers to send InMail messages and connection requests without leaving the CRM (C). It does not auto-create invoices (B) as LinkedIn data is not transactional. It embeds LinkedIn information as a control within the existing form rather than replacing the form entirely (D)."
+    },
+    {
+      "id": 62,
+      "topic": "Configure Dynamics 365 Sales - Product catalog",
+      "type": "SingleChoice",
+      "questionText": "A company sells products in multiple currencies and needs prices to reflect the correct currency for each customer. How should you configure the product catalog?",
+      "options": ["A. Create separate products for each currency.", "B. Configure price lists with the appropriate currency and associate the correct price list with each customer record or territory.", "C. Use a single global price and let users manually convert currencies.", "D. Store prices in a custom text field with the currency symbol."],
+      "correctAnswers": ["B"],
+      "explanation": "Price lists in Dynamics 365 Sales are currency-specific, allowing the same product to have different prices in different currencies. Associating the correct price list with customers or territories ensures proper pricing. Separate products per currency (A) duplicates catalog management. Manual conversion (C) is error-prone and inconsistent. Text fields (D) cannot participate in calculations or system pricing logic."
+    },
+    {
+      "id": 63,
+      "topic": "Manage core sales features - Lead scoring",
+      "type": "SingleChoice",
+      "questionText": "A sales manager wants to use predictive lead scoring to help sellers focus on leads most likely to convert. What must be in place before configuring this feature?",
+      "options": ["A. At least 40 qualified and 40 disqualified leads in the past period to train the model.", "B. A Power BI Pro license for every user.", "C. A custom machine learning model built in Azure ML.", "D. Integration with a third-party scoring tool."],
+      "correctAnswers": ["A"],
+      "explanation": "Predictive lead scoring in Dynamics 365 Sales uses AI that requires a minimum dataset of qualified and disqualified leads (at least 40 of each within the lookback period) to train the predictive model. Power BI Pro (B) is not required for predictive scoring. The feature uses built-in AI, not Azure ML (C). Third-party tools (D) are not required as this is a native capability."
+    },
+    {
+      "id": 64,
+      "topic": "Configure Dynamics 365 Sales - Assignment rules",
+      "type": "SingleChoice",
+      "questionText": "An organization wants to automatically assign new leads to sellers based on the lead's geography and the seller's capacity. Which feature should you configure?",
+      "options": ["A. A workflow that runs on lead creation and assigns using round-robin logic.", "B. Assignment rules in the sales accelerator that use segments and seller attributes to match leads to the right sellers.", "C. A business rule that sets the owner field based on the territory.", "D. Manual lead assignment by a sales manager."],
+      "correctAnswers": ["B"],
+      "explanation": "Assignment rules in the sales accelerator evaluate lead attributes (such as geography) and seller attributes (such as capacity and availability) to automatically route leads to the most appropriate seller. Workflows (A) can automate assignment but lack the sophisticated matching and capacity-awareness of assignment rules. Business rules (C) cannot evaluate seller capacity or availability. Manual assignment (D) does not scale and is not automated."
     }
   ]
 }

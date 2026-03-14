@@ -561,6 +561,314 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "B is correct because GitHub Releases allow maintainers to create versioned releases of their software, attach binary assets (such as compiled binaries or archives), and include release notes to communicate changes.\n\nA is incorrect because releases do not automatically deploy code, though they can be used to trigger deployment workflows.\n\nC is incorrect because releases are not database snapshots.\n\nD is incorrect because releases are not a backup mechanism."
+    },
+    {
+      "id": 41,
+      "topic": "Git Basics - Stashing",
+      "type": "SingleChoice",
+      "questionText": "What does the 'git stash' command do?",
+      "options": [
+        "A. It permanently deletes all uncommitted changes.",
+        "B. It temporarily saves uncommitted changes so you can switch branches without committing.",
+        "C. It creates a new branch from the current changes.",
+        "D. It pushes the current changes to the remote repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git stash' temporarily shelves (or stashes) changes you have made to your working copy so you can work on something else, and then come back and re-apply them later with 'git stash pop' or 'git stash apply'.\n\nA is incorrect because git stash saves changes temporarily; it does not delete them. You can retrieve them later.\n\nC is incorrect because creating a branch is done with 'git branch' or 'git checkout -b'.\n\nD is incorrect because pushing changes is done with 'git push'."
+    },
+    {
+      "id": 42,
+      "topic": "Git Basics - Cherry-pick",
+      "type": "SingleChoice",
+      "questionText": "What does the 'git cherry-pick' command do?",
+      "options": [
+        "A. It selects the best branch to merge into main.",
+        "B. It applies the changes from a specific commit onto the current branch.",
+        "C. It removes a specific commit from the branch history.",
+        "D. It highlights the most important files in the repository."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git cherry-pick' takes a specific commit from another branch and applies its changes to the current branch, creating a new commit with the same changes.\n\nA is incorrect because git cherry-pick operates on specific commits, not branch selection.\n\nC is incorrect because cherry-pick adds commits rather than removing them.\n\nD is incorrect because cherry-pick has nothing to do with file importance."
+    },
+    {
+      "id": 43,
+      "topic": "GitHub Features - GitHub Copilot",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub Copilot?",
+      "options": [
+        "A. A project management tool for organizing GitHub repositories.",
+        "B. An AI-powered code completion tool that suggests code based on context and comments.",
+        "C. A continuous integration service for running tests.",
+        "D. A code review bot that automatically approves pull requests."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Copilot is an AI pair programming tool that provides code suggestions and completions in real time, based on the context of the code being written, comments, and function names.\n\nA is incorrect because project management is handled by GitHub Projects, not Copilot.\n\nC is incorrect because CI/CD is handled by GitHub Actions, not Copilot.\n\nD is incorrect because Copilot assists with code writing, not pull request approvals."
+    },
+    {
+      "id": 44,
+      "topic": "GitHub Features - GitHub Sponsors",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub Sponsors?",
+      "options": [
+        "A. A feature that allows companies to advertise on GitHub repositories.",
+        "B. A program that allows users and organizations to financially support open-source developers and projects directly on GitHub.",
+        "C. A premium support plan for GitHub Enterprise customers.",
+        "D. A service that sponsors cloud hosting costs for repositories."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Sponsors enables the community to financially support developers and organizations who design, build, and maintain open-source projects, with payments processed directly through GitHub.\n\nA is incorrect because GitHub Sponsors is for supporting developers, not advertising.\n\nC is incorrect because GitHub Sponsors is for open-source funding, not enterprise support plans.\n\nD is incorrect because GitHub Sponsors funds developers, not hosting costs."
+    },
+    {
+      "id": 45,
+      "topic": "GitHub Administration - Repository roles",
+      "type": "SingleChoice",
+      "questionText": "Which repository permission role allows a user to push to non-protected branches but NOT manage repository settings?",
+      "options": [
+        "A. Read",
+        "B. Triage",
+        "C. Write",
+        "D. Admin"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "C is correct because the Write role allows contributors to push to non-protected branches, create and merge pull requests, and manage issues, but does not grant access to repository settings or destructive actions.\n\nA is incorrect because Read only allows viewing the repository, not pushing code.\n\nB is incorrect because Triage allows managing issues and pull requests but does not permit pushing code.\n\nD is incorrect because Admin provides full access including repository settings management."
+    },
+    {
+      "id": 46,
+      "topic": "GitHub Administration - Team management",
+      "type": "SingleChoice",
+      "questionText": "In a GitHub organization, what is the purpose of creating teams?",
+      "options": [
+        "A. To restrict which members can view the organization profile.",
+        "B. To group members together for easier permission management, @mentions, and access control across repositories.",
+        "C. To automatically assign code review tasks based on expertise.",
+        "D. To create separate billing accounts for different departments."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because teams in a GitHub organization allow administrators to group members, assign repository access at the team level, use @team mentions in discussions, and manage permissions efficiently across multiple repositories.\n\nA is incorrect because organization profile visibility is not controlled by teams.\n\nC is incorrect because while CODEOWNERS can involve teams for reviews, teams themselves do not auto-assign based on expertise.\n\nD is incorrect because billing is managed at the organization or enterprise level, not per team."
+    },
+    {
+      "id": 47,
+      "topic": "GitHub Features - Gists",
+      "type": "SingleChoice",
+      "questionText": "What is a GitHub Gist?",
+      "options": [
+        "A. A full-featured repository with branching and pull request support.",
+        "B. A simple way to share code snippets, notes, or small files that are backed by a Git repository.",
+        "C. A template for creating new repositories.",
+        "D. A private messaging system between GitHub users."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because Gists are a lightweight way to share code snippets and small files on GitHub. Each Gist is a Git repository that can be forked and cloned, but they are designed for simplicity rather than full project collaboration.\n\nA is incorrect because while Gists are Git repositories, they do not have features like pull requests or branching workflows.\n\nC is incorrect because repository templates are a separate feature from Gists.\n\nD is incorrect because Gists are for sharing code, not private messaging."
+    },
+    {
+      "id": 48,
+      "topic": "GitHub Features - GitHub Wiki",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the Wiki feature in a GitHub repository?",
+      "options": [
+        "A. To host a blog for project updates.",
+        "B. To provide a space for creating and editing project documentation collaboratively using Markdown.",
+        "C. To store large binary files that cannot be tracked in Git.",
+        "D. To manage database schemas for the project."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the GitHub Wiki feature provides a collaborative documentation space where project maintainers and contributors can create and edit pages using Markdown, making it ideal for detailed project documentation.\n\nA is incorrect because wikis are for documentation, not blog hosting.\n\nC is incorrect because storing large binary files is handled by Git LFS (Large File Storage).\n\nD is incorrect because database schema management is not the purpose of the Wiki."
+    },
+    {
+      "id": 49,
+      "topic": "Git Basics - Cloning",
+      "type": "SingleChoice",
+      "questionText": "What does the 'git clone' command do?",
+      "options": [
+        "A. It creates a new empty repository on the remote server.",
+        "B. It creates a local copy of a remote repository, including its full history.",
+        "C. It copies only the latest version of the files without any history.",
+        "D. It creates a fork of the repository under your GitHub account."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git clone' creates a complete local copy of a remote repository, including all branches, commits, and history, and sets up the remote tracking automatically.\n\nA is incorrect because git clone copies an existing repository; it does not create a new one on the server.\n\nC is incorrect because git clone downloads the full history, not just the latest version (though shallow clones are possible with --depth).\n\nD is incorrect because forking is a GitHub feature done through the web interface, not the git clone command."
+    },
+    {
+      "id": 50,
+      "topic": "GitHub Actions - Environment variables",
+      "type": "SingleChoice",
+      "questionText": "How can you set environment variables that are available to all steps in a GitHub Actions workflow job?",
+      "options": [
+        "A. Define them in the repository's README file.",
+        "B. Use the 'env' key at the workflow, job, or step level in the workflow YAML file.",
+        "C. Pass them as command-line arguments when triggering the workflow.",
+        "D. Store them in a .env file in the repository root."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the 'env' key in a GitHub Actions workflow YAML file can be set at the workflow level (available to all jobs), job level (available to all steps in that job), or step level (available only to that step).\n\nA is incorrect because the README is documentation, not a configuration mechanism for workflows.\n\nC is incorrect because workflow triggers do not accept arbitrary command-line arguments for environment variables.\n\nD is incorrect because GitHub Actions does not automatically read .env files; environment variables must be defined in the workflow file or as secrets."
+    },
+    {
+      "id": 51,
+      "topic": "GitHub Features - Milestones",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of milestones in a GitHub repository?",
+      "options": [
+        "A. To mark specific commits as release candidates.",
+        "B. To group issues and pull requests into defined goals with optional due dates, tracking progress toward completion.",
+        "C. To automatically merge pull requests when a deadline is reached.",
+        "D. To define the testing phases of the project."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because milestones group issues and pull requests together to track progress toward a goal (such as a release or sprint), optionally with a due date and completion percentage.\n\nA is incorrect because marking commits is done with tags, not milestones.\n\nC is incorrect because milestones do not automatically merge pull requests.\n\nD is incorrect because milestones are general-purpose grouping tools, not specific to testing phases."
+    },
+    {
+      "id": 52,
+      "topic": "GitHub Administration - Audit log",
+      "type": "SingleChoice",
+      "questionText": "What does the audit log in a GitHub organization provide?",
+      "options": [
+        "A. A log of all commits made to repositories in the organization.",
+        "B. A record of administrative and security-related activities such as member changes, permission updates, and repository settings modifications.",
+        "C. A list of all pull requests merged in the last 30 days.",
+        "D. A report of code scanning vulnerabilities."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because the audit log records administrative and security events across the organization, including member additions/removals, permission changes, repository creation/deletion, webhook changes, and authentication events.\n\nA is incorrect because commit history is available in individual repositories, not the audit log.\n\nC is incorrect because merged pull requests are tracked per repository, not in the audit log.\n\nD is incorrect because code scanning results are in the Security tab, not the audit log."
+    },
+    {
+      "id": 53,
+      "topic": "Git Basics - Git reset",
+      "type": "SingleChoice",
+      "questionText": "What does 'git reset --soft HEAD~1' do?",
+      "options": [
+        "A. It deletes the last commit and all its changes permanently.",
+        "B. It undoes the last commit but keeps the changes staged in the index.",
+        "C. It undoes the last commit and unstages the changes, leaving them in the working directory.",
+        "D. It reverts the last commit by creating a new commit that undoes the changes."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git reset --soft HEAD~1' moves the HEAD pointer back one commit but keeps all changes from that commit in the staging area, ready to be recommitted.\n\nA is incorrect because --soft preserves changes; --hard would discard them.\n\nC is incorrect because that describes --mixed (the default), not --soft.\n\nD is incorrect because creating a new reverting commit is what 'git revert' does, not 'git reset'."
+    },
+    {
+      "id": 54,
+      "topic": "GitHub Features - Repository templates",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of a template repository on GitHub?",
+      "options": [
+        "A. To create a read-only snapshot of a repository.",
+        "B. To allow users to generate new repositories with the same directory structure, files, and configuration without inheriting the commit history.",
+        "C. To automatically apply branch protection rules to all new repositories.",
+        "D. To share GitHub Actions workflows with other repositories."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because template repositories provide a starting point for new projects. When a user creates a repository from a template, they get the same files and structure but start with a clean commit history.\n\nA is incorrect because template repositories are not read-only snapshots; they are used to generate new repositories.\n\nC is incorrect because branch protection rules are not inherited from template repositories.\n\nD is incorrect because while templates can include workflow files, their primary purpose is broader than just sharing workflows."
+    },
+    {
+      "id": 55,
+      "topic": "GitHub Features - GitHub Packages",
+      "type": "SingleChoice",
+      "questionText": "What is GitHub Packages?",
+      "options": [
+        "A. A tool for managing Git submodules.",
+        "B. A package hosting service that allows you to publish and consume software packages alongside your source code.",
+        "C. A service for packaging applications into Docker containers.",
+        "D. A feature for bundling multiple repositories into a single download."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Packages is a software package hosting service integrated with GitHub that supports multiple package formats including npm, Maven, NuGet, RubyGems, and container images.\n\nA is incorrect because Git submodules are managed through Git commands, not GitHub Packages.\n\nC is incorrect because while GitHub Packages can host container images, it supports many other package types and is not exclusively a Docker tool.\n\nD is incorrect because GitHub Packages hosts individual software packages, not repository bundles."
+    },
+    {
+      "id": 56,
+      "topic": "GitHub Administration - Inner source",
+      "type": "SingleChoice",
+      "questionText": "What is the concept of InnerSource as it relates to GitHub?",
+      "options": [
+        "A. Hosting private source code on GitHub's internal servers.",
+        "B. Applying open-source collaboration practices to internal company projects, allowing employees across teams to contribute.",
+        "C. Encrypting all source code within an organization.",
+        "D. Restricting repository access to a single team within the organization."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because InnerSource is the practice of using open-source development methodologies (such as open collaboration, code review, and transparency) within an organization's private projects, enabling cross-team contributions.\n\nA is incorrect because InnerSource is a methodology, not a hosting location.\n\nC is incorrect because InnerSource is about collaboration practices, not encryption.\n\nD is incorrect because InnerSource encourages broader access and contribution, not restriction to a single team."
+    },
+    {
+      "id": 57,
+      "topic": "GitHub Features - Codespaces billing",
+      "type": "SingleChoice",
+      "questionText": "How is GitHub Codespaces billed?",
+      "options": [
+        "A. A flat monthly fee per user regardless of usage.",
+        "B. Based on compute time (active hours) and storage used, with a free monthly included allowance for personal accounts.",
+        "C. Only based on the number of repositories where Codespaces is enabled.",
+        "D. There is no charge; Codespaces is free for all users."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Codespaces is billed based on compute usage (hours of active Codespace time) and storage (for retained Codespaces), with personal accounts receiving a free monthly allowance of core hours and storage.\n\nA is incorrect because billing is usage-based, not a flat fee.\n\nC is incorrect because billing is based on active usage, not the number of enabled repositories.\n\nD is incorrect because while there is a free tier, usage beyond the allowance incurs charges."
+    },
+    {
+      "id": 58,
+      "topic": "GitHub Actions - Reusable workflows",
+      "type": "SingleChoice",
+      "questionText": "What is the benefit of reusable workflows in GitHub Actions?",
+      "options": [
+        "A. They allow workflows to run on multiple operating systems simultaneously.",
+        "B. They allow you to define a workflow once and call it from other workflows, reducing duplication and improving maintainability.",
+        "C. They automatically retry failed jobs without manual intervention.",
+        "D. They allow workflows to be shared across different Git hosting platforms."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because reusable workflows allow you to define a workflow in one location and reference it from other workflows using the 'uses' keyword, reducing code duplication and making CI/CD pipelines easier to maintain.\n\nA is incorrect because running on multiple operating systems is handled by the matrix strategy, not reusable workflows.\n\nC is incorrect because job retries are a separate configuration option.\n\nD is incorrect because reusable workflows are specific to GitHub Actions and do not work across different platforms."
+    },
+    {
+      "id": 59,
+      "topic": "GitHub Features - Markdown",
+      "type": "MultipleChoice",
+      "questionText": "Which of the following Markdown features are supported in GitHub-Flavored Markdown (GFM)? (Choose two.)",
+      "options": [
+        "A. Task lists with checkboxes using - [ ] and - [x] syntax.",
+        "B. Embedded JavaScript code execution.",
+        "C. Tables using pipe (|) and dash (-) characters.",
+        "D. Automatic PDF generation from Markdown files."
+      ],
+      "correctAnswers": ["A", "C"],
+      "explanation": "A and C are correct. GitHub-Flavored Markdown extends standard Markdown with features like task lists (using checkbox syntax) and tables (using pipes and dashes), among other extensions like syntax-highlighted code blocks and autolinks.\n\nB is incorrect because GitHub Markdown does not execute JavaScript code for security reasons.\n\nD is incorrect because GitHub does not automatically generate PDFs from Markdown files."
+    },
+    {
+      "id": 60,
+      "topic": "GitHub Administration - Enterprise accounts",
+      "type": "SingleChoice",
+      "questionText": "What additional capability does a GitHub Enterprise account provide compared to a GitHub organization?",
+      "options": [
+        "A. The ability to create public repositories.",
+        "B. Centralized policy management and billing across multiple organizations.",
+        "C. Access to GitHub Actions runners.",
+        "D. The ability to use pull requests for code review."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Enterprise accounts allow enterprises to manage multiple organizations under a single umbrella with centralized policies (such as SAML SSO, audit logs), unified billing, and enterprise-wide security settings.\n\nA is incorrect because public repositories can be created with any GitHub plan.\n\nC is incorrect because GitHub Actions runners are available to organizations and individual accounts, not exclusive to Enterprise.\n\nD is incorrect because pull requests are a core GitHub feature available at all plan levels."
+    },
+    {
+      "id": 61,
+      "topic": "GitHub Features - GitHub Projects views",
+      "type": "SingleChoice",
+      "questionText": "Which views are available in the new GitHub Projects (Projects v2)?",
+      "options": [
+        "A. Only Kanban board view.",
+        "B. Board, table, and roadmap views.",
+        "C. Only table and calendar views.",
+        "D. Only Gantt chart view."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because GitHub Projects (v2) supports multiple view types including Board (Kanban-style), Table (spreadsheet-style), and Roadmap (timeline-based) views, allowing flexible project management.\n\nA is incorrect because Projects v2 offers more than just a board view.\n\nC is incorrect because the views are board, table, and roadmap (not calendar).\n\nD is incorrect because Gantt charts are not a native view type in GitHub Projects."
+    },
+    {
+      "id": 62,
+      "topic": "Git Basics - Git switch",
+      "type": "SingleChoice",
+      "questionText": "What is the purpose of the 'git switch' command introduced in Git 2.23?",
+      "options": [
+        "A. To switch between different Git configurations.",
+        "B. To switch branches, replacing the branch-switching functionality of 'git checkout'.",
+        "C. To toggle between staged and unstaged changes.",
+        "D. To switch between remote repositories."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "B is correct because 'git switch' was introduced in Git 2.23 to provide a clearer, more focused command for switching branches, separating this functionality from the overloaded 'git checkout' command.\n\nA is incorrect because Git configurations are managed with 'git config', not 'git switch'.\n\nC is incorrect because staging changes is managed with 'git add' and 'git restore', not 'git switch'.\n\nD is incorrect because switching between remotes is managed with 'git remote', not 'git switch'."
     }
   ]
 }

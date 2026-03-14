@@ -361,6 +361,314 @@
       "options": ["A. Increase the number of partitions.", "B. Coalesce the DataFrame to reduce the number of partitions.", "C. Add more columns to the DataFrame.", "D. Disable caching."],
       "correctAnswers": ["B"],
       "explanation": "Too many small partitions create scheduling overhead. Using coalesce reduces the number of partitions without a full shuffle, improving performance. Increasing partitions would worsen the problem. Adding columns does not address partition count. Disabling caching is unrelated to partition overhead."
+    },
+    {
+      "id": 41,
+      "topic": "Delta Lake - Schema Evolution",
+      "type": "SingleChoice",
+      "questionText": "You receive a new data feed that includes additional columns not present in your existing Delta table. You want to automatically add these columns during the write operation. Which option should you set?",
+      "options": [
+        "A. .option('overwriteSchema', 'true')",
+        "B. .option('mergeSchema', 'true')",
+        "C. .option('schemaEvolution', 'enabled')",
+        "D. .option('ignoreSchema', 'true')"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Setting mergeSchema to true allows Delta Lake to add new columns from the incoming DataFrame to the existing table schema without replacing the entire schema. Existing data in old columns is preserved.\n\nWhy the others are wrong:\n- A. overwriteSchema replaces the entire schema, which could remove existing columns and make old data unreadable.\n- C. schemaEvolution is not a valid Delta Lake write option.\n- D. ignoreSchema is not a valid Delta Lake option."
+    },
+    {
+      "id": 42,
+      "topic": "Data Pipelines - Copy activity performance",
+      "type": "SingleChoice",
+      "questionText": "Your data pipeline's Copy activity is transferring 100 GB from Azure SQL Database to a lakehouse but taking over 2 hours. What configuration should you adjust to improve performance?",
+      "options": [
+        "A. Increase the degree of copy parallelism (DIU/parallel copies) in the Copy activity settings",
+        "B. Reduce the column count in the source table",
+        "C. Switch the destination to CSV format",
+        "D. Use a lower Fabric capacity SKU"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Increasing the degree of copy parallelism (Data Integration Units or parallel copies) allows the Copy activity to use more resources for concurrent data transfer, significantly improving throughput for large data volumes.\n\nWhy the others are wrong:\n- B. Reducing columns may reduce data volume but doesn't address transfer performance configuration; you may need all columns.\n- C. CSV format is less efficient than Parquet/Delta for both storage and query performance.\n- D. A lower capacity SKU would reduce available resources, making performance worse."
+    },
+    {
+      "id": 43,
+      "topic": "Spark - Structured Streaming",
+      "type": "SingleChoice",
+      "questionText": "You need to continuously process data arriving in a lakehouse Files section and write the results to a Delta table. Which Spark API should you use?",
+      "options": [
+        "A. Spark Structured Streaming with readStream and writeStream",
+        "B. Batch processing with spark.read and spark.write",
+        "C. Pandas DataFrame operations",
+        "D. SQL INSERT statements in a loop"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Spark Structured Streaming provides exactly-once processing guarantees for continuously arriving data. readStream monitors the input location and writeStream outputs to a Delta table with checkpointing to track progress.\n\nWhy the others are wrong:\n- B. Batch processing processes data at a point in time and must be re-run to capture new data; it doesn't continuously monitor for new arrivals.\n- C. Pandas DataFrames are single-node and don't support streaming; they're unsuitable for continuous processing of large data.\n- D. SQL INSERT in a loop is inefficient, doesn't provide streaming semantics, and lacks exactly-once guarantees."
+    },
+    {
+      "id": 44,
+      "topic": "Eventstream - Real-time processing",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO destinations can a Microsoft Fabric Eventstream route real-time data to? Each correct answer presents a complete solution.",
+      "options": [
+        "A. A lakehouse Delta table",
+        "B. A KQL database",
+        "C. An on-premises SQL Server directly",
+        "D. A Power BI Desktop file"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Eventstreams can route real-time data to Fabric lakehouses (as Delta tables) and KQL databases for real-time analytics. These are native Fabric destinations that support streaming ingestion.\n\nWhy the others are wrong:\n- C. Eventstream cannot directly route data to on-premises SQL Server; it targets Fabric-native destinations.\n- D. Power BI Desktop files (.pbix) are local files, not streaming destinations."
+    },
+    {
+      "id": 45,
+      "topic": "Lakehouses - Data engineering workflow",
+      "type": "SingleChoice",
+      "questionText": "You are implementing a medallion architecture in Fabric. You need to cleanse and validate data from the bronze layer and write it to the silver layer. Which tool is most appropriate?",
+      "options": [
+        "A. A Spark notebook with PySpark transformations",
+        "B. The SQL analytics endpoint of the lakehouse",
+        "C. Power BI Desktop",
+        "D. OneLake shortcuts"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Spark notebooks provide full programmatic control for data cleansing, validation, deduplication, and transformation operations using PySpark, Scala, or Spark SQL. They can read from bronze tables and write cleansed data to silver tables.\n\nWhy the others are wrong:\n- B. The SQL analytics endpoint is read-only and cannot write data to create silver layer tables.\n- C. Power BI Desktop is for data visualization and modeling, not ETL data engineering.\n- D. OneLake shortcuts create references to data in other locations but don't perform data transformations."
+    },
+    {
+      "id": 46,
+      "topic": "Data Pipelines - Variables and expressions",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric data pipeline, you need to dynamically generate a file name that includes today's date in the format 'data_20260313.parquet'. Which approach should you use?",
+      "options": [
+        "A. Use a pipeline expression: @concat('data_', formatDateTime(utcNow(), 'yyyyMMdd'), '.parquet')",
+        "B. Hardcode the filename as 'data_today.parquet'",
+        "C. Use a Spark notebook to generate the filename",
+        "D. Manually update the filename before each pipeline run"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Pipeline expressions with @concat and formatDateTime dynamically generate the filename at runtime. utcNow() provides the current date, and formatDateTime formats it as 'yyyyMMdd'. This is evaluated natively within the pipeline engine.\n\nWhy the others are wrong:\n- B. Hardcoding loses the dynamic date component, creating the same filename every day.\n- C. Using a notebook adds unnecessary overhead for simple string formatting that pipeline expressions handle natively.\n- D. Manual updates are not scalable for automated pipelines."
+    },
+    {
+      "id": 47,
+      "topic": "Spark - Data quality checks",
+      "type": "SingleChoice",
+      "questionText": "You want to enforce that a specific column in a Delta table never contains null values. Which Delta Lake feature should you use?",
+      "options": [
+        "A. CHECK constraints (Delta Lake constraints)",
+        "B. NOT NULL constraint via ALTER TABLE ADD CONSTRAINT",
+        "C. A pre-write validation function in the application",
+        "D. Post-write audit queries"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Delta Lake supports NOT NULL constraints that can be added via ALTER TABLE ALTER COLUMN SET NOT NULL. Any attempt to write null values to that column will fail with an error, enforcing data quality at the storage layer.\n\nWhy the others are wrong:\n- A. CHECK constraints validate arbitrary boolean expressions but NOT NULL is handled by the specific NOT NULL constraint syntax.\n- C. Application-level validation can be bypassed and doesn't protect against all write paths.\n- D. Post-write audits detect issues after the fact but don't prevent bad data from being written."
+    },
+    {
+      "id": 48,
+      "topic": "OneLake - Mirroring",
+      "type": "SingleChoice",
+      "questionText": "You want to replicate data from Azure SQL Database into OneLake as Delta tables with near-real-time synchronization. Which Fabric feature should you use?",
+      "options": [
+        "A. OneLake shortcut to Azure SQL Database",
+        "B. Mirrored database for Azure SQL Database",
+        "C. Data pipeline with hourly schedule",
+        "D. Dataflow Gen2 with full refresh"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Mirrored databases in Fabric replicate data from Azure SQL Database (and other supported sources) into OneLake as Delta tables. The replication is near-real-time and continuous, using change data capture to keep data synchronized.\n\nWhy the others are wrong:\n- A. OneLake shortcuts reference data in other storage locations but cannot create shortcuts directly to Azure SQL Database tables.\n- C. A pipeline with hourly schedule introduces latency and performs batch loads, not near-real-time sync.\n- D. Dataflow Gen2 with full refresh is batch-oriented and reprocesses all data each time."
+    },
+    {
+      "id": 49,
+      "topic": "Spark - Write modes",
+      "type": "SingleChoice",
+      "questionText": "You have a daily batch process that generates a complete replacement dataset. You want to replace all data in a Delta table while preserving the table schema and history. Which write mode should you use?",
+      "options": [
+        "A. df.write.mode('overwrite').saveAsTable('target_table')",
+        "B. df.write.mode('append').saveAsTable('target_table')",
+        "C. df.write.mode('error').saveAsTable('target_table')",
+        "D. df.write.mode('ignore').saveAsTable('target_table')"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Overwrite mode replaces all existing data in the table with the new dataset. Delta Lake's transaction log preserves the history, enabling time travel to previous versions even after an overwrite.\n\nWhy the others are wrong:\n- B. Append mode adds new data without removing existing data, causing duplicates when loading a complete replacement dataset.\n- C. Error mode (errorIfExists) fails if the table already exists, preventing the write entirely.\n- D. Ignore mode silently skips the write if the table already exists, leaving old data in place."
+    },
+    {
+      "id": 50,
+      "topic": "Data Pipelines - ForEach activity",
+      "type": "SingleChoice",
+      "questionText": "You need a data pipeline that processes 20 different source files in parallel, with each file going through the same transformation logic. Which activity pattern should you use?",
+      "options": [
+        "A. ForEach activity with isSequential set to false",
+        "B. 20 separate Copy activities in parallel",
+        "C. A single Copy activity with wildcard path",
+        "D. A Switch activity for each file"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The ForEach activity iterates over a collection (the list of 20 files) and executes inner activities for each item. Setting isSequential to false enables parallel execution, processing multiple files simultaneously.\n\nWhy the others are wrong:\n- B. Creating 20 separate activities is not scalable and makes maintenance difficult.\n- C. A wildcard Copy activity copies all matching files but doesn't allow per-file transformation logic.\n- D. Switch activities route execution based on conditions, not for iterating over a collection."
+    },
+    {
+      "id": 51,
+      "topic": "Delta Lake - Time Travel restore",
+      "type": "SingleChoice",
+      "questionText": "A data engineer accidentally deleted important rows from a Delta table 2 hours ago. The table has many versions in its history. What is the fastest way to recover the deleted data?",
+      "options": [
+        "A. RESTORE TABLE target_table TO TIMESTAMP AS OF '2026-03-13T10:00:00'",
+        "B. Reload the data from the original source system",
+        "C. Query the previous version and manually re-insert the rows",
+        "D. Contact Microsoft support to recover the data"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The RESTORE TABLE command restores the entire table to a previous version or timestamp. This is the fastest recovery method as it leverages Delta Lake's transaction log and previous data file versions stored on disk.\n\nWhy the others are wrong:\n- B. Reloading from source is slower, may not be possible if the source has also changed, and requires rebuilding any transformations.\n- C. Querying the previous version and re-inserting is possible but slower and more error-prone than a full RESTORE.\n- D. Microsoft support cannot recover individual Delta table versions; this is handled by Delta Lake's built-in time travel."
+    },
+    {
+      "id": 52,
+      "topic": "Spark - Notebook collaboration",
+      "type": "SingleChoice",
+      "questionText": "Multiple data engineers need to work on the same Fabric notebook simultaneously. Which feature supports this?",
+      "options": [
+        "A. Notebook co-authoring that allows multiple users to edit the same notebook in real-time",
+        "B. Each engineer must create their own copy of the notebook",
+        "C. Only one user can open a notebook at a time",
+        "D. Engineers must use git merge to combine their changes"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Fabric notebooks support co-authoring, allowing multiple users to edit the same notebook simultaneously with real-time visibility of each other's changes, similar to collaborative editing in Office 365 apps.\n\nWhy the others are wrong:\n- B. Creating separate copies leads to version divergence and merge conflicts.\n- C. Fabric notebooks are not limited to single-user access.\n- D. While git integration exists, real-time co-authoring is the primary collaboration feature for simultaneous editing."
+    },
+    {
+      "id": 53,
+      "topic": "Data Ingestion - Incremental loading",
+      "type": "SingleChoice",
+      "questionText": "You are building a pipeline to incrementally load data from a source SQL table into a lakehouse Delta table. The source has a LastModifiedDate column. What pattern should you implement?",
+      "options": [
+        "A. Store a high watermark (last processed timestamp) and query only rows where LastModifiedDate > watermark",
+        "B. Load all rows every time and use MERGE to handle duplicates",
+        "C. Delete all data in the target and reload completely",
+        "D. Use a random sampling of rows to load"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. The high watermark pattern tracks the last processed timestamp and only fetches rows modified since that point. This minimizes data transfer, reduces processing time, and efficiently captures incremental changes.\n\nWhy the others are wrong:\n- B. Loading all rows every time defeats the purpose of incremental loading and wastes resources on unchanged data.\n- C. Full delete and reload is the opposite of incremental loading and wastes resources.\n- D. Random sampling would miss data and provide incomplete results."
+    },
+    {
+      "id": 54,
+      "topic": "OneLake - Fabric capacity and compute",
+      "type": "SingleChoice",
+      "questionText": "What happens to Spark notebook execution when a Fabric capacity is paused?",
+      "options": [
+        "A. Running notebooks continue but new ones cannot start",
+        "B. All Spark sessions are terminated and no notebooks can run until the capacity is resumed",
+        "C. Notebooks automatically switch to a free tier",
+        "D. Data in OneLake becomes inaccessible but notebooks run on shared compute"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. When a Fabric capacity is paused, all active compute operations (including Spark sessions) are terminated. No new compute workloads can start until the capacity is resumed. Data in OneLake remains stored but cannot be actively processed.\n\nWhy the others are wrong:\n- A. Running workloads do not continue; they are terminated when capacity is paused.\n- C. There is no automatic fallback to a free tier; capacity must be resumed for compute.\n- D. OneLake data remains stored (not inaccessible for storage purposes), but no compute operations can run."
+    },
+    {
+      "id": 55,
+      "topic": "Spark - Window functions",
+      "type": "SingleChoice",
+      "questionText": "You need to calculate a running total of daily sales ordered by date within each region using PySpark. Which approach should you use?",
+      "options": [
+        "A. Use a Window function with partitionBy('region').orderBy('date') and sum over a rows-between unbounded preceding and current row frame",
+        "B. Use groupBy('region').agg(sum('sales'))",
+        "C. Use a self-join on the table",
+        "D. Use collect_list and a UDF"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Window functions with partitionBy and orderBy provide the ability to calculate running aggregations (running total) within each partition (region) ordered by date. The rows-between frame specifies the window from the first row to the current row.\n\nWhy the others are wrong:\n- B. groupBy produces a single aggregated row per region, not a running total across dates.\n- C. Self-joins for running totals are complex, error-prone, and inefficient compared to window functions.\n- D. collect_list with a UDF is less performant and more complex than native window functions."
+    },
+    {
+      "id": 56,
+      "topic": "Data Pipelines - Monitoring and alerts",
+      "type": "MultipleChoice",
+      "questionText": "Which TWO methods can you use to monitor Fabric data pipeline execution? Each correct answer presents a complete solution.",
+      "options": [
+        "A. The Monitoring hub in the Fabric portal showing pipeline run history and activity status",
+        "B. Configuring alerts in the pipeline to send email notifications on failure",
+        "C. Checking the Power BI admin portal",
+        "D. Reviewing the lakehouse's Delta table transaction log"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. The Monitoring hub provides a centralized view of all pipeline runs with detailed status, duration, and error information. Email alerts can be configured to proactively notify when pipelines fail.\n\nWhy the others are wrong:\n- C. The Power BI admin portal manages tenant settings, not pipeline execution monitoring.\n- D. Delta transaction logs show table-level operations, not pipeline orchestration status."
+    },
+    {
+      "id": 57,
+      "topic": "Delta Lake - Change Data Feed",
+      "type": "SingleChoice",
+      "questionText": "You need to track all row-level changes (inserts, updates, deletes) made to a Delta table so downstream consumers can process only the changes. Which Delta Lake feature should you enable?",
+      "options": [
+        "A. Change Data Feed (CDF)",
+        "B. DESCRIBE HISTORY",
+        "C. Time travel queries",
+        "D. VACUUM"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Change Data Feed (CDF) records row-level changes with metadata columns (_change_type, _commit_version, _commit_timestamp). Downstream consumers can read only the changed rows since their last processing point.\n\nWhy the others are wrong:\n- B. DESCRIBE HISTORY shows table-level commit history but not individual row changes.\n- C. Time travel queries return the full table state at a specific version, not just the changed rows.\n- D. VACUUM removes old files and is unrelated to change tracking."
+    },
+    {
+      "id": 58,
+      "topic": "Spark - Handling slowly changing dimensions",
+      "type": "SingleChoice",
+      "questionText": "You are implementing SCD Type 2 in a Fabric lakehouse using Spark. You need to track the full history of dimension changes with effective dates. Which operation should you use?",
+      "options": [
+        "A. MERGE INTO with WHEN MATCHED to expire current rows and WHEN NOT MATCHED to insert new rows",
+        "B. Simple INSERT OVERWRITE to replace all dimension data",
+        "C. UPDATE statements to change existing rows",
+        "D. DELETE and INSERT in separate transactions"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. MERGE INTO can handle SCD Type 2 by using WHEN MATCHED to update the end date and current flag of existing rows, and WHEN NOT MATCHED BY TARGET to insert new rows with effective start dates. This maintains the full change history atomically.\n\nWhy the others are wrong:\n- B. INSERT OVERWRITE replaces all data, losing historical records.\n- C. UPDATE alone cannot insert new history rows for changed records.\n- D. Separate DELETE and INSERT transactions are not atomic and can result in data inconsistency."
+    },
+    {
+      "id": 59,
+      "topic": "OneLake - Git integration",
+      "type": "SingleChoice",
+      "questionText": "Your team wants to version-control Fabric workspace items using Azure DevOps. Which feature enables this?",
+      "options": [
+        "A. Fabric git integration that syncs workspace items to an Azure DevOps Git repository",
+        "B. Manual export and import of workspace items",
+        "C. Power BI deployment pipelines only",
+        "D. Azure Blob Storage versioning"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Fabric git integration connects a workspace to an Azure DevOps Git (or GitHub) repository. Changes to workspace items (notebooks, pipelines, semantic models) are synced to the repository, enabling version control, branching, pull requests, and code review.\n\nWhy the others are wrong:\n- B. Manual export/import is error-prone and lacks the automation and version tracking of git integration.\n- C. Deployment pipelines manage stage promotion but don't provide full version control with branching and history.\n- D. Azure Blob Storage versioning tracks blob versions, not Fabric workspace item versions."
+    },
+    {
+      "id": 60,
+      "topic": "Spark - Data type handling",
+      "type": "SingleChoice",
+      "questionText": "You are reading a CSV file in a Fabric notebook and notice that all columns are imported as string type. You want Spark to automatically detect the correct data types. What option should you set?",
+      "options": [
+        "A. .option('inferSchema', 'true')",
+        "B. .option('header', 'true')",
+        "C. .option('autoType', 'true')",
+        "D. .option('delimiter', ',')"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Setting inferSchema to true tells Spark to read a sample of the data and automatically detect the appropriate data types (integer, double, date, string, etc.) for each column.\n\nWhy the others are wrong:\n- B. header=true treats the first row as column names, not data type detection.\n- C. autoType is not a valid Spark CSV read option.\n- D. delimiter specifies the column separator character, not data type inference."
+    },
+    {
+      "id": 61,
+      "topic": "Lakehouses - Cross-workspace access",
+      "type": "SingleChoice",
+      "questionText": "A data engineer in Workspace A needs to read a Delta table from a lakehouse in Workspace B without copying the data. What should they use?",
+      "options": [
+        "A. A OneLake shortcut in Workspace A pointing to the lakehouse in Workspace B",
+        "B. A data pipeline to copy data between workspaces",
+        "C. A direct JDBC connection to the other workspace",
+        "D. Export the table to CSV and share via email"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. OneLake shortcuts can reference data across workspaces within the same tenant. Creating a shortcut in Workspace A to the lakehouse in Workspace B provides seamless read access without data duplication.\n\nWhy the others are wrong:\n- B. Copying data creates duplication and requires ongoing synchronization.\n- C. JDBC connections are not the standard mechanism for cross-workspace data access in Fabric.\n- D. Exporting to CSV is manual, loses data types, and is not scalable."
+    },
+    {
+      "id": 62,
+      "topic": "Data Pipelines - Conditional logic",
+      "type": "SingleChoice",
+      "questionText": "In a Fabric data pipeline, you need to execute different activities based on whether a source file exists or not. Which activity combination should you use?",
+      "options": [
+        "A. Get Metadata activity to check file existence, followed by an If Condition activity to branch logic",
+        "B. A Try-Catch activity block",
+        "C. A ForEach activity with a single item",
+        "D. A Web activity to call a REST API"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Get Metadata retrieves information about a dataset (including whether it exists). The If Condition activity evaluates an expression based on the metadata output and branches to different activities accordingly.\n\nWhy the others are wrong:\n- B. Try-Catch is not a native activity type in Fabric data pipelines; error handling uses activity failure paths.\n- C. ForEach iterates over collections; it doesn't provide conditional branching.\n- D. A Web activity calls external endpoints but doesn't inherently check file existence in Fabric storage."
     }
   ]
 }

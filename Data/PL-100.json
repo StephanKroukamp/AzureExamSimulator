@@ -564,6 +564,356 @@
       ],
       "correctAnswers": ["A"],
       "explanation": "Correct: A. The formatDateTime() function with the 'yyyy' format string extracts the year from a date value as a string. This is the standard and reliable approach for date part extraction in Power Automate.\n\nWhy the others are wrong:\n- B. substring() might work if the date is always in a specific string format, but it is fragile and not designed for date manipulation.\n- C. While year() exists in some expression languages, Power Automate expressions do not have a standalone year() function.\n- D. split() on a hyphen assumes a specific date format and is unreliable for date manipulation."
+    },
+    {
+      "id": 41,
+      "topic": "Canvas Apps - Delegation",
+      "type": "SingleChoice",
+      "questionText": "You are using a Gallery control in a canvas app connected to a Dataverse table with over 50,000 records. Which function is delegable when filtering data from Dataverse?",
+      "options": [
+        "A. Search()",
+        "B. Filter() with simple comparison operators",
+        "C. CountRows()",
+        "D. Last()"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Filter() with simple comparison operators (=, <>, <, >, <=, >=) and logical operators (And, Or) is delegable to Dataverse, allowing the server to process the query and return only matching records.\n\nWhy the others are wrong:\n- A. Search() is delegable for Dataverse and SharePoint, but Filter() with comparison operators is the most broadly delegable standard approach.\n- C. CountRows() is not delegable for most data sources and will only count records up to the delegation limit.\n- D. Last() is not delegable and only operates on locally loaded data."
+    },
+    {
+      "id": 42,
+      "topic": "Model-Driven Apps - Business Rules",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically set the Priority field to 'High' when the Estimated Revenue field is greater than $100,000 in a model-driven app. What should you use?",
+      "options": [
+        "A. A JavaScript web resource.",
+        "B. A business rule with a condition and Set Field Value action.",
+        "C. A canvas app embedded in the form.",
+        "D. A Power Automate cloud flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A business rule can evaluate conditions (Estimated Revenue > 100,000) and perform actions like Set Field Value (Priority = High) without code. Business rules run on both the client (form) and server side.\n\nWhy the others are wrong:\n- A. JavaScript web resources can accomplish this but are unnecessary complexity for simple conditional logic that business rules handle natively.\n- C. An embedded canvas app is not the appropriate tool for field-level conditional logic.\n- D. A cloud flow runs asynchronously and would not provide the immediate form-level response users expect."
+    },
+    {
+      "id": 43,
+      "topic": "Dataverse - Choice Columns",
+      "type": "SingleChoice",
+      "questionText": "You need to create a column in Dataverse where users can select multiple values from a predefined list, such as selecting multiple product categories. Which column type should you use?",
+      "options": [
+        "A. Lookup column.",
+        "B. Choices (multi-select option set) column.",
+        "C. Single line of text column.",
+        "D. Yes/No (Boolean) column."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Choices (multi-select option set) column allows users to select one or more values from a predefined list, which is exactly what is needed for selecting multiple product categories.\n\nWhy the others are wrong:\n- A. A lookup column references another table and only allows single selection by default; for multi-select you would need a many-to-many relationship.\n- C. A single line of text does not provide a predefined list or structured multi-select capability.\n- D. A Yes/No column only supports two states and cannot represent multiple categories."
+    },
+    {
+      "id": 44,
+      "topic": "Power Automate Flows - Approvals",
+      "type": "SingleChoice",
+      "questionText": "You need to create an approval workflow where a document must be approved by both a manager AND a department head before proceeding. Which approval type should you use?",
+      "options": [
+        "A. Approve/Reject - First to respond.",
+        "B. Approve/Reject - Everyone must approve.",
+        "C. Custom Responses - Wait for one response.",
+        "D. Approve/Reject - First to respond, with two separate approval actions."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. 'Approve/Reject - Everyone must approve' sends the approval to all specified approvers and waits until every approver responds. The approval only proceeds if all approvers approve.\n\nWhy the others are wrong:\n- A. 'First to respond' completes as soon as any one approver responds, not requiring all approvers.\n- C. 'Custom Responses - Wait for one response' waits for only one response with custom options.\n- D. Two separate 'First to respond' actions would work sequentially but is not the standard pattern for parallel all-must-approve scenarios."
+    },
+    {
+      "id": 45,
+      "topic": "Canvas Apps - Collections",
+      "type": "SingleChoice",
+      "questionText": "In a canvas app, you want to store data temporarily in memory for use across multiple screens without repeatedly querying the data source. What should you use?",
+      "options": [
+        "A. A global variable set with Set().",
+        "B. A collection created with ClearCollect() or Collect().",
+        "C. A context variable set with UpdateContext().",
+        "D. A text input control."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Collections are in-memory tables that can store multiple records and columns, accessible across all screens, making them ideal for caching data from a data source.\n\nWhy the others are wrong:\n- A. A global variable (Set) stores a single value, not a table of records.\n- C. A context variable is scoped to a single screen and cannot be accessed from other screens.\n- D. A text input control is a UI element, not a data storage mechanism."
+    },
+    {
+      "id": 46,
+      "topic": "Model-Driven Apps - Views",
+      "type": "SingleChoice",
+      "questionText": "In a model-driven app, users need to see different subsets of data based on their role. How should you configure this?",
+      "options": [
+        "A. Create separate apps for each role.",
+        "B. Create multiple system views or personal views with appropriate filters.",
+        "C. Export the data to separate Excel files.",
+        "D. Use JavaScript to hide rows."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. System views with appropriate filter criteria can be configured to show different subsets of data. Combined with security roles, this provides role-based data visibility within the same app.\n\nWhy the others are wrong:\n- A. Creating separate apps increases maintenance overhead and is unnecessary when views can filter data.\n- C. Exporting to Excel removes data from the app experience and is not dynamic.\n- D. JavaScript to hide rows is unreliable, not supported, and does not actually secure the data."
+    },
+    {
+      "id": 47,
+      "topic": "Dataverse - Autonumber Columns",
+      "type": "SingleChoice",
+      "questionText": "You need to automatically generate a unique reference number (like 'CASE-0001', 'CASE-0002') for each new record in a Dataverse table. Which column type should you use?",
+      "options": [
+        "A. A whole number column with a business rule.",
+        "B. An autonumber column with a custom format.",
+        "C. A calculated column.",
+        "D. A text column filled by a Power Automate flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Dataverse autonumber columns automatically generate sequential, unique values using configurable formats (prefix, seed value, number of digits) like 'CASE-{SEQNUM:4}' producing CASE-0001, CASE-0002, etc.\n\nWhy the others are wrong:\n- A. A whole number with a business rule cannot reliably generate unique sequential numbers, especially with concurrent record creation.\n- C. Calculated columns derive values from other fields but cannot generate sequential numbers.\n- D. While a flow could set a value, it adds unnecessary complexity and latency compared to the built-in autonumber feature."
+    },
+    {
+      "id": 48,
+      "topic": "Power Automate Flows - Triggers",
+      "type": "MultipleChoice",
+      "questionText": "Which two trigger types are available in Power Automate cloud flows? (Choose two.)",
+      "options": [
+        "A. Automated triggers that respond to events like a new email or record creation.",
+        "B. Scheduled triggers that run at specified intervals.",
+        "C. Voice-activated triggers using a microphone.",
+        "D. Gravity-based triggers using device sensors."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Automated triggers respond to events (new email, record created, file uploaded, etc.) and scheduled triggers run on a recurring schedule (every hour, daily, weekly).\n\nWhy the others are wrong:\n- C. Voice-activated triggers are not a standard Power Automate trigger type.\n- D. Gravity-based triggers do not exist in Power Automate."
+    },
+    {
+      "id": 49,
+      "topic": "Canvas Apps - Responsive Design",
+      "type": "SingleChoice",
+      "questionText": "You are building a canvas app that must work well on both tablets and phones. What feature should you use to ensure the app adapts to different screen sizes?",
+      "options": [
+        "A. Create two completely separate apps.",
+        "B. Use responsive containers and layout properties to adapt to different screen sizes.",
+        "C. Use only fixed-size controls.",
+        "D. Set all controls to be invisible on phones."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Responsive containers (horizontal and vertical containers) and layout properties allow controls to resize and reflow based on available screen space, creating apps that work across device sizes.\n\nWhy the others are wrong:\n- A. Maintaining two apps doubles development and maintenance effort.\n- C. Fixed-size controls do not adapt to different screen sizes.\n- D. Hiding controls on phones removes functionality rather than adapting the layout."
+    },
+    {
+      "id": 50,
+      "topic": "Model-Driven Apps - Dashboards",
+      "type": "SingleChoice",
+      "questionText": "In a model-driven app, which type of dashboard allows users to create their own personalized view of data?",
+      "options": [
+        "A. System dashboard.",
+        "B. Personal dashboard.",
+        "C. Power BI embedded dashboard.",
+        "D. Canvas app dashboard."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Personal dashboards are created by individual users and are only visible to the creator. They allow users to customize their own view of charts, lists, and other components.\n\nWhy the others are wrong:\n- A. System dashboards are created by administrators or customizers and shared with all users who have access; they are not personalized per user.\n- C. Power BI embedded dashboards show Power BI reports but are not the standard personal dashboard mechanism in model-driven apps.\n- D. Canvas app dashboards are embedded canvas apps, not the personal dashboard feature."
+    },
+    {
+      "id": 51,
+      "topic": "Dataverse - Rollup Columns",
+      "type": "SingleChoice",
+      "questionText": "You have an Account table with a one-to-many relationship to an Opportunities table. You need a column on the Account that automatically shows the total value of all related opportunities. Which column type should you use?",
+      "options": [
+        "A. A calculated column.",
+        "B. A rollup column with SUM aggregation.",
+        "C. A currency column updated manually.",
+        "D. A formula column."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A rollup column aggregates data from related records using functions like SUM, COUNT, AVG, MIN, or MAX. A rollup on the Account table that SUMs the value from related Opportunities automatically calculates the total.\n\nWhy the others are wrong:\n- A. Calculated columns derive values from fields on the same record, not from related records.\n- C. Manual updates are error-prone and do not automatically reflect changes in opportunities.\n- D. Formula columns (Power Fx) currently have limited support for cross-table aggregation compared to rollup columns."
+    },
+    {
+      "id": 52,
+      "topic": "Power Automate Flows - Conditions",
+      "type": "SingleChoice",
+      "questionText": "In a Power Automate flow, you need to send different emails based on whether an invoice amount is above or below $5,000. Which control action should you use?",
+      "options": [
+        "A. Apply to each.",
+        "B. Condition (If/Else).",
+        "C. Switch.",
+        "D. Do until."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Condition action evaluates a true/false expression (Invoice Amount > 5000) and branches into Yes and No paths, allowing different actions for each outcome.\n\nWhy the others are wrong:\n- A. Apply to each iterates over an array of items, not for conditional branching.\n- C. Switch evaluates against multiple specific values, not a greater-than/less-than comparison.\n- D. Do until repeats actions until a condition is met, not for simple branching logic."
+    },
+    {
+      "id": 53,
+      "topic": "Canvas Apps - Components",
+      "type": "SingleChoice",
+      "questionText": "You have created a custom header that should appear consistently across 15 screens in your canvas app. What is the best approach to implement this?",
+      "options": [
+        "A. Copy and paste the header controls onto each screen.",
+        "B. Create a component library with the header component and use it on each screen.",
+        "C. Use a gallery control as the header.",
+        "D. Create a separate app for the header."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Component libraries allow you to create reusable UI components. A header component can be designed once and added to all screens, ensuring consistency and making updates propagate to all instances.\n\nWhy the others are wrong:\n- A. Copy-pasting creates 15 independent copies that must be updated individually when changes are needed.\n- C. A gallery is designed for displaying lists of data, not as a static header component.\n- D. A separate app cannot serve as a header within another app."
+    },
+    {
+      "id": 54,
+      "topic": "Dataverse - Security Roles",
+      "type": "SingleChoice",
+      "questionText": "A user needs to be able to read all records in a Dataverse table regardless of ownership, but should only be able to edit records they own. At what access level should the Read privilege be set in the security role?",
+      "options": [
+        "A. User level.",
+        "B. Organization level.",
+        "C. Business Unit level.",
+        "D. None."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Organization-level Read access allows the user to read all records across the entire organization. The Write/Update privilege would remain at User level, restricting editing to records they own.\n\nWhy the others are wrong:\n- A. User-level Read would only allow reading records they own, not all records.\n- C. Business Unit level would only allow reading records owned by users in the same business unit.\n- D. None would prevent the user from reading any records."
+    },
+    {
+      "id": 55,
+      "topic": "Power Automate Flows - Scope Action",
+      "type": "SingleChoice",
+      "questionText": "You want to group multiple actions in a Power Automate flow so that if any action in the group fails, you can run error-handling actions. What should you use?",
+      "options": [
+        "A. A Compose action.",
+        "B. A Scope action with a subsequent Scope configured to run on failure.",
+        "C. A Terminate action.",
+        "D. A Delay action."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Scope actions group multiple actions together. A second Scope configured with 'Run after' set to 'has failed' acts as a catch block, running only when any action in the first Scope fails.\n\nWhy the others are wrong:\n- A. Compose is for data manipulation, not for grouping or error handling.\n- C. Terminate ends the flow entirely rather than handling the error.\n- D. Delay pauses the flow for a specified duration and has no error-handling capability."
+    },
+    {
+      "id": 56,
+      "topic": "Canvas Apps - Galleries",
+      "type": "SingleChoice",
+      "questionText": "You want to display a list of products in a canvas app where each product shows an image, name, and price. Which control is best suited for this?",
+      "options": [
+        "A. A Data Table control.",
+        "B. A Gallery control with a custom template.",
+        "C. A Form control.",
+        "D. A Label control."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. A Gallery control displays a repeating template for each record, allowing you to combine images, labels, and other controls in a rich, customizable layout for each product.\n\nWhy the others are wrong:\n- A. A Data Table displays data in a simple tabular grid format and has limited support for images and custom layouts.\n- C. A Form control is designed for viewing or editing a single record, not displaying a list.\n- D. A Label shows a single text value and cannot display a list of records."
+    },
+    {
+      "id": 57,
+      "topic": "Model-Driven Apps - Charts",
+      "type": "SingleChoice",
+      "questionText": "In a model-driven app, you need to create a chart that shows the count of open cases grouped by priority. Where should you create this chart?",
+      "options": [
+        "A. In Power BI Desktop.",
+        "B. In the chart designer within the model-driven app or solution explorer.",
+        "C. In Excel.",
+        "D. In a canvas app."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Model-driven apps include a built-in chart designer where you can create system charts (or users can create personal charts) that aggregate and visualize Dataverse data directly within the app experience.\n\nWhy the others are wrong:\n- A. Power BI Desktop creates external reports that can be embedded but are not native model-driven app charts.\n- C. Excel is external and does not integrate as a native chart in the model-driven app.\n- D. Canvas apps are separate applications and not the mechanism for model-driven app charts."
+    },
+    {
+      "id": 58,
+      "topic": "Dataverse - Alternate Keys",
+      "type": "SingleChoice",
+      "questionText": "You are integrating an external system with Dataverse and need to upsert (update or create) records based on an external ID rather than the Dataverse GUID. What should you configure?",
+      "options": [
+        "A. A calculated column.",
+        "B. An alternate key on the external ID column.",
+        "C. A rollup column.",
+        "D. A virtual table."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Alternate keys define unique constraints on one or more columns, enabling upsert operations using the alternate key values instead of the primary key GUID. This is essential for integration scenarios where external systems use their own identifiers.\n\nWhy the others are wrong:\n- A. Calculated columns derive values and cannot serve as unique identifiers for upsert.\n- C. Rollup columns aggregate related data and are not used for record identification.\n- D. Virtual tables display external data in Dataverse but do not help with upserting into Dataverse tables."
+    },
+    {
+      "id": 59,
+      "topic": "Power Automate Flows - Environment Variables",
+      "type": "SingleChoice",
+      "questionText": "You have a Power Automate flow that connects to different SharePoint sites in development and production environments. How should you configure the flow to easily switch between sites?",
+      "options": [
+        "A. Hard-code the SharePoint site URL in each action.",
+        "B. Use environment variables to store the SharePoint site URL and reference them in the flow.",
+        "C. Create separate flows for each environment.",
+        "D. Use a text input trigger parameter each time."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Environment variables store configuration values that differ between environments. The flow references the variable, and the value is set per-environment, allowing seamless deployment without modifying the flow.\n\nWhy the others are wrong:\n- A. Hard-coded URLs require modifying the flow for each environment.\n- C. Separate flows double maintenance effort and introduce inconsistency risk.\n- D. A trigger input requires manual entry each run, which is impractical for automated flows."
+    },
+    {
+      "id": 60,
+      "topic": "Canvas Apps - Power Fx",
+      "type": "SingleChoice",
+      "questionText": "In a canvas app, you want to navigate to a details screen and pass the selected record from a gallery to the form on the details screen. Which function and approach should you use?",
+      "options": [
+        "A. Navigate(DetailsScreen, ScreenTransition.None) and use Gallery.Selected on the form.",
+        "B. Launch(DetailsScreen) with the record as a parameter.",
+        "C. Set(SelectedRecord, Gallery.Selected) and then Navigate(DetailsScreen).",
+        "D. Both A and C are valid approaches."
+      ],
+      "correctAnswers": ["D"],
+      "explanation": "Correct: D. Both approaches work. You can use Gallery.Selected directly in the form's Item property on the target screen (approach A), or store the selection in a global variable first and reference it on the target screen (approach C). Both are common patterns.\n\nWhy the others are wrong:\n- A. This is valid but not the only approach.\n- B. Launch() opens an external URL or another app, not a screen within the same app.\n- C. This is valid but not the only approach."
+    },
+    {
+      "id": 61,
+      "topic": "Model-Driven Apps - Form Types",
+      "type": "MultipleChoice",
+      "questionText": "Which two form types are available in model-driven apps? (Choose two.)",
+      "options": [
+        "A. Main form.",
+        "B. Quick create form.",
+        "C. Canvas form.",
+        "D. Gallery form."
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Main forms are the primary data entry forms in model-driven apps. Quick create forms provide a simplified form for rapid data entry, typically appearing as a flyout panel.\n\nWhy the others are wrong:\n- C. Canvas forms exist in canvas apps, not as a form type in model-driven apps (though canvas apps can be embedded).\n- D. Gallery forms do not exist as a form type in model-driven apps."
+    },
+    {
+      "id": 62,
+      "topic": "Dataverse - Data Import",
+      "type": "SingleChoice",
+      "questionText": "You need to import 500 records from an Excel file into a Dataverse table. What is the simplest built-in method?",
+      "options": [
+        "A. Write a custom plug-in.",
+        "B. Use the Import from Excel feature in the Power Apps maker portal.",
+        "C. Type each record manually.",
+        "D. Use Azure Data Factory."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Power Apps maker portal provides a built-in Import from Excel feature that maps Excel columns to Dataverse table columns and imports the data directly. This is the simplest approach for moderate data volumes.\n\nWhy the others are wrong:\n- A. A custom plug-in is over-engineered for a simple data import task.\n- C. Manual data entry for 500 records is extremely time-consuming and error-prone.\n- D. Azure Data Factory is powerful but excessive for a simple 500-record Excel import."
+    },
+    {
+      "id": 63,
+      "topic": "Power Automate Flows - Child Flows",
+      "type": "SingleChoice",
+      "questionText": "You have common logic that needs to be reused across multiple Power Automate cloud flows. What is the recommended approach?",
+      "options": [
+        "A. Copy the common actions into each flow.",
+        "B. Create a child flow (solution-aware) and call it using the 'Run a Child Flow' action.",
+        "C. Use a shared Excel spreadsheet to coordinate flows.",
+        "D. Combine all flows into one large flow."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Child flows encapsulate reusable logic in a separate flow that can be called from parent flows, promoting reuse and easier maintenance. They must be solution-aware to use the 'Run a Child Flow' action.\n\nWhy the others are wrong:\n- A. Copying actions creates multiple copies that must be updated independently.\n- C. An Excel spreadsheet cannot coordinate flow logic.\n- D. A single large flow becomes difficult to maintain and troubleshoot."
+    },
+    {
+      "id": 64,
+      "topic": "Canvas Apps - Offline Capability",
+      "type": "SingleChoice",
+      "questionText": "You need to build a canvas app that field workers can use in areas with intermittent connectivity. How can you enable offline data access?",
+      "options": [
+        "A. Canvas apps cannot work offline.",
+        "B. Use LoadData() and SaveData() functions to cache data locally on the device.",
+        "C. Use a VPN connection.",
+        "D. Download the data to a USB drive."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. LoadData() and SaveData() functions allow canvas apps to store and retrieve data from the local device cache, enabling offline scenarios. Data can be synced when connectivity is restored.\n\nWhy the others are wrong:\n- A. Canvas apps do support offline capabilities using local caching functions.\n- C. A VPN requires network connectivity and does not solve intermittent connectivity issues.\n- D. USB drives are not a supported data access mechanism for canvas apps."
+    },
+    {
+      "id": 65,
+      "topic": "Model-Driven Apps - Timeline Control",
+      "type": "SingleChoice",
+      "questionText": "What does the Timeline control display in a model-driven app form?",
+      "options": [
+        "A. A Gantt chart of project tasks.",
+        "B. A chronological view of activities (notes, emails, phone calls, appointments) related to the record.",
+        "C. A version history of the record's changes.",
+        "D. A calendar view of upcoming events."
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The Timeline control shows a chronological list of related activities including notes, posts, emails, phone calls, appointments, and tasks associated with the current record, providing a communication history.\n\nWhy the others are wrong:\n- A. Gantt charts are not part of the Timeline control; they are used in project management tools.\n- C. Record change history is accessed through audit logs, not the Timeline control.\n- D. Calendar views are separate from the Timeline control, which shows past and current activities."
     }
   ]
 }

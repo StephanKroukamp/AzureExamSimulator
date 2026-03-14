@@ -561,6 +561,314 @@
       ],
       "correctAnswers": ["B"],
       "explanation": "Correct: B. Counterfactual what-if analysis generates examples showing the minimal feature changes needed to change a model's prediction. For a denied loan application, it would show what changes (e.g., higher income, lower debt) would flip the decision to approval.\n\nWhy the others are wrong:\n- A. Error analysis tree map identifies data cohorts with high error rates but doesn't suggest changes to flip individual predictions.\n- C. Aggregate feature importance shows which features are most influential overall but doesn't prescribe specific changes for individual cases.\n- D. Causal inference identifies causal relationships between features and outcomes but doesn't generate specific counterfactual examples for individual predictions."
+    },
+    {
+      "id": 41,
+      "topic": "Azure ML Compute - Serverless compute",
+      "type": "SingleChoice",
+      "questionText": "You need to run a training job in Azure Machine Learning but do not want to manage or pre-provision compute infrastructure. The job should automatically scale based on the workload. Which compute option should you use?",
+      "options": [
+        "A. Compute instance",
+        "B. Attached Azure Databricks cluster",
+        "C. Serverless compute",
+        "D. Azure Kubernetes Service inference cluster"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Serverless compute in Azure Machine Learning allows you to submit training jobs without pre-provisioning or managing compute clusters. Azure ML automatically provisions the required compute resources on demand, scales them based on the job requirements, and deallocates them when the job completes.\n\nWhy the others are wrong:\n- A. A compute instance is a managed VM used primarily for interactive development (notebooks). It is a single node that must be started/stopped manually and does not auto-scale for training jobs.\n- B. An attached Azure Databricks cluster requires separate provisioning and management. It is not automatically scaled by Azure ML for individual training jobs.\n- D. AKS inference clusters are designed for deploying models as real-time endpoints, not for running training jobs."
+    },
+    {
+      "id": 42,
+      "topic": "Data handling - Data assets",
+      "type": "SingleChoice",
+      "questionText": "You have a folder containing thousands of image files in Azure Blob Storage. You want to register this data in Azure Machine Learning so that it can be versioned and referenced in multiple experiments. Which data asset type should you use?",
+      "options": [
+        "A. uri_file",
+        "B. uri_folder",
+        "C. mltable",
+        "D. pandas DataFrame"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. The uri_folder data asset type references a folder (directory) in a storage location. It is ideal for registering a folder containing multiple files such as images, allowing you to version and reference the entire folder in experiments.\n\nWhy the others are wrong:\n- A. uri_file references a single specific file, not a folder of files. You would need to register each image individually, which is impractical for thousands of files.\n- C. mltable defines a tabular data schema with transformations (like selecting columns, filtering rows). It is designed for structured/tabular data, not for collections of image files.\n- D. A pandas DataFrame is an in-memory data structure in Python. It is not an Azure ML data asset type and cannot be registered for versioning in the workspace."
+    },
+    {
+      "id": 43,
+      "topic": "Model training - Environments",
+      "type": "SingleChoice",
+      "questionText": "You need to create a custom Azure Machine Learning environment that includes specific versions of PyTorch and torchvision. Which approach should you use?",
+      "options": [
+        "A. Specify the packages in a conda dependencies YAML file and register the environment",
+        "B. Install the packages manually on a compute instance and take a snapshot",
+        "C. Add the packages to the scoring script's init() function",
+        "D. Define the packages in the model registration metadata"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Azure ML environments are defined using a conda dependencies YAML file (or a Docker image/Dockerfile) that specifies all required packages and their versions. You create and register this environment so it can be reused across training and deployment jobs.\n\nWhy the others are wrong:\n- B. Manually installing packages on a compute instance creates an unreproducible setup. It is not portable to other compute targets and cannot be versioned or shared as an environment.\n- C. The scoring script's init() function is executed at model deployment time for inference. Installing packages there would slow down deployment, is unreliable, and would not apply to training.\n- D. Model registration metadata stores information about the model (name, version, tags) but does not define runtime dependencies or package requirements."
+    },
+    {
+      "id": 44,
+      "topic": "AutoML - Regression",
+      "type": "SingleChoice",
+      "questionText": "You are setting up an AutoML experiment to predict house prices. The target variable is a continuous numeric value. Which task type should you select?",
+      "options": [
+        "A. Classification",
+        "B. Regression",
+        "C. Time series forecasting",
+        "D. Image classification"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Regression is the correct task type when the target variable is a continuous numeric value, such as house prices. AutoML will evaluate multiple regression algorithms and select the best performing model.\n\nWhy the others are wrong:\n- A. Classification is used when the target is a categorical value (discrete classes). House prices are continuous numeric values, not categories.\n- C. Time series forecasting is used when predictions depend on temporal ordering and you need to forecast future values based on historical time-stamped data. Predicting house prices based on features (bedrooms, location, etc.) is a standard regression problem, not a time series problem.\n- D. Image classification is for categorizing images into classes. This scenario involves structured tabular data (house features), not images."
+    },
+    {
+      "id": 45,
+      "topic": "Model deployment - Batch endpoints",
+      "type": "SingleChoice",
+      "questionText": "You have a trained model and need to generate predictions for a dataset containing 10 million records. The predictions do not need to be returned in real-time. You want to minimize cost and maximize throughput. Which endpoint type should you use?",
+      "options": [
+        "A. Managed online endpoint",
+        "B. Kubernetes online endpoint",
+        "C. Batch endpoint",
+        "D. Azure Functions HTTP trigger"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. Batch endpoints are designed for scoring large volumes of data asynchronously. They can parallelize the work across multiple compute nodes, processing millions of records efficiently. Compute is only allocated during the batch job, minimizing costs.\n\nWhy the others are wrong:\n- A. Managed online endpoints are for real-time inference with low latency. Sending 10 million individual requests would be extremely slow and expensive since the endpoint must remain running.\n- B. Kubernetes online endpoints are also for real-time inference. Like managed online endpoints, they are not optimized for batch processing of large datasets.\n- D. Azure Functions are serverless compute for small, event-driven workloads. Processing 10 million records through individual function invocations would be inefficient, expensive, and subject to timeout constraints."
+    },
+    {
+      "id": 46,
+      "topic": "MLflow - Model logging",
+      "type": "SingleChoice",
+      "questionText": "You are training a model using Azure Machine Learning and MLflow. You want to automatically log all hyperparameters, metrics, and the model artifact without adding explicit logging calls to your training script. Which MLflow feature should you use?",
+      "options": [
+        "A. mlflow.log_param()",
+        "B. mlflow.autolog()",
+        "C. mlflow.log_artifact()",
+        "D. mlflow.set_tag()"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. mlflow.autolog() enables automatic logging of parameters, metrics, and model artifacts for supported machine learning frameworks (scikit-learn, TensorFlow, PyTorch, etc.). It requires no manual logging calls in the training script.\n\nWhy the others are wrong:\n- A. mlflow.log_param() logs a single parameter explicitly. It requires manual calls for each parameter and does not log metrics or model artifacts.\n- C. mlflow.log_artifact() logs a single file as an artifact. It requires manual calls and does not log parameters or metrics.\n- D. mlflow.set_tag() sets a tag (key-value metadata) on the run. Tags are informational and do not log parameters, metrics, or artifacts."
+    },
+    {
+      "id": 47,
+      "topic": "Hyperparameter tuning - Sweep jobs",
+      "type": "SingleChoice",
+      "questionText": "You are running a hyperparameter sweep job in Azure Machine Learning. You want to use a Bayesian optimization strategy that learns from previous runs to select better hyperparameter combinations. Which sampling method should you specify?",
+      "options": [
+        "A. GridParameterSampling",
+        "B. RandomParameterSampling",
+        "C. BayesianParameterSampling",
+        "D. SobolParameterSampling"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. BayesianParameterSampling uses a Bayesian optimization algorithm that builds a probabilistic model of the objective function based on previous trial results. It uses this model to intelligently select the next set of hyperparameters, typically converging on good values faster than random or grid search.\n\nWhy the others are wrong:\n- A. GridParameterSampling exhaustively tries all possible combinations of discrete hyperparameter values. It does not learn from previous runs and can be extremely expensive for large search spaces.\n- B. RandomParameterSampling randomly samples hyperparameter values from the defined search space. While efficient, it does not learn from previous runs to improve subsequent selections.\n- D. SobolParameterSampling uses a quasi-random low-discrepancy sequence for more uniform coverage of the search space. While better than pure random, it does not learn from previous results."
+    },
+    {
+      "id": 48,
+      "topic": "Responsible AI - Data drift",
+      "type": "MultipleChoice",
+      "questionText": "You have deployed a classification model to production and need to monitor for data drift. Which TWO types of drift should you monitor? Each correct answer presents part of the solution.",
+      "options": [
+        "A. Feature drift (changes in input feature distributions)",
+        "B. Concept drift (changes in the relationship between features and target)",
+        "C. Schema drift (changes in the JSON response format)",
+        "D. Network drift (changes in API endpoint latency)"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Feature drift (A) occurs when the statistical distribution of input features changes over time compared to the training data. Concept drift (B) occurs when the relationship between the input features and the target variable changes, meaning the model's learned patterns become outdated. Both types can degrade model performance.\n\nWhy the others are wrong:\n- C. Schema drift refers to changes in data structure or format, which is a data engineering concern handled by schema validation. It is not a type of statistical drift that affects model predictions.\n- D. Network drift is not a recognized machine learning concept. API endpoint latency is an infrastructure metric, not a type of data or model drift."
+    },
+    {
+      "id": 49,
+      "topic": "Pipeline design - Components",
+      "type": "SingleChoice",
+      "questionText": "You are building an Azure ML pipeline using the v2 SDK (azure-ai-ml). You want to create a reusable data preprocessing step that can be shared across multiple pipelines. What should you create?",
+      "options": [
+        "A. A command component",
+        "B. A scoring script",
+        "C. A compute cluster",
+        "D. An online deployment"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. A command component is a reusable, self-contained unit of a pipeline in Azure ML v2. It defines the code, environment, inputs, and outputs for a specific step. Components can be registered in the workspace and shared across multiple pipelines.\n\nWhy the others are wrong:\n- B. A scoring script is used for model inference during deployment. It defines how a deployed model processes incoming requests, not how data preprocessing is structured in a training pipeline.\n- C. A compute cluster is the infrastructure on which pipeline steps run. It does not define the logic or code of a preprocessing step.\n- D. An online deployment is for serving a model as a real-time endpoint. It is not related to creating reusable pipeline steps."
+    },
+    {
+      "id": 50,
+      "topic": "Model training - Distributed training",
+      "type": "SingleChoice",
+      "questionText": "You are training a large deep learning model using Azure Machine Learning and need to distribute the training across multiple GPUs on multiple nodes. The model is too large to fit on a single GPU. Which distribution strategy should you use?",
+      "options": [
+        "A. Data parallelism",
+        "B. Model parallelism (pipeline parallelism)",
+        "C. Parameter server",
+        "D. Single-node multi-GPU"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Model parallelism (also called pipeline parallelism) splits the model itself across multiple GPUs, with each GPU holding a portion of the model's layers. This is necessary when the model is too large to fit in the memory of a single GPU.\n\nWhy the others are wrong:\n- A. Data parallelism replicates the entire model on each GPU and splits the training data across GPUs. This requires each GPU to hold the full model, which is not possible when the model is too large for a single GPU.\n- C. Parameter server is an older distributed training architecture where parameters are stored on a central server. It does not solve the problem of a model being too large for a single GPU's memory.\n- D. Single-node multi-GPU still requires each GPU to hold the model (in data parallelism mode) or requires the model to be split but only within a single machine. The question specifies multiple nodes are needed."
+    },
+    {
+      "id": 51,
+      "topic": "AutoML - Feature engineering",
+      "type": "SingleChoice",
+      "questionText": "During an AutoML experiment in Azure Machine Learning, you notice that the automatic featurization generated one-hot encoding for a categorical column that has 500 unique values. This is causing performance issues. What should you do?",
+      "options": [
+        "A. Disable featurization entirely for the experiment",
+        "B. Use the featurization customization to apply hash encoding for that specific column",
+        "C. Remove the column from the dataset",
+        "D. Convert the column to a numeric type manually"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure ML AutoML allows you to customize featurization per column. For high-cardinality categorical columns, hash encoding is more appropriate than one-hot encoding because it maps categories to a fixed-size vector rather than creating one column per unique value.\n\nWhy the others are wrong:\n- A. Disabling featurization entirely would remove all automatic preprocessing for all columns, which could significantly reduce model performance. The issue is only with one specific column.\n- C. Removing the column might lose valuable predictive information. It is better to encode it appropriately.\n- D. Converting a categorical column to numeric without proper encoding would assign arbitrary numeric relationships between categories, potentially misleading the model."
+    },
+    {
+      "id": 52,
+      "topic": "Model deployment - Managed online endpoints",
+      "type": "MultipleChoice",
+      "questionText": "You are deploying a model to a managed online endpoint in Azure Machine Learning. Which TWO files are required for the deployment? Each correct answer presents part of the solution.",
+      "options": [
+        "A. A scoring script that defines init() and run() functions",
+        "B. A registered model or model files",
+        "C. An Azure Resource Manager (ARM) template",
+        "D. A Kubernetes manifest YAML file"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. A managed online endpoint deployment requires (A) a scoring script that defines init() for loading the model and run() for processing inference requests, and (B) a registered model or model files that the scoring script will load and use for predictions.\n\nWhy the others are wrong:\n- C. ARM templates are used for provisioning Azure infrastructure resources. They are not required for deploying a model to a managed online endpoint; you use the Azure ML SDK or CLI instead.\n- D. A Kubernetes manifest YAML file is used for Kubernetes-based deployments, not managed online endpoints. Managed endpoints abstract away the infrastructure so you do not need Kubernetes configuration."
+    },
+    {
+      "id": 53,
+      "topic": "Responsible AI - Model interpretability",
+      "type": "SingleChoice",
+      "questionText": "You need to explain individual predictions of a complex gradient boosting model to loan applicants. Which explainability technique provides feature contributions for each individual prediction?",
+      "options": [
+        "A. Global feature importance from permutation importance",
+        "B. SHAP (SHapley Additive exPlanations) values",
+        "C. Partial Dependence Plots",
+        "D. Aggregate model accuracy metrics"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. SHAP values provide both global and local (individual prediction) explanations. For each prediction, SHAP assigns a contribution value to each feature, showing how much each feature pushed the prediction higher or lower from the base value. This is ideal for explaining individual loan decisions.\n\nWhy the others are wrong:\n- A. Global feature importance from permutation importance shows which features are most important overall across the entire dataset. It does not explain why a specific prediction was made for an individual applicant.\n- C. Partial Dependence Plots show the average effect of a feature on predictions across the dataset. They are global explanations and do not explain individual predictions.\n- D. Aggregate model accuracy metrics (precision, recall, F1) measure overall model performance but do not explain why any specific prediction was made."
+    },
+    {
+      "id": 54,
+      "topic": "Data handling - Feature store",
+      "type": "SingleChoice",
+      "questionText": "Your data science team frequently re-creates the same features across different experiments. You need a centralized repository for storing, sharing, and reusing features. Which Azure Machine Learning capability should you use?",
+      "options": [
+        "A. Datasets (data assets)",
+        "B. Feature store",
+        "C. Model registry",
+        "D. Datastore"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Azure Machine Learning Feature Store is a centralized repository for defining, storing, and reusing features. It enables teams to share feature definitions and materialized features across experiments, reducing redundant feature engineering work.\n\nWhy the others are wrong:\n- A. Datasets (data assets) store references to raw or processed data. They do not provide feature management capabilities like feature definitions, materialization schedules, or feature retrieval for training.\n- C. The model registry stores trained model artifacts and their metadata. It does not manage or store reusable features.\n- D. A datastore is a storage connection reference (e.g., to a blob container or file share). It provides the underlying storage but has no feature management capabilities."
+    },
+    {
+      "id": 55,
+      "topic": "Azure ML Security - Network isolation",
+      "type": "SingleChoice",
+      "questionText": "You need to configure your Azure Machine Learning workspace so that all communication between workspace components occurs through private IP addresses within your virtual network. Which feature should you enable?",
+      "options": [
+        "A. Service endpoints for the storage account",
+        "B. Managed virtual network with workspace managed outbound",
+        "C. Public endpoint access with IP firewall rules",
+        "D. Azure DDoS Protection Standard"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed virtual network for the Azure ML workspace ensures that all workspace-managed compute resources are deployed within a managed VNet. With workspace managed outbound, all communication between components uses private endpoints and private IP addresses, providing network isolation.\n\nWhy the others are wrong:\n- A. Service endpoints route traffic from a VNet to Azure services over the Azure backbone, but the workspace components themselves still communicate over public networks unless a managed VNet is configured.\n- C. Public endpoint access with IP firewall rules restricts which public IP addresses can access the workspace, but the workspace itself still uses public endpoints for communication between its components.\n- D. Azure DDoS Protection Standard protects against distributed denial-of-service attacks. It does not configure private networking between workspace components."
+    },
+    {
+      "id": 56,
+      "topic": "Model training - CLI v2",
+      "type": "SingleChoice",
+      "questionText": "You want to submit a training job to Azure Machine Learning using the CLI v2. Which YAML property specifies the training script and its arguments in a command job?",
+      "options": [
+        "A. environment",
+        "B. compute",
+        "C. command",
+        "D. outputs"
+      ],
+      "correctAnswers": ["C"],
+      "explanation": "Correct: C. The 'command' property in a CLI v2 command job YAML file specifies the training script to execute and its command-line arguments (e.g., 'python train.py --learning-rate 0.01'). It defines what code runs in the job.\n\nWhy the others are wrong:\n- A. The 'environment' property specifies the Docker image or conda environment with the required packages. It defines the runtime environment, not the script to execute.\n- B. The 'compute' property specifies which compute target (cluster, instance) the job runs on. It defines where the code runs, not what code runs.\n- D. The 'outputs' property defines the output paths for job artifacts. It specifies where outputs are stored, not the script to execute."
+    },
+    {
+      "id": 57,
+      "topic": "AutoML - NLP tasks",
+      "type": "SingleChoice",
+      "questionText": "You need to use Azure Machine Learning AutoML to train a model that classifies customer support tickets into categories like 'Billing', 'Technical', and 'General'. Each ticket belongs to exactly one category. Which AutoML task type should you select?",
+      "options": [
+        "A. Text classification (multi-class)",
+        "B. Text classification (multi-label)",
+        "C. Named entity recognition",
+        "D. Text regression"
+      ],
+      "correctAnswers": ["A"],
+      "explanation": "Correct: A. Text classification (multi-class) is the correct task type when each input text must be assigned to exactly one class from multiple possible classes. Since each support ticket belongs to exactly one category, this is a multi-class classification problem.\n\nWhy the others are wrong:\n- B. Text classification (multi-label) is used when each input can belong to multiple categories simultaneously. Since each ticket belongs to exactly one category, multi-label is not appropriate.\n- C. Named entity recognition extracts and classifies entities (names, dates, locations) from text. It does not classify the overall text into categories.\n- D. Text regression predicts a continuous numeric value from text. The categories are discrete classes, not continuous values."
+    },
+    {
+      "id": 58,
+      "topic": "Model deployment - Blue-green deployment",
+      "type": "SingleChoice",
+      "questionText": "You have a model deployed to a managed online endpoint with 100% traffic routed to the current deployment named 'blue'. You deploy an updated model as a new deployment named 'green'. You want to test the new deployment with a small percentage of traffic before fully switching. What should you do?",
+      "options": [
+        "A. Delete the 'blue' deployment and deploy 'green' with 100% traffic",
+        "B. Update the traffic allocation to route 10% to 'green' and 90% to 'blue'",
+        "C. Create a new endpoint for 'green' and use a load balancer",
+        "D. Scale down 'blue' to zero instances and scale up 'green'"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Managed online endpoints support traffic splitting across multiple deployments. You can update the traffic allocation to route a small percentage (e.g., 10%) to the new 'green' deployment while keeping the majority on 'blue'. This enables safe canary testing before full rollout.\n\nWhy the others are wrong:\n- A. Deleting 'blue' immediately removes the production deployment with no rollback option. This is risky and does not allow gradual testing.\n- C. Creating a new endpoint requires managing two separate endpoints and an external load balancer. Managed online endpoints already support traffic splitting natively.\n- D. Scaling 'blue' to zero stops serving requests from the current model. This is effectively a hard cutover with no gradual testing and no fallback."
+    },
+    {
+      "id": 59,
+      "topic": "Data handling - Labeling",
+      "type": "MultipleChoice",
+      "questionText": "You are using Azure Machine Learning Data Labeling to label images for a computer vision project. Which TWO labeling task types are supported? Each correct answer presents a complete solution.",
+      "options": [
+        "A. Image classification (multi-class)",
+        "B. Object detection (bounding box)",
+        "C. Audio transcription",
+        "D. Video frame interpolation"
+      ],
+      "correctAnswers": ["A", "B"],
+      "explanation": "Correct: A and B. Azure ML Data Labeling supports image classification (both multi-class and multi-label) and object detection with bounding boxes as labeling task types. These cover the most common computer vision labeling scenarios.\n\nWhy the others are wrong:\n- C. Audio transcription is not a built-in task type in Azure ML Data Labeling. Audio labeling would require different tooling such as Azure AI Speech services.\n- D. Video frame interpolation is a video processing technique, not a labeling task type. Azure ML Data Labeling does not natively support video labeling."
+    },
+    {
+      "id": 60,
+      "topic": "Responsible AI - Fairness",
+      "type": "SingleChoice",
+      "questionText": "You have trained a loan approval model and discover that the model has significantly different true positive rates across racial groups. Which fairness metric captures this disparity?",
+      "options": [
+        "A. Demographic parity (selection rate parity)",
+        "B. Equalized odds",
+        "C. Overall accuracy",
+        "D. Mean absolute error"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Equalized odds requires that the true positive rate (and false positive rate) be equal across different demographic groups. A significant difference in true positive rates across racial groups is directly measured by equalized odds.\n\nWhy the others are wrong:\n- A. Demographic parity (selection rate parity) requires that the proportion of positive predictions be equal across groups, regardless of the ground truth. It does not specifically measure differences in true positive rates.\n- C. Overall accuracy measures the total percentage of correct predictions across all groups combined. It can mask significant disparities between groups.\n- D. Mean absolute error is a regression metric for continuous predictions. It is not applicable to classification fairness analysis."
+    },
+    {
+      "id": 61,
+      "topic": "Azure ML Compute - Scaling",
+      "type": "SingleChoice",
+      "questionText": "You create an Azure Machine Learning compute cluster for training jobs. You want the cluster to scale down to zero nodes when no jobs are running to minimize costs. Which setting should you configure?",
+      "options": [
+        "A. Set the maximum number of nodes to 0",
+        "B. Set the minimum number of nodes to 0 and configure an idle time before scale-down",
+        "C. Enable auto-pause on the compute cluster",
+        "D. Set the virtual machine priority to Low Priority"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. Setting the minimum number of nodes to 0 allows the cluster to scale down completely when idle. The idle time before scale-down setting determines how long nodes remain after a job completes before being deallocated, preventing unnecessary costs.\n\nWhy the others are wrong:\n- A. Setting the maximum number of nodes to 0 would prevent any nodes from being provisioned, making the cluster unable to run any jobs.\n- C. Auto-pause is a feature of compute instances (single VMs), not compute clusters. Compute clusters use the min/max node settings for scaling.\n- D. Low Priority VMs reduce costs by using spare Azure capacity at a discount, but they can be preempted. This does not control scale-down behavior."
+    },
+    {
+      "id": 62,
+      "topic": "Model training - Experiment tracking",
+      "type": "SingleChoice",
+      "questionText": "You are running multiple training runs in Azure Machine Learning and want to organize them by grouping related runs together for easy comparison. Which MLflow concept should you use?",
+      "options": [
+        "A. MLflow runs",
+        "B. MLflow experiments",
+        "C. MLflow model registry",
+        "D. MLflow projects"
+      ],
+      "correctAnswers": ["B"],
+      "explanation": "Correct: B. MLflow experiments are logical containers that group related runs together. Each experiment can contain multiple runs with different parameters or configurations, making it easy to compare and track related training iterations.\n\nWhy the others are wrong:\n- A. MLflow runs represent individual training executions. They are the items being grouped, not the grouping mechanism itself.\n- C. The MLflow model registry stores and versions production-ready models. It is not used for organizing training runs.\n- D. MLflow projects define the code structure and dependencies for reproducible runs. They are not a mechanism for grouping or comparing runs."
     }
   ]
 }
