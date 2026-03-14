@@ -122,7 +122,7 @@
     {
       "id": 8,
       "topic": "Implement Knowledge Mining and Cognitive Search Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You have a collection of 50,000 scanned documents that contain text. You plan to make the text available through Azure Cognitive Search by using an indexer. The indexer will use the built-in OCR cognitive skill. Which two Azure resources do you need to provision for the solution?",
       "options": [
         "A. a new Computer Vision resource",
@@ -138,7 +138,7 @@
     {
       "id": 9,
       "topic": "Plan and Manage an Azure AI Solution",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goal.\n\nYou have an Azure Cognitive Services resource. You need to limit access to the resource from a virtual network.\n\nSolution: You configure the access control (IAM) settings for the Cognitive Services resource.\n\nDoes this meet the goal?",
       "options": [
         "A. Yes",
@@ -248,7 +248,7 @@
     {
       "id": 16,
       "topic": "Implement AI Solutions with Anomaly Detection",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You are developing a monitoring system that will analyze engine sensor data, such as rotation speed, angle, temperature, and vibration. Each data source is a single time series. You need to detect complex anomalous patterns across the sensor data by analyzing all data sources as a whole. Which Azure service should you use?",
       "options": [
         "A. Application Insights in Azure Monitor",
@@ -311,7 +311,7 @@
     {
       "id": 20,
       "topic": "Implement Generative AI Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You have an Azure OpenAI model deployment named AI1. You are building a web app named App1 by using the Azure OpenAI SDK. You need to configure App1 to connect to AI1. Which three values are required?",
       "options": [
         "A. the endpoint, key, and model name",
@@ -327,7 +327,7 @@
     {
       "id": 21,
       "topic": "Plan and Manage an Azure AI Solution",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You are building a solution in Azure that will use Azure Cognitive Service for Language to process sensitive customer data. You need to restrict network access to the Language service resource to only traffic from a specific virtual network. What should you configure?",
       "options": [
         "A. IPsec rules",
@@ -343,7 +343,7 @@
     {
       "id": 22,
       "topic": "Implement AI Solutions with Anomaly Detection",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You plan to perform predictive maintenance. You collect IoT sensor data from 100 industrial machines for a year. Each machine has 10 sensors that generate time series data. You need to identify machines that exhibit unusual patterns across their sensor readings. Which Azure AI service should you use?",
       "options": [
         "A. Azure AI Computer Vision",
@@ -375,7 +375,7 @@
     {
       "id": 24,
       "topic": "Implement Computer Vision Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You have a Microsoft OneDrive folder that contains a 20-GB video file named File1.avi. You need to index File1.avi by using Azure AI Video Indexer. What should you do first?",
       "options": [
         "A. Upload File1.avi to YouTube, and then copy the URL of the video to the Azure AI Video Indexer website.",
@@ -505,7 +505,7 @@
     {
       "id": 32,
       "topic": "Implement Computer Vision Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You plan to build an app that will generate a list of tags for uploaded images. The app must meet the following requirements:\n- Tags must be specific to the content of the images\n- Tags must include a confidence score\n- The solution must be available in languages other than English\n\nWhich service should you use?",
       "options": [
         "A. Content Moderator Image Moderation",
@@ -521,7 +521,7 @@
     {
       "id": 33,
       "topic": "Implement Knowledge Mining and Cognitive Search Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You are building an app that will include one million scanned magazine articles. Each article will be stored as an image file. You need to extract the text content from the images and then enable users to search for specific keywords within the articles. Which Azure service should you use to extract the text?",
       "options": [
         "A. Computer Vision Image Analysis",
@@ -537,7 +537,7 @@
     {
       "id": 34,
       "topic": "Implement Computer Vision Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You are building an app that will share user images. You need to configure the app to perform the following actions when users upload images:\n- Identify images that contain known brands or logos\n- Generate descriptive tags for the image content\n\nWhich Azure AI service feature should you use?",
       "options": [
         "A. object detection in Azure AI Computer Vision",
@@ -570,7 +570,7 @@
     {
       "id": 36,
       "topic": "Implement Computer Vision Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You are developing a method that uses the Azure AI Vision client library. The method will perform optical character recognition (OCR) on an image. You have the following code that calls the Read API, but the results are always empty. What should you do to fix the issue?",
       "options": [
         "A. Remove the operation_id parameter.",
@@ -687,7 +687,7 @@
     {
       "id": 43,
       "topic": "Implement Natural Language Processing Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You need to measure the public perception of your brand on social media by using natural language processing. Which Azure AI service should you use?",
       "options": [
         "A. Language service",
@@ -736,7 +736,7 @@
     {
       "id": 46,
       "topic": "Implement Knowledge Mining and Cognitive Search Solutions",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You deploy a web app that is used as a management portal for indexing in Azure Cognitive Search. The app is configured to use the primary admin key of the search service. You discover that the primary admin key has been compromised. You need to mitigate the security risk while ensuring the app continues to function. What should you do?",
       "options": [
         "A. Regenerate the primary admin key, change the app to use the secondary admin key, and then regenerate the secondary admin key.",

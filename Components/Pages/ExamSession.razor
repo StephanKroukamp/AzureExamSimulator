@@ -91,13 +91,19 @@
                         </button>
 
                         <div class="nav-center">
-                            @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && _currentSelection.Length > 0)
+                            @if (!_showFeedback && IsMultipleChoice && _currentSelection.Length > 0 && !HasCorrectSelectionCount)
+                            {
+                                <div class="selection-warning">
+                                    Please select exactly @RequiredAnswerCount answer(s). You have selected @_currentSelection.Length.
+                                </div>
+                            }
+                            @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && CanSubmit)
                             {
                                 <button class="btn-primary" @onclick="SubmitAnswer">
                                     Check Answer
                                 </button>
                             }
-                            else if (!_showFeedback && ExamService.Config?.IsPracticeMode != true && _currentSelection.Length > 0)
+                            else if (!_showFeedback && ExamService.Config?.IsPracticeMode != true && CanSubmit)
                             {
                                 <button class="btn-ghost" @onclick="SubmitAndNext">
                                     Submit &amp; Next
@@ -220,6 +226,20 @@
     private int AnsweredCount => ExamService.UserAnswers.Count(a => a.Length > 0);
     private int UnansweredCount => ExamService.UserAnswers.Count(a => a.Length == 0);
 
+    private int RequiredAnswerCount =>
+        ExamService.CurrentQuestion?.CorrectAnswers.Distinct().Count() ?? 1;
+
+    private bool IsMultipleChoice =>
+        ExamService.CurrentQuestion?.Type == "MultipleChoice"
+        || (ExamService.CurrentQuestion?.Type is "DragDrop" or "Hotspot"
+            && RequiredAnswerCount > 1);
+
+    private bool HasCorrectSelectionCount =>
+        !IsMultipleChoice || _currentSelection.Length == RequiredAnswerCount;
+
+    private bool CanSubmit =>
+        _currentSelection.Length > 0 && HasCorrectSelectionCount;
+
     private double ProgressPercent =>
         ExamService.TotalQuestions > 0
             ? (double)(ExamService.CurrentQuestionIndex + 1) / ExamService.TotalQuestions * 100
@@ -288,15 +308,25 @@
                 PreviousQuestion();
                 break;
             case "Enter":
-                if (!_showFeedback && _currentSelection.Length > 0)
+                if (!_showFeedback && CanSubmit)
                 {
                     if (ExamService.Config?.IsPracticeMode == true)
                         SubmitAnswer();
+                    else if (ExamService.CurrentQuestionIndex >= ExamService.TotalQuestions - 1)
+                    {
+                        ExamService.SubmitAnswer(_currentSelection);
+                        ShowFinishConfirm();
+                    }
                     else
                         SubmitAndNext();
                 }
                 else if (_showFeedback)
-                    NextQuestion();
+                {
+                    if (ExamService.CurrentQuestionIndex >= ExamService.TotalQuestions - 1)
+                        ShowFinishConfirm();
+                    else
+                        NextQuestion();
+                }
                 break;
             case "f":
             case "F":

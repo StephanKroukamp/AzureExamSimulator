@@ -20,7 +20,7 @@
     {
       "id": 2,
       "topic": "Topic 2 - You have an Azure subscription.",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You have an Azure subscription. Users access the resources in the subscription from either home or from customer sites. From home, users must establish a point-to-site VPN to access the Azure resources. The users on the customer sites access the Azure resources by using site-to-site VPNs. You have a line-of-business-app named App1 that runs on several Azure virtual machine. The virtual machines run Windows Server 2016. You need to ensure that the connections to App1 are spread across all the virtual machines. What are two possible Azure services that you can use? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. an internal load balancer",
@@ -37,7 +37,7 @@
       "id": 3,
       "topic": "Topic 4 - You create the following resources in an Azure subscription:",
       "type": "SingleChoice",
-      "questionText": "You create the following resources in an Azure subscription: \u2711 An Azure Container Registry instance named Registry1 \u2711 An Azure Kubernetes Service (AKS) cluster named Cluster1 You create a container image named App1 on your administrative workstation. You need to deploy App1 to Cluster1. What should you do first?",
+      "questionText": "You create the following resources in an Azure subscription: ✑ An Azure Container Registry instance named Registry1 ✑ An Azure Kubernetes Service (AKS) cluster named Cluster1 You create a container image named App1 on your administrative workstation. You need to deploy App1 to Cluster1. What should you do first?",
       "options": [
         "A. Run the docker push command.",
         "B. Create an App Service plan.",
@@ -99,7 +99,7 @@
       "id": 7,
       "topic": "Topic 2 - You have an Azure subscription named Subscription1 that contains a virtual network named VNet1. VNet1 is in a resource group named RG1.",
       "type": "SingleChoice",
-      "questionText": "You have an Azure subscription named Subscription1 that contains a virtual network named VNet1. VNet1 is in a resource group named RG1. Subscription1 has a user named User1. User1 has the following roles: \u2711 Reader \u2711 Security Admin \u2711 Security Reader You need to ensure that User1 can assign the Reader role for VNet1 to other users. What should you do?",
+      "questionText": "You have an Azure subscription named Subscription1 that contains a virtual network named VNet1. VNet1 is in a resource group named RG1. Subscription1 has a user named User1. User1 has the following roles: ✑ Reader ✑ Security Admin ✑ Security Reader You need to ensure that User1 can assign the Reader role for VNet1 to other users. What should you do?",
       "options": [
         "A. Remove User1 from the Security Reader and Reader roles for Subscription1.",
         "B. Assign User1 the User Access Administrator role for VNet1.",
@@ -129,7 +129,7 @@
       "id": 9,
       "topic": "Topic 1 - Your company has a Microsoft Azure subscription.",
       "type": "SingleChoice",
-      "questionText": "Your company has a Microsoft Azure subscription. The company has datacenters in Los Angeles and New York. You are configuring the two datacenters as geo-clustered sites for site resiliency. You need to recommend an Azure storage redundancy option. You have the following data storage requirements: \u2711 Data must be stored on multiple nodes. \u2711 Data must be stored on nodes in separate geographic locations. \u2711 Data can be read from the secondary location as well as from the primary location. Which of the following Azure stored redundancy options should you recommend?",
+      "questionText": "Your company has a Microsoft Azure subscription. The company has datacenters in Los Angeles and New York. You are configuring the two datacenters as geo-clustered sites for site resiliency. You need to recommend an Azure storage redundancy option. You have the following data storage requirements: ✑ Data must be stored on multiple nodes. ✑ Data must be stored on nodes in separate geographic locations. ✑ Data can be read from the secondary location as well as from the primary location. Which of the following Azure stored redundancy options should you recommend?",
       "options": [
         "A. Geo-redundant storage",
         "B. Read-only geo-redundant storage",
@@ -219,7 +219,7 @@
       "id": 15,
       "topic": "Topic 5 - You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and",
       "type": "MultipleChoice",
-      "questionText": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and Production. The NVA subnet contains two network virtual appliances (NVAs) that will perform network traffic inspection between the Perimeter subnet and the Production subnet. You need to implement an Azure load balancer for the NVAs. The solution must meet the following requirements: \u2711 The NVAs must run in an active-active configuration that uses automatic failover. \u2711 The load balancer must load balance traffic to two services on the Production subnet. The services have different IP addresses. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and Production. The NVA subnet contains two network virtual appliances (NVAs) that will perform network traffic inspection between the Perimeter subnet and the Production subnet. You need to implement an Azure load balancer for the NVAs. The solution must meet the following requirements: ✑ The NVAs must run in an active-active configuration that uses automatic failover. ✑ The load balancer must load balance traffic to two services on the Production subnet. The services have different IP addresses. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. Deploy a basic load balancer",
         "B. Deploy a standard load balancer",
@@ -316,7 +316,7 @@
       "id": 21,
       "topic": "Topic 2 - You have 15 Azure subscriptions.",
       "type": "SingleChoice",
-      "questionText": "You have 15 Azure subscriptions. You have an Azure Active Directory (Azure AD) tenant that contains a security group named Group1. You plan to purchase additional Azure subscription. You need to ensure that Group1 can manage role assignments for the existing subscriptions and the planned subscriptions. The solution must meet the following requirements: \u2711 Use the principle of least privilege. \u2711 Minimize administrative effort. What should you do?",
+      "questionText": "You have 15 Azure subscriptions. You have an Azure Active Directory (Azure AD) tenant that contains a security group named Group1. You plan to purchase additional Azure subscription. You need to ensure that Group1 can manage role assignments for the existing subscriptions and the planned subscriptions. The solution must meet the following requirements: ✑ Use the principle of least privilege. ✑ Minimize administrative effort. What should you do?",
       "options": [
         "A. Assign Group1 the Owner role for the root management group.",
         "B. Assign Group1 the User Access Administrator role for the root management group.",
@@ -406,7 +406,7 @@
       "id": 27,
       "topic": "Topic 5 - You have an Azure subscription that contains the resources shown in the following table.",
       "type": "SingleChoice",
-      "questionText": "You have an Azure subscription that contains the resources shown in the following table. LB1 is configured as shown in the following table. You plan to create new inbound NAT rules that meet the following requirements: \u2711 Provide Remote Desktop access to VM1 from the internet by using port 3389. \u2711 Provide Remote Desktop access to VM2 from the internet by using port 3389. What should you create on LB1 before you can create the new inbound NAT rules?",
+      "questionText": "You have an Azure subscription that contains the resources shown in the following table. LB1 is configured as shown in the following table. You plan to create new inbound NAT rules that meet the following requirements: ✑ Provide Remote Desktop access to VM1 from the internet by using port 3389. ✑ Provide Remote Desktop access to VM2 from the internet by using port 3389. What should you create on LB1 before you can create the new inbound NAT rules?",
       "options": [
         "A. a frontend IP address",
         "B. a load balancing rule",
@@ -560,7 +560,7 @@
     {
       "id": 37,
       "topic": "Topic 3 - You plan to use the Azure Import/Export service to copy files to a storage account.",
-      "type": "MultipleChoice",
+      "type": "SingleChoice",
       "questionText": "You plan to use the Azure Import/Export service to copy files to a storage account. Which two files should you create before you prepare the drives for the import job? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. an XML manifest file",
@@ -623,7 +623,7 @@
       "id": 41,
       "topic": "Topic 4 - You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table.",
       "type": "SingleChoice",
-      "questionText": "You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table. Adatum.com has the following configurations: \u2711 Users may join devices to Azure AD is set to User1. \u2711 Additional local administrators on Azure AD joined devices is set to None. You deploy Windows 10 to a computer named Computer1. User1 joins Computer1 to adatum.com. You need to identify the local Administrator group membership on Computer1. Which users are members of the local Administrators group?",
+      "questionText": "You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table. Adatum.com has the following configurations: ✑ Users may join devices to Azure AD is set to User1. ✑ Additional local administrators on Azure AD joined devices is set to None. You deploy Windows 10 to a computer named Computer1. User1 joins Computer1 to adatum.com. You need to identify the local Administrator group membership on Computer1. Which users are members of the local Administrators group?",
       "options": [
         "A. User1 only",
         "B. User2 only",
@@ -821,7 +821,7 @@
       "id": 54,
       "topic": "Topic 5 - Your company has an Azure subscription named Subscription1.",
       "type": "SingleChoice",
-      "questionText": "Your company has an Azure subscription named Subscription1. The company also has two on-premises servers named Server1 and Server2 that run Windows Server 2016. Server1 is configured as a DNS server that has a primary DNS zone named adatum.com. Adatum.com contains 1,000 DNS records. You manage Server1 and Subscription1 from Server2. Server2 has the following tools installed: \u2711 The DNS Manager console \u2711 Azure PowerShell \u2711 Azure CLI 2.0 You need to move the adatum.com zone to an Azure DNS zone in Subscription1. The solution must minimize administrative effort. What should you use?",
+      "questionText": "Your company has an Azure subscription named Subscription1. The company also has two on-premises servers named Server1 and Server2 that run Windows Server 2016. Server1 is configured as a DNS server that has a primary DNS zone named adatum.com. Adatum.com contains 1,000 DNS records. You manage Server1 and Subscription1 from Server2. Server2 has the following tools installed: ✑ The DNS Manager console ✑ Azure PowerShell ✑ Azure CLI 2.0 You need to move the adatum.com zone to an Azure DNS zone in Subscription1. The solution must minimize administrative effort. What should you use?",
       "options": [
         "A. Azure CLI",
         "B. Azure PowerShell",
@@ -926,7 +926,7 @@
       "id": 61,
       "topic": "Topic 4 - You have an Azure subscription named Subscription1 that has the following providers registered:",
       "type": "MultipleChoice",
-      "questionText": "You have an Azure subscription named Subscription1 that has the following providers registered: \u2711 Authorization \u2711 Automation \u2711 Resources \u2711 Compute \u2711 KeyVault \u2711 Network \u2711 Storage \u2711 Billing \u2711 Web Subscription1 contains an Azure virtual machine named VM1 that has the following configurations: \u2711 Private IP address: 10.0.0.4 (dynamic) \u2711 Network security group (NSG): NSG1 \u2711 Public IP address: None \u2711 Availability set: AVSet \u2711 Subnet: 10.0.0.0/24 \u2711 Managed disks: No \u2711 Location: East US You need to record all the successful and failed connection attempts to VM1. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "questionText": "You have an Azure subscription named Subscription1 that has the following providers registered: ✑ Authorization ✑ Automation ✑ Resources ✑ Compute ✑ KeyVault ✑ Network ✑ Storage ✑ Billing ✑ Web Subscription1 contains an Azure virtual machine named VM1 that has the following configurations: ✑ Private IP address: 10.0.0.4 (dynamic) ✑ Network security group (NSG): NSG1 ✑ Public IP address: None ✑ Availability set: AVSet ✑ Subnet: 10.0.0.0/24 ✑ Managed disks: No ✑ Location: East US You need to record all the successful and failed connection attempts to VM1. Which three actions should you perform? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
       "options": [
         "A. Enable Azure Network Watcher in the East US Azure region.",
         "B. Add an Azure Network Watcher connection monitor.",
