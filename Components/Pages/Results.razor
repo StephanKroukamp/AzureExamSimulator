@@ -194,9 +194,9 @@
         }
     }
 
-    private async Task DownloadReport()
+    private void DownloadReport()
     {
-        await JS.InvokeVoidAsync("window.__printReport", $"/exam/{ExamCode}/report");
+        Nav.NavigateTo($"/exam/{ExamCode}/report");
     }
 
     private void RetakeExam()
