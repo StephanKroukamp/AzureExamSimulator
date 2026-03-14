@@ -33,18 +33,8 @@
             }
             window.__keyDotNetRef = null;
         };
-        window.__printReport = function(url, pdfTitle) {
-            var frame = document.getElementById('reportFrame');
-            if (!frame) return;
-            frame.onload = function() {
-                setTimeout(function() {
-                    var origTitle = document.title;
-                    document.title = pdfTitle;
-                    frame.contentWindow.print();
-                    document.title = origTitle;
-                }, 500);
-            };
-            frame.src = url;
+        window.__printReport = function(url) {
+            window.open(url, '_blank');
         };
     </script>
 </body>

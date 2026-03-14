@@ -147,7 +147,6 @@
             <button class="btn-secondary" @onclick="GoHome">Return Home</button>
         </div>
     }
-    <iframe id="reportFrame" style="display:none"></iframe>
 </div>
 
 @code {
@@ -197,10 +196,7 @@
 
     private async Task DownloadReport()
     {
-        var title = ExamService.CurrentExam is not null
-            ? $"{ExamService.CurrentExam.ExamCode} {ExamService.CurrentExam.ExamTitle} Attempt - {DateTime.Now:yyyy-MM-dd}"
-            : "Exam Report";
-        await JS.InvokeVoidAsync("window.__printReport", $"/exam/{ExamCode}/report", title);
+        await JS.InvokeVoidAsync("window.__printReport", $"/exam/{ExamCode}/report");
     }
 
     private void RetakeExam()

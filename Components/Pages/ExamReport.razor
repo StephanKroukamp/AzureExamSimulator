@@ -248,6 +248,16 @@
         }
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && ExamService.CurrentExam is not null && ExamService.IsExamFinished)
+        {
+            // Auto-trigger print on load so one click from results page opens print dialog
+            await Task.Delay(300); // Brief delay to let Blazor finish rendering
+            await PrintReport();
+        }
+    }
+
     private async Task PrintReport()
     {
         // Set document title — browsers use this as the default PDF filename
