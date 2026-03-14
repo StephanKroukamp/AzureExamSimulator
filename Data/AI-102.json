@@ -431,13 +431,15 @@
       "questionText": "You develop an application that uses the Face API. You need to add multiple images to a person group. How should you complete the code? Select the correct values for the image source type and the method name.",
       "options": [
         "A. Stream",
-        "B. AddFaceFromStreamAsync"
+        "B. AddFaceFromStreamAsync",
+        "C. URL",
+        "D. AddFaceFromUrlAsync"
       ],
       "correctAnswers": [
         "A",
         "B"
       ],
-      "explanation": "Correct: A. Stream for the image source type and B. AddFaceFromStreamAsync for the method name.\n\nWhen adding face images to a person group using the Face API client library, you provide images as a Stream object and call the AddFaceFromStreamAsync method on the PersonGroupPerson object. This method uploads the image stream to the Face service and associates the detected face with the specified person in the person group.\n\nThe typical code pattern is:\npersonGroupPerson.AddFaceFromStreamAsync(faceClient, personGroupId, person.PersonId, imageStream)"
+      "explanation": "Correct: A. Stream for the image source type and B. AddFaceFromStreamAsync for the method name.\n\nWhen adding face images to a person group using the Face API client library, you provide images as a Stream object and call the AddFaceFromStreamAsync method on the PersonGroupPerson object. This method uploads the image stream to the Face service and associates the detected face with the specified person in the person group.\n\nC and D are incorrect because AddFaceFromUrlAsync is used when the image is hosted at a publicly accessible URL, not when you have the image data locally as a stream.\n\nThe typical code pattern is:\npersonGroupPerson.AddFaceFromStreamAsync(faceClient, personGroupId, person.PersonId, imageStream)"
     },
     {
       "id": 28,
