@@ -236,9 +236,25 @@
 @code {
     [Parameter] public string ExamCode { get; set; } = "";
 
+    private string PdfFileName
+    {
+        get
+        {
+            var exam = ExamService.CurrentExam;
+            var date = DateTime.Now.ToString("yyyy-MM-dd");
+            return exam is not null
+                ? $"{exam.ExamCode} {exam.ExamTitle} Attempt - {date}"
+                : $"Exam Attempt - {date}";
+        }
+    }
+
     private async Task PrintReport()
     {
+        // Set document title — browsers use this as the default PDF filename
+        await JS.InvokeVoidAsync("eval", $"document.title = '{PdfFileName.Replace("'", "\\'")}'");
         await JS.InvokeVoidAsync("window.print");
+        // Restore original title after print dialog
+        await JS.InvokeVoidAsync("eval", "document.title = 'Microsoft Exam Simulator'");
     }
 
     private void GoBack()
