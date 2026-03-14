@@ -22,6 +22,7 @@
             window.__keyDotNetRef = dotNetRef;
             window.__keyHandler = function(e) {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+                if (e.key === ' ') e.preventDefault();
                 dotNetRef.invokeMethodAsync('OnKeyPress', e.key);
             };
             document.addEventListener('keydown', window.__keyHandler);

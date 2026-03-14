@@ -6,8 +6,9 @@
         var isSelected = SelectedAnswers.Contains(letter);
         var isCorrect = Question.CorrectAnswers.Contains(letter);
         var feedbackClass = ShowFeedback ? (isCorrect ? "correct" : (isSelected ? "incorrect" : "")) : "";
+        var isFocused = !ShowFeedback && index == FocusedOptionIndex;
 
-        <button class="option-card @(isSelected ? "selected" : "") @feedbackClass"
+        <button class="option-card @(isSelected ? "selected" : "") @(isFocused ? "focused" : "") @feedbackClass"
                 @onclick="() => SelectOption(letter)"
                 disabled="@Disabled">
             <span class="option-letter">@letter</span>
@@ -30,6 +31,7 @@
     [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
     [Parameter] public bool ShowFeedback { get; set; }
     [Parameter] public bool Disabled { get; set; }
+    [Parameter] public int FocusedOptionIndex { get; set; }
 
     private async Task SelectOption(string letter)
     {

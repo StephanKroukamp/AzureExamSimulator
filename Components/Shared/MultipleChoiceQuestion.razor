@@ -7,8 +7,9 @@
         var isCorrect = Question.CorrectAnswers.Contains(letter);
         var feedbackClass = ShowFeedback ? (isCorrect ? "correct" : (isSelected ? "incorrect" : "")) : "";
         var isAtLimit = !isSelected && SelectedAnswers.Length >= RequiredCount && !ShowFeedback;
+        var isFocused = !ShowFeedback && index == FocusedOptionIndex;
 
-        <button class="option-card multi @(isSelected ? "selected" : "") @(isAtLimit ? "at-limit" : "") @feedbackClass"
+        <button class="option-card multi @(isSelected ? "selected" : "") @(isAtLimit ? "at-limit" : "") @(isFocused ? "focused" : "") @feedbackClass"
                 @onclick="() => ToggleOption(letter)"
                 disabled="@Disabled">
             <span class="option-checkbox @(isSelected ? "checked" : "")">
@@ -37,6 +38,7 @@
     [Parameter] public EventCallback<string[]> OnAnswerChanged { get; set; }
     [Parameter] public bool ShowFeedback { get; set; }
     [Parameter] public bool Disabled { get; set; }
+    [Parameter] public int FocusedOptionIndex { get; set; }
 
     private int RequiredCount => Question.CorrectAnswers.Distinct().Count();
 
