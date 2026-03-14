@@ -769,6 +769,29 @@ button:disabled {
     font-weight: 500;
 }
 
+.selection-limit-warning {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    background: var(--warning-bg);
+    border: 1px solid var(--warning);
+    border-radius: var(--radius-sm);
+    color: var(--warning);
+    font-size: 0.85rem;
+    font-weight: 600;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+.option-card.at-limit {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .option-card {
     display: flex;
     align-items: flex-start;
@@ -1192,15 +1215,69 @@ button:disabled {
     gap: 0.5rem;
 }
 
-.selection-warning {
-    color: var(--warning, #e67e22);
-    font-size: 0.85rem;
-    font-weight: 500;
+.selection-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
     background: rgba(230, 126, 34, 0.1);
-    border: 1px solid rgba(230, 126, 34, 0.3);
-    text-align: center;
+    border: 1px solid rgba(230, 126, 34, 0.25);
+    transition: all 0.3s ease;
+}
+
+.selection-counter.complete {
+    background: rgba(39, 174, 96, 0.1);
+    border-color: rgba(39, 174, 96, 0.3);
+}
+
+.selection-counter.complete .selection-text {
+    color: var(--correct, #27ae60);
+}
+
+.selection-counter.pulse {
+    animation: warningPulse 0.4s ease;
+}
+
+@keyframes warningPulse {
+    0% { transform: scale(1); }
+    20% { transform: scale(1.05); border-color: rgba(230, 126, 34, 0.7); }
+    40% { transform: scale(0.97); }
+    60% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.selection-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.selection-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(230, 126, 34, 0.25);
+    border: 1.5px solid rgba(230, 126, 34, 0.5);
+    transition: all 0.2s ease;
+}
+
+.selection-dot.filled {
+    background: var(--warning, #e67e22);
+    border-color: var(--warning, #e67e22);
+    box-shadow: 0 0 4px rgba(230, 126, 34, 0.4);
+}
+
+.selection-counter.complete .selection-dot.filled {
+    background: var(--correct, #27ae60);
+    border-color: var(--correct, #27ae60);
+    box-shadow: 0 0 4px rgba(39, 174, 96, 0.4);
+}
+
+.selection-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--warning, #e67e22);
+    white-space: nowrap;
 }
 
 .btn-finish-early {

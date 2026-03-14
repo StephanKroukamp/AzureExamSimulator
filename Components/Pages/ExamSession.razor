@@ -91,10 +91,25 @@
                         </button>
 
                         <div class="nav-center">
-                            @if (!_showFeedback && IsMultipleChoice && _currentSelection.Length > 0 && !HasCorrectSelectionCount)
+                            @if (!_showFeedback && IsMultipleChoice)
                             {
-                                <div class="selection-warning">
-                                    Please select exactly @RequiredAnswerCount answer(s). You have selected @_currentSelection.Length.
+                                <div class="selection-counter @(_currentSelection.Length == RequiredAnswerCount ? "complete" : "") @(_selectionWarningPulse ? "pulse" : "")">
+                                    <span class="selection-dots">
+                                        @for (var s = 0; s < RequiredAnswerCount; s++)
+                                        {
+                                            <span class="selection-dot @(s < _currentSelection.Length ? "filled" : "")"></span>
+                                        }
+                                    </span>
+                                    <span class="selection-text">
+                                        @if (_currentSelection.Length == RequiredAnswerCount)
+                                        {
+                                            <text>Ready — press Enter</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Select @(RequiredAnswerCount - _currentSelection.Length) more</text>
+                                        }
+                                    </span>
                                 </div>
                             }
                             @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && CanSubmit)
@@ -225,6 +240,7 @@
     private string _transitionDir = "";
     private bool _shortcutsDismissed;
     private bool _filterFlagged;
+    private bool _selectionWarningPulse;
     private System.Threading.Timer? _timer;
     private DotNetObjectReference<ExamSession>? _dotNetRef;
 
@@ -335,6 +351,10 @@
                     else
                         SubmitAndNext();
                 }
+                else if (!_showFeedback && !CanSubmit && IsMultipleChoice && _currentSelection.Length > 0)
+                {
+                    PulseSelectionWarning();
+                }
                 else if (_showFeedback)
                 {
                     if (ExamService.CurrentQuestionIndex >= ExamService.TotalQuestions - 1)
@@ -368,8 +388,9 @@
         {
             if (_currentSelection.Contains(letter))
                 _currentSelection = _currentSelection.Where(s => s != letter).ToArray();
-            else
+            else if (_currentSelection.Length < RequiredAnswerCount)
                 _currentSelection = [.. _currentSelection, letter];
+            // else: at limit, ignore
         }
         else
         {
@@ -518,6 +539,15 @@
 
         ExamService.FinishExam();
         Nav.NavigateTo($"/exam/{ExamCode}/report");
+    }
+
+    private async void PulseSelectionWarning()
+    {
+        _selectionWarningPulse = true;
+        StateHasChanged();
+        await Task.Delay(400);
+        _selectionWarningPulse = false;
+        await InvokeAsync(StateHasChanged);
     }
 
     private void DismissShortcuts()
