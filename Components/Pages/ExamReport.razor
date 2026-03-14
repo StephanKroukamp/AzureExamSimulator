@@ -259,9 +259,7 @@
         var name = string.IsNullOrWhiteSpace(_fileName) ? "Exam Report" : _fileName.Trim();
         // Strip any extension the user may have typed and enforce .pdf
         name = Path.GetFileNameWithoutExtension(name) + ".pdf";
-        await JS.InvokeVoidAsync("eval", $"document.title = '{name.Replace("'", "\\'")}'");
-        await JS.InvokeVoidAsync("window.print");
-        await JS.InvokeVoidAsync("eval", "document.title = 'Microsoft Exam Simulator'");
+        await JS.InvokeVoidAsync("window.__printWithTitle", name);
     }
 
     private void RetakeExam()

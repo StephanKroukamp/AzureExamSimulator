@@ -27,6 +27,17 @@
             };
             document.addEventListener('keydown', window.__keyHandler);
         };
+        window.__printWithTitle = function(fileName) {
+            var originalTitle = document.title;
+            document.title = fileName;
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    window.print();
+                    document.title = originalTitle;
+                    resolve();
+                }, 100);
+            });
+        };
         window.__unregisterKeyHandler = function() {
             if (window.__keyHandler) {
                 document.removeEventListener('keydown', window.__keyHandler);
