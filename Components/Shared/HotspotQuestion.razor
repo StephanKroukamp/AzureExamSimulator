@@ -62,6 +62,11 @@
     private async Task SelectRegion(string regionId)
     {
         if (Disabled) return;
-        await OnAnswerChanged.InvokeAsync([regionId]);
+        var current = SelectedAnswers.ToList();
+        if (current.Contains(regionId))
+            current.Remove(regionId);
+        else
+            current.Add(regionId);
+        await OnAnswerChanged.InvokeAsync([.. current]);
     }
 }

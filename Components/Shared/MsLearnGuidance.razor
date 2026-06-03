@@ -1,0 +1,49 @@
+@if (Data is not null)
+{
+    <div class="ms-learn-nav @(_collapsed ? "ms-learn-collapsed" : "")">
+        <div class="ms-learn-header">
+            <span class="ms-learn-icon">&#128218;</span>
+            <span class="ms-learn-topic">@Data.PrimaryTopic</span>
+            <button class="ms-learn-toggle" @onclick="ToggleCollapsed">
+                @(_collapsed ? "Show" : "Hide")
+            </button>
+        </div>
+        @if (!_collapsed)
+        {
+            <div class="ms-learn-breadcrumb">@Data.NavigationPath</div>
+            @if (Data.SearchKeywords.Count > 0)
+            {
+                <div class="ms-learn-keywords">
+                    @foreach (var keyword in Data.SearchKeywords)
+                    {
+                        <a class="ms-learn-chip"
+                           href="https://learn.microsoft.com/search/?terms=@Uri.EscapeDataString(keyword)"
+                           target="_blank" rel="noopener noreferrer">
+                            @keyword
+                        </a>
+                    }
+                </div>
+            }
+            @if (!string.IsNullOrWhiteSpace(Data.LookFor))
+            {
+                <div class="ms-learn-lookfor">
+                    <span class="ms-learn-lookfor-label">Look for:</span> @Data.LookFor
+                </div>
+            }
+            @if (!string.IsNullOrWhiteSpace(Data.DocsUrl))
+            {
+                <a class="ms-learn-docs-link" href="@Data.DocsUrl" target="_blank" rel="noopener noreferrer">
+                    Open docs &#8599;
+                </a>
+            }
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public AzureExamSimulator.Models.MsLearnGuidance? Data { get; set; }
+
+    private bool _collapsed = true;
+
+    private void ToggleCollapsed() => _collapsed = !_collapsed;
+}

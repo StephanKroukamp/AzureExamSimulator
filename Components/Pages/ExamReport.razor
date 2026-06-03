@@ -63,6 +63,13 @@
                         <span class="report-stat-value correct">@result.Correct</span>
                         <span class="report-stat-label">Correct</span>
                     </div>
+                    @if (result.Partial > 0)
+                    {
+                        <div class="report-stat">
+                            <span class="report-stat-value partial">@result.Partial</span>
+                            <span class="report-stat-label">Partial</span>
+                        </div>
+                    }
                     <div class="report-stat">
                         <span class="report-stat-value incorrect">@result.Incorrect</span>
                         <span class="report-stat-label">Incorrect</span>
@@ -108,7 +115,7 @@
                             {
                                 <tr class="@(topic.Pct < 50 ? "row-bad" : topic.Pct < 70 ? "row-warn" : "row-good")">
                                     <td>@topic.Topic</td>
-                                    <td class="col-num">@topic.Correct</td>
+                                    <td class="col-num">@topic.Correct.ToString("F1")</td>
                                     <td class="col-num">@topic.Total</td>
                                     <td class="col-num">@topic.Pct.ToString("F0")%</td>
                                     <td class="col-status">
@@ -146,7 +153,7 @@
                                         <span class="focus-score @(area.Pct < 50 ? "bad" : "warn")">@area.Pct.ToString("F0")%</span>
                                     </div>
                                     <p class="focus-advice">
-                                        You scored @area.Correct out of @area.Total in this area.
+                                        You scored @area.Correct.ToString("F1") out of @area.Total in this area.
                                         Review the @(area.Pct < 50 ? "fundamental concepts" : "advanced topics") related to @area.Topic
                                         on Microsoft Learn to improve your score.
                                     </p>
@@ -166,14 +173,15 @@
                     var q = ExamService.CurrentExam.Questions[i];
                     var ua = ExamService.UserAnswers[i];
                     var isCorrect = ExamService.IsAnswerCorrect(i);
+                    var questionScore = ExamService.GetScore(i);
                     var wasSkipped = ua.Length == 0;
-                    var statusClass = wasSkipped ? "skipped" : isCorrect ? "correct" : "incorrect";
+                    var statusClass = wasSkipped ? "skipped" : isCorrect ? "correct" : questionScore > 0 ? "partial" : "incorrect";
 
                     <div class="report-question @statusClass">
                         <div class="report-q-header">
                             <span class="report-q-num">Q@(i + 1)</span>
                             <span class="report-q-status @statusClass">
-                                @(wasSkipped ? "SKIPPED" : isCorrect ? "CORRECT" : "INCORRECT")
+                                @(wasSkipped ? "SKIPPED" : isCorrect ? "CORRECT" : questionScore > 0 ? $"PARTIAL ({questionScore:P0})" : "INCORRECT")
                             </span>
                             <span class="report-q-topic">@q.Topic</span>
                         </div>

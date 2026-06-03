@@ -7,3 +7,5 @@ obj/
 *.swp
 *~
 .DS_Store
+settings.local.json
+*.lscache

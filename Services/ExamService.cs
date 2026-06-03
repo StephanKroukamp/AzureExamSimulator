@@ -63,12 +63,14 @@ public class ExamService
                 .ToList();
         }
 
+        var rng = new Random();
+
         var questionsToUse = validQuestions;
         if (config.QuestionCount < validQuestions.Count)
-        {
-            var rng = new Random();
             questionsToUse = validQuestions.OrderBy(_ => rng.Next()).Take(config.QuestionCount).ToList();
-        }
+
+        if (config.Randomize)
+            questionsToUse = ShufflePreservingCaseStudies(questionsToUse, rng);
 
         CurrentExam = new Exam
         {
@@ -149,10 +151,16 @@ public class ExamService
         return AreAnswersCorrect(CurrentExam.Questions[questionIndex], UserAnswers[questionIndex]);
     }
 
-    public bool IsCurrentAnswerCorrect()
+    public bool IsCurrentAnswerCorrect() => IsAnswerCorrect(CurrentQuestionIndex);
+
+    public double GetScore(int questionIndex)
     {
-        return IsAnswerCorrect(CurrentQuestionIndex);
+        if (CurrentExam is null || questionIndex < 0 || questionIndex >= CurrentExam.Questions.Count)
+            return 0.0;
+        return ScoreAnswer(CurrentExam.Questions[questionIndex], UserAnswers[questionIndex]);
     }
+
+    public double GetCurrentScore() => GetScore(CurrentQuestionIndex);
 
     public ExamResult CalculateResult()
     {
@@ -181,17 +189,26 @@ public class ExamService
                 result.Skipped++;
                 result.TopicBreakdown[topic] = (total + 1, correct);
             }
-            else if (AreAnswersCorrect(question, userAnswer))
-            {
-                result.Correct++;
-                result.Answered++;
-                result.TopicBreakdown[topic] = (total + 1, correct + 1);
-            }
             else
             {
-                result.Incorrect++;
+                var score = ScoreAnswer(question, userAnswer);
+                result.EarnedScore += score;
                 result.Answered++;
-                result.TopicBreakdown[topic] = (total + 1, correct);
+                if (score >= 1.0)
+                {
+                    result.Correct++;
+                    result.TopicBreakdown[topic] = (total + 1, correct + 1.0);
+                }
+                else if (score > 0.0)
+                {
+                    result.Partial++;
+                    result.TopicBreakdown[topic] = (total + 1, correct + score);
+                }
+                else
+                {
+                    result.Incorrect++;
+                    result.TopicBreakdown[topic] = (total + 1, correct);
+                }
             }
         }
 
@@ -211,39 +228,69 @@ public class ExamService
         StartTime = null;
     }
 
-    private static bool AreAnswersCorrect(Question question, string[] userAnswers)
+    private static List<Question> ShufflePreservingCaseStudies(List<Question> questions, Random rng)
     {
-        if (userAnswers.Length == 0) return false;
-
-        // Ordering questions: compare order-sensitive indices
-        if (question.Type == "Ordering" && question.CorrectOrder is { Count: > 0 })
+        // Group consecutive questions sharing the same scenario into blocks,
+        // then shuffle the blocks so case study questions stay together.
+        var blocks = new List<List<Question>>();
+        foreach (var q in questions)
         {
-            var orderStr = userAnswers[0];
-            if (string.IsNullOrEmpty(orderStr)) return false;
-            try
+            if (!string.IsNullOrEmpty(q.Scenario) && blocks.Count > 0
+                && !string.IsNullOrEmpty(blocks[^1][0].Scenario)
+                && blocks[^1][0].Scenario == q.Scenario)
             {
-                var userOrder = orderStr.Split(',').Select(int.Parse).ToList();
-                return userOrder.SequenceEqual(question.CorrectOrder);
+                blocks[^1].Add(q);
             }
-            catch
+            else
             {
-                return false;
+                blocks.Add([q]);
             }
         }
 
-        // Default: set-based comparison for choice/hotspot questions
-        var ua = userAnswers
+        return blocks.OrderBy(_ => rng.Next()).SelectMany(b => b).ToList();
+    }
+
+    private static bool AreAnswersCorrect(Question question, string[] userAnswers)
+        => ScoreAnswer(question, userAnswers) >= 1.0;
+
+    public static double ScoreAnswer(Question question, string[] userAnswers)
+    {
+        if (userAnswers.Length == 0) return 0.0;
+
+        // Ordering / DragDrop: positional match rate
+        if (question.Type is "Ordering" or "DragDrop" && question.CorrectOrder is { Count: > 0 })
+        {
+            var orderStr = userAnswers[0];
+            if (string.IsNullOrEmpty(orderStr)) return 0.0;
+            try
+            {
+                var userOrder = orderStr.Split(',').Select(int.Parse).ToList();
+                if (userOrder.Count != question.CorrectOrder.Count) return 0.0;
+                var matches = userOrder.Zip(question.CorrectOrder, (u, c) => u == c ? 1 : 0).Sum();
+                return (double)matches / question.CorrectOrder.Count;
+            }
+            catch { return 0.0; }
+        }
+
+        // Choice / Hotspot
+        var userSet = userAnswers
             .Where(a => a is not null)
             .Select(a => a.Trim().ToUpperInvariant())
-            .OrderBy(a => a)
-            .ToList();
+            .ToHashSet();
 
-        var ca = question.CorrectAnswers
+        var correctSet = question.CorrectAnswers
             .Select(a => a.Trim().ToUpperInvariant())
-            .Distinct()
-            .OrderBy(a => a)
-            .ToList();
+            .ToHashSet();
 
-        return ua.SequenceEqual(ca);
+        if (correctSet.Count == 0) return 0.0;
+
+        // Single correct answer: binary
+        if (correctSet.Count == 1)
+            return userSet.SetEquals(correctSet) ? 1.0 : 0.0;
+
+        // Multiple correct answers: Jaccard similarity (penalises wrong picks)
+        var intersection = userSet.Intersect(correctSet).Count();
+        var union = userSet.Union(correctSet).Count();
+        return union == 0 ? 0.0 : (double)intersection / union;
     }
 }

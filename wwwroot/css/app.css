@@ -3013,3 +3013,167 @@ a.breadcrumb-item:hover {
         size: A4;
     }
 }
+
+/* === MS Learn Navigation Block === */
+
+.ms-learn-nav {
+    margin: 1rem 0;
+    padding: 0.875rem 1rem;
+    background: var(--accent-subtle);
+    border: 1px solid var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ms-learn-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ms-learn-toggle {
+    margin-left: auto;
+    background: none;
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    transition: all var(--transition);
+}
+
+.ms-learn-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.ms-learn-collapsed {
+    gap: 0;
+}
+
+.ms-learn-icon {
+    font-size: 1rem;
+}
+
+.ms-learn-topic {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.ms-learn-breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.ms-learn-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.125rem;
+}
+
+.ms-learn-chip {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.ms-learn-chip:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.ms-learn-lookfor {
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.ms-learn-lookfor-label {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--warning);
+}
+
+.ms-learn-docs-link {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: all var(--transition);
+    margin-top: 0.125rem;
+}
+
+.ms-learn-docs-link:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Partial credit states */
+.feedback-panel.partial {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.report-stat-value.partial {
+    color: #f59e0b;
+}
+
+.report-q-status.partial {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.report-question.partial {
+    border-left: 3px solid #f59e0b;
+}
+
+/* Drop-gap preview for drag-and-drop ordering */
+.drop-gap {
+    height: 4px;
+    border-radius: 2px;
+    transition: height 0.15s ease, background 0.15s ease;
+}
+
+.drop-gap.active {
+    height: 20px;
+    background: var(--accent-subtle, rgba(99,102,241,0.08));
+    border: 2px dashed var(--accent, #6366f1);
+    border-radius: var(--radius-sm, 6px);
+}

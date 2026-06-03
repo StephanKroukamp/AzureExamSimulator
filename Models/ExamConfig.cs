@@ -4,5 +4,7 @@ public record ExamConfig(
     bool IsPracticeMode,
     int TimeLimitMinutes,
     int QuestionCount,
-    List<string>? SelectedTopics = null
+    bool IsStudyMode = false,
+    List<string>? SelectedTopics = null,
+    bool Randomize = false
 );

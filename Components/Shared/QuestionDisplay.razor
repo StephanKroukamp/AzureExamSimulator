@@ -12,17 +12,13 @@
             {
                 <span class="question-type-badge multi">Select multiple</span>
             }
-            else if (Question.Type == "Ordering")
+            else if (Question.Type == "Ordering" || (Question.Type == "DragDrop" && Question.Items is { Count: > 0 }))
             {
                 <span class="question-type-badge info">Arrange in order</span>
             }
             else if (Question.Type == "Hotspot" && Question.Regions is { Count: > 0 })
             {
-                <span class="question-type-badge info">Select region</span>
-            }
-            else if (Question.Type is "DragDrop" or "Hotspot")
-            {
-                <span class="question-type-badge info">@Question.Type (presented as selection)</span>
+                <span class="question-type-badge info">Select region@(Question.CorrectAnswers.Count > 1 ? "s" : "")</span>
             }
         </div>
 
@@ -38,9 +34,15 @@
 
         <div class="question-text">@Question.QuestionText</div>
 
+        @if (Question.MsLearn is not null)
+        {
+            <MsLearnGuidance Data="Question.MsLearn" />
+        }
+
         @switch (Question.Type)
         {
             case "Ordering" when Question.Items is { Count: > 0 }:
+            case "DragDrop" when Question.Items is { Count: > 0 }:
                 <OrderingQuestion Question="Question"
                                   SelectedAnswers="SelectedAnswers"
                                   OnAnswerChanged="OnAnswerChanged"

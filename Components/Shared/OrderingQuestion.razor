@@ -1,6 +1,13 @@
 <div class="ordering-list">
     @for (var i = 0; i < _orderedItems.Count; i++)
     {
+        var gapIndex = i;
+        <div class="drop-gap @(_dropTarget == gapIndex ? "active" : "")"
+             draggable="false"
+             @ondragover:preventDefault
+             @ondragover="() => OnDragOver(gapIndex)"
+             @ondrop="() => OnDrop(gapIndex)"></div>
+
         var index = i;
         var item = _orderedItems[i];
         var feedbackClass = "";
@@ -9,7 +16,7 @@
             feedbackClass = Question.CorrectOrder[index] == item.OriginalIndex ? "correct" : "incorrect";
         }
 
-        <div class="ordering-item @feedbackClass @(_dragIndex == index ? "dragging" : "") @(_dropTarget == index ? "drop-target" : "")"
+        <div class="ordering-item @feedbackClass @(_dragIndex == index ? "dragging" : "")"
              draggable="@(!Disabled)"
              @ondragstart="() => OnDragStart(index)"
              @ondragover:preventDefault
@@ -40,6 +47,15 @@
             }
         </div>
     }
+
+    @{
+        var lastGap = _orderedItems.Count;
+    }
+    <div class="drop-gap @(_dropTarget == lastGap ? "active" : "")"
+         draggable="false"
+         @ondragover:preventDefault
+         @ondragover="() => OnDragOver(lastGap)"
+         @ondrop="() => OnDrop(lastGap)"></div>
 </div>
 
 @if (ShowFeedback && Question.CorrectOrder is not null)
@@ -85,15 +101,24 @@
     }
 
     private void OnDragStart(int index) => _dragIndex = index;
-    private void OnDragOver(int index) => _dropTarget = index;
+    private void OnDragOver(int insertBefore) => _dropTarget = insertBefore;
     private void OnDragEnd() { _dragIndex = -1; _dropTarget = -1; }
 
-    private async Task OnDrop(int targetIndex)
+    private async Task OnDrop(int insertBefore)
     {
-        if (_dragIndex < 0 || _dragIndex == targetIndex) { OnDragEnd(); return; }
+        if (_dragIndex < 0) { OnDragEnd(); return; }
+
+        // No-op: dropping before or immediately after the dragged item
+        if (_dragIndex == insertBefore || _dragIndex + 1 == insertBefore)
+        {
+            OnDragEnd();
+            return;
+        }
+
         var item = _orderedItems[_dragIndex];
         _orderedItems.RemoveAt(_dragIndex);
-        _orderedItems.Insert(targetIndex, item);
+        var adjusted = _dragIndex < insertBefore ? insertBefore - 1 : insertBefore;
+        _orderedItems.Insert(Math.Clamp(adjusted, 0, _orderedItems.Count), item);
         OnDragEnd();
         await NotifyChanged();
     }

@@ -27,16 +27,19 @@
                         @onclick="ToggleFlag" title="Flag for review (F)">
                     &#9873;
                 </button>
-                <span class="timer @TimerClass">
-                    @if (ExamService.TimeRemaining.HasValue)
-                    {
-                        <text>@FormatTime(ExamService.TimeRemaining.Value) remaining</text>
-                    }
-                    else
-                    {
-                        <text>@FormatTime(ExamService.Elapsed)</text>
-                    }
-                </span>
+                @if (!IsStudyMode)
+                {
+                    <span class="timer @TimerClass">
+                        @if (ExamService.TimeRemaining.HasValue)
+                        {
+                            <text>@FormatTime(ExamService.TimeRemaining.Value) remaining</text>
+                        }
+                        else
+                        {
+                            <text>@FormatTime(ExamService.Elapsed)</text>
+                        }
+                    </span>
+                }
             </div>
         </div>
 
@@ -60,12 +63,20 @@
 
                     @if (_showFeedback)
                     {
-                        <div class="feedback-panel @(_isCurrentCorrect ? "correct" : "incorrect")">
+                        <div class="feedback-panel @(_isCurrentCorrect ? "correct" : _currentScore > 0 ? "partial" : "incorrect")">
                             <div class="feedback-header">
                                 @if (_isCurrentCorrect)
                                 {
                                     <span class="feedback-icon">&#10003;</span>
                                     <span>Correct!</span>
+                                }
+                                else if (_currentScore > 0)
+                                {
+                                    <span class="feedback-icon">&#11044;</span>
+                                    <span>Partial credit (@(_currentScore.ToString("P0")))</span>
+                                    <span class="correct-answers">
+                                        Correct: @string.Join(", ", ExamService.CurrentQuestion.CorrectAnswers)
+                                    </span>
                                 }
                                 else
                                 {
@@ -92,7 +103,7 @@
                         </button>
 
                         <div class="nav-center">
-                            @if (!_showFeedback && IsMultipleChoice)
+                            @if (!_showFeedback && !IsStudyMode && IsMultipleChoice)
                             {
                                 <div class="selection-counter @(_currentSelection.Length == RequiredAnswerCount ? "complete" : "") @(_selectionWarningPulse ? "pulse" : "")">
                                     <span class="selection-dots">
@@ -113,13 +124,13 @@
                                     </span>
                                 </div>
                             }
-                            @if (!_showFeedback && ExamService.Config?.IsPracticeMode == true && CanSubmit)
+                            @if (!_showFeedback && !IsStudyMode && ExamService.Config?.IsPracticeMode == true && CanSubmit)
                             {
                                 <button class="btn-primary" @onclick="SubmitAnswer">
                                     Check Answer
                                 </button>
                             }
-                            else if (!_showFeedback && ExamService.Config?.IsPracticeMode != true && CanSubmit)
+                            else if (!_showFeedback && !IsStudyMode && ExamService.Config?.IsPracticeMode != true && CanSubmit)
                             {
                                 <button class="btn-ghost" @onclick="SubmitAndNext">
                                     Submit &amp; Next
@@ -236,6 +247,7 @@
     private string[] _currentSelection = [];
     private bool _showFeedback;
     private bool _isCurrentCorrect;
+    private double _currentScore;
     private bool _showFinishConfirm;
     private bool _isTransitioning;
     private string _transitionDir = "";
@@ -245,6 +257,8 @@
     private int _focusedOptionIndex;
     private System.Threading.Timer? _timer;
     private DotNetObjectReference<ExamSession>? _dotNetRef;
+
+    private bool IsStudyMode => ExamService.Config?.IsStudyMode == true;
 
     private int AnsweredCount => ExamService.UserAnswers.Count(a => a.Length > 0);
     private int UnansweredCount => ExamService.UserAnswers.Count(a => a.Length == 0);
@@ -300,22 +314,35 @@
         }
 
         _currentSelection = ExamService.GetCurrentAnswer();
+        ApplyStudyMode();
 
-        _timer = new System.Threading.Timer(async _ =>
+        if (!IsStudyMode)
         {
-            if (ExamService.IsTimeExpired && ExamService.IsExamActive)
+            _timer = new System.Threading.Timer(async _ =>
             {
-                ExamService.FinishExam();
-                await InvokeAsync(() =>
+                if (ExamService.IsTimeExpired && ExamService.IsExamActive)
                 {
-                    Nav.NavigateTo($"/exam/{ExamCode}/report");
-                });
-            }
-            else
-            {
-                await InvokeAsync(StateHasChanged);
-            }
-        }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+                    ExamService.FinishExam();
+                    await InvokeAsync(() =>
+                    {
+                        Nav.NavigateTo($"/exam/{ExamCode}/report");
+                    });
+                }
+                else
+                {
+                    await InvokeAsync(StateHasChanged);
+                }
+            }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+        }
+    }
+
+    private void ApplyStudyMode()
+    {
+        if (!IsStudyMode || ExamService.CurrentQuestion is null) return;
+        _currentSelection = ExamService.CurrentQuestion.CorrectAnswers.ToArray();
+        _isCurrentCorrect = true;
+        _currentScore = 1.0;
+        _showFeedback = true;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -452,6 +479,7 @@
     {
         ExamService.SubmitAnswer(_currentSelection);
         _isCurrentCorrect = ExamService.IsCurrentAnswerCorrect();
+        _currentScore = ExamService.GetCurrentScore();
         _showFeedback = true;
     }
 
@@ -473,7 +501,7 @@
 
     private void NextQuestion()
     {
-        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        if (!IsStudyMode && _currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
         {
             ExamService.SubmitAnswer(_currentSelection);
         }
@@ -496,11 +524,12 @@
         }
 
         _currentSelection = ExamService.GetCurrentAnswer();
+        ApplyStudyMode();
     }
 
     private void PreviousQuestion()
     {
-        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        if (!IsStudyMode && _currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
         {
             ExamService.SubmitAnswer(_currentSelection);
         }
@@ -523,11 +552,12 @@
         }
 
         _currentSelection = ExamService.GetCurrentAnswer();
+        ApplyStudyMode();
     }
 
     private void GoToQuestion(int index)
     {
-        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        if (!IsStudyMode && _currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
         {
             ExamService.SubmitAnswer(_currentSelection);
         }
@@ -537,6 +567,7 @@
         ExamService.GoToQuestion(index);
         AnimateTransition(dir);
         _currentSelection = ExamService.GetCurrentAnswer();
+        ApplyStudyMode();
     }
 
     private void ShowFinishConfirm()
@@ -551,13 +582,13 @@
 
     private void FinishExam()
     {
-        if (_currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
+        if (!IsStudyMode && _currentSelection.Length > 0 && !ExamService.HasSubmittedCurrentAnswer)
         {
             ExamService.SubmitAnswer(_currentSelection);
         }
 
         ExamService.FinishExam();
-        Nav.NavigateTo($"/exam/{ExamCode}/report");
+        Nav.NavigateTo(IsStudyMode ? "/" : $"/exam/{ExamCode}/report");
     }
 
     private async void PulseSelectionWarning()

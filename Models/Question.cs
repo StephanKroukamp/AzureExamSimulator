@@ -42,4 +42,7 @@ public class Question
 
     [JsonPropertyName("regions")]
     public List<HotspotRegion>? Regions { get; set; }
+
+    [JsonPropertyName("msLearn")]
+    public MsLearnGuidance? MsLearn { get; set; }
 }

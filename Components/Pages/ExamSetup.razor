@@ -21,15 +21,20 @@
             <div class="form-section">
                 <h2>Exam Mode</h2>
                 <div class="toggle-group">
-                    <button class="toggle-btn @(_isPractice ? "active" : "")" @onclick="() => _isPractice = true">
+                    <button class="toggle-btn @(_mode == ExamMode.Practice ? "active" : "")" @onclick="() => _mode = ExamMode.Practice">
                         <span class="toggle-icon">&#128218;</span>
                         <span class="toggle-label">Practice</span>
                         <span class="toggle-desc">See answers after each question</span>
                     </button>
-                    <button class="toggle-btn @(!_isPractice ? "active" : "")" @onclick="() => _isPractice = false">
+                    <button class="toggle-btn @(_mode == ExamMode.TimedExam ? "active" : "")" @onclick="() => _mode = ExamMode.TimedExam">
                         <span class="toggle-icon">&#9200;</span>
                         <span class="toggle-label">Timed Exam</span>
                         <span class="toggle-desc">Answers shown at the end</span>
+                    </button>
+                    <button class="toggle-btn @(_mode == ExamMode.Study ? "active" : "")" @onclick="() => _mode = ExamMode.Study">
+                        <span class="toggle-icon">&#127891;</span>
+                        <span class="toggle-label">Study</span>
+                        <span class="toggle-desc">Browse answers &amp; MS Learn links</span>
                     </button>
                 </div>
             </div>
@@ -84,7 +89,23 @@
                 }
             </div>
 
-            @if (!_isPractice)
+            <div class="form-section">
+                <h2>Question Order</h2>
+                <div class="toggle-group">
+                    <button class="toggle-btn @(!_randomize ? "active" : "")" @onclick="() => _randomize = false">
+                        <span class="toggle-icon">&#128203;</span>
+                        <span class="toggle-label">In Order</span>
+                        <span class="toggle-desc">Questions in their fixed sequence</span>
+                    </button>
+                    <button class="toggle-btn @(_randomize ? "active" : "")" @onclick="() => _randomize = true">
+                        <span class="toggle-icon">&#127922;</span>
+                        <span class="toggle-label">Randomise</span>
+                        <span class="toggle-desc">Questions shuffled each time</span>
+                    </button>
+                </div>
+            </div>
+
+            @if (_mode == ExamMode.TimedExam)
             {
                 <div class="form-section">
                     <h2>Time Limit</h2>
@@ -101,13 +122,13 @@
             <div class="setup-summary">
                 <div class="summary-row">
                     <span>Mode</span>
-                    <span>@(_isPractice ? "Practice" : "Timed Exam")</span>
+                    <span>@(_mode switch { ExamMode.TimedExam => "Timed Exam", ExamMode.Study => "Study", _ => "Practice" })</span>
                 </div>
                 <div class="summary-row">
                     <span>Questions</span>
                     <span>@EffectiveQuestionCount</span>
                 </div>
-                @if (!_isPractice && _timeLimit > 0)
+                @if (_mode == ExamMode.TimedExam && _timeLimit > 0)
                 {
                     <div class="summary-row">
                         <span>Time Limit</span>
@@ -127,14 +148,17 @@
 @code {
     [Parameter] public string ExamCode { get; set; } = "";
 
+    private enum ExamMode { Practice, TimedExam, Study }
+
     private Exam? _exam;
     private int _validCount;
-    private bool _isPractice = true;
+    private ExamMode _mode = ExamMode.Practice;
     private int _selectedQuestionCount;
     private int _customCount = 10;
     private int _timeLimit;
     private bool _showCustomInput;
     private bool _showTopicFilter;
+    private bool _randomize;
     private List<string> _allTopics = [];
     private HashSet<string> _selectedTopics = [];
     private Dictionary<string, int> _topicCounts = [];
@@ -202,12 +226,14 @@
         if (_exam is null || _selectedTopics.Count == 0) return;
 
         var config = new ExamConfig(
-            IsPracticeMode: _isPractice,
-            TimeLimitMinutes: _isPractice ? 0 : _timeLimit,
+            IsPracticeMode: _mode != ExamMode.TimedExam,
+            TimeLimitMinutes: _mode == ExamMode.TimedExam ? _timeLimit : 0,
             QuestionCount: EffectiveQuestionCount,
+            IsStudyMode: _mode == ExamMode.Study,
             SelectedTopics: _selectedTopics.Count == _allTopics.Count
                 ? null
-                : _selectedTopics.ToList()
+                : _selectedTopics.ToList(),
+            Randomize: _randomize
         );
 
         ExamService.StartExam(_exam, config);
