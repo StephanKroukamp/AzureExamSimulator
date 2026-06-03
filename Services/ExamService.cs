@@ -288,9 +288,8 @@ public class ExamService
         if (correctSet.Count == 1)
             return userSet.SetEquals(correctSet) ? 1.0 : 0.0;
 
-        // Multiple correct answers: Jaccard similarity (penalises wrong picks)
+        // Multiple correct answers: partial credit based on correct picks only
         var intersection = userSet.Intersect(correctSet).Count();
-        var union = userSet.Union(correctSet).Count();
-        return union == 0 ? 0.0 : (double)intersection / union;
+        return (double)intersection / correctSet.Count;
     }
 }

@@ -9,3 +9,4 @@ obj/
 .DS_Store
 settings.local.json
 *.lscache
+Data/_*.json
